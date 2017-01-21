@@ -149,28 +149,25 @@ if (isRightPressed) {
     }
 }
 
+// SPECIAL CASE:
+// If a player is jumping, but the jump ends with the player stuck inside of
+// a tile, then push the player out onto the tile.
+if (!isJumping &amp;&amp; !isDropping) {
+    if (currentJumpSpeed == 0) {
+        while (place_meeting(x, y, obj_tile)) {
+            y--;
+        }
+    }
+}
+
+
 // JUMPING:
 if (isJumping &amp;&amp; !isDropping) {
     currentJumpSpeed += gravConst;
     
-    var isNextPosACollision = place_meeting(x, y + currentJumpSpeed, obj_tile);
-    
-    if (isNextPosACollision) {
-        isJumping = false;
+    if (currentJumpSpeed &gt; 0) {
         currentJumpSpeed = 0;
-        
-        var isCollisionAbove = isNextPosACollision &amp; place_meeting(x, y - 1, obj_tile);
-        var isCollisionBelow = isNextPosACollision &amp; place_meeting(x, y + 1, obj_tile);
-    
-        // If the next position has the player colliding with a tile above it,
-        // then alter the jump and jump up state:
-        if (isCollisionAbove) {
-        }
-        
-        // If the next position has the player colliding with a tile below it,
-        // then move the player onto the tile:
-        if (isCollisionBelow) {
-        }
+        isJumping = false;
     } else {
         y += currentJumpSpeed;
     }
