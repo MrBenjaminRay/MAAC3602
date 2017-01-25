@@ -7,7 +7,136 @@
   <persistent>0</persistent>
   <parentName>object</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>movementSpeed = 150;    // Left/Right Movement Speed
+jumpSpeed = 300;        // Jump Movement Speed
+currentJumpSpeed = 300; // Current Jump Movement Speed
+currentDropSpeed = 0;   // Current Drop Movement Speed
+currentFallSpeed = 0;   // Current Fall Movement Speed
+gravConst = 7.5;        // Gravity Constant
+isJumping = false;      // Whether or not the entity is jumping.
+isDropping = false;     // Whether or not the entity is dropping to a lower platform.
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// SPECIAL CASE:
+// If the entity's y-axis coordinate is above 0, then force the entity to
+// drop to a lower platform.
+if (y &lt; 0) {
+    scr_entity_forceDrop();
+}
+    
+
+// SPECIAL CASE:
+// If the entity is jumping, but the jump ends with the entity stuck inside of
+// a tile, then push the player out onto the tile.
+if (!isJumping &amp;&amp; !isDropping) {
+    if (currentJumpSpeed == 0) {
+        while (place_meeting(x, y, obj_tile)) {
+            y--;
+        }
+    }
+}
+
+
+// JUMPING:
+if (isJumping &amp;&amp; !isDropping) {
+    currentJumpSpeed += gravConst * global.deltaTime;
+    
+    if (currentJumpSpeed &gt; 0) {
+        currentJumpSpeed = 0;
+        isJumping = false;
+    } else {
+        y += currentJumpSpeed;
+    }
+}
+
+// DROPPING:
+if (!isJumping &amp;&amp; isDropping) {
+    if (currentDropSpeed == 0) {
+        currentDropSpeed = movementSpeed * global.deltaTime;
+    } else {
+        currentDropSpeed += gravConst * global.deltaTime;
+    }
+
+
+    // If there is no collision at the new location, then change the drop state
+    // and allow the fall code to take over:
+    if (place_meeting(x, y + currentDropSpeed, obj_tile) == false) {
+        y += currentDropSpeed;
+        isDropping = false;
+        currentDropSpeed = 0;
+    } else {
+        y += currentDropSpeed;
+     }
+}
+
+// FALLING:
+if (!isJumping &amp;&amp; !isDropping) {
+    if (currentFallSpeed == 0) {
+        currentFallSpeed = movementSpeed * global.deltaTime;
+    } else {
+        currentFallSpeed += gravConst * global.deltaTime;
+    }
+
+    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_tile);
+    
+    // If there is a collision at the new location, then do nothing and reset fall data:
+    if (collisionAtNewLocation) {
+        currentFallSpeed = 0;
+        
+        while (place_meeting(x, y + 1, obj_tile) == false) {
+            y++;
+        }
+    }
+    
+    // If there is no collision at the new location, then continue falling:
+    if (collisionAtNewLocation == false) {
+        y += currentFallSpeed;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
