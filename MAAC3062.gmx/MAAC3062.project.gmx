@@ -13,6 +13,12 @@
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
       </sprites>
+      <sprites name="Tower">
+        <sprite>sprites\spr_tower</sprite>
+      </sprites>
+      <sprites name="Projectile">
+        <sprite>sprites\spr_projectile</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_testTile</sprite>
@@ -30,6 +36,11 @@
       <script>scripts\scr_entity_jump.gml</script>
       <script>scripts\scr_entity_moveLeft.gml</script>
       <script>scripts\scr_entity_moveRight.gml</script>
+      <scripts name="Tower">
+        <script>scripts\scr_tower_getNearestEnemy.gml</script>
+        <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
+        <script>scripts\scr_tower_getNearestAirEnemy.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -45,6 +56,12 @@
         <object>objects\obj_enemy_test_moveRight</object>
         <object>objects\obj_enemy_test_jump</object>
         <object>objects\obj_enemy_test_drop</object>
+      </objects>
+      <objects name="Tower">
+        <object>objects\obj_tower</object>
+      </objects>
+      <objects name="Projectile">
+        <object>objects\obj_projectile</object>
       </objects>
     </objects>
     <objects name="Tiles">

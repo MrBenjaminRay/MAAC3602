@@ -18,8 +18,6 @@ if (y % 32 < 16) {
     tempY = y + (16 * ((y % 32)/32));
 }
 
-show_debug_message(string(tempX) + " " + string(tempY))
-
 var totalTiles = 0;
 
 
