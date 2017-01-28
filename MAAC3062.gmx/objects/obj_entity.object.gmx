@@ -25,12 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>movementSpeed = 150;    // Left/Right Movement Speed
-jumpSpeed = 300;        // Jump Movement Speed
-currentJumpSpeed = 300; // Current Jump Movement Speed
+            <string>movementSpeed = 150 / 1000;    // Left/Right Movement Speed
+jumpSpeed = 300/ 1000;        // Jump Movement Speed
+currentJumpSpeed = jumpSpeed; // Current Jump Movement Speed
 currentDropSpeed = 0;   // Current Drop Movement Speed
 currentFallSpeed = 0;   // Current Fall Movement Speed
-gravConst = 7.5;        // Gravity Constant
+gravConst = 7.5 / 1000;        // Gravity Constant
 isJumping = false;      // Whether or not the entity is jumping.
 isDropping = false;     // Whether or not the entity is dropping to a lower platform.
 </string>

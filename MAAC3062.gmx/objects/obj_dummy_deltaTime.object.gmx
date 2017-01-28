@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.deltaTime = delta_time;
+            <string>//global.deltaTime = delta_time;
 </string>
           </argument>
         </arguments>
@@ -48,8 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.lastDeltaTime = global.deltaTime;
-global.deltaTime = (delta_time - global.lastDeltaTime) / 1000000;
+            <string>//global.lastDeltaTime = global.deltaTime;
+//global.deltaTime = (delta_time - global.lastDeltaTime) / 1000000;
 </string>
           </argument>
         </arguments>

@@ -67,9 +67,7 @@
     <objects name="Tiles">
       <object>objects\obj_tile</object>
     </objects>
-    <objects name="Dummy">
-      <object>objects\obj_dummy_deltaTime</object>
-    </objects>
+    <object>objects\obj_control</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
