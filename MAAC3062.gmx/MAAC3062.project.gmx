@@ -6,6 +6,8 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\spr_build_validLocation</sprite>
+    <sprite>sprites\spr_build_invalidLocation</sprite>
     <sprites name="Entities">
       <sprites name="Player">
         <sprite>sprites\spr_player</sprite>
@@ -15,6 +17,9 @@
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
+        <sprite>sprites\spr_tower_basic</sprite>
+        <sprite>sprites\spr_tower_superFreezer</sprite>
+        <sprite>sprites\spr_tower_tacticalMoartar</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
@@ -25,6 +30,8 @@
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
+      <sprite>sprites\spr_dummy_normalStateControl</sprite>
+      <sprite>sprites\spr_dummy_buildStateControl</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -59,15 +66,22 @@
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
+        <object>objects\obj_tower_basic</object>
+        <object>objects\obj_tower_superFreezer</object>
+        <object>objects\obj_tower_tacticalMoartar</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
+        <object>objects\obj_projectile_homing</object>
+        <object>objects\obj_projectile_normal</object>
       </objects>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_tile</object>
     </objects>
     <object>objects\obj_control</object>
+    <object>objects\obj_control_normalState</object>
+    <object>objects\obj_control_buildState</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

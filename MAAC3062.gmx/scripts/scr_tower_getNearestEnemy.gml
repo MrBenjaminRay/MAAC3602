@@ -4,8 +4,8 @@
  * If no range is given, then the nearest enemy in the room will be returned.
  * If there is no "nearest enemy" in either case, noone is returned.
  *
- * @param 
- *        argument[0] = The range
+ * @param argument[0] 
+ *        The range
  *
  * @return
  *        The nearest enemy or noone if none exists.

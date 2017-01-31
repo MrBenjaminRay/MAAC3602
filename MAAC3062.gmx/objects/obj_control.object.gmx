@@ -27,6 +27,14 @@
             <kind>1</kind>
             <string>global.deltaTime = delta_time;
 
+/* States:
+ *      Normal
+ *      Build
+ *      Paused
+ */
+global.state = "Normal";
+
+global.energy = 2000; // The current energy collected by the player during the level.
 </string>
           </argument>
         </arguments>
@@ -50,8 +58,6 @@
           <argument>
             <kind>1</kind>
             <string>global.deltaTime = (delta_time) / 1000;
-
-show_debug_message(global.deltaTime);
 
 </string>
           </argument>
