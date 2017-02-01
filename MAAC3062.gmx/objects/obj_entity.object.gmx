@@ -25,18 +25,67 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>movementSpeed = 150 / 1000;    // Left/Right Movement Speed
+            <string>movementSpeed = 150 / 1000;   // Left/Right Movement Speed
 jumpSpeed = 300/ 1000;        // Jump Movement Speed
 currentJumpSpeed = jumpSpeed; // Current Jump Movement Speed
-currentDropSpeed = 0;   // Current Drop Movement Speed
-currentFallSpeed = 0;   // Current Fall Movement Speed
-gravConst = 7.5 / 1000;        // Gravity Constant
-isJumping = false;      // Whether or not the entity is jumping.
-isDropping = false;     // Whether or not the entity is dropping to a lower platform.
+currentDropSpeed = 0;         // Current Drop Movement Speed
+currentFallSpeed = 0;         // Current Fall Movement Speed
+gravConst = 7.5 / 1000;       // Gravity Constant
+isJumping = false;            // Whether or not the entity is jumping.
+isDropping = false;           // Whether or not the entity is dropping to a lower platform.
 
-fireRate = room_speed / 2;  // The number of steps between projectile shots.
-fireRateCounter = 0;        // The number of steps since a projectile was last shot.
+fireRate = room_speed / 2;    // The number of steps between projectile shots.
+fireRateCounter = 0;          // The number of steps since a projectile was last shot.
+
+
+currShield = 0;               // The current sheild value.
+currHealth = 100;             // The current health value.
+
+maxShield = 0;                // The maximum shield value.
+maxHealth = 100;              // The maximum health value.
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_projectile_destroyAssociatedHomingProjectiles</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>self</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
