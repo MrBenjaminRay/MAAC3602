@@ -36,6 +36,7 @@
       <sprite>sprites\spr_dummy_deltaTime</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
+      <sprite>sprites\spr_dummy_ingameMenu</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -101,6 +102,7 @@
     <object>objects\obj_control_normalState</object>
     <object>objects\obj_control_buildState</object>
     <object>objects\obj_control_destroyState</object>
+    <object>objects\obj_menu_ingame_placeholder</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

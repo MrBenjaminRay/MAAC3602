@@ -200,8 +200,13 @@ if (currShield &gt; maxShield) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// LEFT &amp; RIGHT MOVEMENT:
-if (global.state != "Paused" &amp;&amp; global.state != "Build") {
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// LEFT &amp; RIGHT MOVEMENT:
+
+if (global.state != "Build") {
     var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
     var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
     

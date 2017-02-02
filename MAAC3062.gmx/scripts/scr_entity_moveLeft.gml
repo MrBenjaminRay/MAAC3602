@@ -1,3 +1,7 @@
+if (global.state == "Paused") {
+    return 0;
+}
+
 if (place_meeting(x - movementSpeed * global.deltaTime, y, obj_tile) == false) {
     x -= movementSpeed * global.deltaTime;
 } else {

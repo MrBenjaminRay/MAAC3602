@@ -1,3 +1,8 @@
+if (global.state == "Paused") {
+    return 0;
+}
+
+
 // Determine total number of platforms below the entity:
 
 // Clamp the x position to the nearest multiple of 32:

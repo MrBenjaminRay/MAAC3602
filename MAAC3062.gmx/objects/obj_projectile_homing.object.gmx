@@ -82,9 +82,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    mp_potential_step(target.x, target.y, movementSpeed, false);
+            <string>if (global.state == "Paused") {
+    return 0;
 }
+
+mp_potential_step(target.x, target.y, movementSpeed, false);
+
 </string>
           </argument>
         </arguments>
