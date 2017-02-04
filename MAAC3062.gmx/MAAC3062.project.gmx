@@ -31,6 +31,12 @@
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
       </sprites>
+      <sprites name="Particle">
+        <sprite>sprites\spr_smoke1</sprite>
+      </sprites>
+      <sprites name="ParticleEmitter">
+        <sprite>sprites\spr_emitter</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_testTile</sprite>
@@ -102,6 +108,16 @@
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
+      </objects>
+      <objects name="ParticleEmitter">
+        <object>objects\obj_particle_emitter</object>
+        <object>objects\obj_particle_emitter_smoke</object>
+        <object>objects\obj_particle_emitter_flame</object>
+      </objects>
+      <objects name="Particle">
+        <object>objects\obj_particle</object>
+        <object>objects\obj_particle_smoke</object>
+        <object>objects\obj_particle_flame</object>
       </objects>
     </objects>
     <objects name="Tiles">
