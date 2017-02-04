@@ -285,7 +285,11 @@ if (global.state != "Build") {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused" &amp;&amp; global.state != "Build") {
+            <string>var canFire = global.state != "Paused";
+canFire &amp;= global.state != "Build";
+canFire &amp;= global.state != "Destroy";
+
+if (canFire) {
     if (fireRateCounter &gt;= fireRate) {
         var projectile = instance_create(x, y, obj_projectile_normal);
         projectile.xDest = mouse_x;
