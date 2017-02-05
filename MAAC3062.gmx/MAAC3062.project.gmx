@@ -15,6 +15,9 @@
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
+        <sprite>sprites\spr_light_enemy</sprite>
+        <sprite>sprites\spr_medium_enemy</sprite>
+        <sprite>sprites\spr_heavy_enemy</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
@@ -37,6 +40,12 @@
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
+    </sprites>
+    <sprites name="Cursors">
+      <sprite>sprites\spr_wrench_cursor</sprite>
+      <sprite>sprites\spr_green_cursor</sprite>
+      <sprite>sprites\spr_red_cursor</sprite>
+      <sprite>sprites\spr_target_cursor</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
