@@ -4,25 +4,7 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound">
-    <sounds name="Towers">
-      <sound>sound\snd_mortarShot</sound>
-      <sound>sound\snd_basicTowerShot</sound>
-      <sound>sound\snd_freezerStart</sound>
-      <sound>sound\snd_freezerBeam</sound>
-    </sounds>
-    <sounds name="Player">
-      <sound>sound\snd_playerGun</sound>
-      <sound>sound\snd_playerDeath</sound>
-      <sound>sound\snd_playerHit</sound>
-    </sounds>
-    <sounds name="Enemy">
-      <sound>sound\snd_enemyDeath</sound>
-    </sounds>
-    <sounds name="Game">
-      <sound>sound\snd_build</sound>
-    </sounds>
-  </sounds>
+  <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_build_overlay_validLocation</sprite>
     <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
@@ -147,7 +129,6 @@
     <object>objects\obj_control_destroyState</object>
     <object>objects\obj_menu_ingame_placeholder</object>
     <object>objects\obj_BenTest</object>
-    <object>objects\obj_cursorCtrl</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

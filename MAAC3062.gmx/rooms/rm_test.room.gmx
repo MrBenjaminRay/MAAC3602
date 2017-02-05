@@ -145,7 +145,6 @@
     <instance objName="obj_miner" x="160" y="256" name="inst_C77D17E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_miner" x="96" y="128" name="inst_62ED65D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_miner" x="160" y="128" name="inst_5E457EF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_cursorCtrl" x="0" y="0" name="inst_DC69EEAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

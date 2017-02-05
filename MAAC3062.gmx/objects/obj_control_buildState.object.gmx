@@ -221,9 +221,6 @@ towers[2, 3] = spr_tower_tacticalMoartar;
     instance_create(tempX, tempY, towerObj);
     
     global.energy -= towerCost;
-    
-    audio_play_sound(snd_build, 0, false);
-    
     scr_state_setNormal();
 }
 </string>

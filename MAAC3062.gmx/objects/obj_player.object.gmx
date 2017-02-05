@@ -325,7 +325,6 @@ canFire &amp;= global.state != "Destroy";
 if (canFire) {
     if (fireRateCounter &gt;= fireRate) {
         var projectile = instance_create(x, y, obj_projectile_normal);
-        audio_play_sound(snd_playerGun, 0, false);
         projectile.xDest = mouse_x;
         projectile.yDest = mouse_y;
         fireRateCounter = 0;
