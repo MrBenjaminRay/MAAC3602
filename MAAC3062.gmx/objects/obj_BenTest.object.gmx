@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// This file is empty.  Ben and Joe will both add something to it, 
+            <string>// Joe test
+// This file is empty.  Ben and Joe will both add something to it, 
 // then commit changes to see how conflicts are resolved.
 
 </string>
