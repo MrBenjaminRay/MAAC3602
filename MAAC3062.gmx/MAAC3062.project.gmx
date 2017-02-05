@@ -128,6 +128,7 @@
     <object>objects\obj_control_buildState</object>
     <object>objects\obj_control_destroyState</object>
     <object>objects\obj_menu_ingame_placeholder</object>
+    <object>objects\obj_BenTest</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
