@@ -9,4 +9,3 @@ if (argument2 == 'Sparky') {
     inst.image_xscale = .6;
     inst.image_yscale = .6;
 }
-

@@ -40,6 +40,8 @@
           <argument>
             <kind>1</kind>
             <string>target = noone;
+
+scr_particle_projectile_addsmoke(.05);
 </string>
           </argument>
         </arguments>
