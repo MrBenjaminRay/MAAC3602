@@ -13,4 +13,9 @@ if (argument2 == 'Sparky') {
     inst.image_speed = 1;
     inst.image_xscale = .2;
     inst.image_yscale = .2;
+} else if (argument2 == 'Flash') {
+    var inst = instance_create(argument0, argument1, obj_explosion_flash);
+    inst.image_speed = .25;
+    inst.image_xscale = 1;
+    inst.image_yscale = 1;
 }

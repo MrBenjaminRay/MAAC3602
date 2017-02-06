@@ -59,6 +59,7 @@
         <sprite>sprites\spr_explosion_normal</sprite>
         <sprite>sprites\spr_explosion_sparky</sprite>
         <sprite>sprites\spr_explosion_smallhit</sprite>
+        <sprite>sprites\spr_explosion_flash</sprite>
       </sprites>
     </sprites>
     <sprites name="Tiles">
@@ -153,6 +154,7 @@
         <object>objects\obj_explosion_normal</object>
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
+        <object>objects\obj_explosion_flash</object>
       </objects>
     </objects>
     <objects name="Tiles">

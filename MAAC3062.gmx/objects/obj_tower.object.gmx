@@ -94,6 +94,7 @@
             
             var projectile = instance_create(x, y, obj_projectile_homing);
             projectile.target = nearestEnemy;
+            scr_create_explosion(x, y, 'Flash');
         }
     } else {
         fireRateCounter += global.deltaTime;

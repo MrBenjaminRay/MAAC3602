@@ -328,6 +328,7 @@ if (canFire) {
         audio_play_sound(snd_playerGun, 0, false);
         projectile.xDest = mouse_x;
         projectile.yDest = mouse_y;
+        scr_create_explosion(x, y, 'Flash');
         fireRateCounter = 0;
     }
 }
