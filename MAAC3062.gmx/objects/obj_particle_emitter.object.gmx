@@ -33,6 +33,7 @@ particleScale = 1; // x/y scale of particles to be emitted. 1 = default. Overrid
 // the emitter destroys itself. Particles already self-destruct.
 parentObject = noone;
 
+maxImageAlpha = 1; // To be overridden by inheriting objects as needed.
 </string>
           </argument>
         </arguments>
@@ -73,6 +74,9 @@ if (timeToNextEmission &lt;= 0) {
     // Set scale
     inst.image_xscale = particleScale;
     inst.image_yscale = particleScale;
+    
+    // Set image alpha values
+    inst.maxImageAlpha = maxImageAlpha;
     
     // Reset variable
     timeToNextEmission = timeBetweenEmissions;

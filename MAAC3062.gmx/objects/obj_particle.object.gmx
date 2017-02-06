@@ -28,6 +28,7 @@
             <string>lifeTotal = 0;
 lifeLeft = 0;
 
+maxImageAlpha = 1; // To be overridden by inheriting objects.
 </string>
           </argument>
         </arguments>
