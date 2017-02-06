@@ -11,33 +11,18 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>604</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// This particle fades out, as there is only one sprite.
-lifeTotal = 5000;
-lifeLeft = lifeTotal;
-
-// Every instance has a random rotation so that it's not too uniform.
-image_angle = irandom_range(0,359);
-
-</string>
-          </argument>
-        </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,8 +39,53 @@ image_angle = irandom_range(0,359);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set sprite alpha based on life (do this first so alpha is 1 on first step)
-image_alpha = lifeTotal / lifeLeft;
+            <string>// This particle fades out, as there is only one sprite.
+lifeTotal = 1250;
+lifeLeft = lifeTotal;
+
+// Every instance has a random rotation so that it's not too uniform.
+image_angle = irandom_range(0,359);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+
+// Set sprite alpha based on life (do this first so alpha is 1 on first step)
+image_alpha = lifeLeft / lifeTotal;
 
 </string>
           </argument>

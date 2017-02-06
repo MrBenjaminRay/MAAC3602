@@ -98,6 +98,7 @@
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
     </scripts>
+    <script>scripts\scr_particle_projectile_addsmoke.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
@@ -123,6 +124,7 @@
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
+        <object>objects\obj_projectile_test_has_smoke</object>
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
@@ -146,7 +148,6 @@
     <object>objects\obj_control_buildState</object>
     <object>objects\obj_control_destroyState</object>
     <object>objects\obj_menu_ingame_placeholder</object>
-    <object>objects\obj_BenTest</object>
     <object>objects\obj_cursorCtrl</object>
   </objects>
   <rooms name="rooms">
