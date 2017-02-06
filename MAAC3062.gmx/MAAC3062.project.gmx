@@ -55,6 +55,10 @@
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
       </sprites>
+      <sprites name="Explosions">
+        <sprite>sprites\spr_explosion_1</sprite>
+        <sprite>sprites\spr_explosion_2</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_testTile</sprite>
@@ -102,6 +106,7 @@
       <script>scripts\scr_state_clearControlObjects.gml</script>
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
+    <script>scripts\script16.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
@@ -141,6 +146,9 @@
         <object>objects\obj_particle</object>
         <object>objects\obj_particle_smoke</object>
         <object>objects\obj_particle_flame</object>
+      </objects>
+      <objects name="Explosions">
+        <object>objects\obj_explosion</object>
       </objects>
     </objects>
     <objects name="Tiles">

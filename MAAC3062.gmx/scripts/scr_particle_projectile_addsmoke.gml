@@ -2,10 +2,13 @@
 // this script is called.  The emitter will be killed automatically
 // when the parent object is killed.
 
+// Argument0 is sprite x & y scale (0 < value <= 1)
+
 // Create emitter instance
-inst = instance_create(x, y, obj_particle_emitter_smoke);
+var inst = instance_create(x, y, obj_particle_emitter_smoke);
 
-// Set instance's parent to this object
-parentObject = id;
+inst.particleScale = argument0;
 
-show_debug_message('CREATED EMITTER');
+// Set emitter instance's parent to this object instance (projectile, tower, whatever it is)
+inst.parentObject = id;
+

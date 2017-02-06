@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>timeBetweenEmissions = 0; // This should be set by each inheriting class
 timeToNextEmission = 0;
+particleScale = 1; // x/y scale of particles to be emitted. 1 = default. Override for smaller.
 
 // Emitter MUST have a parent object instance. When the parent object instance is destroyed,
 // the emitter destroys itself. Particles already self-destruct.
@@ -56,11 +57,8 @@ parentObject = noone;
             <kind>1</kind>
             <string>if (!instance_exists(parentObject)) {
     // Parent object instance has been destroyed, so this emitter must also go
-    show_debug_message('DESTROYING EMITTER');
     instance_destroy();
     return 0;
-} else {
-    show_debug_message('PARENT EXISTS!');
 }
 
 // Emitter location always same as parent object (the thing that appears to be emitting)
@@ -70,8 +68,12 @@ y = parentObject.y;
 if (timeToNextEmission &lt;= 0) {
     // Emit
     // NOTE: Shouldn't be hard-coded to create smoke in this object (from which smoke emitter is inherited)
-    instance_create(x, y, obj_particle_smoke);
-   
+    var inst = instance_create(x, y, obj_particle_smoke);
+
+    // Set scale
+    inst.image_xscale = particleScale;
+    inst.image_yscale = particleScale;
+    
     // Reset variable
     timeToNextEmission = timeBetweenEmissions;
 } else {

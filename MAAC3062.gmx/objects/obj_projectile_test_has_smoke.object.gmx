@@ -45,9 +45,10 @@ dir_y = .25;
 dir_x_change = 0.01;
 dir_y_change = 0.01;
 
-movementSpeed = 0.001;
+movementSpeed = 0.1;
 
-scr_particle_projectile_addsmoke();
+scr_particle_projectile_addsmoke(.1);
+
 </string>
           </argument>
         </arguments>

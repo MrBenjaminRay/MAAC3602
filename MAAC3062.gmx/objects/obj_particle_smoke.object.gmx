@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>// This particle fades out, as there is only one sprite.
 lifeTotal = 1250;
-lifeLeft = lifeTotal;
+lifeLeft = lifeTotal-400;
 
 // Every instance has a random rotation so that it's not too uniform.
 image_angle = irandom_range(0,359);
@@ -82,11 +82,8 @@ image_angle = irandom_range(0,359);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-// Set sprite alpha based on life (do this first so alpha is 1 on first step)
-image_alpha = lifeLeft / lifeTotal;
-
+            <string>// Set sprite alpha based on life (do this first so alpha is 1 on first step)
+image_alpha = (lifeLeft / lifeTotal);
 </string>
           </argument>
         </arguments>
