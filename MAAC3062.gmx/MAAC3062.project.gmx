@@ -71,6 +71,9 @@
       <sprite>sprites\spr_red_cursor</sprite>
       <sprite>sprites\spr_target_cursor</sprite>
     </sprites>
+    <sprites name="Spawners">
+      <sprite>sprites\spr_spawner</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -142,6 +145,9 @@
     </objects>
     <objects name="Tiles">
       <object>objects\obj_tile</object>
+    </objects>
+    <objects name="Spawners">
+      <object>objects\obj_spawner</object>
     </objects>
     <object>objects\obj_control</object>
     <object>objects\obj_control_normalState</object>

@@ -108,7 +108,7 @@
 
     if (intersectedTower != noone) {
         with (intersectedTower) {
-            draw_sprite(spr_destroy_overlay, 0, x, y);
+            draw_sprite_stretched(spr_destroy_overlay, 0, intersectedTower.x, intersectedTower.y, intersectedTower.sprite_width, intersectedTower.sprite_height);
         }
     }
 }

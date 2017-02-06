@@ -34,8 +34,8 @@ gravConst = 7.5 / 1000;       // Gravity Constant
 isJumping = false;            // Whether or not the entity is jumping.
 isDropping = false;           // Whether or not the entity is dropping to a lower platform.
 
-fireRate = room_speed / 2;    // The number of steps between projectile shots.
-fireRateCounter = 0;          // The number of steps since a projectile was last shot.
+fireRate = room_speed / 2;    // The number of delta time between projectile shots.
+fireRateCounter = 0;          // The number of delta time since a projectile was last shot.
 
 
 currShield = 0;               // The current sheild value.
