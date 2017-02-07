@@ -74,7 +74,7 @@ movementSpeed = 3;  // Up/Down/Left/Right Movement Speed
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_tile">
+    <event eventtype="4" ename="obj_physicsTile">
       <action>
         <libid>1</libid>
         <id>601</id>

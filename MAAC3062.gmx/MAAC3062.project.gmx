@@ -63,7 +63,10 @@
       </sprites>
     </sprites>
     <sprites name="Tiles">
-      <sprite>sprites\spr_testTile</sprite>
+      <sprite>sprites\spr_physicsTile</sprite>
+      <sprites name="Visual">
+        <sprite>sprites\spr_testVisualTile</sprite>
+      </sprites>
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
@@ -157,13 +160,16 @@
       </objects>
     </objects>
     <objects name="Tiles">
-      <object>objects\obj_tile</object>
+      <object>objects\obj_physicsTile</object>
+      <objects name="Visual">
+        <object>objects\obj_visualTile</object>
+      </objects>
     </objects>
     <objects name="Spawners">
       <object>objects\obj_spawner</object>
-      <object>objects\obj_spawner_enemy_light</object>
-      <object>objects\obj_spawner_enemy_medium</object>
-      <object>objects\obj_spawner_enemy_heavy</object>
+      <object>objects\obj_spawner_enemy_ground_light</object>
+      <object>objects\obj_spawner_enemy_ground_medium</object>
+      <object>objects\obj_spawner_enemy_ground_heavy</object>
     </objects>
     <object>objects\obj_control</object>
     <object>objects\obj_control_normalState</object>

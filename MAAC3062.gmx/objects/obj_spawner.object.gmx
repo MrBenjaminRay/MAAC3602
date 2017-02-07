@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>spawnRate = 480;        // The amount of delta time between spawns.
 spawnRateCounter = 0;   // The amount of delta time since the last spawn.
+objToSpawn = noone;     // The object to spawn.
 
 // The direction in which a spawned enemy begins moving in when spawned.
 //  LEFT
@@ -59,9 +60,9 @@ initialMovementDirection = "LEFT"
             <string>if (global.state != "Paused") {
     if (spawnRateCounter &lt; spawnRate) {
         spawnRateCounter += global.deltaTime;
-    } else {
+    } else if (objToSpawn != noone) {
         spawnRateCounter = 0;
-        var enemy = instance_create(x, y, obj_enemy_test_moveLeft);
+        var enemy = instance_create(x, y, objToSpawn);
         
         if (initialMovementDirection == "LEFT") {
             with (enemy) {

@@ -124,7 +124,7 @@ if (y &lt; 0) {
 // a tile, then push the player out onto the tile.
 if (!isJumping &amp;&amp; !isDropping) {
     if (currentJumpSpeed == 0) {
-        while (place_meeting(x, y, obj_tile)) {
+        while (place_meeting(x, y, obj_physicsTile)) {
             y--;
         }
     }
@@ -154,7 +154,7 @@ if (!isJumping &amp;&amp; isDropping) {
 
     // If there is no collision at the new location, then change the drop state
     // and allow the fall code to take over:
-    if (place_meeting(x, y + currentDropSpeed, obj_tile) == false) {
+    if (place_meeting(x, y + currentDropSpeed, obj_physicsTile) == false) {
         y += currentDropSpeed;
         isDropping = false;
         currentDropSpeed = 0;
@@ -171,13 +171,13 @@ if (!isJumping &amp;&amp; !isDropping) {
         currentFallSpeed += gravConst * global.deltaTime;
     }
 
-    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_tile);
+    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_physicsTile);
     
     // If there is a collision at the new location, then do nothing and reset fall data:
     if (collisionAtNewLocation) {
         currentFallSpeed = 0;
         
-        while (place_meeting(x, y + 1, obj_tile) == false) {
+        while (place_meeting(x, y + 1, obj_physicsTile) == false) {
             y++;
         }
     }
