@@ -119,10 +119,9 @@
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
-        <object>objects\obj_enemy_test_moveLeft</object>
-        <object>objects\obj_enemy_test_moveRight</object>
-        <object>objects\obj_enemy_test_jump</object>
-        <object>objects\obj_enemy_test_drop</object>
+        <object>objects\obj_enemy_ground_light</object>
+        <object>objects\obj_enemy_ground_medium</object>
+        <object>objects\obj_enemy_ground_heavy</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>

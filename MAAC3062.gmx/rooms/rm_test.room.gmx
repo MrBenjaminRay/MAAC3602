@@ -78,9 +78,6 @@
     <instance objName="obj_tile" x="672" y="544" name="inst_1254ED50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="704" y="544" name="inst_864E3D43" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="736" y="544" name="inst_3F704B0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_moveLeft" x="512" y="352" name="inst_862AAEE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_moveRight" x="672" y="352" name="inst_9564C54C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_jump" x="672" y="224" name="inst_39B22DBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="768" y="416" name="inst_F2074384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="800" y="416" name="inst_42BFD437" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="832" y="416" name="inst_E59EEEFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -102,8 +99,6 @@
     <instance objName="obj_tile" x="160" y="416" name="inst_F1D877C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="128" y="416" name="inst_BD415A9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="96" y="416" name="inst_8DBD443D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_jump" x="928" y="352" name="inst_898BBBC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_drop" x="864" y="64" name="inst_C9FDC8AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1184" y="288" name="inst_ACB71159" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1152" y="288" name="inst_5509D184" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1120" y="288" name="inst_E7FC5268" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -113,7 +108,6 @@
     <instance objName="obj_tile" x="1184" y="32" name="inst_AB69DB95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1152" y="32" name="inst_B053A49C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1120" y="32" name="inst_774265D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_drop" x="1152" y="96" name="inst_0CFBF645" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="96" y="288" name="inst_F7C4195C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="128" y="288" name="inst_5277409E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="160" y="288" name="inst_AEFD79C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -123,7 +117,6 @@
     <instance objName="obj_tile" x="96" y="32" name="inst_A22A6108" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="128" y="32" name="inst_1DDD25DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="160" y="32" name="inst_6CE03936" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_test_moveLeft" x="224" y="96" name="inst_6FDDAABB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1184" y="544" name="inst_53F93185" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1152" y="544" name="inst_61F4F614" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tile" x="1120" y="544" name="inst_7F3CA7DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
