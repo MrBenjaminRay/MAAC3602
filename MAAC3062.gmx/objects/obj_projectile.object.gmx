@@ -148,7 +148,7 @@ isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (isEnemyProjectile == false) {
+            <string>if (isEnemyProjectile) {
     scr_entity_dealDamage(other, damage);
     instance_destroy();
     scr_create_explosion(x, y, "Sparky");

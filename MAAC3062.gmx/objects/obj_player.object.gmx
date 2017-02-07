@@ -292,8 +292,8 @@ if (global.state != "Build") {
           <argument>
             <kind>1</kind>
             <string>if (global.state != "Paused") {
-    if (fireRateCounter &lt; fireRate) {
-        fireRateCounter += global.deltaTime;
+    if (attackRateCounter &lt; attackRate) {
+        attackRateCounter += global.deltaTime;
     }
 }
 </string>
@@ -323,18 +323,19 @@ canFire &amp;= global.state != "Build";
 canFire &amp;= global.state != "Destroy";
 
 if (canFire) {
-    if (fireRateCounter &gt;= fireRate) {
+    if (attackRateCounter &gt;= attackRate) {
         var projectile = instance_create(x, y, obj_projectile_normal);
         
         audio_play_sound(snd_playerGun, 0, false);
         
         projectile.xDest = mouse_x;
         projectile.yDest = mouse_y;
+        projectile.damage = attackDamage;
         projectile.isEnemyProjectile = false;
         
         scr_create_explosion(x, y, 'Flash');
         
-        fireRateCounter = 0;
+        attackRateCounter = 0;
     }
 }
 </string>

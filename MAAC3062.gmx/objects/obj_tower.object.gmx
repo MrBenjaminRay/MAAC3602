@@ -86,20 +86,21 @@
           <argument>
             <kind>1</kind>
             <string>if (global.state != "Paused") {
-    if (fireRateCounter &gt;= fireRate) {
+    if (attackRateCounter &gt;= attackRate) {
         var nearestEnemy = scr_tower_getNearestGroundEnemy(100);
         
         if (nearestEnemy != noone) {
-            fireRateCounter = 0;
+            attackRateCounter = 0;
             
             var projectile = instance_create(x, y, obj_projectile_homing);
             projectile.target = nearestEnemy;
             projectile.isEnemyProjectile = false;
+            projectile.damage = attackDamage;
             
             scr_create_explosion(x, y, 'Flash');
         }
     } else {
-        fireRateCounter += global.deltaTime;
+        attackRateCounter += global.deltaTime;
     }
 }
 </string>
