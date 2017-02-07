@@ -13,7 +13,6 @@
 var canContinue = is_undefined(argument[0]) == false;
 canContinue &= is_undefined(argument[1]) == false;
  
- 
 if (canContinue) {
     var newShield = argument[0].currShield;
     var newHealth = argument[0].currHealth;

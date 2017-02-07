@@ -45,8 +45,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>damage = 10;
-movementSpeed = 3;  // Up/Down/Left/Right Movement Speed
+            <string>damage = 10;                // The amount of damage dealt by the projectile.
+movementSpeed = 3;          // Up/Down/Left/Right Movement Speed
+isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
 </string>
           </argument>
         </arguments>
@@ -130,98 +131,83 @@ movementSpeed = 3;  // Up/Down/Left/Right Movement Speed
         <isnot>0</isnot>
       </action>
     </event>
-    <event eventtype="4" ename="obj_enemy">
+    <event eventtype="4" ename="obj_tower">
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_entity_dealDamage</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>other</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>damage</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>if (isEnemyProjectile == false) {
+    scr_entity_dealDamage(other, damage);
+    instance_destroy();
+    scr_create_explosion(x, y, "Sparky");
+}
+</string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="4" ename="obj_enemy">
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_create_explosion</script>
+            <kind>1</kind>
+            <string>if (isEnemyProjectile == false) {
+    scr_entity_dealDamage(other, damage);
+    instance_destroy();
+    scr_create_explosion(x, y, "Normal");
+}
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>"SmallHit"</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>if (isEnemyProjectile) {
+    scr_entity_dealDamage(other, damage);
+    instance_destroy();
+    scr_create_explosion(x, y, "SmallHit");
+}
+</string>
           </argument>
         </arguments>
       </action>

@@ -24,9 +24,6 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_build_overlay_validLocation</sprite>
-    <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
-    <sprite>sprites\spr_destroy_overlay</sprite>
     <sprites name="Entities">
       <sprites name="Player">
         <sprite>sprites\spr_player</sprite>
@@ -82,6 +79,14 @@
     </sprites>
     <sprites name="Spawners">
       <sprite>sprites\spr_spawner</sprite>
+    </sprites>
+    <sprites name="Misc">
+      <sprites name="Overlays">
+        <sprite>sprites\spr_build_overlay_validLocation</sprite>
+        <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
+        <sprite>sprites\spr_destroy_overlay</sprite>
+      </sprites>
+      <sprite>sprites\spr_ship</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -171,12 +176,19 @@
       <object>objects\obj_spawner_enemy_ground_medium</object>
       <object>objects\obj_spawner_enemy_ground_heavy</object>
     </objects>
-    <object>objects\obj_control</object>
-    <object>objects\obj_control_normalState</object>
-    <object>objects\obj_control_buildState</object>
-    <object>objects\obj_control_destroyState</object>
-    <object>objects\obj_menu_ingame_placeholder</object>
-    <object>objects\obj_cursorCtrl</object>
+    <objects name="Misc">
+      <objects name="Control">
+        <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_control</object>
+        <objects name="States">
+          <object>objects\obj_control_normalState</object>
+          <object>objects\obj_control_buildState</object>
+          <object>objects\obj_control_destroyState</object>
+        </objects>
+      </objects>
+      <object>objects\obj_cursorCtrl</object>
+      <object>objects\obj_ship</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

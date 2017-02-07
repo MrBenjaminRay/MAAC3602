@@ -94,6 +94,8 @@
             
             var projectile = instance_create(x, y, obj_projectile_homing);
             projectile.target = nearestEnemy;
+            projectile.isEnemyProjectile = false;
+            
             scr_create_explosion(x, y, 'Flash');
         }
     } else {
