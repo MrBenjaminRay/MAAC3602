@@ -37,6 +37,7 @@ isDropping = false;           // Whether or not the entity is dropping to a lowe
 attackRate = room_speed / 2;  // The number of delta time between attacks.
 attackRateCounter = 0;        // The number of delta time since the last attack.
 attackDamage = 10;            // The amount of damage done by each attack.
+attackRange = sprite_width/2; // The distance from the entity's origin that melee attacks can be done within.
 
 currShield = 0;               // The current sheild value.
 currHealth = 100;             // The current health value.

@@ -57,36 +57,30 @@ initialMovementDirection = "LEFT"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    if (spawnRateCounter &lt; spawnRate) {
-        spawnRateCounter += global.deltaTime;
-    } else if (objToSpawn != noone) {
-        spawnRateCounter = 0;
-        var enemy = instance_create(x, y, objToSpawn);
-        
-        if (initialMovementDirection == "LEFT") {
-            with (enemy) {
-                scr_entity_moveLeft();
-            }
-        }
-        
-        if (initialMovementDirection == "RIGHT") {
-            with (enemy) {
-                scr_entity_moveRight();
-            }
-        }
-        
-        if (initialMovementDirection == "DROP") {
-            with (enemy) {
-                scr_entity_drop();
-            }
-        }
-        
-        if (initialMovementDirection == "JUMP") {
-            with (enemy) {
-                scr_entity_jump();
-            }
-        }
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (spawnRateCounter &lt; spawnRate) {
+    spawnRateCounter += global.deltaTime;
+} else if (objToSpawn != noone) {
+    spawnRateCounter = 0;
+    var enemy = instance_create(x, y, objToSpawn);
+    
+    if (initialMovementDirection == "LEFT") {
+        enemy.movementDirection = "LEFT";
+    }
+    
+    if (initialMovementDirection == "RIGHT") {
+        enemy.movementDirection = "RIGHT";
+    }
+    
+    if (initialMovementDirection == "DROP") {
+        enemy.movementDirection = "DROP";
+    }
+    
+    if (initialMovementDirection == "JUMP") {
+        enemy.movementDirection = "JUMP";
     }
 }
 </string>

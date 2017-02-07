@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fireRate</string>
+            <string>attackRate</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -85,23 +85,25 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    if (attackRateCounter &gt;= attackRate) {
-        var nearestEnemy = scr_tower_getNearestGroundEnemy(100);
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (attackRateCounter &gt;= attackRate) {
+    var nearestEnemy = scr_tower_getNearestGroundEnemy(100);
+    
+    if (nearestEnemy != noone) {
+        attackRateCounter = 0;
         
-        if (nearestEnemy != noone) {
-            attackRateCounter = 0;
-            
-            var projectile = instance_create(x, y, obj_projectile_homing);
-            projectile.target = nearestEnemy;
-            projectile.isEnemyProjectile = false;
-            projectile.damage = attackDamage;
-            
-            scr_create_explosion(x, y, 'Flash');
-        }
-    } else {
-        attackRateCounter += global.deltaTime;
+        var projectile = instance_create(x, y, obj_projectile_homing);
+        projectile.target = nearestEnemy;
+        projectile.isEnemyProjectile = false;
+        projectile.damage = attackDamage;
+        
+        scr_create_explosion(x, y, 'Flash');
     }
+} else {
+    attackRateCounter += global.deltaTime;
 }
 </string>
           </argument>

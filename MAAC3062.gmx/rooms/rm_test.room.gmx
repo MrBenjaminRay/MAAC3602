@@ -139,7 +139,6 @@
     <instance objName="obj_miner" x="96" y="128" name="inst_62ED65D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_miner" x="160" y="128" name="inst_5E457EF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cursorCtrl" x="0" y="0" name="inst_DC69EEAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="512" y="512" name="inst_4764F005" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="96" y="640" name="inst_D8945253" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="128" y="640" name="inst_E1D8FDB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="160" y="640" name="inst_2FD9D8AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -168,6 +167,9 @@
     <instance objName="obj_visualTile" x="224" y="416" name="inst_21B7CF64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_visualTile" x="288" y="416" name="inst_671581FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ship" x="640" y="480" name="inst_458C0E27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_enemy_ground_light" x="352" y="544" name="inst_2D07CA7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_enemy_ground_medium" x="960" y="320" name="inst_17B27CAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_enemy_ground_heavy" x="608" y="544" name="inst_8FFDE314" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
