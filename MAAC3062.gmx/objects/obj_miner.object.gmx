@@ -67,7 +67,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>5</string>
+            <string>960</string>
           </argument>
         </arguments>
       </action>
@@ -122,10 +122,11 @@ animStartCounter = staggeredStart;
     }
 }
 
-if(animStartCounter &lt;= 0)
+if (animStartCounter &lt;= 0) {
     image_speed = 0.05;
-else
+} else {
     animStartCounter--;
+}
 </string>
           </argument>
         </arguments>

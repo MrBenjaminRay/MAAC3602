@@ -151,9 +151,27 @@ attackRate = 240;
 }
 
 if (attackRateCounter &gt;= attackRate) {
+    var nearestPlayer = scr_enemy_getNearestPlayer(attackRange);
+    var nearestMiner = scr_enemy_getNearestMiner(attackRange);
     var nearestTower = scr_enemy_getNearestTower(attackRange);
     
-    if (nearestTower != noone) {
+    var hasAttacked = false;
+    
+    // An enemy will attack targets in the order of:
+    //      1 - Player
+    //      2 - Miner
+    //      3 - Tower
+    if (nearestPlayer != noone) {
+        scr_entity_dealDamage(nearestPlayer, attackDamage);
+        attackRateCounter = 0;
+    }
+    
+    if (hasAttacked == false and nearestMiner != noone) {
+        scr_entity_dealDamage(nearestMiner, attackDamage);
+        attackRateCounter = 0;
+    }
+    
+    if (hasAttacked == false and nearestTower != noone) {
         scr_entity_dealDamage(nearestTower, attackDamage);
         attackRateCounter = 0;
     }

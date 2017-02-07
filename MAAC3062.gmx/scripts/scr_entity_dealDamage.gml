@@ -29,14 +29,14 @@ if (canContinue) {
         argument[0].currHealth = newHealth;
     } else {
         newHealth -= argument[1];
-        
-        if (newHealth <= 0) {
-            with (argument[0]) {
-                instance_destroy();   
-            }
-        } else {
-            argument[0].currShield = newShield;
-            argument[0].currHealth = newHealth;
+    }
+    
+    if (newHealth <= 0) {
+        with (argument[0]) {
+            instance_destroy();   
         }
+    } else {
+        argument[0].currShield = newShield;
+        argument[0].currHealth = newHealth;
     }
 }

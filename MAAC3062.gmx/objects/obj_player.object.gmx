@@ -228,7 +228,6 @@ if (currShield &gt; maxShield) {
 }
 
 // LEFT &amp; RIGHT MOVEMENT:
-
 if (global.state != "Build") {
     var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
     var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));

@@ -109,6 +109,8 @@
       </scripts>
       <scripts name="Enemy">
         <script>scripts\scr_enemy_getNearestTower.gml</script>
+        <script>scripts\scr_enemy_getNearestMiner.gml</script>
+        <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
     </scripts>
     <scripts name="States">
