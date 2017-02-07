@@ -27,6 +27,13 @@
             <kind>1</kind>
             <string>spawnRate = 480;        // The amount of delta time between spawns.
 spawnRateCounter = 0;   // The amount of delta time since the last spawn.
+
+// The direction in which a spawned enemy begins moving in when spawned.
+//  LEFT
+//  RIGHT
+//  DROP
+//  JUMP
+initialMovementDirection = "LEFT"
 </string>
           </argument>
         </arguments>
@@ -54,7 +61,31 @@ spawnRateCounter = 0;   // The amount of delta time since the last spawn.
         spawnRateCounter += global.deltaTime;
     } else {
         spawnRateCounter = 0;
-        instance_create(x, y, obj_enemy_test_moveLeft);
+        var enemy = instance_create(x, y, obj_enemy_test_moveLeft);
+        
+        if (initialMovementDirection == "LEFT") {
+            with (enemy) {
+                scr_entity_moveLeft();
+            }
+        }
+        
+        if (initialMovementDirection == "RIGHT") {
+            with (enemy) {
+                scr_entity_moveRight();
+            }
+        }
+        
+        if (initialMovementDirection == "DROP") {
+            with (enemy) {
+                scr_entity_drop();
+            }
+        }
+        
+        if (initialMovementDirection == "JUMP") {
+            with (enemy) {
+                scr_entity_jump();
+            }
+        }
     }
 }
 </string>

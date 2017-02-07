@@ -161,6 +161,9 @@
     </objects>
     <objects name="Spawners">
       <object>objects\obj_spawner</object>
+      <object>objects\obj_spawner_enemy_light</object>
+      <object>objects\obj_spawner_enemy_medium</object>
+      <object>objects\obj_spawner_enemy_heavy</object>
     </objects>
     <object>objects\obj_control</object>
     <object>objects\obj_control_normalState</object>
