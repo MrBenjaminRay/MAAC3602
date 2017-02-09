@@ -170,6 +170,7 @@
     <instance objName="obj_spawner_enemy_ground_light" x="352" y="544" name="inst_2D07CA7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_enemy_ground_medium" x="288" y="320" name="inst_17B27CAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_enemy_ground_heavy" x="608" y="544" name="inst_8FFDE314" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_enemy_ground_heavy" x="672" y="192" name="inst_FED9A753" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -372,7 +372,9 @@ src_circleBar(x, heightAbove, currShield, 100, c_blue, 16, 1, 4);
 
 //Health pie
 /// draw_pie(x ,y ,value, max, colour, radius, transparency)
-src_drawPie(x, heightAbove, currHealth, 100, make_color_rgb(11,255,12), 12, 1);
+src_drawPie(x, heightAbove, currHealth, 100, c_green, 12, 1);
+
+//make_color_rgb(11,255,12)
 </string>
           </argument>
         </arguments>
