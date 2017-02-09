@@ -342,6 +342,42 @@ if (canFire) {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+heightAbove = y - 40;
+
+
+
+
+//Shield ring
+/// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
+src_circleBar(x, heightAbove, currShield, 100, c_blue, 16, 1, 4);
+
+//Health pie
+/// draw_pie(x ,y ,value, max, colour, radius, transparency)
+src_drawPie(x, heightAbove, currHealth, 100, make_color_rgb(11,255,12), 12, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="87">
       <action>
         <libid>1</libid>

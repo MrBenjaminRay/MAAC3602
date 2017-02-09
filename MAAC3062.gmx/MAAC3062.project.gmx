@@ -106,6 +106,8 @@
       <script>scripts\scr_entity_moveLeft.gml</script>
       <script>scripts\scr_entity_moveRight.gml</script>
       <script>scripts\scr_entity_dealDamage.gml</script>
+      <script>scripts\src_circleBar.gml</script>
+      <script>scripts\src_drawPie.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
         <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
@@ -210,9 +212,9 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_test</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_credits</room>
-    <room>rooms\rm_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
