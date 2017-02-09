@@ -24,6 +24,13 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="UI_Menus">
+      <sprite>sprites\spr_spaceBG</sprite>
+      <sprite>sprites\spr_play</sprite>
+      <sprite>sprites\spr_credits</sprite>
+      <sprite>sprites\spr_rightArrow</sprite>
+      <sprite>sprites\spr_leftArrow</sprite>
+    </sprites>
     <sprites name="Entities">
       <sprites name="Player">
         <sprite>sprites\spr_player</sprite>
@@ -125,6 +132,13 @@
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
+    <objects name="UI_Menus">
+      <object>objects\obj_play</object>
+      <object>objects\obj_credits</object>
+      <object>objects\obj_spaceBG</object>
+      <object>objects\obj_rightArrow</object>
+      <object>objects\obj_leftArrow</object>
+    </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
       <objects name="Player">
@@ -196,6 +210,8 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_credits</room>
     <room>rooms\rm_test</room>
   </rooms>
   <help>
