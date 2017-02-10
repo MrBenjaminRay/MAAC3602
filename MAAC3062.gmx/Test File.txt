@@ -4,4 +4,4 @@ The point of this file is to help us test stuff.
 
 Some people don't like Water Bottle Body muffin.
 
-Some people like cabbage-filled rolls.
+Other people like cabbage-filled rolls.
