@@ -45,6 +45,14 @@
 type = "Ground";
 
 attackRate = 240;
+
+// Direction in which the entity is moving:
+//      LEFT
+//      RIGHT
+//      JUMP
+//      DROP
+//      NONE
+movementDirection = "NONE";
 </string>
           </argument>
         </arguments>

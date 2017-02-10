@@ -25,9 +25,9 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -39,11 +39,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>240</string>
+            <string>attackRate = 240;
+attackRange = sprite_width * 2;
+maxHealth = 3000;
+currHealth = 3000;
+
+weaponObj = instance_create(x, y, obj_weapon_ranged);
+weaponYOffset = 32;
+</string>
           </argument>
         </arguments>
       </action>
@@ -89,22 +92,30 @@
     return 0;
 }
 
-if (attackRateCounter &gt;= attackRate) {
-    var nearestEnemy = scr_tower_getNearestGroundEnemy(100);
+var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange);
+
+if (nearestEnemy != noone) {
+    var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+    var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+            
+    enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
     
-    if (nearestEnemy != noone) {
+    if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
         
-        var projectile = instance_create(x, y, obj_projectile_homing);
-        projectile.target = nearestEnemy;
+        var projX = weaponObj.x + sqrt((28 * 28) + (30 * 30))  * cos(enemyDirection - arctan(28/30));
+        var projY = weaponObj.y + sqrt((28* 28) + (30 * 30))* sin(enemyDirection - arctan(28/30));
+    
+        var projectile = instance_create(weaponObj.x, weaponObj.y, obj_projectile_normal);
+        projectile.xDest = enemyX;
+        projectile.yDest = enemyY;
+        projectile.direction = enemyDirection;
         projectile.isEnemyProjectile = false;
         projectile.damage = attackDamage;
-        
-        scr_create_explosion(x, y, 'Flash');
     }
-} else {
-    attackRateCounter += global.deltaTime;
 }
+
+attackRateCounter += global.deltaTime;
 </string>
           </argument>
         </arguments>

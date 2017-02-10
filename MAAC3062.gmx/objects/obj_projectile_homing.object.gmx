@@ -88,7 +88,9 @@ scr_particle_projectile_addsmoke(.05);
     return 0;
 }
 
-mp_potential_step(target.x, target.y, movementSpeed, false);
+var xTarget = target.x + target.sprite_width/2;
+var yTarget = target.y + target.sprite_height/2;
+mp_potential_step(xTarget, yTarget, movementSpeed, false);
 
 </string>
           </argument>
