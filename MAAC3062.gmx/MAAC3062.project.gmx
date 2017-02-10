@@ -30,6 +30,7 @@
       <sprite>sprites\spr_credits</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
+      <sprite>sprites\spr_fuelText</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -209,6 +210,7 @@
       </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
+      <object>objects\obj_fuelText</object>
     </objects>
   </objects>
   <rooms name="rooms">
