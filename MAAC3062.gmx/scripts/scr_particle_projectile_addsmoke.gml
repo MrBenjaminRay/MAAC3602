@@ -1,6 +1,6 @@
 // This script adds a smoke particle emitter to the object from which TEST
 // this script is called.  The emitter will be killed automatically
-// when the parent object is killed.
+// when the parent object is destroyed. 
 
 // Argument0 is sprite x & y scale (0 < value <= 1)
 

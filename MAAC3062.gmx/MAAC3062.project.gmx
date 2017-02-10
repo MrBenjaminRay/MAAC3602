@@ -132,6 +132,7 @@
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
+    <script>scripts\scr_ben_test.gml</script>
     <script>scripts\scr_joe_test.gml</script>
   </scripts>
   <objects name="objects">
