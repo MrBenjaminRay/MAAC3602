@@ -45,6 +45,7 @@
 type = "Ground";
 
 attackRate = 240;
+attackRange = sprite_width/4;
 
 // Direction in which the entity is moving:
 //      LEFT

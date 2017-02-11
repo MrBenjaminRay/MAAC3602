@@ -138,7 +138,7 @@
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(x+5, y-6, x+54, y-1, currHealth, c_black, c_red, c_green, 0, true, true);
+draw_healthbar(x+5, y-6, x+54, y-1, (currHealth/maxHealth) * 100, c_black, c_red, c_green, 0, true, true);
 </string>
           </argument>
         </arguments>
