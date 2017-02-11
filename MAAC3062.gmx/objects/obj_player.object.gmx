@@ -52,9 +52,11 @@ maxShield = 100;
 shieldRegenInterval = room_speed * 5;
 alarm[0] = shieldRegenInterval;
 
-// Weapon Stuff:
+// Create and place weapon:
 attackDamage = 2;
-weaponObj = obj_weapon_ranged;
+weaponXOffset = 0;
+weaponYOffset = 0;
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
 </string>
           </argument>
         </arguments>
@@ -216,6 +218,52 @@ if (global.state != "Build") {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Weapon Position</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (weaponObj != noone and instance_exists(weaponObj)) {
+    weaponObj.x = x + weaponXOffset;
+    weaponObj.y = y + weaponYOffset;
+    weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
+    weaponObj.depth = depth -1 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="6" enumb="53">
       <action>
@@ -240,16 +288,18 @@ canFire &amp;= global.state != "Destroy";
 
 if (canFire) {
     if (attackRateCounter &gt;= attackRate) {
-        var projectile = instance_create(x, y, obj_projectile_normal);
-        
         audio_play_sound(snd_playerGun, 0, false);
+    
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         
+        var projectile = instance_create(projX, projY, obj_projectile_normal);
         projectile.xDest = mouse_x;
         projectile.yDest = mouse_y;
         projectile.damage = attackDamage;
         projectile.isEnemyProjectile = false;
         
-        scr_create_explosion(x, y, 'Flash');
+        scr_create_explosion(projX, projY, 'Flash');
         
         attackRateCounter = 0;
     }
@@ -285,11 +335,11 @@ heightAbove = y - 40;
 
 //Shield ring
 /// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
-src_circleBar(x, heightAbove, currShield, 100, c_blue, 16, 1, 4);
+src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 1, 4);
 
 //Health pie
 /// draw_pie(x ,y ,value, max, colour, radius, transparency)
-src_drawPie(x, heightAbove, currHealth, 100, c_green, 12, 1);
+src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 1);
 
 //make_color_rgb(11,255,12) light green
 </string>
