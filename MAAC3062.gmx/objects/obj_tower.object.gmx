@@ -44,8 +44,15 @@ attackRange = sprite_width * 2;
 maxHealth = 3000;
 currHealth = 3000;
 
-weaponObj = instance_create(x, y, obj_weapon_ranged);
+// Create and place weapon:
 weaponYOffset = 32;
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+
+if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
+    weaponObj.x = x + weaponXOffset;
+    weaponObj.y = y + weaponYOffset;
+    weaponObj.depth = depth - 1;
+}
 </string>
           </argument>
         </arguments>
@@ -97,21 +104,24 @@ var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange);
 if (nearestEnemy != noone) {
     var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
     var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-            
-    enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
+    var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
     
     if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
+
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         
-        var projX = weaponObj.x + sqrt((28 * 28) + (30 * 30))  * cos(enemyDirection - arctan(28/30));
-        var projY = weaponObj.y + sqrt((28* 28) + (30 * 30))* sin(enemyDirection - arctan(28/30));
-    
-        var projectile = instance_create(weaponObj.x, weaponObj.y, obj_projectile_normal);
+        var projectile = instance_create(projX, projY, obj_projectile_normal);
         projectile.xDest = enemyX;
         projectile.yDest = enemyY;
         projectile.direction = enemyDirection;
         projectile.isEnemyProjectile = false;
         projectile.damage = attackDamage;
+        
+        scr_create_explosion(projX, projY, 'Flash');
+        
+        weaponObj.image_angle = enemyDirection;
     }
 }
 
