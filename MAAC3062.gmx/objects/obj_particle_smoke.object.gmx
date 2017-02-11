@@ -44,7 +44,7 @@ lifeTotal = 300;
 lifeLeft = lifeTotal;
 
 // Every instance has a random rotation so that it's not too uniform.
-image_angle = irandom_range(0,359);
+image_angle = irandom_range(0,360);
 
 </string>
           </argument>
