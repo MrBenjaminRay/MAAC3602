@@ -10,6 +10,7 @@
       <sound>sound\snd_freezerStart</sound>
       <sound>sound\snd_freezerBeam</sound>
       <sound>sound\snd_mortarShot</sound>
+      <sound>sound\snd_mortarFlying</sound>
     </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
@@ -17,10 +18,16 @@
       <sound>sound\snd_playerHit</sound>
     </sounds>
     <sounds name="Enemy">
+      <sound>sound\snd_enemyDeath_heavy</sound>
+      <sound>sound\snd_enemyDeath_light</sound>
+      <sound>sound\snd_enemyDeath_medium</sound>
       <sound>sound\snd_enemyDeath</sound>
     </sounds>
     <sounds name="Game">
       <sound>sound\snd_build</sound>
+    </sounds>
+    <sounds name="Menu">
+      <sound>sound\snd_menuClick</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
