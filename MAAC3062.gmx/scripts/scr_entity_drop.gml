@@ -29,7 +29,7 @@ var totalTiles = 0;
 while (tempY < room_height) {
     tempY += sprite_height;
     
-    if (place_meeting(x, tempY, obj_tile)) {
+    if (place_meeting(x, tempY, obj_physicsTile)) {
         totalTiles++;
     }
 }

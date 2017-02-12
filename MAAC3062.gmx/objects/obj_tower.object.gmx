@@ -8,6 +8,56 @@
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>attackRate = 240;
+attackRange = sprite_width * 2;
+maxHealth = 3000;
+currHealth = 3000;
+
+// Create and place weapon:
+weaponYOffset = 32;
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+
+if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
+    weaponObj.x = x + weaponXOffset;
+    weaponObj.y = y + weaponYOffset;
+    weaponObj.depth = depth - 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -45,20 +95,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    if (fireRateCounter &gt;= fireRate) {
-        var nearestEnemy = scr_tower_getNearestGroundEnemy(100);
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange);
+
+if (nearestEnemy != noone) {
+    var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+    var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+    var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
+    
+    if (attackRateCounter &gt;= attackRate) {
+        attackRateCounter = 0;
+
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         
-        if (nearestEnemy != noone) {
-            fireRateCounter = 0;
-            
-            var projectile = instance_create(x, y, obj_projectile_homing);
-            projectile.target = nearestEnemy;
-        }
-    } else {
-        fireRateCounter += global.deltaTime;
+        var projectile = instance_create(projX, projY, obj_projectile_normal);
+        projectile.xDest = enemyX;
+        projectile.yDest = enemyY;
+        projectile.direction = enemyDirection;
+        projectile.isEnemyProjectile = false;
+        projectile.damage = attackDamage;
+        
+        scr_create_explosion(projX, projY, 'Flash');
+        
+        weaponObj.image_angle = enemyDirection;
     }
 }
+
+attackRateCounter += global.deltaTime;
 </string>
           </argument>
         </arguments>

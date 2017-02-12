@@ -4,11 +4,34 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="Towers">
+      <sound>sound\snd_mortarShot</sound>
+      <sound>sound\snd_basicTowerShot</sound>
+      <sound>sound\snd_freezerStart</sound>
+      <sound>sound\snd_freezerBeam</sound>
+    </sounds>
+    <sounds name="Player">
+      <sound>sound\snd_playerGun</sound>
+      <sound>sound\snd_playerDeath</sound>
+      <sound>sound\snd_playerHit</sound>
+    </sounds>
+    <sounds name="Enemy">
+      <sound>sound\snd_enemyDeath</sound>
+    </sounds>
+    <sounds name="Game">
+      <sound>sound\snd_build</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_build_overlay_validLocation</sprite>
-    <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
-    <sprite>sprites\spr_destroy_overlay</sprite>
+    <sprites name="UI_Menus">
+      <sprite>sprites\spr_spaceBG</sprite>
+      <sprite>sprites\spr_play</sprite>
+      <sprite>sprites\spr_credits</sprite>
+      <sprite>sprites\spr_rightArrow</sprite>
+      <sprite>sprites\spr_leftArrow</sprite>
+      <sprite>sprites\spr_fuelText</sprite>
+    </sprites>
     <sprites name="Entities">
       <sprites name="Player">
         <sprite>sprites\spr_player</sprite>
@@ -31,9 +54,27 @@
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
       </sprites>
+      <sprites name="Particle">
+        <sprite>sprites\spr_smoke1</sprite>
+      </sprites>
+      <sprites name="ParticleEmitter">
+        <sprite>sprites\spr_emitter</sprite>
+      </sprites>
+      <sprites name="Explosions">
+        <sprite>sprites\spr_explosion_normal</sprite>
+        <sprite>sprites\spr_explosion_sparky</sprite>
+        <sprite>sprites\spr_explosion_smallhit</sprite>
+        <sprite>sprites\spr_explosion_flash</sprite>
+      </sprites>
+      <sprites name="Weapon">
+        <sprite>sprites\spr_weapon_ranged_test</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
-      <sprite>sprites\spr_testTile</sprite>
+      <sprite>sprites\spr_physicsTile</sprite>
+      <sprites name="Visual">
+        <sprite>sprites\spr_testVisualTile</sprite>
+      </sprites>
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
@@ -47,6 +88,17 @@
       <sprite>sprites\spr_red_cursor</sprite>
       <sprite>sprites\spr_target_cursor</sprite>
     </sprites>
+    <sprites name="Spawners">
+      <sprite>sprites\spr_spawner</sprite>
+    </sprites>
+    <sprites name="Misc">
+      <sprites name="Overlays">
+        <sprite>sprites\spr_build_overlay_validLocation</sprite>
+        <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
+        <sprite>sprites\spr_destroy_overlay</sprite>
+      </sprites>
+      <sprite>sprites\spr_ship</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -58,6 +110,8 @@
       <script>scripts\scr_entity_moveLeft.gml</script>
       <script>scripts\scr_entity_moveRight.gml</script>
       <script>scripts\scr_entity_dealDamage.gml</script>
+      <script>scripts\src_circleBar.gml</script>
+      <script>scripts\src_drawPie.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
         <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
@@ -65,6 +119,11 @@
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
+      </scripts>
+      <scripts name="Enemy">
+        <script>scripts\scr_enemy_getNearestTower.gml</script>
+        <script>scripts\scr_enemy_getNearestMiner.gml</script>
+        <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
     </scripts>
     <scripts name="States">
@@ -74,9 +133,20 @@
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
     </scripts>
+    <script>scripts\scr_particle_projectile_addsmoke.gml</script>
+    <script>scripts\scr_create_explosion.gml</script>
+    <script>scripts\scr_ben_test.gml</script>
+    <script>scripts\scr_joe_test.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
+    <objects name="UI_Menus">
+      <object>objects\obj_play</object>
+      <object>objects\obj_credits</object>
+      <object>objects\obj_spaceBG</object>
+      <object>objects\obj_rightArrow</object>
+      <object>objects\obj_leftArrow</object>
+    </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
       <objects name="Player">
@@ -84,10 +154,9 @@
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
-        <object>objects\obj_enemy_test_moveLeft</object>
-        <object>objects\obj_enemy_test_moveRight</object>
-        <object>objects\obj_enemy_test_jump</object>
-        <object>objects\obj_enemy_test_drop</object>
+        <object>objects\obj_enemy_ground_light</object>
+        <object>objects\obj_enemy_ground_medium</object>
+        <object>objects\obj_enemy_ground_heavy</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -99,22 +168,63 @@
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
+        <object>objects\obj_projectile_test_has_smoke</object>
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
       </objects>
+      <objects name="ParticleEmitter">
+        <object>objects\obj_particle_emitter</object>
+        <object>objects\obj_particle_emitter_smoke</object>
+        <object>objects\obj_particle_emitter_flame</object>
+      </objects>
+      <objects name="Particle">
+        <object>objects\obj_particle</object>
+        <object>objects\obj_particle_smoke</object>
+        <object>objects\obj_particle_flame</object>
+      </objects>
+      <objects name="Explosions">
+        <object>objects\obj_explosion</object>
+        <object>objects\obj_explosion_normal</object>
+        <object>objects\obj_explosion_sparky</object>
+        <object>objects\obj_explosion_smallhit</object>
+        <object>objects\obj_explosion_flash</object>
+      </objects>
+      <objects name="Weapon">
+        <object>objects\obj_weapon_ranged</object>
+      </objects>
     </objects>
     <objects name="Tiles">
-      <object>objects\obj_tile</object>
+      <object>objects\obj_physicsTile</object>
+      <objects name="Visual">
+        <object>objects\obj_visualTile</object>
+      </objects>
     </objects>
-    <object>objects\obj_control</object>
-    <object>objects\obj_control_normalState</object>
-    <object>objects\obj_control_buildState</object>
-    <object>objects\obj_control_destroyState</object>
-    <object>objects\obj_menu_ingame_placeholder</object>
+    <objects name="Spawners">
+      <object>objects\obj_spawner</object>
+      <object>objects\obj_spawner_enemy_ground_light</object>
+      <object>objects\obj_spawner_enemy_ground_medium</object>
+      <object>objects\obj_spawner_enemy_ground_heavy</object>
+    </objects>
+    <objects name="Misc">
+      <objects name="Control">
+        <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_control</object>
+        <objects name="States">
+          <object>objects\obj_control_normalState</object>
+          <object>objects\obj_control_buildState</object>
+          <object>objects\obj_control_destroyState</object>
+        </objects>
+      </objects>
+      <object>objects\obj_cursorCtrl</object>
+      <object>objects\obj_ship</object>
+      <object>objects\obj_fuelText</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_credits</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
