@@ -6,10 +6,10 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Towers">
-      <sound>sound\snd_mortarShot</sound>
       <sound>sound\snd_basicTowerShot</sound>
       <sound>sound\snd_freezerStart</sound>
       <sound>sound\snd_freezerBeam</sound>
+      <sound>sound\snd_mortarShot</sound>
     </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
@@ -28,9 +28,12 @@
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
       <sprite>sprites\spr_credits</sprite>
+      <sprite>sprites\spr_back</sprite>
+      <sprite>sprites\spr_mainMenu</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
       <sprite>sprites\spr_fuelText</sprite>
+      <sprite>sprites\spr__messageBox</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -142,6 +145,8 @@
     <object>objects\object</object>
     <objects name="UI_Menus">
       <object>objects\obj_play</object>
+      <object>objects\obj_mainMenu</object>
+      <object>objects\obj_back</object>
       <object>objects\obj_credits</object>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_rightArrow</object>
