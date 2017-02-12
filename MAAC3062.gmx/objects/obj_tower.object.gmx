@@ -25,9 +25,9 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -39,11 +39,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>240</string>
+            <string>attackRate = 240;
+attackRange = sprite_width * 2;
+maxHealth = 3000;
+currHealth = 3000;
+
+// Create and place weapon:
+weaponYOffset = 32;
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+
+if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
+    weaponObj.x = x + weaponXOffset;
+    weaponObj.y = y + weaponYOffset;
+    weaponObj.depth = depth - 1;
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -89,22 +99,33 @@
     return 0;
 }
 
-if (attackRateCounter &gt;= attackRate) {
-    var nearestEnemy = scr_tower_getNearestGroundEnemy(100);
+var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange);
+
+if (nearestEnemy != noone) {
+    var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+    var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+    var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
     
-    if (nearestEnemy != noone) {
+    if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
+
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         
-        var projectile = instance_create(x, y, obj_projectile_homing);
-        projectile.target = nearestEnemy;
+        var projectile = instance_create(projX, projY, obj_projectile_normal);
+        projectile.xDest = enemyX;
+        projectile.yDest = enemyY;
+        projectile.direction = enemyDirection;
         projectile.isEnemyProjectile = false;
         projectile.damage = attackDamage;
         
-        scr_create_explosion(x, y, 'Flash');
+        scr_create_explosion(projX, projY, 'Flash');
+        
+        weaponObj.image_angle = enemyDirection;
     }
-} else {
-    attackRateCounter += global.deltaTime;
 }
+
+attackRateCounter += global.deltaTime;
 </string>
           </argument>
         </arguments>

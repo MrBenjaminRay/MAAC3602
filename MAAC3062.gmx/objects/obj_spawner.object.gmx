@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawnRate = 480;        // The amount of delta time between spawns.
+            <string>spawnRate = 1280;       // The amount of delta time between spawns.
 spawnRateCounter = 0;   // The amount of delta time since the last spawn.
 objToSpawn = noone;     // The object to spawn.
 

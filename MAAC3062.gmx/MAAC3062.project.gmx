@@ -69,6 +69,9 @@
         <sprite>sprites\spr_explosion_smallhit</sprite>
         <sprite>sprites\spr_explosion_flash</sprite>
       </sprites>
+      <sprites name="Weapon">
+        <sprite>sprites\spr_weapon_ranged_test</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -191,6 +194,9 @@
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
         <object>objects\obj_explosion_flash</object>
+      </objects>
+      <objects name="Weapon">
+        <object>objects\obj_weapon_ranged</object>
       </objects>
     </objects>
     <objects name="Tiles">
