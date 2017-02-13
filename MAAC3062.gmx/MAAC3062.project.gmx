@@ -245,6 +245,7 @@
     <objects name="Spawners">
       <object>objects\obj_spawner</object>
       <object>objects\obj_spawner_enemy_ground_light</object>
+      <object>objects\obj_spawner_enemy_ground_light_right</object>
       <object>objects\obj_spawner_enemy_ground_medium</object>
       <object>objects\obj_spawner_enemy_ground_heavy</object>
     </objects>
@@ -265,6 +266,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
+    <room>rooms\rm_level2</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
