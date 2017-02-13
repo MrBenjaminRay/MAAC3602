@@ -1,7 +1,5 @@
-The point of this file is to help us test some stuff.
+Test file for testing commits, pull requests, and conflict resolution.
 
-Some people do not like Water Bottle Body muffin.
+Some people like to test.
 
-Other people like cabbage-filled chicken rolls and stuff.
-
-Do another test....
+Other people do not.
