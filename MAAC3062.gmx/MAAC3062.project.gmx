@@ -41,6 +41,8 @@
       <sprite>sprites\spr_leftArrow</sprite>
       <sprite>sprites\spr_fuelText</sprite>
       <sprite>sprites\spr__messageBox</sprite>
+      <sprite>sprites\spr_credits1</sprite>
+      <sprite>sprites\spr_credits2</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -158,6 +160,8 @@
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_rightArrow</object>
       <object>objects\obj_leftArrow</object>
+      <object>objects\obj_credits1</object>
+      <object>objects\obj_credits2</object>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -234,9 +238,10 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test</room>
     <room>rooms\rm_menu</room>
+    <room>rooms\rm_test</room>
     <room>rooms\rm_credits</room>
+    <room>rooms\rm_credits2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
