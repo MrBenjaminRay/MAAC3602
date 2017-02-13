@@ -6,10 +6,11 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Towers">
-      <sound>sound\snd_mortarShot</sound>
       <sound>sound\snd_basicTowerShot</sound>
       <sound>sound\snd_freezerStart</sound>
       <sound>sound\snd_freezerBeam</sound>
+      <sound>sound\snd_mortarShot</sound>
+      <sound>sound\snd_mortarFlying</sound>
     </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
@@ -17,10 +18,16 @@
       <sound>sound\snd_playerHit</sound>
     </sounds>
     <sounds name="Enemy">
+      <sound>sound\snd_enemyDeath_heavy</sound>
+      <sound>sound\snd_enemyDeath_light</sound>
+      <sound>sound\snd_enemyDeath_medium</sound>
       <sound>sound\snd_enemyDeath</sound>
     </sounds>
     <sounds name="Game">
       <sound>sound\snd_build</sound>
+    </sounds>
+    <sounds name="Menu">
+      <sound>sound\snd_menuClick</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -28,13 +35,22 @@
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
       <sprite>sprites\spr_credits</sprite>
+      <sprite>sprites\spr_back</sprite>
+      <sprite>sprites\spr_mainMenu</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
       <sprite>sprites\spr_fuelText</sprite>
+      <sprite>sprites\spr__messageBox</sprite>
+      <sprite>sprites\spr_credits1</sprite>
+      <sprite>sprites\spr_credits2</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
         <sprite>sprites\spr_player</sprite>
+        <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
+        <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
+        <sprite>sprites\spr_left_arm_weapon</sprite>
+        <sprite>sprites\spr_right_arm_weapon</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -47,12 +63,19 @@
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
         <sprite>sprites\spr_tower_tacticalMoartar</sprite>
+        <sprite>sprites\spr_cannon_tower_basic</sprite>
+        <sprite>sprites\spr_cannon_tower_mortar</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
+        <sprite>sprites\spr_basic_projectile</sprite>
+        <sprite>sprites\spr_mortar_projectile</sprite>
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
+        <sprite>sprites\spr_cave_back</sprite>
+        <sprite>sprites\spr_cave_front</sprite>
+        <sprite>sprites\spr_minerals</sprite>
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
@@ -98,9 +121,24 @@
         <sprite>sprites\spr_destroy_overlay</sprite>
       </sprites>
       <sprite>sprites\spr_ship</sprite>
+      <sprite>sprites\spr_enery_resource</sprite>
+      <sprite>sprites\spr_energy_pickup</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <backgrounds name="MoonBackgrounds">
+      <background>background\bkg_moon_0</background>
+      <background>background\bkg_moon_1</background>
+      <background>background\bkg_moon_2</background>
+      <background>background\bkg_moon_3</background>
+      <background>background\bkg_moon4</background>
+      <background>background\bkg_moon_front</background>
+      <background>background\bkg_moon_tiles</background>
+    </backgrounds>
+    <backgrounds name="ForestBackgrounds">
+      <background>background\bkg_forest_tiles</background>
+    </backgrounds>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
@@ -142,10 +180,14 @@
     <object>objects\object</object>
     <objects name="UI_Menus">
       <object>objects\obj_play</object>
+      <object>objects\obj_mainMenu</object>
+      <object>objects\obj_back</object>
       <object>objects\obj_credits</object>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_rightArrow</object>
       <object>objects\obj_leftArrow</object>
+      <object>objects\obj_credits1</object>
+      <object>objects\obj_credits2</object>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -222,9 +264,10 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test</room>
     <room>rooms\rm_menu</room>
+    <room>rooms\rm_test</room>
     <room>rooms\rm_credits</room>
+    <room>rooms\rm_credits2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="6" enumb="0">
+    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>224</id>
@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>rm_test</room>
+            <room>rm_credits</room>
           </argument>
         </arguments>
       </action>
