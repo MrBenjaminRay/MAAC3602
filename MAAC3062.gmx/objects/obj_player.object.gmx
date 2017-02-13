@@ -25,102 +25,6 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>currShield</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>maxShield</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>shieldRegenInterval</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>room_speed * 5</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>shieldRegenInterval</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -138,6 +42,21 @@
             <string>image_speed = 0;
 walkRight = 0;
 walkLeft = 0;
+
+movementSpeed = 250/1000;
+
+// Shield Stuff:
+currShield = 100;
+maxShield = 100;
+
+shieldRegenInterval = room_speed * 5;
+alarm[0] = shieldRegenInterval;
+
+// Create and place weapon:
+attackDamage = 2;
+weaponXOffset = 0;
+weaponYOffset = 0;
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
 </string>
           </argument>
         </arguments>
@@ -228,7 +147,6 @@ if (currShield &gt; maxShield) {
 }
 
 // LEFT &amp; RIGHT MOVEMENT:
-
 if (global.state != "Build") {
     var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
     var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
@@ -292,9 +210,55 @@ if (global.state != "Build") {
           <argument>
             <kind>1</kind>
             <string>if (global.state != "Paused") {
-    if (fireRateCounter &lt; fireRate) {
-        fireRateCounter += global.deltaTime;
+    if (attackRateCounter &lt; attackRate) {
+        attackRateCounter += global.deltaTime;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Weapon Position</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (weaponObj != noone and instance_exists(weaponObj)) {
+    weaponObj.x = x + weaponXOffset;
+    weaponObj.y = y + weaponYOffset;
+    weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
+    weaponObj.depth = depth -1 
 }
 </string>
           </argument>
@@ -323,14 +287,61 @@ canFire &amp;= global.state != "Build";
 canFire &amp;= global.state != "Destroy";
 
 if (canFire) {
-    if (fireRateCounter &gt;= fireRate) {
-        var projectile = instance_create(x, y, obj_projectile_normal);
+    if (attackRateCounter &gt;= attackRate) {
         audio_play_sound(snd_playerGun, 0, false);
+    
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        
+        var projectile = instance_create(projX, projY, obj_projectile_normal);
         projectile.xDest = mouse_x;
         projectile.yDest = mouse_y;
-        fireRateCounter = 0;
+        projectile.damage = attackDamage;
+        projectile.isEnemyProjectile = false;
+        
+        scr_create_explosion(projX, projY, 'Flash');
+        
+        attackRateCounter = 0;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+heightAbove = y - 40;
+
+
+
+
+//Shield ring
+/// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
+src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 1, 4);
+
+//Health pie
+/// draw_pie(x ,y ,value, max, colour, radius, transparency)
+src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 1);
+
+//make_color_rgb(11,255,12) light green
 </string>
           </argument>
         </arguments>

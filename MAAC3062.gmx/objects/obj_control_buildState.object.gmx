@@ -213,18 +213,22 @@ towers[2, 3] = spr_tower_tacticalMoartar;
     // Clamp the y position to the nearest multiple of 32:
     var tempY = mouse_y - (mouse_y % 32);
     
+    // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
+    tempY += 128 - sprite_get_height(towerSpr)
+    
     // Determine if the (x, y) location is valid:
-    var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tile, false, true) == noone;
-    isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_tile, false, true) != noone;
+    var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
+    isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
     
-    
-    instance_create(tempX, tempY, towerObj);
-    
-    global.energy -= towerCost;
-    
-    audio_play_sound(snd_build, 0, false);
-    
-    scr_state_setNormal();
+    if (isLocationValid) {
+        instance_create(tempX, tempY, towerObj);
+        
+        global.energy -= towerCost;
+        
+        audio_play_sound(snd_build, 0, false);
+        
+        scr_state_setNormal();
+    }
 }
 </string>
           </argument>
@@ -255,18 +259,20 @@ towers[2, 3] = spr_tower_tacticalMoartar;
     // Clamp the y position to the nearest multiple of 32:
     var tempY = mouse_y - (mouse_y % 32);
     
+    // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
+    tempY += 128 - sprite_get_height(towerSpr)
+    
     // Determine if the (x, y) location is valid:
-    var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tile, false, true) == noone;
-    isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_tile, false, true) != noone;
-
+    var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
+    isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
     
     // Draw Sprites:
     draw_sprite(towerSpr, 0, tempX, tempY);
     
     if (isLocationValid) {
-        draw_sprite(spr_build_overlay_validLocation, 0, tempX, tempY);
+        draw_sprite_stretched(spr_build_overlay_validLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
     } else {
-        draw_sprite(spr_build_overlay_invalidLocation, 0, tempX, tempY);
+        draw_sprite_stretched(spr_build_overlay_invalidLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
     }
 }
 </string>

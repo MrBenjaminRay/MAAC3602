@@ -25,9 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timeBetweenEmissions = 0;
+            <string>timeBetweenEmissions = 0; // This should be set by each inheriting class
 timeToNextEmission = 0;
+particleScale = 1; // x/y scale of particles to be emitted. 1 = default. Override for smaller.
 
+// Emitter MUST have a parent object instance. When the parent object instance is destroyed,
+// the emitter destroys itself. Particles already self-destruct.
+parentObject = noone;
+
+maxImageAlpha = 1; // To be overridden by inheriting objects as needed.
 </string>
           </argument>
         </arguments>
@@ -50,22 +56,34 @@ timeToNextEmission = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (timeToNextEmission &lt;= 0) {
+            <string>if (!instance_exists(parentObject)) {
+    // Parent object instance has been destroyed, so this emitter must also go
+    instance_destroy();
+    return 0;
+}
+
+// Emitter location always same as parent object (the thing that appears to be emitting)
+x = parentObject.x;
+y = parentObject.y;
+
+if (timeToNextEmission &lt;= 0) {
     // Emit
-    instance_create(x, y, obj_particle_smoke);
-   
+    // NOTE: Shouldn't be hard-coded to create smoke in this object (from which smoke emitter is inherited)
+    var inst = instance_create(x, y, obj_particle_smoke);
+
+    // Set scale
+    inst.image_xscale = particleScale;
+    inst.image_yscale = particleScale;
+    
+    // Set image alpha values
+    inst.maxImageAlpha = maxImageAlpha;
+    
     // Reset variable
     timeToNextEmission = timeBetweenEmissions;
 } else {
     // Decrease by delta time
     timeToNextEmission -= global.deltaTime;
 }
-
-// TESTING - Move the emitter around to check particles
-dir_x = .05;
-dir_y = .03;
-x += dir_x * global.deltaTime;
-y += dir_y * global.deltaTime;
 
 </string>
           </argument>

@@ -2,7 +2,7 @@
 //      Must not be jumping.
 //      Must be standing on the ground.
 var canJump = isJumping == false;
-canJump &= place_meeting(x, y + 1, obj_tile);
+canJump &= place_meeting(x, y + 1, obj_physicsTile);
 
 if (canJump) {
     currentJumpSpeed = -abs(jumpSpeed) * global.deltaTime;
