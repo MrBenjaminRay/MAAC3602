@@ -41,6 +41,8 @@
             <kind>1</kind>
             <string>xDest = x; // The destination x-axis coordinate.
 yDest = y; // The destination y-axis coordinate.
+
+scr_particle_projectile_addsmoke(.05);
 </string>
           </argument>
         </arguments>

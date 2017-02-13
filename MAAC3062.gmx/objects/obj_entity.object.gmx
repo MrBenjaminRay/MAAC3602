@@ -25,24 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>movementSpeed = 150 / 1000;   // Left/Right Movement Speed
-jumpSpeed = 300/ 1000;        // Jump Movement Speed
-currentJumpSpeed = jumpSpeed; // Current Jump Movement Speed
-currentDropSpeed = 0;         // Current Drop Movement Speed
-currentFallSpeed = 0;         // Current Fall Movement Speed
-gravConst = 7.5 / 1000;       // Gravity Constant
-isJumping = false;            // Whether or not the entity is jumping.
-isDropping = false;           // Whether or not the entity is dropping to a lower platform.
+            <string>movementSpeed = 150 / 1000;     // Left/Right Movement Speed
+jumpSpeed = 300/ 1000;          // Jump Movement Speed
+currentJumpSpeed = jumpSpeed;   // Current Jump Movement Speed
+currentDropSpeed = 0;           // Current Drop Movement Speed
+currentFallSpeed = 0;           // Current Fall Movement Speed
+gravConst = 7.5 / 1000;         // Gravity Constant
+isJumping = false;              // Whether or not the entity is jumping.
+isDropping = false;             // Whether or not the entity is dropping to a lower platform.
 
-fireRate = room_speed / 2;    // The number of steps between projectile shots.
-fireRateCounter = 0;          // The number of steps since a projectile was last shot.
+attackRate = room_speed / 2;    // The number of delta time between attacks.
+attackRateCounter = 0;          // The number of delta time since the last attack.
+attackDamage = 10;              // The amount of damage done by each attack.
+attackRange = sprite_width/2;   // The distance from the entity's origin that melee attacks can be done within.
 
+weaponObj = noone;              // The weapon to display on the entity or noone if there isn't one.
+weaponXOffset = sprite_width/2; // The x-axis position, in relation to this entity, of where to place the weapon obj.
+weaponYOffset = sprite_height/2;// The y-axis position, in relation to this entity, of where to place the weapon obj.
 
-currShield = 0;               // The current sheild value.
-currHealth = 100;             // The current health value.
+currShield = 0;                 // The current sheild value.
+currHealth = 100;               // The current health value.
 
-maxShield = 0;                // The maximum shield value.
-maxHealth = 100;              // The maximum health value.
+maxShield = 0;                  // The maximum shield value.
+maxHealth = 100;                // The maximum health value.
 </string>
           </argument>
         </arguments>
@@ -89,8 +94,51 @@ maxHealth = 100;              // The maximum health value.
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (weaponObj) {
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Movement</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -124,7 +172,7 @@ if (y &lt; 0) {
 // a tile, then push the player out onto the tile.
 if (!isJumping &amp;&amp; !isDropping) {
     if (currentJumpSpeed == 0) {
-        while (place_meeting(x, y, obj_tile)) {
+        while (place_meeting(x, y, obj_physicsTile)) {
             y--;
         }
     }
@@ -154,7 +202,7 @@ if (!isJumping &amp;&amp; isDropping) {
 
     // If there is no collision at the new location, then change the drop state
     // and allow the fall code to take over:
-    if (place_meeting(x, y + currentDropSpeed, obj_tile) == false) {
+    if (place_meeting(x, y + currentDropSpeed, obj_physicsTile) == false) {
         y += currentDropSpeed;
         isDropping = false;
         currentDropSpeed = 0;
@@ -171,13 +219,13 @@ if (!isJumping &amp;&amp; !isDropping) {
         currentFallSpeed += gravConst * global.deltaTime;
     }
 
-    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_tile);
+    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_physicsTile);
     
     // If there is a collision at the new location, then do nothing and reset fall data:
     if (collisionAtNewLocation) {
         currentFallSpeed = 0;
         
-        while (place_meeting(x, y + 1, obj_tile) == false) {
+        while (place_meeting(x, y + 1, obj_physicsTile) == false) {
             y++;
         }
     }
