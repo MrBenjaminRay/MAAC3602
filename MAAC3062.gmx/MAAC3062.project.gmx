@@ -47,6 +47,10 @@
     <sprites name="Entities">
       <sprites name="Player">
         <sprite>sprites\spr_player</sprite>
+        <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
+        <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
+        <sprite>sprites\spr_left_arm_weapon</sprite>
+        <sprite>sprites\spr_right_arm_weapon</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -59,12 +63,19 @@
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
         <sprite>sprites\spr_tower_tacticalMoartar</sprite>
+        <sprite>sprites\spr_cannon_tower_basic</sprite>
+        <sprite>sprites\spr_cannon_tower_mortar</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
+        <sprite>sprites\spr_basic_projectile</sprite>
+        <sprite>sprites\spr_mortar_projectile</sprite>
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
+        <sprite>sprites\spr_cave_back</sprite>
+        <sprite>sprites\spr_cave_front</sprite>
+        <sprite>sprites\spr_minerals</sprite>
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
@@ -110,9 +121,24 @@
         <sprite>sprites\spr_destroy_overlay</sprite>
       </sprites>
       <sprite>sprites\spr_ship</sprite>
+      <sprite>sprites\spr_enery_resource</sprite>
+      <sprite>sprites\spr_energy_pickup</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <backgrounds name="MoonBackgrounds">
+      <background>background\bkg_moon_0</background>
+      <background>background\bkg_moon_1</background>
+      <background>background\bkg_moon_2</background>
+      <background>background\bkg_moon_3</background>
+      <background>background\bkg_moon4</background>
+      <background>background\bkg_moon_front</background>
+      <background>background\bkg_moon_tiles</background>
+    </backgrounds>
+    <backgrounds name="ForestBackgrounds">
+      <background>background\bkg_forest_tiles</background>
+    </backgrounds>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
