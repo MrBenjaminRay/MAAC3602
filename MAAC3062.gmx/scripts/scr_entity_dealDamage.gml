@@ -33,7 +33,7 @@ if (canContinue) {
     
     if (newHealth <= 0) {
         with (argument[0]) {
-            instance_destroy();   
+            instance_destroy();
         }
     } else {
         argument[0].currShield = newShield;

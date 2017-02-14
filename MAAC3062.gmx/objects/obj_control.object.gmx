@@ -60,6 +60,8 @@ global.energy = 1000; // The current energy collected by the player during the l
           <argument>
             <kind>1</kind>
             <string>global.deltaTime = (delta_time) / 1000;
+
+show_debug_message(instance_number(obj_miner));
 </string>
           </argument>
         </arguments>

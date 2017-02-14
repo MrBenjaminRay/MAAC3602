@@ -71,10 +71,13 @@
         <sprite>sprites\spr_basic_projectile</sprite>
         <sprite>sprites\spr_mortar_projectile</sprite>
       </sprites>
+      <sprites name="Mine">
+        <sprite>sprites\spr_cave_back</sprite>
+        <sprite>sprites\spr_cave_back_dead_TEMP</sprite>
+        <sprite>sprites\spr_cave_front</sprite>
+      </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
-        <sprite>sprites\spr_cave_back</sprite>
-        <sprite>sprites\spr_cave_front</sprite>
         <sprite>sprites\spr_minerals</sprite>
       </sprites>
       <sprites name="Particle">
@@ -160,7 +163,7 @@
       </scripts>
       <scripts name="Enemy">
         <script>scripts\scr_enemy_getNearestTower.gml</script>
-        <script>scripts\scr_enemy_getNearestMiner.gml</script>
+        <script>scripts\scr_enemy_getNearestMine.gml</script>
         <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
     </scripts>
@@ -209,6 +212,11 @@
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
         <object>objects\obj_projectile_test_has_smoke</object>
+      </objects>
+      <objects name="Mine">
+        <object>objects\obj_mine</object>
+        <object>objects\obj_mine_dead</object>
+        <object>objects\obj_mine_front</object>
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
