@@ -65,7 +65,7 @@
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange);
+var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange, obj_enemy);
 
 if (nearestEnemy != noone) {
     var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;

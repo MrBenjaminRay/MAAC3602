@@ -200,6 +200,9 @@
         <object>objects\obj_enemy_ground_light</object>
         <object>objects\obj_enemy_ground_medium</object>
         <object>objects\obj_enemy_ground_heavy</object>
+        <object>objects\obj_enemy_ground_jackal</object>
+        <object>objects\obj_enemy_air_light</object>
+        <object>objects\obj_enemy_air_heavy</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>

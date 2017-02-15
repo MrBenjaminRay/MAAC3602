@@ -54,6 +54,9 @@ attackRange = sprite_width/4;
 //      DROP
 //      NONE
 movementDirection = "NONE";
+
+
+energyDrop = 0;
 </string>
           </argument>
         </arguments>
