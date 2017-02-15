@@ -95,6 +95,8 @@ global.towers[5, 3] = spr_tower;
           <argument>
             <kind>1</kind>
             <string>global.deltaTime = (delta_time) / 1000;
+
+show_debug_message(instance_number(obj_miner));
 </string>
           </argument>
         </arguments>
