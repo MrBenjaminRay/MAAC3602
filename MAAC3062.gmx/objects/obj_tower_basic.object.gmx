@@ -66,6 +66,79 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Override obj_entity's step event.</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy);
+
+if (nearestEnemy != noone) {
+    var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+    var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+    var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
+    
+    if (attackRateCounter &gt;= attackRate) {
+        attackRateCounter = 0;
+
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        
+        var projectile = instance_create(projX, projY, obj_projectile_normal);
+        projectile.xDest = enemyX;
+        projectile.yDest = enemyY;
+        projectile.direction = enemyDirection;
+        projectile.isEnemyProjectile = false;
+        projectile.damage = attackDamage;
+        
+        scr_create_explosion(projX, projY, 'Flash');
+        
+        weaponObj.image_angle = enemyDirection;
+    }
+}
+
+attackRateCounter += global.deltaTime;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
