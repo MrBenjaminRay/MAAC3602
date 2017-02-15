@@ -86,6 +86,8 @@ weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ran
 if (currShield &gt; maxShield) {
     currShield = maxShield;
 }
+
+alarm[0] = shieldRegenInterval;
 </string>
           </argument>
         </arguments>

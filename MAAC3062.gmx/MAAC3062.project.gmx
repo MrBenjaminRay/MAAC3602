@@ -206,6 +206,9 @@
         <object>objects\obj_tower_basic</object>
         <object>objects\obj_tower_superFreezer</object>
         <object>objects\obj_tower_tacticalMoartar</object>
+        <object>objects\obj_tower_109CalRifle</object>
+        <object>objects\obj_tower_flameThrower</object>
+        <object>objects\obj_tower_m6100</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
