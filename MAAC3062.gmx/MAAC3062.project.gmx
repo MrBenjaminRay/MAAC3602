@@ -140,6 +140,9 @@
     </backgrounds>
     <backgrounds name="ForestBackgrounds">
       <background>background\bkg_forest_tiles</background>
+      <background>background\bkg_forest_0</background>
+      <background>background\bkg_forest_1</background>
+      <background>background\bkg_forest_front</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -289,10 +292,11 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
-    <room>rooms\rm_level2</room>
+    <room>rooms\rm_level0</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
+    <room>rooms\rm_level1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
