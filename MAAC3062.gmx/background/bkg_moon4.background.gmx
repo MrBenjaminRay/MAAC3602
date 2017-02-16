@@ -7,13 +7,13 @@
   <tileyoff>0</tileyoff>
   <tilehsep>0</tilehsep>
   <tilevsep>0</tilevsep>
-  <HTile>-1</HTile>
+  <HTile>0</HTile>
   <VTile>-1</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>1350</width>
-  <height>768</height>
+  <width>1600</width>
+  <height>900</height>
   <data>images\bkg_moon4.png</data>
 </background>
