@@ -107,8 +107,8 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     return 0;
 }
 
-var nearestEnemy_any = scr_tower_getNearestEnemy(attackRange, obj_enemy);
-var nearestEnemy_heavy = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground_heavy);
+var nearestEnemy_any = scr_tower_getNearestNonFrozenEnemy(attackRange, obj_enemy);
+var nearestEnemy_heavy = scr_tower_getNearestNonFrozenEnemy(attackRange, obj_enemy_ground_heavy);
 var nearestEnemy = noone;
 
 if (nearestEnemy_heavy != noone) {
@@ -128,7 +128,7 @@ if (nearestEnemy != noone) {
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         
-        var projectile = instance_create(projX, projY, obj_projectile_normal);
+        var projectile = instance_create(projX, projY, obj_projectile_freeze);
         projectile.xDest = enemyX;
         projectile.yDest = enemyY;
         projectile.direction = enemyDirection;

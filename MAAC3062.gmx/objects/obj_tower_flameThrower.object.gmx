@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>attackRate = 128;
 attackRateCounter = 0;
-attackDamage = 10;
+attackDamage = 1;
 attackRange = sprite_width/3;
 
 weaponXOffset = 0;
@@ -128,7 +128,7 @@ if (nearestEnemy != noone) {
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         
-        var projectile = instance_create(projX, projY, obj_projectile_normal);
+        var projectile = instance_create(projX, projY, obj_projectile_flame);
         projectile.xDest = enemyX;
         projectile.yDest = enemyY;
         projectile.direction = enemyDirection;

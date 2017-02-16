@@ -125,10 +125,9 @@
     <instance objName="obj_physicsTile" x="2176" y="864" name="inst_30A2E05D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2144" y="864" name="inst_1D53F4BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2112" y="864" name="inst_1F50A3E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="576" y="288" name="inst_806930A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_control" x="128" y="288" name="inst_753119C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_control" x="96" y="64" name="inst_753119C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="0" y="64" name="inst_EF83B6C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_cursorCtrl" x="64" y="288" name="inst_84765B0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cursorCtrl" x="64" y="64" name="inst_84765B0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="0" y="320" name="inst_899F32AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-64" y="320" name="inst_EA719210" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="320" name="inst_F76F52C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -151,62 +150,6 @@
     <instance objName="obj_physicsTile" x="544" y="320" name="inst_F150C212" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="576" y="320" name="inst_1804F4A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="608" y="320" name="inst_0DC3C6FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-64" y="640" name="inst_7E0A2BA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="640" name="inst_A5942C05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="0" y="640" name="inst_03C1640A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="32" y="640" name="inst_4066C937" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="64" y="640" name="inst_590CC576" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="640" name="inst_C378EF9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="128" y="640" name="inst_388F02E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="160" y="640" name="inst_9E751DAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="192" y="640" name="inst_9F7B6F77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="224" y="640" name="inst_FCB7EF65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="256" y="640" name="inst_9D900227" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="288" y="640" name="inst_27FAC61F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="320" y="640" name="inst_3B9AD98E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="352" y="640" name="inst_9998D63E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="384" y="640" name="inst_24BB64C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="416" y="640" name="inst_EAFC81E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="448" y="640" name="inst_DAA54846" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="640" name="inst_ED74DD98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="512" y="640" name="inst_0454FDE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="544" y="640" name="inst_F90E85C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="576" y="640" name="inst_29D46643" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="608" y="640" name="inst_2D52CDC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="640" y="640" name="inst_AF77EF7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="672" y="640" name="inst_B4845267" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="704" y="640" name="inst_7DD1FEEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="736" y="640" name="inst_416B7B75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2240" y="640" name="inst_91E5C18E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2208" y="640" name="inst_AA76B4E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2176" y="640" name="inst_D801BD48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2144" y="640" name="inst_4E83276F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2112" y="640" name="inst_BDCE49B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2080" y="640" name="inst_C511383F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2048" y="640" name="inst_BD7207D7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="2016" y="640" name="inst_EC180DAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1984" y="640" name="inst_79A5A188" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1952" y="640" name="inst_4C79382A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1920" y="640" name="inst_C433F4E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1888" y="640" name="inst_D1926806" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1856" y="640" name="inst_E814B9CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1824" y="640" name="inst_EAA57AF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1792" y="640" name="inst_B0083C6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1760" y="640" name="inst_C22AB350" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1728" y="640" name="inst_6FC5F613" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1696" y="640" name="inst_3FAEE34F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1664" y="640" name="inst_EB79AE66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1632" y="640" name="inst_8786FB38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1600" y="640" name="inst_8F646A5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1568" y="640" name="inst_DC9A9E72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1536" y="640" name="inst_9361526B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1504" y="640" name="inst_09ACB3F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1472" y="640" name="inst_A06C47C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1440" y="640" name="inst_831BEEB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1408" y="640" name="inst_591ED499" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1376" y="640" name="inst_13CF5B86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1344" y="640" name="inst_F30ECFC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1312" y="640" name="inst_EB8FB32A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2208" y="352" name="inst_33524AB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2176" y="352" name="inst_AD52AE93" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2144" y="352" name="inst_5C393859" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -234,11 +177,67 @@
     <instance objName="obj_visualTile" x="1472" y="352" name="inst_A2E1558A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_visualTile" x="1440" y="352" name="inst_5EF308FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_enemy_ground_light" x="2208" y="256" name="inst_6E2B1A6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner_enemy_ground_light" x="2208" y="544" name="inst_C1FB907C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner_enemy_ground_light_right" x="-64" y="544" name="inst_6C6E7B19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner_enemy_ground_light_right" x="-64" y="224" name="inst_D07A8E9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_enemy_ground_light" x="2208" y="576" name="inst_C1FB907C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2240" y="352" name="inst_8AF16CE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine" x="128" y="816" name="inst_900EFA0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawner_enemy_air_light" x="-64" y="608" name="inst_23E0E116" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="992" y="832" name="inst_FCF7B75F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="736" y="672" name="inst_3EFDC920" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="672" y="672" name="inst_DDF31956" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="0" y="672" name="inst_5D161E64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="32" y="672" name="inst_CD490F89" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="64" y="672" name="inst_13F55A4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="96" y="672" name="inst_C0ED040B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="128" y="672" name="inst_1AC0EF12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="160" y="672" name="inst_81044CAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="192" y="672" name="inst_C874F119" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="256" y="672" name="inst_D6068298" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="224" y="672" name="inst_21E21095" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="288" y="672" name="inst_7F4BB429" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="320" y="672" name="inst_513342AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="352" y="672" name="inst_9013DA85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="384" y="672" name="inst_723AB94B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="416" y="672" name="inst_FFB1EE76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="448" y="672" name="inst_44E68859" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="480" y="672" name="inst_385C4D9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="512" y="672" name="inst_5E5D9549" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="544" y="672" name="inst_701D2C65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="576" y="672" name="inst_4A5D1F8B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="640" y="672" name="inst_604444C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="608" y="672" name="inst_185DB842" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="704" y="672" name="inst_72D7C885" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-64" y="672" name="inst_E1F8FC5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-32" y="672" name="inst_ADFCD8D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1312" y="672" name="inst_3DBBDD91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2208" y="672" name="inst_12C50719" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2240" y="672" name="inst_C1D9C295" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2176" y="672" name="inst_77822F4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2144" y="672" name="inst_F149232F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2080" y="672" name="inst_A1B756D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2112" y="672" name="inst_13CD170D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2048" y="672" name="inst_1AC80968" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2016" y="672" name="inst_CE47100D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1984" y="672" name="inst_4D67BDD8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1952" y="672" name="inst_7933F020" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1920" y="672" name="inst_39593BD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1888" y="672" name="inst_CD8F897E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1856" y="672" name="inst_9F545440" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1824" y="672" name="inst_40935128" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1792" y="672" name="inst_39D5BB0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1760" y="672" name="inst_A09CC0BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1728" y="672" name="inst_08438B2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1696" y="672" name="inst_AFD420A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1664" y="672" name="inst_61082D17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1632" y="672" name="inst_E3EAEC9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1600" y="672" name="inst_C7B70711" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1568" y="672" name="inst_3932E42E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1536" y="672" name="inst_8DBB76FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1504" y="672" name="inst_56CC19FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1472" y="672" name="inst_5F88456A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1440" y="672" name="inst_B1654822" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1408" y="672" name="inst_7466C4F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1376" y="672" name="inst_9B3639E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1344" y="672" name="inst_EEE608F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

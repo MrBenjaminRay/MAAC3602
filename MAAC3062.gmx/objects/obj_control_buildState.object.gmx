@@ -289,6 +289,7 @@ towerSpr = noone;
     // Determine if the (x, y) location is valid:
     var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
+    isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
     
     if (isLocationValid) {
         instance_create(tempX, tempY, towerObj);
@@ -335,6 +336,7 @@ towerSpr = noone;
     // Determine if the (x, y) location is valid:
     var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
+    isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
     
     // Draw Sprites:
     draw_sprite(towerSpr, 0, tempX, tempY);
