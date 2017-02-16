@@ -155,6 +155,7 @@
       <script>scripts\src_drawPie.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
+        <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
         <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
         <script>scripts\scr_tower_getNearestAirEnemy.gml</script>
       </scripts>
@@ -166,6 +167,7 @@
         <script>scripts\scr_enemy_getNearestMine.gml</script>
         <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
+      <script>scripts\scr_entity_canDrop.gml</script>
     </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
@@ -197,12 +199,18 @@
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
-        <object>objects\obj_enemy_ground_light</object>
-        <object>objects\obj_enemy_ground_medium</object>
-        <object>objects\obj_enemy_ground_heavy</object>
-        <object>objects\obj_enemy_ground_jackal</object>
-        <object>objects\obj_enemy_air_light</object>
-        <object>objects\obj_enemy_air_heavy</object>
+        <objects name="Air">
+          <object>objects\obj_enemy_air</object>
+          <object>objects\obj_enemy_air_light</object>
+          <object>objects\obj_enemy_air_heavy</object>
+        </objects>
+        <objects name="Ground">
+          <object>objects\obj_enemy_ground</object>
+          <object>objects\obj_enemy_ground_light</object>
+          <object>objects\obj_enemy_ground_medium</object>
+          <object>objects\obj_enemy_ground_jackal</object>
+          <object>objects\obj_enemy_ground_heavy</object>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -217,6 +225,8 @@
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
+        <object>objects\obj_projectile_freeze</object>
+        <object>objects\obj_projectile_flame</object>
         <object>objects\obj_projectile_test_has_smoke</object>
       </objects>
       <objects name="Mine">
@@ -257,9 +267,10 @@
     <objects name="Spawners">
       <object>objects\obj_spawner</object>
       <object>objects\obj_spawner_enemy_ground_light</object>
-      <object>objects\obj_spawner_enemy_ground_light_right</object>
       <object>objects\obj_spawner_enemy_ground_medium</object>
       <object>objects\obj_spawner_enemy_ground_heavy</object>
+      <object>objects\obj_spawner_enemy_air_light</object>
+      <object>objects\obj_spawner_enemy_air_heavy</object>
     </objects>
     <objects name="Misc">
       <objects name="Control">
