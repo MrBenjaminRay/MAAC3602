@@ -47,6 +47,101 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canJumpOrDrop</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>room_speed * 5</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canJumpOrDrop</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show_debug_message(canJumpOrDrop);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -103,18 +198,20 @@
 if (x &lt; 0) {
     movementDirection = "RIGHT";
     
-    if (isMovingDown) {
-        if (scr_entity_canDrop()) {
-            scr_entity_forceDrop();
+    if (canJumpOrDrop) {
+        if (isMovingDown) {
+            if (scr_entity_canDrop()) {
+                scr_entity_forceDrop();
+            } else {
+                isMovingDown = false;
+            }
         } else {
-            isMovingDown = false;
-        }
-    } else {
-        if (y &gt; 0) {
-            scr_entity_jump();
-        } else {
-            isMovingDown = true;
-            scr_entity_drop();
+            if (y &gt; 0) {
+                scr_entity_jump();
+            } else {
+                isMovingDown = true;
+                scr_entity_drop();
+            }
         }
     }
 }
@@ -123,18 +220,20 @@ if (x &lt; 0) {
 if (x + sprite_width &gt; room_width) {
     movementDirection = "LEFT";
     
-    if (isMovingDown) {
-        if (scr_entity_canDrop()) {
-            scr_entity_forceDrop();
+    if (canJumpOrDrop) {
+        if (isMovingDown) {
+            if (scr_entity_canDrop()) {
+                scr_entity_forceDrop();
+            } else {
+                isMovingDown = false;
+            }
         } else {
-            isMovingDown = false;
-        }
-    } else {
-        if (y &gt; 0) {
-            scr_entity_jump();
-        } else {
-            isMovingDown = true;
-            scr_entity_drop();
+            if (y &gt; 0) {
+                scr_entity_jump();
+            } else {
+                isMovingDown = true;
+                scr_entity_drop();
+            }
         }
     }
 }
