@@ -212,8 +212,10 @@ if (global.state != "Build") {
           <argument>
             <kind>1</kind>
             <string>if (global.state != "Paused") {
-    if (attackRateCounter &lt; attackRate) {
-        attackRateCounter += global.deltaTime;
+    if (weaponObj != noone) {
+        if (attackRateCounter &lt; attackRate) {
+            attackRateCounter += global.deltaTime;
+        }
     }
 }
 </string>
@@ -287,6 +289,7 @@ if (global.state != "Build") {
             <string>var canFire = global.state != "Paused";
 canFire &amp;= global.state != "Build";
 canFire &amp;= global.state != "Destroy";
+canFire &amp;= weaponObj != noone;
 
 if (canFire) {
     if (attackRateCounter &gt;= attackRate) {

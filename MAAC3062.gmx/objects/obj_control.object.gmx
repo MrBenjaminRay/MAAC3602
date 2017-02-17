@@ -38,7 +38,7 @@ global.deltaTime = delta_time;
 global.state = "Normal";
 
 global.minerals = 0;
-global.energy = 2000; // The current energy collected by the player during the level.
+global.energy = 4000; // The current energy collected by the player during the level.
 
 // Format:
 //      Name
