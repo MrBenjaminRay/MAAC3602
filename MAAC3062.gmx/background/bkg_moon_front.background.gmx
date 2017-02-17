@@ -13,7 +13,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>1350</width>
-  <height>768</height>
+  <width>1600</width>
+  <height>900</height>
   <data>images\bkg_moon_front.png</data>
 </background>
