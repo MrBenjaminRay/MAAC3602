@@ -20,8 +20,8 @@ if (is_undefined(argument[1])) {
     argument[1] = obj_enemy;
 }
 
-for (i = 0 ; i < instance_number(obj_enemy) ; i++) {
-    var tmpEnem = instance_find(obj_enemy, i);
+for (i = 0 ; i < instance_number(argument[1]) ; i++) {
+    var tmpEnem = instance_find(argument[1], i);
     
     var tmpDist = distance_to_object(tmpEnem);
     

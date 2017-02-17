@@ -107,7 +107,8 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestAirEnemy(attackRange, obj_enemy);
+var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_air);
+show_debug_message(nearestEnemy == noone);
 
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {
@@ -122,7 +123,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_109Cal, projX, projY, nearestEnemy, false, attackDamage);
         
         // Show projectile spawn effect:
         scr_create_explosion(projX, projY, 'Flash');

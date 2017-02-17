@@ -160,8 +160,6 @@
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
-        <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
-        <script>scripts\scr_tower_getNearestAirEnemy.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
@@ -233,6 +231,7 @@
         <object>objects\obj_projectile_mortar</object>
         <object>objects\obj_projectile_freeze</object>
         <object>objects\obj_projectile_flame</object>
+        <object>objects\obj_projectile_109Cal</object>
         <object>objects\obj_projectile_test_has_smoke</object>
       </objects>
       <objects name="Mine">
@@ -292,7 +291,6 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_level2</room>
     <room>rooms\rm_level0</room>
-    <room>rooms\rm_test</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
     <room>rooms\rm_level1</room>
