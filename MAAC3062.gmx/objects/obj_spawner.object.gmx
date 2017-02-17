@@ -28,7 +28,7 @@
             <string>spawnRate = 1280;                         // The amount of delta time between spawns.
 spawnRateCounter = 0;                     // The amount of delta time since the last spawn.
 
-spawnChangeRate = 5000;                  // The amount of delta time between switching enemies to spawn.
+spawnChangeRate = 7500;                   // The amount of delta time between switching enemies to spawn.
 spawnChangeRateCounter = spawnChangeRate; // The amount of delta time since the last spawn-type switch.
 spawnChanges = 0;                         // The number of spawn-type changes that have occurred. Used to determine the "stage"
                                           // of the level which then is used to determine the spawn chances of light, med, and
