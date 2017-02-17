@@ -243,14 +243,23 @@ if (attackRateCounter &gt;= attackRate) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
+            <string>var nearestMiner = instance_nearest(x, y, obj_miner);
+var minerNearby = false;
 
-if (movementDirection == "LEFT") {
-    scr_entity_moveLeft();
+if (nearestMiner != noone) {
+    minerNearby = distance_to_point(nearestMiner.x, nearestMiner.y) &lt;= attackRange;
 }
 
-if (movementDirection == "RIGHT") {
-    scr_entity_moveRight();
+if (minerNearby == false) {
+    movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
+    
+    if (movementDirection == "LEFT") {
+        scr_entity_moveLeft();
+    }
+    
+    if (movementDirection == "RIGHT") {
+        scr_entity_moveRight();
+    }
 }
 </string>
           </argument>

@@ -68,26 +68,22 @@
 var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange, obj_enemy);
 
 if (nearestEnemy != noone) {
-    var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
-    var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-    var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
-    
     if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
+        
+        // Rotate the cannon to point towards the enemy:
+        var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+        var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+        var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
+        weaponObj.image_angle = enemyDirection;
 
+        // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
         
-        var projectile = instance_create(projX, projY, obj_projectile_normal);
-        projectile.xDest = enemyX;
-        projectile.yDest = enemyY;
-        projectile.direction = enemyDirection;
-        projectile.isEnemyProjectile = false;
-        projectile.damage = attackDamage;
-        
+        // Show projectile spawn effect:
         scr_create_explosion(projX, projY, 'Flash');
-        
-        weaponObj.image_angle = enemyDirection;
     }
 }
 

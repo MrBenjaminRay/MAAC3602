@@ -63,8 +63,6 @@
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
         <sprite>sprites\spr_tower_tacticalMoartar</sprite>
-        <sprite>sprites\spr_cannon_tower_basic</sprite>
-        <sprite>sprites\spr_cannon_tower_mortar</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
@@ -94,6 +92,8 @@
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
+        <sprite>sprites\spr_weapon_basic</sprite>
+        <sprite>sprites\spr_weapon_mortar</sprite>
       </sprites>
     </sprites>
     <sprites name="Tiles">
@@ -148,6 +148,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
+      <script>scripts\scr_entity_canDrop.gml</script>
       <script>scripts\scr_entity_drop.gml</script>
       <script>scripts\scr_entity_forceDrop.gml</script>
       <script>scripts\scr_entity_jump.gml</script>
@@ -164,13 +165,13 @@
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
+        <script>scripts\scr_spawn_projectile.gml</script>
       </scripts>
       <scripts name="Enemy">
         <script>scripts\scr_enemy_getNearestTower.gml</script>
         <script>scripts\scr_enemy_getNearestMine.gml</script>
         <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
-      <script>scripts\scr_entity_canDrop.gml</script>
     </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
@@ -184,6 +185,7 @@
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
+    <object>objects\obj_spawner</object>
     <objects name="UI_Menus">
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
@@ -228,6 +230,7 @@
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
+        <object>objects\obj_projectile_mortar</object>
         <object>objects\obj_projectile_freeze</object>
         <object>objects\obj_projectile_flame</object>
         <object>objects\obj_projectile_test_has_smoke</object>
@@ -259,6 +262,8 @@
       </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
+        <object>objects\obj_weapon_basic</object>
+        <object>objects\obj_weapon_mortar</object>
       </objects>
     </objects>
     <objects name="Tiles">
@@ -266,14 +271,6 @@
       <objects name="Visual">
         <object>objects\obj_visualTile</object>
       </objects>
-    </objects>
-    <objects name="Spawners">
-      <object>objects\obj_spawner</object>
-      <object>objects\obj_spawner_enemy_ground_light</object>
-      <object>objects\obj_spawner_enemy_ground_medium</object>
-      <object>objects\obj_spawner_enemy_ground_heavy</object>
-      <object>objects\obj_spawner_enemy_air_light</object>
-      <object>objects\obj_spawner_enemy_air_heavy</object>
     </objects>
     <objects name="Misc">
       <objects name="Control">
@@ -291,9 +288,14 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_test</room>
     <room>rooms\rm_menu</room>
+<<<<<<< HEAD
+    <room>rooms\rm_level2</room>
+=======
     <room>rooms\rm_level0</room>
     <room>rooms\rm_test</room>
+>>>>>>> refs/remotes/origin/master
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
     <room>rooms\rm_level1</room>
