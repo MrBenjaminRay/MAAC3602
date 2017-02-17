@@ -63,18 +63,19 @@
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
         <sprite>sprites\spr_tower_tacticalMoartar</sprite>
-        <sprite>sprites\spr_cannon_tower_basic</sprite>
-        <sprite>sprites\spr_cannon_tower_mortar</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
         <sprite>sprites\spr_basic_projectile</sprite>
         <sprite>sprites\spr_mortar_projectile</sprite>
       </sprites>
+      <sprites name="Mine">
+        <sprite>sprites\spr_cave_back</sprite>
+        <sprite>sprites\spr_cave_back_dead_TEMP</sprite>
+        <sprite>sprites\spr_cave_front</sprite>
+      </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
-        <sprite>sprites\spr_cave_back</sprite>
-        <sprite>sprites\spr_cave_front</sprite>
         <sprite>sprites\spr_minerals</sprite>
       </sprites>
       <sprites name="Particle">
@@ -91,6 +92,8 @@
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
+        <sprite>sprites\spr_weapon_basic</sprite>
+        <sprite>sprites\spr_weapon_mortar</sprite>
       </sprites>
     </sprites>
     <sprites name="Tiles">
@@ -137,11 +140,15 @@
     </backgrounds>
     <backgrounds name="ForestBackgrounds">
       <background>background\bkg_forest_tiles</background>
+      <background>background\bkg_forest_0</background>
+      <background>background\bkg_forest_1</background>
+      <background>background\bkg_forest_front</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
+      <script>scripts\scr_entity_canDrop.gml</script>
       <script>scripts\scr_entity_drop.gml</script>
       <script>scripts\scr_entity_forceDrop.gml</script>
       <script>scripts\scr_entity_jump.gml</script>
@@ -152,15 +159,17 @@
       <script>scripts\src_drawPie.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
+        <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
         <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
         <script>scripts\scr_tower_getNearestAirEnemy.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
+        <script>scripts\scr_spawn_projectile.gml</script>
       </scripts>
       <scripts name="Enemy">
         <script>scripts\scr_enemy_getNearestTower.gml</script>
-        <script>scripts\scr_enemy_getNearestMiner.gml</script>
+        <script>scripts\scr_enemy_getNearestMine.gml</script>
         <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
     </scripts>
@@ -173,11 +182,10 @@
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
-    <script>scripts\scr_ben_test.gml</script>
-    <script>scripts\scr_joe_test.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
+    <object>objects\obj_spawner</object>
     <objects name="UI_Menus">
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
@@ -196,21 +204,41 @@
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
-        <object>objects\obj_enemy_ground_light</object>
-        <object>objects\obj_enemy_ground_medium</object>
-        <object>objects\obj_enemy_ground_heavy</object>
+        <objects name="Air">
+          <object>objects\obj_enemy_air</object>
+          <object>objects\obj_enemy_air_light</object>
+          <object>objects\obj_enemy_air_heavy</object>
+        </objects>
+        <objects name="Ground">
+          <object>objects\obj_enemy_ground</object>
+          <object>objects\obj_enemy_ground_light</object>
+          <object>objects\obj_enemy_ground_medium</object>
+          <object>objects\obj_enemy_ground_jackal</object>
+          <object>objects\obj_enemy_ground_heavy</object>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
         <object>objects\obj_tower_basic</object>
         <object>objects\obj_tower_superFreezer</object>
         <object>objects\obj_tower_tacticalMoartar</object>
+        <object>objects\obj_tower_109CalRifle</object>
+        <object>objects\obj_tower_flameThrower</object>
+        <object>objects\obj_tower_m6100</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
+        <object>objects\obj_projectile_mortar</object>
+        <object>objects\obj_projectile_freeze</object>
+        <object>objects\obj_projectile_flame</object>
         <object>objects\obj_projectile_test_has_smoke</object>
+      </objects>
+      <objects name="Mine">
+        <object>objects\obj_mine</object>
+        <object>objects\obj_mine_dead</object>
+        <object>objects\obj_mine_front</object>
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
@@ -234,6 +262,8 @@
       </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
+        <object>objects\obj_weapon_basic</object>
+        <object>objects\obj_weapon_mortar</object>
       </objects>
     </objects>
     <objects name="Tiles">
@@ -241,12 +271,6 @@
       <objects name="Visual">
         <object>objects\obj_visualTile</object>
       </objects>
-    </objects>
-    <objects name="Spawners">
-      <object>objects\obj_spawner</object>
-      <object>objects\obj_spawner_enemy_ground_light</object>
-      <object>objects\obj_spawner_enemy_ground_medium</object>
-      <object>objects\obj_spawner_enemy_ground_heavy</object>
     </objects>
     <objects name="Misc">
       <objects name="Control">
@@ -264,10 +288,17 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_menu</room>
+<<<<<<< HEAD
+    <room>rooms\rm_level2</room>
+=======
+    <room>rooms\rm_level0</room>
+    <room>rooms\rm_test</room>
+>>>>>>> refs/remotes/origin/master
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
+    <room>rooms\rm_level1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

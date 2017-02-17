@@ -25,16 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawnRate = 1280;       // The amount of delta time between spawns.
-spawnRateCounter = 0;   // The amount of delta time since the last spawn.
-objToSpawn = noone;     // The object to spawn.
+            <string>spawnRate = 1280;                         // The amount of delta time between spawns.
+spawnRateCounter = 0;                     // The amount of delta time since the last spawn.
 
-// The direction in which a spawned enemy begins moving in when spawned.
-//  LEFT
-//  RIGHT
-//  DROP
-//  JUMP
-initialMovementDirection = "LEFT"
+spawnChangeRate = 25600;                  // The amount of delta time between switching enemies to spawn.
+spawnChangeRateCounter = spawnChangeRate; // The amount of delta time since the last spawn-type switch.
+
+numObjToSpawn = 0;                        // The number of objects to spawn.
+numObjSpawned = 0;                        // The number of objects spawned so-far.
+objToSpawn = noone;                       // The object to spawn.
 </string>
           </argument>
         </arguments>
@@ -65,22 +64,45 @@ if (spawnRateCounter &lt; spawnRate) {
     spawnRateCounter += global.deltaTime;
 } else if (objToSpawn != noone) {
     spawnRateCounter = 0;
-    var enemy = instance_create(x, y, objToSpawn);
-    
-    if (initialMovementDirection == "LEFT") {
-        enemy.movementDirection = "LEFT";
+
+    if (numObjSpawned &lt; numObjToSpawn) {
+        numObjSpawned++;
+        var enemy = instance_create(x, y, objToSpawn);
     }
+}
+
+if (spawnChangeRateCounter &lt; spawnChangeRate) {
+    spawnChangeRateCounter += global.deltaTime;
+} else {
+    numObjSpawned = 0;
+    numObjToSpawn = irandom_range(2, 5);
+    spawnChangeRateCounter = 0;
     
-    if (initialMovementDirection == "RIGHT") {
-        enemy.movementDirection = "RIGHT";
-    }
-    
-    if (initialMovementDirection == "DROP") {
-        enemy.movementDirection = "DROP";
-    }
-    
-    if (initialMovementDirection == "JUMP") {
-        enemy.movementDirection = "JUMP";
+    switch (irandom_range(0,5)) {
+        case 0: {
+            objToSpawn = obj_enemy_ground_light;
+            break;
+        }
+        case 1: {
+            objToSpawn = obj_enemy_ground_medium;
+            break;
+        }
+        case 2: {
+            objToSpawn = obj_enemy_ground_heavy;
+            break;
+        }
+        case 3: {
+            objToSpawn = obj_enemy_ground_jackal;
+            break;
+        }
+        case 4: {
+            objToSpawn = obj_enemy_air_light;
+            break;
+        }
+        case 5: {
+            objToSpawn = obj_enemy_air_heavy;
+            break;
+        }
     }
 }
 </string>

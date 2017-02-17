@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>rm_test</room>
+            <room>rm_level0</room>
           </argument>
         </arguments>
       </action>

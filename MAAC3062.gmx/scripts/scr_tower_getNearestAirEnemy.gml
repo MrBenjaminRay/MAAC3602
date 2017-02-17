@@ -7,11 +7,18 @@
  * @param 
  *        argument[0] = The range
  *
+ * @param argument[1]
+ *        The type of object to find.
+ *
  * @return
  *        The nearest enemy or noone if none exists.
  */
 var nearestEnemy = noone;
 var distance = 100000;
+
+if (is_undefined(argument[1])) {
+    argument[1] = obj_enemy;
+}
 
 for (i = 0 ; i < instance_number(obj_enemy) ; i++) {
     var tmpEnem = instance_find(obj_enemy, i);

@@ -7,7 +7,143 @@
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>attackRate = 128;
+attackRateCounter = 0;
+attackDamage = 5;
+attackRange = sprite_width/2;
+
+weaponXOffset = sprite_width/2;
+weaponYOffset = 32;
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+
+currShield = 400;
+currHealth = 100;
+
+maxShield = 400;
+maxHealth = 100;
+
+// Place weapon:
+
+if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
+    weaponObj.x = x + weaponXOffset;
+    weaponObj.y = y + weaponYOffset;
+    weaponObj.depth = depth - 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Override obj_entity's step event.</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+var nearestEnemy_any = scr_tower_getNearestNonFrozenEnemy(attackRange, obj_enemy);
+var nearestEnemy_heavy = scr_tower_getNearestNonFrozenEnemy(attackRange, obj_enemy_ground_heavy);
+var nearestEnemy = noone;
+
+if (nearestEnemy_heavy != noone) {
+    nearestEnemy = nearestEnemy_heavy;
+} else {
+    nearestEnemy = nearestEnemy_any;
+}
+
+if (nearestEnemy != noone) {
+    if (attackRateCounter &gt;= attackRate) {
+        attackRateCounter = 0;
+
+        // Spawn projectile:
+        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        scr_spawn_projectile(obj_projectile_freeze, projX, projY, nearestEnemy, false, attackDamage);
+        
+        // Show projectile spawn effect:
+        scr_create_explosion(projX, projY, 'Flash');
+        
+        // Rotate the cannon to point towards the enemy:
+        var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+        var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+        var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
+        weaponObj.image_angle = enemyDirection;
+    }
+}
+
+attackRateCounter += global.deltaTime;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
