@@ -28,13 +28,46 @@
             <string>spawnRate = 1280;                         // The amount of delta time between spawns.
 spawnRateCounter = 0;                     // The amount of delta time since the last spawn.
 
-spawnChangeRate = 25600;                  // The amount of delta time between switching enemies to spawn.
+spawnChangeRate = 5000;                  // The amount of delta time between switching enemies to spawn.
 spawnChangeRateCounter = spawnChangeRate; // The amount of delta time since the last spawn-type switch.
+spawnChanges = 0;                         // The number of spawn-type changes that have occurred. Used to determine the "stage"
+                                          // of the level which then is used to determine the spawn chances of light, med, and
+                                          // heavy enemies.
 
 numObjToSpawn = 0;                        // The number of objects to spawn.
 numObjSpawned = 0;                        // The number of objects spawned so-far.
 objToSpawn = noone;                       // The object to spawn.
+
+canSpawn = false;                         // Whether or not the spawner can spawn.
+
+alarm[0] = room_speed * irandom_range(1, 5);
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canSpawn</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
           </argument>
         </arguments>
       </action>
@@ -60,6 +93,10 @@ objToSpawn = noone;                       // The object to spawn.
     return 0;
 }
 
+if (canSpawn == false) {
+    return 0;
+}
+
 if (spawnRateCounter &lt; spawnRate) {
     spawnRateCounter += global.deltaTime;
 } else if (objToSpawn != noone) {
@@ -75,34 +112,51 @@ if (spawnChangeRateCounter &lt; spawnChangeRate) {
     spawnChangeRateCounter += global.deltaTime;
 } else {
     numObjSpawned = 0;
-    numObjToSpawn = irandom_range(2, 5);
+    numObjToSpawn = irandom_range(1, 1 + (spawnChanges % 15));
     spawnChangeRateCounter = 0;
+    spawnChanges++;
     
-    switch (irandom_range(0,5)) {
-        case 0: {
+    spawnRate = (1280 * ((spawnChanges % 15) / 3));
+    
+    // Determine the percentile, the chance of spawning a light/med/heavy enemy:
+    var spawnPercentile = irandom_range(0, 100);
+    
+    if (spawnChanges &lt; 15) {        // 15 Waves of enemies to reach the "early" part of a level
+        spawnPercentile += 10;
+    } else if (spawnChanges &lt; 30) { // 15 Waves of enemies to reach the "medium" part of a level
+        spawnPercentile += 20;
+    } else if (spawnChanges &lt; 45) { // 15 Waves of enemies to reach the "late" part of a level.
+        spawnPercentile += 30;
+    }
+    
+    // Spawn Light Enemies:
+    if (spawnPercentile &lt;= (50 - spawnChanges)) {
+        // Spawn either ground or air:
+        if (irandom_range(0, 1) == 0) {
             objToSpawn = obj_enemy_ground_light;
-            break;
-        }
-        case 1: {
-            objToSpawn = obj_enemy_ground_medium;
-            break;
-        }
-        case 2: {
-            objToSpawn = obj_enemy_ground_heavy;
-            break;
-        }
-        case 3: {
-            objToSpawn = obj_enemy_ground_jackal;
-            break;
-        }
-        case 4: {
+        } else {
             objToSpawn = obj_enemy_air_light;
-            break;
         }
-        case 5: {
+    }
+    
+    // Spawn Medium Enemies:
+    if (spawnPercentile &lt;= 85 &amp;&amp; spawnPercentile &gt; (50 - spawnChanges)) {
+        objToSpawn = obj_enemy_ground_medium;
+    }
+    
+    // Spawn Heavy Enemies:
+    if (spawnPercentile &lt;= (95 + spawnChanges) &amp;&amp; spawnPercentile &gt; 85) {
+        // Spawn either ground or air:
+        if (irandom_range(0, 1) == 0) {
+            objToSpawn = obj_enemy_ground_heavy;
+        } else {
             objToSpawn = obj_enemy_air_heavy;
-            break;
         }
+    }
+    
+    // Spawn Jackal Enemies:
+    if(spawnPercentile &lt;= (100 + spawnChanges) &amp;&amp; spawnPercentile &gt; (95 + spawnChanges)) {
+        objToSpawn = obj_enemy_ground_jackal;
     }
 }
 </string>

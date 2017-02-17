@@ -286,8 +286,6 @@ towerSpr = noone;
     // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
     tempY += 128 - sprite_get_height(towerSpr);
     
-    show_debug_message(tempX);
-    
     // Determine if the (x, y) location is valid:
     var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
