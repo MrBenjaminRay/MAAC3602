@@ -42,7 +42,7 @@
             <string>attackRate = 128;
 attackRateCounter = 0;
 attackDamage = 1;
-attackRange = sprite_width/3;
+attackRange = sprite_width/2;
 
 weaponXOffset = 0;
 weaponYOffset = 0;
@@ -108,7 +108,7 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
 }
 
 var nearestEnemy_any = scr_tower_getNearestEnemy(attackRange, obj_enemy);
-var nearestEnemy_ground = scr_tower_getNearestGroundEnemy(attackRange, obj_enemy);
+var nearestEnemy_ground = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground);
 var nearestEnemy = noone;
 
 if (nearestEnemy_ground != noone) {

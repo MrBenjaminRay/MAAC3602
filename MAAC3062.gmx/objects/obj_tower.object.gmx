@@ -65,7 +65,7 @@
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange, obj_enemy);
+var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground);
 
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {
