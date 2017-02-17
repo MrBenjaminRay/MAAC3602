@@ -197,6 +197,7 @@
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
+      <object>objects\obj_drop</object>
       <objects name="Player">
         <object>objects\obj_player</object>
       </objects>
@@ -263,6 +264,9 @@
         <object>objects\obj_weapon_ranged</object>
         <object>objects\obj_weapon_basic</object>
         <object>objects\obj_weapon_mortar</object>
+      </objects>
+      <objects name="Drops">
+        <object>objects\obj_drop_energy</object>
       </objects>
     </objects>
     <objects name="Tiles">
