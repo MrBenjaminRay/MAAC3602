@@ -55,13 +55,87 @@ maxShield = 800;
 maxHealth = 100;
 
 // Place weapon:
-
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
     weaponObj.depth = depth - 1;
 }
+
+// Tower Specific:
+roundsFired = 0;
+maxRoundsFired = 50;
+
+isReloading = false;
+
+continuousFire = false; //used to keep looping firing sound
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (instance_nearest(x, y, obj_player)) {
+    weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+}
+
+audio_stop_sound(snd_M6100_loop);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>isReloading</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
           </argument>
         </arguments>
       </action>
@@ -84,26 +158,6 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
           <argument>
             <kind>1</kind>
             <string>Overriding Parent Event</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>TODO - Custom Attk Code</string>
           </argument>
         </arguments>
       </action>
@@ -149,6 +203,107 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
     weaponObj.depth = depth -1 
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Projectile Firing</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (roundsFired == maxRoundsFired) {
+    roundsFired = 0;
+    isReloading = true;
+    alarm[0] = room_speed * 3;
+}
+
+
+if (attackRateCounter &lt; attackRate) {
+    attackRateCounter += global.deltaTime;
+}
+
+<<<<<<< HEAD
+
+=======
+show_debug_message(mouse_check_button(mb_left));
+>>>>>>> refs/remotes/origin/master
+
+if (mouse_check_button(mb_left)) {
+
+    var canFire = global.state != "Paused";
+    canFire &amp;= global.state != "Build";
+    canFire &amp;= global.state != "Destroy";
+    canFire &amp;= weaponObj != noone;
+    canFire &amp;= isReloading == false;
+    
+    if (canFire) {
+        if(!continuousFire){
+            continuousFire = true;
+            audio_play_sound(snd_M6100_loop, 0, true);
+            audio_sound_gain(snd_M6100_loop, 0.4, 0);
+        }
+        if (attackRateCounter &gt;= attackRate) {
+            roundsFired++;
+            //audio_play_sound(snd_playerGun, 0, false);
+        
+            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            
+            var projectile = instance_create(projX, projY, obj_projectile_normal);
+            projectile.xDest = mouse_x + irandom_range(-20, 20);
+            projectile.yDest = mouse_y + irandom_range(-10, 10);
+            projectile.damage = attackDamage;
+            projectile.isEnemyProjectile = false;
+            
+            scr_create_explosion(projX, projY, 'Flash');
+            
+            attackRateCounter = 0;
+        }
+    }
+}
+else {
+    continuousFire = false;
+    audio_stop_sound(snd_M6100_loop);
+    audio_play_sound(snd_M6100_end, 0, false);
+    audio_sound_gain(snd_M6100_end, 0.5, 0);
+}
+
 </string>
           </argument>
         </arguments>

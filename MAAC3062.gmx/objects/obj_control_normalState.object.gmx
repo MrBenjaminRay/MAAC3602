@@ -72,16 +72,18 @@ towers[3, 3] = spr_tower;
           <argument>
             <kind>1</kind>
             <string>if (global.state != "Paused") {
-    if (global.energy &gt;= global.towers[5, 1]) {
-        scr_state_clearControlObjects();
-    
-        var buildCont = instance_create(x, y, obj_control_buildState);
-        buildCont.tower = global.towers[5, 0];
-        buildCont.towerCost = global.towers[5, 1];
-        buildCont.towerObj = global.towers[5, 2];
-        buildCont.towerSpr = global.towers[5, 3];
+    if (instance_number(obj_tower_m6100) == 0) {
+        if (global.energy &gt;= global.towers[5, 1]) {
+            scr_state_clearControlObjects();
         
-        scr_state_setBuild();
+            var buildCont = instance_create(x, y, obj_control_buildState);
+            buildCont.tower = global.towers[5, 0];
+            buildCont.towerCost = global.towers[5, 1];
+            buildCont.towerObj = global.towers[5, 2];
+            buildCont.towerSpr = global.towers[5, 3];
+            
+            scr_state_setBuild();
+        }
     }
 }
 </string>

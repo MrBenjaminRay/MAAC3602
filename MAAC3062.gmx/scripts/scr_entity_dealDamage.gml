@@ -33,6 +33,14 @@ if (canContinue) {
     
     if (newHealth <= 0) {
         with (argument[0]) {
+
+            // Handle energy drops for enemies        
+            if object_is_ancestor(object_index, obj_enemy) {
+                var inst = instance_create(x, y, obj_drop_energy);
+                inst.value = energyDrop;
+            }
+
+            // Destroy the instance
             instance_destroy();
         }
     } else {

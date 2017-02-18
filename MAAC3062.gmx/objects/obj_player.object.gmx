@@ -54,6 +54,7 @@ alarm[0] = shieldRegenInterval;
 
 // Create and place weapon:
 attackDamage = 2;
+attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = 0;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
@@ -211,9 +212,39 @@ if (global.state != "Build") {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (weaponObj != noone) {
     if (attackRateCounter &lt; attackRate) {
         attackRateCounter += global.deltaTime;
+    }
+}
+
+if (mouse_check_button(mb_left)) {
+    var canFire = global.state != "Paused";
+    canFire &amp;= global.state != "Build";
+    canFire &amp;= global.state != "Destroy";
+    canFire &amp;= weaponObj != noone;
+    
+    if (canFire) {
+        if (attackRateCounter &gt;= attackRate) {
+            audio_play_sound(snd_playerGun, 0, false);
+        
+            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            
+            var projectile = instance_create(projX, projY, obj_projectile_normal);
+            projectile.xDest = mouse_x;
+            projectile.yDest = mouse_y;
+            projectile.damage = attackDamage;
+            projectile.isEnemyProjectile = false;
+            
+            scr_create_explosion(projX, projY, 'Flash');
+            
+            attackRateCounter = 0;
+        }
     }
 }
 </string>
@@ -262,50 +293,7 @@ if (global.state != "Build") {
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
     weaponObj.depth = depth -1 
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="53">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var canFire = global.state != "Paused";
-canFire &amp;= global.state != "Build";
-canFire &amp;= global.state != "Destroy";
 
-if (canFire) {
-    if (attackRateCounter &gt;= attackRate) {
-        audio_play_sound(snd_playerGun, 0, false);
-    
-        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        
-        var projectile = instance_create(projX, projY, obj_projectile_normal);
-        projectile.xDest = mouse_x;
-        projectile.yDest = mouse_y;
-        projectile.damage = attackDamage;
-        projectile.isEnemyProjectile = false;
-        
-        scr_create_explosion(projX, projY, 'Flash');
-        
-        attackRateCounter = 0;
-    }
-}
 </string>
           </argument>
         </arguments>
