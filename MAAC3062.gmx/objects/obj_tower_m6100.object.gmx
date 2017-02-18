@@ -3,7 +3,7 @@
   <spriteName>spr_tower</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 256;
+            <string>attackRate = 86;
 attackRateCounter = 0;
 attackDamage = 15;
 attackRange = 400;
@@ -58,7 +58,6 @@ maxHealth = 100;
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
-    weaponObj.depth = depth - 1;
 }
 
 // Tower Specific:
@@ -251,6 +250,10 @@ if (roundsFired == maxRoundsFired) {
     roundsFired = 0;
     isReloading = true;
     alarm[0] = room_speed * 3;
+    continuousFire = false;
+    audio_stop_sound(snd_M6100_loop);
+    audio_play_sound(snd_M6100_end, 0, false);
+    audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
 
 
@@ -274,6 +277,7 @@ if (mouse_check_button(mb_left)) {
             audio_play_sound(snd_M6100_loop, 0, true);
             audio_sound_gain(snd_M6100_loop, 0.4, 0);
         }
+        
         if (attackRateCounter &gt;= attackRate) {
             roundsFired++;
             //audio_play_sound(snd_playerGun, 0, false);
@@ -293,7 +297,7 @@ if (mouse_check_button(mb_left)) {
         }
     }
 }
-else {
+else if(continuousFire == true){
     continuousFire = false;
     audio_stop_sound(snd_M6100_loop);
     audio_play_sound(snd_M6100_end, 0, false);
