@@ -3,25 +3,23 @@
   <type>0</type>
   <xorig>0</xorig>
   <yorigin>0</yorigin>
-  <colkind>0</colkind>
+  <colkind>1</colkind>
   <coltolerance>0</coltolerance>
-  <sepmasks>-1</sepmasks>
+  <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>2</bbox_left>
-  <bbox_right>59</bbox_right>
-  <bbox_top>7</bbox_top>
-  <bbox_bottom>95</bbox_bottom>
+  <bbox_left>0</bbox_left>
+  <bbox_right>94</bbox_right>
+  <bbox_top>19</bbox_top>
+  <bbox_bottom>109</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>62</width>
-  <height>96</height>
+  <width>95</width>
+  <height>110</height>
   <frames>
-    <frame index="0">images\spr_medium_enemy_0.png</frame>
-    <frame index="1">images\spr_medium_enemy_1.png</frame>
-    <frame index="2">images\spr_medium_enemy_2.png</frame>
+    <frame index="0">images\spr_tower_slow_destroyed_0.png</frame>
   </frames>
 </sprite>

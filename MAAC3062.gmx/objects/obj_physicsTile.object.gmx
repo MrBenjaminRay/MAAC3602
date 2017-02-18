@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_physicsTile</spriteName>
   <solid>-1</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>10000</depth>
   <persistent>0</persistent>
   <parentName>object</parentName>
