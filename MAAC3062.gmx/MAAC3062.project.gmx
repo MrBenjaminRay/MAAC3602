@@ -30,6 +30,8 @@
       <sound>sound\snd_projectileHit_light</sound>
       <sound>sound\snd_projectileHit_medium</sound>
       <sound>sound\snd_projectileHit_heavy</sound>
+      <sound>sound\snd_energyPickup</sound>
+      <sound>sound\snd_towerDestroy</sound>
     </sounds>
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
