@@ -57,6 +57,9 @@ if (canContinue) {
                 case obj_enemy_ground_jackal:
                     audio_play_sound(snd_enemyDeath_light, 0, false); 
                     break;
+                default: //object is a tower
+                    audio_play_sound(snd_towerDestroy, 0.7, false); 
+                    break;
             }
 
             // Handle energy drops for enemies        

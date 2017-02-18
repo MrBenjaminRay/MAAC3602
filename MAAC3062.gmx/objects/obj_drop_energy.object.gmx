@@ -102,6 +102,8 @@ spriteRotateSpeed = .35;
             <kind>1</kind>
             <string>scr_energy_change(value);
 
+audio_play_sound(snd_energyPickup, 0, false);
+audio_sound_gain(snd_energyPickup, 0.6, 0);
 // Play some kind of cool sound
 
 // Do some kind of animation - something should pop or burst or twinkle
