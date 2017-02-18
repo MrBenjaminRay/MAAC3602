@@ -7,21 +7,22 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>7</bbox_left>
-  <bbox_right>56</bbox_right>
-  <bbox_top>1</bbox_top>
-  <bbox_bottom>95</bbox_bottom>
+  <bbox_left>5</bbox_left>
+  <bbox_right>104</bbox_right>
+  <bbox_top>2</bbox_top>
+  <bbox_bottom>86</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>58</width>
-  <height>96</height>
+  <width>106</width>
+  <height>90</height>
   <frames>
-    <frame index="0">images\spr_light_enemy_0.png</frame>
-    <frame index="1">images\spr_light_enemy_1.png</frame>
-    <frame index="2">images\spr_light_enemy_2.png</frame>
+    <frame index="0">images\spr_flying_light_0.png</frame>
+    <frame index="1">images\spr_flying_light_1.png</frame>
+    <frame index="2">images\spr_flying_light_2.png</frame>
+    <frame index="3">images\spr_flying_light_3.png</frame>
   </frames>
 </sprite>
