@@ -180,6 +180,7 @@
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
+    <script>scripts\scr_energy_change.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
@@ -197,7 +198,6 @@
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
-      <object>objects\obj_drop</object>
       <objects name="Player">
         <object>objects\obj_player</object>
       </objects>
@@ -266,6 +266,7 @@
         <object>objects\obj_weapon_mortar</object>
       </objects>
       <objects name="Drops">
+        <object>objects\obj_drop</object>
         <object>objects\obj_drop_energy</object>
       </objects>
     </objects>

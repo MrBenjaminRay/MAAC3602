@@ -254,7 +254,10 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
+
+
 if (mouse_check_button(mb_left)) {
+
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
     canFire &amp;= global.state != "Destroy";
@@ -281,6 +284,7 @@ if (mouse_check_button(mb_left)) {
         }
     }
 }
+
 </string>
           </argument>
         </arguments>

@@ -51,7 +51,7 @@ currHealth *= miners;               // The current health value times # of miner
 maxHealth *= miners;                // The maximum health value times # of miners.
 
 // Bring miners down to floor of mine
-minerYOffset = 23;
+minerYOffset = 1;
 
 // How much space between miners is based on how many miners
 // are supposed to fit in the mine.  Only consider middle 80%
