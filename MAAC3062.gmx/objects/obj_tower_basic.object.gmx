@@ -3,7 +3,7 @@
   <spriteName>spr_tower_basic</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -55,11 +55,9 @@ maxShield = 100;
 maxHealth = 100;
 
 // Place weapon:
-
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
-    weaponObj.depth = depth - 1;
 }
 </string>
           </argument>
