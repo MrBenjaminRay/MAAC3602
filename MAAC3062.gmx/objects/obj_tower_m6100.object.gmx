@@ -258,11 +258,7 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
-<<<<<<< HEAD
-
-=======
 show_debug_message(mouse_check_button(mb_left));
->>>>>>> refs/remotes/origin/master
 
 if (mouse_check_button(mb_left)) {
 
