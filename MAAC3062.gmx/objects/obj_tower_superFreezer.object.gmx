@@ -54,6 +54,9 @@ currHealth = 100;
 maxShield = 400;
 maxHealth = 100;
 
+continuousFire = false; // used to determine whether to start/stop the beam sound
+                        // and replay the start sound
+
 // Place weapon:
 
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
@@ -61,6 +64,29 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.y = y + weaponYOffset;
     weaponObj.depth = depth - 1;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_stop_sound(snd_superFreezer_beam);
 </string>
           </argument>
         </arguments>
@@ -118,6 +144,14 @@ if (nearestEnemy_heavy != noone) {
 }
 
 if (nearestEnemy != noone) {
+
+    if(!continuousFire){
+        continuousFire = true;
+        audio_play_sound(snd_superFreezer_start, 0, false);
+        audio_sound_gain(snd_superFreezer_start, 0.4, 0);
+        audio_play_sound(snd_superFreezer_beam, 0, true);
+    }
+
     if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
 
@@ -135,6 +169,10 @@ if (nearestEnemy != noone) {
         var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
         weaponObj.image_angle = enemyDirection;
     }
+}
+else {
+    continuousFire = false;
+    audio_stop_sound(snd_superFreezer_beam);
 }
 
 attackRateCounter += global.deltaTime;
