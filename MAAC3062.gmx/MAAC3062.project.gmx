@@ -6,25 +6,29 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Towers">
-      <sound>sound\snd_basicTowerShot</sound>
-      <sound>sound\snd_freezerStart</sound>
-      <sound>sound\snd_freezerBeam</sound>
-      <sound>sound\snd_mortarShot</sound>
+      <sound>sound\snd_basicTower</sound>
       <sound>sound\snd_mortarFlying</sound>
+      <sound>sound\snd_superFreezer_start</sound>
+      <sound>sound\snd_superFreezer_beam</sound>
+      <sound>sound\snd_109Cal</sound>
+      <sound>sound\snd_mortar</sound>
+      <sound>sound\snd_M6100_loop</sound>
+      <sound>sound\snd_M6100_end</sound>
     </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
-      <sound>sound\snd_playerDeath</sound>
       <sound>sound\snd_playerHit</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_enemyDeath_heavy</sound>
       <sound>sound\snd_enemyDeath_light</sound>
       <sound>sound\snd_enemyDeath_medium</sound>
-      <sound>sound\snd_enemyDeath</sound>
     </sounds>
     <sounds name="Game">
       <sound>sound\snd_build</sound>
+      <sound>sound\snd_projectileHit_light</sound>
+      <sound>sound\snd_projectileHit_medium</sound>
+      <sound>sound\snd_projectileHit_heavy</sound>
     </sounds>
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
@@ -127,6 +131,7 @@
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
     </sprites>
+    <sprite>sprites\spr_109CalPlaceholder</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">

@@ -66,6 +66,8 @@ roundsFired = 0;
 maxRoundsFired = 50;
 
 isReloading = false;
+
+continuousFire = false; //used to keep looping firing sound
 </string>
           </argument>
         </arguments>
@@ -105,6 +107,8 @@ isReloading = false;
             <string>with (instance_nearest(x, y, obj_player)) {
     weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
 }
+
+audio_stop_sound(snd_M6100_loop);
 </string>
           </argument>
         </arguments>
@@ -254,7 +258,11 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
+<<<<<<< HEAD
 
+=======
+show_debug_message(mouse_check_button(mb_left));
+>>>>>>> refs/remotes/origin/master
 
 if (mouse_check_button(mb_left)) {
 
@@ -265,9 +273,14 @@ if (mouse_check_button(mb_left)) {
     canFire &amp;= isReloading == false;
     
     if (canFire) {
+        if(!continuousFire){
+            continuousFire = true;
+            audio_play_sound(snd_M6100_loop, 0, true);
+            audio_sound_gain(snd_M6100_loop, 0.4, 0);
+        }
         if (attackRateCounter &gt;= attackRate) {
             roundsFired++;
-            audio_play_sound(snd_playerGun, 0, false);
+            //audio_play_sound(snd_playerGun, 0, false);
         
             var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
             var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
@@ -283,6 +296,12 @@ if (mouse_check_button(mb_left)) {
             attackRateCounter = 0;
         }
     }
+}
+else {
+    continuousFire = false;
+    audio_stop_sound(snd_M6100_loop);
+    audio_play_sound(snd_M6100_end, 0, false);
+    audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
 
 </string>
