@@ -293,6 +293,7 @@ if (mouse_check_button(mb_left)) {
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
     weaponObj.depth = depth -1 
 }
+
 </string>
           </argument>
         </arguments>

@@ -48,6 +48,7 @@
             <string>damage = 10;                // The amount of damage dealt by the projectile.
 movementSpeed = 6;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
+projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 </string>
           </argument>
         </arguments>
@@ -147,6 +148,22 @@ isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
     scr_entity_dealDamage(other, damage);
     instance_destroy();
     scr_create_explosion(x, y, "Normal");
+    
+    if(object_index == obj_projectile_normal)
+    {
+        audio_play_sound(snd_projectileHit_light, 0, false);
+        audio_sound_gain(snd_projectileHit_light, projectileHitGain, 0);
+    }
+    else if(object_index == obj_projectile_109Cal)
+    {
+        audio_play_sound(snd_projectileHit_medium, 0, false);
+        audio_sound_gain(snd_projectileHit_medium, projectileHitGain, 0);
+    }
+    else if(object_index == obj_projectile_mortar)
+    {
+        audio_play_sound(snd_projectileHit_heavy, 0, false);
+        audio_sound_gain(snd_projectileHit_heavy, projectileHitGain, 0);
+    }
 }
 </string>
           </argument>

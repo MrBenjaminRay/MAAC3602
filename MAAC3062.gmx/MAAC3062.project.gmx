@@ -6,25 +6,30 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Towers">
-      <sound>sound\snd_basicTowerShot</sound>
-      <sound>sound\snd_freezerStart</sound>
-      <sound>sound\snd_freezerBeam</sound>
-      <sound>sound\snd_mortarShot</sound>
+      <sound>sound\snd_basicTower</sound>
       <sound>sound\snd_mortarFlying</sound>
+      <sound>sound\snd_superFreezer_start</sound>
+      <sound>sound\snd_superFreezer_beam</sound>
+      <sound>sound\snd_109Cal</sound>
+      <sound>sound\snd_mortar</sound>
+      <sound>sound\snd_M6100_loop</sound>
+      <sound>sound\snd_M6100_end</sound>
     </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
-      <sound>sound\snd_playerDeath</sound>
       <sound>sound\snd_playerHit</sound>
+      <sound>sound\snd_playerDeath</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_enemyDeath_heavy</sound>
       <sound>sound\snd_enemyDeath_light</sound>
       <sound>sound\snd_enemyDeath_medium</sound>
-      <sound>sound\snd_enemyDeath</sound>
     </sounds>
     <sounds name="Game">
       <sound>sound\snd_build</sound>
+      <sound>sound\snd_projectileHit_light</sound>
+      <sound>sound\snd_projectileHit_medium</sound>
+      <sound>sound\snd_projectileHit_heavy</sound>
     </sounds>
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
@@ -57,17 +62,33 @@
         <sprite>sprites\spr_light_enemy</sprite>
         <sprite>sprites\spr_medium_enemy</sprite>
         <sprite>sprites\spr_heavy_enemy</sprite>
+        <sprite>sprites\spr_flying_light</sprite>
+        <sprite>sprites\spr_flying_heavy</sprite>
+        <sprite>sprites\spr_jackle</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
         <sprite>sprites\spr_tower_tacticalMoartar</sprite>
+        <sprite>sprites\spr_tower_3600</sprite>
+        <sprite>sprites\spr_tower_flamethrower</sprite>
+        <sprite>sprites\spr_tower_rifle</sprite>
+        <sprite>sprites\spr_tower_3600_destroyed</sprite>
+        <sprite>sprites\spr_tower_basic_destroyed</sprite>
+        <sprite>sprites\spr_tower_mortar_destroyed</sprite>
+        <sprite>sprites\spr_tower_slow_destroyed</sprite>
+        <sprite>sprites\spr_tower_flamethrower_destroyed</sprite>
+        <sprite>sprites\spr_tower_rifle_destroyed</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
         <sprite>sprites\spr_basic_projectile</sprite>
         <sprite>sprites\spr_mortar_projectile</sprite>
+        <sprite>sprites\spr_slow_projectile</sprite>
+        <sprite>sprites\spr_rifle_projectile</sprite>
+        <sprite>sprites\spr_flamethrower_projectile</sprite>
+        <sprite>sprites\spr_3600_projectile</sprite>
       </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
@@ -94,6 +115,10 @@
         <sprite>sprites\spr_weapon_ranged_test</sprite>
         <sprite>sprites\spr_weapon_basic</sprite>
         <sprite>sprites\spr_weapon_mortar</sprite>
+        <sprite>sprites\spr_weapon_3600</sprite>
+        <sprite>sprites\spr_weapon_slow</sprite>
+        <sprite>sprites\spr_weapon_rifle</sprite>
+        <sprite>sprites\spr_weapon_flamethrower</sprite>
       </sprites>
     </sprites>
     <sprites name="Tiles">
@@ -127,6 +152,7 @@
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
     </sprites>
+    <sprite>sprites\spr_109CalPlaceholder</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -143,6 +169,12 @@
       <background>background\bkg_forest_0</background>
       <background>background\bkg_forest_1</background>
       <background>background\bkg_forest_front</background>
+    </backgrounds>
+    <backgrounds name="DesertBackgrounds">
+      <background>background\bkg_desert_0</background>
+      <background>background\bkg_desert_1</background>
+      <background>background\bkg_desert3</background>
+      <background>background\bkg_desert_front</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -180,6 +212,7 @@
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
+    <script>scripts\scr_energy_change.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
@@ -264,6 +297,10 @@
         <object>objects\obj_weapon_basic</object>
         <object>objects\obj_weapon_mortar</object>
       </objects>
+      <objects name="Drops">
+        <object>objects\obj_drop</object>
+        <object>objects\obj_drop_energy</object>
+      </objects>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
@@ -289,11 +326,11 @@
   <rooms name="rooms">
     <room>rooms\rm_test</room>
     <room>rooms\rm_menu</room>
-    <room>rooms\rm_level2</room>
-    <room>rooms\rm_level0</room>
+    <room>rooms\rm_level_moon</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
-    <room>rooms\rm_level1</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_level_desert</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
