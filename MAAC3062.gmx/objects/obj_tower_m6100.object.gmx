@@ -258,9 +258,14 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
+<<<<<<< HEAD
+
+=======
 show_debug_message(mouse_check_button(mb_left));
+>>>>>>> refs/remotes/origin/master
 
 if (mouse_check_button(mb_left)) {
+
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
     canFire &amp;= global.state != "Destroy";
@@ -298,6 +303,7 @@ else {
     audio_play_sound(snd_M6100_end, 0, false);
     audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
+
 </string>
           </argument>
         </arguments>
