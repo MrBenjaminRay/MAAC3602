@@ -51,7 +51,7 @@ currHealth *= miners;               // The current health value times # of miner
 maxHealth *= miners;                // The maximum health value times # of miners.
 
 // Bring miners down to floor of mine
-minerYOffset = 23;
+minerYOffset = 1;
 
 // How much space between miners is based on how many miners
 // are supposed to fit in the mine.  Only consider middle 80%
@@ -134,7 +134,6 @@ repeat(miners) {
   if (instance_exists(arrMiners[i])) {
     // Miner instance still exists, so destroy it
     with (arrMiners[i]) {
-      show_debug_message('cleaning up ' + string(id));
       instance_destroy();
     }
   }
@@ -178,7 +177,6 @@ for (var i=minersAlive; i&lt;miners; i++) {
   // If instance exists, destroy it
   if (instance_exists(arrMiners[i])) {
     with (arrMiners[i]) {
-      show_debug_message('destroying ' + string(id));
       instance_destroy();
     }
   }

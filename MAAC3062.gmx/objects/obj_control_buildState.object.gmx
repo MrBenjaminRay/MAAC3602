@@ -52,11 +52,13 @@ towerSpr = noone;
           <argument>
             <kind>1</kind>
             <string>if (global.state != "Paused") {
-    if (global.energy &gt;= global.towers[5, 1]) {
-        tower = global.towers[5, 0];
-        towerCost = global.towers[5, 1];
-        towerObj = global.towers[5, 2];
-        towerSpr = global.towers[5, 3];
+    if (instance_number(obj_tower_m6100) == 0) {
+        if (global.energy &gt;= global.towers[5, 1]) {
+            tower = global.towers[5, 0];
+            towerCost = global.towers[5, 1];
+            towerObj = global.towers[5, 2];
+            towerSpr = global.towers[5, 3];
+        }
     }
 }
 </string>
@@ -284,12 +286,17 @@ towerSpr = noone;
     var tempY = mouse_y - (mouse_y % 32);
     
     // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
-    tempY += 128 - sprite_get_height(towerSpr)
+    tempY += 128 - sprite_get_height(towerSpr);
     
     // Determine if the (x, y) location is valid:
     var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
+    
+    if (tower == "M-6100") {
+        var player = instance_nearest(x, y, obj_player);
+        isLocationValid &amp;= point_distance(player.x, player.y, mouse_x, mouse_y) &lt;= 128;
+    }
     
     if (isLocationValid) {
         instance_create(tempX, tempY, towerObj);
@@ -299,6 +306,18 @@ towerSpr = noone;
         audio_play_sound(snd_build, 0, false);
         
         scr_state_setNormal();
+        
+        
+        // Special Case, M-6100 Tower:
+        if (tower == "M-6100") {
+            with(instance_nearest(x, y, obj_player)) {
+                with (weaponObj) {
+                    instance_destroy();
+                }
+                
+                weaponObj = noone;
+            }
+        }
     }
 }
 </string>
@@ -331,12 +350,17 @@ towerSpr = noone;
     var tempY = mouse_y - (mouse_y % 32);
     
     // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
-    tempY += 128 - sprite_get_height(towerSpr)
+    tempY += 128 - sprite_get_height(towerSpr);
     
     // Determine if the (x, y) location is valid:
     var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
     isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
+    
+    if (tower == "M-6100") {
+        var player = instance_nearest(x, y, obj_player);
+        isLocationValid &amp;= point_distance(player.x, player.y, mouse_x, mouse_y) &lt;= 128;
+    }
     
     // Draw Sprites:
     draw_sprite(towerSpr, 0, tempX, tempY);
