@@ -3,7 +3,7 @@
   <spriteName>spr_weapon_ranged_test</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>40</depth>
   <persistent>0</persistent>
   <parentName>object</parentName>
   <maskName>&lt;undefined&gt;</maskName>

@@ -39,5 +39,4 @@ if (canSpawn) {
     projectile.yDest = argument[3].y + (argument[3].sprite_height/2);
     projectile.isEnemyProjectile = argument[4];
     projectile.damage = argument[5];
-    projectile.depth = depth - 1;
 }
