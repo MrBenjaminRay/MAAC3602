@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 256;
+            <string>attackRate = 86;
 attackRateCounter = 0;
 attackDamage = 15;
 attackRange = 400;
@@ -251,6 +251,10 @@ if (roundsFired == maxRoundsFired) {
     roundsFired = 0;
     isReloading = true;
     alarm[0] = room_speed * 3;
+    continuousFire = false;
+    audio_stop_sound(snd_M6100_loop);
+    audio_play_sound(snd_M6100_end, 0, false);
+    audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
 
 
@@ -274,6 +278,7 @@ if (mouse_check_button(mb_left)) {
             audio_play_sound(snd_M6100_loop, 0, true);
             audio_sound_gain(snd_M6100_loop, 0.4, 0);
         }
+        
         if (attackRateCounter &gt;= attackRate) {
             roundsFired++;
             //audio_play_sound(snd_playerGun, 0, false);
@@ -293,7 +298,7 @@ if (mouse_check_button(mb_left)) {
         }
     }
 }
-else {
+else if(continuousFire == true){
     continuousFire = false;
     audio_stop_sound(snd_M6100_loop);
     audio_play_sound(snd_M6100_end, 0, false);

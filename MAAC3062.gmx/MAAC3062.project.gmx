@@ -18,6 +18,7 @@
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
       <sound>sound\snd_playerHit</sound>
+      <sound>sound\snd_playerDeath</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_enemyDeath_heavy</sound>
