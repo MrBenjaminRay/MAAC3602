@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_particle_emitter_instant</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -44,7 +44,7 @@
 particleType = obj_particle_energy_pickup_effect;
 particleScale = 1;
 maxImageAlpha = 1; 
-particleCount = 5; // Move this to the script that creates, and base it on amount of energy stored
+particleCount = 0; // Move this to the script that creates, and base it on amount of energy stored
 
 </string>
           </argument>
