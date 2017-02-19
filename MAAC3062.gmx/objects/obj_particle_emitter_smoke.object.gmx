@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>objType = obj_particle_smoke;
+            <string>particleType = obj_particle_smoke;
 timeBetweenEmissions = 10;
 maxImageAlpha = .5;
 </string>
