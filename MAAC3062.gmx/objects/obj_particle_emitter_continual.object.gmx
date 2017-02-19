@@ -5,24 +5,10 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_particle_emitter_continual</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -39,9 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>objType = obj_particle_smoke;
-timeBetweenEmissions = 10;
-maxImageAlpha = .5;
+            <string>timeBetweenEmissions = 0; // This should be set by each inheriting class
+timeToNextEmission = 0;
+particleScale = 1; // x/y scale of particles to be emitted. 1 = default. Override for smaller.
+
+// Emitter MUST have a parent object instance. When the parent object instance is destroyed,
+// the emitter destroys itself. Particles already self-destruct.
+parentObject = noone;
+
+maxImageAlpha = 1; // To be overridden by inheriting objects as needed.
+
+particleType = noone; // Type of particle. MUST be overridden by inheriting objects.
+
 </string>
           </argument>
         </arguments>
@@ -50,20 +45,6 @@ maxImageAlpha = .5;
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -78,7 +59,35 @@ maxImageAlpha = .5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (!instance_exists(parentObject)) {
+    // Parent object instance has been destroyed, so this emitter must also go
+    instance_destroy();
+    return 0;
+}
+
+// Emitter location always same as parent object (the thing that appears to be emitting)
+x = parentObject.x;
+y = parentObject.y;
+
+if (timeToNextEmission &lt;= 0) {
+    // Emit
+    var inst = instance_create(x, y, particleType);
+
+    // Set scale
+    inst.image_xscale = particleScale;
+    inst.image_yscale = particleScale;
+    
+    // Set image alpha values
+    inst.maxImageAlpha = maxImageAlpha;
+    
+    // Reset variable
+    timeToNextEmission = timeBetweenEmissions;
+} else {
+    // Decrease by delta time
+    timeToNextEmission -= global.deltaTime;
+}
+
+</string>
           </argument>
         </arguments>
       </action>
