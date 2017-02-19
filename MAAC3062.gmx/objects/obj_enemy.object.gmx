@@ -44,6 +44,8 @@
 //  "Air"
 type = "Ground";
 
+image_speed = .125;
+
 attackRate = 240;
 attackRange = sprite_width/4;
 
