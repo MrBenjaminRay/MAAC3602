@@ -20,6 +20,6 @@
   <width>766</width>
   <height>405</height>
   <frames>
-    <frame index="0">images\spr__messageBox_0.png</frame>
+    <frame index="0">images\spr_messageBox_0.png</frame>
   </frames>
 </sprite>
