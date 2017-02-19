@@ -46,10 +46,14 @@
       <sprite>sprites\spr_mainMenu</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
-      <sprite>sprites\spr_fuelText</sprite>
-      <sprite>sprites\spr__messageBox</sprite>
-      <sprite>sprites\spr_credits1</sprite>
-      <sprite>sprites\spr_credits2</sprite>
+      <sprites name="Messages">
+        <sprite>sprites\spr_messageBoxAnim</sprite>
+        <sprite>sprites\spr_messageBox</sprite>
+        <sprite>sprites\spr_credits1</sprite>
+        <sprite>sprites\spr_credits2</sprite>
+        <sprite>sprites\spr_fuelText</sprite>
+        <sprite>sprites\spr_message_refuel</sprite>
+      </sprites>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -235,6 +239,8 @@
       <object>objects\obj_leftArrow</object>
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
+      <object>objects\obj_messageBoxAnim</object>
+      <object>objects\obj_message_refuel</object>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -336,11 +342,11 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
+    <room>rooms\rm_level_forest</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_level_moon</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
-    <room>rooms\rm_level_forest</room>
     <room>rooms\rm_level_desert</room>
   </rooms>
   <help>
