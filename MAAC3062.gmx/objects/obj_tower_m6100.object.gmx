@@ -261,8 +261,6 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
-show_debug_message(mouse_check_button(mb_left));
-
 if (mouse_check_button(mb_left)) {
 
     var canFire = global.state != "Paused";
