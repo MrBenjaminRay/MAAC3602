@@ -103,11 +103,11 @@
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
-        <sprite>sprites\spr_minerals</sprite>
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_pickup_effect</sprite>
+        <sprite>sprites\spr_particle_energy_pickup_effect_animated</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
@@ -158,6 +158,7 @@
       <sprite>sprites\spr_ship</sprite>
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
+      <sprite>sprites\spr_minerals</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
   </sprites>
@@ -224,6 +225,10 @@
   <objects name="objects">
     <object>objects\object</object>
     <object>objects\obj_spawner</object>
+    <objects name="UI_HUD">
+      <object>objects\obj_level_energy</object>
+      <object>objects\obj_level_minerals</object>
+    </objects>
     <objects name="UI_Menus">
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
@@ -289,13 +294,13 @@
         <object>objects\obj_particle_emitter_instant</object>
         <object>objects\obj_particle_emitter_smoke</object>
         <object>objects\obj_particle_emitter_flame</object>
-        <object>objects\obj_particle_emitter_energy_pickup_effect</object>
+        <object>objects\obj_particle_emitter_energy_orb</object>
       </objects>
       <objects name="Particle">
         <object>objects\obj_particle</object>
         <object>objects\obj_particle_smoke</object>
         <object>objects\obj_particle_flame</object>
-        <object>objects\obj_particle_energy_pickup_effect</object>
+        <object>objects\obj_particle_energy_orb</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
