@@ -8,18 +8,18 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>94</bbox_right>
-  <bbox_top>19</bbox_top>
-  <bbox_bottom>109</bbox_bottom>
+  <bbox_right>13</bbox_right>
+  <bbox_top>0</bbox_top>
+  <bbox_bottom>63</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>95</width>
-  <height>110</height>
+  <width>14</width>
+  <height>64</height>
   <frames>
-    <frame index="0">images\spr_tower_slow_destroyed_0.png</frame>
+    <frame index="0">images\spr_weapon_m6100_0.png</frame>
   </frames>
 </sprite>
