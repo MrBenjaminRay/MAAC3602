@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>fuel = 10;
+fuelTarget = 100;
 </string>
           </argument>
         </arguments>
