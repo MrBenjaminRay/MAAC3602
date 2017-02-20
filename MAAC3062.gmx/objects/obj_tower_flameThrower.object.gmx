@@ -44,9 +44,9 @@ attackRateCounter = 0;
 attackDamage = 1;
 attackRange = sprite_width/2;
 
-weaponXOffset = 0;
+weaponXOffset = sprite_width/2;
 weaponYOffset = 0;
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_flamethrower);
 
 currShield = 400;
 currHealth = 100;
@@ -153,7 +153,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_flame, projX, projY, nearestEnemy, false, attackDamage);
         
         // Show projectile spawn effect:
         scr_create_explosion(projX, projY, 'Flash');
