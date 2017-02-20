@@ -51,6 +51,7 @@
         <sprite>sprites\spr_messageBoxAnim</sprite>
         <sprite>sprites\spr_messageBox</sprite>
         <sprite>sprites\spr_credits1</sprite>
+        <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_message_refuel</sprite>
@@ -249,6 +250,7 @@
       <object>objects\obj_leftArrow</object>
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
+      <object>objects\obj_credits3</object>
       <object>objects\obj_messageBoxAnim</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
@@ -365,15 +367,16 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
-    <room>rooms\rm_level_moon</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_hub</room>
+    <room>rooms\rm_level_moon</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_level_desert</room>
     <room>rooms\rm_level_forest</room>
     <room>rooms\rm_cinematic</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
+    <room>rooms\rm_credits3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
