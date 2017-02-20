@@ -146,8 +146,8 @@ projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
             <kind>1</kind>
             <string>if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
+    scr_create_explosion(x, y, "SmallHit");
     instance_destroy();
-    scr_create_explosion(x, y, "Normal");
     
     if(object_index == obj_projectile_normal)
     {
@@ -189,8 +189,8 @@ projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
             <kind>1</kind>
             <string>if (isEnemyProjectile) {
     scr_entity_dealDamage(other, damage);
-    instance_destroy();
     scr_create_explosion(x, y, "SmallHit");
+    instance_destroy();
 }
 </string>
           </argument>

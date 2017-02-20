@@ -25,13 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = 0.75;
-image_yscale = image_xscale;
-levelFinish = 0;
-messageXPos = x - 207;
-messageYPos = y - 278
-
-</string>
+            <string>fuel = 10;
+			fuelTarget = 100;
+			image_xscale = 0.75;
+			image_yscale = image_xscale;
+			levelFinish = 0;
+			messageXPos = x - 207;
+			messageYPos = y - 278
+		</string>
           </argument>
         </arguments>
       </action>

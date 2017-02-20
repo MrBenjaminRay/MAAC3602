@@ -65,23 +65,24 @@ global.towers[1, 3] = spr_tower_superFreezer;
 
 global.towers[2, 0] = "Tactical Moartar";
 global.towers[2, 1] = 500;
-global.towers[2, 2] = obj_tower_tacticalMoartar;
-global.towers[2, 3] = spr_tower_tacticalMoartar;
+global.towers[2, 2] = obj_tower_tacticalMortar;
+global.towers[2, 3] = spr_tower_tacticalMortar;
 
 global.towers[3, 0] = "109 Cal Rifle";
 global.towers[3, 1] = 500;
 global.towers[3, 2] = obj_tower_109CalRifle;
-global.towers[3, 3] = spr_tower;
+global.towers[3, 3] = spr_tower_rifle;
 
 global.towers[4, 0] = "Flame Thrower";
 global.towers[4, 1] = 500;
 global.towers[4, 2] = obj_tower_flameThrower;
-global.towers[4, 3] = spr_tower;
+global.towers[4, 3] = spr_tower_flamethrower;
 
 global.towers[5, 0] = "M-6100";
 global.towers[5, 1] = 2000;
 global.towers[5, 2] = obj_tower_m6100;
-global.towers[5, 3] = spr_tower;
+global.towers[5, 3] = spr_tower_m6100;
+
 </string>
           </argument>
         </arguments>

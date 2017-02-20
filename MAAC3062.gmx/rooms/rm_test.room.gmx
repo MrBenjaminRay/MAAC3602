@@ -235,9 +235,6 @@
     <instance objName="obj_physicsTile" x="1664" y="736" name="inst_22159933" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1696" y="736" name="inst_9049ADAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine" x="352" y="256" name="inst_8E946B77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_109CalRifle" x="608" y="352" name="inst_5A578EE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_flameThrower" x="832" y="352" name="inst_B23C7960" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_m6100" x="480" y="224" name="inst_640674AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_level_energy" x="32" y="64" name="inst_83599B7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_level_minerals" x="32" y="32" name="inst_48F55723" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine" x="1184" y="384" name="inst_0111900A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
