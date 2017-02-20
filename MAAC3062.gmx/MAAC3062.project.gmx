@@ -44,6 +44,7 @@
       <sprite>sprites\spr_credits</sprite>
       <sprite>sprites\spr_back</sprite>
       <sprite>sprites\spr_mainMenu</sprite>
+      <sprite>sprites\spr_OK</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
       <sprites name="Messages">
@@ -57,6 +58,10 @@
         <sprite>sprites\spr_message_minerKilled</sprite>
         <sprite>sprites\spr_message_towerDestroyed</sprite>
       </sprites>
+      <sprite>sprites\spr_hubMockupBG</sprite>
+      <sprite>sprites\spr_moonButton</sprite>
+      <sprite>sprites\spr_forestButton</sprite>
+      <sprite>sprites\spr_desertButton</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -238,6 +243,7 @@
       <object>objects\obj_mainMenu</object>
       <object>objects\obj_back</object>
       <object>objects\obj_credits</object>
+      <object>objects\obj_OK</object>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_rightArrow</object>
       <object>objects\obj_leftArrow</object>
@@ -246,12 +252,18 @@
       <object>objects\obj_messageBoxAnim</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
+        <object>objects\obj_confirmMessage</object>
         <object>objects\obj_briefPopupMessage</object>
         <object>objects\obj_message_minerKilled</object>
         <object>objects\obj_message_towerDestroyed</object>
         <object>objects\obj_message_refuel</object>
         <object>objects\obj_message_escape</object>
       </objects>
+      <object>objects\obj_hubMockupBG</object>
+      <object>objects\obj_planetButton</object>
+      <object>objects\obj_moonButton</object>
+      <object>objects\obj_forestButton</object>
+      <object>objects\obj_desertButton</object>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -358,12 +370,14 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test</room>
+    <room>rooms\rm_init</room>
     <room>rooms\rm_level_moon</room>
-    <room>rooms\rm_level_forest</room>
-    <room>rooms\rm_level_desert</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_hub</room>
+    <room>rooms\rm_test</room>
+    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_cinematic</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
   </rooms>
