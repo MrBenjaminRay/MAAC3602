@@ -37,6 +37,7 @@ if (canContinue) {
             switch(argument[0].object_index){
                 case obj_player:
                     audio_play_sound(snd_playerDeath, 0, false);
+                    game_end();
                     break;
                 case obj_enemy_air_light:
                     scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Small');
