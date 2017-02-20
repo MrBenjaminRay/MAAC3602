@@ -399,6 +399,17 @@ if(xKeyHeld = 1)
 if(xKeyHeldCounter == 90) {
     if(global.fuel &gt;= 100) {
         global.currentLevelComplete = 1;
+        switch(room) {
+            case rm_level_moon:
+                global.moonLevelComplete = 1;
+                break;
+            case rm_level_forest:
+                global.forestLevelComplete = 1;
+                break;
+            case rm_level_desert:
+                global.desertLevelComplete = 1;
+                break;
+        }
         instance_destroy();
     }
 }
