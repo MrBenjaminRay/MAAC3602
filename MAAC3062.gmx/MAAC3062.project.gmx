@@ -343,7 +343,11 @@
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
         <object>objects\obj_weapon_basic</object>
+        <object>objects\obj_weapon_m6100</object>
+        <object>objects\obj_weapon_flamethrower</object>
         <object>objects\obj_weapon_mortar</object>
+        <object>objects\obj_weapon_freeze</object>
+        <object>objects\obj_weapon_109CalRifle</object>
       </objects>
       <objects name="Drops">
         <object>objects\obj_drop</object>
@@ -373,12 +377,12 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
-    <room>rooms\rm_menu</room>
-    <room>rooms\rm_hub</room>
     <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_level_forest</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_level_desert</room>
-    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_hub</room>
     <room>rooms\rm_cinematic</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
