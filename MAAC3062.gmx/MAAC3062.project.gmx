@@ -53,6 +53,9 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_message_refuel</sprite>
+        <sprite>sprites\spr_message_escape</sprite>
+        <sprite>sprites\spr_message_minerKilled</sprite>
+        <sprite>sprites\spr_message_towerDestroyed</sprite>
       </sprites>
     </sprites>
     <sprites name="Entities">
@@ -221,6 +224,7 @@
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
+    <script>scripts\scr_fuel_change.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
@@ -240,7 +244,14 @@
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
       <object>objects\obj_messageBoxAnim</object>
-      <object>objects\obj_message_refuel</object>
+      <objects name="Messages">
+        <object>objects\obj_distanceMessage</object>
+        <object>objects\obj_briefPopupMessage</object>
+        <object>objects\obj_message_minerKilled</object>
+        <object>objects\obj_message_towerDestroyed</object>
+        <object>objects\obj_message_refuel</object>
+        <object>objects\obj_message_escape</object>
+      </objects>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -342,12 +353,13 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
+    <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_level_desert</room>
     <room>rooms\rm_level_forest</room>
     <room>rooms\rm_menu</room>
-    <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_hub</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
-    <room>rooms\rm_level_desert</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

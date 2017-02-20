@@ -57,9 +57,10 @@ if (canContinue) {
                 case obj_enemy_ground_jackal:
                     audio_play_sound(snd_enemyDeath_light, 0, false); 
                     break;
-                default: //object is a tower
-                    audio_play_sound(snd_towerDestroy, 0.7, false); 
-                    break;
+            }
+            if object_is_ancestor(object_index, obj_tower) {
+                instance_create(x-100, y-100, obj_message_towerDestroyed);
+                audio_play_sound(snd_towerDestroy, 0.7, false); 
             }
 
             // Handle energy drops for enemies        
