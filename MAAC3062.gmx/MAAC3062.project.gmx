@@ -348,12 +348,12 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
-    <room>rooms\rm_level_forest</room>
-    <room>rooms\rm_menu</room>
     <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
-    <room>rooms\rm_level_desert</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

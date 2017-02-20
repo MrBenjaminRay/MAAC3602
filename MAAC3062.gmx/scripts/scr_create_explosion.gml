@@ -18,6 +18,11 @@ if (argument2 == 'Sparky') {
     inst.image_speed = 0.2;
     inst.image_xscale = 1;
     inst.image_yscale = 1;
+} else if (argument2 == 'Tower') {
+    var inst = instance_create(argument0, argument1, obj_explosion_normal);
+    inst.image_speed = 0.25;
+    inst.image_xscale = 1;
+    inst.image_yscale = 1;
 } else if (argument2 == 'Normal') {
     var inst = instance_create(argument0, argument1, obj_explosion_normal);
     inst.image_speed = 0.5;

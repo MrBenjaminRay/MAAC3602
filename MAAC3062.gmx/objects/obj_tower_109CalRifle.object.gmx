@@ -83,6 +83,7 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
           <argument>
             <kind>1</kind>
             <string>instance_create(x, y, obj_tower_destroyed_109CalRifle);
+scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
 </string>
           </argument>
         </arguments>
