@@ -6,25 +6,32 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Towers">
-      <sound>sound\snd_basicTowerShot</sound>
-      <sound>sound\snd_freezerStart</sound>
-      <sound>sound\snd_freezerBeam</sound>
-      <sound>sound\snd_mortarShot</sound>
+      <sound>sound\snd_basicTower</sound>
       <sound>sound\snd_mortarFlying</sound>
+      <sound>sound\snd_superFreezer_start</sound>
+      <sound>sound\snd_superFreezer_beam</sound>
+      <sound>sound\snd_109Cal</sound>
+      <sound>sound\snd_mortar</sound>
+      <sound>sound\snd_M6100_loop</sound>
+      <sound>sound\snd_M6100_end</sound>
     </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
-      <sound>sound\snd_playerDeath</sound>
       <sound>sound\snd_playerHit</sound>
+      <sound>sound\snd_playerDeath</sound>
     </sounds>
     <sounds name="Enemy">
       <sound>sound\snd_enemyDeath_heavy</sound>
       <sound>sound\snd_enemyDeath_light</sound>
       <sound>sound\snd_enemyDeath_medium</sound>
-      <sound>sound\snd_enemyDeath</sound>
     </sounds>
     <sounds name="Game">
       <sound>sound\snd_build</sound>
+      <sound>sound\snd_projectileHit_light</sound>
+      <sound>sound\snd_projectileHit_medium</sound>
+      <sound>sound\snd_projectileHit_heavy</sound>
+      <sound>sound\snd_energyPickup</sound>
+      <sound>sound\snd_towerDestroy</sound>
     </sounds>
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
@@ -37,12 +44,25 @@
       <sprite>sprites\spr_credits</sprite>
       <sprite>sprites\spr_back</sprite>
       <sprite>sprites\spr_mainMenu</sprite>
+      <sprite>sprites\spr_OK</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
-      <sprite>sprites\spr_fuelText</sprite>
-      <sprite>sprites\spr__messageBox</sprite>
-      <sprite>sprites\spr_credits1</sprite>
-      <sprite>sprites\spr_credits2</sprite>
+      <sprites name="Messages">
+        <sprite>sprites\spr_messageBoxAnim</sprite>
+        <sprite>sprites\spr_messageBox</sprite>
+        <sprite>sprites\spr_credits1</sprite>
+        <sprite>sprites\spr_credits3</sprite>
+        <sprite>sprites\spr_credits2</sprite>
+        <sprite>sprites\spr_fuelText</sprite>
+        <sprite>sprites\spr_message_refuel</sprite>
+        <sprite>sprites\spr_message_escape</sprite>
+        <sprite>sprites\spr_message_minerKilled</sprite>
+        <sprite>sprites\spr_message_towerDestroyed</sprite>
+      </sprites>
+      <sprite>sprites\spr_hubMockupBG</sprite>
+      <sprite>sprites\spr_moonButton</sprite>
+      <sprite>sprites\spr_forestButton</sprite>
+      <sprite>sprites\spr_desertButton</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -57,28 +77,45 @@
         <sprite>sprites\spr_light_enemy</sprite>
         <sprite>sprites\spr_medium_enemy</sprite>
         <sprite>sprites\spr_heavy_enemy</sprite>
+        <sprite>sprites\spr_flying_light</sprite>
+        <sprite>sprites\spr_flying_heavy</sprite>
+        <sprite>sprites\spr_jackal</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
-        <sprite>sprites\spr_tower_tacticalMoartar</sprite>
-        <sprite>sprites\spr_cannon_tower_basic</sprite>
-        <sprite>sprites\spr_cannon_tower_mortar</sprite>
+        <sprite>sprites\spr_tower_tacticalMortar</sprite>
+        <sprite>sprites\spr_tower_m6100</sprite>
+        <sprite>sprites\spr_tower_flamethrower</sprite>
+        <sprite>sprites\spr_tower_rifle</sprite>
+        <sprite>sprites\spr_tower_m6100_destroyed</sprite>
+        <sprite>sprites\spr_tower_basic_destroyed</sprite>
+        <sprite>sprites\spr_tower_mortar_destroyed</sprite>
+        <sprite>sprites\spr_tower_superFreezer_destroyed</sprite>
+        <sprite>sprites\spr_tower_flamethrower_destroyed</sprite>
+        <sprite>sprites\spr_tower_rifle_destroyed</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
         <sprite>sprites\spr_basic_projectile</sprite>
         <sprite>sprites\spr_mortar_projectile</sprite>
+        <sprite>sprites\spr_slow_projectile</sprite>
+        <sprite>sprites\spr_rifle_projectile</sprite>
+        <sprite>sprites\spr_flamethrower_projectile</sprite>
+        <sprite>sprites\spr_3600_projectile</sprite>
+      </sprites>
+      <sprites name="Mine">
+        <sprite>sprites\spr_cave_back</sprite>
+        <sprite>sprites\spr_cave_back_dead_TEMP</sprite>
+        <sprite>sprites\spr_cave_front</sprite>
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
-        <sprite>sprites\spr_cave_back</sprite>
-        <sprite>sprites\spr_cave_front</sprite>
-        <sprite>sprites\spr_minerals</sprite>
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
+        <sprite>sprites\spr_particle_energy_orb</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
@@ -91,7 +128,14 @@
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
+        <sprite>sprites\spr_weapon_basic</sprite>
+        <sprite>sprites\spr_weapon_mortar</sprite>
+        <sprite>sprites\spr_weapon_m6100</sprite>
+        <sprite>sprites\spr_weapon_slow</sprite>
+        <sprite>sprites\spr_weapon_rifle</sprite>
+        <sprite>sprites\spr_weapon_flamethrower</sprite>
       </sprites>
+      <sprite>sprites\spr_smokePuff</sprite>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -123,7 +167,9 @@
       <sprite>sprites\spr_ship</sprite>
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
+      <sprite>sprites\spr_minerals</sprite>
     </sprites>
+    <sprite>sprites\spr_109CalPlaceholder</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -137,11 +183,21 @@
     </backgrounds>
     <backgrounds name="ForestBackgrounds">
       <background>background\bkg_forest_tiles</background>
+      <background>background\bkg_forest_0</background>
+      <background>background\bkg_forest_1</background>
+      <background>background\bkg_forest_front</background>
+    </backgrounds>
+    <backgrounds name="DesertBackgrounds">
+      <background>background\bkg_desert_0</background>
+      <background>background\bkg_desert_1</background>
+      <background>background\bkg_desert3</background>
+      <background>background\bkg_desert_front</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
+      <script>scripts\scr_entity_canDrop.gml</script>
       <script>scripts\scr_entity_drop.gml</script>
       <script>scripts\scr_entity_forceDrop.gml</script>
       <script>scripts\scr_entity_jump.gml</script>
@@ -152,15 +208,15 @@
       <script>scripts\src_drawPie.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
-        <script>scripts\scr_tower_getNearestGroundEnemy.gml</script>
-        <script>scripts\scr_tower_getNearestAirEnemy.gml</script>
+        <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
+        <script>scripts\scr_spawn_projectile.gml</script>
       </scripts>
       <scripts name="Enemy">
         <script>scripts\scr_enemy_getNearestTower.gml</script>
-        <script>scripts\scr_enemy_getNearestMiner.gml</script>
+        <script>scripts\scr_enemy_getNearestMine.gml</script>
         <script>scripts\scr_enemy_getNearestPlayer.gml</script>
       </scripts>
     </scripts>
@@ -173,21 +229,43 @@
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
-    <script>scripts\scr_ben_test.gml</script>
-    <script>scripts\scr_joe_test.gml</script>
+    <script>scripts\scr_energy_change.gml</script>
+    <script>scripts\scr_fuel_change.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
+    <object>objects\obj_spawner</object>
+    <objects name="UI_HUD">
+      <object>objects\obj_level_energy</object>
+      <object>objects\obj_level_minerals</object>
+    </objects>
     <objects name="UI_Menus">
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
       <object>objects\obj_back</object>
       <object>objects\obj_credits</object>
+      <object>objects\obj_OK</object>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_rightArrow</object>
       <object>objects\obj_leftArrow</object>
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
+      <object>objects\obj_credits3</object>
+      <object>objects\obj_messageBoxAnim</object>
+      <objects name="Messages">
+        <object>objects\obj_distanceMessage</object>
+        <object>objects\obj_confirmMessage</object>
+        <object>objects\obj_briefPopupMessage</object>
+        <object>objects\obj_message_minerKilled</object>
+        <object>objects\obj_message_towerDestroyed</object>
+        <object>objects\obj_message_refuel</object>
+        <object>objects\obj_message_escape</object>
+      </objects>
+      <object>objects\obj_hubMockupBG</object>
+      <object>objects\obj_planetButton</object>
+      <object>objects\obj_moonButton</object>
+      <object>objects\obj_forestButton</object>
+      <object>objects\obj_desertButton</object>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -196,34 +274,64 @@
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
-        <object>objects\obj_enemy_ground_light</object>
-        <object>objects\obj_enemy_ground_medium</object>
-        <object>objects\obj_enemy_ground_heavy</object>
+        <objects name="Air">
+          <object>objects\obj_enemy_air</object>
+          <object>objects\obj_enemy_air_light</object>
+          <object>objects\obj_enemy_air_heavy</object>
+        </objects>
+        <objects name="Ground">
+          <object>objects\obj_enemy_ground</object>
+          <object>objects\obj_enemy_ground_light</object>
+          <object>objects\obj_enemy_ground_medium</object>
+          <object>objects\obj_enemy_ground_jackal</object>
+          <object>objects\obj_enemy_ground_heavy</object>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
         <object>objects\obj_tower_basic</object>
         <object>objects\obj_tower_superFreezer</object>
-        <object>objects\obj_tower_tacticalMoartar</object>
+        <object>objects\obj_tower_tacticalMortar</object>
+        <object>objects\obj_tower_109CalRifle</object>
+        <object>objects\obj_tower_flameThrower</object>
+        <object>objects\obj_tower_m6100</object>
+        <object>objects\obj_tower_destroyed_basic</object>
+        <object>objects\obj_tower_destroyed_superFreezer</object>
+        <object>objects\obj_tower_destroyed_tacticalMortar</object>
+        <object>objects\obj_tower_destroyed_109CalRifle</object>
+        <object>objects\obj_tower_destroyed_flameThrower</object>
+        <object>objects\obj_tower_destroyed_m6100</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_normal</object>
+        <object>objects\obj_projectile_mortar</object>
+        <object>objects\obj_projectile_freeze</object>
+        <object>objects\obj_projectile_flame</object>
+        <object>objects\obj_projectile_109Cal</object>
         <object>objects\obj_projectile_test_has_smoke</object>
+      </objects>
+      <objects name="Mine">
+        <object>objects\obj_mine</object>
+        <object>objects\obj_mine_dead</object>
+        <object>objects\obj_mine_front</object>
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
       </objects>
       <objects name="ParticleEmitter">
-        <object>objects\obj_particle_emitter</object>
+        <object>objects\obj_particle_emitter_continual</object>
+        <object>objects\obj_particle_emitter_instant</object>
         <object>objects\obj_particle_emitter_smoke</object>
         <object>objects\obj_particle_emitter_flame</object>
+        <object>objects\obj_particle_emitter_energy_orb</object>
       </objects>
       <objects name="Particle">
         <object>objects\obj_particle</object>
         <object>objects\obj_particle_smoke</object>
         <object>objects\obj_particle_flame</object>
+        <object>objects\obj_particle_energy_orb</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
@@ -234,6 +342,12 @@
       </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
+        <object>objects\obj_weapon_basic</object>
+        <object>objects\obj_weapon_mortar</object>
+      </objects>
+      <objects name="Drops">
+        <object>objects\obj_drop</object>
+        <object>objects\obj_drop_energy</object>
       </objects>
     </objects>
     <objects name="Tiles">
@@ -241,13 +355,6 @@
       <objects name="Visual">
         <object>objects\obj_visualTile</object>
       </objects>
-    </objects>
-    <objects name="Spawners">
-      <object>objects\obj_spawner</object>
-      <object>objects\obj_spawner_enemy_ground_light</object>
-      <object>objects\obj_spawner_enemy_ground_light_right</object>
-      <object>objects\obj_spawner_enemy_ground_medium</object>
-      <object>objects\obj_spawner_enemy_ground_heavy</object>
     </objects>
     <objects name="Misc">
       <objects name="Control">
@@ -265,11 +372,17 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_init</room>
     <room>rooms\rm_menu</room>
-    <room>rooms\rm_level2</room>
+    <room>rooms\rm_hub</room>
+    <room>rooms\rm_level_moon</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_cinematic</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
+    <room>rooms\rm_credits3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

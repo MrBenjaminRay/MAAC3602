@@ -3,7 +3,7 @@
   <spriteName>spr_tower</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -22,40 +22,6 @@
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>attackRate = 240;
-attackRange = sprite_width * 2;
-maxHealth = 3000;
-currHealth = 3000;
-
-// Create and place weapon:
-weaponYOffset = 32;
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
-
-if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
-    weaponObj.x = x + weaponXOffset;
-    weaponObj.y = y + weaponYOffset;
-    weaponObj.depth = depth - 1;
-}
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
@@ -99,29 +65,25 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestGroundEnemy(attackRange);
+var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground);
 
 if (nearestEnemy != noone) {
-    var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
-    var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-    var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
-    
     if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
+        
+        // Rotate the cannon to point towards the enemy:
+        var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+        var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+        var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
+        weaponObj.image_angle = enemyDirection;
 
+        // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
         
-        var projectile = instance_create(projX, projY, obj_projectile_normal);
-        projectile.xDest = enemyX;
-        projectile.yDest = enemyY;
-        projectile.direction = enemyDirection;
-        projectile.isEnemyProjectile = false;
-        projectile.damage = attackDamage;
-        
+        // Show projectile spawn effect:
         scr_create_explosion(projX, projY, 'Flash');
-        
-        weaponObj.image_angle = enemyDirection;
     }
 }
 

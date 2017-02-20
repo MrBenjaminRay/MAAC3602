@@ -3,7 +3,7 @@
   <spriteName>spr_miner</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>20</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -43,7 +43,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>irandom(960)</string>
           </argument>
         </arguments>
       </action>
@@ -89,7 +89,7 @@
             <kind>1</kind>
             <string>image_speed = 0;
 
-staggeredStart = irandom(30);
+staggeredStart = irandom(60);
 animStartCounter = staggeredStart;
 </string>
           </argument>
@@ -118,7 +118,7 @@ animStartCounter = staggeredStart;
     
     if (currentTimeToMinerals &gt;= timeToMinerals) {
         currentTimeToMinerals -= timeToMinerals;
-        global.minerals += 25;
+        global.minerals += 2;
     }
 }
 

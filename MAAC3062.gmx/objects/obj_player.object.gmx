@@ -3,7 +3,7 @@
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>15</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -54,10 +54,64 @@ alarm[0] = shieldRegenInterval;
 
 // Create and place weapon:
 attackDamage = 2;
+attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = 0;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+
+xKeyHeld = 0;
+xKeyHeldCounter = 0;
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>allowedToFire</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>allowedToFire</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
           </argument>
         </arguments>
       </action>
@@ -86,6 +140,8 @@ weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ran
 if (currShield &gt; maxShield) {
     currShield = maxShield;
 }
+
+alarm[0] = shieldRegenInterval;
 </string>
           </argument>
         </arguments>
@@ -209,9 +265,39 @@ if (global.state != "Build") {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (weaponObj != noone) {
     if (attackRateCounter &lt; attackRate) {
         attackRateCounter += global.deltaTime;
+    }
+}
+
+if (mouse_check_button(mb_left)) {
+    var canFire = global.state != "Paused";
+    canFire &amp;= global.state != "Build";
+    canFire &amp;= global.state != "Destroy";
+    canFire &amp;= weaponObj != noone;
+    
+    if (canFire &amp;&amp; allowedToFire) {
+        if (attackRateCounter &gt;= attackRate) {
+            audio_play_sound(snd_playerGun, 0, false);
+        
+            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            
+            var projectile = instance_create(projX, projY, obj_projectile_normal);
+            projectile.xDest = mouse_x;
+            projectile.yDest = mouse_y;
+            projectile.damage = attackDamage;
+            projectile.isEnemyProjectile = false;
+            
+            scr_create_explosion(projX, projY, 'Flash');
+            
+            attackRateCounter = 0;
+        }
     }
 }
 </string>
@@ -260,12 +346,31 @@ if (global.state != "Build") {
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
     weaponObj.depth = depth -1 
 }
+
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Code for holding "X' key</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -282,28 +387,34 @@ if (global.state != "Build") {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var canFire = global.state != "Paused";
-canFire &amp;= global.state != "Build";
-canFire &amp;= global.state != "Destroy";
-
-if (canFire) {
-    if (attackRateCounter &gt;= attackRate) {
-        audio_play_sound(snd_playerGun, 0, false);
-    
-        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        
-        var projectile = instance_create(projX, projY, obj_projectile_normal);
-        projectile.xDest = mouse_x;
-        projectile.yDest = mouse_y;
-        projectile.damage = attackDamage;
-        projectile.isEnemyProjectile = false;
-        
-        scr_create_explosion(projX, projY, 'Flash');
-        
-        attackRateCounter = 0;
+            <string>if(keyboard_check(ord('X'))) {
+    xKeyHeld = 1;
+}
+else {
+    xKeyHeld = 0;
+    xKeyHeldCounter = 0;
+}
+if(xKeyHeld = 1)
+    xKeyHeldCounter++;
+if(xKeyHeldCounter == 90) {
+    if(global.fuel &gt;= 100) {
+        global.currentLevelComplete = 1;
+        switch(room) {
+            case rm_level_moon:
+                global.moonLevelComplete = 1;
+                break;
+            case rm_level_forest:
+                global.forestLevelComplete = 1;
+                break;
+            case rm_level_desert:
+                global.desertLevelComplete = 1;
+                break;
+        }
+        instance_destroy();
     }
 }
+
+
 </string>
           </argument>
         </arguments>
@@ -335,13 +446,55 @@ heightAbove = y - 40;
 
 //Shield ring
 /// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
-src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 1, 4);
+src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 0.85, 4);
 
 //Health pie
 /// draw_pie(x ,y ,value, max, colour, radius, transparency)
-src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 1);
+src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
 
 //make_color_rgb(11,255,12) light green
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(instance_exists(obj_message_refuel)) {
+    if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
+        scr_energy_change(-50);
+        switch(room) {
+            case rm_level_moon:
+                scr_fuel_change(5);
+                break;
+            case rm_level_forest:
+                scr_fuel_change(4);
+                break;
+            case rm_level_desert:
+                scr_fuel_change(2.5);
+                break;
+            default: //rooms such as the test room
+                scr_fuel_change(5);
+                break;
+        }
+    }
+}
+    
 </string>
           </argument>
         </arguments>
@@ -489,6 +642,96 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 1);
           <argument>
             <kind>9</kind>
             <script>scr_entity_drop</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>424</id>
+        <kind>2</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>408</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>-1</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_if</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>global.state != "Paused" &amp;&amp; global.state != "Build"</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>422</id>
+        <kind>1</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_entity_jump</script>
           </argument>
           <argument>
             <kind>0</kind>
