@@ -86,6 +86,7 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
           <argument>
             <kind>1</kind>
             <string>audio_stop_sound(snd_superFreezer_beam);
+instance_create(x, y, obj_tower_destroyed_superFreezer);
 </string>
           </argument>
         </arguments>
