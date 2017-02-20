@@ -43,6 +43,10 @@ global.state = "Normal";
 
 global.minerals = 0;
 global.energy = 4000; // The current energy collected by the player during the level.
+global.fuel = 0; // Max fuel is 100.
+global.currentLevelComplete = 0; // used to make sure that player doesn't lose level
+                                 // because of death during the level complete
+                                 // animation/sequence
 
 // Format:
 //      Name
