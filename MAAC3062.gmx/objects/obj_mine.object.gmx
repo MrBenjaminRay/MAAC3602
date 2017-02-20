@@ -177,6 +177,7 @@ for (var i=minersAlive; i&lt;miners; i++) {
   // If instance exists, destroy it
   if (instance_exists(arrMiners[i])) {
     with (arrMiners[i]) {
+      instance_create(x-220, y-230, obj_message_minerKilled);
       instance_destroy();
     }
   }

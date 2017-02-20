@@ -58,6 +58,9 @@ attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = 0;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+
+xKeyHeld = 0;
+xKeyHeldCounter = 0;
 </string>
           </argument>
         </arguments>
@@ -348,6 +351,117 @@ if (mouse_check_button(mb_left)) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Code for holding "X' key</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(keyboard_check(ord('X'))) {
+    xKeyHeld = 1;
+}
+else {
+    xKeyHeld = 0;
+    xKeyHeldCounter = 0;
+}
+if(xKeyHeld = 1)
+    xKeyHeldCounter++;
+if(xKeyHeldCounter == 90) {
+    if(global.fuel &gt;= 100) {
+        global.currentLevelComplete = 1;
+        switch(room) {
+            case rm_level_moon:
+                global.moonLevelComplete = 1;
+                break;
+            case rm_level_forest:
+                global.forestLevelComplete = 1;
+                break;
+            case rm_level_desert:
+                global.desertLevelComplete = 1;
+                break;
+        }
+        instance_destroy();
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Code for controlling death</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(y &gt;= room_height || currHealth &lt;= 0){
+  instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -375,13 +489,55 @@ heightAbove = y - 40;
 
 //Shield ring
 /// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
-src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 1, 4);
+src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 0.85, 4);
 
 //Health pie
 /// draw_pie(x ,y ,value, max, colour, radius, transparency)
-src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 1);
+src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
 
 //make_color_rgb(11,255,12) light green
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(instance_exists(obj_message_refuel)) {
+    if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
+        scr_energy_change(-50);
+        switch(room) {
+            case rm_level_moon:
+                scr_fuel_change(5);
+                break;
+            case rm_level_forest:
+                scr_fuel_change(4);
+                break;
+            case rm_level_desert:
+                scr_fuel_change(2.5);
+                break;
+            default: //rooms such as the test room
+                scr_fuel_change(5);
+                break;
+        }
+    }
+}
+    
 </string>
           </argument>
         </arguments>

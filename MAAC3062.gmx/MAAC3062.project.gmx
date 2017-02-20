@@ -44,16 +44,25 @@
       <sprite>sprites\spr_credits</sprite>
       <sprite>sprites\spr_back</sprite>
       <sprite>sprites\spr_mainMenu</sprite>
+      <sprite>sprites\spr_OK</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
       <sprites name="Messages">
         <sprite>sprites\spr_messageBoxAnim</sprite>
         <sprite>sprites\spr_messageBox</sprite>
         <sprite>sprites\spr_credits1</sprite>
+        <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_message_refuel</sprite>
+        <sprite>sprites\spr_message_escape</sprite>
+        <sprite>sprites\spr_message_minerKilled</sprite>
+        <sprite>sprites\spr_message_towerDestroyed</sprite>
       </sprites>
+      <sprite>sprites\spr_hubMockupBG</sprite>
+      <sprite>sprites\spr_moonButton</sprite>
+      <sprite>sprites\spr_forestButton</sprite>
+      <sprite>sprites\spr_desertButton</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -76,14 +85,14 @@
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_basic</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
-        <sprite>sprites\spr_tower_tacticalMoartar</sprite>
-        <sprite>sprites\spr_tower_3600</sprite>
+        <sprite>sprites\spr_tower_tacticalMortar</sprite>
+        <sprite>sprites\spr_tower_m6100</sprite>
         <sprite>sprites\spr_tower_flamethrower</sprite>
         <sprite>sprites\spr_tower_rifle</sprite>
-        <sprite>sprites\spr_tower_3600_destroyed</sprite>
+        <sprite>sprites\spr_tower_m6100_destroyed</sprite>
         <sprite>sprites\spr_tower_basic_destroyed</sprite>
         <sprite>sprites\spr_tower_mortar_destroyed</sprite>
-        <sprite>sprites\spr_tower_slow_destroyed</sprite>
+        <sprite>sprites\spr_tower_superFreezer_destroyed</sprite>
         <sprite>sprites\spr_tower_flamethrower_destroyed</sprite>
         <sprite>sprites\spr_tower_rifle_destroyed</sprite>
       </sprites>
@@ -106,8 +115,7 @@
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
-        <sprite>sprites\spr_particle_energy_pickup_effect</sprite>
-        <sprite>sprites\spr_particle_energy_pickup_effect_animated</sprite>
+        <sprite>sprites\spr_particle_energy_orb</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
@@ -122,11 +130,12 @@
         <sprite>sprites\spr_weapon_ranged_test</sprite>
         <sprite>sprites\spr_weapon_basic</sprite>
         <sprite>sprites\spr_weapon_mortar</sprite>
-        <sprite>sprites\spr_weapon_3600</sprite>
+        <sprite>sprites\spr_weapon_m6100</sprite>
         <sprite>sprites\spr_weapon_slow</sprite>
         <sprite>sprites\spr_weapon_rifle</sprite>
         <sprite>sprites\spr_weapon_flamethrower</sprite>
       </sprites>
+      <sprite>sprites\spr_smokePuff</sprite>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -221,6 +230,7 @@
     <script>scripts\scr_particle_projectile_addsmoke.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
+    <script>scripts\scr_fuel_change.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\object</object>
@@ -234,13 +244,28 @@
       <object>objects\obj_mainMenu</object>
       <object>objects\obj_back</object>
       <object>objects\obj_credits</object>
+      <object>objects\obj_OK</object>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_rightArrow</object>
       <object>objects\obj_leftArrow</object>
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
+      <object>objects\obj_credits3</object>
       <object>objects\obj_messageBoxAnim</object>
-      <object>objects\obj_message_refuel</object>
+      <objects name="Messages">
+        <object>objects\obj_distanceMessage</object>
+        <object>objects\obj_confirmMessage</object>
+        <object>objects\obj_briefPopupMessage</object>
+        <object>objects\obj_message_minerKilled</object>
+        <object>objects\obj_message_towerDestroyed</object>
+        <object>objects\obj_message_refuel</object>
+        <object>objects\obj_message_escape</object>
+      </objects>
+      <object>objects\obj_hubMockupBG</object>
+      <object>objects\obj_planetButton</object>
+      <object>objects\obj_moonButton</object>
+      <object>objects\obj_forestButton</object>
+      <object>objects\obj_desertButton</object>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -266,10 +291,16 @@
         <object>objects\obj_tower</object>
         <object>objects\obj_tower_basic</object>
         <object>objects\obj_tower_superFreezer</object>
-        <object>objects\obj_tower_tacticalMoartar</object>
+        <object>objects\obj_tower_tacticalMortar</object>
         <object>objects\obj_tower_109CalRifle</object>
         <object>objects\obj_tower_flameThrower</object>
         <object>objects\obj_tower_m6100</object>
+        <object>objects\obj_tower_destroyed_basic</object>
+        <object>objects\obj_tower_destroyed_superFreezer</object>
+        <object>objects\obj_tower_destroyed_tacticalMortar</object>
+        <object>objects\obj_tower_destroyed_109CalRifle</object>
+        <object>objects\obj_tower_destroyed_flameThrower</object>
+        <object>objects\obj_tower_destroyed_m6100</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
@@ -312,7 +343,11 @@
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
         <object>objects\obj_weapon_basic</object>
+        <object>objects\obj_weapon_m6100</object>
+        <object>objects\obj_weapon_flamethrower</object>
         <object>objects\obj_weapon_mortar</object>
+        <object>objects\obj_weapon_freeze</object>
+        <object>objects\obj_weapon_109CalRifle</object>
       </objects>
       <objects name="Drops">
         <object>objects\obj_drop</object>
@@ -341,13 +376,17 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test</room>
-    <room>rooms\rm_level_forest</room>
-    <room>rooms\rm_menu</room>
+    <room>rooms\rm_init</room>
     <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_test</room>
+    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_hub</room>
+    <room>rooms\rm_cinematic</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
-    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_credits3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

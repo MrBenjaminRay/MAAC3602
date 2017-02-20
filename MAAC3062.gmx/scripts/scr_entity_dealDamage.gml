@@ -37,29 +37,40 @@ if (canContinue) {
             switch(argument[0].object_index){
                 case obj_player:
                     audio_play_sound(snd_playerDeath, 0, false);
-                    audio_sound_gain(snd_playerDeath, 0.5, 0); 
                     break;
                 case obj_enemy_air_light:
-                    audio_play_sound(snd_enemyDeath_light, 0, false);    
+                    scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Small');
+                    audio_play_sound(snd_enemyDeath_light, 0, false);
                     break;
                 case obj_enemy_air_heavy:
+                    scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Large');
                     audio_play_sound(snd_enemyDeath_medium, 0, false); 
                     break;
                 case obj_enemy_ground_light:
-                audio_play_sound(snd_enemyDeath_light, 0, false); 
+                    scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Small');
+                    audio_play_sound(snd_enemyDeath_light, 0, false); 
                     break;
                 case obj_enemy_ground_medium:
+                    scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Medium');
                     audio_play_sound(snd_enemyDeath_medium, 0, false); 
                     break;
                 case obj_enemy_ground_heavy:
+                    scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Large');
                     audio_play_sound(snd_enemyDeath_heavy, 0, false); 
                     break;
                 case obj_enemy_ground_jackal:
+                    scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Small');
                     audio_play_sound(snd_enemyDeath_light, 0, false); 
                     break;
                 default: //object is a tower
-                    audio_play_sound(snd_towerDestroy, 0.7, false); 
+                    // NOTE: Tower explosion, smoke, and new destroyed sprite done in each tower's DESTROY event.
+                    audio_play_sound(snd_towerDestroy, 0.7, false);
                     break;
+            }
+            
+            if object_is_ancestor(object_index, obj_tower) {
+                instance_create(x-100, y-100, obj_message_towerDestroyed);
+                audio_play_sound(snd_towerDestroy, 0.7, false); 
             }
 
             // Handle energy drops for enemies        

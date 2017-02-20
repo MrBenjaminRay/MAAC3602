@@ -1,4 +1,4 @@
-// This script adds a smoke particle emitter to the object from which TEST
+// This script adds a smoke particle emitter to the object from which
 // this script is called.  The emitter will be killed automatically
 // when the parent object is destroyed. 
 
