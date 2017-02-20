@@ -3,7 +3,7 @@
   <spriteName>spr_tower_superFreezer</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -62,7 +62,6 @@ continuousFire = false; // used to determine whether to start/stop the beam soun
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
-    weaponObj.depth = depth - 1;
 }
 </string>
           </argument>
@@ -70,6 +69,20 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
       </action>
     </event>
     <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

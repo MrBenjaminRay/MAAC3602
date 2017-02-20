@@ -2,8 +2,8 @@
 <object>
   <spriteName>spr_physicsTile</spriteName>
   <solid>-1</solid>
-  <visible>0</visible>
-  <depth>10000</depth>
+  <visible>-1</visible>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>object</parentName>
   <maskName>&lt;undefined&gt;</maskName>

@@ -3,7 +3,7 @@
   <spriteName>spr_109CalPlaceholder</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -59,7 +59,6 @@ maxHealth = 100;
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
-    weaponObj.depth = depth - 1;
 }
 </string>
           </argument>
@@ -108,7 +107,6 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
 }
 
 var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_air);
-show_debug_message(nearestEnemy == noone);
 
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {

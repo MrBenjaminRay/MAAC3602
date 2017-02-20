@@ -3,7 +3,7 @@
   <spriteName>spr_tower</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -22,6 +22,30 @@
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>allowedToFire</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
       </action>
       <action>
         <libid>1</libid>
@@ -58,7 +82,6 @@ maxHealth = 100;
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
-    weaponObj.depth = depth - 1;
 }
 
 // Tower Specific:
@@ -110,6 +133,32 @@ continuousFire = false; //used to keep looping firing sound
 
 audio_stop_sound(snd_M6100_loop);
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>allowedToFire</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
           </argument>
         </arguments>
       </action>
@@ -262,8 +311,6 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
-show_debug_message(mouse_check_button(mb_left));
-
 if (mouse_check_button(mb_left)) {
 
     var canFire = global.state != "Paused";
@@ -272,7 +319,7 @@ if (mouse_check_button(mb_left)) {
     canFire &amp;= weaponObj != noone;
     canFire &amp;= isReloading == false;
     
-    if (canFire) {
+    if (canFire &amp; allowedToFire) {
         if(!continuousFire){
             continuousFire = true;
             audio_play_sound(snd_M6100_loop, 0, true);

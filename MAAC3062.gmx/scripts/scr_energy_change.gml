@@ -18,3 +18,10 @@ if (argument[0] > 0) {
 
 // Increase or decrease the energy by the specified amount
 global.energy += argument[0];
+
+// Every time new energy is added, boost energy icon image size
+// (it automatically decreases)
+with (obj_level_energy) {
+    scale = scaleLevelBoosted;
+}
+

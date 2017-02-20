@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>randomize();
 
+global.messageDistance = 120; // distance the player can be from a distanceMessageBox
+                                // before it disappears.
+global.messageScale = 0.4; // The scale of message boxes and text sprites
+
 global.deltaTime = delta_time;
 
 /* States:
@@ -97,35 +101,6 @@ global.towers[5, 3] = spr_tower;
           <argument>
             <kind>1</kind>
             <string>global.deltaTime = (delta_time) / 1000;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="75">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_set_colour(c_black);
-draw_text(2, 2, "Energy = " + string(global.energy));
-draw_text(2, 22, "Minerals = " + string(global.minerals));
-
-draw_set_colour(c_yellow);
-draw_text(0, 0, "Energy = " + string(global.energy));
-draw_text(0, 20, "Minerals = " + string(global.minerals));
 </string>
           </argument>
         </arguments>

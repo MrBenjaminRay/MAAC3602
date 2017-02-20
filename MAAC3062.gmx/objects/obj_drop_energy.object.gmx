@@ -100,12 +100,14 @@ spriteRotateSpeed = .35;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_energy_change(value);
+            <string>// Create the emitter that emits energy orbs
+var inst = instance_create(x, y, obj_particle_emitter_energy_orb);
+// # of orbs emitted is based on value of energy drop (each orb adds 1 energy to level)
+inst.particleCount = value;
 
 // Play some kind of cool sound
-
-// Do some kind of animation - something should pop or burst or twinkle
-// when the player picks up energy
+audio_play_sound(snd_energyPickup, 0, false);
+audio_sound_gain(snd_energyPickup, 0.6, 0);
 
 // Destroy the drop
 instance_destroy();

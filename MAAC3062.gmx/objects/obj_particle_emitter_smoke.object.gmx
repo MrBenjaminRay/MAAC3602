@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_particle_emitter</parentName>
+  <parentName>obj_particle_emitter_continual</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -39,7 +39,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timeBetweenEmissions = 10;
+            <string>particleType = obj_particle_smoke;
+timeBetweenEmissions = 10;
 maxImageAlpha = .5;
 </string>
           </argument>
