@@ -70,7 +70,6 @@ if (canContinue) {
             }
             
             if object_is_ancestor(object_index, obj_tower) {
-                instance_create(x-100, y-100, obj_message_towerDestroyed);
                 audio_play_sound(snd_towerDestroy, 0.7, false); 
             }
 
