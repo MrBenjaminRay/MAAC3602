@@ -37,6 +37,7 @@ if (canContinue) {
             switch(argument[0].object_index){
                 case obj_player:
                     audio_play_sound(snd_playerDeath, 0, false);
+                    game_end();
                     break;
                 case obj_enemy_air_light:
                     scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Small');
@@ -69,7 +70,6 @@ if (canContinue) {
             }
             
             if object_is_ancestor(object_index, obj_tower) {
-                instance_create(x-100, y-100, obj_message_towerDestroyed);
                 audio_play_sound(snd_towerDestroy, 0.7, false); 
             }
 
