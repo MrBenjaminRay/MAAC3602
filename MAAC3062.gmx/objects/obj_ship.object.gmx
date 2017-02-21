@@ -125,7 +125,7 @@ if(levelFinish == 1 &amp;&amp; y &lt; -200) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(x-15, y-200, x-7, y-144, global.fuel, c_black, make_color_rgb(11,255,12), make_color_rgb(11,255,12), 3, true, true);
+            <string>draw_healthbar(x-64, y-45, x-56, y+4, global.fuel, c_black, make_color_rgb(11,255,12), make_color_rgb(11,255,12), 3, true, true);
 //x8 y59
 </string>
           </argument>

@@ -46,14 +46,17 @@ walkLeft = 0;
 movementSpeed = 250/1000;
 
 // Shield Stuff:
-currShield = 100;
-maxShield = 100;
+currShield = 200;
+maxShield = 200;
+
+currHealth = 150;
+maxHealth = 150;
 
 shieldRegenInterval = room_speed * 5;
 alarm[0] = shieldRegenInterval;
 
 // Create and place weapon:
-attackDamage = 2;
+attackDamage = 4;
 attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = 0;
@@ -535,7 +538,7 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
     return 0;
 }
 
-if(instance_exists(obj_message_refuel)) {
+if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
     if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
         scr_energy_change(-50);
         switch(room) {
