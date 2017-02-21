@@ -174,13 +174,13 @@ minersAlive = ceil((currHealth / maxHealth) * miners);
 // they still exist.  Iterate between count of miners alive and total
 // miners and wipe 'em out if they exist.
 for (var i=minersAlive; i&lt;miners; i++) {
-  // If instance exists, destroy it
-  if (instance_exists(arrMiners[i])) {
-    with (arrMiners[i]) {
-      instance_create(x-220, y-230, obj_message_minerKilled);
-      instance_destroy();
+    // If instance exists, destroy it
+    if (instance_exists(arrMiners[i])) {
+        with (arrMiners[i]) {
+            scr_msg_minerKilled(x - 220, y - 230);
+            instance_destroy();
+        }
     }
-  }
 }
 
 </string>

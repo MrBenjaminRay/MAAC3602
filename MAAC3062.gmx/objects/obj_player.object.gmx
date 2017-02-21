@@ -219,27 +219,24 @@ alarm[0] = shieldRegenInterval;
 }
 
 // LEFT &amp; RIGHT MOVEMENT:
-if (global.state != "Build") {
-    var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
-    var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
-    
-    if (isLeftPressed) {
-        scr_entity_moveLeft();
-        image_speed = 0.33;
-        image_xscale = 1;
-    }
-    
-    if (isRightPressed) {
-        scr_entity_moveRight();
-        image_speed = 0.33;
-        image_xscale = -1;
-    }
-    
-    if(!(isRightPressed || isLeftPressed)) {
-        image_speed = 0;
-        image_index = 0;
-    }
-    
+var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
+var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
+
+if (isLeftPressed) {
+    scr_entity_moveLeft();
+    image_speed = 0.33;
+    image_xscale = 1;
+}
+
+if (isRightPressed) {
+    scr_entity_moveRight();
+    image_speed = 0.33;
+    image_xscale = -1;
+}
+
+if(!(isRightPressed || isLeftPressed)) {
+    image_speed = 0;
+    image_index = 0;
 }
 </string>
           </argument>
@@ -534,7 +531,11 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(obj_message_refuel)) {
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if(instance_exists(obj_message_refuel)) {
     if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
         scr_energy_change(-50);
         switch(room) {
@@ -576,7 +577,7 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == "Paused" || global.state == "Build") {
+            <string>if (global.state == "Paused") {
     return 0;
 }
 
@@ -605,7 +606,7 @@ if (place_meeting(x, y, obj_physicsTile) == false) {
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>global.state != "Paused" &amp;&amp; global.state != "Build"</string>
+            <string>global.state != "Paused"</string>
           </argument>
         </arguments>
       </action>
@@ -695,7 +696,7 @@ if (place_meeting(x, y, obj_physicsTile) == false) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == "Paused" || global.state == "Build") {
+            <string>if (global.state == "Paused") {
     return 0;
 }
 
