@@ -37,7 +37,7 @@ if (canContinue) {
             switch(argument[0].object_index){
                 case obj_player:
                     audio_play_sound(snd_playerDeath, 0, false);
-                    game_end();
+                    room_goto(rm_hub);
                     break;
                 case obj_enemy_air_light:
                     scr_create_explosion(x + sprite_width/2, y + sprite_width/2, 'Enemy_Small');
@@ -65,12 +65,14 @@ if (canContinue) {
                     break;
                 default: //object is a tower
                     // NOTE: Tower explosion, smoke, and new destroyed sprite done in each tower's DESTROY event.
-                    audio_play_sound(snd_towerDestroy, 0.7, false);
+                    audio_play_sound(snd_towerDestroy, 0, false);
+                    audio_sound_gain(snd_towerDestroy, 0.6, 0);  
                     break;
             }
             
             if object_is_ancestor(object_index, obj_tower) {
-                audio_play_sound(snd_towerDestroy, 0.7, false); 
+                audio_play_sound(snd_towerDestroy, 0, false);
+                audio_sound_gain(snd_towerDestroy, 0.7, 0);  
             }
 
             // Handle energy drops for enemies        

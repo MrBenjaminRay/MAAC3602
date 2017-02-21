@@ -65,7 +65,7 @@
             <kind>1</kind>
             <string>attackRate = 86;
 attackRateCounter = 0;
-attackDamage = 15;
+attackDamage = 3;
 attackRange = 400;
 
 weaponXOffset = 0;

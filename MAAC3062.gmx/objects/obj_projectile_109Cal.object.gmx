@@ -43,6 +43,7 @@
 yDest = y; // The destination y-axis coordinate.
 
 scr_particle_projectile_addsmoke(.05);
+movementSpeed = 10;
 
 
 enemiesHit = 0;

@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>attackRate = 2048;
 attackRateCounter = 0;
-attackDamage = 10;
+attackDamage = 40;
 attackRange = view_wview[0] * 0.75;
 
 weaponXOffset = sprite_height/2 - 16;
