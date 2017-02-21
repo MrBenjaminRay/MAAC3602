@@ -246,6 +246,7 @@
       <object>objects\obj_level_minerals</object>
     </objects>
     <objects name="UI_Menus">
+      <object>objects\obj_button</object>
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
       <object>objects\obj_back</object>

@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>attackRate = 128;
 attackRateCounter = 0;
-attackDamage = 1;
+attackDamage = 2;
 attackRange = sprite_width/2;
 
 weaponXOffset = sprite_width/2;
