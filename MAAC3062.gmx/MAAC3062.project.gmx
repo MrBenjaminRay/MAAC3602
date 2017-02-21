@@ -166,6 +166,10 @@
       <sprite>sprites\spr_minerals</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
+    <sprites name="CutScenes">
+      <sprite>sprites\spr_video_ship_damaged</sprite>
+      <sprite>sprites\spr_video_ship_lands_moon</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -380,6 +384,10 @@
       <object>objects\obj_ship</object>
       <object>objects\obj_fuelText</object>
     </objects>
+    <objects name="CutScenes">
+      <object>objects\obj_video_ship_damaged</object>
+      <object>objects\obj_video_ship_lands_moon</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
@@ -392,6 +400,8 @@
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
     <room>rooms\rm_credits3</room>
+    <room>rooms\rm_video_ship_damaged</room>
+    <room>rooms\rm_video_ship_lands_moon</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
