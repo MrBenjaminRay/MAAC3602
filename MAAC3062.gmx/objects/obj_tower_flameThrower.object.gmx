@@ -3,7 +3,7 @@
   <spriteName>spr_tower_flamethrower</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>50</depth>
+  <depth>40</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -45,7 +45,7 @@ attackDamage = 1;
 attackRange = sprite_width/2;
 
 weaponXOffset = sprite_width/2;
-weaponYOffset = 0;
+weaponYOffset = 32;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_flamethrower);
 
 currShield = 400;
