@@ -3,7 +3,7 @@
   <spriteName>spr_tower_superFreezer</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>50</depth>
+  <depth>40</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -42,11 +42,11 @@
             <string>attackRate = 128;
 attackRateCounter = 0;
 attackDamage = 5;
-attackRange = sprite_width/2;
+attackRange = sprite_width;
 
 weaponXOffset = sprite_width/2;
 weaponYOffset = 32;
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_freeze);
 
 currShield = 400;
 currHealth = 100;
