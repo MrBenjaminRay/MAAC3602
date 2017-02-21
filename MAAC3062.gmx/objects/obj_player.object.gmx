@@ -576,12 +576,11 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused" || global.state != "Build") {
+            <string>if (global.state == "Paused" || global.state == "Build") {
     return 0;
 }
 
-// Don't allow player to jump while player is within a tile:
-if (instance_place(x, y, obj_physicsTile) == noone) {
+if (place_meeting(x, y, obj_physicsTile) == false) {
     scr_entity_jump();
 }
 </string>
@@ -696,12 +695,11 @@ if (instance_place(x, y, obj_physicsTile) == noone) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused" || global.state != "Build") {
+            <string>if (global.state == "Paused" || global.state == "Build") {
     return 0;
 }
 
-// Don't allow player to jump while player is within a tile:
-if (instance_place(x, y, obj_physicsTile) == noone) {
+if (place_meeting(x, y, obj_physicsTile) == false) {
     scr_entity_jump();
 }
 </string>
