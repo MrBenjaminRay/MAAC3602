@@ -45,7 +45,7 @@ attackDamage = 1;
 attackRange = sprite_width/2;
 
 weaponXOffset = sprite_width/2;
-weaponYOffset = 0;
+weaponYOffset = 32;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_flamethrower);
 
 currShield = 400;
