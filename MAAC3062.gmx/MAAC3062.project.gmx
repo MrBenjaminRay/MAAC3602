@@ -165,6 +165,11 @@
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
     </sprites>
+    <sprites name="CutScenes">
+      <sprite>sprites\spr_video_ship_damaged</sprite>
+      <sprite>sprites\spr_video_ship_landing_moon</sprite>
+      <sprite>sprites\spr_video_esc_to_skip_TEMP</sprite>
+    </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
   </sprites>
   <backgrounds name="background">
@@ -380,8 +385,15 @@
       <object>objects\obj_ship</object>
       <object>objects\obj_fuelText</object>
     </objects>
+    <objects name="CutScenes">
+      <object>objects\obj_video_ship_damaged</object>
+      <object>objects\obj_video_ship_landing_moon</object>
+      <object>objects\obj_video_esc_to_skip_TEMP</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_video_ship_damaged</room>
+    <room>rooms\rm_video_ship_moonlanding</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_hub</room>
     <room>rooms\rm_level_moon</room>
