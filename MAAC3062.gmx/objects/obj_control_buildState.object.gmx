@@ -406,6 +406,7 @@ if (isLocationValid) {
     draw_sprite_stretched(spr_build_overlay_invalidLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
 }
 
+
 /////////////////////////////////////////// DRAW TOWER RANGE:
 var temp = instance_create(-500, -500, towerObj);
 var range = temp.attackRange;
