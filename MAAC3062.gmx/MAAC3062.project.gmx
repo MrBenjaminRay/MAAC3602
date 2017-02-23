@@ -199,6 +199,7 @@
   <scripts name="scripts">
     <scripts name="Entities">
       <script>scripts\scr_entity_canDrop.gml</script>
+      <script>scripts\scr_entity_canJump.gml</script>
       <script>scripts\scr_entity_drop.gml</script>
       <script>scripts\scr_entity_forceDrop.gml</script>
       <script>scripts\scr_entity_jump.gml</script>
