@@ -212,6 +212,14 @@
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
+        <scripts name="Build Rejection">
+          <script>scripts\scr_tower_buildRejectionNotification_basic.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_superFreezer.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_tacticalMortar.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_109Cal.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_flameThrower.gml</script>
+          <script>scripts\scr_tower_buildRejectNotification_m6100.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
@@ -378,13 +386,13 @@
     <objects name="Misc">
       <objects name="Control">
         <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_control_cheats</object>
         <object>objects\obj_control</object>
         <objects name="States">
           <object>objects\obj_control_normalState</object>
           <object>objects\obj_control_buildState</object>
           <object>objects\obj_control_destroyState</object>
         </objects>
-        <object>objects\obj_control_cheats</object>
       </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
