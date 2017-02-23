@@ -26,13 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>fuel = 10;
-			fuelTarget = 100;
-			image_xscale = 0.75;
-			image_yscale = image_xscale;
-			levelFinish = 0;
-			messageXPos = x - 207;
-			messageYPos = y - 278
-		</string>
+fuelTarget = 100;
+image_xscale = 0.75;
+image_yscale = image_xscale;
+levelFinish = 0;
+messageXPos = x - 207;
+messageYPos = y - 278
+
+currentMessageBox = noone;
+</string>
           </argument>
         </arguments>
       </action>
@@ -74,25 +76,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(distance_to_object(obj_player) &lt; global.messageDistance - 12
-    &amp;&amp; !instance_exists(obj_message_refuel) &amp;&amp; !instance_exists(obj_message_escape)) {
-    if(global.fuel &gt;= 100)
-        instance_create(messageXPos, messageYPos, obj_message_escape);
-    else
-        instance_create(messageXPos, messageYPos, obj_message_refuel);
+            <string>var playerWithinRange = distance_to_object(obj_player) &lt; global.messageDistance - 12;
+
+if (playerWithinRange) {
+    if(currentMessageBox == noone) {
+        if(global.fuel &gt;= 100) {
+            currentMessageBox = scr_msg_shipPlanetEscape(messageXPos, messageYPos);
+        } else {
+            currentMessageBox = scr_msg_shipRefuel(messageXPos, messageYPos);
+        }
+    }
+} else {
+    currentMessageBox = noone;
 }
-if(distance_to_object(obj_player) &lt; global.messageDistance - 12
-    &amp;&amp; instance_exists(obj_message_refuel) &amp;&amp; !instance_exists(obj_message_escape)
-    &amp;&amp; global.fuel &gt;= 100) {
-    instance_create(messageXPos, messageYPos, obj_message_escape);
-}
+
 if(global.currentLevelComplete == 1) {
     levelFinish = 1;
 }
+
 if(levelFinish == 1) {
     scr_particle_projectile_addsmoke(0.25);
     y -= 0.5 * global.deltaTime;
 }
+
 if(levelFinish == 1 &amp;&amp; y &lt; -200) {
     global.currentLevelComplete = 0;
     room_goto(rm_hub);
@@ -119,7 +125,7 @@ if(levelFinish == 1 &amp;&amp; y &lt; -200) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(x+85, y-88, x+93, y-29, global.fuel, c_black, make_color_rgb(11,255,12), make_color_rgb(11,255,12), 3, true, true);
+            <string>draw_healthbar(x-64, y-45, x-56, y+4, global.fuel, c_black, make_color_rgb(11,255,12), make_color_rgb(11,255,12), 3, true, true);
 //x8 y59
 </string>
           </argument>

@@ -54,10 +54,6 @@
         <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
-        <sprite>sprites\spr_message_refuel</sprite>
-        <sprite>sprites\spr_message_escape</sprite>
-        <sprite>sprites\spr_message_minerKilled</sprite>
-        <sprite>sprites\spr_message_towerDestroyed</sprite>
       </sprites>
       <sprite>sprites\spr_hubMockupBG</sprite>
       <sprite>sprites\spr_moonButton</sprite>
@@ -169,6 +165,11 @@
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
     </sprites>
+    <sprites name="CutScenes">
+      <sprite>sprites\spr_video_ship_damaged</sprite>
+      <sprite>sprites\spr_video_ship_landing_moon</sprite>
+      <sprite>sprites\spr_video_esc_to_skip_TEMP</sprite>
+    </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
   </sprites>
   <backgrounds name="background">
@@ -231,7 +232,17 @@
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
+    <scripts name="UI">
+      <scripts name="Message Boxes">
+        <script>scripts\scr_msg_shipRefuel.gml</script>
+        <script>scripts\scr_msg_shipPlanetEscape.gml</script>
+        <script>scripts\scr_msg_minerKilled.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_messageBox</font>
+  </fonts>
   <objects name="objects">
     <object>objects\object</object>
     <object>objects\obj_spawner</object>
@@ -240,6 +251,7 @@
       <object>objects\obj_level_minerals</object>
     </objects>
     <objects name="UI_Menus">
+      <object>objects\obj_button</object>
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
       <object>objects\obj_back</object>
@@ -251,21 +263,19 @@
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
       <object>objects\obj_credits3</object>
-      <object>objects\obj_messageBoxAnim</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
         <object>objects\obj_confirmMessage</object>
         <object>objects\obj_briefPopupMessage</object>
-        <object>objects\obj_message_minerKilled</object>
-        <object>objects\obj_message_towerDestroyed</object>
-        <object>objects\obj_message_refuel</object>
-        <object>objects\obj_message_escape</object>
       </objects>
       <object>objects\obj_hubMockupBG</object>
       <object>objects\obj_planetButton</object>
       <object>objects\obj_moonButton</object>
       <object>objects\obj_forestButton</object>
       <object>objects\obj_desertButton</object>
+      <objects name="Message Boxes">
+        <object>objects\obj_messageBox</object>
+      </objects>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
@@ -289,6 +299,7 @@
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
+        <object>objects\obj_destroyedTower</object>
         <object>objects\obj_tower_basic</object>
         <object>objects\obj_tower_superFreezer</object>
         <object>objects\obj_tower_tacticalMortar</object>
@@ -374,15 +385,21 @@
       <object>objects\obj_ship</object>
       <object>objects\obj_fuelText</object>
     </objects>
+    <objects name="CutScenes">
+      <object>objects\obj_video_ship_damaged</object>
+      <object>objects\obj_video_ship_landing_moon</object>
+      <object>objects\obj_video_esc_to_skip_TEMP</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_init</room>
-    <room>rooms\rm_level_moon</room>
-    <room>rooms\rm_level_forest</room>
-    <room>rooms\rm_test</room>
-    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_video_ship_damaged</room>
+    <room>rooms\rm_video_ship_moonlanding</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_hub</room>
+    <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_test</room>
     <room>rooms\rm_cinematic</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>

@@ -3,7 +3,7 @@
   <spriteName>spr_tower_m6100</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>50</depth>
+  <depth>40</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -65,7 +65,7 @@
             <kind>1</kind>
             <string>attackRate = 86;
 attackRateCounter = 0;
-attackDamage = 15;
+attackDamage = 3;
 attackRange = 400;
 
 weaponXOffset = 0;

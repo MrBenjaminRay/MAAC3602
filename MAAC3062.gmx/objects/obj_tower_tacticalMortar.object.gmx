@@ -3,7 +3,7 @@
   <spriteName>spr_tower_tacticalMortar</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>50</depth>
+  <depth>40</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>attackRate = 2048;
 attackRateCounter = 0;
-attackDamage = 10;
+attackDamage = 40;
 attackRange = view_wview[0] * 0.75;
 
 weaponXOffset = sprite_height/2 - 16;

@@ -42,20 +42,20 @@
             <string>// Set a high enough lifeLeft so that the particles have time to erupt
 // and make it where they need to go, but that they don't last forever
 // if they're not killed when they should be killed.
-lifeLeft = 20000;
+lifeLeft = 10000;
 
 angle = random_range(0, 2*pi);
-angleChange = random_range(-.001, .001);
-initialSpeed = random_range(.001, .065);
-speedChange = .99;
+angleChange = random_range(-.003, .003); // Slight randomized twist
+initialSpeed = random_range(.001, .2);
+speedChange = .98;
 currentSpeed = initialSpeed;
 
-speedTowardsTarget = random_range(0.0001, 0.0002);
+speedTowardsTarget = random_range(0.02, 0.04);
 speedTowardsTargetChange = 1.05;
 speedTowardsTargetMax = 10;
 image_index = irandom_range(0, image_number-1);
 image_speed = random_range(0.1, 0.25);
-
+image_alpha = random_range(.7, 1);
 </string>
           </argument>
         </arguments>

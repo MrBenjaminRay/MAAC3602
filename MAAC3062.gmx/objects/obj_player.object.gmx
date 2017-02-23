@@ -46,14 +46,17 @@ walkLeft = 0;
 movementSpeed = 250/1000;
 
 // Shield Stuff:
-currShield = 100;
-maxShield = 100;
+currShield = 200;
+maxShield = 200;
+
+currHealth = 150;
+maxHealth = 150;
 
 shieldRegenInterval = room_speed * 5;
 alarm[0] = shieldRegenInterval;
 
 // Create and place weapon:
-attackDamage = 2;
+attackDamage = 4;
 attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = 0;
@@ -88,6 +91,22 @@ xKeyHeldCounter = 0;
             <string>true</string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="2" enumb="1">
@@ -203,27 +222,24 @@ alarm[0] = shieldRegenInterval;
 }
 
 // LEFT &amp; RIGHT MOVEMENT:
-if (global.state != "Build") {
-    var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
-    var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
-    
-    if (isLeftPressed) {
-        scr_entity_moveLeft();
-        image_speed = 0.33;
-        image_xscale = 1;
-    }
-    
-    if (isRightPressed) {
-        scr_entity_moveRight();
-        image_speed = 0.33;
-        image_xscale = -1;
-    }
-    
-    if(!(isRightPressed || isLeftPressed)) {
-        image_speed = 0;
-        image_index = 0;
-    }
-    
+var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
+var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
+
+if (isLeftPressed) {
+    scr_entity_moveLeft();
+    image_speed = 0.33;
+    image_xscale = 1;
+}
+
+if (isRightPressed) {
+    scr_entity_moveRight();
+    image_speed = 0.33;
+    image_xscale = -1;
+}
+
+if(!(isRightPressed || isLeftPressed)) {
+    image_speed = 0;
+    image_index = 0;
 }
 </string>
           </argument>
@@ -518,7 +534,11 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(obj_message_refuel)) {
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
     if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
         scr_energy_change(-50);
         switch(room) {
@@ -546,91 +566,30 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
     <event eventtype="9" enumb="87">
       <action>
         <libid>1</libid>
-        <id>408</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
-        <isquestion>-1</isquestion>
+        <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>global.state != "Paused" &amp;&amp; global.state != "Build"</string>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (place_meeting(x, y, obj_physicsTile) == false) {
+    scr_entity_jump();
+}
+</string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>scr_entity_jump</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="9" enumb="83">
@@ -650,7 +609,7 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>global.state != "Paused" &amp;&amp; global.state != "Build"</string>
+            <string>global.state != "Paused"</string>
           </argument>
         </arguments>
       </action>
@@ -726,91 +685,30 @@ src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
     <event eventtype="9" enumb="32">
       <action>
         <libid>1</libid>
-        <id>408</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
-        <isquestion>-1</isquestion>
+        <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>global.state != "Paused" &amp;&amp; global.state != "Build"</string>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (place_meeting(x, y, obj_physicsTile) == false) {
+    scr_entity_jump();
+}
+</string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>scr_entity_jump</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
   </events>
