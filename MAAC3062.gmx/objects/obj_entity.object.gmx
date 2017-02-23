@@ -316,6 +316,9 @@ if (maxShield &gt; 0 &amp;&amp; currShield &gt; 0) {
     draw_set_color(healthBarColor_shieldForeground);
     draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
 }
+
+// Return draw color to normal:
+draw_set_color(c_white);
 </string>
           </argument>
         </arguments>

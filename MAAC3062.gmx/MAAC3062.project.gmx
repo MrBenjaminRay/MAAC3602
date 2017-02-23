@@ -141,6 +141,7 @@
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
+      <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
@@ -243,6 +244,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
+    <font>fonts\fnt_towerPlacement</font>
   </fonts>
   <objects name="objects">
     <object>objects\object</object>
@@ -381,6 +383,7 @@
           <object>objects\obj_control_buildState</object>
           <object>objects\obj_control_destroyState</object>
         </objects>
+        <object>objects\obj_control_cheats</object>
       </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
