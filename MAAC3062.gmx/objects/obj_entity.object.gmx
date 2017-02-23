@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>movementSpeed = 150 / 1000;     // Left/Right Movement Speed
+            <string>// MOVEMENT:
+movementSpeed = 150 / 1000;     // Left/Right Movement Speed
 jumpSpeed = 300/ 1000;          // Jump Movement Speed
 currentJumpSpeed = jumpSpeed;   // Current Jump Movement Speed
 currentDropSpeed = 0;           // Current Drop Movement Speed
@@ -34,6 +35,7 @@ gravConst = 6 / 1000;           // Gravity Constant
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
 
+// WEAPON:
 attackRate = room_speed / 2;    // The number of delta time between attacks.
 attackRateCounter = 0;          // The number of delta time since the last attack.
 attackDamage = 10;              // The amount of damage done by each attack.
@@ -43,11 +45,27 @@ weaponObj = noone;              // The weapon to display on the entity or noone 
 weaponXOffset = sprite_width/2; // The x-axis position, in relation to this entity, of where to place the weapon obj.
 weaponYOffset = sprite_height/2;// The y-axis position, in relation to this entity, of where to place the weapon obj.
 
+// HEALTH &amp; SHIELDS:
 currShield = 0;                 // The current sheild value.
 currHealth = 100;               // The current health value.
 
 maxShield = 0;                  // The maximum shield value.
 maxHealth = 100;                // The maximum health value.
+
+// HEALTH/SHIELD BAR:
+showHealthBar = true;
+
+healthBarXOffset = 0;
+healthBarYOffset = 0;
+
+healthBarHeight = 10;
+healthBarWidth = sprite_width;
+
+show_debug_message(sprite_width)
+
+healthBarColor_background = c_black;           // The background color of the health/shield bar.
+healthBarColor_healthForeground = c_lime;      // The foreground color of the health bar.
+healthBarColor_shieldForeground = c_teal;      // The foreground color of the sheld bar.
 </string>
           </argument>
         </arguments>
@@ -236,6 +254,68 @@ if (!isJumping &amp;&amp; !isDropping) {
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (showHealthBar == false) {
+    return 0;
+}
+
+// Determine initial coordinates:
+var xPos_left = x + healthBarXOffset;
+var yPos_top = y + healthBarYOffset;
+var xPos_right = xPos_left + healthBarWidth;
+var yPos_bottom = yPos_top + healthBarHeight;
+
+// Draw Bar Background:
+draw_set_color(healthBarColor_background);
+draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
+
+// Adjust coordinates to allow a border to be shown:
+var borderWidth = 2;
+xPos_left += borderWidth;
+yPos_top += borderWidth;
+yPos_bottom -= borderWidth;
+
+if (maxHealth &gt; 0 &amp;&amp; currHealth &gt; 0) {
+    // Adjust coordinates for health percentage:
+    var healthPct = currHealth / maxHealth;
+    var xPos_right = xPos_left + (healthBarWidth * healthPct) - (borderWidth * 2);
+    
+    // Draw Health Bar:
+    draw_set_color(healthBarColor_healthForeground);
+    draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
+}
+
+
+if (maxShield &gt; 0 &amp;&amp; currShield &gt; 0) {
+    // Adjust coordinates for shield percentage:
+    var shieldPct = currShield / maxShield;
+    var xPos_right = xPos_left + (healthBarWidth * shieldPct) - (borderWidth * 2);
+    
+    // Draw Shield Bar:
+    draw_set_color(healthBarColor_shieldForeground);
+    draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
+}
 </string>
           </argument>
         </arguments>
