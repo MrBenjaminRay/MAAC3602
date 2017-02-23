@@ -356,6 +356,7 @@
       </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
+        <object>objects\obj_weapon_playerArm</object>
         <object>objects\obj_weapon_basic</object>
         <object>objects\obj_weapon_m6100</object>
         <object>objects\obj_weapon_flamethrower</object>

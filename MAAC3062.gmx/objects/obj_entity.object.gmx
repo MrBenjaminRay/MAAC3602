@@ -61,8 +61,6 @@ healthBarYOffset = 0;
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
 
-show_debug_message(sprite_width)
-
 healthBarColor_background = c_black;           // The background color of the health/shield bar.
 healthBarColor_healthForeground = c_lime;      // The foreground color of the health bar.
 healthBarColor_shieldForeground = c_teal;      // The foreground color of the sheld bar.
