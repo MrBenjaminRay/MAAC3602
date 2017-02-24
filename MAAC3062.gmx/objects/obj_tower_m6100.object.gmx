@@ -39,6 +39,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>mounted</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>allowedToFire</string>
           </argument>
           <argument>
@@ -128,7 +152,9 @@ continuousFire = false; //used to keep looping firing sound
           <argument>
             <kind>1</kind>
             <string>with (instance_nearest(x, y, obj_player)) {
-    weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+    if (weaponObj == noone) {
+        weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
+    }
 }
 
 audio_stop_sound(snd_M6100_loop);
@@ -137,6 +163,32 @@ instance_create(x, y, obj_tower_destroyed_m6100);
 
 scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>mounted</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
           </argument>
         </arguments>
       </action>
@@ -250,7 +302,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (weaponObj != noone and instance_exists(weaponObj)) {
+            <string>if (weaponObj != noone &amp; instance_exists(weaponObj) &amp; mounted) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
@@ -323,7 +375,7 @@ if (mouse_check_button(mb_left)) {
     canFire &amp;= weaponObj != noone;
     canFire &amp;= isReloading == false;
     
-    if (canFire &amp; allowedToFire) {
+    if (canFire &amp; allowedToFire &amp; mounted) {
         if(!continuousFire){
             continuousFire = true;
             audio_play_sound(snd_M6100_loop, 0, true);
@@ -356,6 +408,35 @@ else if(continuousFire == true){
     audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="69">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (mounted) {
+    // Activate WPlayer:
+    instance_activate_all();
+    
+    // Allow tower to fire:
+    obj_tower_m6100.mounted = false;
+}
 </string>
           </argument>
         </arguments>
