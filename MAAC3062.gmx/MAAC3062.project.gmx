@@ -159,11 +159,17 @@
         <sprite>sprites\spr_build_overlay_validLocation</sprite>
         <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
         <sprite>sprites\spr_destroy_overlay</sprite>
+        <sprite>sprites\spr_fire1</sprite>
+        <sprite>sprites\spr_fire2</sprite>
       </sprites>
       <sprite>sprites\spr_ship</sprite>
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
+      <sprites name="Explosions">
+        <sprite>sprites\spr_explode1</sprite>
+        <sprite>sprites\spr_explode2</sprite>
+      </sprites>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
