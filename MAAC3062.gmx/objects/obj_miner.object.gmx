@@ -113,16 +113,18 @@ animStartCounter = staggeredStart;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    currentTimeToMinerals += global.deltaTime;
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+currentTimeToMinerals += global.deltaTime;
+
+if (currentTimeToMinerals &gt;= timeToMinerals) {
+    currentTimeToMinerals -= timeToMinerals;
+    global.minerals += 2;
     
-    if (currentTimeToMinerals &gt;= timeToMinerals) {
-        currentTimeToMinerals -= timeToMinerals;
-        global.minerals += 2;
-        
-        var temp = instance_create(x, y, obj_mineText);
-        temp.text = "+2"
-    }
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "+2"
 }
 
 if (animStartCounter &lt;= 0) {

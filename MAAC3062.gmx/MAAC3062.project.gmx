@@ -250,6 +250,7 @@
       </scripts>
     </scripts>
     <script>scripts\scr_drop_energy.gml</script>
+    <script>scripts\scr_getLevelId.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -397,6 +398,9 @@
           <object>objects\obj_control_normalState</object>
           <object>objects\obj_control_buildState</object>
           <object>objects\obj_control_destroyState</object>
+        </objects>
+        <objects name="Stats">
+          <object>objects\obj_levelStats</object>
         </objects>
       </objects>
       <object>objects\obj_cursorCtrl</object>
