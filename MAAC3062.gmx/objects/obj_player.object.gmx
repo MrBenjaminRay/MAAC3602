@@ -68,9 +68,9 @@ xKeyHeldCounter = 0;
 
 // HEALTH/SHIELD BAR:
 healthBarXOffset = -20;
-healthBarYOffset = -50;
+healthBarYOffset = -54;
 
-healthBarHeight = 10;
+healthBarHeight = 14;
 healthBarWidth = sprite_width;
 </string>
           </argument>
