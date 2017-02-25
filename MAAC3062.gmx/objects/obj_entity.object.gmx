@@ -194,7 +194,6 @@ if (!isJumping &amp;&amp; !isDropping) {
     }
 }
 
-
 // JUMPING:
 if (isJumping &amp;&amp; !isDropping) {
     currentJumpSpeed += gravConst * global.deltaTime;

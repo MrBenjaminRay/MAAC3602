@@ -69,16 +69,15 @@ if (canContinue) {
                     audio_sound_gain(snd_towerDestroy, 0.6, 0);  
                     break;
             }
-            
+
             if object_is_ancestor(object_index, obj_tower) {
                 audio_play_sound(snd_towerDestroy, 0, false);
                 audio_sound_gain(snd_towerDestroy, 0.7, 0);  
             }
 
-            // Handle energy drops for enemies        
+            // Handle energy drops for enemies
             if object_is_ancestor(object_index, obj_enemy) {
-                var inst = instance_create(x, y, obj_drop_energy);
-                inst.value = energyDrop;
+                scr_drop_energy(x + sprite_width/2, y + sprite_height/2, energyDrop);
             }
 
             // Destroy the instance
