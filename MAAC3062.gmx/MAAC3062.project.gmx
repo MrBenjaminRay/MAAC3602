@@ -408,6 +408,10 @@
       <object>objects\obj_video_ship_landing_moon</object>
       <object>objects\obj_video_esc_to_skip_TEMP</object>
     </objects>
+    <objects name="Effects">
+      <object>objects\obj_effect</object>
+      <object>objects\obj_mineText</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_video_ship_damaged</room>
