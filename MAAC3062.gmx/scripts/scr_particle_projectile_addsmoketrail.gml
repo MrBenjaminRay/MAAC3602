@@ -5,7 +5,7 @@
 // Argument0 is sprite x & y scale (0 < value <= 1)
 
 // Create emitter instance
-var inst = instance_create(x, y, obj_particle_emitter_smoke);
+var inst = instance_create(x, y, obj_emitter_smoketrail);
 
 inst.particleScale = argument0;
 

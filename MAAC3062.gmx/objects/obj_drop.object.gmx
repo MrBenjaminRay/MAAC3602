@@ -39,7 +39,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Rotation speed (0 = no spin = default)
+            <string>showHealthBar = false;
+
+// Rotation speed (0 = no spin = default)
 // Must be set in inheriting object create code for it to spin
 spriteRotateSpeed = 0;
 

@@ -42,6 +42,8 @@
             <string>// Set image rotation speed
 spriteRotateSpeed = .35;
 
+// Amount by which to decrease left/right movement until stopped
+movementSlowDownAmount = .001;
 </string>
           </argument>
         </arguments>
@@ -78,7 +80,19 @@ spriteRotateSpeed = .35;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (currentJumpSpeed &gt; 0 || currentFallSpeed &gt; 0) {
+    if (movementDirection == "LEFT") {
+        scr_entity_moveLeft();
+    }
+    
+    if (movementDirection == "RIGHT") {
+        scr_entity_moveRight();
+    }
+}
+
+
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -101,7 +115,7 @@ spriteRotateSpeed = .35;
           <argument>
             <kind>1</kind>
             <string>// Create the emitter that emits energy orbs
-var inst = instance_create(x, y, obj_particle_emitter_energy_orb);
+var inst = instance_create(x, y, obj_emitter_energy_orb);
 // # of orbs emitted is based on value of energy drop (each orb adds 1 energy to level)
 inst.particleCount = value;
 

@@ -131,7 +131,7 @@
         <sprite>sprites\spr_weapon_rifle</sprite>
         <sprite>sprites\spr_weapon_flamethrower</sprite>
       </sprites>
-      <sprite>sprites\spr_smokePuff</sprite>
+      <sprite>sprites\spr_smoke_puff</sprite>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -141,6 +141,7 @@
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
+      <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
@@ -205,6 +206,7 @@
   <scripts name="scripts">
     <scripts name="Entities">
       <script>scripts\scr_entity_canDrop.gml</script>
+      <script>scripts\scr_entity_canJump.gml</script>
       <script>scripts\scr_entity_drop.gml</script>
       <script>scripts\scr_entity_forceDrop.gml</script>
       <script>scripts\scr_entity_jump.gml</script>
@@ -216,6 +218,14 @@
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestEnemy.gml</script>
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
+        <scripts name="Build Rejection">
+          <script>scripts\scr_tower_buildRejectionNotification_basic.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_superFreezer.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_tacticalMortar.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_109Cal.gml</script>
+          <script>scripts\scr_tower_buildRejectionNotification_flameThrower.gml</script>
+          <script>scripts\scr_tower_buildRejectNotification_m6100.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
@@ -234,7 +244,7 @@
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
     </scripts>
-    <script>scripts\scr_particle_projectile_addsmoke.gml</script>
+    <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
@@ -245,9 +255,12 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\scr_drop_energy.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
+    <font>fonts\fnt_mineralEnergyLevels</font>
+    <font>fonts\fnt_towerPlacement</font>
   </fonts>
   <objects name="objects">
     <object>objects\object</object>
@@ -338,17 +351,20 @@
         <object>objects\obj_miner</object>
       </objects>
       <objects name="ParticleEmitter">
-        <object>objects\obj_particle_emitter_continual</object>
-        <object>objects\obj_particle_emitter_instant</object>
-        <object>objects\obj_particle_emitter_smoke</object>
-        <object>objects\obj_particle_emitter_flame</object>
-        <object>objects\obj_particle_emitter_energy_orb</object>
+        <object>objects\obj_emitter_continual</object>
+        <object>objects\obj_emitter_instant</object>
+        <object>objects\obj_emitter_smoketrail</object>
+        <object>objects\obj_emitter_flame</object>
+        <object>objects\obj_emitter_energy_orb</object>
+        <object>objects\obj_emitter_explosion</object>
+        <object>objects\obj_emitter_emitter</object>
       </objects>
       <objects name="Particle">
         <object>objects\obj_particle</object>
-        <object>objects\obj_particle_smoke</object>
+        <object>objects\obj_particle_smoketrail</object>
         <object>objects\obj_particle_flame</object>
         <object>objects\obj_particle_energy_orb</object>
+        <object>objects\obj_particle_smoke_puff</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
@@ -359,6 +375,7 @@
       </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
+        <object>objects\obj_weapon_playerArm</object>
         <object>objects\obj_weapon_basic</object>
         <object>objects\obj_weapon_m6100</object>
         <object>objects\obj_weapon_flamethrower</object>
@@ -380,6 +397,7 @@
     <objects name="Misc">
       <objects name="Control">
         <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_control_cheats</object>
         <object>objects\obj_control</object>
         <objects name="States">
           <object>objects\obj_control_normalState</object>

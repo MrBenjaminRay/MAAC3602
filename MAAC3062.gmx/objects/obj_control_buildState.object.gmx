@@ -373,35 +373,77 @@ with (obj_tower_m6100) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    // Clamp the x position to the nearest multiple of 32:
-    var tempX = mouse_x - (mouse_x % 32);
-    
-    // Clamp the y position to the nearest multiple of 32:
-    var tempY = mouse_y - (mouse_y % 32);
-    
-    // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
-    tempY += 128 - sprite_get_height(towerSpr);
-    
-    // Determine if the (x, y) location is valid:
-    var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
-    isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
-    isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
-    
-    if (tower == "M-6100") {
-        var player = instance_nearest(x, y, obj_player);
-        isLocationValid &amp;= point_distance(player.x, player.y, mouse_x, mouse_y) &lt;= 128;
-    }
-    
-    // Draw Sprites:
-    draw_sprite(towerSpr, 0, tempX, tempY);
-    
-    if (isLocationValid) {
-        draw_sprite_stretched(spr_build_overlay_validLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
-    } else {
-        draw_sprite_stretched(spr_build_overlay_invalidLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
-    }
+            <string>if (global.state == "Paused") {
+    return 0;
 }
+
+/////////////////////////////////////////// DRAW PLACEMENT SPRITES:
+// Clamp the x position to the nearest multiple of 32:
+var tempX = mouse_x - (mouse_x % 32);
+
+// Clamp the y position to the nearest multiple of 32:
+var tempY = mouse_y - (mouse_y % 32);
+
+// Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
+tempY += 128 - sprite_get_height(towerSpr);
+
+// Determine if the (x, y) location is valid:
+var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
+isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
+isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
+
+if (tower == "M-6100") {
+    var player = instance_nearest(x, y, obj_player);
+    isLocationValid &amp;= point_distance(player.x, player.y, mouse_x, mouse_y) &lt;= 128;
+}
+
+// Draw Sprites:
+draw_sprite(towerSpr, 0, tempX, tempY);
+
+if (isLocationValid) {
+    draw_sprite_stretched(spr_build_overlay_validLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
+} else {
+    draw_sprite_stretched(spr_build_overlay_invalidLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
+}
+
+
+/////////////////////////////////////////// DRAW TOWER RANGE:
+var temp = instance_create(-500, -500, towerObj);
+var range = temp.attackRange;
+var rangeXOffset = temp.weaponXOffset;
+var rangeYOffset = temp.weaponYOffset;
+
+var xPos_left = tempX + rangeXOffset - range;
+var yPos_top = tempY + rangeYOffset - range;
+var xPos_right = tempX + rangeXOffset + range;
+var yPos_bottom = tempY + rangeYOffset + range;
+
+draw_set_color(c_green);
+draw_ellipse(xPos_left, yPos_top, xPos_right, yPos_bottom, true);
+
+with (temp) {
+    instance_destroy();
+}
+
+/////////////////////////////////////////// DRAW TOWER COST:
+// Determine Position:
+var xCoord = view_wview[0] / 2;
+var yCoord = 10;
+var text = "Costs " + string(towerCost) + " Energy";
+
+// Set Font:
+draw_set_font(fnt_towerPlacement);
+
+// Draw Background:
+draw_set_color(c_black);
+draw_text(xCoord + 2, yCoord + 2, text);
+
+// Draw Foreground:
+draw_set_color(c_green);
+draw_text(xCoord, yCoord, text);
+
+// Reset Draw Color:
+draw_set_color(c_white);
 </string>
           </argument>
         </arguments>

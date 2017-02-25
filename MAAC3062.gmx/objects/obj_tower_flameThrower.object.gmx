@@ -39,9 +39,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 128;
+            <string>attackRate = 64;
 attackRateCounter = 0;
-attackDamage = 2;
+attackDamage = .5; // See also minDamagePerStack and maxDamagePerStack in obj_enemy_create
 attackRange = sprite_width/2;
 
 weaponXOffset = sprite_width/2;
@@ -170,7 +170,8 @@ if (nearestEnemy != noone) {
         scr_spawn_projectile(obj_projectile_flame, projX, projY, nearestEnemy, false, attackDamage);
         
         // Show projectile spawn effect:
-        scr_create_explosion(projX, projY, 'Flash');
+        // Need a different effect for flame spawning. Explosion looks funny. -Ben
+        //scr_create_explosion(projX, projY, 'Flash');
     }
 }
 

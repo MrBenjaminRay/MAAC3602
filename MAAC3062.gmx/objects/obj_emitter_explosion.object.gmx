@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_particle_emitter_instant</parentName>
+  <parentName>obj_emitter_instant</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -41,11 +41,11 @@
             <kind>1</kind>
             <string>// Override stuff in parent emitter type
 // Set type of particle
-particleType = obj_particle_energy_orb;
-particleScale = .75;
+particleType = obj_particle_smoke_puff;
+particleScale = 1;
 maxImageAlpha = 1; 
-particleCount = 100; // Override this when creating an instance of this object
-
+particleCount = 50; // Override this when creating an instance of this object
+spawnRandomizeRadius = 100;
 </string>
           </argument>
         </arguments>
