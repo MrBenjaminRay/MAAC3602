@@ -52,7 +52,10 @@ shadowOffset_y = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set y offset based on string height
+            <string>// Set the right font
+draw_set_font(fnt_mineralEnergyLevels);
+
+// Set y offset based on string height
 var h = string_height("ASD");
 textOffset_y = -h / 2;
 
