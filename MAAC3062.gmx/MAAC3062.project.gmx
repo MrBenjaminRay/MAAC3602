@@ -108,6 +108,7 @@
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
+        <sprite>sprites\spr_miner_hurt</sprite>
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
@@ -117,6 +118,8 @@
         <sprite>sprites\spr_emitter</sprite>
       </sprites>
       <sprites name="Explosions">
+        <sprite>sprites\spr_explode2</sprite>
+        <sprite>sprites\spr_explode1</sprite>
         <sprite>sprites\spr_explosion_normal</sprite>
         <sprite>sprites\spr_explosion_sparky</sprite>
         <sprite>sprites\spr_explosion_smallhit</sprite>
@@ -167,10 +170,6 @@
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
-      <sprites name="Explosions">
-        <sprite>sprites\spr_explode1</sprite>
-        <sprite>sprites\spr_explode2</sprite>
-      </sprites>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
