@@ -244,6 +244,7 @@
     <instance objName="obj_level_minerals" x="32" y="64" name="inst_6E693D15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="96" y="-32" name="inst_8B23729D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_cheats" x="0" y="-32" name="inst_1E3D973D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_emitter_emitter" x="96" y="32" name="inst_A73B3071" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

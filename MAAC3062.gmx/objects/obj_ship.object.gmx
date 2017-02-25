@@ -95,7 +95,7 @@ if(global.currentLevelComplete == 1) {
 }
 
 if(levelFinish == 1) {
-    scr_particle_projectile_addsmoke(0.25);
+    scr_particle_projectile_addsmoketrail(0.25);
     y -= 0.5 * global.deltaTime;
 }
 

@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>lifeTotal = 0;
-lifeLeft = 0;
+lifeLeft = 10000; // Default 10 seconds max life
 
 maxImageAlpha = 1; // To be overridden by inheriting objects.
 </string>

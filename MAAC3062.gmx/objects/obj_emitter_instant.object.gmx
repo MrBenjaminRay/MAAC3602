@@ -32,6 +32,10 @@ maxImageAlpha = 1; // To be overridden by inheriting objects as needed.
 particleCount = 5; // To be overridden by inheriting objects as needed.
 
 particleType = noone; // To be overridden by inheriting objects (REQUIRED)
+
+// Spawn particles at random point within a radius around the emitter.
+// Use 0 (default) for all particles to start at exact position of emitter.
+spawnRandomizeRadius = 0;
 </string>
           </argument>
         </arguments>
@@ -59,7 +63,23 @@ particleType = noone; // To be overridden by inheriting objects (REQUIRED)
 
 // Emit
 for (var i=0; i&lt;particleCount; i++) {
-    var inst = instance_create(x, y, particleType);
+
+    // Randomize particle's initial position based on spawnRandomizeRadius
+    var newX;
+    var newY;
+    if (spawnRandomizeRadius == 0) {
+        // Use x/y of emitter
+        newX = x;
+        newY = y;
+    } else {
+        // Randomize within radius specified around x/y of emitter
+        var angle = random_range(1, pi*2); // Skip 0 (it's same as pi*2)
+        var radius = random_range(0, spawnRandomizeRadius);
+        newX = x + cos(angle) * radius;
+        newY = y + sin(angle) * radius;
+    }
+    var inst = instance_create(newX, newY, particleType);
+
     // Set scale
     inst.image_xscale = particleScale;
     inst.image_yscale = particleScale;
@@ -70,6 +90,7 @@ for (var i=0; i&lt;particleCount; i++) {
 
 // Destroy self
 instance_destroy();
+
 </string>
           </argument>
         </arguments>

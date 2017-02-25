@@ -131,7 +131,7 @@
         <sprite>sprites\spr_weapon_rifle</sprite>
         <sprite>sprites\spr_weapon_flamethrower</sprite>
       </sprites>
-      <sprite>sprites\spr_smokePuff</sprite>
+      <sprite>sprites\spr_smoke_puff</sprite>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -238,7 +238,7 @@
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
     </scripts>
-    <script>scripts\scr_particle_projectile_addsmoke.gml</script>
+    <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
@@ -252,6 +252,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
+    <font>fonts\fnt_mineralEnergyLevels</font>
     <font>fonts\fnt_towerPlacement</font>
   </fonts>
   <objects name="objects">
@@ -343,17 +344,20 @@
         <object>objects\obj_miner</object>
       </objects>
       <objects name="ParticleEmitter">
-        <object>objects\obj_particle_emitter_continual</object>
-        <object>objects\obj_particle_emitter_instant</object>
-        <object>objects\obj_particle_emitter_smoke</object>
-        <object>objects\obj_particle_emitter_flame</object>
-        <object>objects\obj_particle_emitter_energy_orb</object>
+        <object>objects\obj_emitter_continual</object>
+        <object>objects\obj_emitter_instant</object>
+        <object>objects\obj_emitter_smoketrail</object>
+        <object>objects\obj_emitter_flame</object>
+        <object>objects\obj_emitter_energy_orb</object>
+        <object>objects\obj_emitter_explosion</object>
+        <object>objects\obj_emitter_emitter</object>
       </objects>
       <objects name="Particle">
         <object>objects\obj_particle</object>
-        <object>objects\obj_particle_smoke</object>
+        <object>objects\obj_particle_smoketrail</object>
         <object>objects\obj_particle_flame</object>
         <object>objects\obj_particle_energy_orb</object>
+        <object>objects\obj_particle_smoke_puff</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
