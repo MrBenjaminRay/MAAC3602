@@ -105,7 +105,7 @@
       </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
-        <sprite>sprites\spr_cave_back_dead_TEMP</sprite>
+        <sprite>sprites\spr_cave_back_dead</sprite>
         <sprite>sprites\spr_cave_front</sprite>
       </sprites>
       <sprites name="Miner">
