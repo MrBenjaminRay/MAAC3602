@@ -105,6 +105,34 @@ if (spawnRateCounter &lt; spawnRate) {
     if (numObjSpawned &lt; numObjToSpawn) {
         numObjSpawned++;
         var enemy = instance_create(x, y, objToSpawn);
+        
+        // Determine Enemy ID and Alter Stats:
+        switch (objToSpawn) {
+            case obj_enemy_air_light: {
+                global.levelStats[scr_getLevelId(), 7]++;
+                break;
+            }
+            case obj_enemy_air_heavy: {
+                global.levelStats[scr_getLevelId(), 8]++;
+                break;
+            }
+            case obj_enemy_ground_light: {
+                global.levelStats[scr_getLevelId(), 9]++;
+                break;
+            }
+            case obj_enemy_ground_medium: {
+                global.levelStats[scr_getLevelId(), 10]++;
+                break;
+            }
+            case obj_enemy_ground_heavy: {
+                global.levelStats[scr_getLevelId(), 11]++;
+                break;
+            }
+            case obj_enemy_ground_jackal: {
+                global.levelStats[scr_getLevelId(), 12]++;
+                break;
+            }
+        }
     }
 }
 
