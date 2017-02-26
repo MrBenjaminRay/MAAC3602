@@ -66,7 +66,9 @@
         <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
         <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
         <sprite>sprites\spr_left_arm_weapon</sprite>
+        <sprite>sprites\spr_left_arm_wrench</sprite>
         <sprite>sprites\spr_right_arm_weapon</sprite>
+        <sprite>sprites\spr_right_arm_wrench</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -170,6 +172,7 @@
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
+      <sprite>sprites\spr_exhaust</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
