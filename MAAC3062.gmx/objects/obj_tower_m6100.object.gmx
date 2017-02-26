@@ -90,10 +90,10 @@
             <string>attackRate = 86;
 attackRateCounter = 0;
 attackDamage = 3;
-attackRange = 400;
+attackRange = global.towers[5, 4];
 
-weaponXOffset = sprite_width/2;
-weaponYOffset = sprite_height/2;
+weaponXOffset = global.towers[5, 5];
+weaponYOffset = global.towers[5, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
 
 currShield = 800;

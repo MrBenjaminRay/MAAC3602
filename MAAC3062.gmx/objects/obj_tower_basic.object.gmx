@@ -42,10 +42,10 @@
             <string>attackRate = 512;
 attackRateCounter = 0;
 attackDamage = 15;
-attackRange = sprite_width;
+attackRange = global.towers[0, 4];
 
-weaponXOffset = sprite_width/2;
-weaponYOffset = 32;
+weaponXOffset = global.towers[0, 5]
+weaponYOffset = global.towers[0, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_basic);
 
 currShield = 100;
@@ -143,7 +143,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy);
+var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy);
 
 if (nearestEnemy != noone) {
     var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
