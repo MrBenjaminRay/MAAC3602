@@ -44,6 +44,9 @@ spriteRotateSpeed = .35;
 
 // Amount by which to decrease left/right movement until stopped
 movementSlowDownAmount = .001;
+
+image_speed = 0;
+image_index = 0;
 </string>
           </argument>
         </arguments>
@@ -90,7 +93,23 @@ movementSlowDownAmount = .001;
     }
 }
 
-
+// FALLING - TEMPORARY - Special behaviour, which I (Ben) copied &amp; pasted from entity movement code.
+// But in this case, once the object collides with the floor, we stop the movementSpeed as well.
+if (!isJumping &amp;&amp; !isDropping) {
+    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_physicsTile);
+    
+    // If there is a collision at the new location, ease it down to the tile then stop everything
+    if (collisionAtNewLocation) {
+        currentFallSpeed = 0;
+        movementSpeed = 0;
+        
+        // Ease 'er on down
+        while (place_meeting(x, y + 1, obj_physicsTile) == false) {
+            y++;
+        }
+    }
+    
+}
 
 </string>
           </argument>
