@@ -1,8 +1,8 @@
 /*
- * Determines the nearest enemy.
- * If a range is given, then the nearest enemy within range will be returned.
- * If no range is given, then the nearest enemy in the room will be returned.
- * If there is no "nearest enemy" in either case, noone is returned.
+ * Determines the nearest object of the specified type.
+ * If a range is given, then the nearest object within range will be returned.
+ * If no range is given, then the nearest object in the room will be returned.
+ * If there is no "nearest object" in either case, noone is returned.
  *
  * @param argument[0] 
  *        The range.
