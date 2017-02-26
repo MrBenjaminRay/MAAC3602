@@ -66,7 +66,9 @@
         <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
         <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
         <sprite>sprites\spr_left_arm_weapon</sprite>
+        <sprite>sprites\spr_left_arm_wrench</sprite>
         <sprite>sprites\spr_right_arm_weapon</sprite>
+        <sprite>sprites\spr_right_arm_wrench</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -103,7 +105,7 @@
       </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
-        <sprite>sprites\spr_cave_back_dead_TEMP</sprite>
+        <sprite>sprites\spr_cave_back_dead</sprite>
         <sprite>sprites\spr_cave_front</sprite>
       </sprites>
       <sprites name="Miner">
@@ -170,6 +172,7 @@
       <sprite>sprites\spr_enery_resource</sprite>
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
+      <sprite>sprites\spr_exhaust</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -204,36 +207,24 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
-      <script>scripts\scr_entity_canDrop.gml</script>
-      <script>scripts\scr_entity_canJump.gml</script>
-      <script>scripts\scr_entity_drop.gml</script>
-      <script>scripts\scr_entity_forceDrop.gml</script>
-      <script>scripts\scr_entity_jump.gml</script>
-      <script>scripts\scr_entity_moveLeft.gml</script>
-      <script>scripts\scr_entity_moveRight.gml</script>
       <script>scripts\scr_entity_dealDamage.gml</script>
-      <script>scripts\src_circleBar.gml</script>
-      <script>scripts\src_drawPie.gml</script>
+      <script>scripts\scr_entity_gearNearestObjectOfType.gml</script>
       <scripts name="Tower">
-        <script>scripts\scr_tower_getNearestEnemy.gml</script>
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
-        <scripts name="Build Rejection">
-          <script>scripts\scr_tower_buildRejectionNotification_basic.gml</script>
-          <script>scripts\scr_tower_buildRejectionNotification_superFreezer.gml</script>
-          <script>scripts\scr_tower_buildRejectionNotification_tacticalMortar.gml</script>
-          <script>scripts\scr_tower_buildRejectionNotification_109Cal.gml</script>
-          <script>scripts\scr_tower_buildRejectionNotification_flameThrower.gml</script>
-          <script>scripts\scr_tower_buildRejectNotification_m6100.gml</script>
-        </scripts>
       </scripts>
       <scripts name="Projectile">
-        <script>scripts\scr_projectile_destroyAssociatedHomingProjectiles.gml</script>
         <script>scripts\scr_spawn_projectile.gml</script>
       </scripts>
-      <scripts name="Enemy">
-        <script>scripts\scr_enemy_getNearestTower.gml</script>
-        <script>scripts\scr_enemy_getNearestMine.gml</script>
-        <script>scripts\scr_enemy_getNearestPlayer.gml</script>
+      <scripts name="Movement">
+        <scripts name="Checks">
+          <script>scripts\scr_entity_canDrop.gml</script>
+          <script>scripts\scr_entity_canJump.gml</script>
+        </scripts>
+        <script>scripts\scr_entity_jump.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
+        <script>scripts\scr_entity_forceDrop.gml</script>
+        <script>scripts\scr_entity_moveLeft.gml</script>
+        <script>scripts\scr_entity_moveRight.gml</script>
       </scripts>
     </scripts>
     <scripts name="States">
@@ -256,6 +247,15 @@
     </scripts>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_getLevelId.gml</script>
+    <scripts name="Control">
+      <scripts name="Notifications">
+        <script>scripts\scr_notification.gml</script>
+      </scripts>
+      <scripts name="States">
+        <script>scripts\scr_normal_beginBuild.gml</script>
+        <script>scripts\scr_build_switchTower.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -312,8 +312,8 @@
           <object>objects\obj_enemy_ground</object>
           <object>objects\obj_enemy_ground_light</object>
           <object>objects\obj_enemy_ground_medium</object>
-          <object>objects\obj_enemy_ground_jackal</object>
           <object>objects\obj_enemy_ground_heavy</object>
+          <object>objects\obj_enemy_ground_jackal</object>
         </objects>
       </objects>
       <objects name="Tower">
@@ -350,24 +350,7 @@
       <objects name="Miner">
         <object>objects\obj_miner</object>
       </objects>
-      <objects name="ParticleEmitter">
-        <object>objects\obj_emitter_continual</object>
-        <object>objects\obj_emitter_instant</object>
-        <object>objects\obj_emitter_smoketrail</object>
-        <object>objects\obj_emitter_flame</object>
-        <object>objects\obj_emitter_energy_orb</object>
-        <object>objects\obj_emitter_explosion</object>
-        <object>objects\obj_emitter_emitter</object>
-      </objects>
-      <objects name="Particle">
-        <object>objects\obj_particle</object>
-        <object>objects\obj_particle_smoketrail</object>
-        <object>objects\obj_particle_flame</object>
-        <object>objects\obj_particle_energy_orb</object>
-        <object>objects\obj_particle_smoke_puff</object>
-      </objects>
       <objects name="Explosions">
-        <object>objects\obj_explosion</object>
         <object>objects\obj_explosion_normal</object>
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
@@ -390,9 +373,7 @@
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
-      <objects name="Visual">
-        <object>objects\obj_visualTile</object>
-      </objects>
+      <object>objects\obj_visualTile</object>
     </objects>
     <objects name="Misc">
       <objects name="Control">
@@ -420,6 +401,25 @@
     <objects name="Effects">
       <object>objects\obj_effect</object>
       <object>objects\obj_mineText</object>
+      <objects name="Explosions">
+        <object>objects\obj_explosion</object>
+      </objects>
+      <objects name="Particles">
+        <object>objects\obj_particle</object>
+        <object>objects\obj_particle_smoketrail</object>
+        <object>objects\obj_particle_flame</object>
+        <object>objects\obj_particle_smoke_puff</object>
+        <object>objects\obj_particle_energy_orb</object>
+      </objects>
+      <objects name="Particle Emitters">
+        <object>objects\obj_emitter_continual</object>
+        <object>objects\obj_emitter_smoketrail</object>
+        <object>objects\obj_emitter_instant</object>
+        <object>objects\obj_emitter_energy_orb</object>
+        <object>objects\obj_emitter_explosion</object>
+        <object>objects\obj_emitter_flame</object>
+        <object>objects\obj_emitter_emitter</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">
