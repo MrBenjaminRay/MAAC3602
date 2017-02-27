@@ -45,8 +45,14 @@ spriteRotateSpeed = .35;
 // Amount by which to decrease left/right movement until stopped
 movementSlowDownAmount = .001;
 
+// Prevent built-in animation
 image_speed = 0;
 image_index = 0;
+
+// Help remove any energy drops that are this many pixels off of the screen
+// in any direction. Drops also automatically expire after x seconds (see maxLife).
+maxOffScreenRange = 50;
+
 </string>
           </argument>
         </arguments>
@@ -83,7 +89,13 @@ image_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (currentJumpSpeed &gt; 0 || currentFallSpeed &gt; 0) {
+            <string>// If the drop is out of bounds, wipe 'er out
+if (x &lt; 0-maxOffScreenRange || x &gt; room_width+maxOffScreenRange || y &lt; 0-maxOffScreenRange || y &gt; room_height+maxOffScreenRange) {
+    instance_destroy();
+    return 0;
+}
+
+if (currentJumpSpeed &gt; 0 || currentFallSpeed &gt; 0) {
     if (movementDirection == "LEFT") {
         scr_entity_moveLeft();
     }
