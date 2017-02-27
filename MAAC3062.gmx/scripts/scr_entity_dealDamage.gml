@@ -36,5 +36,11 @@ if (canContinue) {
     } else {
         argument[0].currShield = newShield;
         argument[0].currHealth = newHealth;
+
+        if (argument[0].object_index == obj_mine) {
+            // Set damage time remaining
+            argument[0].damageAnimationRemaining = argument[0].damageAnimationLength;
+        }
+
     }
 }
