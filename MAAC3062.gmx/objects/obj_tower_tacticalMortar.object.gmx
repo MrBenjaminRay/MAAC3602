@@ -3,7 +3,7 @@
   <spriteName>spr_tower_tacticalMortar</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>50</depth>
+  <depth>40</depth>
   <persistent>0</persistent>
   <parentName>obj_tower</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -41,11 +41,11 @@
             <kind>1</kind>
             <string>attackRate = 2048;
 attackRateCounter = 0;
-attackDamage = 10;
-attackRange = view_wview[0] * 0.75;
+attackDamage = 40;
+attackRange = global.towers[2, 4];
 
-weaponXOffset = sprite_height/2 - 16;
-weaponYOffset = 32;
+weaponXOffset = global.towers[2, 5];
+weaponYOffset = global.towers[2, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_mortar);
 
 currShield = 50;
@@ -66,6 +66,20 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
       </action>
     </event>
     <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -130,7 +144,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground);
+var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {

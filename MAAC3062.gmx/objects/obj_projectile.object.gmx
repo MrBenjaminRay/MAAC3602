@@ -77,9 +77,9 @@ projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -91,11 +91,19 @@ projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>direction</string>
+            <string>// Set image angle to direction for all projectile types except 
+// exceptions defined below.
+
+switch object_index {
+    case obj_projectile_flame:
+        // Flames always orient upward
+        break;
+    default:
+        image_angle = direction;
+}
+
+
+</string>
           </argument>
         </arguments>
       </action>

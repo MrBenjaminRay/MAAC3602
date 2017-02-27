@@ -42,7 +42,7 @@
             <string>xDest = x; // The destination x-axis coordinate.
 yDest = y; // The destination y-axis coordinate.
 
-scr_particle_projectile_addsmoke(.05);
+scr_particle_projectile_addsmoketrail(.1);
 
 
 enemiesHit = 0;
@@ -144,7 +144,8 @@ lastHitEnemy = noone;
         if (other.flameDamageStacks &lt; other.maxFlameDamageStacks) {
             other.flameDamageStacks++;
         }
-        scr_create_explosion(x, y, "Normal");
+        // Will set enemy on fire when fire animation is available. -Ben
+        //scr_create_explosion(x, y, "Normal");
     }
     
     if (enemiesHit == maxEnemiesHit) {
