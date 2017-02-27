@@ -31,6 +31,8 @@ global.messageDistance = 120; // distance the player can be from a distanceMessa
                                 // before it disappears.
 global.messageScale = 0.4; // The scale of message boxes and text sprites
 
+global.canWarp = false;
+
 global.deltaTime = delta_time;
 
 /* States:
