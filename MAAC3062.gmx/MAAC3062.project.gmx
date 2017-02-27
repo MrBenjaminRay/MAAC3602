@@ -151,6 +151,7 @@
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
+      <sprite>sprites\spr_warp</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -316,6 +317,10 @@
           <object>objects\obj_enemy_ground_heavy</object>
           <object>objects\obj_enemy_ground_jackal</object>
         </objects>
+        <objects name="Tutorial Enemies">
+          <object>objects\obj_tutLight1</object>
+          <object>objects\obj_tutLight2</object>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -381,6 +386,7 @@
         <object>objects\obj_menu_ingame_placeholder</object>
         <object>objects\obj_control_cheats</object>
         <object>objects\obj_control</object>
+        <object>objects\obj_tutControl</object>
         <objects name="States">
           <object>objects\obj_control_normalState</object>
           <object>objects\obj_control_buildState</object>
@@ -393,6 +399,7 @@
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
       <object>objects\obj_fuelText</object>
+      <object>objects\obj_warp</object>
     </objects>
     <objects name="CutScenes">
       <object>objects\obj_video_ship_damaged</object>
@@ -436,6 +443,8 @@
     <room>rooms\rm_credits</room>
     <room>rooms\rm_credits2</room>
     <room>rooms\rm_credits3</room>
+    <room>rooms\rm_tut1</room>
+    <room>rooms\rm_tut2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
