@@ -211,6 +211,7 @@
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
       <script>scripts\scr_entity_gearNearestObjectOfType.gml</script>
+      <script>scripts\scr_enemy_destroyOldest.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
       </scripts>

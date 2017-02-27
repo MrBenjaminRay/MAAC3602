@@ -40,6 +40,8 @@ objToSpawn = noone;                       // The object to spawn.
 
 canSpawn = false;                         // Whether or not the spawner can spawn.
 
+enemyCap = 100;                             // Max # of enemies at any give time. For lag purposes. Should be high.
+
 alarm[0] = room_speed * irandom_range(1, 5);
 </string>
           </argument>
@@ -103,8 +105,15 @@ if (spawnRateCounter &lt; spawnRate) {
     spawnRateCounter = 0;
 
     if (numObjSpawned &lt; numObjToSpawn) {
-        numObjSpawned++;
+    
+        // Make room by destroying the oldest enemies until enemy count is less than cap
+        while (instance_number(obj_enemy) &gt; enemyCap) {
+            scr_enemy_destroyOldest();
+            show_debug_message("Enforcing enemy cap of " + string(enemyCap) + ". Destroyed oldest enemy.");
+        }
+    
         var enemy = instance_create(x, y, objToSpawn);
+        numObjSpawned++;
         
         // Determine Enemy ID and Alter Stats:
         switch (objToSpawn) {
