@@ -72,6 +72,46 @@ healthBarYOffset = -54;
 
 healthBarHeight = 14;
 healthBarWidth = sprite_width;
+
+
+// ABILITIES:
+abilA_cooldownTime = 0;
+abilB_cooldownTime = 0;
+abilC_cooldownTime = 0;
+abilD_cooldownTime = 0;
+
+abilA_cooldownCounter = 0;
+abilB_cooldownCounter = 0;
+abilC_cooldownCounter = 0;
+abilD_cooldownCounter = 0;
+
+if (global.plrAbilityUpgraded[0]) {
+    abilA_cooldownTime = global.plrAbilityCooldown_upgraded[0];
+} else {
+    abilA_cooldownTime = global.plrAbilityCooldown_normal[0];
+}
+abilA_cooldownCounter = abilA_cooldownTime;
+
+if (global.plrAbilityUpgraded[1]) {
+    abilB_cooldownTime = global.plrAbilityCooldown_upgraded[1];
+} else {
+    abilB_cooldownTime = global.plrAbilityCooldown_normal[1];
+}
+abilB_cooldownCounter = abilB_cooldownTime;
+
+if (global.plrAbilityUpgraded[2]) {
+    abilC_cooldownTime = global.plrAbilityCooldown_upgraded[2];
+} else {
+    abilC_cooldownTime = global.plrAbilityCooldown_normal[2];
+}
+abilC_cooldownCounter = abilC_cooldownTime;
+
+if (global.plrAbilityUpgraded[3]) {
+    abilD_cooldownTime = global.plrAbilityCooldown_upgraded[3];
+} else {
+    abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
+}
+abilD_cooldownCounter = abilD_cooldownTime;
 </string>
           </argument>
         </arguments>
@@ -356,7 +396,7 @@ if (mouse_check_button(mb_left)) {
             var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
             var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
-            var projectile = instance_create(projX, projY, obj_projectile_normal);
+            var projectile = instance_create(projX, projY, obj_projectile_catapillager);
             projectile.xDest = mouse_x;
             projectile.yDest = mouse_y;
             projectile.damage = attackDamage;
@@ -530,6 +570,61 @@ if(xKeyHeldCounter == 90) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability Cooldown Times</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (abilA_cooldownCounter &lt; abilA_cooldownTime) {
+    abilA_cooldownCounter += global.deltaTime;
+}
+
+if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
+    abilB_cooldownCounter += global.deltaTime;
+}
+
+if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
+    abilC_cooldownCounter += global.deltaTime;
+}
+
+if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
+    abilD_cooldownCounter += global.deltaTime;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="9" enumb="88">
       <action>
@@ -600,6 +695,49 @@ if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
 
 if (place_meeting(x, y, obj_physicsTile) == false) {
     scr_entity_jump();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="86">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (global.plrAbilityAttained[3]) {
+    if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
+        return 0;
+    } else {
+        abilD_cooldownCounter = 0;
+    }
+    
+    // NO CHECK DONE FOR UPGRADED ABILITY AS NONE EXISTED
+    // AT THE TIME OF IMPLEMENTATION
+    var numToSpawn = irandom_range(100, 200);
+    
+    for (var i = 0 ; i &lt; numToSpawn ; i++) {
+        var randX = irandom_range(64, room_width - 64);
+        var randY = irandom_range(-64, -room_height * 2);
+        instance_create(randX, randY, obj_projectile_flamingAnimal);
+    }
 }
 </string>
           </argument>
