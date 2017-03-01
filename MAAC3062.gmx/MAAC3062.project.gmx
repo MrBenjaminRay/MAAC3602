@@ -96,12 +96,14 @@
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
-        <sprite>sprites\spr_basic_projectile</sprite>
-        <sprite>sprites\spr_mortar_projectile</sprite>
-        <sprite>sprites\spr_slow_projectile</sprite>
-        <sprite>sprites\spr_rifle_projectile</sprite>
-        <sprite>sprites\spr_flamethrower_projectile</sprite>
+        <sprite>sprites\spr_projectile_flamingAnimal</sprite>
+        <sprite>sprites\spr_projectile_catapillager</sprite>
+        <sprite>sprites\spr_projectile_titmouse</sprite>
+        <sprite>sprites\spr_projectile_freeze</sprite>
+        <sprite>sprites\spr_projectile_caliBear</sprite>
+        <sprite>sprites\spr_projectile_fireAnt</sprite>
         <sprite>sprites\spr_3600_projectile</sprite>
+        <sprite>sprites\spr_projectile_rainbowTrout</sprite>
       </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
@@ -138,6 +140,10 @@
         <sprite>sprites\spr_weapon_flamethrower</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
+      <sprites name="Drops">
+        <sprite>sprites\spr_drop_navPiece</sprite>
+        <sprite>sprites\spr_drop_plrAbility</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -182,6 +188,12 @@
       <sprite>sprites\spr_video_esc_to_skip_TEMP</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
+    <sprites name="Effects">
+      <sprites name="Explosions">
+        <sprite>sprites\spr_explosion_titmouse</sprite>
+      </sprites>
+      <sprite>sprites\spr_fireAnt</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -341,13 +353,14 @@
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
+        <object>objects\obj_projectile_flamingAnimal</object>
         <object>objects\obj_projectile_homing</object>
-        <object>objects\obj_projectile_normal</object>
-        <object>objects\obj_projectile_mortar</object>
+        <object>objects\obj_projectile_catapillager</object>
+        <object>objects\obj_projectile_titmouse</object>
         <object>objects\obj_projectile_freeze</object>
-        <object>objects\obj_projectile_flame</object>
-        <object>objects\obj_projectile_109Cal</object>
-        <object>objects\obj_projectile_test_has_smoke</object>
+        <object>objects\obj_projectile_fireAnt</object>
+        <object>objects\obj_projectile_caliBear</object>
+        <object>objects\obj_projectile_rainbowTrout</object>
       </objects>
       <objects name="Mine">
         <object>objects\obj_mine</object>
@@ -376,6 +389,20 @@
       <objects name="Drops">
         <object>objects\obj_drop</object>
         <object>objects\obj_drop_energy</object>
+        <objects name="Navigation Pieces">
+          <object>objects\obj_drop_navPiece</object>
+          <object>objects\obj_drop_navPiece_A</object>
+          <object>objects\obj_drop_navPiece_B</object>
+          <object>objects\obj_drop_navPiece_D</object>
+          <object>objects\obj_drop_navPiece_C</object>
+        </objects>
+        <objects name="Player Abilities">
+          <object>objects\obj_drop_plrAbility</object>
+          <object>objects\obj_drop_plrAbility_A</object>
+          <object>objects\obj_drop_plrAbility_B</object>
+          <object>objects\obj_drop_plrAbility_C</object>
+          <object>objects\obj_drop_plrAbility_D</object>
+        </objects>
       </objects>
     </objects>
     <objects name="Tiles">
@@ -412,6 +439,7 @@
       <object>objects\obj_mineText</object>
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
+        <object>objects\obj_explosion_titmouse</object>
       </objects>
       <objects name="Particles">
         <object>objects\obj_particle</object>

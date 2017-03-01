@@ -159,7 +159,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_109Cal, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_caliBear, projX, projY, nearestEnemy, false, attackDamage);
         audio_play_sound(snd_109Cal, 0, false);
         audio_sound_gain(snd_109Cal, 0.4, 0);
             
