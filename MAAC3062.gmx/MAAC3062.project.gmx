@@ -39,14 +39,6 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="UI_Menus">
-      <sprite>sprites\spr_spaceBG</sprite>
-      <sprite>sprites\spr_play</sprite>
-      <sprite>sprites\spr_credits</sprite>
-      <sprite>sprites\spr_back</sprite>
-      <sprite>sprites\spr_mainMenu</sprite>
-      <sprite>sprites\spr_OK</sprite>
-      <sprite>sprites\spr_rightArrow</sprite>
-      <sprite>sprites\spr_leftArrow</sprite>
       <sprites name="Messages">
         <sprite>sprites\spr_messageBoxAnim</sprite>
         <sprite>sprites\spr_messageBox</sprite>
@@ -55,6 +47,21 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
       </sprites>
+      <sprites name="HUD">
+        <sprite>sprites\spr_bossItemHUD_mockup</sprite>
+        <sprite>sprites\spr_energyHUD_mockup</sprite>
+        <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
+        <sprite>sprites\spr_mineralsHUD_mockup</sprite>
+        <sprite>sprites\spr_progressHUD_mockup</sprite>
+      </sprites>
+      <sprite>sprites\spr_spaceBG</sprite>
+      <sprite>sprites\spr_play</sprite>
+      <sprite>sprites\spr_credits</sprite>
+      <sprite>sprites\spr_back</sprite>
+      <sprite>sprites\spr_mainMenu</sprite>
+      <sprite>sprites\spr_OK</sprite>
+      <sprite>sprites\spr_rightArrow</sprite>
+      <sprite>sprites\spr_leftArrow</sprite>
       <sprite>sprites\spr_hubMockupBG</sprite>
       <sprite>sprites\spr_moonButton</sprite>
       <sprite>sprites\spr_forestButton</sprite>
