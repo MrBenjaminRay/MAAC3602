@@ -39,13 +39,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 2048;
+            <string>attackRate = 4096;
 attackRateCounter = 0;
 attackDamage = 40;
-attackRange = view_wview[0] * 0.75;
+attackRange = global.towers[2, 4];
 
-weaponXOffset = sprite_height/2 - 16;
-weaponYOffset = 32;
+weaponXOffset = global.towers[2, 5];
+weaponYOffset = global.towers[2, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_mortar);
 
 currShield = 50;
@@ -66,6 +66,20 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
       </action>
     </event>
     <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -130,7 +144,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground);
+var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {
@@ -145,7 +159,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_mortar, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_titmouse, projX, projY, nearestEnemy, false, attackDamage);
         audio_play_sound(snd_mortar, 0, false);
         audio_sound_gain(snd_mortar, 0.65, 0);
         // Show projectile spawn effect:

@@ -39,13 +39,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 128;
+            <string>attackRate = 64;
 attackRateCounter = 0;
-attackDamage = 2;
-attackRange = sprite_width/2;
+attackDamage = .5; // See also minDamagePerStack and maxDamagePerStack in obj_enemy_create
+attackRange = global.towers[4, 4];
 
-weaponXOffset = sprite_width/2;
-weaponYOffset = 32;
+weaponXOffset = global.towers[4, 5];
+weaponYOffset = global.towers[4, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_flamethrower);
 
 currShield = 400;
@@ -144,8 +144,8 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy_any = scr_tower_getNearestEnemy(attackRange, obj_enemy);
-var nearestEnemy_ground = scr_tower_getNearestEnemy(attackRange, obj_enemy_ground);
+var nearestEnemy_any = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy);
+var nearestEnemy_ground = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 var nearestEnemy = noone;
 
 if (nearestEnemy_ground != noone) {
@@ -167,10 +167,11 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_flame, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_fireAnt, projX, projY, nearestEnemy, false, attackDamage);
         
         // Show projectile spawn effect:
-        scr_create_explosion(projX, projY, 'Flash');
+        // Need a different effect for flame spawning. Explosion looks funny. -Ben
+        //scr_create_explosion(projX, projY, 'Flash');
     }
 }
 

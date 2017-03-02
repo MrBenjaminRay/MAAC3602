@@ -3,7 +3,7 @@
   <spriteName>spr_miner</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>20</depth>
+  <depth>22</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -91,6 +91,9 @@
 
 staggeredStart = irandom(60);
 animStartCounter = staggeredStart;
+
+drawDamageSprite = false;
+
 </string>
           </argument>
         </arguments>
@@ -113,13 +116,18 @@ animStartCounter = staggeredStart;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    currentTimeToMinerals += global.deltaTime;
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+currentTimeToMinerals += global.deltaTime;
+
+if (currentTimeToMinerals &gt;= timeToMinerals) {
+    currentTimeToMinerals -= timeToMinerals;
+    global.minerals += 2;
     
-    if (currentTimeToMinerals &gt;= timeToMinerals) {
-        currentTimeToMinerals -= timeToMinerals;
-        global.minerals += 2;
-    }
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "+2"
 }
 
 if (animStartCounter &lt;= 0) {
@@ -127,6 +135,35 @@ if (animStartCounter &lt;= 0) {
 } else {
     animStartCounter--;
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (drawDamageSprite) {
+    draw_sprite(spr_miner_hurt, image_index, x, y);
+} else {
+    draw_self();
+}
+
 </string>
           </argument>
         </arguments>

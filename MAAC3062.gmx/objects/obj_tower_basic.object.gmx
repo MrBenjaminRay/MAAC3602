@@ -42,10 +42,10 @@
             <string>attackRate = 512;
 attackRateCounter = 0;
 attackDamage = 15;
-attackRange = sprite_width;
+attackRange = global.towers[0, 4];
 
-weaponXOffset = sprite_width/2;
-weaponYOffset = 32;
+weaponXOffset = global.towers[0, 5]
+weaponYOffset = global.towers[0, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_basic);
 
 currShield = 100;
@@ -143,7 +143,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy);
+var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy);
 
 if (nearestEnemy != noone) {
     var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
@@ -162,7 +162,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_catapillager, projX, projY, nearestEnemy, false, attackDamage);
         audio_play_sound(snd_basicTower, 0, false);
         audio_sound_gain(snd_basicTower, 0.4, 0);
         

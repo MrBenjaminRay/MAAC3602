@@ -42,10 +42,10 @@
             <string>attackRate = 2048;
 attackRateCounter = 0;
 attackDamage = 35;
-attackRange = sprite_width * 2;
+attackRange = global.towers[3, 4];
 
-weaponXOffset = sprite_width/2;
-weaponYOffset = 32;
+weaponXOffset = global.towers[3, 5];
+weaponYOffset = global.towers[3, 6];
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_109CalRifle);
 
 currShield = 200;
@@ -144,7 +144,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy = scr_tower_getNearestEnemy(attackRange, obj_enemy_air);
+var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_air);
 
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {
@@ -159,7 +159,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_109Cal, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_caliBear, projX, projY, nearestEnemy, false, attackDamage);
         audio_play_sound(snd_109Cal, 0, false);
         audio_sound_gain(snd_109Cal, 0.4, 0);
             

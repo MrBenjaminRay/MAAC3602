@@ -60,10 +60,58 @@ attackDamage = 4;
 attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = 0;
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
 
 xKeyHeld = 0;
 xKeyHeldCounter = 0;
+
+
+// HEALTH/SHIELD BAR:
+healthBarXOffset = -20;
+healthBarYOffset = -54;
+
+healthBarHeight = 14;
+healthBarWidth = sprite_width;
+
+
+// ABILITIES:
+abilA_cooldownTime = 0;
+abilB_cooldownTime = 0;
+abilC_cooldownTime = 0;
+abilD_cooldownTime = 0;
+
+abilA_cooldownCounter = 0;
+abilB_cooldownCounter = 0;
+abilC_cooldownCounter = 0;
+abilD_cooldownCounter = 0;
+
+if (global.plrAbilityUpgraded[0]) {
+    abilA_cooldownTime = global.plrAbilityCooldown_upgraded[0];
+} else {
+    abilA_cooldownTime = global.plrAbilityCooldown_normal[0];
+}
+abilA_cooldownCounter = abilA_cooldownTime;
+
+if (global.plrAbilityUpgraded[1]) {
+    abilB_cooldownTime = global.plrAbilityCooldown_upgraded[1];
+} else {
+    abilB_cooldownTime = global.plrAbilityCooldown_normal[1];
+}
+abilB_cooldownCounter = abilB_cooldownTime;
+
+if (global.plrAbilityUpgraded[2]) {
+    abilC_cooldownTime = global.plrAbilityCooldown_upgraded[2];
+} else {
+    abilC_cooldownTime = global.plrAbilityCooldown_normal[2];
+}
+abilC_cooldownCounter = abilC_cooldownTime;
+
+if (global.plrAbilityUpgraded[3]) {
+    abilD_cooldownTime = global.plrAbilityCooldown_upgraded[3];
+} else {
+    abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
+}
+abilD_cooldownCounter = abilD_cooldownTime;
 </string>
           </argument>
         </arguments>
@@ -107,6 +155,50 @@ xKeyHeldCounter = 0;
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_playerDeath</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>224</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_another_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>11</kind>
+            <room>rm_hub</room>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="2" enumb="1">
@@ -304,7 +396,7 @@ if (mouse_check_button(mb_left)) {
             var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
             var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
-            var projectile = instance_create(projX, projY, obj_projectile_normal);
+            var projectile = instance_create(projX, projY, obj_projectile_catapillager);
             projectile.xDest = mouse_x;
             projectile.yDest = mouse_y;
             projectile.damage = attackDamage;
@@ -478,8 +570,26 @@ if(xKeyHeldCounter == 90) {
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability Cooldown Times</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -496,22 +606,21 @@ if(xKeyHeldCounter == 90) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>if (abilA_cooldownCounter &lt; abilA_cooldownTime) {
+    abilA_cooldownCounter += global.deltaTime;
+}
 
-heightAbove = y - 40;
+if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
+    abilB_cooldownCounter += global.deltaTime;
+}
 
+if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
+    abilC_cooldownCounter += global.deltaTime;
+}
 
-
-
-//Shield ring
-/// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
-src_circleBar(x, heightAbove, currShield, maxShield, c_blue, 16, 0.85, 4);
-
-//Health pie
-/// draw_pie(x ,y ,value, max, colour, radius, transparency)
-src_drawPie(x, heightAbove, currHealth, maxHealth, c_green, 12, 0.85);
-
-//make_color_rgb(11,255,12) light green
+if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
+    abilD_cooldownCounter += global.deltaTime;
+}
 </string>
           </argument>
         </arguments>
@@ -586,6 +695,49 @@ if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
 
 if (place_meeting(x, y, obj_physicsTile) == false) {
     scr_entity_jump();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="86">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (global.plrAbilityAttained[3]) {
+    if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
+        return 0;
+    } else {
+        abilD_cooldownCounter = 0;
+    }
+    
+    // NO CHECK DONE FOR UPGRADED ABILITY AS NONE EXISTED
+    // AT THE TIME OF IMPLEMENTATION
+    var numToSpawn = irandom_range(100, 200);
+    
+    for (var i = 0 ; i &lt; numToSpawn ; i++) {
+        var randX = irandom_range(64, room_width - 64);
+        var randY = irandom_range(-64, -room_height * 2);
+        instance_create(randX, randY, obj_projectile_flamingAnimal);
+    }
 }
 </string>
           </argument>
@@ -680,6 +832,35 @@ if (place_meeting(x, y, obj_physicsTile) == false) {
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="9" enumb="69">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (distance_to_object(obj_tower_m6100) &lt;= sprite_width * 2) {
+    // Deactivate Player:
+    instance_deactivate_object(self);
+    
+    // Allow tower to fire:
+    obj_tower_m6100.alarm[2] = room_speed;
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="9" enumb="32">

@@ -50,8 +50,12 @@ minersAlive = 0;
 currHealth *= miners;               // The current health value times # of miners.
 maxHealth *= miners;                // The maximum health value times # of miners.
 
-// Bring miners down to floor of mine
-minerYOffset = 1;
+damageAnimationLength = 2000;       // Length of time to display damage animation after taking damage
+damageAnimationRemaining = 0;       // Current amount of damage animation length remaining (0 unless recently took damage)
+
+
+// Line up base of miner sprite to floor of mine
+minerYOffset = -30;
 
 // How much space between miners is based on how many miners
 // are supposed to fit in the mine.  Only consider middle 80%
@@ -60,8 +64,9 @@ minerYOffset = 1;
 minerXSpacing = (sprite_width * .8) / miners;
 
 // How far left of center do we start drawing miners
-// This will have to be made dynamic based on # of miners
-minerXOffset = (minerXSpacing/2) - (miners * minerXSpacing) / 2;
+// Based on # of miners
+//minerXOffset = (minerXSpacing/2) - (miners * minerXSpacing) / 2;
+minerXOffset = 0 - (miners * minerXSpacing) / 2;
 
 // Initialize all miner objects and store their instance_ids in an array
 var i = 0;
@@ -74,6 +79,8 @@ repeat(miners) {
 }
 
 front = instance_create(x, y, obj_mine_front);
+
+
 
 </string>
           </argument>
@@ -166,6 +173,13 @@ repeat(miners) {
     return 0;
 }
 
+// Decrement animation time remaining if needed
+if (damageAnimationRemaining &gt; 0) {
+    damageAnimationRemaining -= global.deltaTime;
+} else {
+    damageAnimationRemaining = 0;
+}
+
 // Decide how many living miners to draw based on health,
 // rounding up so that miner always drawn until health is 0.
 minersAlive = ceil((currHealth / maxHealth) * miners);
@@ -173,14 +187,21 @@ minersAlive = ceil((currHealth / maxHealth) * miners);
 // Any miners that should no longer be drawn will be destroyed if
 // they still exist.  Iterate between count of miners alive and total
 // miners and wipe 'em out if they exist.
-for (var i=minersAlive; i&lt;miners; i++) {
-    // If instance exists, destroy it
-    if (instance_exists(arrMiners[i])) {
-        with (arrMiners[i]) {
-            scr_msg_minerKilled(x - 220, y - 230);
-            instance_destroy();
-        }
+for (var i=0; i&lt;miners; i++) {
+    if (i&gt;=minersAlive) {
+        // This miner should not be alive, based on minersAlive counter
+        // If instance exists, destroy it
+        if (instance_exists(arrMiners[i])) {
+            with (arrMiners[i]) {
+                scr_msg_minerKilled(x - 220, y - 230);
+                instance_destroy();
+            }
+        }    
+    } else {
+        // This miner should be alive
+        drawDamageSprite = damageAnimationRemaining &gt; 0;
     }
+
 }
 
 </string>
