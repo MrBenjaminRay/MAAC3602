@@ -236,10 +236,11 @@ stackDissipationTimeCounter = 0; // The amount of time that has elapsed since th
     return 0;
 }
 
+
 if (attackRateCounter &gt;= attackRate) {
     var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange, obj_player);
     var nearestMine = scr_entity_gearNearestObjectOfType(attackRange, obj_mine);
-    var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_miner);
+    var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
     

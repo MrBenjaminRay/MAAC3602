@@ -336,6 +336,8 @@
           <object>objects\obj_enemy_ground_medium</object>
           <object>objects\obj_enemy_ground_heavy</object>
           <object>objects\obj_enemy_ground_jackal</object>
+          <object>objects\obj_enemy_ground_spider_small</object>
+          <object>objects\obj_enemy_ground_spider_large</object>
         </objects>
         <objects name="Tutorial Enemies">
           <object>objects\obj_tutLight1</object>
