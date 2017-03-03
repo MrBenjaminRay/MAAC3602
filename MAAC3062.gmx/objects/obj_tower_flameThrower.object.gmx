@@ -41,8 +41,8 @@
             <kind>1</kind>
             <string>attackRate = 64;
 attackRateCounter = 0;
-attackDamage = .5; // See also minDamagePerStack and maxDamagePerStack in obj_enemy_create
-attackRange = global.towers[4, 4];
+attackDamage = .5 * global.towerUpgradeLevel[4]; // See also minDamagePerStack and maxDamagePerStack in obj_enemy_create
+attackRange = global.towers[4, 4] * global.towerUpgradeLevel[4];
 
 weaponXOffset = global.towers[4, 5];
 weaponYOffset = global.towers[4, 6];

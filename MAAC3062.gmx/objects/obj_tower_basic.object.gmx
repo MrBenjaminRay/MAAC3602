@@ -41,8 +41,8 @@
             <kind>1</kind>
             <string>attackRate = 512;
 attackRateCounter = 0;
-attackDamage = 15;
-attackRange = global.towers[0, 4];
+attackDamage = 15 * global.towerUpgradeLevel[0];
+attackRange = global.towers[0, 4] * global.towerUpgradeLevel[0];
 
 weaponXOffset = global.towers[0, 5]
 weaponYOffset = global.towers[0, 6];
