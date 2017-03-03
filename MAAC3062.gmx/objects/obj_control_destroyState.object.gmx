@@ -102,27 +102,27 @@
     if (intersectedTower != noone) {
         switch (intersectedTower.object_index) {
             case obj_tower_basic: {
-                scr_energy_change(global.towers[0, 1] * costRecoveryPercentage);
+                scr_energy_change((global.towers[0, 1] * global.towerUpgradeLevel[0]) * costRecoveryPercentage);
                 break;
             }
             case obj_tower_superFreezer: {
-                scr_energy_change(global.towers[1, 1] * costRecoveryPercentage);
+                scr_energy_change((global.towers[1, 1] * global.towerUpgradeLevel[1]) * costRecoveryPercentage);
                 break;
             }
             case obj_tower_tacticalMortar: {
-                scr_energy_change(global.towers[2, 1] * costRecoveryPercentage);
+                scr_energy_change((global.towers[2, 1] * global.towerUpgradeLevel[2]) * costRecoveryPercentage);
                 break;
             }
             case obj_tower_109CalRifle: {
-                scr_energy_change(global.towers[3, 1] * costRecoveryPercentage);
+                scr_energy_change((global.towers[3, 1] * global.towerUpgradeLevel[3]) * costRecoveryPercentage);
                 break;
             }
             case obj_tower_flameThrower: {
-                scr_energy_change(global.towers[4, 1] * costRecoveryPercentage);
+                scr_energy_change((global.towers[4, 1] * global.towerUpgradeLevel[4]) * costRecoveryPercentage);
                 break;
             }
             case obj_tower_m6100: {
-                scr_energy_change(global.towers[5, 1] * costRecoveryPercentage);
+                scr_energy_change((global.towers[5, 1] * global.towerUpgradeLevel[5]) * costRecoveryPercentage);
                 break;
             }
         }
