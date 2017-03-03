@@ -158,6 +158,15 @@ switch (object_index) {
             <string>if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
+    
+    if (other.movementDirection == "LEFT") {
+        other.x += damage;
+    }
+    
+    if (other.movementDirection == "RIGHT") {
+        other.x -= damage;
+    }
+    
     instance_destroy();
 }
 </string>

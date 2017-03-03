@@ -626,6 +626,120 @@ if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
         </arguments>
       </action>
     </event>
+    <event eventtype="5" enumb="70">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (global.plrAbilityAttained[1]) {
+    if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
+        return 0;
+    } else {
+        abilB_cooldownCounter = 0;
+    }
+    
+    // todo Code
+    show_debug_message("IMPLEMENT ABILITY #2")
+} else {
+    scr_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="67">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (global.plrAbilityAttained[2]) {
+    if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
+        return 0;
+    } else {
+        abilC_cooldownCounter = 0;
+    }
+    
+    // todo Code
+    show_debug_message("IMPLEMENT ABILITY #3")
+} else {
+    scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (global.plrAbilityAttained[0]) {
+    if (abilA_cooldownCounter &lt; abilA_cooldownTime) {
+        return 0;
+    } else {
+        abilA_cooldownCounter = 0;
+    }
+    
+    // todo Code
+    show_debug_message("IMPLEMENT ABILITY #1")
+} else {
+    scr_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="88">
       <action>
         <libid>1</libid>
@@ -738,6 +852,8 @@ if (global.plrAbilityAttained[3]) {
         var randY = irandom_range(-64, -room_height * 2);
         instance_create(randX, randY, obj_projectile_flamingAnimal);
     }
+} else {
+    scr_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
