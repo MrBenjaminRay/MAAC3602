@@ -5,10 +5,24 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_hud_level</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,16 +39,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>textOffset_x = 24;
-textOffset_y = 0;
+            <string>// Set position
+position = "top_left";
 
-shadowOffset_x = 2;
-shadowOffset_y = 2;
+// Override cue length
+changeCueTime = 1250;
 
-scaleNormal = 1;
-scaleLevelBoosted = 1.4;
-scaleLevelBoostedShrinkSpeed = 0.001;
-scale = scaleNormal;
 </string>
           </argument>
         </arguments>
@@ -43,6 +53,20 @@ scale = scaleNormal;
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -57,14 +81,8 @@ scale = scaleNormal;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scale &gt; scaleNormal) {
-    // Shrink scale towards normal size based on shrink speed
-    scale -= scaleLevelBoostedShrinkSpeed * global.deltaTime;
-}
-
-// Set image scale
-image_xscale = scale;
-image_yscale = scale;
+            <string>// Set value to be drawn to match minerals level
+currentValueToDraw = global.energy;
 </string>
           </argument>
         </arguments>
@@ -73,12 +91,12 @@ image_yscale = scale;
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>605</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -87,46 +105,10 @@ image_yscale = scale;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set the right font
-draw_set_font(fnt_mineralEnergyLevels);
-
-// Set y offset based on string height
-var h = string_height("ASD");
-textOffset_y = -h / 2;
-
-// Draw shadow
-draw_set_colour(c_black);
-draw_set_alpha(0.5);
-draw_text(x+textOffset_x+shadowOffset_x, y+textOffset_y+shadowOffset_y, string(global.energy));
-
-// Draw level
-draw_set_colour(c_yellow);
-draw_set_alpha(1);
-draw_text(x+textOffset_x, y+textOffset_y, string(global.energy));
-
-// Draw special highlight if level recently boosted
-// Use alpha to fade special highlight colour out as image scale goes back to normal
-draw_set_colour(c_lime);
-if (scale &gt; scaleNormal) {
-    draw_set_colour(c_lime);
-
-    // Calculate alpha based on how recently the level was boosted
-    // using difference between actual scale and boosted scale
-    var potentialBoost = scaleLevelBoosted - scaleNormal;
-    var actualBoost = scale - scaleNormal;
-    draw_set_alpha(actualBoost / potentialBoost);
-    draw_text(x+textOffset_x, y+textOffset_y, string(global.energy));    
-}
-
-// Reset alpha for the next thing that is drawn
-draw_set_alpha(1);
-
-</string>
+            <string>Draw custom background first</string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -143,15 +125,44 @@ draw_set_alpha(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_aqua, c_blue, 0, false, false);
 
-draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_aqua, c_blue, 0, false, false);
-
-if(global.energy &gt;= global.maxFuel)
-   draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_green, c_green, 0, false, false); 
+if(global.energy &gt;= global.maxFuel) {
+   draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_green, c_green, 0, false, false);
+}
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
   </events>
