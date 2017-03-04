@@ -151,7 +151,11 @@ continuousFire = false; //used to keep looping firing sound
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (instance_nearest(x, y, obj_player)) {
+            <string>// Activate Player:
+instance_activate_all();
+    
+// Give player back it's weapon:
+with (instance_nearest(x, y, obj_player)) {
     if (weaponObj == noone) {
         weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
     }
