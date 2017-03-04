@@ -97,12 +97,12 @@ textOffset_y = -h / 2;
 // Draw shadow
 draw_set_colour(c_black);
 draw_set_alpha(0.5);
-draw_text(x+textOffset_x+shadowOffset_x, y+textOffset_y+shadowOffset_y, "Energy: " + string(global.energy));
+draw_text(x+textOffset_x+shadowOffset_x, y+textOffset_y+shadowOffset_y, string(global.energy));
 
 // Draw level
 draw_set_colour(c_yellow);
 draw_set_alpha(1);
-draw_text(x+textOffset_x, y+textOffset_y, "Energy: " + string(global.energy));
+draw_text(x+textOffset_x, y+textOffset_y, string(global.energy));
 
 // Draw special highlight if level recently boosted
 // Use alpha to fade special highlight colour out as image scale goes back to normal
@@ -115,12 +115,40 @@ if (scale &gt; scaleNormal) {
     var potentialBoost = scaleLevelBoosted - scaleNormal;
     var actualBoost = scale - scaleNormal;
     draw_set_alpha(actualBoost / potentialBoost);
-    draw_text(x+textOffset_x, y+textOffset_y, "Energy: " + string(global.energy));    
+    draw_text(x+textOffset_x, y+textOffset_y, string(global.energy));    
 }
 
 // Reset alpha for the next thing that is drawn
 draw_set_alpha(1);
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_aqua, c_blue, 0, false, false);
+
+if(global.energy &gt;= global.maxFuel)
+   draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_green, c_green, 0, false, false); 
 </string>
           </argument>
         </arguments>

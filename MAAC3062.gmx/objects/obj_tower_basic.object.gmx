@@ -41,8 +41,8 @@
             <kind>1</kind>
             <string>attackRate = 512;
 attackRateCounter = 0;
-attackDamage = 15;
-attackRange = global.towers[0, 4];
+attackDamage = 15 * global.towerUpgradeLevel[0];
+attackRange = global.towers[0, 4] * global.towerUpgradeLevel[0];
 
 weaponXOffset = global.towers[0, 5]
 weaponYOffset = global.towers[0, 6];
@@ -162,7 +162,7 @@ if (nearestEnemy != noone) {
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
+        scr_spawn_projectile(obj_projectile_catapillager, projX, projY, nearestEnemy, false, attackDamage);
         audio_play_sound(snd_basicTower, 0, false);
         audio_sound_gain(snd_basicTower, 0.4, 0);
         

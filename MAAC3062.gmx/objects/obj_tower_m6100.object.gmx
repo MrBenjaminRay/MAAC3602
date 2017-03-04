@@ -89,8 +89,8 @@
             <kind>1</kind>
             <string>attackRate = 86;
 attackRateCounter = 0;
-attackDamage = 3;
-attackRange = global.towers[5, 4];
+attackDamage = 3 * global.towerUpgradeLevel[5];
+attackRange = global.towers[5, 4] * global.towerUpgradeLevel[5];
 
 weaponXOffset = global.towers[5, 5];
 weaponYOffset = global.towers[5, 6];
@@ -389,7 +389,7 @@ if (mouse_check_button(mb_left)) {
             var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
             var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
-            var projectile = instance_create(projX, projY, obj_projectile_normal);
+            var projectile = instance_create(projX, projY, obj_projectile_rainbowTrout);
             projectile.xDest = mouse_x + irandom_range(-20, 20);
             projectile.yDest = mouse_y + irandom_range(-10, 10);
             projectile.damage = attackDamage;
