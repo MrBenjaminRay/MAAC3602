@@ -468,7 +468,7 @@ else if(continuousFire == true){
         <arguments>
           <argument>
             <kind>5</kind>
-            <sprite>spr_player_old</sprite>
+            <sprite>spr_player</sprite>
           </argument>
           <argument>
             <kind>0</kind>
@@ -476,7 +476,7 @@ else if(continuousFire == true){
           </argument>
           <argument>
             <kind>0</kind>
-            <string>40</string>
+            <string>50</string>
           </argument>
           <argument>
             <kind>0</kind>
