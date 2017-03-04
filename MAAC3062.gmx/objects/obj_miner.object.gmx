@@ -101,9 +101,9 @@ pickCount = 0;      // Total # of times the miner has mined
                     // (regardless of how many minerals picked up)
 
 // Pick counts (not minerals mined) determine current level.
-picksForLevel_2 = 5; // Total # of pickCount to get to level 2 (since level started)
-picksForLevel_3 = 8; // Total # of pickCount to get to level 3 (since level started)
-picksForLevel_4 = 11; // Total # of pickCount to get to level 4 (since level started)
+picksForLevel_2 = 150; // Total # of pickCount to get to level 2 (since level started)
+picksForLevel_3 = 500; // Total # of pickCount to get to level 3 (since level started)
+
 </string>
           </argument>
         </arguments>
@@ -153,15 +153,13 @@ if (animStartCounter &lt;= 0) {
 if (minerLevel == 1 &amp;&amp; pickCount &gt; picksForLevel_2) {
     // Miner has leveled up to level 2
     minerLevel++;
-    show_debug_message("MINER LEVEL UP TO " + string(minerLevel));
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "LEVEL UP!";
 } else if (minerLevel == 2 &amp;&amp; pickCount &gt; picksForLevel_3) {
     // Miner has leveled up to level 3
-    minerLevel++;    
-    show_debug_message("MINER LEVEL UP TO " + string(minerLevel));
-} else if (minerLevel == 3 &amp;&amp; pickCount &gt; picksForLevel_4) {
-    // Miner has leveled up to level 4
     minerLevel++;
-    show_debug_message("MINER LEVEL UP TO " + string(minerLevel));
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "LEVEL UP!";
 }
 
 </string>
