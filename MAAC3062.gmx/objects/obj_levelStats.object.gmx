@@ -57,6 +57,10 @@ global.towerUnlocked[3] = true; // 109 Cal Tower
 global.towerUnlocked[4] = true; // Flame Tower
 global.towerUnlocked[5] = true; // M6100 Tower
 
+
+// NOTE:
+//      The "upgrade level" is a multiplier applied to the damage, range, and cost
+//      values of the associated tower.
 global.towerUpgradeLevel[0] = 1; // Basic Tower
 global.towerUpgradeLevel[1] = 1; // Freezer Tower
 global.towerUpgradeLevel[2] = 1; // Mortar Tower
@@ -83,6 +87,7 @@ global.levelStats[0, 15] = 0;               // Ground - Light Kills
 global.levelStats[0, 16] = 0;               // Ground - Medium Kills
 global.levelStats[0, 17] = 0;               // Ground - Heavy Kills
 global.levelStats[0, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[0, 19] = false;           // Level Boss Defeated
 
 global.levelStats[1, 0] = "Level 2";
 global.levelStats[1, 1] = "Air - Light";
@@ -103,6 +108,7 @@ global.levelStats[1, 15] = 0;               // Ground - Light Kills
 global.levelStats[1, 16] = 0;               // Ground - Medium Kills
 global.levelStats[1, 17] = 0;               // Ground - Heavy Kills
 global.levelStats[1, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[1, 19] = false;           // Level Boss Defeated
 
 global.levelStats[2, 0] = "Level 3";
 global.levelStats[2, 1] = "Air - Light";
@@ -123,6 +129,7 @@ global.levelStats[2, 15] = 0;               // Ground - Light Kills
 global.levelStats[2, 16] = 0;               // Ground - Medium Kills
 global.levelStats[2, 17] = 0;               // Ground - Heavy Kills
 global.levelStats[2, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[2, 19] = false;           // Level Boss Defeated
 </string>
           </argument>
         </arguments>
