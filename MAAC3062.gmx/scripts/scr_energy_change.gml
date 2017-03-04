@@ -32,7 +32,14 @@ if (global.energy < 0) {
 
 // Trigger change cue to display. If already displayed, amount will be added.
 with (obj_hud_levelEnergy) {
-    changeCueAmount += argument[0];
+    if (changeCueTimeLeft > 0) {
+        // Still displaying a change cue, so add to it
+        changeCueAmount += argument[0];
+    } else {
+        // Not displaying a change cue (or one is fading out), so set new amount
+        changeCueAmount += argument[0];
+    }
+    // Set change cue display time
     changeCueTimeLeft = changeCueTime;
 }
 

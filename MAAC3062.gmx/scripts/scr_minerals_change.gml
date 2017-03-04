@@ -26,12 +26,19 @@ if (argument[0] > 0) {
 
 // Increase or decrease the energy by the specified amount
 global.minerals += argument[0];
-if (global.minerals < 0) { 
+if (global.minerals < 0) {
     global.minerals = 0; // Prevent negative value
 }
 
 // Trigger change cue to display. If already displayed, amount will be added.
 with (obj_hud_levelMinerals) {
-    changeCueAmount += argument[0];
+    if (changeCueTimeLeft > 0) {
+        // Still displaying a change cue, so add to it
+        changeCueAmount += argument[0];
+    } else {
+        // Not displaying a change cue (or one is fading out), so set new amount
+        changeCueAmount += argument[0];
+    }
+    // Set change cue display time
     changeCueTimeLeft = changeCueTime;
 }
