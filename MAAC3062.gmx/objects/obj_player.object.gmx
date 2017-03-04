@@ -357,9 +357,21 @@ if (isRightPressed) {
 
 if(!(isRightPressed || isLeftPressed)) {
     image_speed = 0;
-    image_index = 0;
+    //image_index = 0;
     image_xscale = 1;
-    sprite_index = spr_player;
+    if (isJumping) {
+        if (sprite_index != spr_player_jump_right &amp;&amp; sprite_index != spr_player_jump_left) {
+            // Jumping while standing still but not showing a jumping sprite,
+            // so pick left or right jumping sprite at random
+            if (irandom(1) == 1) {
+                sprite_index = spr_player_jump_right;
+            } else {
+                sprite_index = spr_player_jump_left;
+            }        
+        }
+    } else {
+        sprite_index = spr_player;
+    }
 }
 
 </string>
