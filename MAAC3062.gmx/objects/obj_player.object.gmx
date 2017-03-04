@@ -85,6 +85,21 @@ abilB_cooldownCounter = 0;
 abilC_cooldownCounter = 0;
 abilD_cooldownCounter = 0;
 
+global.energy = 800;
+
+switch(room)
+{
+    case rm_level_moon:
+        global.maxFuel = 1000;
+        break;
+    case rm_level_forest:
+        global.maxFuel = 2000;
+        break;
+    case rm_level_desert:
+        global.maxFuel = 2500;
+        break;
+}
+
 if (global.plrAbilityUpgraded[0]) {
     abilA_cooldownTime = global.plrAbilityCooldown_upgraded[0];
 } else {
