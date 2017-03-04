@@ -44,8 +44,9 @@ global.deltaTime = delta_time;
 global.state = "Normal";
 
 global.minerals = 0;
-global.energy = 4000; // The current energy collected by the player during the level.
+global.energy = 1000; // The current energy collected by the player during the level.
 global.fuel = 0; // Max fuel is 100.
+global.maxFuel = 0; // At the beginning of each level, this value is set to the target fuel level.
 global.currentLevelComplete = 0; // used to make sure that player doesn't lose level
                                  // because of death during the level complete
                                  // animation/sequence
