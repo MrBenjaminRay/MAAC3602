@@ -18,7 +18,7 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>96</width>
-  <height>64</height>
+  <height>128</height>
   <frames>
     <frame index="0">images\spr_flying_heavy_0.png</frame>
     <frame index="1">images\spr_flying_heavy_1.png</frame>
