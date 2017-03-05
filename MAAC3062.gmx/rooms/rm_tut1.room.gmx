@@ -126,8 +126,8 @@
     <instance objName="obj_physicsTile" x="1568" y="864" name="inst_411EAB8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1600" y="864" name="inst_492477B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="864" name="inst_2D77DF8B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_level_energy" x="32" y="32" name="inst_9853C6A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_level_minerals" x="32" y="64" name="inst_121581D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hud_levelEnergy" x="32" y="32" name="inst_9853C6A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hud_levelMinerals" x="32" y="64" name="inst_121581D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="64" y="-32" name="inst_579C40AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_emitter_emitter" x="128" y="32" name="inst_1BD56FEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="32" y="832" name="inst_676B2C15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

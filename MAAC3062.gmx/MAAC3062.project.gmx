@@ -69,14 +69,16 @@
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
-        <sprite>sprites\spr_player</sprite>
+        <sprite>sprites\spr_player_old</sprite>
         <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
         <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
         <sprite>sprites\spr_left_arm_weapon</sprite>
         <sprite>sprites\spr_left_arm_wrench</sprite>
         <sprite>sprites\spr_right_arm_weapon</sprite>
         <sprite>sprites\spr_right_arm_wrench</sprite>
-        <sprite>sprites\spr_player_facing_forward</sprite>
+        <sprite>sprites\spr_player</sprite>
+        <sprite>sprites\spr_player_jump_right</sprite>
+        <sprite>sprites\spr_player_jump_left</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -261,6 +263,7 @@
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
+    <script>scripts\scr_minerals_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
     <scripts name="UI">
       <scripts name="Message Boxes">
@@ -283,15 +286,17 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
-    <font>fonts\fnt_mineralEnergyLevels</font>
+    <font>fonts\fnt_hud_mineralEnergyLevels</font>
+    <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
   </fonts>
   <objects name="objects">
     <object>objects\object</object>
     <object>objects\obj_spawner</object>
     <objects name="UI_HUD">
-      <object>objects\obj_level_energy</object>
-      <object>objects\obj_level_minerals</object>
+      <object>objects\obj_hud_level</object>
+      <object>objects\obj_hud_levelEnergy</object>
+      <object>objects\obj_hud_levelMinerals</object>
     </objects>
     <objects name="UI_Menus">
       <object>objects\obj_button</object>
