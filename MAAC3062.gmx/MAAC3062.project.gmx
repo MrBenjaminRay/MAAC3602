@@ -114,6 +114,8 @@
         <sprite>sprites\spr_projectile_fireAnt</sprite>
         <sprite>sprites\spr_3600_projectile</sprite>
         <sprite>sprites\spr_projectile_rainbowTrout</sprite>
+        <sprite>sprites\spr_sloth_flying</sprite>
+        <sprite>sprites\spr_sloth_dragging</sprite>
       </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
