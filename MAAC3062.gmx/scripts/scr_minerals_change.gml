@@ -1,6 +1,6 @@
 /**
- * Increases or decreases global energy value by the specified amount.
- * We use a script so that energy can be changed in various places in code,
+ * Increases or decreases global minerals value by the specified amount.
+ * We use a script so that minerals can be changed in various places in code,
  * and we can add effects or animations as needed in a single location (here).
  *
  * @param argument[0]
@@ -12,26 +12,26 @@ if (argument[0] > 0) {
     // Do something special when level increases
     
     // Boost the icon
-    with (obj_hud_levelEnergy) {
+    with (obj_hud_levelMinerals) {
         scale = scaleLevelBoosted;
     }
-} else if (argument[0] < 0 && global.energy > 0) {
+} else if (argument[0] < 0 && global.minerals > 0) {
     // Do something special when level decreases (do nothing if level already 0)
-
+    
     // Shrink the icon    
-    with (obj_hud_levelEnergy) {
+    with (obj_hud_levelMinerals) {
         scale = scaleLevelShrunk;
     }
 } 
 
- // Increase or decrease the energy by the specified amount
-global.energy += argument[0];
-if (global.energy < 0) { 
-    global.energy = 0; // Prevent negative value
+// Increase or decrease the energy by the specified amount
+global.minerals += argument[0];
+if (global.minerals < 0) {
+    global.minerals = 0; // Prevent negative value
 }
 
 // Trigger change cue to display. If already displayed, amount will be added.
-with (obj_hud_levelEnergy) {
+with (obj_hud_levelMinerals) {
     if (changeCueTimeLeft > 0) {
         // Still displaying a change cue, so add to it
         changeCueAmount += argument[0];
@@ -42,4 +42,3 @@ with (obj_hud_levelEnergy) {
     // Set change cue display time
     changeCueTimeLeft = changeCueTime;
 }
-

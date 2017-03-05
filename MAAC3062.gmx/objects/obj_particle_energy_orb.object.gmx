@@ -127,11 +127,11 @@ currentSpeed *= speedChange;
 // SECOND PART: Attraction to Energy Level Icon
 
 // Get direction vector towards energy level indicator
-if (object_exists(obj_level_energy)) {
-    var dir = degtorad(point_direction(x, y, obj_level_energy.x, obj_level_energy.y));    
+if (object_exists(obj_hud_levelEnergy)) {
+    var dir = degtorad(point_direction(x, y, obj_hud_levelEnergy.x, obj_hud_levelEnergy.y));    
 } else {
     // This is bad - can't have energy orbs on a level if there's nowhere for them to go (energy level indicator)
-    show_debug_message("Level is missing obj_level_energy!");
+    show_debug_message("Level is missing obj_hud_levelEnergy!");
     return 0;
 }
 
@@ -150,12 +150,12 @@ y -= sin(dir) * speedTowardsTarget * global.deltaTime; // Subtract as y is inver
 // causes it to overshoot the energy level object, in which case collision would 
 // not occur.
 if (x &lt; 0 || x &gt; window_get_width() || y &lt; 0 || y &gt; window_get_height()) {
-    if (object_exists(obj_level_energy)) {
-        x = obj_level_energy.x;
-        y = obj_level_energy.y;
+    if (object_exists(obj_hud_levelEnergy)) {
+        x = obj_hud_levelEnergy.x;
+        y = obj_hud_levelEnergy.y;
         speedTowardsTarget = 0;
     } else {
-        // Should never get here as we check for obj_level_energy to exist earlier in this code
+        // Should never get here as we check for obj_hud_levelEnergy to exist earlier in this code
     }
 }
 
@@ -164,7 +164,7 @@ if (x &lt; 0 || x &gt; window_get_width() || y &lt; 0 || y &gt; window_get_heigh
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_level_energy">
+    <event eventtype="4" ename="obj_hud_levelEnergy">
       <action>
         <libid>1</libid>
         <id>603</id>

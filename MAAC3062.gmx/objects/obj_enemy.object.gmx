@@ -75,6 +75,11 @@ maxFlameDamageStacks = 5;        // The maximum number of flame damage stacks th
 stackDissipationTime = 2048;     // The amount of time before a stack of flame damage will be removed.
 stackDissipationTimeCounter = 0; // The amount of time that has elapsed since the last stack of flame damage was removed.
 
+
+// Clamp the enemy onto the tile it's spawned above:
+while (place_meeting(x, y, obj_physicsTile) == false) {
+    y++;
+}
 </string>
           </argument>
         </arguments>
