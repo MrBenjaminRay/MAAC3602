@@ -90,14 +90,27 @@ with (obj_tower_m6100) {
     return 0;
 }
 
-var canProceed = instance_number(obj_tower_m6100) == 0;
-canProceed &amp;= global.energy &gt;= global.towers[5, 1]
-
-if (canProceed) {
-    scr_build_switchTower(5);
-} else {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+// Check if any other instances of tower exist:
+if (instance_number(obj_tower_m6100) &gt; 0) {
+    scr_notification("You cannot build another one.", c_black, c_yellow);
+    return 0;
 }
+
+// Check if Tower Unlocked:
+if (global.towerUnlocked[5] == false) {
+    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    return 0;
+    
+}
+
+// Check if Energy Requirements Met:
+if (global.energy &lt; global.towers[5, 1] * global.towerUpgradeLevel[5]) {
+    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    return 0;
+}
+
+// Build Tower:
+scr_build_switchTower(5);
 </string>
           </argument>
         </arguments>
@@ -124,11 +137,21 @@ if (canProceed) {
     return 0;
 }
 
-if (global.energy &gt;= global.towers[4, 1]) {
-    scr_build_switchTower(4);
-} else {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+// Check if Tower Unlocked:
+if (global.towerUnlocked[4] == false) {
+    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    return 0;
+    
 }
+
+// Check if Energy Requirements Met:
+if (global.energy &lt; global.towers[4, 1] * global.towerUpgradeLevel[4]) {
+    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    return 0;
+}
+
+// Build Tower:
+scr_build_switchTower(4);
 </string>
           </argument>
         </arguments>
@@ -155,11 +178,21 @@ if (global.energy &gt;= global.towers[4, 1]) {
     return 0;
 }
 
-if (global.energy &gt;= global.towers[3, 1]) {
-    scr_build_switchTower(3);
-} else {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+// Check if Tower Unlocked:
+if (global.towerUnlocked[3] == false) {
+    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    return 0;
+    
 }
+
+// Check if Energy Requirements Met:
+if (global.energy &lt; global.towers[3, 1] * global.towerUpgradeLevel[3]) {
+    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    return 0;
+}
+
+// Build Tower:
+scr_build_switchTower(3);
 </string>
           </argument>
         </arguments>
@@ -186,11 +219,21 @@ if (global.energy &gt;= global.towers[3, 1]) {
     return 0;
 }
 
-if (global.energy &gt;= global.towers[2, 1]) {
-    scr_build_switchTower(2);
-} else {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+// Check if Tower Unlocked:
+if (global.towerUnlocked[2] == false) {
+    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    return 0;
+    
 }
+
+// Check if Energy Requirements Met:
+if (global.energy &lt; global.towers[2, 1] * global.towerUpgradeLevel[2]) {
+    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    return 0;
+}
+
+// Build Tower:
+scr_build_switchTower(2);
 </string>
           </argument>
         </arguments>
@@ -217,11 +260,21 @@ if (global.energy &gt;= global.towers[2, 1]) {
     return 0;
 }
 
-if (global.energy &gt;= global.towers[1, 1]) {
-    scr_build_switchTower(1);
-} else {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+// Check if Tower Unlocked:
+if (global.towerUnlocked[1] == false) {
+    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    return 0;
+    
 }
+
+// Check if Energy Requirements Met:
+if (global.energy &lt; global.towers[1, 1] * global.towerUpgradeLevel[1]) {
+    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    return 0;
+}
+
+// Build Tower:
+scr_build_switchTower(1);
 </string>
           </argument>
         </arguments>
@@ -248,11 +301,21 @@ if (global.energy &gt;= global.towers[1, 1]) {
     return 0;
 }
 
-if (global.energy &gt;= global.towers[0, 1]) {
-    scr_build_switchTower(0);
-} else {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+// Check if Tower Unlocked:
+if (global.towerUnlocked[0] == false) {
+    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    return 0;
+    
 }
+
+// Check if Energy Requirements Met:
+if (global.energy &lt; global.towers[0, 1] * global.towerUpgradeLevel[0]) {
+    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    return 0;
+}
+
+// Build Tower:
+scr_build_switchTower(0);
 </string>
           </argument>
         </arguments>
@@ -343,7 +406,7 @@ if (global.energy &gt;= global.towers[0, 1]) {
     if (isLocationValid) {
         instance_create(tempX, tempY, towerObj);
         
-        global.energy -= towerCost;
+        scr_energy_change(-towerCost);
         
         audio_play_sound(snd_build, 0, false);
         
@@ -429,8 +492,8 @@ draw_ellipse(xPos_left, yPos_top, xPos_right, yPos_bottom, true);
 
 /////////////////////////////////////////// DRAW TOWER COST:
 // Determine Position:
-var xCoord = view_wview[0] / 2;
-var yCoord = 10;
+var xCoord = mouse_x;
+var yCoord = mouse_y + sprite_get_height(towerSpr);
 var text = "Costs " + string(towerCost) + " Energy";
 
 // Set Font:
@@ -441,7 +504,7 @@ draw_set_color(c_black);
 draw_text(xCoord + 2, yCoord + 2, text);
 
 // Draw Foreground:
-draw_set_color(c_green);
+draw_set_color(c_yellow);
 draw_text(xCoord, yCoord, text);
 
 // Reset Draw Color:

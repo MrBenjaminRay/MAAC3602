@@ -13,8 +13,12 @@ var canContinue = is_undefined(argument[0]) == false;
 canContinue &= is_undefined(argument[1]) == false;
 
 if (canContinue) {
-    var newShield = argument[0].currShield;
+    var newShield = 0;
     var newHealth = argument[0].currHealth;
+    
+    if (is_undefined(argument[0].currShield) == false) {
+        newShield = argument[0].currShield;
+    }
     
     if (argument[0].maxShield > 0) {
         newShield -= argument[1];
@@ -32,7 +36,9 @@ if (canContinue) {
     
     if (newHealth <= 0) {
         // Destroy the instance
-        instance_destroy();
+        with (argument[0]) {
+            instance_destroy();
+        }
     } else {
         argument[0].currShield = newShield;
         argument[0].currHealth = newHealth;

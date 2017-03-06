@@ -55,6 +55,7 @@ attackRange = sprite_width/4;
 //      NONE
 movementDirection = "NONE";
 
+age = 0;                    // Age of enemy (milliseconds since spawning) - for lag prevention purposes.
 
 energyDrop = 0;
 
@@ -68,12 +69,17 @@ frozenTimeCounter = 0;      // The amount of time that the enemy has been frozen
 
 // TOWER-SPECIFIC DATA (Flame):
 minDamagePerStack = .5;           // The minimum amount of damage applied to the enemy per-stack.
-maxDamagePerStack = 2.5;           // The maximum amount of damage applied to the enemy per-stack.
+maxDamagePerStack = 1.5;           // The maximum amount of damage applied to the enemy per-stack.
 flameDamageStacks = 0;           // The current number of flame damage stacks applied to the enemy.
 maxFlameDamageStacks = 5;        // The maximum number of flame damage stacks that can be applied to an enemy.
 stackDissipationTime = 2048;     // The amount of time before a stack of flame damage will be removed.
 stackDissipationTimeCounter = 0; // The amount of time that has elapsed since the last stack of flame damage was removed.
 
+
+// Clamp the enemy onto the tile it's spawned above:
+while (place_meeting(x, y, obj_physicsTile) == false) {
+    y++;
+}
 </string>
           </argument>
         </arguments>
@@ -235,10 +241,11 @@ stackDissipationTimeCounter = 0; // The amount of time that has elapsed since th
     return 0;
 }
 
+
 if (attackRateCounter &gt;= attackRate) {
     var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange, obj_player);
     var nearestMine = scr_entity_gearNearestObjectOfType(attackRange, obj_mine);
-    var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_miner);
+    var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
     
@@ -427,6 +434,48 @@ if (flameDamageStacks &gt; 0) {
 } else {
     stackDissipationTimeCounter = 0;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Increase Age</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Increment age
+age += global.deltaTime;
 </string>
           </argument>
         </arguments>

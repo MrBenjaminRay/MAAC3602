@@ -94,12 +94,15 @@ projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
             <string>// Set image angle to direction for all projectile types except 
 // exceptions defined below.
 
-switch object_index {
-    case obj_projectile_flame:
+switch (object_index) {
+    case (obj_projectile_fireAnt): {
         // Flames always orient upward
         break;
-    default:
+    }
+    
+    default: {
         image_angle = direction;
+    }
 }
 
 
@@ -155,23 +158,16 @@ switch object_index {
             <string>if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
-    instance_destroy();
     
-    if(object_index == obj_projectile_normal)
-    {
-        audio_play_sound(snd_projectileHit_light, 0, false);
-        audio_sound_gain(snd_projectileHit_light, projectileHitGain, 0);
+    if (other.movementDirection == "LEFT") {
+        other.x += damage;
     }
-    else if(object_index == obj_projectile_109Cal)
-    {
-        audio_play_sound(snd_projectileHit_medium, 0, false);
-        audio_sound_gain(snd_projectileHit_medium, projectileHitGain, 0);
+    
+    if (other.movementDirection == "RIGHT") {
+        other.x -= damage;
     }
-    else if(object_index == obj_projectile_mortar)
-    {
-        audio_play_sound(snd_projectileHit_heavy, 0, false);
-        audio_sound_gain(snd_projectileHit_heavy, projectileHitGain, 0);
-    }
+    
+    instance_destroy();
 }
 </string>
           </argument>

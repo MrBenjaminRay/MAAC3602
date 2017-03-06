@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fuel = 10;
-fuelTarget = 100;
+            <string>//fuel = 10; // Looks like we're using global variables instead
+//fuelTarget = 100; // Looks like we're using global variables instead
+
 image_xscale = 0.75;
 image_yscale = image_xscale;
 levelFinish = 0;
@@ -103,54 +104,6 @@ if(levelFinish == 1 &amp;&amp; y &lt; -200) {
     global.currentLevelComplete = 0;
     room_goto(rm_hub);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_healthbar(x-64, y-45, x-56, y+4, global.fuel, c_black, make_color_rgb(11,255,12), make_color_rgb(11,255,12), 3, true, true);
-//x8 y59
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_self();
-
 </string>
           </argument>
         </arguments>
