@@ -46,6 +46,7 @@
         <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
+        <sprite>sprites\spr_newMessageAnim</sprite>
       </sprites>
       <sprites name="HUD">
         <sprite>sprites\spr_bossItemHUD_mockup</sprite>
