@@ -14,5 +14,9 @@
 var canProceed = is_undefined(argument[0]) == false;
 canProceed = is_undefined(argument[1]) == false;
 canProceed = is_undefined(argument[2]) == false;
+
+if(canProceed) {
+
+}
  
  // JOE, WRITE YOUR CODE HERE
