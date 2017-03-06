@@ -46,6 +46,7 @@
         <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
+        <sprite>sprites\spr_newMessageAnim</sprite>
       </sprites>
       <sprites name="HUD">
         <sprite>sprites\spr_bossItemHUD_mockup</sprite>
@@ -53,6 +54,17 @@
         <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
         <sprite>sprites\spr_mineralsHUD_mockup</sprite>
         <sprite>sprites\spr_progressHUD_mockup</sprite>
+      </sprites>
+      <sprites name="Hub">
+        <sprite>sprites\spr_researchWep</sprite>
+        <sprite>sprites\spr_selectDest</sprite>
+        <sprite>sprites\spr_nextStop</sprite>
+        <sprite>sprites\spr_level0</sprite>
+        <sprite>sprites\spr_level1</sprite>
+        <sprite>sprites\spr_level2</sprite>
+        <sprite>sprites\spr_level3</sprite>
+        <sprite>sprites\spr_level4</sprite>
+        <sprite>sprites\spr_Travel</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -305,6 +317,17 @@
       <object>objects\obj_hud_levelMinerals</object>
     </objects>
     <objects name="UI_Menus">
+      <objects name="Hub">
+        <object>objects\obj_planetButton</object>
+        <object>objects\obj_moonButton</object>
+        <object>objects\obj_forestButton</object>
+        <object>objects\obj_desertButton</object>
+        <object>objects\obj_levelTitle</object>
+        <object>objects\obj_nextStop</object>
+        <object>objects\obj_travel</object>
+        <object>objects\obj_researchWep</object>
+        <object>objects\obj_selectDest</object>
+      </objects>
       <object>objects\obj_button</object>
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
@@ -323,10 +346,6 @@
         <object>objects\obj_briefPopupMessage</object>
       </objects>
       <object>objects\obj_hubMockupBG</object>
-      <object>objects\obj_planetButton</object>
-      <object>objects\obj_moonButton</object>
-      <object>objects\obj_forestButton</object>
-      <object>objects\obj_desertButton</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
       </objects>
