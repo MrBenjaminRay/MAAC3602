@@ -88,6 +88,10 @@
         <sprite>sprites\spr_flying_light</sprite>
         <sprite>sprites\spr_flying_heavy</sprite>
         <sprite>sprites\spr_jackal</sprite>
+        <sprite>sprites\spr_light_spider</sprite>
+        <sprite>sprites\spr_spider_light_small</sprite>
+        <sprite>sprites\spr_heavy_spider</sprite>
+        <sprite>sprites\spr_heavy_spider_small</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
