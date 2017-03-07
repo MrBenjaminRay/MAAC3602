@@ -91,6 +91,7 @@
         <sprite>sprites\spr_player</sprite>
         <sprite>sprites\spr_player_jump_right</sprite>
         <sprite>sprites\spr_player_jump_left</sprite>
+        <sprite>sprites\spr_player_falling</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -217,6 +218,7 @@
       <sprite>sprites\spr_energy_pickup</sprite>
       <sprite>sprites\spr_minerals</sprite>
       <sprite>sprites\spr_exhaust</sprite>
+      <sprite>sprites\spr_ship_fire_exhaust</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
