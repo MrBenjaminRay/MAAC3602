@@ -283,6 +283,8 @@
       <background>background\bkg_underwater_1</background>
       <background>background\bkg_underwater_2</background>
       <background>background\bkg_underwater_3</background>
+      <background>background\bkg_underwater_front</background>
+      <background>background\bkg_underwater_tiles</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
