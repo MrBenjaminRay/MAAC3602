@@ -270,6 +270,7 @@
       <sprite>sprites\spr_array_old</sprite>
       <sprite>sprites\spr_array_new</sprite>
     </sprites>
+    <sprite>sprites\spr_camera</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -487,6 +488,7 @@
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_catapillager</object>
         <object>objects\obj_projectile_titmouse</object>
+        <object>objects\obj_projectile_sloth</object>
         <object>objects\obj_projectile_freeze</object>
         <object>objects\obj_projectile_fireAnt</object>
         <object>objects\obj_projectile_caliBear</object>
@@ -588,6 +590,7 @@
         <object>objects\obj_emitter_emitter</object>
       </objects>
     </objects>
+    <object>objects\obj_camera</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
