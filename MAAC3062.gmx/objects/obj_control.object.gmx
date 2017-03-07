@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>randomize();
 
+// Store screen dimensions
+global.screenWidth = display_get_width();
+global.screenHeight = display_get_height();
+global.screenRatio = global.screenWidth / global.screenHeight;
+
 global.messageDistance = 120; // distance the player can be from a distanceMessageBox
                                 // before it disappears.
 global.messageScale = 0.4; // The scale of message boxes and text sprites
