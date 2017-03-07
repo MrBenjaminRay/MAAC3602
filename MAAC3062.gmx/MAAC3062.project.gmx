@@ -65,6 +65,25 @@
         <sprite>sprites\spr_level3</sprite>
         <sprite>sprites\spr_level4</sprite>
         <sprite>sprites\spr_Travel</sprite>
+        <sprite>sprites\spr_windowPlaceholder</sprite>
+        <sprite>sprites\spr_listItem</sprite>
+        <sprite>sprites\spr_listItem_sel</sprite>
+        <sprite>sprites\spr_listItem_toggle</sprite>
+        <sprite>sprites\spr_listItem_ability</sprite>
+        <sprite>sprites\spr_listItem_ability_sel</sprite>
+        <sprite>sprites\spr_listItem_ability_toggle</sprite>
+        <sprite>sprites\spr_ResearchFacility</sprite>
+        <sprite>sprites\spr_caterpillager_title</sprite>
+        <sprite>sprites\spr_slothRope_title</sprite>
+        <sprite>sprites\spr_titMouse_title</sprite>
+        <sprite>sprites\spr_fireAntHose_title</sprite>
+        <sprite>sprites\spr_109Calibear_title</sprite>
+        <sprite>sprites\spr_RT6100_title</sprite>
+        <sprite>sprites\spr_mechaGoat_title</sprite>
+        <sprite>sprites\spr_armadillos_title</sprite>
+        <sprite>sprites\spr_porpoise_title</sprite>
+        <sprite>sprites\spr_gorilla_title</sprite>
+        <sprite>sprites\spr_electricEel_title</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -318,15 +337,38 @@
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">
-        <object>objects\obj_planetButton</object>
-        <object>objects\obj_moonButton</object>
-        <object>objects\obj_forestButton</object>
-        <object>objects\obj_desertButton</object>
-        <object>objects\obj_levelTitle</object>
-        <object>objects\obj_nextStop</object>
-        <object>objects\obj_travel</object>
-        <object>objects\obj_researchWep</object>
-        <object>objects\obj_selectDest</object>
+        <objects name="Destination">
+          <object>objects\obj_planetButton</object>
+          <object>objects\obj_moonButton</object>
+          <object>objects\obj_forestButton</object>
+          <object>objects\obj_desertButton</object>
+          <object>objects\obj_levelTitle</object>
+          <object>objects\obj_nextStop</object>
+          <object>objects\obj_travel</object>
+          <object>objects\obj_researchWep</object>
+          <object>objects\obj_selectDest</object>
+          <object>objects\obj_windowPlaceholder</object>
+          <object>objects\obj_infoText</object>
+        </objects>
+        <objects name="WeaponResearch">
+          <object>objects\obj_listItem</object>
+          <object>objects\obj_listItem_ability</object>
+          <object>objects\obj_caterpillager_list</object>
+          <object>objects\obj_slothRope_list</object>
+          <object>objects\obj_titMouse_list</object>
+          <object>objects\obj_fireAntHose_list</object>
+          <object>objects\obj_109Calibear_list</object>
+          <object>objects\obj_RT6100_list</object>
+          <object>objects\obj_mechaGoat_list</object>
+          <object>objects\obj_armadillos_list</object>
+          <object>objects\obj_porpoise_list</object>
+          <object>objects\obj_gorilla_list</object>
+          <object>objects\obj_electricEel_list</object>
+          <object>objects\obj_ResearchFacility</object>
+          <object>objects\obj_itemTitle</object>
+          <object>objects\obj_weaponInfoText</object>
+          <object>objects\obj_item_picture</object>
+        </objects>
       </objects>
       <object>objects\obj_button</object>
       <object>objects\obj_play</object>
@@ -348,6 +390,11 @@
       <object>objects\obj_hubMockupBG</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
+        <object>objects\obj_messageBoxNew</object>
+        <object>objects\obj_levelSelScrn</object>
+        <object>objects\obj_levelSelScrnFlip</object>
+        <object>objects\obj_levelSelScrnInfo</object>
+        <object>objects\obj_weaponBox</object>
       </objects>
     </objects>
     <objects name="Entities">
@@ -501,10 +548,11 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_video_ship_damaged</room>
-    <room>rooms\rm_video_ship_moonlanding</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_hub</room>
+    <room>rooms\rm_hub_weapons</room>
+    <room>rooms\rm_video_ship_damaged</room>
+    <room>rooms\rm_video_ship_moonlanding</room>
     <room>rooms\rm_level_moon</room>
     <room>rooms\rm_level_forest</room>
     <room>rooms\rm_level_desert</room>
