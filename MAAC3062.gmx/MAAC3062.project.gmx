@@ -232,6 +232,18 @@
       </sprites>
       <sprite>sprites\spr_fireAnt</sprite>
     </sprites>
+    <sprites name="Navigation Array">
+      <sprite>sprites\spr_cup_holder_old</sprite>
+      <sprite>sprites\spr_kindle_new</sprite>
+      <sprite>sprites\spr_batteries_new</sprite>
+      <sprite>sprites\spr_etchasketch_old</sprite>
+      <sprite>sprites\spr_fridge_new</sprite>
+      <sprite>sprites\spr_rabbit_ear_new</sprite>
+      <sprite>sprites\spr_rabbit_ear_old</sprite>
+      <sprite>sprites\spr_fridge_old</sprite>
+      <sprite>sprites\spr_array_old</sprite>
+      <sprite>sprites\spr_array_new</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
