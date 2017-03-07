@@ -90,8 +90,11 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(image_index != 2)
+            <string>if(image_index != 2) {
     image_index = 1;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -129,7 +132,7 @@ else
           <argument>
             <kind>1</kind>
             <string>if(global.forestLevelComplete == 1)
-    room_goto(rm_level_desert);
+    obj_levelTitle.sprite_index = spr_level2;
 </string>
           </argument>
         </arguments>
