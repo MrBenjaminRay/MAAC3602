@@ -181,6 +181,12 @@
         <sprite>sprites\spr_raw_material_drop3</sprite>
         <sprite>sprites\spr_raw_material_drop4</sprite>
       </sprites>
+      <sprites name="Bosses">
+        <sprite>sprites\spr_Boss_1_crouching</sprite>
+        <sprite>sprites\spr_Boss_1_eating_tower</sprite>
+        <sprite>sprites\spr_Boss_1_walk</sprite>
+        <sprite>sprites\spr_MiniBoss_1</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -271,6 +277,12 @@
       <background>background\bkg_ice_0</background>
       <background>background\bkg_ice_front</background>
       <background>background\bkg_ice_tileset</background>
+    </backgrounds>
+    <backgrounds name="Underwater">
+      <background>background\bkg_underwater_0</background>
+      <background>background\bkg_underwater_1</background>
+      <background>background\bkg_underwater_2</background>
+      <background>background\bkg_underwater_3</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -543,6 +555,7 @@
     <room>rooms\rm_tut1</room>
     <room>rooms\rm_tut2</room>
     <room>rooms\rm_level_ice</room>
+    <room>rooms\rm_level_underwater</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
