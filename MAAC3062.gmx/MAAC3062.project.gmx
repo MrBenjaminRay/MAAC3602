@@ -398,6 +398,7 @@
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_catapillager</object>
         <object>objects\obj_projectile_titmouse</object>
+        <object>objects\obj_projectile_sloth</object>
         <object>objects\obj_projectile_freeze</object>
         <object>objects\obj_projectile_fireAnt</object>
         <object>objects\obj_projectile_caliBear</object>
