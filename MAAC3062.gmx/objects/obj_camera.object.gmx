@@ -27,8 +27,16 @@
             <kind>1</kind>
             <string>// For now, follow player exactly. In future, will smoothly slide camera
 // in front of the player based on where he is facing.
-x = obj_player.x;
-y = obj_player.y;
+
+if (instance_number(obj_player) &gt; 0) {
+    // Player is on level, so follow him.
+    x = obj_player.x;
+    y = obj_player.y;
+} else {
+    // M-6100 will probably be in-place and mounted by player, so
+    // we may want to follow where the cannon is located. For now,
+    // stay still.
+}
 
 // Set to .5 to see camera position when troubleshootig, or 0 to hide
 image_alpha = 0;
