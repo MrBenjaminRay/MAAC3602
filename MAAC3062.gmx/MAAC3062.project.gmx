@@ -58,6 +58,7 @@
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
         <sprite>sprites\spr_selectDest</sprite>
+        <sprite>sprites\spr_navArray</sprite>
         <sprite>sprites\spr_nextStop</sprite>
         <sprite>sprites\spr_level0</sprite>
         <sprite>sprites\spr_level1</sprite>
@@ -67,8 +68,11 @@
         <sprite>sprites\spr_Travel</sprite>
         <sprite>sprites\spr_windowPlaceholder</sprite>
         <sprite>sprites\spr_listItem</sprite>
+        <sprite>sprites\spr_listItem_lock</sprite>
         <sprite>sprites\spr_listItem_sel</sprite>
+        <sprite>sprites\spr_listItem_sel_lock</sprite>
         <sprite>sprites\spr_listItem_toggle</sprite>
+        <sprite>sprites\spr_listitem_toggle_lock</sprite>
         <sprite>sprites\spr_listItem_ability</sprite>
         <sprite>sprites\spr_listItem_ability_sel</sprite>
         <sprite>sprites\spr_listItem_ability_toggle</sprite>
@@ -84,6 +88,17 @@
         <sprite>sprites\spr_porpoise_title</sprite>
         <sprite>sprites\spr_gorilla_title</sprite>
         <sprite>sprites\spr_electricEel_title</sprite>
+        <sprite>sprites\spr_forcePulse_title</sprite>
+        <sprite>sprites\spr_sneakySnakes_title</sprite>
+        <sprite>sprites\spr_extremeBlaster_title</sprite>
+        <sprite>sprites\spr_catsAndDogs_title</sprite>
+        <sprite>sprites\spr_upgrade</sprite>
+        <sprite>sprites\spr_unlock</sprite>
+        <sprite>sprites\spr_upgraded</sprite>
+        <sprite>sprites\spr_locked</sprite>
+        <sprite>sprites\spr_towerHeading</sprite>
+        <sprite>sprites\spr_abilitiesHeading</sprite>
+        <sprite>sprites\spr_table</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -97,6 +112,8 @@
       <sprite>sprites\spr_moonButton</sprite>
       <sprite>sprites\spr_forestButton</sprite>
       <sprite>sprites\spr_desertButton</sprite>
+      <sprite>sprites\spr_iceButton</sprite>
+      <sprite>sprites\spr_waterButton</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -128,6 +145,7 @@
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_basic</sprite>
+        <sprite>sprites\spr_tower_unknown</sprite>
         <sprite>sprites\spr_tower_superFreezer</sprite>
         <sprite>sprites\spr_tower_tacticalMortar</sprite>
         <sprite>sprites\spr_tower_m6100</sprite>
@@ -144,6 +162,7 @@
         <sprite>sprites\spr_projectile</sprite>
         <sprite>sprites\spr_projectile_flamingAnimal</sprite>
         <sprite>sprites\spr_projectile_catapillager</sprite>
+        <sprite>sprites\spr_projectile_unknown</sprite>
         <sprite>sprites\spr_projectile_titmouse</sprite>
         <sprite>sprites\spr_projectile_freeze</sprite>
         <sprite>sprites\spr_projectile_caliBear</sprite>
@@ -385,12 +404,14 @@
           <object>objects\obj_moonButton</object>
           <object>objects\obj_forestButton</object>
           <object>objects\obj_desertButton</object>
+          <object>objects\obj_iceButton</object>
+          <object>objects\obj_waterButton</object>
           <object>objects\obj_levelTitle</object>
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
           <object>objects\obj_researchWep</object>
           <object>objects\obj_selectDest</object>
-          <object>objects\obj_windowPlaceholder</object>
+          <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
         </objects>
         <objects name="WeaponResearch">
@@ -407,16 +428,37 @@
           <object>objects\obj_porpoise_list</object>
           <object>objects\obj_gorilla_list</object>
           <object>objects\obj_electricEel_list</object>
+          <object>objects\obj_forcePulse_list</object>
+          <object>objects\obj_sneakySnakes_list</object>
+          <object>objects\obj_extremeBlaster_list</object>
+          <object>objects\obj_catsAndDogs_list</object>
           <object>objects\obj_ResearchFacility</object>
           <object>objects\obj_itemTitle</object>
           <object>objects\obj_weaponInfoText</object>
           <object>objects\obj_item_picture</object>
+          <object>objects\obj_item_projectile</object>
+          <object>objects\obj_unlock_upgrade</object>
+          <object>objects\obj_locked</object>
+          <object>objects\obj_towersHeading</object>
+          <object>objects\obj_abilitiesHeading</object>
         </objects>
+        <objects name="NavArray">
+          <object>objects\obj_cup_holder</object>
+          <object>objects\obj_etchasketch</object>
+          <object>objects\obj_batteries</object>
+          <object>objects\obj_fridge</object>
+          <object>objects\obj_rabbit_ear</object>
+          <object>objects\obj_array</object>
+          <object>objects\obj_table</object>
+          <object>objects\obj_navText</object>
+        </objects>
+        <object>objects\obj_windowPlaceholder</object>
       </objects>
       <object>objects\obj_button</object>
       <object>objects\obj_play</object>
       <object>objects\obj_mainMenu</object>
       <object>objects\obj_back</object>
+      <object>objects\obj_back_small</object>
       <object>objects\obj_credits</object>
       <object>objects\obj_OK</object>
       <object>objects\obj_spaceBG</object>
@@ -596,6 +638,7 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_hub</room>
     <room>rooms\rm_hub_weapons</room>
+    <room>rooms\rm_navArray</room>
     <room>rooms\rm_video_ship_damaged</room>
     <room>rooms\rm_video_ship_moonlanding</room>
     <room>rooms\rm_level_moon</room>

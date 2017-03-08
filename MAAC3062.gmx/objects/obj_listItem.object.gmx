@@ -26,6 +26,19 @@
           <argument>
             <kind>1</kind>
             <string>untoggle = 0;
+lockedX = 232;
+lockedY = -6;
+boxScaleX = 1;
+boxScaleY = 0.8;
+textX = 8;
+textY = 2;
+
+yBoxSpacing = 0;
+
+if(object_index != obj_caterpillager_list)
+    y = y+yBoxSpacing;
+
+image_yscale = 0.6;
 
 switch(object_index) {
     case obj_caterpillager_list:

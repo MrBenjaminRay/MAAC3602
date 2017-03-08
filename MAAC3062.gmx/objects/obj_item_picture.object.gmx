@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_xscale = 1.5;
+image_yscale = image_xscale;
+pictureUnlock = 0;
+isAbility = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,11 +51,129 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//switch(obj_itemTitle.sprite_index) {
+            <string>pictureUnlock = 0;
+isAbility = 0;
 
+switch(obj_itemTitle.sprite_index) {
+    case spr_caterpillager_title:
+        if(global.caterpillagerUnlock == 1) {
+            sprite_index = spr_tower_basic;
+            obj_item_projectile.sprite_index = spr_projectile_catapillager;
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_slothRope_title:
+        if(global.slothRopeUnlock == 1) {   
+            sprite_index = spr_tower_superFreezer;
+            obj_item_projectile.sprite_index = spr_sloth_flying;
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_titMouse_title:
+        if(global.titMouseUnlock == 1) {
+            sprite_index = spr_tower_tacticalMortar;
+            obj_item_projectile.sprite_index = spr_projectile_titmouse;
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_fireAntHose_title:
+        if(global.fireAntUnlock == 1) {
+            sprite_index = spr_tower_flamethrower;
+            obj_item_projectile.sprite_index = spr_projectile_fireAnt;
+            pictureUnlock = 1;
+        }
+    case spr_109Calibear_title:
+        if(global.CalibearUnlock == 1) {
+            sprite_index = spr_tower_rifle;
+            obj_item_projectile.sprite_index = spr_projectile_caliBear;
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_RT6100_title:
+        if(global.RT6100Unlock == 1) {
+            sprite_index = spr_tower_m6100;
+            obj_item_projectile.sprite_index = spr_projectile_rainbowTrout;
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_mechaGoat_title:
+        if(global.mechaGoatUnlock == 1) {
+            sprite_index = spr_tower; // replace with mechaGoat tower sprite
+            obj_item_projectile.sprite_index = spr_projectile; // replace with mechaGoat projectile sprite
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_armadillos_title:
+        if(global.armadilloUnlock == 1) {
+            sprite_index = spr_tower; // replace with armadillo tower sprite
+            obj_item_projectile.sprite_index = spr_projectile; // replace with armadillo projectile sprite
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_porpoise_title:
+        if(global.porpoiseUnlock == 1) {
+            sprite_index = spr_tower; // replace with porpoise tower sprite
+            obj_item_projectile.sprite_index = spr_projectile; // replace with porpoise projectile sprite
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_gorilla_title:
+        if(global.gorillaUnlock == 1) {
+            sprite_index = spr_tower; // replace with gorilla tower sprite
+            obj_item_projectile.sprite_index = -1;
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_electricEel_title:
+        if(global.electricEelUnlock == 1) {
+            sprite_index = spr_tower; // replace with electricEel tower sprite
+            obj_item_projectile.sprite_index = spr_projectile; // replace with electricEel projectile sprite
+            pictureUnlock = 1;
+        }
+        break;
+    case spr_forcePulse_title:
+        if(global.fieldPulseUnlock == 1) {
+            sprite_index = spr_player; // replace with forceField sprite
+            obj_item_projectile.sprite_index = -1;
+            pictureUnlock = 1;
+        }
+        isAbility = 1;
+        break;
+    case spr_sneakySnakes_title:
+        if(global.sneakySnakesUnlock == 1) {
+            sprite_index = spr_player; // replace with sneakySnakes sprite
+            obj_item_projectile.sprite_index = -1;
+            pictureUnlock = 1;
+        }
+        isAbility = 1;
+        break;
+    case spr_extremeBlaster_title:
+        if(global.blasterUnlock == 1) {
+            sprite_index = spr_player; // replace with extremeBlast sprite
+            obj_item_projectile.sprite_index = -1;
+            pictureUnlock = 1;
+        }
+        isAbility = 1;
+        break;
+    case spr_catsAndDogs_title:
+        if(global.catsAndDogsUnlock == 1) {
+            sprite_index = spr_player; // replace with catsAndDogs sprite
+            obj_item_projectile.sprite_index = -1;
+            pictureUnlock = 1;
+        }
+        isAbility = 1;
+        break;
+}
 
+if(pictureUnlock == 0) {
+    sprite_index = spr_tower_unknown;
+    
+    if(isAbility == 0)
+        obj_item_projectile.sprite_index = spr_projectile_unknown;
+    else
+        obj_item_projectile.sprite_index = -1;
+}
 
-//}
 </string>
           </argument>
         </arguments>
