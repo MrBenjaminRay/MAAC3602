@@ -191,6 +191,7 @@
     <instance objName="obj_hud_levelMinerals" x="32" y="64" name="inst_964D8E7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="64" y="-32" name="inst_ECE2E4DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_cheats" x="0" y="-32" name="inst_933C1BC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera" x="128" y="32" name="inst_DECF77A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
