@@ -15,4 +15,9 @@ var canProceed = is_undefined(argument[0]) == false;
 canProceed = is_undefined(argument[1]) == false;
 canProceed = is_undefined(argument[2]) == false;
  
- // JOE, WRITE YOUR CODE HERE
+if (canProceed) {
+    var obj = instance_create(mouse_x, mouse_y, obj_messageText);
+    obj.foregroundColor = argument[2];
+    obj.backgroundColor = argument[1];
+    obj.text = argument[0];
+}
