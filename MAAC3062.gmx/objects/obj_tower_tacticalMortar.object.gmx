@@ -60,6 +60,15 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
 }
+
+// Special stuff just for mortar
+attackRange_min = 100;
+// Use a min &amp; max attack angle for cannon so that instead of shooting straight down
+// towards a target, it will always shoot up
+// This may not be necessary depending on how the trajectory is implemented.
+// For now, it's not used at all. -Ben
+minAngle = 0;
+maxAngle = 0;
 </string>
           </argument>
         </arguments>
@@ -144,12 +153,20 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
+if (attackRateCounter &gt;= attackRate) {
+    attackRateCounter = 0;
 
-if (nearestEnemy != noone) {
-    if (attackRateCounter &gt;= attackRate) {
-        attackRateCounter = 0;
-        
+    // In this case, nearestEnemy means nearest enemy within range of cannon (has minimum and maximum range)
+    var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground, attackRange_min);
+    
+    if (nearestEnemy != noone) {
+
+        // Temporarily blow the enemy up to make sure we've got some decent enemy selection happening here.
+        //with (nearestEnemy) {
+        //    instance_destroy();
+        //    return 0;
+        //}
+
         // Rotate the cannon to point towards the enemy:
         var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
         var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
@@ -168,6 +185,7 @@ if (nearestEnemy != noone) {
 }
 
 attackRateCounter += global.deltaTime;
+
 </string>
           </argument>
         </arguments>

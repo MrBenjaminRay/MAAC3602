@@ -220,7 +220,7 @@
     <option_freeze>false</option_freeze>
     <option_frequency>0</option_frequency>
     <option_frontimage>nil</option_frontimage>
-    <option_fullscreen>False</option_fullscreen>
+    <option_fullscreen>True</option_fullscreen>
     <option_gameguid>{1B1F6042-87FA-4FBC-8C2F-B9759A2B3C48}</option_gameguid>
     <option_gameid>172912265</option_gameid>
     <option_haptic_effects>0</option_haptic_effects>
@@ -506,7 +506,7 @@
     <option_win8_portrait_flipped_allowed>-1</option_win8_portrait_flipped_allowed>
     <option_win8_publisher_display_name>YourPublisherName</option_win8_publisher_display_name>
     <option_win8_revision_version>0</option_win8_revision_version>
-    <option_win8_scaling_stretch>true</option_win8_scaling_stretch>
+    <option_win8_scaling_stretch>false</option_win8_scaling_stretch>
     <option_win8_search_capable>0</option_win8_search_capable>
     <option_win8_small_logo>Configs\Default\Windows8\logos\logo30.png</option_win8_small_logo>
     <option_win8_splash_background_colour>#000000</option_win8_splash_background_colour>
