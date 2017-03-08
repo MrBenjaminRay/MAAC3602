@@ -43,6 +43,8 @@
 walkRight = 0;
 walkLeft = 0;
 
+walkingDirection = 0; // -1 for walking left, 1 for walking right, 0 for not walking. Used mainly for camera.
+
 movementSpeed = 250/1000;
 
 // Shield Stuff:
@@ -341,6 +343,7 @@ if (isLeftPressed) {
     } else {
         sprite_index = spr_player_runs_left_with_weapon;
     }
+    walkingDirection = -1; // Set this so camera knows player is walking left
 }
 
 if (isRightPressed) {
@@ -353,6 +356,7 @@ if (isRightPressed) {
     } else {
         sprite_index = spr_player_runs_right_with_weapon;
     }
+    walkingDirection = 1; // Set this so camera knows player is walking right
 }
 
 if(!(isRightPressed || isLeftPressed)) {
@@ -372,6 +376,7 @@ if(!(isRightPressed || isLeftPressed)) {
     } else {
         sprite_index = spr_player;
     }
+    walkingDirection = 0; // Set this so camera knows the player is not walking
 }
 
 </string>
