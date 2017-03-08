@@ -39,11 +39,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
+            <string>// MOVEMENT:
+movementSpeed = 250 / 1000;     // Left/Right Movement Speed
+jumpSpeed = 400/ 1000;          // Jump Movement Speed
+gravConst = 8 / 1000;           // Gravity Constant
+
+
+// ???
+image_speed = 0;
 walkRight = 0;
 walkLeft = 0;
 
-movementSpeed = 250/1000;
 
 // Shield Stuff:
 currShield = 200;
