@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>randomize();
+draw_set_colour(c_white);
+global.messageBoxAnimSpeed = 0.20;
 
 // Store screen dimensions
 global.screenWidth = display_get_width();
@@ -48,7 +50,7 @@ global.deltaTime = delta_time;
  */
 global.state = "Normal";
 
-global.minerals = 0;
+global.minerals = 364673476;
 global.energy = 1000; // The current energy collected by the player during the level.
 global.fuel = 0; // Max fuel is 100.
 global.maxFuel = 0; // At the beginning of each level, this value is set to the target fuel level.
@@ -61,8 +63,9 @@ global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;
 
+// Tower and ability is unlocked
 
-global.caterpillagerUnlock = 1;
+global.caterpillagerUnlock = 0;
 global.slothRopeUnlock = 1;
 global.titMouseUnlock = 1;
 global.fireAntUnlock = 0;
@@ -78,6 +81,41 @@ global.fieldPulseUnlock = 0;
 global.sneakySnakesUnlock = 0;
 global.blasterUnlock = 0;
 global.catsAndDogsUnlock = 0;
+
+// Tower unlock costs
+
+global.caterpillagerUnlockCost = 1;
+global.slothRopeUnlockCost = 2000;
+global.titMouseUnlockCost = 3000;
+global.fireAntUnlockCost = 5000;
+global.CalibearUnlockCost = 3000;
+global.RT6100UnlockCost = 10000;
+global.mechaGoatUnlockCost = 474747;
+global.armadilloUnlockCost = 5000;
+global.porpoiseUnlockCost = 6000;
+global.gorillaUnlockCost = 5000;
+global.electricEelUnlockCost = 7500;
+
+// Tower and ability upgrade costs
+
+global.caterpillagerUpgradeCost = 1500;
+global.slothRopeUpgradeCost = 2500;
+global.titMouseUpgradeCost = 5000;
+global.fireAntUpgradeCost = 3500;
+global.CalibearUpgradeCost = 3000;
+global.RT6100UpgradeCost = 6000;
+global.mechaGoatUpgradeCost = 696969;
+global.armadilloUpgradeCost = 4500;
+global.porpoiseUpgradeCost = 3500;
+global.gorillaUpgradeCost = 3000;
+global.electricEelUpgradeCost = 3000;
+
+global.fieldPulseUpgradeCost = 2000;
+global.sneakySnakesUpgradeCost = 2000;
+global.blasterUpgradeCost = 5000;
+global.catsAndDogsUpgradeCost = 10000;
+
+
 
 // Format:
 //      Name
