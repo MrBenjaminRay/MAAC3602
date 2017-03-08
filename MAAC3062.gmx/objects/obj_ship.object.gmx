@@ -81,7 +81,7 @@ currentMessageBox = noone;
 
 if (playerWithinRange) {
     if(currentMessageBox == noone) {
-        if(global.fuel &gt;= 100) {
+        if(global.energy/global.maxFuel &gt;= 1) {
             currentMessageBox = scr_msg_shipPlanetEscape(messageXPos, messageYPos);
         } else {
             currentMessageBox = scr_msg_shipRefuel(messageXPos, messageYPos);

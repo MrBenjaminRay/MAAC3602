@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>lineOffset = 20;
-draw_text(x, y, "Stats");
+draw_text(x, y, "Findings:");
 
 switch(obj_itemTitle.sprite_index) {
     case spr_caterpillager_title:
@@ -169,6 +169,38 @@ switch(obj_itemTitle.sprite_index) {
         draw_text(x, y + lineOffset*17, "Special Effect: Upon impact, several arcing bolts are sent to several other enemies");
         draw_text(x, y + lineOffset*18, "                within a large radius.");
         draw_text(x, y + lineOffset*19, "Cost: x x x");
+        break;
+    case spr_forcePulse_title:
+        draw_text(x, y + lineOffset*3, "A force field radiates out of your space suit,");
+        draw_text(x, y + lineOffset*4, "pushing nearby enemies away.");
+        draw_text(x, y + lineOffset*6, "Damage: None");
+        draw_text(x, y + lineOffset*8, "Range: x x");
+        draw_text(x, y + lineOffset*10, "Uses: Unlimited");
+        draw_text(x, y + lineOffset*12, "Cooldown: 10 seconds.");
+        break;
+    case spr_sneakySnakes_title:
+        draw_text(x, y + lineOffset*3, "You deploy several snakes in both directions,");
+        draw_text(x, y + lineOffset*4, "snaring enemies that they touch for several seconds.");
+        draw_text(x, y + lineOffset*6, "Damage: None");
+        draw_text(x, y + lineOffset*8, "Range: x x x x");
+        draw_text(x, y + lineOffset*10, "Uses: Unlimited");
+        draw_text(x, y + lineOffset*12, "Cooldown: 15 seconds.");
+        break;
+    case spr_extremeBlaster_title:
+        draw_text(x, y + lineOffset*3, "Your pistol because super rapid fire machine pistol");
+        draw_text(x, y + lineOffset*4, "for several seconds. Activate again to cancel.");
+        draw_text(x, y + lineOffset*6, "Damage: x x x");
+        draw_text(x, y + lineOffset*8, "Range: x x x x");
+        draw_text(x, y + lineOffset*10, "Uses: Unlimited");
+        draw_text(x, y + lineOffset*12, "Cooldown: 15 seconds (starting after buff expires).");
+        break;
+    case spr_catsAndDogs_title:
+        draw_text(x, y + lineOffset*3, "Tons of cats and dogs rain from the sky.");
+        draw_text(x, y + lineOffset*4, "Their damage is unexpectedly high.");
+        draw_text(x, y + lineOffset*6, "Damage: x x x x x");
+        draw_text(x, y + lineOffset*8, "Range: x x x x x");
+        draw_text(x, y + lineOffset*10, "Uses: Twice per level.");
+        draw_text(x, y + lineOffset*12, "Cooldown: 20 seconds (starting after buff expires).");
         break;
 }
 </string>
