@@ -111,23 +111,33 @@ if (scale &lt; scaleNormal) {
 image_xscale = scale;
 image_yscale = scale;
 
+show_debug_message("Current view width: " + string(view_wview[0]));
+
 if (position == "top_left") {
     x = 0 + position_offset_x;
     y = 0 + position_offset_y;
 } else if (position == "top_right") {
-    x = view_wport[0] - position_offset_x;
+    if (window_get_fullscreen()) {
+        x = global.screenWidth - position_offset_x;
+    } else {
+        x = view_wview[0] - position_offset_x;
+    }
     y = 0 + position_offset_y;
 } else if (position == "bottom_left") {
     x = 0 + position_offset_x;
-    y = view_hport[0] - position_offset_y;
+    y = view_hview[0] - position_offset_y;
 } else if (position == "bottom_right") {
-    x = view_wport[0] - position_offset_x;
-    y = view_hport[0] - position_offset_y;
+    if (window_get_fullscreen()) {
+        x = global.screenWidth - position_offset_x;
+    } else {
+        x = view_wview[0] - position_offset_x;
+    }
+    y = view_hview[0] - position_offset_y;
 } else {
     show_debug_message("ERROR:  Invalid position for " + string(object_get_name(object_index)));
     // Draw center of screen to make it obvious there's an issue
-    x = view_wport[0]/2;
-    y = view_hport[0]/2;
+    x = view_wview[0]/2;
+    y = view_hview[0]/2;
 }
 
 // Decrement change cue time left and alpha (if displayed at all)

@@ -14,6 +14,10 @@
 var canProceed = is_undefined(argument[0]) == false;
 canProceed = is_undefined(argument[1]) == false;
 canProceed = is_undefined(argument[2]) == false;
+
+if(canProceed) {
+
+}
  
 if (canProceed) {
     var obj = instance_create(mouse_x, mouse_y, obj_messageText);

@@ -23,7 +23,7 @@ if (is_undefined(argument[1])) {
 }
 
 if (canProceed) {
-    var messageBox = instance_create(argument[0], argument[1], obj_messageBox);
+    var messageBox = instance_create(argument[0], argument[1], obj_messageBoxNew);
     ds_list_add(messageBox.list_text, "Press and Hold 'X' to Escape the");
     ds_list_add(messageBox.list_text, "Planet!");
     

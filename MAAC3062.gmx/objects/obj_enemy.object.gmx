@@ -69,7 +69,7 @@ frozenTimeCounter = 0;      // The amount of time that the enemy has been frozen
 
 // TOWER-SPECIFIC DATA (Flame):
 minDamagePerStack = .5;           // The minimum amount of damage applied to the enemy per-stack.
-maxDamagePerStack = 2.5;           // The maximum amount of damage applied to the enemy per-stack.
+maxDamagePerStack = 1.5;           // The maximum amount of damage applied to the enemy per-stack.
 flameDamageStacks = 0;           // The current number of flame damage stacks applied to the enemy.
 maxFlameDamageStacks = 5;        // The maximum number of flame damage stacks that can be applied to an enemy.
 stackDissipationTime = 2048;     // The amount of time before a stack of flame damage will be removed.
