@@ -10,17 +10,7 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code>var vw;         // Width of viewport. Will be calculated based on height and
-                // aspect ratio of display.
-var vh = 600;   // Desired height of viewport (use fixed height for all screens, maybe height
-                // range in the future to be more flexible.
-
-// NOTE: Could set vh based on view in room so level designer can tweak it in UI instead of this code
-
-// Set width of view dynamically based on screen ratio
-view_hview[0] = vh;
-view_wview[0] = vh * global.screenRatio;
-show_debug_message("Setting view width: " + string(view_wview[0]));</code>
+  <code></code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
