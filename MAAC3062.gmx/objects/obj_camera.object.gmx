@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>var vw;         // Width of viewport. Will be calculated based on height and
                 // aspect ratio of display.
-var vh = 700;   // Desired height of viewport (use fixed height for all screens, maybe height
+var vh = 500;   // Desired height of viewport (use fixed height for all screens, maybe height
                 // range in the future to be more flexible.
 
 // NOTE: Could set vh based on view in room so level designer can tweak it in UI instead of this code
@@ -35,6 +35,13 @@ var vh = 700;   // Desired height of viewport (use fixed height for all screens,
 // Set width of view dynamically based on screen ratio
 view_hview[0] = vh;
 view_wview[0] = vh * global.screenRatio;
+
+// Where camera wants to be (based mainly on player position &amp; angle)
+desiredX = 0;
+desiredY = 0;
+maxSpeed = 15;
+speedChangeRate = 1; // Amount by which to increase/decrease speed when travelling to desired position
+speed = 0;
 
 </string>
           </argument>
@@ -63,8 +70,22 @@ view_wview[0] = vh * global.screenRatio;
 
 if (instance_number(obj_player) &gt; 0) {
     // Player is on level, so follow him.
-    x = obj_player.x;
-    y = obj_player.y;
+    
+    desiredX = obj_player.x + obj_player.walkingDirection * 100;
+    desiredY = obj_player.y;
+    y = desiredY;
+    
+    if (abs(x-desiredX) &gt; 10) {
+        // Need to move towards desired point
+        direction = point_direction(x, y, desiredX, desiredY);
+        if (speed &lt; maxSpeed) {
+            speed += speedChangeRate;
+        }
+    } else {
+        x = desiredX;
+        speed = 0;
+    }
+    
 } else {
     // M-6100 will probably be in-place and mounted by player, so
     // we may want to follow where the cannon is located. For now,
