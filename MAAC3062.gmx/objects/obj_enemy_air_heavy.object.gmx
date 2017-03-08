@@ -43,7 +43,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>60</string>
+            <string>30</string>
           </argument>
         </arguments>
       </action>
@@ -67,7 +67,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>60</string>
+            <string>30</string>
           </argument>
         </arguments>
       </action>
@@ -91,7 +91,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>120</string>
+            <string>60</string>
           </argument>
         </arguments>
       </action>
@@ -139,7 +139,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>60</string>
+            <string>30</string>
           </argument>
         </arguments>
       </action>
