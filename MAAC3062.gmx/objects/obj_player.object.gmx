@@ -39,11 +39,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
+            <string>// MOVEMENT:
+movementSpeed = 250 / 1000;     // Left/Right Movement Speed
+jumpSpeed = 400/ 1000;          // Jump Movement Speed
+gravConst = 8 / 1000;           // Gravity Constant
+
+
+// ???
+image_speed = 0;
 walkRight = 0;
 walkLeft = 0;
-
-movementSpeed = 250/1000;
 
 // Shield Stuff:
 currShield = 200;
@@ -341,6 +346,7 @@ if (isLeftPressed) {
     } else {
         sprite_index = spr_player_runs_left_with_weapon;
     }
+    walkingDirection = -1; // Set this so camera knows player is walking left
 }
 
 if (isRightPressed) {
@@ -353,6 +359,7 @@ if (isRightPressed) {
     } else {
         sprite_index = spr_player_runs_right_with_weapon;
     }
+    walkingDirection = 1; // Set this so camera knows player is walking right
 }
 
 if(!(isRightPressed || isLeftPressed)) {
@@ -372,6 +379,7 @@ if(!(isRightPressed || isLeftPressed)) {
     } else {
         sprite_index = spr_player;
     }
+    walkingDirection = 0; // Set this so camera knows the player is not walking
 }
 
 </string>
