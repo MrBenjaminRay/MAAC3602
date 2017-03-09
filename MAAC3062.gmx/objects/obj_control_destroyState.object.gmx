@@ -107,23 +107,23 @@
                 scr_energy_change(((global.towers[0, 1] * global.towerUpgradeLevel[0]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
-            case obj_tower_superFreezer: {
+            case obj_tower_slothOnRope: {
                 scr_energy_change(((global.towers[1, 1] * global.towerUpgradeLevel[1]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
-            case obj_tower_tacticalMortar: {
+            case obj_tower_tacticalTitmouse: {
                 scr_energy_change(((global.towers[2, 1] * global.towerUpgradeLevel[2]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
-            case obj_tower_109CalRifle: {
+            case obj_tower_109CaliBear: {
                 scr_energy_change(((global.towers[3, 1] * global.towerUpgradeLevel[3]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
-            case obj_tower_flameThrower: {
+            case obj_tower_fireAnt: {
                 scr_energy_change(((global.towers[4, 1] * global.towerUpgradeLevel[4]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
-            case obj_tower_m6100: {
+            case obj_tower_RT6100: {
                 scr_energy_change(((global.towers[5, 1] * global.towerUpgradeLevel[5]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
