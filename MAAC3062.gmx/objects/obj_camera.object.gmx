@@ -93,8 +93,11 @@ if (instance_number(obj_player) &gt; 0 &amp;&amp; false) {
     // stay still.
 }
 
-x = obj_player.x;
-y = obj_player.y;
+if (instance_number(obj_player) &gt; 0) {
+    x = obj_player.x;
+    y = obj_player.y;
+}
+
 
 // Set to .5 to see camera position when troubleshootig, or 0 to hide
 image_alpha = 0;
