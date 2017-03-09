@@ -131,32 +131,57 @@
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
-        <sprite>sprites\spr_light_enemy</sprite>
-        <sprite>sprites\spr_medium_enemy</sprite>
-        <sprite>sprites\spr_heavy_enemy</sprite>
-        <sprite>sprites\spr_flying_light</sprite>
-        <sprite>sprites\spr_flying_heavy</sprite>
-        <sprite>sprites\spr_jackal</sprite>
-        <sprite>sprites\spr_light_spider</sprite>
-        <sprite>sprites\spr_spider_light_small</sprite>
-        <sprite>sprites\spr_heavy_spider</sprite>
-        <sprite>sprites\spr_heavy_spider_small</sprite>
+        <sprites name="Orange">
+          <sprite>sprites\spr_medium_enemy_O</sprite>
+          <sprite>sprites\spr_light_enemy_O</sprite>
+          <sprite>sprites\spr_flying_light_O</sprite>
+          <sprite>sprites\spr_light_spider_O</sprite>
+          <sprite>sprites\spr_heavy_spider_small_O</sprite>
+          <sprite>sprites\spr_heavy_enemy_O</sprite>
+          <sprite>sprites\spr_flying_heavy_O</sprite>
+          <sprite>sprites\spr_jackal_O</sprite>
+          <sprite>sprites\spr_spider_light_small_O</sprite>
+          <sprite>sprites\spr_heavy_spider_O</sprite>
+        </sprites>
+        <sprites name="Green">
+          <sprite>sprites\spr_flying_light_G</sprite>
+          <sprite>sprites\spr_medium_enemy_G</sprite>
+          <sprite>sprites\spr_light_enemy_G</sprite>
+          <sprite>sprites\spr_jackal_G</sprite>
+          <sprite>sprites\spr_flying_heavy_G</sprite>
+          <sprite>sprites\spr_heavy_enemy_G</sprite>
+          <sprite>sprites\spr_heavy_spider_small_G</sprite>
+          <sprite>sprites\spr_heavy_spider_G</sprite>
+          <sprite>sprites\spr_spider_light_small_G</sprite>
+          <sprite>sprites\spr_light_spider_G</sprite>
+        </sprites>
+        <sprites name="Purple">
+          <sprite>sprites\spr_flying_light_P</sprite>
+          <sprite>sprites\spr_medium_enemy_P</sprite>
+          <sprite>sprites\spr_light_enemy_P</sprite>
+          <sprite>sprites\spr_jackal_P</sprite>
+          <sprite>sprites\spr_flying_heavy_P</sprite>
+          <sprite>sprites\spr_heavy_enemy_P</sprite>
+          <sprite>sprites\spr_heavy_spider_small_P</sprite>
+          <sprite>sprites\spr_spider_light_small_P</sprite>
+          <sprite>sprites\spr_light_spider_P</sprite>
+        </sprites>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_basic</sprite>
+        <sprite>sprites\spr_tower_slothOnRope</sprite>
+        <sprite>sprites\spr_tower_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_tower_109CaliBear</sprite>
+        <sprite>sprites\spr_tower_fireAnt</sprite>
+        <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_tower_destroyed_basic</sprite>
+        <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
+        <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_tower_destroyed_109CaliBear</sprite>
+        <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
+        <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
-        <sprite>sprites\spr_tower_superFreezer</sprite>
-        <sprite>sprites\spr_tower_tacticalMortar</sprite>
-        <sprite>sprites\spr_tower_m6100</sprite>
-        <sprite>sprites\spr_tower_flamethrower</sprite>
-        <sprite>sprites\spr_tower_rifle</sprite>
-        <sprite>sprites\spr_tower_m6100_destroyed</sprite>
-        <sprite>sprites\spr_tower_basic_destroyed</sprite>
-        <sprite>sprites\spr_tower_mortar_destroyed</sprite>
-        <sprite>sprites\spr_tower_superFreezer_destroyed</sprite>
-        <sprite>sprites\spr_tower_flamethrower_destroyed</sprite>
-        <sprite>sprites\spr_tower_rifle_destroyed</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
@@ -512,17 +537,17 @@
         <object>objects\obj_tower</object>
         <object>objects\obj_destroyedTower</object>
         <object>objects\obj_tower_basic</object>
-        <object>objects\obj_tower_superFreezer</object>
-        <object>objects\obj_tower_tacticalMortar</object>
-        <object>objects\obj_tower_109CalRifle</object>
-        <object>objects\obj_tower_flameThrower</object>
-        <object>objects\obj_tower_m6100</object>
+        <object>objects\obj_tower_slothOnRope</object>
+        <object>objects\obj_tower_tacticalTitmouse</object>
+        <object>objects\obj_tower_109CaliBear</object>
+        <object>objects\obj_tower_fireAnt</object>
+        <object>objects\obj_tower_RT6100</object>
         <object>objects\obj_tower_destroyed_basic</object>
-        <object>objects\obj_tower_destroyed_superFreezer</object>
-        <object>objects\obj_tower_destroyed_tacticalMortar</object>
-        <object>objects\obj_tower_destroyed_109CalRifle</object>
-        <object>objects\obj_tower_destroyed_flameThrower</object>
-        <object>objects\obj_tower_destroyed_m6100</object>
+        <object>objects\obj_tower_destroyed_slothOnRope</object>
+        <object>objects\obj_tower_destroyed_tacticalTitmouse</object>
+        <object>objects\obj_tower_destroyed_109CaliBear</object>
+        <object>objects\obj_tower_destroyed_fireAnt</object>
+        <object>objects\obj_tower_destroyed_RT6100</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>

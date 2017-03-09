@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>unlocked = 0;
+upgraded = 0;
 isAbility = 0;
+towerUpgrade = 1.5;
 </string>
           </argument>
         </arguments>
@@ -50,12 +52,17 @@ isAbility = 0;
           <argument>
             <kind>1</kind>
             <string>unlocked = 0;
+upgraded = 0;
 isAbility = 0;
 
 switch(obj_itemTitle.sprite_index) {
     case spr_caterpillager_title:
         if(global.caterpillagerUnlock == 1) {
             sprite_index = spr_upgrade;
+            unlocked = 1;
+        }
+        else if(global.towerUpgradeLevel[0] != 1) {
+            sprite_index = spr_upgraded;
             unlocked = 1;
         }
         break;
@@ -181,18 +188,26 @@ if(unlocked == 0) {
             <string>switch(obj_itemTitle.sprite_index) {
     case spr_caterpillager_title:
         if(global.caterpillagerUnlock == 0) {
-            if(global.minerals &gt; global.caterpillagerUnlockCost) {
+            if(global.minerals &gt;= global.caterpillagerUnlockCost) {
                 scr_minerals_change(global.caterpillagerUnlockCost*-1);
                 global.caterpillagerUnlock = 1;
             } 
         }
         else {
-                //upgrade
+            show_debug_message("else");
+            if(global.minerals &gt;= global.caterpillagerUpgradeCost) {
+                show_debug_message("if");
+                if(global.towerUpgradeLevel[0] == 1) {
+                    show_debug_message("nest if");
+                    scr_minerals_change(global.caterpillagerUpgradeCost*-1);
+                    global.caterpillagerUnlock = towerUpgrade;
+                }
+            } 
         }  
         break;
     case spr_slothRope_title:
         if(global.slothRopeUnlock == 0) {   
-            if(global.minerals &gt; global.slothRopeUnlockCost) {
+            if(global.minerals &gt;= global.slothRopeUnlockCost) {
                 scr_minerals_change(global.slothRopeUnlockCost*-1);
                 global.slothRopeUnlock = 1;
             }
@@ -204,7 +219,7 @@ if(unlocked == 0) {
         break;
     case spr_titMouse_title:
         if(global.titMouseUnlock == 0) {
-            if(global.minerals &gt; global.titMouseUnlockCost) {
+            if(global.minerals &gt;= global.titMouseUnlockCost) {
                 scr_minerals_change(global.titMouseUnlockCost*-1);
                 global.titMouseUnlock = 1;
             } 
@@ -215,7 +230,7 @@ if(unlocked == 0) {
         break;
     case spr_fireAntHose_title:
         if(global.fireAntUnlock == 0) {
-            if(global.minerals &gt; global.fireAntUnlockCost) {
+            if(global.minerals &gt;= global.fireAntUnlockCost) {
                 scr_minerals_change(global.fireAntUnlockCost*-1);
                 global.fireAntUnlock = 1;
             }
@@ -225,7 +240,7 @@ if(unlocked == 0) {
         }
     case spr_109Calibear_title:
         if(global.CalibearUnlock == 0) {
-            if(global.minerals &gt; global.CalibearUnlockCost) {
+            if(global.minerals &gt;= global.CalibearUnlockCost) {
                 scr_minerals_change(global.CalibearUnlockCost*-1);
                 global.CalibearUnlock = 1;
             } 
@@ -236,7 +251,7 @@ if(unlocked == 0) {
         break;
     case spr_RT6100_title:
         if(global.RT6100Unlock == 0) {
-            if(global.minerals &gt; global.RT6100UnlockCost) {
+            if(global.minerals &gt;= global.RT6100UnlockCost) {
                 scr_minerals_change(global.RT6100UnlockCost*-1);
                 global.RT6100Unlock = 1;
             }
@@ -247,7 +262,7 @@ if(unlocked == 0) {
         break;
     case spr_mechaGoat_title:
         if(global.mechaGoatUnlock == 0) {
-            if(global.minerals &gt; global.RT6100UnlockCost) {
+            if(global.minerals &gt;= global.RT6100UnlockCost) {
                 scr_minerals_change(global.RT6100UnlockCost*-1);
                 global.RT6100Unlock = 1;
             }
@@ -258,7 +273,7 @@ if(unlocked == 0) {
         break;
     case spr_armadillos_title:
         if(global.armadilloUnlock == 0) {
-            if(global.minerals &gt; global.armadilloUnlockCost) {
+            if(global.minerals &gt;= global.armadilloUnlockCost) {
                 scr_minerals_change(global.armadilloUnlockCost*-1);
                 global.armadilloUnlock = 1;
             }
@@ -269,7 +284,7 @@ if(unlocked == 0) {
         break;
     case spr_porpoise_title:
         if(global.porpoiseUnlock == 0) {
-            if(global.minerals &gt; global.porpoiseUnlockCost) {
+            if(global.minerals &gt;= global.porpoiseUnlockCost) {
                 scr_minerals_change(global.porpoiseUnlockCost*-1);
                 global.porpoiseUnlock = 1;
             }
@@ -280,7 +295,7 @@ if(unlocked == 0) {
         break;
     case spr_gorilla_title:
         if(global.gorillaUnlock == 0) {
-            if(global.minerals &gt; global.gorillaUnlockCost) {
+            if(global.minerals &gt;= global.gorillaUnlockCost) {
                 scr_minerals_change(global.gorillaUnlockCost*-1);
                 global.gorillaUnlock = 1;
             }
@@ -291,7 +306,7 @@ if(unlocked == 0) {
         break;
     case spr_electricEel_title:
         if(global.electricEelUnlock == 0) {
-            if(global.minerals &gt; global.electricEelUnlockCost) {
+            if(global.minerals &gt;= global.electricEelUnlockCost) {
                 scr_minerals_change(global.electricEelUnlockCost*-1);
                 global.electricEelUnlock = 1;
             }
