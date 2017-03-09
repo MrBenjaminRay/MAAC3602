@@ -64,34 +64,34 @@ switch(obj_itemTitle.sprite_index) {
         break;
     case spr_slothRope_title:
         if(global.slothRopeUnlock == 1) {   
-            sprite_index = spr_tower_superFreezer;
+            sprite_index = spr_tower_slothOnRope;
             obj_item_projectile.sprite_index = spr_sloth_flying;
             pictureUnlock = 1;
         }
         break;
     case spr_titMouse_title:
         if(global.titMouseUnlock == 1) {
-            sprite_index = spr_tower_tacticalMortar;
+            sprite_index = spr_tower_tacticalTitmouse;
             obj_item_projectile.sprite_index = spr_projectile_titmouse;
             pictureUnlock = 1;
         }
         break;
     case spr_fireAntHose_title:
         if(global.fireAntUnlock == 1) {
-            sprite_index = spr_tower_flamethrower;
+            sprite_index = spr_tower_fireAnt;
             obj_item_projectile.sprite_index = spr_projectile_fireAnt;
             pictureUnlock = 1;
         }
     case spr_109Calibear_title:
         if(global.CalibearUnlock == 1) {
-            sprite_index = spr_tower_rifle;
+            sprite_index = spr_tower_109CaliBear;
             obj_item_projectile.sprite_index = spr_projectile_caliBear;
             pictureUnlock = 1;
         }
         break;
     case spr_RT6100_title:
         if(global.RT6100Unlock == 1) {
-            sprite_index = spr_tower_m6100;
+            sprite_index = spr_tower_RT6100;
             obj_item_projectile.sprite_index = spr_projectile_rainbowTrout;
             pictureUnlock = 1;
         }
