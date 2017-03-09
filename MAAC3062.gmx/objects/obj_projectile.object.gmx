@@ -200,7 +200,14 @@ switch (object_index) {
           <argument>
             <kind>1</kind>
             <string>if (isEnemyProjectile) {
-    scr_entity_dealDamage(other, damage);
+    // Upgraded version of Ability #3 (Ability C)
+    // reduces damage taken by 20%:
+    if (other.abilC_isActive &amp;&amp; global.plrAbilityUpgraded[2]) {
+        scr_entity_dealDamage(other, damage * 0.8);
+    } else {
+        scr_entity_dealDamage(other, damage);
+    }
+    
     scr_create_explosion(x, y, "SmallHit");
     instance_destroy();
 }
