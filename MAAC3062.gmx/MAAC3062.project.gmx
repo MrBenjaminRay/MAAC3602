@@ -131,16 +131,41 @@
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
-        <sprite>sprites\spr_light_enemy</sprite>
-        <sprite>sprites\spr_medium_enemy</sprite>
-        <sprite>sprites\spr_heavy_enemy</sprite>
-        <sprite>sprites\spr_flying_light</sprite>
-        <sprite>sprites\spr_flying_heavy</sprite>
-        <sprite>sprites\spr_jackal</sprite>
-        <sprite>sprites\spr_light_spider</sprite>
-        <sprite>sprites\spr_spider_light_small</sprite>
-        <sprite>sprites\spr_heavy_spider</sprite>
-        <sprite>sprites\spr_heavy_spider_small</sprite>
+        <sprites name="Orange">
+          <sprite>sprites\spr_medium_enemy_O</sprite>
+          <sprite>sprites\spr_light_enemy_O</sprite>
+          <sprite>sprites\spr_flying_light_O</sprite>
+          <sprite>sprites\spr_light_spider_O</sprite>
+          <sprite>sprites\spr_heavy_spider_small_O</sprite>
+          <sprite>sprites\spr_heavy_enemy_O</sprite>
+          <sprite>sprites\spr_flying_heavy_O</sprite>
+          <sprite>sprites\spr_jackal_O</sprite>
+          <sprite>sprites\spr_spider_light_small_O</sprite>
+          <sprite>sprites\spr_heavy_spider_O</sprite>
+        </sprites>
+        <sprites name="Green">
+          <sprite>sprites\spr_flying_light_G</sprite>
+          <sprite>sprites\spr_medium_enemy_G</sprite>
+          <sprite>sprites\spr_light_enemy_G</sprite>
+          <sprite>sprites\spr_jackal_G</sprite>
+          <sprite>sprites\spr_flying_heavy_G</sprite>
+          <sprite>sprites\spr_heavy_enemy_G</sprite>
+          <sprite>sprites\spr_heavy_spider_small_G</sprite>
+          <sprite>sprites\spr_heavy_spider_G</sprite>
+          <sprite>sprites\spr_spider_light_small_G</sprite>
+          <sprite>sprites\spr_light_spider_G</sprite>
+        </sprites>
+        <sprites name="Purple">
+          <sprite>sprites\spr_flying_light_P</sprite>
+          <sprite>sprites\spr_medium_enemy_P</sprite>
+          <sprite>sprites\spr_light_enemy_P</sprite>
+          <sprite>sprites\spr_jackal_P</sprite>
+          <sprite>sprites\spr_flying_heavy_P</sprite>
+          <sprite>sprites\spr_heavy_enemy_P</sprite>
+          <sprite>sprites\spr_heavy_spider_small_P</sprite>
+          <sprite>sprites\spr_spider_light_small_P</sprite>
+          <sprite>sprites\spr_light_spider_P</sprite>
+        </sprites>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>

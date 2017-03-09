@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>var vw;         // Width of viewport. Will be calculated based on height and
                 // aspect ratio of display.
-var vh = 500;   // Desired height of viewport (use fixed height for all screens, maybe height
+var vh = 700;   // Desired height of viewport (use fixed height for all screens, maybe height
                 // range in the future to be more flexible.
 
 // NOTE: Could set vh based on view in room so level designer can tweak it in UI instead of this code
@@ -68,7 +68,8 @@ speed = 0;
             <string>// For now, follow player exactly. In future, will smoothly slide camera
 // in front of the player based on where he is facing.
 
-if (instance_number(obj_player) &gt; 0) {
+// SKIP THIS FOR NOW (&amp;&amp; false)
+if (instance_number(obj_player) &gt; 0 &amp;&amp; false) {
     // Player is on level, so follow him.
     
     desiredX = obj_player.x + obj_player.walkingDirection * 100;
@@ -91,6 +92,9 @@ if (instance_number(obj_player) &gt; 0) {
     // we may want to follow where the cannon is located. For now,
     // stay still.
 }
+
+x = obj_player.x;
+y = obj_player.y;
 
 // Set to .5 to see camera position when troubleshootig, or 0 to hide
 image_alpha = 0;
