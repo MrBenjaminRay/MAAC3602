@@ -67,6 +67,11 @@ global.towerUpgradeLevel[2] = 1; // Mortar Tower
 global.towerUpgradeLevel[3] = 1; // 109 Cal Tower
 global.towerUpgradeLevel[4] = 1; // Flame Tower
 global.towerUpgradeLevel[5] = 1; // M6100 Tower
+global.towerUpgradeLevel[6] = 1; // Mecha-goat Tower
+global.towerUpgradeLevel[7] = 1; // Armadillo Tower
+global.towerUpgradeLevel[8] = 1; // Porpoise Tower
+global.towerUpgradeLevel[9] = 1; // Gorilla Tower
+global.towerUpgradeLevel[10] = 1; // Electric Eel Tower
 
 global.levelStats[0, 0] = "Level 1";
 global.levelStats[0, 1] = "Air - Light";
