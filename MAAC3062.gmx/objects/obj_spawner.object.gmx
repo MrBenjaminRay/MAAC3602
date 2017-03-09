@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawnRate = 1280;                         // The amount of delta time between spawns.
+            <string>spawnRate = 640;                         // The amount of delta time between spawns.
 spawnRateCounter = 0;                     // The amount of delta time since the last spawn.
 
 spawnChangeRate = 7500;                   // The amount of delta time between switching enemies to spawn.
@@ -153,7 +153,7 @@ if (spawnChangeRateCounter &lt; spawnChangeRate) {
     spawnChangeRateCounter = 0;
     spawnChanges++;
     
-    spawnRate = (1280 * ((spawnChanges % 15) / 3));
+    spawnRate = (640 * ((spawnChanges % 15) / 3));
     
     // Determine the percentile, the chance of spawning a light/med/heavy enemy:
     var spawnPercentile = irandom_range(0, 100);
