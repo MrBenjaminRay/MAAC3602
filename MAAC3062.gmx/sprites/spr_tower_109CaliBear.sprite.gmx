@@ -7,8 +7,8 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>0</bbox_left>
-  <bbox_right>82</bbox_right>
+  <bbox_left>2</bbox_left>
+  <bbox_right>81</bbox_right>
   <bbox_top>0</bbox_top>
   <bbox_bottom>93</bbox_bottom>
   <HTile>0</HTile>
@@ -20,6 +20,6 @@
   <width>83</width>
   <height>94</height>
   <frames>
-    <frame index="0">images\spr_tower_rifle_destroyed_0.png</frame>
+    <frame index="0">images\spr_tower_109CaliBear_0.png</frame>
   </frames>
 </sprite>
