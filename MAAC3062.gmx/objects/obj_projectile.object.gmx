@@ -160,11 +160,19 @@ switch (object_index) {
     scr_create_explosion(x, y, "SmallHit");
     
     if (other.movementDirection == "LEFT") {
-        other.x += damage;
+        if (damage &gt; 15) {
+            other.x += damage;
+        } else {
+            other.x += 15;
+        }
     }
     
     if (other.movementDirection == "RIGHT") {
-        other.x -= damage;
+        if (damage &gt; 15) {
+            other.x -= damage;
+        } else {
+            other.x -= 15;
+        }
     }
     
     instance_destroy();

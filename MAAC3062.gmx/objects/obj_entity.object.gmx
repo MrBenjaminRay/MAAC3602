@@ -242,7 +242,7 @@ if (!isJumping &amp;&amp; !isDropping) {
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
         <id>603</id>
