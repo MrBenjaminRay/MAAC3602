@@ -538,6 +538,11 @@
           <object>objects\obj_tutLight1</object>
           <object>objects\obj_tutLight2</object>
         </objects>
+        <objects name="Bosses">
+          <objects name="Mini">
+            <object>objects\obj_enemy_boss_mini_A</object>
+          </objects>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
