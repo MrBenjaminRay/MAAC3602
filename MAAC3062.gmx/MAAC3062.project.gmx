@@ -646,6 +646,7 @@
     </objects>
     <objects name="Effects">
       <object>objects\obj_effect</object>
+      <object>objects\obj_forceField</object>
       <object>objects\obj_mineText</object>
       <object>objects\obj_messageText</object>
       <objects name="Explosions">
