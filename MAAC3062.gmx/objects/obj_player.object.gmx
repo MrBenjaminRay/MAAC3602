@@ -740,47 +740,6 @@ if (global.plrAbilityAttained[1]) {
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="67">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.state == "Paused") {
-    return 0;
-}
-
-if (global.plrAbilityAttained[2]) {
-    if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
-        return 0;
-    } else {
-        abilC_cooldownCounter = 0;
-    }
-    
-    if (global.plrAbilityUpgraded[2]) {
-        scr_abilC_upgraded_enable();
-    } else {
-        scr_abilC_normal_enable();
-    }
-} else {
-    scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="5" enumb="16">
       <action>
         <libid>1</libid>
@@ -981,6 +940,54 @@ if (global.plrAbilityAttained[2]) {
     }
 } else {
     scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Determine Proper Cooldown Time:
+if (global.plrAbilityUpgraded[0]) {
+    abilA_cooldownTime = global.plrAbilityCooldown_upgraded[0];
+} else {
+    abilA_cooldownTime = global.plrAbilityCooldown_normal[0];
+}
+
+if (global.plrAbilityAttained[0]) {
+    if (abilA_cooldownCounter &lt; abilA_cooldownTime) {
+        return 0;
+    } else {
+        abilA_cooldownCounter = 0;
+    }
+    
+    if (global.plrAbilityUpgraded[0]) {
+        // Do something
+    } else {
+        instance_create(x, y, obj_forceField)
+    }
+} else {
+    scr_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
