@@ -237,9 +237,7 @@ if (!isJumping &amp;&amp; !isDropping) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (movementSpeed == 0) {
-    y--;
-}
+            <string>y--;
 </string>
           </argument>
         </arguments>

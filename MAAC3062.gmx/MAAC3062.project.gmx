@@ -518,6 +518,7 @@
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
+      <object>objects\obj_snake</object>
       <objects name="Player">
         <object>objects\obj_player</object>
       </objects>
