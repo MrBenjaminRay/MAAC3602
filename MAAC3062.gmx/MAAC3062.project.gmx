@@ -408,6 +408,12 @@
         <script>scripts\scr_build_switchTower.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Abilities">
+      <script>scripts\scr_abilC_normal_enable.gml</script>
+      <script>scripts\scr_abilC_normal_disable.gml</script>
+      <script>scripts\scr_abilC_upgraded_enable.gml</script>
+      <script>scripts\scr_abilC_upgraded_disable.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -419,7 +425,6 @@
     <object>objects\object</object>
     <object>objects\obj_spawner</object>
     <objects name="UI_HUD">
-      <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
     </objects>
@@ -533,6 +538,11 @@
           <object>objects\obj_tutLight1</object>
           <object>objects\obj_tutLight2</object>
         </objects>
+        <objects name="Bosses">
+          <objects name="Mini">
+            <object>objects\obj_enemy_boss_mini_A</object>
+          </objects>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -637,6 +647,7 @@
     </objects>
     <objects name="Effects">
       <object>objects\obj_effect</object>
+      <object>objects\obj_forceField</object>
       <object>objects\obj_mineText</object>
       <object>objects\obj_messageText</object>
       <objects name="Explosions">
@@ -662,26 +673,7 @@
     </objects>
     <object>objects\obj_camera</object>
   </objects>
-  <rooms name="rooms">
-    <room>rooms\rm_menu</room>
-    <room>rooms\rm_hub</room>
-    <room>rooms\rm_hub_weapons</room>
-    <room>rooms\rm_navArray</room>
-    <room>rooms\rm_video_ship_damaged</room>
-    <room>rooms\rm_video_ship_moonlanding</room>
-    <room>rooms\rm_level_moon</room>
-    <room>rooms\rm_level_forest</room>
-    <room>rooms\rm_level_desert</room>
-    <room>rooms\rm_test</room>
-    <room>rooms\rm_cinematic</room>
-    <room>rooms\rm_credits</room>
-    <room>rooms\rm_credits2</room>
-    <room>rooms\rm_credits3</room>
-    <room>rooms\rm_tut1</room>
-    <room>rooms\rm_tut2</room>
-    <room>rooms\rm_level_ice</room>
-    <room>rooms\rm_level_underwater</room>
-  </rooms>
+  <rooms name="rooms"/>
   <help>
     <rtf>help.rtf</rtf>
   </help>
