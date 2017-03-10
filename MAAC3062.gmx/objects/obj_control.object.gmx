@@ -50,14 +50,14 @@ global.deltaTime = delta_time;
  */
 global.state = "Normal";
 
-global.minerals = 364673476;
+global.minerals = 0;
 global.energy = 1000; // The current energy collected by the player during the level.
 global.fuel = 0; // Max fuel is 100.
 global.maxFuel = 0; // At the beginning of each level, this value is set to the target fuel level.
 global.currentLevelComplete = 0; // used to make sure that player doesn't lose level
                                  // because of death during the level complete
                                  // animation/sequence
-global.moonLevelComplete = 1;
+global.moonLevelComplete = 0;
 global.forestLevelComplete = 0;
 global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
@@ -65,7 +65,7 @@ global.waterLevelComplete = 0;
 
 // Tower and ability is unlocked
 
-global.caterpillagerUnlock = 0;
+global.caterpillagerUnlock = 1;
 global.slothRopeUnlock = 1;
 global.titMouseUnlock = 1;
 global.fireAntUnlock = 0;
