@@ -671,6 +671,9 @@
         <object>objects\obj_emitter_flame</object>
         <object>objects\obj_emitter_emitter</object>
       </objects>
+      <objects name="Special">
+        <object>objects\obj_playerDeath_screenFade</object>
+      </objects>
     </objects>
     <object>objects\obj_camera</object>
   </objects>
