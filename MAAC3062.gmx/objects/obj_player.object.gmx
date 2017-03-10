@@ -80,6 +80,8 @@ healthBarWidth = sprite_width;
 
 
 // ABILITIES:
+abilC_isActive = false;
+
 abilA_cooldownTime = 0;
 abilB_cooldownTime = 0;
 abilC_cooldownTime = 0;
@@ -124,13 +126,11 @@ if (global.plrAbilityUpgraded[2]) {
 } else {
     abilC_cooldownTime = global.plrAbilityCooldown_normal[2];
 }
+
 abilC_cooldownCounter = abilC_cooldownTime;
 
-if (global.plrAbilityUpgraded[3]) {
-    abilD_cooldownTime = global.plrAbilityCooldown_upgraded[3];
-} else {
-    abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
-}
+
+abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
 abilD_cooldownCounter = abilD_cooldownTime;
 </string>
           </argument>
@@ -217,6 +217,33 @@ abilD_cooldownCounter = abilD_cooldownTime;
           <argument>
             <kind>11</kind>
             <room>rm_hub</room>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.plrAbilityUpgraded[2]) {
+    scr_abilC_upgraded_disable();
+} else {
+    scr_abilC_normal_disable();
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -741,8 +768,11 @@ if (global.plrAbilityAttained[2]) {
         abilC_cooldownCounter = 0;
     }
     
-    // todo Code
-    show_debug_message("IMPLEMENT ABILITY #3")
+    if (global.plrAbilityUpgraded[2]) {
+        scr_abilC_upgraded_enable();
+    } else {
+        scr_abilC_normal_enable();
+    }
 } else {
     scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
 }
@@ -903,6 +933,54 @@ if (global.plrAbilityAttained[3]) {
     
     // Allow tower to fire:
     obj_tower_RT6100.alarm[2] = room_speed;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="67">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Determine Proper Cooldown Time:
+if (global.plrAbilityUpgraded[2]) {
+    abilC_cooldownTime = global.plrAbilityCooldown_upgraded[2];
+} else {
+    abilC_cooldownTime = global.plrAbilityCooldown_normal[2];
+}
+
+if (global.plrAbilityAttained[2]) {
+    if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
+        return 0;
+    } else {
+        abilC_cooldownCounter = 0;
+    }
+    
+    if (global.plrAbilityUpgraded[2]) {
+        scr_abilC_upgraded_enable();
+    } else {
+        scr_abilC_normal_enable();
+    }
+} else {
+    scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
