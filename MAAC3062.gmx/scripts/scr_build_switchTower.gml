@@ -16,4 +16,5 @@ if (canProceed) {
     towerWeaponXOffset = global.towers[argument[0], 5];
     towerWeaponYOffset = global.towers[argument[0], 6];
     towerPlacementDistance = global.towers[argument[0], 8];
+    towerPlacementInfo = global.towers[argument[0], 9];
 }
