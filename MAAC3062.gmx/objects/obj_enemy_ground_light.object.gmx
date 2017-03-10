@@ -239,7 +239,7 @@
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>snd_enemyDeath_light</sound>
+            <sound>-100</sound>
           </argument>
           <argument>
             <kind>3</kind>

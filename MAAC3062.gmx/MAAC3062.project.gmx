@@ -407,6 +407,12 @@
         <script>scripts\scr_build_switchTower.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Abilities">
+      <script>scripts\scr_abilC_normal_enable.gml</script>
+      <script>scripts\scr_abilC_normal_disable.gml</script>
+      <script>scripts\scr_abilC_upgraded_enable.gml</script>
+      <script>scripts\scr_abilC_upgraded_disable.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -532,6 +538,11 @@
           <object>objects\obj_tutLight1</object>
           <object>objects\obj_tutLight2</object>
         </objects>
+        <objects name="Bosses">
+          <objects name="Mini">
+            <object>objects\obj_enemy_boss_mini_A</object>
+          </objects>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -635,6 +646,7 @@
     </objects>
     <objects name="Effects">
       <object>objects\obj_effect</object>
+      <object>objects\obj_forceField</object>
       <object>objects\obj_mineText</object>
       <object>objects\obj_messageText</object>
       <objects name="Explosions">
