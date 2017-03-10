@@ -425,6 +425,7 @@
     <object>objects\object</object>
     <object>objects\obj_spawner</object>
     <objects name="UI_HUD">
+      <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
     </objects>
@@ -673,7 +674,26 @@
     </objects>
     <object>objects\obj_camera</object>
   </objects>
-  <rooms name="rooms"/>
+  <rooms name="rooms">
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_hub</room>
+    <room>rooms\rm_hub_weapons</room>
+    <room>rooms\rm_navArray</room>
+    <room>rooms\rm_video_ship_damaged</room>
+    <room>rooms\rm_video_ship_moonlanding</room>
+    <room>rooms\rm_level_moon</room>
+    <room>rooms\rm_level_forest</room>
+    <room>rooms\rm_level_desert</room>
+    <room>rooms\rm_test</room>
+    <room>rooms\rm_cinematic</room>
+    <room>rooms\rm_credits</room>
+    <room>rooms\rm_credits2</room>
+    <room>rooms\rm_credits3</room>
+    <room>rooms\rm_tut1</room>
+    <room>rooms\rm_tut2</room>
+    <room>rooms\rm_level_ice</room>
+    <room>rooms\rm_level_underwater</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
