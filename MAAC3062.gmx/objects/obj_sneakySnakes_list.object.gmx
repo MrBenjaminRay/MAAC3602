@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.sneakySnakesUnlock == 0)
+            <string>if(global.plrAbilityAttained[1] == false)
     instance_create(x+lockedX, y+lockedY, obj_locked);
 </string>
           </argument>

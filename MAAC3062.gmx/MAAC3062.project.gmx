@@ -170,18 +170,18 @@
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_basic</sprite>
+        <sprite>sprites\spr_tower_slothOnRope</sprite>
+        <sprite>sprites\spr_tower_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_tower_109CaliBear</sprite>
+        <sprite>sprites\spr_tower_fireAnt</sprite>
+        <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_tower_destroyed_basic</sprite>
+        <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
+        <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_tower_destroyed_109CaliBear</sprite>
+        <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
+        <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
-        <sprite>sprites\spr_tower_superFreezer</sprite>
-        <sprite>sprites\spr_tower_tacticalMortar</sprite>
-        <sprite>sprites\spr_tower_m6100</sprite>
-        <sprite>sprites\spr_tower_flamethrower</sprite>
-        <sprite>sprites\spr_tower_rifle</sprite>
-        <sprite>sprites\spr_tower_m6100_destroyed</sprite>
-        <sprite>sprites\spr_tower_basic_destroyed</sprite>
-        <sprite>sprites\spr_tower_mortar_destroyed</sprite>
-        <sprite>sprites\spr_tower_superFreezer_destroyed</sprite>
-        <sprite>sprites\spr_tower_flamethrower_destroyed</sprite>
-        <sprite>sprites\spr_tower_rifle_destroyed</sprite>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
@@ -208,6 +208,7 @@
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
+        <sprite>sprites\spr_miner_hurt_blended</sprite>
         <sprite>sprites\spr_miner_hurt</sprite>
         <sprite>sprites\spr_miner_hurt2</sprite>
         <sprite>sprites\spr_miner_death</sprite>
@@ -418,6 +419,12 @@
         <script>scripts\scr_build_switchTower.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Abilities">
+      <script>scripts\scr_abilC_normal_enable.gml</script>
+      <script>scripts\scr_abilC_normal_disable.gml</script>
+      <script>scripts\scr_abilC_upgraded_enable.gml</script>
+      <script>scripts\scr_abilC_upgraded_disable.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -543,22 +550,27 @@
           <object>objects\obj_tutLight1</object>
           <object>objects\obj_tutLight2</object>
         </objects>
+        <objects name="Bosses">
+          <objects name="Mini">
+            <object>objects\obj_enemy_boss_mini_A</object>
+          </objects>
+        </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
         <object>objects\obj_destroyedTower</object>
         <object>objects\obj_tower_basic</object>
-        <object>objects\obj_tower_superFreezer</object>
-        <object>objects\obj_tower_tacticalMortar</object>
-        <object>objects\obj_tower_109CalRifle</object>
-        <object>objects\obj_tower_flameThrower</object>
-        <object>objects\obj_tower_m6100</object>
+        <object>objects\obj_tower_slothOnRope</object>
+        <object>objects\obj_tower_tacticalTitmouse</object>
+        <object>objects\obj_tower_109CaliBear</object>
+        <object>objects\obj_tower_fireAnt</object>
+        <object>objects\obj_tower_RT6100</object>
         <object>objects\obj_tower_destroyed_basic</object>
-        <object>objects\obj_tower_destroyed_superFreezer</object>
-        <object>objects\obj_tower_destroyed_tacticalMortar</object>
-        <object>objects\obj_tower_destroyed_109CalRifle</object>
-        <object>objects\obj_tower_destroyed_flameThrower</object>
-        <object>objects\obj_tower_destroyed_m6100</object>
+        <object>objects\obj_tower_destroyed_slothOnRope</object>
+        <object>objects\obj_tower_destroyed_tacticalTitmouse</object>
+        <object>objects\obj_tower_destroyed_109CaliBear</object>
+        <object>objects\obj_tower_destroyed_fireAnt</object>
+        <object>objects\obj_tower_destroyed_RT6100</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
@@ -579,6 +591,7 @@
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
+        <object>objects\obj_miner_dying</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion_normal</object>
@@ -646,6 +659,7 @@
     </objects>
     <objects name="Effects">
       <object>objects\obj_effect</object>
+      <object>objects\obj_forceField</object>
       <object>objects\obj_mineText</object>
       <object>objects\obj_messageText</object>
       <objects name="Explosions">

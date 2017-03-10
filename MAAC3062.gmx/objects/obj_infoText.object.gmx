@@ -28,28 +28,34 @@
             <string>lineOffset = 20;
 draw_text(x, y, "Planet Info");
 draw_text(x, y + lineOffset*3, "Environment");
-draw_text(x, y + lineOffset*6, "Lifeforms");
+draw_text(x, y + lineOffset*7, "Leader");
 
 switch(obj_levelTitle.sprite_index) {
     case spr_level0:
         draw_text(x, y + lineOffset*4, "Rocky and Mountainous.");
-        draw_text(x, y + lineOffset*7, "Unadvanced and Passive.");
+        draw_text(x, y + lineOffset*8, "Covered in rock. Unadvanced, but");
+        draw_text(x, y + lineOffset*9, "heavily armoured.");
         break;
     case spr_level1:
-        draw_text(x, y + lineOffset*4, "Trees the height of skyscrapers.");
-        draw_text(x, y + lineOffset*7, "Ruled by a venomous overlord.");
+        draw_text(x, y + lineOffset*4, "Void of anything but trees the size of");
+        draw_text(x, y + lineOffset*5, "skyscapers.");
+        draw_text(x, y + lineOffset*8, "A venomous, ghostly being made of brush.");
         break;
     case spr_level2:
         draw_text(x, y + lineOffset*4, "Literally scorching sands.");
-        draw_text(x, y + lineOffset*7, "A massive flying beast threatens intruders.");
+        draw_text(x, y + lineOffset*8, "A massive flying beast threatens intruders.");
         break;
     case spr_level3:
-        draw_text(x, y + lineOffset*4, "Ice is nice.");
-        draw_text(x, y + lineOffset*7, "Big 'ol freezing monster guy.");
+        draw_text(x, y + lineOffset*4, "A planet stuck in an eternal ice age.");
+        draw_text(x, y + lineOffset*8, "Somehow acts as a living creature but");
+        draw_text(x, y + lineOffset*9, "is made solely of ice.");
         break;
     case spr_level4:
-        draw_text(x, y + lineOffset*4, "Underwater space shipwreck. This technology looks familiar");
-        draw_text(x, y + lineOffset*7, "Scary fish man.");
+        draw_text(x, y + lineOffset*4, "A planet with a rocky core, surrounded");
+        draw_text(x, y + lineOffset*5, "entirely by water. A shipwreck has been");
+        draw_text(x, y + lineOffset*6, "spotted. This technology looks familiar.");
+        draw_text(x, y + lineOffset*8, "A fish-like beast that consumes the metal");
+        draw_text(x, y + lineOffset*9, "of sunken ships.");
         break;
 }
 </string>
