@@ -124,6 +124,8 @@ global.catsAndDogsUpgradeCost = 10000;
 //      Range
 //      WeaponXOffset
 //      WeaponYOffset
+//      ????? No clue what this is for
+//      Placement distance. The distance from the player to placement location, in pixels.
 
 global.towers[0, 0] = "Basic Tower";
 global.towers[0, 1] = 300;
@@ -133,6 +135,7 @@ global.towers[0, 4] = 230; // sprite_get_width(global.towers[0, 3]) * 2.8;
 global.towers[0, 5] = sprite_get_width(global.towers[0, 3]) / 2;
 global.towers[0, 6] = 32;
 global.towers[0, 7] = 200;
+global.towers[0, 8] = 256;
 
 global.towers[1, 0] = "Super Freezer";
 global.towers[1, 1] = 750;
@@ -142,6 +145,7 @@ global.towers[1, 4] = 400; // sprite_get_width(global.towers[1, 3]) * 4;
 global.towers[1, 5] = sprite_get_width(global.towers[1, 3]) / 2;
 global.towers[1, 6] = 32;
 global.towers[1, 7] = 200;
+global.towers[1, 8] = 256;
 
 global.towers[2, 0] = "Tactical Moartar";
 global.towers[2, 1] = 1000;
@@ -151,6 +155,7 @@ global.towers[2, 4] = view_wview[0] * 0.9;
 global.towers[2, 5] = (sprite_get_width(global.towers[2, 3]) / 2) - 16;
 global.towers[2, 6] = 32;
 global.towers[2, 7] = 200;
+global.towers[2, 8] = 256;
 
 global.towers[3, 0] = "109 Cal Rifle";
 global.towers[3, 1] = 750;
@@ -160,6 +165,7 @@ global.towers[3, 4] = 600; // sprite_get_width(global.towers[3, 3]) * 6;
 global.towers[3, 5] = sprite_get_width(global.towers[3, 3]) / 2;
 global.towers[3, 6] = 32;
 global.towers[3, 7] = 200;
+global.towers[3, 8] = 256;
 
 global.towers[4, 0] = "Flame Thrower";
 global.towers[4, 1] = 1500;
@@ -169,6 +175,7 @@ global.towers[4, 4] = 130; // sprite_get_width(global.towers[4, 3]);
 global.towers[4, 5] = sprite_get_width(global.towers[4, 3]) / 2;
 global.towers[4, 6] = 32;
 global.towers[4, 7] = 200;
+global.towers[4, 8] = 256;
 
 global.towers[5, 0] = "M-6100";
 global.towers[5, 1] = 2000;
@@ -177,6 +184,8 @@ global.towers[5, 3] = spr_tower_RT6100;
 global.towers[5, 4] = 400;
 global.towers[5, 5] = sprite_get_width(global.towers[5, 3]) / 2;
 global.towers[5, 6] = sprite_get_height(global.towers[5, 3]) / 2;
+global.towers[5, 7] = 200;
+global.towers[5, 8] = 256;
 </string>
           </argument>
         </arguments>
