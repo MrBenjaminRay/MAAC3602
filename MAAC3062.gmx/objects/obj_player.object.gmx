@@ -374,6 +374,7 @@ var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
 
 if (isLeftPressed) {
     scr_entity_moveLeft();
+    animationSpeed = 0.33;
     image_speed = 0.33;
     image_xscale = 1;
     if (isJumping) {
@@ -386,6 +387,7 @@ if (isLeftPressed) {
 
 if (isRightPressed) {
     scr_entity_moveRight();
+    animationSpeed = 0.33;
     image_speed = 0.33;
     image_xscale = 1;
     sprite_index = spr_player_runs_right_with_weapon;
@@ -398,6 +400,7 @@ if (isRightPressed) {
 }
 
 if(!(isRightPressed || isLeftPressed)) {
+    animationSpeed = 0;
     image_speed = 0;
     //image_index = 0;
     image_xscale = 1;
