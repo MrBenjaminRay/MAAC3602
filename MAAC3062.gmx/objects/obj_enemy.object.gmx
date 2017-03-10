@@ -39,12 +39,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Enemy Types:
+            <string>// ANIMATION:
+animationSpeed = 0.125;
+image_speed = 0.125;
+
+// Enemy Types:
 //  "Ground"
 //  "Air"
 type = "Ground";
-
-image_speed = .125;
 
 attackRate = 240;
 attackRange = sprite_width/4;

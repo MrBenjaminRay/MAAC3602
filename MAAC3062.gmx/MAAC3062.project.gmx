@@ -406,6 +406,8 @@
       <scripts name="States">
         <script>scripts\scr_normal_beginBuild.gml</script>
         <script>scripts\scr_build_switchTower.gml</script>
+        <script>scripts\scr_paused_pauseAnimation.gml</script>
+        <script>scripts\scr_paused_unpauseAnimation.gml</script>
       </scripts>
     </scripts>
     <scripts name="Abilities">
