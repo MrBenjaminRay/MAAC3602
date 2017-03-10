@@ -256,6 +256,26 @@ if (attackRateCounter &gt;= attackRate) {
     if (nearestPlayer != noone) {
         scr_entity_dealDamage(nearestPlayer, attackDamage);
         attackRateCounter = 0;
+        
+        if (nearestPlayer.x &lt;= x) {
+            if (attackDamage &gt; 15) {
+                nearestPlayer.x -= attackDamage;
+            } else {
+                nearestPlayer.x -= 15;
+            }
+        } else {
+            if (attackDamage &gt; 15) {
+                nearestPlayer.x += attackDamage;
+            } else {
+                nearestPlayer.x += 15;
+            }
+        }
+        
+        if (nearestPlayer.x &lt; 0) {
+            nearestPlayer.x = nearestPlayer.sprite_width/2;
+        } else if (other.x &gt; room_width) {
+            nearestPlayer.x = room_width - nearestPlayer.sprite_width/2;
+        }
     }
     
     if (hasAttacked == false and nearestMine != noone) {
