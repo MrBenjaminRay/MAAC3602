@@ -33,7 +33,7 @@ towerRange = 0;
 towerWeaponXOffset = 0;
 towerWeaponYOffset = 0;
 towerPlacementDistance = 0;
-
+towerPlacementInfo = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -496,18 +496,23 @@ draw_ellipse(xPos_left, yPos_top, xPos_right, yPos_bottom, true);
 // Determine Position:
 var xCoord = mouse_x;
 var yCoord = mouse_y + sprite_get_height(towerSpr);
-var text = "Costs " + string(towerCost) + " Energy";
 
 // Set Font:
 draw_set_font(fnt_towerPlacement);
 
 // Draw Background:
 draw_set_color(c_black);
-draw_text(xCoord + 2, yCoord + 2, text);
+
+for (var i = 0; i &lt; ds_list_size(towerPlacementInfo) ; i++) {
+    draw_text(xCoord + 2, yCoord + (i * 20) + 2, ds_list_find_value(towerPlacementInfo, i));
+}
 
 // Draw Foreground:
 draw_set_color(c_yellow);
-draw_text(xCoord, yCoord, text);
+
+for (var i = 0; i &lt; ds_list_size(towerPlacementInfo) ; i++) {
+    draw_text(xCoord, yCoord + (i * 20), ds_list_find_value(towerPlacementInfo, i));
+}
 
 // Reset Draw Color:
 draw_set_color(c_white);

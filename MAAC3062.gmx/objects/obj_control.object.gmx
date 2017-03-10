@@ -126,6 +126,7 @@ global.catsAndDogsUpgradeCost = 10000;
 //      WeaponYOffset
 //      ????? No clue what this is for
 //      Placement distance. The distance from the player to placement location, in pixels.
+//      List of strings to display on tower placement.
 
 global.towers[0, 0] = "Basic Tower";
 global.towers[0, 1] = 300;
@@ -136,6 +137,13 @@ global.towers[0, 5] = sprite_get_width(global.towers[0, 3]) / 2;
 global.towers[0, 6] = 32;
 global.towers[0, 7] = 200;
 global.towers[0, 8] = 256;
+global.towers[0, 9] = ds_list_create();
+ds_list_add(global.towers[0, 9], global.towers[0, 0]);
+ds_list_add(global.towers[0, 9], "Damage: Low-Medium");
+ds_list_add(global.towers[0, 9], "Fire Rate: Medium");
+ds_list_add(global.towers[0, 9], "Range: Medium");
+ds_list_add(global.towers[0, 9], "Armor: Low-Medium");
+ds_list_add(global.towers[0, 9], "Costs " + string(global.towers[0, 1]) + " Energy");
 
 global.towers[1, 0] = "Super Freezer";
 global.towers[1, 1] = 750;
@@ -146,6 +154,12 @@ global.towers[1, 5] = sprite_get_width(global.towers[1, 3]) / 2;
 global.towers[1, 6] = 32;
 global.towers[1, 7] = 200;
 global.towers[1, 8] = 256;
+global.towers[1, 9] = ds_list_create();
+ds_list_add(global.towers[1, 9], global.towers[1, 0]);
+ds_list_add(global.towers[1, 9], "Fire Rate: High");
+ds_list_add(global.towers[1, 9], "Range: Medium-High");
+ds_list_add(global.towers[1, 9], "Armor: High");
+ds_list_add(global.towers[1, 9], "Costs " + string(global.towers[1, 1]) + " Energy");
 
 global.towers[2, 0] = "Tactical Moartar";
 global.towers[2, 1] = 1000;
@@ -156,6 +170,13 @@ global.towers[2, 5] = (sprite_get_width(global.towers[2, 3]) / 2) - 16;
 global.towers[2, 6] = 32;
 global.towers[2, 7] = 200;
 global.towers[2, 8] = 256;
+global.towers[2, 9] = ds_list_create();
+ds_list_add(global.towers[2, 9], global.towers[2, 0]);
+ds_list_add(global.towers[2, 9], "Damage: Low-Medium");
+ds_list_add(global.towers[2, 9], "Fire Rate: Low-Medium");
+ds_list_add(global.towers[2, 9], "Range: High");
+ds_list_add(global.towers[2, 9], "Armor: Very Low");
+ds_list_add(global.towers[2, 9], "Costs " + string(global.towers[2, 1]) + " Energy");
 
 global.towers[3, 0] = "109 Cal Rifle";
 global.towers[3, 1] = 750;
@@ -166,6 +187,13 @@ global.towers[3, 5] = sprite_get_width(global.towers[3, 3]) / 2;
 global.towers[3, 6] = 32;
 global.towers[3, 7] = 200;
 global.towers[3, 8] = 256;
+global.towers[3, 9] = ds_list_create();
+ds_list_add(global.towers[3, 9], global.towers[3, 0]);
+ds_list_add(global.towers[3, 9], "Damage: Low-Medium");
+ds_list_add(global.towers[3, 9], "Fire Rate: Low");
+ds_list_add(global.towers[3, 9], "Range: High");
+ds_list_add(global.towers[3, 9], "Armor: Medium");
+ds_list_add(global.towers[3, 9], "Costs " + string(global.towers[3, 1]) + " Energy");
 
 global.towers[4, 0] = "Flame Thrower";
 global.towers[4, 1] = 1500;
@@ -176,6 +204,13 @@ global.towers[4, 5] = sprite_get_width(global.towers[4, 3]) / 2;
 global.towers[4, 6] = 32;
 global.towers[4, 7] = 200;
 global.towers[4, 8] = 256;
+global.towers[4, 9] = ds_list_create();
+ds_list_add(global.towers[4, 9], global.towers[4, 0]);
+ds_list_add(global.towers[4, 9], "Damage: Medium");
+ds_list_add(global.towers[4, 9], "Fire Rate: High");
+ds_list_add(global.towers[4, 9], "Range: Low");
+ds_list_add(global.towers[4, 9], "Armor: High");
+ds_list_add(global.towers[4, 9], "Costs " + string(global.towers[4, 1]) + " Energy");
 
 global.towers[5, 0] = "M-6100";
 global.towers[5, 1] = 2000;
@@ -186,6 +221,13 @@ global.towers[5, 5] = sprite_get_width(global.towers[5, 3]) / 2;
 global.towers[5, 6] = sprite_get_height(global.towers[5, 3]) / 2;
 global.towers[5, 7] = 200;
 global.towers[5, 8] = 256;
+global.towers[5, 9] = ds_list_create();
+ds_list_add(global.towers[5, 9], global.towers[5, 0]);
+ds_list_add(global.towers[5, 9], "Damage: High");
+ds_list_add(global.towers[5, 9], "Fire Rate: High");
+ds_list_add(global.towers[5, 9], "Range: High");
+ds_list_add(global.towers[5, 9], "Armor: High");
+ds_list_add(global.towers[5, 9], "Costs " + string(global.towers[5, 1]) + " Energy");
 </string>
           </argument>
         </arguments>
