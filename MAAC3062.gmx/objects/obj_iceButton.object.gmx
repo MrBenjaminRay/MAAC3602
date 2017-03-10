@@ -164,7 +164,7 @@ else if(untoggle == 1) {
           <argument>
             <kind>1</kind>
             <string>if(global.desertLevelComplete == 1)
-    obj_levelTitle.sprite_index = spr_level1;
+    obj_levelTitle.sprite_index = spr_level3;
 </string>
           </argument>
         </arguments>
