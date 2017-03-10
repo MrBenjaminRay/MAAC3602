@@ -50,6 +50,8 @@ global.plrAbilityCooldown_upgraded[1] = 12000;  // Delta time value.
 global.plrAbilityCooldown_upgraded[2] = 10000;  // Delta time value.
 global.plrAbilityCooldown_upgraded[3] = 20000;  // Delta time value.
 
+
+// NOT BEING USED. Use the unlock variables in obj_control
 global.towerUnlocked[0] = true; // Basic Tower
 global.towerUnlocked[1] = true; // Freezer Tower
 global.towerUnlocked[2] = true; // Mortar Tower
