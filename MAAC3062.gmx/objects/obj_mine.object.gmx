@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>25</depth>
   <persistent>0</persistent>
-  <parentName>obj_entity</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -42,18 +42,6 @@
             <string>// Total # of miners in this mine (default value)
 miners = 3;
 
-// # of miners alive - automatically calculated in every step,
-// so value set here is irrelevant.
-minersAlive = 0;
-
-// Multiply default health by # of miners.
-currHealth *= miners;               // The current health value times # of miners.
-maxHealth *= miners;                // The maximum health value times # of miners.
-
-damageAnimationLength = 2000;       // Length of time to display damage animation after taking damage
-damageAnimationRemaining = 0;       // Current amount of damage animation length remaining (0 unless recently took damage)
-
-
 // Line up base of miner sprite to floor of mine
 minerYOffset = -30;
 
@@ -69,6 +57,7 @@ minerXSpacing = (sprite_width * .8) / miners;
 minerXOffset = 0 - (miners * minerXSpacing) / 2;
 
 // Initialize all miner objects and store their instance_ids in an array
+// so that we can check if they're still alive. When dead, we destroy this mine.
 var i = 0;
 repeat(miners) {
   var inst = instance_create(x, y+minerYOffset, obj_miner);
@@ -132,9 +121,9 @@ front = instance_create(x, y, obj_mine_front);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Destroy all miners still associated with this mine.  This might be
-// necessary if the health decreased quickly and this instance is
-// destroyed before the step code removed the last miner due to low health.
+            <string>// Destroy all miners still associated with this mine.  This will probably
+// never be needed, but if for some reason the mine is destroyed before the
+// miners (e.g. intentionally in other code), we want the miners to die too.
 
 var i = 0;
 repeat(miners) {
@@ -173,35 +162,16 @@ repeat(miners) {
     return 0;
 }
 
-// Decrement animation time remaining if needed
-if (damageAnimationRemaining &gt; 0) {
-    damageAnimationRemaining -= global.deltaTime;
-} else {
-    damageAnimationRemaining = 0;
-}
+var minersAlive = 0;
 
-// Decide how many living miners to draw based on health,
-// rounding up so that miner always drawn until health is 0.
-minersAlive = ceil((currHealth / maxHealth) * miners);
-
-// Any miners that should no longer be drawn will be destroyed if
-// they still exist.  Iterate between count of miners alive and total
-// miners and wipe 'em out if they exist.
+// Make sure at least one miner for this mine is alive, otherwise destroy the mine
 for (var i=0; i&lt;miners; i++) {
-    if (i&gt;=minersAlive) {
-        // This miner should not be alive, based on minersAlive counter
-        // If instance exists, destroy it
-        if (instance_exists(arrMiners[i])) {
-            with (arrMiners[i]) {
-                scr_msg_minerKilled(x - 220, y - 230);
-                instance_destroy();
-            }
-        }    
-    } else {
-        // This miner should be alive
-        drawDamageSprite = damageAnimationRemaining &gt; 0;
+    if (instance_exists(arrMiners[i])) {
+        minersAlive++;
     }
-
+}
+if (minersAlive == 0) {
+    instance_destroy();
 }
 
 </string>

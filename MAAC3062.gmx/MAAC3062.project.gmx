@@ -208,6 +208,7 @@
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
+        <sprite>sprites\spr_miner_hurt_blended</sprite>
         <sprite>sprites\spr_miner_hurt</sprite>
         <sprite>sprites\spr_miner_hurt2</sprite>
         <sprite>sprites\spr_miner_death</sprite>
@@ -568,6 +569,7 @@
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
+        <object>objects\obj_miner_dying</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion_normal</object>

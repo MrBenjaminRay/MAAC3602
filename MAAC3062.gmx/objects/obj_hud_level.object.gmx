@@ -111,7 +111,7 @@ if (scale &lt; scaleNormal) {
 image_xscale = scale;
 image_yscale = scale;
 
-show_debug_message("Current view width: " + string(view_wview[0]));
+//show_debug_message("Current view width: " + string(view_wview[0]));
 
 if (position == "top_left") {
     x = 0 + position_offset_x;
