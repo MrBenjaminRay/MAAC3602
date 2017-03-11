@@ -202,21 +202,29 @@ abilD_cooldownCounter = abilD_cooldownTime;
       </action>
       <action>
         <libid>1</libid>
-        <id>224</id>
+        <id>201</id>
         <kind>0</kind>
-        <userelative>0</userelative>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
+        <useapplyto>-1</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
+        <functionname>action_create_object</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>11</kind>
-            <room>rm_hub</room>
+            <kind>10</kind>
+            <object>obj_playerDeath_screenFade</object>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -366,6 +374,7 @@ var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
 
 if (isLeftPressed) {
     scr_entity_moveLeft();
+    animationSpeed = 0.33;
     image_speed = 0.33;
     image_xscale = 1;
     if (isJumping) {
@@ -378,6 +387,7 @@ if (isLeftPressed) {
 
 if (isRightPressed) {
     scr_entity_moveRight();
+    animationSpeed = 0.33;
     image_speed = 0.33;
     image_xscale = 1;
     sprite_index = spr_player_runs_right_with_weapon;
@@ -390,6 +400,7 @@ if (isRightPressed) {
 }
 
 if(!(isRightPressed || isLeftPressed)) {
+    animationSpeed = 0;
     image_speed = 0;
     //image_index = 0;
     image_xscale = 1;
@@ -702,44 +713,6 @@ if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="70">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.state == "Paused") {
-    return 0;
-}
-
-if (global.plrAbilityAttained[1]) {
-    if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
-        return 0;
-    } else {
-        abilB_cooldownCounter = 0;
-    }
-    
-    // todo Code
-    show_debug_message("IMPLEMENT ABILITY #2")
-} else {
-    scr_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="5" enumb="16">
       <action>
         <libid>1</libid>
@@ -863,6 +836,58 @@ if (global.plrAbilityAttained[3]) {
     }
 } else {
     scr_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="70">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Determine Proper Cooldown Time:
+if (global.plrAbilityUpgraded[1]) {
+    abilC_cooldownTime = global.plrAbilityCooldown_upgraded[1];
+} else {
+    abilC_cooldownTime = global.plrAbilityCooldown_normal[1];
+}
+
+if (global.plrAbilityAttained[1]) {
+    if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
+        return 0;
+    } else {
+        abilB_cooldownCounter = 0;
+    }
+    
+    if (global.plrAbilityUpgraded[2]) {
+        for (var i = 0 ; i &lt; 12 ; i++) {
+            instance_create(x, y - 72, obj_snake);
+        }
+    } else {
+        for (var i = 0 ; i &lt; 8 ; i++) {
+            instance_create(x, y - 72, obj_snake);
+        }
+    }
+} else {
+    scr_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>

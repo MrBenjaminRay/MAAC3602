@@ -128,6 +128,8 @@
         <sprite>sprites\spr_player_jump_right</sprite>
         <sprite>sprites\spr_player_jump_left</sprite>
         <sprite>sprites\spr_player_falling</sprite>
+        <sprite>sprites\spr_player_deathPart1</sprite>
+        <sprite>sprites\spr_player_deathPart2</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -418,6 +420,8 @@
       <scripts name="States">
         <script>scripts\scr_normal_beginBuild.gml</script>
         <script>scripts\scr_build_switchTower.gml</script>
+        <script>scripts\scr_paused_pauseAnimation.gml</script>
+        <script>scripts\scr_paused_unpauseAnimation.gml</script>
       </scripts>
     </scripts>
     <scripts name="Abilities">
@@ -528,6 +532,7 @@
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
+      <object>objects\obj_snake</object>
       <objects name="Player">
         <object>objects\obj_player</object>
       </objects>
@@ -682,6 +687,9 @@
         <object>objects\obj_emitter_explosion</object>
         <object>objects\obj_emitter_flame</object>
         <object>objects\obj_emitter_emitter</object>
+      </objects>
+      <objects name="Special">
+        <object>objects\obj_playerDeath_screenFade</object>
       </objects>
     </objects>
     <object>objects\obj_camera</object>
