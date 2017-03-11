@@ -8,6 +8,7 @@
 var canProceed = is_undefined(argument[0]) == false;
  
 if (canProceed) {
+    towerIndex = argument[0];
     tower = global.towers[argument[0], 0];
     towerCost = global.towers[argument[0], 1] * global.towerUpgradeLevel[argument[0]];
     towerObj = global.towers[argument[0], 2];

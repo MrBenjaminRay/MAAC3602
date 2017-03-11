@@ -30,27 +30,31 @@
 
 towerCount = 6; 
 
-slotWidth = sprite_get_width(spr_hotbar_back);
+slotWidth = sprite_get_width(spr_hotbar_item_back);
 
 // Set width based on number of tower slots to display
 width = slotWidth * towerCount;
 
-// Deduct 1 pixel for every tower above the first one as we collapse 1 px of borders between slots
+// Deduct 1 pixel for every slot above the first one as we collapse 1 px of borders between slots
 if (towerCount &gt; 1) {
-    //width -= (towerCount-1);
+    width -= (towerCount-1);
 }
 
 if (window_get_fullscreen()) {
-    x = global.screenWidth/2 - width/2;
-    y = global.screenHeight - sprite_get_height(spr_hotbar_back);
+    x = round(global.screenWidth/2 - width/2); // Round so we never start on x value with .5
+    y = global.screenHeight - sprite_get_height(spr_hotbar_item_back);
 } else {
     x = view_wview[0]/2 - width/2;
-    y = view_hview[0] - sprite_get_height(spr_hotbar_back);
+    y = view_hview[0] - sprite_get_height(spr_hotbar_item_back);
 }
 
 for (var i=0; i&lt;towerCount; i++) {
     var item_x = x + (i * slotWidth);
+    if (i &gt; 0) {
+        item_x -= i; // Shift 1 to left for every slot after first one to collapse borders between them
+    }
     var slot = instance_create(item_x, y, obj_hud_hotbar_item);
+    slot.towerIndex = i;
 }
 </string>
           </argument>
