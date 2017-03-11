@@ -153,7 +153,13 @@ if (y &lt; 0) {
 if (!isJumping &amp;&amp; !isDropping) {
     if (currentJumpSpeed == 0) {
         while (place_meeting(x, y, obj_physicsTile)) {
-            y++;
+            if (object_index == obj_drop_energy) {
+                // Push energy drops up
+                y--;
+            } else {
+                // Push everything else down
+                y++;            
+            }
         }
     }
 }
