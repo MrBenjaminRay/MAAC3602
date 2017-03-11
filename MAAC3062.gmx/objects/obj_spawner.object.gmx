@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawnRate = 1280;                         // The amount of delta time between spawns.
+            <string>spawnRate = 640;                         // The amount of delta time between spawns.
 spawnRateCounter = 0;                     // The amount of delta time since the last spawn.
 
 spawnChangeRate = 7500;                   // The amount of delta time between switching enemies to spawn.
@@ -39,6 +39,8 @@ numObjSpawned = 0;                        // The number of objects spawned so-fa
 objToSpawn = noone;                       // The object to spawn.
 
 canSpawn = false;                         // Whether or not the spawner can spawn.
+
+enemyCap = 100;                             // Max # of enemies at any give time. For lag purposes. Should be high.
 
 alarm[0] = room_speed * irandom_range(1, 5);
 </string>
@@ -103,8 +105,43 @@ if (spawnRateCounter &lt; spawnRate) {
     spawnRateCounter = 0;
 
     if (numObjSpawned &lt; numObjToSpawn) {
-        numObjSpawned++;
+    
+        // Make room by destroying the oldest enemies until enemy count is less than cap
+        while (instance_number(obj_enemy) &gt; enemyCap) {
+            scr_enemy_destroyOldest();
+            show_debug_message("Enforcing enemy cap of " + string(enemyCap) + ". Destroyed oldest enemy.");
+        }
+    
         var enemy = instance_create(x, y, objToSpawn);
+        numObjSpawned++;
+        
+        // Determine Enemy ID and Alter Stats:
+        switch (objToSpawn) {
+            case obj_enemy_air_light: {
+                global.levelStats[scr_getLevelId(), 7]++;
+                break;
+            }
+            case obj_enemy_air_heavy: {
+                global.levelStats[scr_getLevelId(), 8]++;
+                break;
+            }
+            case obj_enemy_ground_light: {
+                global.levelStats[scr_getLevelId(), 9]++;
+                break;
+            }
+            case obj_enemy_ground_medium: {
+                global.levelStats[scr_getLevelId(), 10]++;
+                break;
+            }
+            case obj_enemy_ground_heavy: {
+                global.levelStats[scr_getLevelId(), 11]++;
+                break;
+            }
+            case obj_enemy_ground_jackal: {
+                global.levelStats[scr_getLevelId(), 12]++;
+                break;
+            }
+        }
     }
 }
 
@@ -116,7 +153,7 @@ if (spawnChangeRateCounter &lt; spawnChangeRate) {
     spawnChangeRateCounter = 0;
     spawnChanges++;
     
-    spawnRate = (1280 * ((spawnChanges % 15) / 3));
+    spawnRate = (640 * ((spawnChanges % 15) / 3));
     
     // Determine the percentile, the chance of spawning a light/med/heavy enemy:
     var spawnPercentile = irandom_range(0, 100);

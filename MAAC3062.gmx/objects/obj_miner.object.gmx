@@ -3,7 +3,7 @@
   <spriteName>spr_miner</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>20</depth>
+  <depth>22</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -88,9 +88,53 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0;
+imageSpeed_normal = 0.05;
+imageSpeed_hurt = imageSpeed_normal*2; // Hurt sprite speed has twice as many frames, so make it twice as fast
 
 staggeredStart = irandom(60);
 animStartCounter = staggeredStart;
+
+damageAnimationLength = 2000;       // Length of time to display damage animation after taking damage
+damageAnimationRemaining = 0;       // Current amount of damage animation length remaining (0 unless recently took damage)
+
+drawDamageSprite = false;
+
+minerLevel = 1; // Every level increase gives 1 more mineral (level 3 gives 3, etc.)
+
+mineralCount = 0;   // Total # of minerals obtained by this miner on this level
+pickCount = 0;      // Total # of times the miner has mined
+                    // (regardless of how many minerals picked up)
+
+// Pick counts (not minerals mined) determine current level.
+picksForLevel_2 = 150; // Total # of pickCount to get to level 2 (since level started)
+picksForLevel_3 = 500; // Total # of pickCount to get to level 3 (since level started)
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_msg_minerKilled(x - 220, y - 230);
+
+// Spawn a dying miner
+instance_create(x, y, obj_miner_dying);
 </string>
           </argument>
         </arguments>
@@ -113,20 +157,81 @@ animStartCounter = staggeredStart;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    currentTimeToMinerals += global.deltaTime;
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+currentTimeToMinerals += global.deltaTime;
+
+if (currentTimeToMinerals &gt;= timeToMinerals) {
+    currentTimeToMinerals -= timeToMinerals;
     
-    if (currentTimeToMinerals &gt;= timeToMinerals) {
-        currentTimeToMinerals -= timeToMinerals;
-        global.minerals += 2;
+    pickCount++;
+    
+    scr_minerals_change(minerLevel);
+    
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "+" + string(minerLevel)
+}
+
+if (animStartCounter &gt; 0) {
+    // Not ready to show animation (random delay to offset each miner)
+    // Decrement start counter
+    animStartCounter--;
+} else {
+    // Animation happening, so check if we should show regular or damage animation
+    // Variable damageAnimationRemaining set in scr_entity_dealDamage when damage taken
+    if (damageAnimationRemaining &gt; 0) {
+        drawDamageSprite = true;
+        image_speed = imageSpeed_hurt;
+        damageAnimationRemaining = max(damageAnimationRemaining - global.deltaTime, 0);
+    } else {
+        drawDamageSprite = false;
+        image_speed = imageSpeed_normal;
     }
 }
 
-if (animStartCounter &lt;= 0) {
-    image_speed = 0.05;
-} else {
-    animStartCounter--;
+// Check for level up
+if (minerLevel == 1 &amp;&amp; pickCount &gt; picksForLevel_2) {
+    // Miner has leveled up to level 2
+    minerLevel++;
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "LEVEL UP!";
+} else if (minerLevel == 2 &amp;&amp; pickCount &gt; picksForLevel_3) {
+    // Miner has leveled up to level 3
+    minerLevel++;
+    var temp = instance_create(x, y, obj_mineText);
+    temp.text = "LEVEL UP!";
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (drawDamageSprite) {
+    draw_sprite(spr_miner_hurt_blended, image_index, x, y);
+} else {
+    draw_self();
+}
+
 </string>
           </argument>
         </arguments>

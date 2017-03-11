@@ -42,20 +42,20 @@
             <string>// Set a high enough lifeLeft so that the particles have time to erupt
 // and make it where they need to go, but that they don't last forever
 // if they're not killed when they should be killed.
-lifeLeft = 20000;
+lifeLeft = 10000;
 
 angle = random_range(0, 2*pi);
-angleChange = random_range(-.001, .001);
-initialSpeed = random_range(.001, .065);
-speedChange = .99;
+angleChange = random_range(-.003, .003); // Slight randomized twist
+initialSpeed = random_range(.001, .2);
+speedChange = .98;
 currentSpeed = initialSpeed;
 
-speedTowardsTarget = random_range(0.0001, 0.0002);
+speedTowardsTarget = random_range(0.02, 0.04);
 speedTowardsTargetChange = 1.05;
 speedTowardsTargetMax = 10;
 image_index = irandom_range(0, image_number-1);
-image_speed = random_range(0.1, 0.25);
-
+image_speed = random_range(0.5, 0.75);
+//image_alpha = random_range(.7, 1);
 </string>
           </argument>
         </arguments>
@@ -92,18 +92,46 @@ image_speed = random_range(0.1, 0.25);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x += cos(angle) * currentSpeed * global.deltaTime;
+            <string>/*
+    This animation occurs in two parts, and they occur at the same time during
+    part of the animation.
+    
+    First part:  Orbs explode outward from energy drop, with randomized direction 
+    (angle) and randomized speed. The speed value starts high, so the particles
+    go away from their origin quickly before slowing.  As the explosion speed slows,
+    the speed of the second effect ramps up.
+    
+    Second part:  Orbs become drawn towoards the energy level icon in the room.
+    Attraction (speed) is low at first, but then ramps up and the movement has more
+    effect on the particles than the first explosion movement.
+    
+    For a little while, both the explosion momentum and attraction to the energy icon
+    are affecting the particle, just at varying levels.
+*/
+
+
+
+// FIRST PART: Explosion from energy drop
+
+// Calculate next position for the explosion effect based on randomized speed &amp; angle
+x += cos(angle) * currentSpeed * global.deltaTime;
 y += sin(angle) * currentSpeed * global.deltaTime;
 
+// Tweak angle slightly over time, giving a bit of a curve based
+// on the randomized angleChange value
 angle += angleChange * global.deltaTime;
 currentSpeed *= speedChange;
 
+
+
+// SECOND PART: Attraction to Energy Level Icon
+
 // Get direction vector towards energy level indicator
-if (object_exists(obj_level_energy)) {
-    var dir = degtorad(point_direction(x, y, obj_level_energy.x, obj_level_energy.y));    
+if (object_exists(obj_hud_levelEnergy)) {
+    var dir = degtorad(point_direction(x, y, obj_hud_levelEnergy.x, obj_hud_levelEnergy.y));    
 } else {
     // This is bad - can't have energy orbs on a level if there's nowhere for them to go (energy level indicator)
-    show_debug_message("Level is missing obj_level_energy!");
+    show_debug_message("Level is missing obj_hud_levelEnergy!");
     return 0;
 }
 
@@ -114,18 +142,20 @@ if (speedTowardsTarget &gt; speedTowardsTargetMax) {
 x += cos(dir) * speedTowardsTarget * global.deltaTime;
 y -= sin(dir) * speedTowardsTarget * global.deltaTime; // Subtract as y is inverted
 
+
+
 // Special condition:  If orb ends up outside of the screen bounds, 
 // move it to the same location as the energy level so that it will collide and
 // give the amount, and kill the speed. This might happen if the speed of the orb 
 // causes it to overshoot the energy level object, in which case collision would 
 // not occur.
 if (x &lt; 0 || x &gt; window_get_width() || y &lt; 0 || y &gt; window_get_height()) {
-    if (object_exists(obj_level_energy)) {
-        x = obj_level_energy.x;
-        y = obj_level_energy.y;
+    if (object_exists(obj_hud_levelEnergy)) {
+        x = obj_hud_levelEnergy.x;
+        y = obj_hud_levelEnergy.y;
         speedTowardsTarget = 0;
     } else {
-        // Should never get here as we check for obj_level_energy to exist earlier in this code
+        // Should never get here as we check for obj_hud_levelEnergy to exist earlier in this code
     }
 }
 
@@ -134,7 +164,7 @@ if (x &lt; 0 || x &gt; window_get_width() || y &lt; 0 || y &gt; window_get_heigh
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_level_energy">
+    <event eventtype="4" ename="obj_hud_levelEnergy">
       <action>
         <libid>1</libid>
         <id>603</id>
