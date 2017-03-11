@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>tower = "No Name Set";
+            <string>towerIndex = -1; // Will contain 0-based index of tower (0-5 as of Beta) in towers array in obj_control
+tower = "No Name Set";
 towerCost = 999999;
 towerObj = noone;
 towerSpr = noone;

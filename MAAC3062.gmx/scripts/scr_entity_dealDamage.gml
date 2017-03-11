@@ -46,7 +46,6 @@ if (canContinue) {
         if (argument[0].object_index == obj_miner) {
             // Set damage time remaining
             argument[0].damageAnimationRemaining = argument[0].damageAnimationLength;
-            show_debug_message(argument[0].object_index);
         }
 
     }

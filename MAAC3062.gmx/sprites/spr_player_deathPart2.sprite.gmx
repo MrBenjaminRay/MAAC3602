@@ -8,17 +8,17 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>63</bbox_right>
-  <bbox_top>0</bbox_top>
-  <bbox_bottom>63</bbox_bottom>
+  <bbox_right>77</bbox_right>
+  <bbox_top>41</bbox_top>
+  <bbox_bottom>77</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>64</width>
-  <height>64</height>
+  <width>78</width>
+  <height>78</height>
   <frames>
     <frame index="0">images\spr_player_deathPart2_0.png</frame>
     <frame index="1">images\spr_player_deathPart2_1.png</frame>
@@ -31,5 +31,6 @@
     <frame index="8">images\spr_player_deathPart2_8.png</frame>
     <frame index="9">images\spr_player_deathPart2_9.png</frame>
     <frame index="10">images\spr_player_deathPart2_10.png</frame>
+    <frame index="11">images\spr_player_deathPart2_11.png</frame>
   </frames>
 </sprite>

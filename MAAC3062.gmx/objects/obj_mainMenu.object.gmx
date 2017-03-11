@@ -25,45 +25,73 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = 0.70;
-image_yscale = image_xscale;
+            <string>//image_xscale = 0.70;
+//image_yscale = image_xscale;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>224</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>11</kind>
-            <room>rm_menu</room>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// NOTE: Because this sprite is drawn in the Draw GUI event and is centered on
+// the screen, normal collision won't work, as the object itself is being moved
+// around the playing field based on its x &amp; y position.
+
+// Instead, check for collision between the object at the raw x &amp; y position
+// and the mouse's x &amp; y position, which ignores any offset applied when the
+// view moves around the level.
+if (
+    point_in_rectangle(
+        window_mouse_get_x(), 
+        window_mouse_get_y(), 
+        x-sprite_width/2,
+        y-sprite_height/2,
+        x+sprite_width/2,
+        y+sprite_height/2
+    )
+) {
+    // User has clicked inside this sprite
+    room_goto(rm_menu);
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -86,6 +114,30 @@ image_yscale = image_xscale;
           <argument>
             <kind>1</kind>
             <string>draw_self();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Prevent drawing as this is drawn in Draw GUI
+
 </string>
           </argument>
         </arguments>
