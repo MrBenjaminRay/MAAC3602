@@ -45,7 +45,7 @@ global.view_mouse_y = 0;
 global.room_mouse_x = 0;
 global.room_mouse_y = 0;
 
-global.messageDistance = 120; // distance the player can be from a distanceMessageBox
+global.messageDistance = 128; // distance the player can be from a distanceMessageBox
                                 // before it disappears.
 global.messageScale = 0.4; // The scale of message boxes and text sprites
 
