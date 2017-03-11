@@ -39,12 +39,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Enemy Types:
+            <string>// ANIMATION:
+animationSpeed = 0.125;
+image_speed = 0.125;
+
+// Enemy Types:
 //  "Ground"
 //  "Air"
 type = "Ground";
-
-image_speed = .125;
 
 attackRate = 240;
 attackRange = sprite_width/4;
@@ -75,6 +77,10 @@ maxFlameDamageStacks = 5;        // The maximum number of flame damage stacks th
 stackDissipationTime = 2048;     // The amount of time before a stack of flame damage will be removed.
 stackDissipationTimeCounter = 0; // The amount of time that has elapsed since the last stack of flame damage was removed.
 
+// ABILITY-SPECIFIC DATA (Ability #2/AbilityB/Snake Ability):
+isRootedBySnake = false;
+timeSpentRooted = 0;
+timeUntilUnrooted = 0;
 
 // Clamp the enemy onto the tile it's spawned above:
 while (place_meeting(x, y, obj_physicsTile) == false) {
@@ -244,22 +250,42 @@ while (place_meeting(x, y, obj_physicsTile) == false) {
 
 if (attackRateCounter &gt;= attackRate) {
     var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange, obj_player);
-    var nearestMine = scr_entity_gearNearestObjectOfType(attackRange, obj_mine);
+    var nearestMiner = scr_entity_gearNearestObjectOfType(attackRange, obj_miner);
     var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
     
     // An enemy will attack targets in the order of:
     //      1 - Player
-    //      2 - Mine
+    //      2 - Miner
     //      3 - Tower
     if (nearestPlayer != noone) {
+        if (nearestPlayer.x &lt;= x) {
+            if (attackDamage &gt; 15) {
+                nearestPlayer.x -= attackDamage;
+            } else {
+                nearestPlayer.x -= 15;
+            }
+        } else {
+            if (attackDamage &gt; 15) {
+                nearestPlayer.x += attackDamage;
+            } else {
+                nearestPlayer.x += 15;
+            }
+        }
+        
+        if (nearestPlayer.x &lt; 0) {
+            nearestPlayer.x = nearestPlayer.sprite_width/2;
+        } else if (other.x &gt; room_width) {
+            nearestPlayer.x = room_width - nearestPlayer.sprite_width/2;
+        }
+        
         scr_entity_dealDamage(nearestPlayer, attackDamage);
         attackRateCounter = 0;
     }
     
-    if (hasAttacked == false and nearestMine != noone) {
-        scr_entity_dealDamage(nearestMine, attackDamage);
+    if (hasAttacked == false and nearestMiner != noone) {
+        scr_entity_dealDamage(nearestMiner, attackDamage);
         attackRateCounter = 0;
     }
     
@@ -315,7 +341,7 @@ if (nearestMiner != noone) {
     minerNearby = distance_to_point(nearestMiner.x, nearestMiner.y) &lt;= attackRange;
 }
 
-if (minerNearby == false) {
+if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
     movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
     
     if (movementDirection == "LEFT") {
@@ -476,6 +502,53 @@ if (flameDamageStacks &gt; 0) {
             <kind>1</kind>
             <string>// Increment age
 age += global.deltaTime;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Handle Snake Root</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>timeSpentRooted += global.deltaTime;
+
+if (timeSpentRooted &gt;= timeUntilUnrooted) {
+    isRootedBySnake = false;
+    timeSpentRooted = 0;
+    timeUntilUnrooted = 0;
+}
 </string>
           </argument>
         </arguments>

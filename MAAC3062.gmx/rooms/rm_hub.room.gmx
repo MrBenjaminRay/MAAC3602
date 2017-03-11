@@ -4,7 +4,7 @@
   <width>1600</width>
   <height>900</height>
   <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -61,7 +61,7 @@
     <instance objName="obj_spaceBG" x="800" y="448" name="inst_9CCECB69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="0" y="0" name="inst_4FE17B7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelSelScrnInfo" x="1184" y="864" name="inst_DADEEDB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_infoText" x="1216" y="288" name="inst_20103F17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_infoText" x="1200" y="288" name="inst_20103F17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_iceButton" x="672" y="288" name="inst_08F9AF62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_waterButton" x="736" y="640" name="inst_63CB4186" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelSelScrn" x="128" y="544" name="inst_0ADBB0CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

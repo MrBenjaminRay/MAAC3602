@@ -80,6 +80,8 @@ healthBarWidth = sprite_width;
 
 
 // ABILITIES:
+abilC_isActive = false;
+
 abilA_cooldownTime = 0;
 abilB_cooldownTime = 0;
 abilC_cooldownTime = 0;
@@ -124,13 +126,11 @@ if (global.plrAbilityUpgraded[2]) {
 } else {
     abilC_cooldownTime = global.plrAbilityCooldown_normal[2];
 }
+
 abilC_cooldownCounter = abilC_cooldownTime;
 
-if (global.plrAbilityUpgraded[3]) {
-    abilD_cooldownTime = global.plrAbilityCooldown_upgraded[3];
-} else {
-    abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
-}
+
+abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
 abilD_cooldownCounter = abilD_cooldownTime;
 </string>
           </argument>
@@ -202,21 +202,56 @@ abilD_cooldownCounter = abilD_cooldownTime;
       </action>
       <action>
         <libid>1</libid>
-        <id>224</id>
+        <id>201</id>
         <kind>0</kind>
-        <userelative>0</userelative>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
+        <useapplyto>-1</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
+        <functionname>action_create_object</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>11</kind>
-            <room>rm_hub</room>
+            <kind>10</kind>
+            <object>obj_playerDeath_screenFade</object>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.plrAbilityUpgraded[2]) {
+    scr_abilC_upgraded_disable();
+} else {
+    scr_abilC_normal_disable();
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -339,6 +374,7 @@ var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
 
 if (isLeftPressed) {
     scr_entity_moveLeft();
+    animationSpeed = 0.33;
     image_speed = 0.33;
     image_xscale = 1;
     if (isJumping) {
@@ -351,6 +387,7 @@ if (isLeftPressed) {
 
 if (isRightPressed) {
     scr_entity_moveRight();
+    animationSpeed = 0.33;
     image_speed = 0.33;
     image_xscale = 1;
     sprite_index = spr_player_runs_right_with_weapon;
@@ -363,6 +400,7 @@ if (isRightPressed) {
 }
 
 if(!(isRightPressed || isLeftPressed)) {
+    animationSpeed = 0;
     image_speed = 0;
     //image_index = 0;
     image_xscale = 1;
@@ -675,82 +713,6 @@ if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="70">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.state == "Paused") {
-    return 0;
-}
-
-if (global.plrAbilityAttained[1]) {
-    if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
-        return 0;
-    } else {
-        abilB_cooldownCounter = 0;
-    }
-    
-    // todo Code
-    show_debug_message("IMPLEMENT ABILITY #2")
-} else {
-    scr_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="67">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.state == "Paused") {
-    return 0;
-}
-
-if (global.plrAbilityAttained[2]) {
-    if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
-        return 0;
-    } else {
-        abilC_cooldownCounter = 0;
-    }
-    
-    // todo Code
-    show_debug_message("IMPLEMENT ABILITY #3")
-} else {
-    scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="5" enumb="16">
       <action>
         <libid>1</libid>
@@ -835,35 +797,6 @@ if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="87">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.state == "Paused") {
-    return 0;
-}
-
-if (place_meeting(x, y, obj_physicsTile) == false) {
-    scr_entity_jump();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="86">
       <action>
         <libid>1</libid>
@@ -909,94 +842,56 @@ if (global.plrAbilityAttained[3]) {
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="83">
+    <event eventtype="9" enumb="70">
       <action>
         <libid>1</libid>
-        <id>408</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
-        <isquestion>-1</isquestion>
+        <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>global.state != "Paused"</string>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Determine Proper Cooldown Time:
+if (global.plrAbilityUpgraded[1]) {
+    abilC_cooldownTime = global.plrAbilityCooldown_upgraded[1];
+} else {
+    abilC_cooldownTime = global.plrAbilityCooldown_normal[1];
+}
+
+if (global.plrAbilityAttained[1]) {
+    if (abilB_cooldownCounter &lt; abilB_cooldownTime) {
+        return 0;
+    } else {
+        abilB_cooldownCounter = 0;
+    }
+    
+    if (global.plrAbilityUpgraded[2]) {
+        for (var i = 0 ; i &lt; 12 ; i++) {
+            instance_create(x, y - 72, obj_snake);
+        }
+    } else {
+        for (var i = 0 ; i &lt; 8 ; i++) {
+            instance_create(x, y - 72, obj_snake);
+        }
+    }
+} else {
+    scr_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
+}
+</string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>scr_entity_drop</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="9" enumb="69">
@@ -1028,6 +923,54 @@ if (global.plrAbilityAttained[3]) {
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="67">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Determine Proper Cooldown Time:
+if (global.plrAbilityUpgraded[2]) {
+    abilC_cooldownTime = global.plrAbilityCooldown_upgraded[2];
+} else {
+    abilC_cooldownTime = global.plrAbilityCooldown_normal[2];
+}
+
+if (global.plrAbilityAttained[2]) {
+    if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
+        return 0;
+    } else {
+        abilC_cooldownCounter = 0;
+    }
+    
+    if (global.plrAbilityUpgraded[2]) {
+        scr_abilC_upgraded_enable();
+    } else {
+        scr_abilC_normal_enable();
+    }
+} else {
+    scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="32">
       <action>
         <libid>1</libid>
@@ -1049,8 +992,27 @@ if (global.plrAbilityAttained[3]) {
     return 0;
 }
 
-if (place_meeting(x, y, obj_physicsTile) == false) {
-    scr_entity_jump();
+// Determine Proper Cooldown Time:
+if (global.plrAbilityUpgraded[0]) {
+    abilA_cooldownTime = global.plrAbilityCooldown_upgraded[0];
+} else {
+    abilA_cooldownTime = global.plrAbilityCooldown_normal[0];
+}
+
+if (global.plrAbilityAttained[0]) {
+    if (abilA_cooldownCounter &lt; abilA_cooldownTime) {
+        return 0;
+    } else {
+        abilA_cooldownCounter = 0;
+    }
+    
+    if (global.plrAbilityUpgraded[0]) {
+        // Do something
+    } else {
+        instance_create(x, y, obj_forceField)
+    }
+} else {
+    scr_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>

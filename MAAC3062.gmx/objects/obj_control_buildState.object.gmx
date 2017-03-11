@@ -32,7 +32,8 @@ towerSpr = noone;
 towerRange = 0;
 towerWeaponXOffset = 0;
 towerWeaponYOffset = 0;
-
+towerPlacementDistance = 0;
+towerPlacementInfo = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -430,7 +431,7 @@ scr_build_switchTower(0);
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="74">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -465,6 +466,7 @@ tempY += 128 - sprite_get_height(towerSpr);
 var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
 isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
 isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
+isLocationValid &amp;= point_distance(obj_player.x, obj_player.y, mouse_x, mouse_y) &lt;= towerPlacementDistance;
 
 if (tower == "M-6100") {
     var player = instance_nearest(x, y, obj_player);
@@ -494,18 +496,23 @@ draw_ellipse(xPos_left, yPos_top, xPos_right, yPos_bottom, true);
 // Determine Position:
 var xCoord = mouse_x;
 var yCoord = mouse_y + sprite_get_height(towerSpr);
-var text = "Costs " + string(towerCost) + " Energy";
 
 // Set Font:
 draw_set_font(fnt_towerPlacement);
 
 // Draw Background:
 draw_set_color(c_black);
-draw_text(xCoord + 2, yCoord + 2, text);
+
+for (var i = 0; i &lt; ds_list_size(towerPlacementInfo) ; i++) {
+    draw_text(xCoord + 2, yCoord + (i * 20) + 2, ds_list_find_value(towerPlacementInfo, i));
+}
 
 // Draw Foreground:
 draw_set_color(c_yellow);
-draw_text(xCoord, yCoord, text);
+
+for (var i = 0; i &lt; ds_list_size(towerPlacementInfo) ; i++) {
+    draw_text(xCoord, yCoord + (i * 20), ds_list_find_value(towerPlacementInfo, i));
+}
 
 // Reset Draw Color:
 draw_set_color(c_white);
@@ -533,8 +540,10 @@ draw_set_color(c_white);
             <kind>1</kind>
             <string>if (global.state == 'Paused') {
     scr_state_setNormal();
+    scr_paused_unpauseAnimation();
 } else {
     scr_state_setPaused();
+    scr_paused_pauseAnimation();
 }
 </string>
           </argument>

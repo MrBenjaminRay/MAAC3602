@@ -21,6 +21,8 @@ if (canProceed) {
     buildCont.towerRange = global.towers[argument[0], 4] * global.towerUpgradeLevel[argument[0]];
     buildCont.towerWeaponXOffset = global.towers[argument[0], 5];
     buildCont.towerWeaponYOffset = global.towers[argument[0], 6];
+    buildCont.towerPlacementDistance = global.towers[argument[0], 8];
+    buildCont.towerPlacementInfo = global.towers[argument[0], 9];
     
     scr_state_setBuild();
 }
