@@ -149,11 +149,11 @@ if (y &lt; 0) {
 
 // SPECIAL CASE:
 // If the entity is jumping, but the jump ends with the entity stuck inside of
-// a tile, then push the player out onto the tile.
+// a tile, then push the entity back down.
 if (!isJumping &amp;&amp; !isDropping) {
     if (currentJumpSpeed == 0) {
         while (place_meeting(x, y, obj_physicsTile)) {
-            y--;
+            y++;
         }
     }
 }
@@ -237,7 +237,11 @@ if (!isJumping &amp;&amp; !isDropping) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y--;
+            <string>if (isJumping) {
+    isJumping = false;
+    currentJumpSpeed = 0;
+    y++;
+}
 </string>
           </argument>
         </arguments>
