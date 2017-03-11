@@ -279,7 +279,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = x - 1;
+            <string>if(global.part2)
+    exit;
+x = x - 1;
 </string>
           </argument>
         </arguments>

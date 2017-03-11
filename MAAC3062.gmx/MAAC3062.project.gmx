@@ -299,6 +299,7 @@
         <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
         <sprite>sprites\spr_Ability3_Fire</sprite>
       </sprites>
+      <sprite>sprites\spr_ship_arrow</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>

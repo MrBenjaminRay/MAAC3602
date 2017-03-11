@@ -317,6 +317,10 @@ if (global.energy &lt; global.towers[0, 1] * global.towerUpgradeLevel[0]) {
 
 // Build Tower:
 scr_build_switchTower(0);
+if(global.part2){
+    global.part2 = false;
+    global.part3 = true;
+}
 </string>
           </argument>
         </arguments>

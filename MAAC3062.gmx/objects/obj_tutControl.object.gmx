@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>level2_check = false;
+            <string>global.part1 = true;
+global.part2 = true;
+global.part3 = false;
+level2_check = false;
 level3_check = 0;
 </string>
           </argument>
