@@ -580,6 +580,7 @@
         <object>objects\obj_tower_destroyed_109CaliBear</object>
         <object>objects\obj_tower_destroyed_fireAnt</object>
         <object>objects\obj_tower_destroyed_RT6100</object>
+        <object>objects\obj_RT6100_ammoText</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
