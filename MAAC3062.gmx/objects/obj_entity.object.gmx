@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// MOVEMENT:
+            <string>// ANIMATION:
+animationSpeed = 1;
+
+// MOVEMENT:
 movementSpeed = 150 / 1000;     // Left/Right Movement Speed
 jumpSpeed = 300/ 1000;          // Jump Movement Speed
 currentJumpSpeed = jumpSpeed;   // Current Jump Movement Speed
@@ -234,9 +237,7 @@ if (!isJumping &amp;&amp; !isDropping) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (movementSpeed == 0) {
-    y--;
-}
+            <string>y--;
 </string>
           </argument>
         </arguments>

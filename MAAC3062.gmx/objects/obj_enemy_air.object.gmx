@@ -211,22 +211,22 @@
 
 if (attackRateCounter &gt;= attackRate) {
     var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange, obj_player);
-    var nearestMine = scr_entity_gearNearestObjectOfType(attackRange, obj_mine);
+    var nearestMiner = scr_entity_gearNearestObjectOfType(attackRange, obj_miner);
     var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
     
     // An enemy will attack targets in the order of:
     //      1 - Player
-    //      2 - Mine
+    //      2 - Miner
     //      3 - Tower
     if (nearestPlayer != noone) {
         scr_entity_dealDamage(nearestPlayer, attackDamage);
         attackRateCounter = 0;
     }
     
-    if (hasAttacked == false and nearestMine != noone) {
-        scr_entity_dealDamage(nearestMine, attackDamage);
+    if (hasAttacked == false and nearestMiner != noone) {
+        scr_entity_dealDamage(nearestMiner, attackDamage);
         attackRateCounter = 0;
     }
     

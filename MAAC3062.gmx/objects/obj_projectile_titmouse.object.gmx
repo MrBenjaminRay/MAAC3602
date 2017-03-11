@@ -207,7 +207,7 @@ for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
           <argument>
             <kind>1</kind>
             <string>if (image_angle &lt; 360) {
-    image_angle++;
+    image_angle--;
 } else {
     image_angle = 0;
 }

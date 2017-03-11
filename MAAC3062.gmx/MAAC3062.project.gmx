@@ -128,6 +128,8 @@
         <sprite>sprites\spr_player_jump_right</sprite>
         <sprite>sprites\spr_player_jump_left</sprite>
         <sprite>sprites\spr_player_falling</sprite>
+        <sprite>sprites\spr_player_deathPart1</sprite>
+        <sprite>sprites\spr_player_deathPart2</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -208,6 +210,7 @@
       </sprites>
       <sprites name="Miner">
         <sprite>sprites\spr_miner</sprite>
+        <sprite>sprites\spr_miner_hurt_blended</sprite>
         <sprite>sprites\spr_miner_hurt</sprite>
         <sprite>sprites\spr_miner_hurt2</sprite>
         <sprite>sprites\spr_miner_death</sprite>
@@ -289,6 +292,13 @@
       <sprite>sprites\spr_minerals</sprite>
       <sprite>sprites\spr_exhaust</sprite>
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
+      <sprites name="Abilities">
+        <sprite>sprites\spr_ForceField</sprite>
+        <sprite>sprites\spr_snakeLeft</sprite>
+        <sprite>sprites\spr_HeavyEnemy_Snake_Wrap</sprite>
+        <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
+        <sprite>sprites\spr_Ability3_Fire</sprite>
+      </sprites>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -305,10 +315,14 @@
     <sprites name="Navigation Array">
       <sprite>sprites\spr_cup_holder_old</sprite>
       <sprite>sprites\spr_kindle_new</sprite>
+      <sprite>sprites\spr_kindle_HUGE</sprite>
       <sprite>sprites\spr_batteries_new</sprite>
+      <sprite>sprites\spr_battery_HUGE</sprite>
       <sprite>sprites\spr_etchasketch_old</sprite>
       <sprite>sprites\spr_fridge_new</sprite>
+      <sprite>sprites\spr_Fridge_HUGE</sprite>
       <sprite>sprites\spr_rabbit_ear_new</sprite>
+      <sprite>sprites\spr_RabbitEarHUGE</sprite>
       <sprite>sprites\spr_rabbit_ear_old</sprite>
       <sprite>sprites\spr_fridge_old</sprite>
       <sprite>sprites\spr_array_old</sprite>
@@ -335,8 +349,9 @@
     <backgrounds name="DesertBackgrounds">
       <background>background\bkg_desert_0</background>
       <background>background\bkg_desert_1</background>
-      <background>background\bkg_desert3</background>
+      <background>background\bkg_desert_tiles</background>
       <background>background\bkg_desert_front</background>
+      <background>background\bkg_desert_2</background>
     </backgrounds>
     <backgrounds name="IceBackground">
       <background>background\bkg_ice_0</background>
@@ -405,6 +420,8 @@
       <scripts name="States">
         <script>scripts\scr_normal_beginBuild.gml</script>
         <script>scripts\scr_build_switchTower.gml</script>
+        <script>scripts\scr_paused_pauseAnimation.gml</script>
+        <script>scripts\scr_paused_unpauseAnimation.gml</script>
       </scripts>
     </scripts>
     <scripts name="Abilities">
@@ -515,6 +532,7 @@
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
+      <object>objects\obj_snake</object>
       <objects name="Player">
         <object>objects\obj_player</object>
       </objects>
@@ -579,6 +597,7 @@
       </objects>
       <objects name="Miner">
         <object>objects\obj_miner</object>
+        <object>objects\obj_miner_dying</object>
       </objects>
       <objects name="Explosions">
         <object>objects\obj_explosion_normal</object>
@@ -668,6 +687,9 @@
         <object>objects\obj_emitter_explosion</object>
         <object>objects\obj_emitter_flame</object>
         <object>objects\obj_emitter_emitter</object>
+      </objects>
+      <objects name="Special">
+        <object>objects\obj_playerDeath_screenFade</object>
       </objects>
     </objects>
     <object>objects\obj_camera</object>
