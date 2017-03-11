@@ -743,6 +743,7 @@
     <room>rooms\rm_tut2</room>
     <room>rooms\rm_level_ice</room>
     <room>rooms\rm_level_underwater</room>
+    <room>rooms\rm_bentest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
