@@ -612,12 +612,6 @@
         <object>objects\obj_miner</object>
         <object>objects\obj_miner_dying</object>
       </objects>
-      <objects name="Explosions">
-        <object>objects\obj_explosion_normal</object>
-        <object>objects\obj_explosion_sparky</object>
-        <object>objects\obj_explosion_smallhit</object>
-        <object>objects\obj_explosion_flash</object>
-      </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
         <object>objects\obj_weapon_playerArm</object>
@@ -684,6 +678,10 @@
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
         <object>objects\obj_explosion_titmouse</object>
+        <object>objects\obj_explosion_normal</object>
+        <object>objects\obj_explosion_sparky</object>
+        <object>objects\obj_explosion_smallhit</object>
+        <object>objects\obj_explosion_flash</object>
       </objects>
       <objects name="Particles">
         <object>objects\obj_particle</object>
