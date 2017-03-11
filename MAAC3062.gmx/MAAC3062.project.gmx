@@ -128,6 +128,8 @@
         <sprite>sprites\spr_player_jump_right</sprite>
         <sprite>sprites\spr_player_jump_left</sprite>
         <sprite>sprites\spr_player_falling</sprite>
+        <sprite>sprites\spr_player_deathPart1</sprite>
+        <sprite>sprites\spr_player_deathPart2</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
