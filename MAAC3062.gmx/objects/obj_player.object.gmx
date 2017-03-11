@@ -365,7 +365,7 @@ alarm[0] = shieldRegenInterval;
           <argument>
             <kind>1</kind>
             <string>if(global.part3)
-    exit;
+   exit;
 </string>
           </argument>
         </arguments>
@@ -1032,8 +1032,11 @@ if (global.plrAbilityAttained[1]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.part1)
+            <string>if(global.part1){
     global.part1 = false;
+    global.part2 = true;
+}
+    
 </string>
           </argument>
         </arguments>
