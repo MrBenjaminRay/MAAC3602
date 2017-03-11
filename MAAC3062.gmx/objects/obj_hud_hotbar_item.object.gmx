@@ -142,32 +142,33 @@ if (enabled) {
     var towerOffset_x = (sprite_width - sprite_get_width(towerSprite)*towerScale)/2;
     var towerOffset_y = (sprite_height - sprite_get_height(towerSprite)*towerScale)/2;
     draw_sprite_ext(towerSprite, 0, x+towerOffset_x, y+towerOffset_y, towerScale, towerScale, 0, c_white, 1);
-}
+    
+    
+    // Set the font for the hotkey number
+    draw_set_font(fnt_hud_hotbar_hotkey);
+    
+    // Draw hotkey number shadow
+    draw_set_colour(c_black);
+    draw_set_alpha(0.5);
+    draw_text(
+        x + keyNumberOffset_x + textShadowOffset_x,
+        y + keyNumberOffset_y + textShadowOffset_y,
+        towerIndex + 1
+    );
+    
+    // Draw hotkey number
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        x + keyNumberOffset_x,
+        y + keyNumberOffset_y,
+        towerIndex + 1
+    );
 
-// Set the font
-draw_set_font(fnt_hud_hotbar_hotkey);
+} else {
 
-// Draw hotkey number shadow
-draw_set_colour(c_black);
-draw_set_alpha(0.5);
-draw_text(
-    x + keyNumberOffset_x + textShadowOffset_x,
-    y + keyNumberOffset_y + textShadowOffset_y,
-    towerIndex + 1
-);
+    // Draw disabled overlay when not enabled. This overlay covers everything.
 
-// Draw hotkey number
-draw_set_colour(c_white);
-draw_set_alpha(1);
-draw_text(
-    x + keyNumberOffset_x,
-    y + keyNumberOffset_y,
-    towerIndex + 1
-);
-
-
-// Draw disabled overlay when not enabled. This overlay covers everything.
-if (!enabled) {
     // Draw the disabled overlay
     draw_sprite(spr_hotbar_item_disabledOverlay, 0, x, y);
     // Draw the padlock centered, smaller, and faded
@@ -178,7 +179,7 @@ if (!enabled) {
 }
 
 if (hover) {
-    // Draw hotkey level
+    // Draw name of tower or generic text if locked
     var text;
     if (enabled) {
         text = global.towers[towerIndex, 0];
