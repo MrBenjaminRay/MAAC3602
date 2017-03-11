@@ -14,6 +14,7 @@ if (canProceed) {
     scr_state_clearControlObjects();
     
     var buildCont = instance_create(x, y, obj_control_buildState);
+    buildCont.towerIndex = argument[0];
     buildCont.tower = global.towers[argument[0], 0];
     buildCont.towerCost = global.towers[argument[0], 1] * global.towerUpgradeLevel[argument[0]];
     buildCont.towerObj = global.towers[argument[0], 2];
@@ -26,3 +27,4 @@ if (canProceed) {
     
     scr_state_setBuild();
 }
+

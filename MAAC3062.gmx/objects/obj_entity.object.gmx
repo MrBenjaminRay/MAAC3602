@@ -154,11 +154,15 @@ if (!isJumping &amp;&amp; !isDropping) {
     if (currentJumpSpeed == 0) {
         while (place_meeting(x, y, obj_physicsTile)) {
             if (object_index == obj_drop_energy) {
-                // Push energy drops up
+                // Push energy drops up (they rotate and collide with tiles, so they need a boost)
                 y--;
             } else {
-                // Push everything else down
-                y++;            
+                // Push everything else up as well
+                // This was y++ as of March 10, but it was causing player to push down through
+                // platforms after he jumped once, ultimately killing him underground.
+                // Changing this to y-- appears to solve that issue. TylerM to review in case
+                // this has unwanted consequences. -Ben on March 11 (am)
+                y--;
             }
         }
     }

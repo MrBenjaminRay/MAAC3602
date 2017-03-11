@@ -708,6 +708,7 @@ if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
 if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
     abilD_cooldownCounter += global.deltaTime;
 }
+
 </string>
           </argument>
         </arguments>
