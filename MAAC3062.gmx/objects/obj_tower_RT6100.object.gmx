@@ -113,6 +113,9 @@ roundsFired = 0;
 maxRoundsFired = 50;
 
 isReloading = false;
+reloadingText = false;
+reloadBarX = -16;
+reloadBarY = 200;
 
 continuousFire = false; //used to keep looping firing sound
 </string>
@@ -416,6 +419,57 @@ else if(continuousFire == true){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Reloading Text</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(isReloading == true &amp;&amp; reloadingText == false) {
+    reloadingText = true;
+    instance_create(reloadBarX, reloadBarY, obj_RT6100_ammoText);
+}
+else if(isReloading == false) {
+    if(instance_exists(obj_RT6100_ammoText)) {
+        with(obj_RT6100_ammoText)
+            instance_destroy();
+    }
+    reloadingText = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -511,6 +565,28 @@ else if(continuousFire == true){
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_healthbar(x+reloadBarX, y+reloadBarY, x+reloadBarX+100, y+reloadBarY+10, ((maxRoundsFired - roundsFired)/maxRoundsFired)*100,
+    c_black,c_yellow, c_yellow, 0, true, true);
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="9" enumb="69">

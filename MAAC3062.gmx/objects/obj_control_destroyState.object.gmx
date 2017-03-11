@@ -158,15 +158,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    var intersectedTower = collision_rectangle(mouse_x, mouse_y, mouse_x, mouse_y, obj_tower, false, true);
+            <string>if (global.state == "Paused") {
+    return 0;
+}
 
-    if (intersectedTower != noone) {
-        with (intersectedTower) {
-            draw_sprite_stretched(spr_destroy_overlay, 0, intersectedTower.x, intersectedTower.y, intersectedTower.sprite_width, intersectedTower.sprite_height);
-        }
+var intersectedTower = collision_rectangle(mouse_x, mouse_y, mouse_x, mouse_y, obj_tower, false, true);
+
+if (intersectedTower != noone) {
+    with (intersectedTower) {
+        draw_sprite_stretched(spr_destroy_overlay, 0, intersectedTower.x, intersectedTower.y, intersectedTower.sprite_width, intersectedTower.sprite_height);
     }
 }
+
 </string>
           </argument>
         </arguments>

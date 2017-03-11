@@ -38,6 +38,14 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="UI_HUD">
+      <sprite>sprites\spr_bossItemHUD_mockup</sprite>
+      <sprite>sprites\spr_energyHUD_mockup</sprite>
+      <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
+      <sprite>sprites\spr_mineralsHUD_mockup</sprite>
+      <sprite>sprites\spr_progressHUD_mockup</sprite>
+      <sprite>sprites\spr_hotbar_back</sprite>
+    </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
         <sprite>sprites\spr_messageBoxAnim</sprite>
@@ -47,13 +55,6 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_newMessageAnim</sprite>
-      </sprites>
-      <sprites name="HUD">
-        <sprite>sprites\spr_bossItemHUD_mockup</sprite>
-        <sprite>sprites\spr_energyHUD_mockup</sprite>
-        <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
-        <sprite>sprites\spr_mineralsHUD_mockup</sprite>
-        <sprite>sprites\spr_progressHUD_mockup</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -269,6 +270,7 @@
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
+      <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
@@ -453,6 +455,8 @@
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
+      <object>objects\obj_hud_hotbar</object>
+      <object>objects\obj_hud_hotbar_item</object>
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">
@@ -532,7 +536,6 @@
       <object>objects\obj_hubMockupBG</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
-        <object>objects\obj_messageBoxNew</object>
         <object>objects\obj_levelSelScrn</object>
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
@@ -586,6 +589,7 @@
         <object>objects\obj_tower_destroyed_109CaliBear</object>
         <object>objects\obj_tower_destroyed_fireAnt</object>
         <object>objects\obj_tower_destroyed_RT6100</object>
+        <object>objects\obj_RT6100_ammoText</object>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
