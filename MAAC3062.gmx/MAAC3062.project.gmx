@@ -347,8 +347,9 @@
     <backgrounds name="DesertBackgrounds">
       <background>background\bkg_desert_0</background>
       <background>background\bkg_desert_1</background>
-      <background>background\bkg_desert3</background>
+      <background>background\bkg_desert_tiles</background>
       <background>background\bkg_desert_front</background>
+      <background>background\bkg_desert_2</background>
     </backgrounds>
     <backgrounds name="IceBackground">
       <background>background\bkg_ice_0</background>
