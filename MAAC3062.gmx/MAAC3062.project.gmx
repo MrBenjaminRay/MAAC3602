@@ -229,6 +229,8 @@
         <sprite>sprites\spr_explosion_sparky</sprite>
         <sprite>sprites\spr_explosion_smallhit</sprite>
         <sprite>sprites\spr_explosion_flash</sprite>
+        <sprite>sprites\spr_mushroom_cloud</sprite>
+        <sprite>sprites\spr_blood_and_feather_explosion</sprite>
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
@@ -253,6 +255,10 @@
         <sprite>sprites\spr_Boss_1_eating_tower</sprite>
         <sprite>sprites\spr_Boss_1_walk</sprite>
         <sprite>sprites\spr_MiniBoss_1</sprite>
+        <sprite>sprites\spr_MiniBoss_2</sprite>
+        <sprite>sprites\spr_MiniBoss_2_Projectile</sprite>
+        <sprite>sprites\spr_Boss_2</sprite>
+        <sprite>sprites\spr_tornado</sprite>
       </sprites>
     </sprites>
     <sprites name="Tiles">
@@ -298,6 +304,9 @@
         <sprite>sprites\spr_HeavyEnemy_Snake_Wrap</sprite>
         <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
         <sprite>sprites\spr_Ability3_Fire</sprite>
+        <sprite>sprites\spr_cat_and_dog_paint_fire</sprite>
+        <sprite>sprites\spr_flaming_dog</sprite>
+        <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
     </sprites>
     <sprites name="CutScenes">
