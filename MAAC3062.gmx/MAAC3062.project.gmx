@@ -524,7 +524,6 @@
       <object>objects\obj_hubMockupBG</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
-        <object>objects\obj_messageBoxNew</object>
         <object>objects\obj_levelSelScrn</object>
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
