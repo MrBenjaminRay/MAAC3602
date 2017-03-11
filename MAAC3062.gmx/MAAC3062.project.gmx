@@ -292,6 +292,13 @@
       <sprite>sprites\spr_minerals</sprite>
       <sprite>sprites\spr_exhaust</sprite>
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
+      <sprites name="Abilities">
+        <sprite>sprites\spr_ForceField</sprite>
+        <sprite>sprites\spr_snakeLeft</sprite>
+        <sprite>sprites\spr_HeavyEnemy_Snake_Wrap</sprite>
+        <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
+        <sprite>sprites\spr_Ability3_Fire</sprite>
+      </sprites>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -308,10 +315,14 @@
     <sprites name="Navigation Array">
       <sprite>sprites\spr_cup_holder_old</sprite>
       <sprite>sprites\spr_kindle_new</sprite>
+      <sprite>sprites\spr_kindle_HUGE</sprite>
       <sprite>sprites\spr_batteries_new</sprite>
+      <sprite>sprites\spr_battery_HUGE</sprite>
       <sprite>sprites\spr_etchasketch_old</sprite>
       <sprite>sprites\spr_fridge_new</sprite>
+      <sprite>sprites\spr_Fridge_HUGE</sprite>
       <sprite>sprites\spr_rabbit_ear_new</sprite>
+      <sprite>sprites\spr_RabbitEarHUGE</sprite>
       <sprite>sprites\spr_rabbit_ear_old</sprite>
       <sprite>sprites\spr_fridge_old</sprite>
       <sprite>sprites\spr_array_old</sprite>
@@ -338,8 +349,9 @@
     <backgrounds name="DesertBackgrounds">
       <background>background\bkg_desert_0</background>
       <background>background\bkg_desert_1</background>
-      <background>background\bkg_desert3</background>
+      <background>background\bkg_desert_tiles</background>
       <background>background\bkg_desert_front</background>
+      <background>background\bkg_desert_2</background>
     </backgrounds>
     <backgrounds name="IceBackground">
       <background>background\bkg_ice_0</background>
