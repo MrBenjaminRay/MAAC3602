@@ -187,6 +187,14 @@
         <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
         <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
+        <sprites name="TowerUpgrades">
+          <sprite>sprites\spr_6100_Upgrade</sprite>
+          <sprite>sprites\spr_rifle_Upgrade</sprite>
+          <sprite>sprites\spr_basic_Upgrade</sprite>
+          <sprite>sprites\spr_flame_Upgrade</sprite>
+          <sprite>sprites\spr_mortar_Upgrade</sprite>
+          <sprite>sprites\spr_slow_Upgrade</sprite>
+        </sprites>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
@@ -243,6 +251,7 @@
         <sprite>sprites\spr_weapon_slow</sprite>
         <sprite>sprites\spr_weapon_rifle</sprite>
         <sprite>sprites\spr_weapon_flamethrower</sprite>
+        <sprite>sprites\spr_cocoon</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
       <sprites name="Drops">
@@ -252,6 +261,10 @@
         <sprite>sprites\spr_raw_material_drop2</sprite>
         <sprite>sprites\spr_raw_material_drop3</sprite>
         <sprite>sprites\spr_raw_material_drop4</sprite>
+        <sprite>sprites\spr_ability_drop_1</sprite>
+        <sprite>sprites\spr_ability_drop_2</sprite>
+        <sprite>sprites\spr_ability_drop_3</sprite>
+        <sprite>sprites\spr_ability_drop_4</sprite>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss_1_crouching</sprite>
@@ -730,6 +743,7 @@
     <room>rooms\rm_tut2</room>
     <room>rooms\rm_level_ice</room>
     <room>rooms\rm_level_underwater</room>
+    <room>rooms\rm_bentest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
