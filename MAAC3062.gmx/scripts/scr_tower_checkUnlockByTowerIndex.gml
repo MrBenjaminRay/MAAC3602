@@ -7,7 +7,7 @@ if (argument[0] == 0) {
 } else if (argument[0] == 3) {
     return global.CalibearUnlock;
 } else if (argument[0] == 4) {
-    return global.fireAntUnlockCost;
+    return global.fireAntUnlock;
 } else if (argument[0] == 5) {
     return global.RT6100Unlock;
 }

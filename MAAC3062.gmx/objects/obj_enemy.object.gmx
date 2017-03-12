@@ -343,7 +343,7 @@ if (nearestMiner != noone) {
 
 if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
     movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
-    
+
     if (movementDirection == "LEFT") {
         scr_entity_moveLeft();
     }
@@ -352,6 +352,7 @@ if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
         scr_entity_moveRight();
     }
 }
+
 </string>
           </argument>
         </arguments>

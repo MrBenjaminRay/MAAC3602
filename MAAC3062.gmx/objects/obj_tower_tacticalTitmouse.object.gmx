@@ -173,6 +173,21 @@ if (attackRateCounter &gt;= attackRate) {
         var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
         weaponObj.image_angle = enemyDirection;
 
+
+//        var enemyDistX = enemyX - x;
+//        var enemyDistY = -(enemyY - y);
+//        var g = 9.81; // Gravity - replace this with something better later
+//        var v = 50; // Velocity - replace this with something better later
+
+//        var inner = power(v, 4) - g * ( g * power(enemyDistX,2) + 2*enemyDistY*power(v,2) );
+//        show_debug_message(inner);
+        
+//        var launchAngleInner = power(v,2) + sqrt( inner ) / g * enemyDistX
+//        show_debug_message(launchAngleInner);
+        
+//        var launchAngle = arctan( launchAngleInner );
+//        show_debug_message(launchAngle);
+        
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
