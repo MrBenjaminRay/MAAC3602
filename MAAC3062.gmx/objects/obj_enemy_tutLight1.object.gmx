@@ -244,8 +244,8 @@
             <string>// To keep enemies standing still, set this:
 movementDirection = "NONE";
 
-// When you want the enemy to start moving left, set this:
-//movementDirection = "LEFT";
+if(global.tutorial_part2)
+    movementDirection = "LEFT";
 
 // Movement is handled in obj_enemy_ground step code (this inherits from obj_enemy_ground_light)
 

@@ -364,7 +364,7 @@ alarm[0] = shieldRegenInterval;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.part3)
+            <string>if(global.tutorial_part3 &amp;&amp; room == rm_tut1)
    exit;
 </string>
           </argument>
@@ -1032,11 +1032,18 @@ if (global.plrAbilityAttained[1]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.part1){
-    global.part1 = false;
-    global.part2 = true;
+            <string>if(global.tutorial_part1){
+    global.tutorial_part1 = false;
+    global.tutorial_part2 = true;
+    with(obj_messageBox){
+        instance_destroy();
+    }
+    var tutorialBox2 = instance_create(512, 608, obj_messageBox);
+    ds_list_add(tutorialBox2.list_text, "There may be too many enemies");
+    ds_list_add(tutorialBox2.list_text, "for you. Try building a tower!");
+    ds_list_add(tutorialBox2.list_text, "(Press 1)");
 }
-    
+
 </string>
           </argument>
         </arguments>

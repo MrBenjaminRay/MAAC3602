@@ -130,8 +130,13 @@
         }
     
         with (intersectedTower) {
+            global.tutorial_part3 = false;
+            with(obj_messageBox){
+                instance_destroy();
+            }
+            var tutorialBox4 = instance_create(512, 608, obj_messageBox);
+            ds_list_add(tutorialBox4.list_text, "Great! Now continue going right to your ship."); 
             instance_destroy();
-            global.part3 = false;
         }
         
         scr_state_setNormal();
