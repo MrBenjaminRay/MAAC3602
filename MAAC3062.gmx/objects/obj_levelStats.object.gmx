@@ -25,12 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.navPieceAttained[0] = false; // Whether or not the player has attained the first nav piece.
-global.navPieceAttained[1] = false; // Whether or not the player has attained the second nav piece.
+            <string>global.navPieceAttained[0] = true; // Whether or not the player has attained the first nav piece.
+global.navPieceAttained[1] = true; // Whether or not the player has attained the second nav piece.
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
 global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
 
-global.plrAbilityAttained[0] = false; // Whether or not the player has attained the first ability.
+global.plrAbilityAttained[0] = true; // Whether or not the player has attained the first ability.
 global.plrAbilityAttained[1] = false; // Whether or not the player has attained the second ability.
 global.plrAbilityAttained[2] = false; // Whether or not the player has attained the third ability.
 global.plrAbilityAttained[3] = false; // Whether or not the player has attained the fourth ability.
