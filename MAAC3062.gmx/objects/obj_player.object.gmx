@@ -604,7 +604,7 @@ if (mouse_check_button(mb_left)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Code for holding "X' key</string>
+            <string>Code for holding "X' key to leave level</string>
           </argument>
         </arguments>
       </action>
@@ -634,20 +634,34 @@ else {
 if(xKeyHeld = 1)
     xKeyHeldCounter++;
 if(xKeyHeldCounter == 90) {
-    if(global.fuel &gt;= 100) {
-        global.currentLevelComplete = 1;
-        switch(room) {
-            case rm_level_moon:
-                global.moonLevelComplete = 1;
-                break;
-            case rm_level_forest:
-                global.forestLevelComplete = 1;
-                break;
-            case rm_level_desert:
-                global.desertLevelComplete = 1;
-                break;
+    if (global.state == "Paused") {
+        return 0;
+    }
+        
+    if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
+        if(global.energy &gt;= global.maxFuel) {
+            scr_energy_change(global.maxFuel*-1);
+            scr_fuel_change(100);
+            global.currentLevelComplete = 1;
+            
+            switch(room) {
+                case rm_level_moon:
+                    global.moonLevelComplete = 1;
+                    break;
+                case rm_level_forest:
+                    global.forestLevelComplete = 1;
+                    break;
+                case rm_level_desert:
+                    global.desertLevelComplete = 1;
+                    break;
+                case rm_level_ice:
+                    global.iceLevelComplete = 1;
+                    break;
+                case rm_level_underwater:
+                    global.waterLevelComplete = 1;
+                    break;
+            }
         }
-        instance_destroy();
     }
 }
 
@@ -811,30 +825,37 @@ if (global.plrAbilityAttained[0]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == "Paused") {
+            <string>/*
+if (global.state == "Paused") {
     return 0;
 }
 
 if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
-    if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
-        scr_energy_change(-50);
+    if(global.energy &gt;= global.maxFuel) {
+        scr_energy_change(global.maxFuel*-1);
+        scr_fuel_change(100);
+        global.currentLevelComplete = 1;
+        
         switch(room) {
             case rm_level_moon:
-                scr_fuel_change(5);
+                global.moonLevelComplete = 1;
                 break;
             case rm_level_forest:
-                scr_fuel_change(4);
+                global.forestLevelComplete = 1;
                 break;
             case rm_level_desert:
-                scr_fuel_change(2.5);
+                global.desertLevelComplete = 1;
                 break;
-            default: //rooms such as the test room
-                scr_fuel_change(5);
+            case rm_level_ice:
+                global.iceLevelComplete = 1;
+                break;
+            case rm_level_underwater:
+                global.waterLevelComplete = 1;
                 break;
         }
     }
 }
-    
+*/    
 </string>
           </argument>
         </arguments>

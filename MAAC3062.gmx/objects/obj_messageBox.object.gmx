@@ -81,7 +81,7 @@ if (is_undefined(ship) || ship == noone) {
 // away.
 var dist = point_distance(player.x, player.y, ship.x, ship.y);
 
-if (dist &gt;= global.messageDistance + 16) {
+if (dist &gt; global.messageDistance) {
     instance_destroy();
 }
 
