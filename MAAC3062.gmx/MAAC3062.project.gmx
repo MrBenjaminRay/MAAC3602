@@ -407,6 +407,7 @@
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
+        <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
@@ -699,6 +700,7 @@
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
         <object>objects\obj_explosion_titmouse</object>
+        <object>objects\obj_explosion_nuke</object>
         <object>objects\obj_explosion_normal</object>
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
