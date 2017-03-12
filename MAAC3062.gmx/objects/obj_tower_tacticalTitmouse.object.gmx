@@ -177,10 +177,12 @@ if (attackRateCounter &gt;= attackRate) {
         var angleDeg = radtodeg(angleRad);
         
         if (angleRad == noone) {
-            show_debug_message('No valid ballistic path to this projectile.');
+            show_debug_message('No valid ballistic path from titmouse cannon to selected target.');
             // Should probably try a different enemy at this point instead of missing a turn to shoot
         } else {
-            show_debug_message('Angle selected: ' + string(angleRad) + '(' + string(angleDeg) + ' deg)');
+            //show_debug_message('Angle selected: ' + string(angleRad) + '(' + string(angleDeg) + ' deg)');
+            
+            // Rotate the cannon to point towards the launch angle
             weaponObj.image_angle = angleDeg;
             // Spawn projectile
             var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
