@@ -131,6 +131,7 @@
     
         with (intersectedTower) {
             instance_destroy();
+            global.part3 = false;
         }
         
         scr_state_setNormal();
