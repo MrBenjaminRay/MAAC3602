@@ -131,7 +131,7 @@ picksForLevel_3 = 500; // Total # of pickCount to get to level 3 (since level st
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_msg_minerKilled(x - 220, y - 230);
+            <string>//scr_msg_minerKilled(x - 220, y - 230);
 
 // Spawn a dying miner
 instance_create(x, y, obj_miner_dying);

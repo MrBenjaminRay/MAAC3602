@@ -288,6 +288,7 @@
       <sprite>sprites\spr_dummy_levelStats</sprite>
       <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
+      <sprite>sprites\spr_dummy_target</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_cntrl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
@@ -585,8 +586,8 @@
           <object>objects\obj_enemy_ground_spider_large</object>
         </objects>
         <objects name="Tutorial Enemies">
-          <object>objects\obj_tutLight1</object>
-          <object>objects\obj_tutLight2</object>
+          <object>objects\obj_enemy_tutLight1</object>
+          <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
           <objects name="Mini">
@@ -724,6 +725,7 @@
       </objects>
     </objects>
     <object>objects\obj_camera</object>
+    <object>objects\obj_dummy_target</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
