@@ -15,6 +15,9 @@
       <sound>sound\snd_M6100_loop</sound>
       <sound>sound\snd_M6100_end</sound>
     </sounds>
+    <sounds name="Projectiles">
+      <sound>sound\snd_titmouse_chirp</sound>
+    </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
       <sound>sound\snd_playerHit</sound>

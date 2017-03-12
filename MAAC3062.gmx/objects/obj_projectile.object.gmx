@@ -155,7 +155,11 @@ switch (object_index) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (isEnemyProjectile == false) {
+            <string>if (object_index == obj_projectile_titmouse) {
+    return 0;
+}
+
+if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
     
