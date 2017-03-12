@@ -103,7 +103,7 @@
         var towerHealthPct = intersectedTower.currHealth/intersectedTower.maxHealth;
     
         switch (intersectedTower.object_index) {
-            case obj_tower_basic: {
+            case obj_tower_caterpillager: {
                 scr_energy_change(((global.towers[0, 1] * global.towerUpgradeLevel[0]) * towerHealthPct) * costRecoveryPercentage);
                 break;
             }
@@ -131,6 +131,7 @@
     
         with (intersectedTower) {
             instance_destroy();
+            global.part3 = false;
         }
         
         scr_state_setNormal();

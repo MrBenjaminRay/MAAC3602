@@ -44,7 +44,9 @@
       <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
       <sprite>sprites\spr_mineralsHUD_mockup</sprite>
       <sprite>sprites\spr_progressHUD_mockup</sprite>
-      <sprite>sprites\spr_hotbar_back</sprite>
+      <sprite>sprites\spr_hotbar_item_back</sprite>
+      <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
+      <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
@@ -172,7 +174,7 @@
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
-        <sprite>sprites\spr_tower_basic</sprite>
+        <sprite>sprites\spr_tower_caterpillager</sprite>
         <sprite>sprites\spr_tower_slothOnRope</sprite>
         <sprite>sprites\spr_tower_tacticalTitmouse</sprite>
         <sprite>sprites\spr_tower_109CaliBear</sprite>
@@ -185,6 +187,14 @@
         <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
         <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
+        <sprites name="TowerUpgrades">
+          <sprite>sprites\spr_6100_Upgrade</sprite>
+          <sprite>sprites\spr_rifle_Upgrade</sprite>
+          <sprite>sprites\spr_basic_Upgrade</sprite>
+          <sprite>sprites\spr_flame_Upgrade</sprite>
+          <sprite>sprites\spr_mortar_Upgrade</sprite>
+          <sprite>sprites\spr_slow_Upgrade</sprite>
+        </sprites>
       </sprites>
       <sprites name="Projectile">
         <sprite>sprites\spr_projectile</sprite>
@@ -241,6 +251,7 @@
         <sprite>sprites\spr_weapon_slow</sprite>
         <sprite>sprites\spr_weapon_rifle</sprite>
         <sprite>sprites\spr_weapon_flamethrower</sprite>
+        <sprite>sprites\spr_cocoon</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
       <sprites name="Drops">
@@ -250,6 +261,10 @@
         <sprite>sprites\spr_raw_material_drop2</sprite>
         <sprite>sprites\spr_raw_material_drop3</sprite>
         <sprite>sprites\spr_raw_material_drop4</sprite>
+        <sprite>sprites\spr_ability_drop_1</sprite>
+        <sprite>sprites\spr_ability_drop_2</sprite>
+        <sprite>sprites\spr_ability_drop_3</sprite>
+        <sprite>sprites\spr_ability_drop_4</sprite>
       </sprites>
       <sprites name="Bosses">
         <sprite>sprites\spr_Boss_1_crouching</sprite>
@@ -270,9 +285,11 @@
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
+      <sprite>sprites\spr_dummy_levelStats</sprite>
       <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
+      <sprite>sprites\spr_dummy_cntrl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
@@ -310,6 +327,7 @@
         <sprite>sprites\spr_flaming_dog</sprite>
         <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
+      <sprite>sprites\spr_ship_arrow</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -387,6 +405,7 @@
       <script>scripts\scr_spawnBoss.gml</script>
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
+        <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
@@ -445,6 +464,7 @@
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
     <font>fonts\fnt_hud_mineralEnergyLevels</font>
+    <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
   </fonts>
@@ -577,7 +597,7 @@
       <objects name="Tower">
         <object>objects\obj_tower</object>
         <object>objects\obj_destroyedTower</object>
-        <object>objects\obj_tower_basic</object>
+        <object>objects\obj_tower_caterpillager</object>
         <object>objects\obj_tower_slothOnRope</object>
         <object>objects\obj_tower_tacticalTitmouse</object>
         <object>objects\obj_tower_109CaliBear</object>
@@ -611,12 +631,6 @@
       <objects name="Miner">
         <object>objects\obj_miner</object>
         <object>objects\obj_miner_dying</object>
-      </objects>
-      <objects name="Explosions">
-        <object>objects\obj_explosion_normal</object>
-        <object>objects\obj_explosion_sparky</object>
-        <object>objects\obj_explosion_smallhit</object>
-        <object>objects\obj_explosion_flash</object>
       </objects>
       <objects name="Weapon">
         <object>objects\obj_weapon_ranged</object>
@@ -684,6 +698,10 @@
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
         <object>objects\obj_explosion_titmouse</object>
+        <object>objects\obj_explosion_normal</object>
+        <object>objects\obj_explosion_sparky</object>
+        <object>objects\obj_explosion_smallhit</object>
+        <object>objects\obj_explosion_flash</object>
       </objects>
       <objects name="Particles">
         <object>objects\obj_particle</object>
@@ -726,6 +744,7 @@
     <room>rooms\rm_tut2</room>
     <room>rooms\rm_level_ice</room>
     <room>rooms\rm_level_underwater</room>
+    <room>rooms\rm_bentest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
