@@ -288,6 +288,7 @@
       <sprite>sprites\spr_dummy_levelStats</sprite>
       <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
+      <sprite>sprites\spr_dummy_target</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_cntrl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
@@ -327,6 +328,7 @@
         <sprite>sprites\spr_flaming_dog</sprite>
         <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
+      <sprite>sprites\spr_ship_arrow</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -405,6 +407,7 @@
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
+        <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
@@ -584,8 +587,8 @@
           <object>objects\obj_enemy_ground_spider_large</object>
         </objects>
         <objects name="Tutorial Enemies">
-          <object>objects\obj_tutLight1</object>
-          <object>objects\obj_tutLight2</object>
+          <object>objects\obj_enemy_tutLight1</object>
+          <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
           <objects name="Mini">
@@ -697,6 +700,7 @@
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
         <object>objects\obj_explosion_titmouse</object>
+        <object>objects\obj_explosion_nuke</object>
         <object>objects\obj_explosion_normal</object>
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
@@ -723,6 +727,7 @@
       </objects>
     </objects>
     <object>objects\obj_camera</object>
+    <object>objects\obj_dummy_target</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
@@ -740,9 +745,9 @@
     <room>rooms\rm_credits2</room>
     <room>rooms\rm_credits3</room>
     <room>rooms\rm_tut1</room>
-    <room>rooms\rm_tut2</room>
     <room>rooms\rm_level_ice</room>
     <room>rooms\rm_level_underwater</room>
+    <room>rooms\rm_bentest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

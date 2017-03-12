@@ -115,7 +115,7 @@ maxRoundsFired = 50;
 isReloading = false;
 reloadingText = false;
 reloadBarX = -16;
-reloadBarY = 200;
+reloadBarY = 150;
 
 continuousFire = false; //used to keep looping firing sound
 </string>
@@ -435,7 +435,7 @@ else if(continuousFire == true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Reloading Text</string>
+            <string>Reload Text</string>
           </argument>
         </arguments>
       </action>
@@ -522,7 +522,7 @@ else if(isReloading == false) {
         <arguments>
           <argument>
             <kind>5</kind>
-            <sprite>spr_player</sprite>
+            <sprite>-100</sprite>
           </argument>
           <argument>
             <kind>0</kind>

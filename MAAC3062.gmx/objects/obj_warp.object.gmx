@@ -25,12 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.canWarp == true){
-    global.canWarp = false;
-    obj_player.x = warpx;
+            <string>    obj_player.x = warpx;
     obj_player.y = warpy;
     room_goto(target_room);
-}
+
 
 </string>
           </argument>

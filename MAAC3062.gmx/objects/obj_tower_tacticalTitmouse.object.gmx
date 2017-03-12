@@ -160,19 +160,52 @@ if (attackRateCounter &gt;= attackRate) {
     var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground, attackRange_min);
     
     if (nearestEnemy != noone) {
+    
+        // For this rough calculation, we use a central point on the tower where the weapon is mounted.
+        // Can't use the end of the weapon as the weapon angle is not yet known.
+        var sourceX = x + weaponXOffset;
+        var sourceY = y + weaponYOffset;
+        
+        var angleRad = scr_tower_calcBallisticFiringAngle(sourceX, sourceY, nearestEnemy.x, nearestEnemy.y, 5, .05);
+        //var angleRad = scr_tower_calcBallisticFiringAngle(sourceX, sourceY, mouse_x, mouse_y, 5, .1);
+        var angleDeg = radtodeg(angleRad);
+        
+        if (angleRad == noone) {
+            show_debug_message('No valid ballistic path to this projectile.');
+            // Should probably try a different enemy at this point instead of missing a turn to shoot
+        } else {
+            show_debug_message('Angle selected: ' + string(angleRad) + '(' + string(angleDeg) + ' deg)');
+            weaponObj.image_angle = angleDeg;
+            // Spawn projectile
+            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            var proj = instance_create(projX, projY, obj_projectile_titmouse);
+            proj.direction = angleDeg;
+            proj.speed = 5;
+            proj.gravity = .05;
+        }
+        
+        // Rotate the cannon to point at the angle required to hit the enemy
+        //var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+        //var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+        //var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
 
-        // Temporarily blow the enemy up to make sure we've got some decent enemy selection happening here.
-        //with (nearestEnemy) {
-        //    instance_destroy();
-        //    return 0;
-        //}
+        return 0;
+        
+//        var enemyDistX = enemyX - x;
+//        var enemyDistY = -(enemyY - y);
+//        var g = 9.81; // Gravity - replace this with something better later
+//        var v = 50; // Velocity - replace this with something better later
 
-        // Rotate the cannon to point towards the enemy:
-        var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
-        var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-        var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
-        weaponObj.image_angle = enemyDirection;
-
+//        var inner = power(v, 4) - g * ( g * power(enemyDistX,2) + 2*enemyDistY*power(v,2) );
+//        show_debug_message(inner);
+        
+//        var launchAngleInner = power(v,2) + sqrt( inner ) / g * enemyDistX
+//        show_debug_message(launchAngleInner);
+        
+//        var launchAngle = arctan( launchAngleInner );
+//        show_debug_message(launchAngle);
+        
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));

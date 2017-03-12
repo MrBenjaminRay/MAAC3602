@@ -344,6 +344,48 @@ alarm[0] = shieldRegenInterval;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>Tutorial Check</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.tutorial_part3 &amp;&amp; room == rm_tut1)
+   exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>Movement</string>
           </argument>
         </arguments>
@@ -562,7 +604,7 @@ if (mouse_check_button(mb_left)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Code for holding "X' key</string>
+            <string>Code for holding "X' key to leave level</string>
           </argument>
         </arguments>
       </action>
@@ -592,20 +634,34 @@ else {
 if(xKeyHeld = 1)
     xKeyHeldCounter++;
 if(xKeyHeldCounter == 90) {
-    if(global.fuel &gt;= 100) {
-        global.currentLevelComplete = 1;
-        switch(room) {
-            case rm_level_moon:
-                global.moonLevelComplete = 1;
-                break;
-            case rm_level_forest:
-                global.forestLevelComplete = 1;
-                break;
-            case rm_level_desert:
-                global.desertLevelComplete = 1;
-                break;
+    if (global.state == "Paused") {
+        return 0;
+    }
+        
+    if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
+        if(global.energy &gt;= global.maxFuel) {
+            scr_energy_change(global.maxFuel*-1);
+            scr_fuel_change(100);
+            global.currentLevelComplete = 1;
+            
+            switch(room) {
+                case rm_level_moon:
+                    global.moonLevelComplete = 1;
+                    break;
+                case rm_level_forest:
+                    global.forestLevelComplete = 1;
+                    break;
+                case rm_level_desert:
+                    global.desertLevelComplete = 1;
+                    break;
+                case rm_level_ice:
+                    global.iceLevelComplete = 1;
+                    break;
+                case rm_level_underwater:
+                    global.waterLevelComplete = 1;
+                    break;
+            }
         }
-        instance_destroy();
     }
 }
 
@@ -769,30 +825,37 @@ if (global.plrAbilityAttained[0]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == "Paused") {
+            <string>/*
+if (global.state == "Paused") {
     return 0;
 }
 
 if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
-    if(global.energy &gt;= 50 &amp;&amp; global.fuel &lt; 100) {
-        scr_energy_change(-50);
+    if(global.energy &gt;= global.maxFuel) {
+        scr_energy_change(global.maxFuel*-1);
+        scr_fuel_change(100);
+        global.currentLevelComplete = 1;
+        
         switch(room) {
             case rm_level_moon:
-                scr_fuel_change(5);
+                global.moonLevelComplete = 1;
                 break;
             case rm_level_forest:
-                scr_fuel_change(4);
+                global.forestLevelComplete = 1;
                 break;
             case rm_level_desert:
-                scr_fuel_change(2.5);
+                global.desertLevelComplete = 1;
                 break;
-            default: //rooms such as the test room
-                scr_fuel_change(5);
+            case rm_level_ice:
+                global.iceLevelComplete = 1;
+                break;
+            case rm_level_underwater:
+                global.waterLevelComplete = 1;
                 break;
         }
     }
 }
-    
+*/    
 </string>
           </argument>
         </arguments>
@@ -948,6 +1011,60 @@ if (global.plrAbilityAttained[1]) {
     // Allow tower to fire:
     obj_tower_RT6100.alarm[2] = room_speed;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Tutorial Trigger</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.tutorial_part1){
+    global.tutorial_part1 = false;
+    global.tutorial_part2 = true;
+    with(obj_messageBox){
+        instance_destroy();
+    }
+    var tutorialBox2 = instance_create(512, 608, obj_messageBox);
+    ds_list_add(tutorialBox2.list_text, "There may be too many enemies");
+    ds_list_add(tutorialBox2.list_text, "for you. Try building a tower!");
+    ds_list_add(tutorialBox2.list_text, "(Press 1)");
+}
+
 </string>
           </argument>
         </arguments>

@@ -59,6 +59,19 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
 }
+
+if(global.tutorial_part2){
+    global.tutorial_part2 = false;
+    global.tutorial_part3 = true;
+    with(obj_messageBox){
+       instance_destroy();
+    }
+    var tutorialBox3 = instance_create(512, 608, obj_messageBox);
+    ds_list_add(tutorialBox3.list_text, "You might need some of those");
+    ds_list_add(tutorialBox3.list_text, "resources later. Sell the tower"); 
+    ds_list_add(tutorialBox3.list_text, "(Press 0) and you will get some of");
+    ds_list_add(tutorialBox3.list_text, "the energy back.");   
+}
 </string>
           </argument>
         </arguments>
