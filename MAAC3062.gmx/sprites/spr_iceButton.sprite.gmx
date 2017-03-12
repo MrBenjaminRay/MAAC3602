@@ -7,22 +7,19 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>27</bbox_left>
-  <bbox_right>229</bbox_right>
-  <bbox_top>27</bbox_top>
-  <bbox_bottom>230</bbox_bottom>
+  <bbox_left>12</bbox_left>
+  <bbox_right>115</bbox_right>
+  <bbox_top>15</bbox_top>
+  <bbox_bottom>115</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>256</width>
-  <height>256</height>
+  <width>128</width>
+  <height>128</height>
   <frames>
     <frame index="0">images\spr_iceButton_0.png</frame>
-    <frame index="1">images\spr_iceButton_1.png</frame>
-    <frame index="2">images\spr_iceButton_2.png</frame>
-    <frame index="3">images\spr_iceButton_3.png</frame>
   </frames>
 </sprite>
