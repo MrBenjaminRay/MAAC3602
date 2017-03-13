@@ -523,7 +523,7 @@ if (mouse_check_button(mb_left)) {
             var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
             var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
-            var projectile = instance_create(projX, projY, obj_projectile_catapillager);
+            var projectile = instance_create(projX, projY, obj_projectile_player);
             projectile.xDest = mouse_x;
             projectile.yDest = mouse_y;
             projectile.damage = attackDamage;
