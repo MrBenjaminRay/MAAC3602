@@ -248,6 +248,7 @@
         <sprite>sprites\spr_explosion_sparky</sprite>
         <sprite>sprites\spr_explosion_smallhit</sprite>
         <sprite>sprites\spr_explosion_flash</sprite>
+        <sprite>sprites\spr_explosion_flash_short</sprite>
         <sprite>sprites\spr_mushroom_cloud</sprite>
         <sprite>sprites\spr_blood_and_feather_explosion</sprite>
       </sprites>
@@ -724,6 +725,8 @@
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
         <object>objects\obj_explosion_flash</object>
+        <object>objects\obj_explosion_med</object>
+        <object>objects\obj_explosion_small</object>
       </objects>
       <objects name="Particles">
         <object>objects\obj_particle</object>
