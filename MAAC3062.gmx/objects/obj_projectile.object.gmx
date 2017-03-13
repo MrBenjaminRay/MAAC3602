@@ -49,6 +49,8 @@
 movementSpeed = 6;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
+
+smokeTrail = noone;         // Keep reference to smoke trail (if one is added)
 </string>
           </argument>
         </arguments>
@@ -155,7 +157,7 @@ switch (object_index) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Collision for titmouse &amp; sloth handled in their respective objects
+            <string>// Titmouse &amp; sloth enemy collisions handled in their respective objects
 if (object_index == obj_projectile_titmouse || object_index == obj_projectile_sloth) {
     return 0;
 }

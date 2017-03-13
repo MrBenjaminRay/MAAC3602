@@ -414,6 +414,9 @@
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
+        <script>scripts\scr_sloth_startFall.gml</script>
+        <script>scripts\scr_sloth_startSwing.gml</script>
+        <script>scripts\scr_sloth_startHug.gml</script>
       </scripts>
       <scripts name="Movement">
         <scripts name="Checks">
@@ -421,10 +424,10 @@
           <script>scripts\scr_entity_canJump.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
-        <script>scripts\scr_entity_drop.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
         <script>scripts\scr_entity_moveLeft.gml</script>
         <script>scripts\scr_entity_moveRight.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
       </scripts>
     </scripts>
     <scripts name="States">

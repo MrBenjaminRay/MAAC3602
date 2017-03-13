@@ -104,6 +104,14 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
             <string>audio_stop_sound(snd_superFreezer_beam);
 instance_create(x, y, obj_tower_destroyed_slothOnRope);
 scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
+
+// Destoy sloth if exists
+if (instance_exists(slothObj)) {
+    with (slothObj) {
+        instance_destroy();
+    }
+}
+
 </string>
           </argument>
         </arguments>
@@ -150,7 +158,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-if (slothObj == noone || !instance_exists(slothObj)) {
+if (!instance_exists(slothObj)) {
     // Sloth not already deployed, so we can create &amp; launch one
 
     var nearestEnemy_any = scr_tower_getNearestNonFrozenEnemy(attackRange, obj_enemy);
@@ -178,10 +186,14 @@ if (slothObj == noone || !instance_exists(slothObj)) {
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         var proj = instance_create(projX, projY, obj_projectile_sloth);
         
+        proj.ropeMaxLength = attackRange;
+        proj.targetEnemy = nearestEnemy;
         proj.direction = enemyDirection;
         proj.isEnemyProjectile = false;
         proj.xDest = enemyX;
         proj.yDest = enemyY;
+        proj.xHome = x + weaponXOffset; // Set retraction destination x &amp; y coordinate (cannon mount point on gun)
+        proj.yHome = y + weaponYOffset;
         with (proj) {
             speed = flightSpeed;
             gravity = flightGravity;    
