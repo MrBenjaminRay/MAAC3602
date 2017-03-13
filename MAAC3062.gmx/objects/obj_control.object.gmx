@@ -68,10 +68,10 @@ global.maxFuel = 0; // At the beginning of each level, this value is set to the 
 global.currentLevelComplete = 0; // used to make sure that player doesn't lose level
                                  // because of death during the level complete
                                  // animation/sequence
-global.moonLevelComplete = 0;
-global.forestLevelComplete = 0;
-global.desertLevelComplete = 0;
-global.iceLevelComplete = 0;
+global.moonLevelComplete = 1;
+global.forestLevelComplete = 1;
+global.desertLevelComplete = 1;
+global.iceLevelComplete = 1;
 global.waterLevelComplete = 0;
 
 // Tower and ability is unlocked
