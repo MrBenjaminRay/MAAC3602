@@ -94,7 +94,7 @@ attackRange = global.towers[5, 4] * global.towerUpgradeLevel[5];
 
 weaponXOffset = global.towers[5, 5];
 weaponYOffset = global.towers[5, 6];
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_ranged);
+weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_m6100);
 
 currShield = 800;
 currHealth = 100;
