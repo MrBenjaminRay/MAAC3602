@@ -891,6 +891,26 @@ if (isJumping == false) {
     <event eventtype="9" enumb="86">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 4 - Cats &amp; Dogs</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -908,6 +928,8 @@ if (isJumping == false) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+// Ability - Cats &amp; Dogs
 
 if (global.plrAbilityAttained[3]) {
     if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
@@ -936,6 +958,26 @@ if (global.plrAbilityAttained[3]) {
     <event eventtype="9" enumb="70">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 2 - Snakes</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -953,6 +995,8 @@ if (global.plrAbilityAttained[3]) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+// Ability - Snakes
 
 // Determine Proper Cooldown Time:
 if (global.plrAbilityUpgraded[1]) {
@@ -986,6 +1030,26 @@ if (global.plrAbilityAttained[1]) {
       </action>
     </event>
     <event eventtype="9" enumb="69">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Mount/Dismount RT-6100</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1071,6 +1135,26 @@ if (global.plrAbilityAttained[1]) {
     <event eventtype="9" enumb="67">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 3 - Extreme Blaster</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -1088,6 +1172,8 @@ if (global.plrAbilityAttained[1]) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+// Ability - Extreme Blaster
 
 // Determine Proper Cooldown Time:
 if (global.plrAbilityUpgraded[2]) {
@@ -1117,6 +1203,26 @@ if (global.plrAbilityAttained[2]) {
       </action>
     </event>
     <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 1 - ForceField Pulse</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
