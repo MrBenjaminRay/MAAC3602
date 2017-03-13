@@ -60,6 +60,9 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_newMessageAnim</sprite>
+        <sprite>sprites\spr_toolTipBox_minerals</sprite>
+        <sprite>sprites\spr_toolTipBox_energy</sprite>
+        <sprite>sprites\spr_toolTipBox_bossItem</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -105,6 +108,8 @@
         <sprite>sprites\spr_towerHeading</sprite>
         <sprite>sprites\spr_abilitiesHeading</sprite>
         <sprite>sprites\spr_table</sprite>
+        <sprite>sprites\spr_bossIncomplete</sprite>
+        <sprite>sprites\spr_bossComplete</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -502,6 +507,7 @@
           <object>objects\obj_selectDest</object>
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
+          <object>objects\obj_bossComplete</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
@@ -568,6 +574,8 @@
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
         <object>objects\obj_weaponBox</object>
+        <object>objects\obj_toolTipBox</object>
+        <object>objects\obj_toolTipBox_minerals</object>
       </objects>
     </objects>
     <objects name="Entities">

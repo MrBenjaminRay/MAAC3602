@@ -59,7 +59,12 @@ textColor_foreground = c_white;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Get nearest player and ship objects:
+            <string>if(global.distanceFromShipToPlayer &gt;= global.messageDistance)
+    instance_destroy();
+
+
+/*
+// Get nearest player and ship objects:
 var player = instance_nearest(x, y, obj_player);
 var ship = instance_nearest(x, y, obj_ship);
 
@@ -84,7 +89,7 @@ var dist = point_distance(player.x, player.y, ship.x, ship.y);
 if (dist &gt; global.messageDistance) {
     instance_destroy();
 }
-
+*/
 
 
 
