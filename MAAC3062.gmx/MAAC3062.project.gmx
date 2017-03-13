@@ -583,6 +583,8 @@
       <object>objects\obj_snake</object>
       <objects name="Player">
         <object>objects\obj_player</object>
+        <object>objects\obj_player_death</object>
+        <object>objects\obj_player_deadBody</object>
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
