@@ -609,6 +609,7 @@
         <objects name="Bosses">
           <objects name="Mini">
             <object>objects\obj_enemy_boss_mini_A</object>
+            <object>objects\obj_enemy_boss_mini_B</object>
           </objects>
         </objects>
       </objects>
