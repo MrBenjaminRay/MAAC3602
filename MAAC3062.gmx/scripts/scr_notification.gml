@@ -15,8 +15,9 @@ var canProceed = is_undefined(argument[0]) == false;
 canProceed = is_undefined(argument[1]) == false;
 canProceed = is_undefined(argument[2]) == false;
 
-if(canProceed) {
-
+for (var i = 0 ; i < instance_number(obj_messageText) ; i++) {
+    var tmp = instance_find(obj_messageText, i);
+    canProceed &= tmp.text != argument[0];
 }
  
 if (canProceed) {

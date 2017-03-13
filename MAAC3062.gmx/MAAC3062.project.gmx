@@ -60,6 +60,7 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_newMessageAnim</sprite>
+        <sprite>sprites\spr_newMessageAnim_center</sprite>
         <sprite>sprites\spr_toolTipBox_minerals</sprite>
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
@@ -125,6 +126,7 @@
       <sprite>sprites\spr_desertButton</sprite>
       <sprite>sprites\spr_iceButton</sprite>
       <sprite>sprites\spr_waterButton</sprite>
+      <sprite>sprites\spr_dimFilter</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -452,6 +454,7 @@
       <scripts name="Message Boxes">
         <script>scripts\scr_msg_shipRefuel.gml</script>
         <script>scripts\scr_msg_shipPlanetEscape.gml</script>
+        <script>scripts\scr_msg_hubBossReward.gml</script>
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
     </scripts>
@@ -563,6 +566,7 @@
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
       <object>objects\obj_credits3</object>
+      <object>objects\obj_dimFilter</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
         <object>objects\obj_confirmMessage</object>
@@ -571,6 +575,7 @@
       <object>objects\obj_hubMockupBG</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
+        <object>objects\obj_clickMessageBox</object>
         <object>objects\obj_levelSelScrn</object>
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
@@ -670,8 +675,8 @@
           <object>objects\obj_drop_navPiece</object>
           <object>objects\obj_drop_navPiece_A</object>
           <object>objects\obj_drop_navPiece_B</object>
-          <object>objects\obj_drop_navPiece_D</object>
           <object>objects\obj_drop_navPiece_C</object>
+          <object>objects\obj_drop_navPiece_D</object>
         </objects>
         <objects name="Player Abilities">
           <object>objects\obj_drop_plrAbility</object>
