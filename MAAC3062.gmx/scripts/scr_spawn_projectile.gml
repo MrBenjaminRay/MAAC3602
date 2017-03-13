@@ -40,3 +40,7 @@ if (canSpawn) {
     projectile.isEnemyProjectile = argument[4];
     projectile.damage = argument[5];
 }
+
+// Return the object spawned in case more work needs to be done to it
+return projectile;
+

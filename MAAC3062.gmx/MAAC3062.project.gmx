@@ -632,6 +632,7 @@
         <object>objects\obj_projectile_flamingAnimal</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_catapillager</object>
+        <object>objects\obj_projectile_player</object>
         <object>objects\obj_projectile_titmouse</object>
         <object>objects\obj_projectile_sloth</object>
         <object>objects\obj_projectile_freeze</object>
