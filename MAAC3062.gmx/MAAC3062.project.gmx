@@ -60,6 +60,9 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_newMessageAnim</sprite>
+        <sprite>sprites\spr_toolTipBox_minerals</sprite>
+        <sprite>sprites\spr_toolTipBox_energy</sprite>
+        <sprite>sprites\spr_toolTipBox_bossItem</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -565,6 +568,8 @@
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
         <object>objects\obj_weaponBox</object>
+        <object>objects\obj_toolTipBox</object>
+        <object>objects\obj_toolTipBox_minerals</object>
       </objects>
     </objects>
     <objects name="Entities">
