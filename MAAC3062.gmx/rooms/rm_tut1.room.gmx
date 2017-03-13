@@ -184,6 +184,7 @@
     <instance objName="obj_enemy_tutLight2" x="1248" y="768" name="inst_040245F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_tutLight2" x="1312" y="768" name="inst_AC652315" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warp" x="3008" y="864" name="inst_971C53D7" locked="0" code="    warpx = 320;&#xA;    warpy = 608;&#xA;    target_room = rm_level_moon;&#xA;" scaleX="-0.5" scaleY="9.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera" x="96" y="96" name="inst_6B9C8FC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
