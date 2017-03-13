@@ -696,6 +696,7 @@
         <objects name="Stats">
           <object>objects\obj_levelStats</object>
         </objects>
+        <object>objects\obj_control_bosses</object>
       </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
