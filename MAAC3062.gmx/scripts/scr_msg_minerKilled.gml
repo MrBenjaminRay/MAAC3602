@@ -24,6 +24,9 @@ if (is_undefined(argument[1])) {
 
 if (canProceed) {
     var messageBox = instance_create(argument[0], argument[1], obj_messageBox);
+    ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "");
     ds_list_add(messageBox.list_text, "A Miner has been killed!");
     
     return messageBox;

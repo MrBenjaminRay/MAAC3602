@@ -75,6 +75,10 @@ scale = scaleNormal;
 // Always change energy/mineral values with scripts scr_energy_change() and scr_minerals_change()
 currentValueToDraw = 0;
 
+//tool tip stuff
+mouseHoverTime = 0;
+toolTipEnabled = false;
+
 </string>
           </argument>
         </arguments>
@@ -161,6 +165,29 @@ if (changeCueAmount &gt; 0) {
 if (changeCueAlpha == 0) {
     changeCueAmount = 0;
 }
+
+
+//hover message stuff
+if (
+    point_in_rectangle(
+        window_mouse_get_x(), 
+        window_mouse_get_y(), 
+        x-sprite_width/2,
+        y-sprite_height/2,
+        x+sprite_width/2,
+        y+sprite_height/2
+    )
+) {
+    if(!toolTipEnabled)
+        mouseHoverTime++;
+}
+else {
+    mouseHoverTime = 0;
+    toolTipEnabled = false;
+}
+
+if(mouseHoverTime &gt;= 60)
+    toolTipEnabled = true;
 
 </string>
           </argument>
