@@ -453,6 +453,11 @@ scr_build_switchTower(0);
     return 0;
 }
 
+if (!instance_exists(obj_player)) {
+    // If player dies while placing, this return avoids some errors below.
+    return 0;
+}
+
 /////////////////////////////////////////// DRAW PLACEMENT SPRITES:
 // Clamp the x position to the nearest multiple of 32:
 var tempX = mouse_x - (mouse_x % 32);

@@ -66,7 +66,7 @@ movementSpeed_actual = movementSpeed;
 freezeMultiplier = 0;       // The current number of times the enemy has been hit by the freeze tower.
 maxFreezeMultiplier = 20;   // The number of freezeMultipliers until the enemy is frozen.
 isFrozen = false;           // Whether or not the enemy is currently frozen.
-frozenTime = 2048;          // The amount of time that the enemy will remain frozen for. 
+frozenTime = 4096;          // The amount of time that the enemy will remain frozen for. 
 frozenTimeCounter = 0;      // The amount of time that the enemy has been frozen for.
 
 // TOWER-SPECIFIC DATA (Flame):
@@ -393,11 +393,11 @@ if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (freezeMultiplier == maxFreezeMultiplier) {
+            <string>if (freezeMultiplier &gt;= maxFreezeMultiplier) {
     if (isFrozen == false) {
         isFrozen = true;
     }
-    
+    freezeMultiplier = maxFreezeMultiplier; // Prevent overage which has bad effects on movement
     frozenTimeCounter += global.deltaTime;
 }
 

@@ -94,20 +94,9 @@
     <instance objName="obj_physicsTile" x="576" y="480" name="inst_B9C66903" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="320" y="128" name="inst_8A1734EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera" x="128" y="96" name="inst_88F603D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="96" y="352" name="inst_65336C27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_ground_heavy" x="1248" y="384" name="inst_FF51E14B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="160" y="-32" name="inst_94A44DF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1216" y="448" name="inst_D7590EF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1344" y="448" name="inst_9259A71F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="288" y="352" name="inst_5A45A232" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="96" y="352" name="inst_64B6B149" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="480" y="352" name="inst_EAFE8510" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="672" y="352" name="inst_E879A9B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="768" y="352" name="inst_7A9808C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="672" y="352" name="inst_44901719" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="864" y="352" name="inst_9716153E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="960" y="352" name="inst_1533D425" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tower_tacticalTitmouse" x="1056" y="352" name="inst_23EB62C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1056" y="128" name="inst_896135E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1248" y="128" name="inst_E8D8A06E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1280" y="128" name="inst_49761C72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
