@@ -583,6 +583,8 @@
       <object>objects\obj_snake</object>
       <objects name="Player">
         <object>objects\obj_player</object>
+        <object>objects\obj_player_death</object>
+        <object>objects\obj_player_deadBody</object>
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
@@ -685,8 +687,9 @@
     <objects name="Misc">
       <objects name="Control">
         <object>objects\obj_menu_ingame_placeholder</object>
-        <object>objects\obj_control_cheats</object>
         <object>objects\obj_control</object>
+        <object>objects\obj_control_cheats</object>
+        <object>objects\obj_control_bosses</object>
         <object>objects\obj_tutControl</object>
         <objects name="States">
           <object>objects\obj_control_normalState</object>
@@ -696,7 +699,6 @@
         <objects name="Stats">
           <object>objects\obj_levelStats</object>
         </objects>
-        <object>objects\obj_control_bosses</object>
       </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>

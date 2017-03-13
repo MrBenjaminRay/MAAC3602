@@ -61,6 +61,7 @@ slothObj = noone;
 // Place weapon:
 
 if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
+    weaponObj.parentTower = object_index; // Pass self reference to cannon
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
 }
