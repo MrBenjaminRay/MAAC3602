@@ -685,8 +685,9 @@
     <objects name="Misc">
       <objects name="Control">
         <object>objects\obj_menu_ingame_placeholder</object>
-        <object>objects\obj_control_cheats</object>
         <object>objects\obj_control</object>
+        <object>objects\obj_control_cheats</object>
+        <object>objects\obj_control_bosses</object>
         <object>objects\obj_tutControl</object>
         <objects name="States">
           <object>objects\obj_control_normalState</object>
@@ -696,7 +697,6 @@
         <objects name="Stats">
           <object>objects\obj_levelStats</object>
         </objects>
-        <object>objects\obj_control_bosses</object>
       </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
