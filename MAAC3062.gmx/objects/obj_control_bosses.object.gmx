@@ -27,12 +27,24 @@
             <kind>1</kind>
             <string>if (scr_getLevelId() == 0){
   // Level 1 (moon)
-  if (global.levelStats[scr_getLevelId(), 19] &gt; 10 ){
+  if (global.levelStats[scr_getLevelId(), 19] &gt; 50){
     // More than 100 enemies spawned
     if (!global.levelStats[scr_getLevelId(), 20]){
       // Boss has not spawned yet, so do it now
       global.levelStats[scr_getLevelId(), 20] = true;
-      scr_spawnBoss(obj_enemy_boss_mini_A, 2112,500);
+      scr_spawnBoss(obj_enemy_boss_mini_A, 2112, 500);
+    }
+  }
+}
+
+if (scr_getLevelId() == 1){
+  // Level 2 (forest)
+  if (global.levelStats[scr_getLevelId(), 19] &gt; 50){
+    // More than 100 enemies spawned
+    if (!global.levelStats[scr_getLevelId(), 20]){
+      // Boss has not spawned yet, so do it now
+      global.levelStats[scr_getLevelId(), 20] = true;
+      scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
     }
   }
 }
