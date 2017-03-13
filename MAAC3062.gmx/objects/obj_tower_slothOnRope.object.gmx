@@ -150,7 +150,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-if (slothObj == noone) {
+if (slothObj == noone || !instance_exists(slothObj)) {
     // Sloth not already deployed, so we can create &amp; launch one
 
     var nearestEnemy_any = scr_tower_getNearestNonFrozenEnemy(attackRange, obj_enemy);
@@ -194,8 +194,6 @@ if (slothObj == noone) {
         scr_create_explosion(projX, projY, 'Flash');
 
     }
-} else {
-    show_debug_message('sloth exists still');
 }
 
 </string>

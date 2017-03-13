@@ -155,7 +155,8 @@ switch (object_index) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (object_index == obj_projectile_titmouse) {
+            <string>// Collision for titmouse &amp; sloth handled in their respective objects
+if (object_index == obj_projectile_titmouse || object_index == obj_projectile_sloth) {
     return 0;
 }
 
