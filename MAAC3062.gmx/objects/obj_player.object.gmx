@@ -230,6 +230,49 @@ abilD_cooldownCounter = abilD_cooldownTime;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.currentLevelComplete == 0) {
+    global.minerals = global.initialMinerals;
+    
+    //reset boss complete
+    switch(room) {
+        case rm_level_moon:
+            global.levelStats[0, 21] = false;
+            break;
+        case rm_level_forest:
+            global.levelStats[1, 21] = false;
+            break;
+        case rm_level_desert:
+            global.levelStats[2, 21] = false;
+            break;
+        case rm_level_ice:
+            global.levelStats[3, 21] = false;
+            break;
+        case rm_level_underwater:
+            global.levelStats[4, 21] = false;
+            break;
+    }
+}
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="2">
       <action>

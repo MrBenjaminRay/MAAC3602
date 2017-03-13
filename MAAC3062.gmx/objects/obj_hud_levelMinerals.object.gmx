@@ -48,7 +48,6 @@ changeCueOffset_x = -24;
 // Override cue length. Shorter for minerals as they are constantly increasing.
 changeCueTime = 100;
 
-
 </string>
           </argument>
         </arguments>
