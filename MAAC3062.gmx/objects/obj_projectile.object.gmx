@@ -3,7 +3,7 @@
   <spriteName>spr_projectile</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -51,6 +51,8 @@ isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 
 smokeTrail = noone;         // Keep reference to smoke trail (if one is added)
+
+scale = 1;                  // May override scale if needed
 </string>
           </argument>
         </arguments>

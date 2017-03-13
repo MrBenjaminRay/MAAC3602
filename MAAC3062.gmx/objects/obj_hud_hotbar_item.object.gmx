@@ -79,7 +79,6 @@ if (instance_exists(obj_control_buildState)) {
     // It exists, so get reference to it
     var buildCont = obj_control_buildState;
 
-    show_debug_message(buildCont.towerIndex);
     // Set selected flag if tower being built matches this tower's index
     if (buildCont.towerIndex == towerIndex) {
         selected = true;
@@ -99,11 +98,8 @@ if (
     )
 ) {
     hover = true;
-    show_debug_message('HOVERING!');
 } else {
     hover = false;
-    //show_debug_message(window_mouse_get_x());
-    //show_debug_message(string(global.window_mouse_x) + ', ' + string(global.window_mouse_y));
 }
 </string>
           </argument>
