@@ -15,6 +15,9 @@
       <sound>sound\snd_M6100_loop</sound>
       <sound>sound\snd_M6100_end</sound>
     </sounds>
+    <sounds name="Projectiles">
+      <sound>sound\snd_titmouse_chirp</sound>
+    </sounds>
     <sounds name="Player">
       <sound>sound\snd_playerGun</sound>
       <sound>sound\snd_playerHit</sound>
@@ -57,6 +60,9 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_newMessageAnim</sprite>
+        <sprite>sprites\spr_toolTipBox_minerals</sprite>
+        <sprite>sprites\spr_toolTipBox_energy</sprite>
+        <sprite>sprites\spr_toolTipBox_bossItem</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -102,6 +108,8 @@
         <sprite>sprites\spr_towerHeading</sprite>
         <sprite>sprites\spr_abilitiesHeading</sprite>
         <sprite>sprites\spr_table</sprite>
+        <sprite>sprites\spr_bossIncomplete</sprite>
+        <sprite>sprites\spr_bossComplete</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -288,6 +296,7 @@
       <sprite>sprites\spr_dummy_levelStats</sprite>
       <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
+      <sprite>sprites\spr_dummy_target</sprite>
       <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_cntrl</sprite>
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
@@ -406,9 +415,13 @@
       <scripts name="Tower">
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
+        <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
+        <script>scripts\scr_sloth_startFall.gml</script>
+        <script>scripts\scr_sloth_startSwing.gml</script>
+        <script>scripts\scr_sloth_startHug.gml</script>
       </scripts>
       <scripts name="Movement">
         <scripts name="Checks">
@@ -416,10 +429,10 @@
           <script>scripts\scr_entity_canJump.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
-        <script>scripts\scr_entity_drop.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
         <script>scripts\scr_entity_moveLeft.gml</script>
         <script>scripts\scr_entity_moveRight.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
       </scripts>
     </scripts>
     <scripts name="States">
@@ -494,6 +507,7 @@
           <object>objects\obj_selectDest</object>
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
+          <object>objects\obj_bossComplete</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
@@ -560,6 +574,8 @@
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
         <object>objects\obj_weaponBox</object>
+        <object>objects\obj_toolTipBox</object>
+        <object>objects\obj_toolTipBox_minerals</object>
       </objects>
     </objects>
     <objects name="Entities">
@@ -567,6 +583,8 @@
       <object>objects\obj_snake</object>
       <objects name="Player">
         <object>objects\obj_player</object>
+        <object>objects\obj_player_death</object>
+        <object>objects\obj_player_deadBody</object>
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
@@ -585,12 +603,13 @@
           <object>objects\obj_enemy_ground_spider_large</object>
         </objects>
         <objects name="Tutorial Enemies">
-          <object>objects\obj_tutLight1</object>
-          <object>objects\obj_tutLight2</object>
+          <object>objects\obj_enemy_tutLight1</object>
+          <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
           <objects name="Mini">
             <object>objects\obj_enemy_boss_mini_A</object>
+            <object>objects\obj_enemy_boss_mini_B</object>
           </objects>
         </objects>
       </objects>
@@ -616,6 +635,7 @@
         <object>objects\obj_projectile_flamingAnimal</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_catapillager</object>
+        <object>objects\obj_projectile_player</object>
         <object>objects\obj_projectile_titmouse</object>
         <object>objects\obj_projectile_sloth</object>
         <object>objects\obj_projectile_freeze</object>
@@ -668,8 +688,9 @@
     <objects name="Misc">
       <objects name="Control">
         <object>objects\obj_menu_ingame_placeholder</object>
-        <object>objects\obj_control_cheats</object>
         <object>objects\obj_control</object>
+        <object>objects\obj_control_cheats</object>
+        <object>objects\obj_control_bosses</object>
         <object>objects\obj_tutControl</object>
         <objects name="States">
           <object>objects\obj_control_normalState</object>
@@ -698,6 +719,7 @@
       <objects name="Explosions">
         <object>objects\obj_explosion</object>
         <object>objects\obj_explosion_titmouse</object>
+        <object>objects\obj_explosion_nuke</object>
         <object>objects\obj_explosion_normal</object>
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
@@ -724,6 +746,7 @@
       </objects>
     </objects>
     <object>objects\obj_camera</object>
+    <object>objects\obj_dummy_target</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
@@ -741,7 +764,6 @@
     <room>rooms\rm_credits2</room>
     <room>rooms\rm_credits3</room>
     <room>rooms\rm_tut1</room>
-    <room>rooms\rm_tut2</room>
     <room>rooms\rm_level_ice</room>
     <room>rooms\rm_level_underwater</room>
     <room>rooms\rm_bentest</room>

@@ -3,7 +3,7 @@
   <spriteName>spr_projectile</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -49,6 +49,10 @@
 movementSpeed = 6;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
+
+smokeTrail = noone;         // Keep reference to smoke trail (if one is added)
+
+scale = 1;                  // May override scale if needed
 </string>
           </argument>
         </arguments>
@@ -155,7 +159,12 @@ switch (object_index) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (isEnemyProjectile == false) {
+            <string>// Titmouse &amp; sloth enemy collisions handled in their respective objects
+if (object_index == obj_projectile_titmouse || object_index == obj_projectile_sloth) {
+    return 0;
+}
+
+if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
     

@@ -77,7 +77,8 @@ currentMessageBox = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var playerWithinRange = distance_to_object(obj_player) &lt; global.messageDistance;
+            <string>global.distanceFromShipToPlayer = distance_to_object(obj_player);
+var playerWithinRange = global.distanceFromShipToPlayer &lt; global.messageDistance;
 
 if (playerWithinRange) {
     if(currentMessageBox == noone) {

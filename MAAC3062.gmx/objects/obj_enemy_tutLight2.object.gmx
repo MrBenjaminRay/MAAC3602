@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemy_ground</parentName>
+  <parentName>obj_enemy_ground_light</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -227,20 +227,6 @@
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -255,13 +241,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.part1 || global.part2){
-    exit;
-}
-x--;
+            <string>// To keep enemies standing still, set this:
+movementDirection = "NONE";
+
+// When you want the enemy to start moving left, set this:
+if (global.tutorial_part3)
+movementDirection = "LEFT";
+
+// Movement is handled in obj_enemy_ground step code (this inherits from obj_enemy_ground_light)
+
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
   </events>

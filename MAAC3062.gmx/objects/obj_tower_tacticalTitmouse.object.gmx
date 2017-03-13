@@ -39,7 +39,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 4096;
+            <string>/*
+ *  NOTE: Range controls how far this cannon can target an enemy, but the projectileSpeed and projectileGravity below
+ *  determine how far the tower can actually shoot once an enemy is selected.  If the tower is not firing at enemies
+ *  that are being selected, it is likely because no firing angle could be worked out based on the speed &amp; gravity.
+ *  A very small increase in the speed will give longer range.  Use it gently and only if required, as the projectile
+ *  will fly higher and faster, which makes it harder for the player to see what the projectile is actually doing.
+ *  Upgrade level already increases projectileSpeed, thereby increasing ability to hit targets farther away.
+ *  -Ben
+ */
+
+attackRate = 4096;
 attackRateCounter = 0;
 attackDamage = 40 * global.towerUpgradeLevel[2];
 attackRange = global.towers[2, 4] * global.towerUpgradeLevel[2];
@@ -62,13 +72,10 @@ if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
 }
 
 // Special stuff just for mortar
-attackRange_min = 100;
-// Use a min &amp; max attack angle for cannon so that instead of shooting straight down
-// towards a target, it will always shoot up
-// This may not be necessary depending on how the trajectory is implemented.
-// For now, it's not used at all. -Ben
-minAngle = 0;
-maxAngle = 0;
+attackRange_min = 10;
+projectileSpeed = 7 * global.towerUpgradeLevel[2];
+projectileGravity = .05;
+
 </string>
           </argument>
         </arguments>
@@ -160,27 +167,40 @@ if (attackRateCounter &gt;= attackRate) {
     var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground, attackRange_min);
     
     if (nearestEnemy != noone) {
-
-        // Temporarily blow the enemy up to make sure we've got some decent enemy selection happening here.
-        //with (nearestEnemy) {
-        //    instance_destroy();
-        //    return 0;
-        //}
-
-        // Rotate the cannon to point towards the enemy:
-        var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
-        var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-        var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
-        weaponObj.image_angle = enemyDirection;
-
-        // Spawn projectile:
-        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_titmouse, projX, projY, nearestEnemy, false, attackDamage);
-        audio_play_sound(snd_mortar, 0, false);
-        audio_sound_gain(snd_mortar, 0.65, 0);
-        // Show projectile spawn effect:
-        scr_create_explosion(projX, projY, 'Flash');
+    
+        // For this rough calculation, we use a central point on the tower where the weapon is mounted.
+        // Can't use the end of the weapon as the weapon angle is not yet known.
+        var sourceX = x + weaponXOffset;
+        var sourceY = y + weaponYOffset;
+        
+        var angleRad = scr_tower_calcBallisticFiringAngle(sourceX, sourceY, nearestEnemy.x, nearestEnemy.y, projectileSpeed, projectileGravity);
+        var angleDeg = radtodeg(angleRad);
+        
+        if (angleRad == noone) {
+            show_debug_message('No valid ballistic path from titmouse cannon to selected target.');
+            // Should probably try a different enemy at this point instead of missing a turn to shoot
+        } else {
+            //show_debug_message('Angle selected: ' + string(angleRad) + '(' + string(angleDeg) + ' deg)');
+            
+            // Rotate the cannon to point towards the launch angle
+            weaponObj.image_angle = angleDeg;
+            // Spawn projectile
+            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            var proj = instance_create(projX, projY, obj_projectile_titmouse);
+            proj.direction = angleDeg;
+            proj.speed = projectileSpeed;
+            proj.gravity = projectileGravity;
+            proj.isEnemyProjectile = false;
+            proj.damage = attackDamage;
+            proj.xDest = nearestEnemy.x; // This isn't used by titmouse, but store it anyway
+            proj.yDest = nearestEnemy.y; // This helps us know when the titmouse should no longer pass through platforms
+            
+            audio_play_sound(snd_mortar, 0, false);
+            audio_sound_gain(snd_mortar, 0.65, 0);
+            // Show projectile spawn effect:
+            scr_create_explosion(projX, projY, 'Flash');            
+        }
     }
 }
 

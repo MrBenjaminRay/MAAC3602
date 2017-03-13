@@ -25,12 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.navPieceAttained[0] = false; // Whether or not the player has attained the first nav piece.
-global.navPieceAttained[1] = false; // Whether or not the player has attained the second nav piece.
+            <string>global.navPieceAttained[0] = true; // Whether or not the player has attained the first nav piece.
+global.navPieceAttained[1] = true; // Whether or not the player has attained the second nav piece.
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
 global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
 
-global.plrAbilityAttained[0] = false; // Whether or not the player has attained the first ability.
+global.plrAbilityAttained[0] = true; // Whether or not the player has attained the first ability.
 global.plrAbilityAttained[1] = false; // Whether or not the player has attained the second ability.
 global.plrAbilityAttained[2] = false; // Whether or not the player has attained the third ability.
 global.plrAbilityAttained[3] = false; // Whether or not the player has attained the fourth ability.
@@ -92,7 +92,9 @@ global.levelStats[0, 15] = 0;               // Ground - Light Kills
 global.levelStats[0, 16] = 0;               // Ground - Medium Kills
 global.levelStats[0, 17] = 0;               // Ground - Heavy Kills
 global.levelStats[0, 18] = 0;               // Ground - Jackal Kills
-global.levelStats[0, 19] = false;           // Level Boss Defeated
+global.levelStats[0, 19] = 0;               // Total Enemies Spawned
+global.levelStats[0, 20] = false;           // Level Boss Spawned
+global.levelStats[0, 21] = false;           // Level Boss Defeated
 
 global.levelStats[1, 0] = "Level 2";
 global.levelStats[1, 1] = "Air - Light";
@@ -113,7 +115,9 @@ global.levelStats[1, 15] = 0;               // Ground - Light Kills
 global.levelStats[1, 16] = 0;               // Ground - Medium Kills
 global.levelStats[1, 17] = 0;               // Ground - Heavy Kills
 global.levelStats[1, 18] = 0;               // Ground - Jackal Kills
-global.levelStats[1, 19] = false;           // Level Boss Defeated
+global.levelStats[1, 19] = 0;               // Total Enemies Spawned
+global.levelStats[1, 20] = false;           // Level Boss Spawned
+global.levelStats[1, 21] = false;           // Level Boss Defeated
 
 global.levelStats[2, 0] = "Level 3";
 global.levelStats[2, 1] = "Air - Light";
@@ -134,7 +138,101 @@ global.levelStats[2, 15] = 0;               // Ground - Light Kills
 global.levelStats[2, 16] = 0;               // Ground - Medium Kills
 global.levelStats[2, 17] = 0;               // Ground - Heavy Kills
 global.levelStats[2, 18] = 0;               // Ground - Jackal Kills
-global.levelStats[2, 19] = false;           // Level Boss Defeated
+global.levelStats[2, 19] = 0;               // Total Enemies Spawned
+global.levelStats[2, 20] = false;           // Level Boss Spawned
+global.levelStats[2, 21] = false;           // Level Boss Defeated
+
+global.levelStats[3, 0] = "Level 4";
+global.levelStats[3, 1] = "Air - Light";
+global.levelStats[3, 2] = "Air - Heavy";
+global.levelStats[3, 3] = "Ground - Light";
+global.levelStats[3, 4] = "Ground - Medium";
+global.levelStats[3, 5] = "Ground - Heavy";
+global.levelStats[3, 6] = "Ground - Jackal";
+global.levelStats[3, 7] = 0;                // Air - Light Spawns
+global.levelStats[3, 8] = 0;                // Air - Heavy Spawns
+global.levelStats[3, 9] = 0;                // Ground - Light Spawns
+global.levelStats[3, 10] = 0;               // Ground - Medium Spawns
+global.levelStats[3, 11] = 0;               // Ground - Heavy Spawns
+global.levelStats[3, 12] = 0;               // Ground - Jackal Spawns
+global.levelStats[3, 13] = 0;               // Air - Light Kills
+global.levelStats[3, 14] = 0;               // Air - Heavy Kills
+global.levelStats[3, 15] = 0;               // Ground - Light Kills
+global.levelStats[3, 16] = 0;               // Ground - Medium Kills
+global.levelStats[3, 17] = 0;               // Ground - Heavy Kills
+global.levelStats[3, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[3, 19] = 0;               // Total Enemies Spawned
+global.levelStats[3, 20] = false;           // Level Boss Spawned
+global.levelStats[3, 21] = false;           // Level Boss Defeated
+
+global.levelStats[4, 0] = "Level 5";
+global.levelStats[4, 1] = "Air - Light";
+global.levelStats[4, 2] = "Air - Heavy";
+global.levelStats[4, 3] = "Ground - Light";
+global.levelStats[4, 4] = "Ground - Medium";
+global.levelStats[4, 5] = "Ground - Heavy";
+global.levelStats[4, 6] = "Ground - Jackal";
+global.levelStats[4, 7] = 0;                // Air - Light Spawns
+global.levelStats[4, 8] = 0;                // Air - Heavy Spawns
+global.levelStats[4, 9] = 0;                // Ground - Light Spawns
+global.levelStats[4, 10] = 0;               // Ground - Medium Spawns
+global.levelStats[4, 11] = 0;               // Ground - Heavy Spawns
+global.levelStats[4, 12] = 0;               // Ground - Jackal Spawns
+global.levelStats[4, 13] = 0;               // Air - Light Kills
+global.levelStats[4, 14] = 0;               // Air - Heavy Kills
+global.levelStats[4, 15] = 0;               // Ground - Light Kills
+global.levelStats[4, 16] = 0;               // Ground - Medium Kills
+global.levelStats[4, 17] = 0;               // Ground - Heavy Kills
+global.levelStats[4, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[4, 19] = 0;               // Total Enemies Spawned
+global.levelStats[4, 20] = false;           // Level Boss Spawned
+global.levelStats[4, 21] = false;           // Level Boss Defeated
+
+// When we add more levels, insert them starting at id 5 and bump tutorials to end of array
+
+global.levelStats[5, 0] = "Tutorial 1";
+global.levelStats[5, 1] = "Air - Light";
+global.levelStats[5, 2] = "Air - Heavy";
+global.levelStats[5, 3] = "Ground - Light";
+global.levelStats[5, 4] = "Ground - Medium";
+global.levelStats[5, 5] = "Ground - Heavy";
+global.levelStats[5, 6] = "Ground - Jackal";
+global.levelStats[5, 7] = 0;                // Air - Light Spawns
+global.levelStats[5, 8] = 0;                // Air - Heavy Spawns
+global.levelStats[5, 9] = 0;                // Ground - Light Spawns
+global.levelStats[5, 10] = 0;               // Ground - Medium Spawns
+global.levelStats[5, 11] = 0;               // Ground - Heavy Spawns
+global.levelStats[5, 12] = 0;               // Ground - Jackal Spawns
+global.levelStats[5, 13] = 0;               // Air - Light Kills
+global.levelStats[5, 14] = 0;               // Air - Heavy Kills
+global.levelStats[5, 15] = 0;               // Ground - Light Kills
+global.levelStats[5, 16] = 0;               // Ground - Medium Kills
+global.levelStats[5, 17] = 0;               // Ground - Heavy Kills
+global.levelStats[5, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[5, 19] = false;           // Level Boss Defeated
+
+global.levelStats[6, 0] = "Tutorial 2";
+global.levelStats[6, 1] = "Air - Light";
+global.levelStats[6, 2] = "Air - Heavy";
+global.levelStats[6, 3] = "Ground - Light";
+global.levelStats[6, 4] = "Ground - Medium";
+global.levelStats[6, 5] = "Ground - Heavy";
+global.levelStats[6, 6] = "Ground - Jackal";
+global.levelStats[6, 7] = 0;                // Air - Light Spawns
+global.levelStats[6, 8] = 0;                // Air - Heavy Spawns
+global.levelStats[6, 9] = 0;                // Ground - Light Spawns
+global.levelStats[6, 10] = 0;               // Ground - Medium Spawns
+global.levelStats[6, 11] = 0;               // Ground - Heavy Spawns
+global.levelStats[6, 12] = 0;               // Ground - Jackal Spawns
+global.levelStats[6, 13] = 0;               // Air - Light Kills
+global.levelStats[6, 14] = 0;               // Air - Heavy Kills
+global.levelStats[6, 15] = 0;               // Ground - Light Kills
+global.levelStats[6, 16] = 0;               // Ground - Medium Kills
+global.levelStats[6, 17] = 0;               // Ground - Heavy Kills
+global.levelStats[6, 18] = 0;               // Ground - Jackal Kills
+global.levelStats[6, 19] = false;           // Level Boss Defeated
+
+// When we add more levels, insert them starting at id 5 and bump tutorials to end of array
 </string>
           </argument>
         </arguments>

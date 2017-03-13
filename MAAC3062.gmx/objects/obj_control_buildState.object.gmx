@@ -318,10 +318,6 @@ if (global.energy &lt; global.towers[0, 1] * global.towerUpgradeLevel[0]) {
 
 // Build Tower:
 scr_build_switchTower(0);
-if(global.part2){
-    global.part2 = false;
-    global.part3 = true;
-}
 </string>
           </argument>
         </arguments>
@@ -454,6 +450,11 @@ if(global.part2){
           <argument>
             <kind>1</kind>
             <string>if (global.state == "Paused") {
+    return 0;
+}
+
+if (!instance_exists(obj_player)) {
+    // If player dies while placing, this return avoids some errors below.
     return 0;
 }
 

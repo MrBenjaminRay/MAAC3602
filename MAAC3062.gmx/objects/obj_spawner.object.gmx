@@ -152,6 +152,7 @@ if (spawnChangeRateCounter &lt; spawnChangeRate) {
     numObjToSpawn = irandom_range(1, 1 + (spawnChanges % 15));
     spawnChangeRateCounter = 0;
     spawnChanges++;
+    global.levelStats[scr_getLevelId(),19]++;
     
     spawnRate = (640 * ((spawnChanges % 15) / 3));
     

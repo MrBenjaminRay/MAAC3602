@@ -12,3 +12,5 @@ inst.particleScale = argument0;
 // Set emitter instance's parent to this object instance (projectile, tower, whatever it is)
 inst.parentObject = id;
 
+// Get reference to smoke emitter so we can shut it down if needed
+smokeTrail = inst;
