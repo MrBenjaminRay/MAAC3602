@@ -27,10 +27,7 @@ switch (room) {
         levelId = 5;
         break;
     }
-    case rm_tut2: {
-        levelId = 6;
-        break;
-    }
+
 }
 
 return levelId;

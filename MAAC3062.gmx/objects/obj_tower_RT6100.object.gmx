@@ -114,8 +114,8 @@ maxRoundsFired = 50;
 
 isReloading = false;
 reloadingText = false;
-reloadBarX = -16;
-reloadBarY = 150;
+reloadBarX = 0;
+reloadBarY = -20;
 
 continuousFire = false; //used to keep looping firing sound
 </string>
@@ -471,7 +471,7 @@ else if(isReloading == false) {
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
         <id>408</id>
@@ -522,7 +522,7 @@ else if(isReloading == false) {
         <arguments>
           <argument>
             <kind>5</kind>
-            <sprite>-100</sprite>
+            <sprite>spr_player</sprite>
           </argument>
           <argument>
             <kind>0</kind>
@@ -582,8 +582,14 @@ else if(isReloading == false) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(x+reloadBarX, y+reloadBarY, x+reloadBarX+100, y+reloadBarY+10, ((maxRoundsFired - roundsFired)/maxRoundsFired)*100,
+            <string>draw_healthbar(x+reloadBarX, y+reloadBarY, x+reloadBarX+sprite_width, y+reloadBarY+10, ((maxRoundsFired - roundsFired)/maxRoundsFired)*100,
     c_black,c_yellow, c_yellow, 0, true, true);
+    
+if(distance_to_object(obj_player) &lt;= sprite_width * 2)
+    draw_text(x-31, y-43, "Press E to Mount");
+
+if(mounted)
+    draw_text(x-40, y-43, "Press E to Unmount");
 </string>
           </argument>
         </arguments>

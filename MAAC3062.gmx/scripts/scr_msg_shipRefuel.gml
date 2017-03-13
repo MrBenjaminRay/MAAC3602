@@ -24,13 +24,13 @@ if (is_undefined(argument[1])) {
 
 if (canProceed) {
     var messageBox = instance_create(argument[0], argument[1], obj_messageBox);
-    ds_list_add(messageBox.list_text, "Press 'X' to refuel the ship using");
-    ds_list_add(messageBox.list_text, "Energy.");
     ds_list_add(messageBox.list_text, "");
-    ds_list_add(messageBox.list_text, "Press and Hold 'X' to Escape the");
-    ds_list_add(messageBox.list_text, "Planet!");
     ds_list_add(messageBox.list_text, "");
-    ds_list_add(messageBox.list_text, "    <-50 Energy on 'X' Press>");
+    ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "Your Energy Bar (top left) will turn");
+    ds_list_add(messageBox.list_text, "green when you have enough Energy to");
+    ds_list_add(messageBox.list_text, "fuel your ship's departure!");
+    ds_list_add(messageBox.list_text, "");
     
     return messageBox;
 } else {

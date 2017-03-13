@@ -50,11 +50,25 @@ targetY = 0;
           <argument>
             <kind>1</kind>
             <string>if (global.state == "Build" || global.state == "Destroy" ) {
-    sprite_index = spr_left_arm_wrench;
-    //show_debug_message("Building");
+    if (instance_exists(obj_player)) {
+        if (obj_player.facingDirection == 1) {
+            // Player facing right
+            sprite_index = spr_right_arm_wrench;
+        } else if (obj_player.facingDirection == -1) {
+            // Player facing left
+            sprite_index = spr_left_arm_wrench;
+        }
+    }
 } else if (global.state == "Normal") {
-    sprite_index = spr_left_arm_weapon;    
-    //show_debug_message("Destroying");
+    if (instance_exists(obj_player)) {
+        if (obj_player.facingDirection == 1) {
+            // Player facing right
+            sprite_index = spr_right_arm_weapon;
+        } else if (obj_player.facingDirection == -1) {
+            // Player facing left
+            sprite_index = spr_left_arm_weapon;
+        }
+    }
 }
 
 </string>
