@@ -522,7 +522,7 @@ else if(isReloading == false) {
         <arguments>
           <argument>
             <kind>5</kind>
-            <sprite>-100</sprite>
+            <sprite>spr_player</sprite>
           </argument>
           <argument>
             <kind>0</kind>
