@@ -29,22 +29,24 @@
     return 0;
 }
 
+var towerName = global.towers[5, 0];
+
 // Check if any other instances of tower exist:
 if (instance_number(obj_tower_RT6100) &gt; 0) {
-    scr_notification("You cannot build another one.", c_black, c_yellow);
+    scr_notification("You cannot build another " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
 // Check if Tower Unlocked:
 if (global.towerUnlocked[5] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    scr_notification("You have not unlocked a " + towerName + ".", c_black, c_yellow);
     return 0;
     
 }
 
 // Check if Energy Requirements Met:
 if (global.energy &lt; global.towers[5, 1] * global.towerUpgradeLevel[5]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You don't have enough energy to build a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
@@ -76,16 +78,18 @@ scr_normal_beginBuild(5);
     return 0;
 }
 
+var towerName = global.towers[0, 0];
+
 // Check if Tower Unlocked:
 if (global.towerUnlocked[4] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    scr_notification("You have not unlocked a " + towerName + ".", c_black, c_yellow);
     return 0;
     
 }
 
 // Check if Energy Requirements Met:
 if (global.energy &lt; global.towers[4, 1] * global.towerUpgradeLevel[4]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You don't have enough energy to build a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
@@ -117,16 +121,18 @@ scr_normal_beginBuild(4);
     return 0;
 }
 
+var towerName = global.towers[3, 0];
+
 // Check if Tower Unlocked:
 if (global.towerUnlocked[3] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    scr_notification("You have not unlocked a " + towerName + ".", c_black, c_yellow);
     return 0;
     
 }
 
 // Check if Energy Requirements Met:
 if (global.energy &lt; global.towers[3, 1] * global.towerUpgradeLevel[3]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You don't have enough energy to build a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
@@ -158,16 +164,18 @@ scr_normal_beginBuild(3);
     return 0;
 }
 
+var towerName = global.towers[2, 0];
+
 // Check if Tower Unlocked:
 if (global.towerUnlocked[2] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    scr_notification("You have not unlocked a " + towerName + ".", c_black, c_yellow);
     return 0;
     
 }
 
 // Check if Energy Requirements Met:
 if (global.energy &lt; global.towers[2, 1] * global.towerUpgradeLevel[2]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You don't have enough energy to build a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
@@ -199,16 +207,18 @@ scr_normal_beginBuild(2);
     return 0;
 }
 
+var towerName = global.towers[1, 0];
+
 // Check if Tower Unlocked:
 if (global.towerUnlocked[1] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    scr_notification("You have not unlocked a " + towerName + ".", c_black, c_yellow);
     return 0;
     
 }
 
 // Check if Energy Requirements Met:
 if (global.energy &lt; global.towers[1, 1] * global.towerUpgradeLevel[1]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You don't have enough energy to build a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
@@ -240,15 +250,17 @@ scr_normal_beginBuild(1);
     return 0;
 }
 
+var towerName = global.towers[0, 0];
+
 // Check if Tower Unlocked:
 if (global.towerUnlocked[0] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
+    scr_notification("You have not unlocked a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
 // Check if Energy Requirements Met:
 if (global.energy &lt; global.towers[0, 1] * global.towerUpgradeLevel[0]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You don't have enough energy to build a " + towerName + ".", c_black, c_yellow);
     return 0;
 }
 
