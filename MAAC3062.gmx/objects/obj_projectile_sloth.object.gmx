@@ -312,9 +312,6 @@ if (mode == "HUG" &amp;&amp; instance_exists(targetEnemy)) {
     draw_self();
 }
 
-// Draw temporary rope until we get something better
-draw_set_color(c_olive);
-draw_line_width(x, y, xHome, yHome, 4);
 </string>
           </argument>
         </arguments>
