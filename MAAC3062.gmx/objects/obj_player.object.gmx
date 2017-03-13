@@ -529,7 +529,7 @@ if (mouse_check_button(mb_left)) {
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
             
-            scr_create_explosion(projX, projY, 'Flash');
+            scr_create_explosion(projX, projY, 'Muzzle');
             
             attackRateCounter = 0;
         }
