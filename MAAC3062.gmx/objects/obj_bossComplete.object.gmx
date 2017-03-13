@@ -27,31 +27,31 @@
             <kind>1</kind>
             <string>switch(obj_levelTitle.sprite_index) {
     case spr_level0:
-        if(global.levelStats[0, 19])
+        if(global.levelStats[0, 21])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level1:
-        if(global.levelStats[1, 19])
+        if(global.levelStats[1, 21])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level2:
-        if(global.levelStats[2, 19])
+        if(global.levelStats[2, 21])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level3:
-        if(global.levelStats[3, 19])
+        if(global.levelStats[3, 21])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level4:
-        if(global.levelStats[4, 19])
+        if(global.levelStats[4, 21])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
