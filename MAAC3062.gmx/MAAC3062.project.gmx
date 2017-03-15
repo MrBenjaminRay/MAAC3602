@@ -752,6 +752,8 @@
       <objects name="Special">
         <object>objects\obj_playerDeath_screenFade</object>
       </objects>
+      <object>objects\obj_smoke</object>
+      <object>objects\obj_control_particles</object>
     </objects>
     <object>objects\obj_camera</object>
     <object>objects\obj_dummy_target</object>
