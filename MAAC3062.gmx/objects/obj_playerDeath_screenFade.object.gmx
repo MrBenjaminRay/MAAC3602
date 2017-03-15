@@ -27,10 +27,14 @@
             <kind>1</kind>
             <string>room_speed /= 2;
 
-currentTime = 0;    // Elapsed delta time since creation.
-timeToFade = 1000;  // Time it takes for the screen to fade to black, in delta time.
+// Elapsed delta time since creation.
+currentTime = 0;
 
-timeToDeath = 2500; // Time at which the object will destroy itself.
+// Time it takes for the screen to fade to black.
+timeToFade = scr_misc_secondsToDeltaTime(1);
+
+// Time at which the object will destroy itself.
+timeToDeath = scr_misc_secondsToDeltaTime(2.5);
 </string>
           </argument>
         </arguments>
