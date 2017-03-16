@@ -83,6 +83,7 @@ changeCueTime = 1250;
             <kind>1</kind>
             <string>// Set value to be drawn to match minerals level
 currentValueToDraw = global.energy;
+
 </string>
           </argument>
         </arguments>
@@ -110,6 +111,9 @@ currentValueToDraw = global.energy;
 if(global.energy &gt;= global.maxFuel) {
    draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_green, c_green, 0, false, false);
 }
+
+if(mouseHoverTime &gt;= 45)
+    draw_sprite(spr_toolTipBox_energy, 0, x, y+25);
 </string>
           </argument>
         </arguments>

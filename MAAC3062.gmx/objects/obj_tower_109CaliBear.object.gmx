@@ -39,27 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 2048;
-attackRateCounter = 0;
-attackDamage = 35 * global.towerUpgradeLevel[3];
-attackRange = global.towers[3, 4] * global.towerUpgradeLevel[3];
-
-weaponXOffset = global.towers[3, 5];
-weaponYOffset = global.towers[3, 6];
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_109CalRifle);
-
-currShield = 200;
-currHealth = 100;
-
-maxShield = 200;
-maxHealth = 100;
-
-// Place weapon:
-
-if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
-    weaponObj.x = x + weaponXOffset;
-    weaponObj.y = y + weaponYOffset;
-}
+            <string>scr_entity_loadTowerData(3);
 </string>
           </argument>
         </arguments>

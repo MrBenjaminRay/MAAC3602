@@ -60,6 +60,10 @@
         <sprite>sprites\spr_credits2</sprite>
         <sprite>sprites\spr_fuelText</sprite>
         <sprite>sprites\spr_newMessageAnim</sprite>
+        <sprite>sprites\spr_newMessageAnim_center</sprite>
+        <sprite>sprites\spr_toolTipBox_minerals</sprite>
+        <sprite>sprites\spr_toolTipBox_energy</sprite>
+        <sprite>sprites\spr_toolTipBox_bossItem</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -105,6 +109,8 @@
         <sprite>sprites\spr_towerHeading</sprite>
         <sprite>sprites\spr_abilitiesHeading</sprite>
         <sprite>sprites\spr_table</sprite>
+        <sprite>sprites\spr_bossIncomplete</sprite>
+        <sprite>sprites\spr_bossComplete</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -120,6 +126,7 @@
       <sprite>sprites\spr_desertButton</sprite>
       <sprite>sprites\spr_iceButton</sprite>
       <sprite>sprites\spr_waterButton</sprite>
+      <sprite>sprites\spr_dimFilter</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -243,6 +250,7 @@
         <sprite>sprites\spr_explosion_sparky</sprite>
         <sprite>sprites\spr_explosion_smallhit</sprite>
         <sprite>sprites\spr_explosion_flash</sprite>
+        <sprite>sprites\spr_explosion_flash_short</sprite>
         <sprite>sprites\spr_mushroom_cloud</sprite>
         <sprite>sprites\spr_blood_and_feather_explosion</sprite>
       </sprites>
@@ -402,6 +410,15 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Notifications">
+      <script>scripts\scr_notification.gml</script>
+    </scripts>
+    <scripts name="States">
+      <script>scripts\scr_normal_beginBuild.gml</script>
+      <script>scripts\scr_build_switchTower.gml</script>
+      <script>scripts\scr_paused_pauseAnimation.gml</script>
+      <script>scripts\scr_paused_unpauseAnimation.gml</script>
+    </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
       <script>scripts\scr_entity_gearNearestObjectOfType.gml</script>
@@ -411,9 +428,13 @@
         <script>scripts\scr_tower_getNearestNonFrozenEnemy.gml</script>
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
         <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
+        <script>scripts\scr_tower_isLocationValid.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
+        <script>scripts\scr_sloth_startFall.gml</script>
+        <script>scripts\scr_sloth_startSwing.gml</script>
+        <script>scripts\scr_sloth_startHug.gml</script>
       </scripts>
       <scripts name="Movement">
         <scripts name="Checks">
@@ -421,11 +442,12 @@
           <script>scripts\scr_entity_canJump.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
-        <script>scripts\scr_entity_drop.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
         <script>scripts\scr_entity_moveLeft.gml</script>
         <script>scripts\scr_entity_moveRight.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
       </scripts>
+      <script>scripts\scr_entity_loadTowerData.gml</script>
     </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
@@ -443,27 +465,27 @@
       <scripts name="Message Boxes">
         <script>scripts\scr_msg_shipRefuel.gml</script>
         <script>scripts\scr_msg_shipPlanetEscape.gml</script>
+        <script>scripts\scr_msg_hubBossReward.gml</script>
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
     </scripts>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_getLevelId.gml</script>
-    <scripts name="Control">
-      <scripts name="Notifications">
-        <script>scripts\scr_notification.gml</script>
-      </scripts>
-      <scripts name="States">
-        <script>scripts\scr_normal_beginBuild.gml</script>
-        <script>scripts\scr_build_switchTower.gml</script>
-        <script>scripts\scr_paused_pauseAnimation.gml</script>
-        <script>scripts\scr_paused_unpauseAnimation.gml</script>
-      </scripts>
-    </scripts>
     <scripts name="Abilities">
       <script>scripts\scr_abilC_normal_enable.gml</script>
       <script>scripts\scr_abilC_normal_disable.gml</script>
       <script>scripts\scr_abilC_upgraded_enable.gml</script>
       <script>scripts\scr_abilC_upgraded_disable.gml</script>
+    </scripts>
+    <scripts name="Statistics">
+      <script>scripts\scr_statistics_initializeLevel.gml</script>
+      <script>scripts\scr_statistics_incrementKill.gml</script>
+      <script>scripts\scr_statistics_getKills.gml</script>
+      <script>scripts\scr_statistics_hasBossSpawned.gml</script>
+    </scripts>
+    <scripts name="Misc">
+      <script>scripts\scr_misc_isVariableInitialized.gml</script>
+      <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -475,7 +497,14 @@
   </fonts>
   <objects name="objects">
     <object>objects\object</object>
-    <object>objects\obj_spawner</object>
+    <object>objects\obj_globals</object>
+    <objects name="Control">
+      <object>objects\obj_menu_ingame_placeholder</object>
+      <object>objects\obj_control</object>
+      <object>objects\obj_control_cheats</object>
+      <object>objects\obj_control_bosses</object>
+      <object>objects\obj_tutControl</object>
+    </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
@@ -499,6 +528,7 @@
           <object>objects\obj_selectDest</object>
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
+          <object>objects\obj_bossComplete</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
@@ -553,6 +583,7 @@
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
       <object>objects\obj_credits3</object>
+      <object>objects\obj_dimFilter</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
         <object>objects\obj_confirmMessage</object>
@@ -561,17 +592,23 @@
       <object>objects\obj_hubMockupBG</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
+        <object>objects\obj_clickMessageBox</object>
         <object>objects\obj_levelSelScrn</object>
         <object>objects\obj_levelSelScrnFlip</object>
         <object>objects\obj_levelSelScrnInfo</object>
         <object>objects\obj_weaponBox</object>
+        <object>objects\obj_toolTipBox</object>
+        <object>objects\obj_toolTipBox_minerals</object>
       </objects>
     </objects>
     <objects name="Entities">
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>
+      <object>objects\obj_spawner</object>
       <objects name="Player">
         <object>objects\obj_player</object>
+        <object>objects\obj_player_death</object>
+        <object>objects\obj_player_deadBody</object>
       </objects>
       <objects name="Enemy">
         <object>objects\obj_enemy</object>
@@ -596,31 +633,34 @@
         <objects name="Bosses">
           <objects name="Mini">
             <object>objects\obj_enemy_boss_mini_A</object>
+            <object>objects\obj_enemy_boss_mini_B</object>
           </objects>
         </objects>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
-        <object>objects\obj_destroyedTower</object>
         <object>objects\obj_tower_caterpillager</object>
         <object>objects\obj_tower_slothOnRope</object>
         <object>objects\obj_tower_tacticalTitmouse</object>
         <object>objects\obj_tower_109CaliBear</object>
         <object>objects\obj_tower_fireAnt</object>
         <object>objects\obj_tower_RT6100</object>
-        <object>objects\obj_tower_destroyed_basic</object>
-        <object>objects\obj_tower_destroyed_slothOnRope</object>
-        <object>objects\obj_tower_destroyed_tacticalTitmouse</object>
-        <object>objects\obj_tower_destroyed_109CaliBear</object>
-        <object>objects\obj_tower_destroyed_fireAnt</object>
-        <object>objects\obj_tower_destroyed_RT6100</object>
-        <object>objects\obj_RT6100_ammoText</object>
+        <objects name="Destroyed">
+          <object>objects\obj_destroyedTower</object>
+          <object>objects\obj_tower_destroyed_basic</object>
+          <object>objects\obj_tower_destroyed_slothOnRope</object>
+          <object>objects\obj_tower_destroyed_tacticalTitmouse</object>
+          <object>objects\obj_tower_destroyed_109CaliBear</object>
+          <object>objects\obj_tower_destroyed_fireAnt</object>
+          <object>objects\obj_tower_destroyed_RT6100</object>
+        </objects>
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
         <object>objects\obj_projectile_flamingAnimal</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_catapillager</object>
+        <object>objects\obj_projectile_player</object>
         <object>objects\obj_projectile_titmouse</object>
         <object>objects\obj_projectile_sloth</object>
         <object>objects\obj_projectile_freeze</object>
@@ -654,8 +694,8 @@
           <object>objects\obj_drop_navPiece</object>
           <object>objects\obj_drop_navPiece_A</object>
           <object>objects\obj_drop_navPiece_B</object>
-          <object>objects\obj_drop_navPiece_D</object>
           <object>objects\obj_drop_navPiece_C</object>
+          <object>objects\obj_drop_navPiece_D</object>
         </objects>
         <objects name="Player Abilities">
           <object>objects\obj_drop_plrAbility</object>
@@ -671,23 +711,10 @@
       <object>objects\obj_visualTile</object>
     </objects>
     <objects name="Misc">
-      <objects name="Control">
-        <object>objects\obj_menu_ingame_placeholder</object>
-        <object>objects\obj_control_cheats</object>
-        <object>objects\obj_control</object>
-        <object>objects\obj_tutControl</object>
-        <objects name="States">
-          <object>objects\obj_control_normalState</object>
-          <object>objects\obj_control_buildState</object>
-          <object>objects\obj_control_destroyState</object>
-        </objects>
-        <objects name="Stats">
-          <object>objects\obj_levelStats</object>
-        </objects>
-      </objects>
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
-      <object>objects\obj_fuelText</object>
+      <object>objects\obj_camera</object>
+      <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
     </objects>
     <objects name="CutScenes">
@@ -708,6 +735,8 @@
         <object>objects\obj_explosion_sparky</object>
         <object>objects\obj_explosion_smallhit</object>
         <object>objects\obj_explosion_flash</object>
+        <object>objects\obj_explosion_med</object>
+        <object>objects\obj_explosion_small</object>
       </objects>
       <objects name="Particles">
         <object>objects\obj_particle</object>
@@ -729,28 +758,41 @@
         <object>objects\obj_playerDeath_screenFade</object>
       </objects>
     </objects>
-    <object>objects\obj_camera</object>
-    <object>objects\obj_dummy_target</object>
+    <objects name="States">
+      <object>objects\obj_control_normalState</object>
+      <object>objects\obj_control_buildState</object>
+      <object>objects\obj_control_destroyState</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
-    <room>rooms\rm_hub</room>
-    <room>rooms\rm_hub_weapons</room>
-    <room>rooms\rm_navArray</room>
-    <room>rooms\rm_video_ship_damaged</room>
-    <room>rooms\rm_video_ship_moonlanding</room>
-    <room>rooms\rm_level_moon</room>
-    <room>rooms\rm_level_forest</room>
-    <room>rooms\rm_level_desert</room>
     <room>rooms\rm_test</room>
-    <room>rooms\rm_cinematic</room>
-    <room>rooms\rm_credits</room>
-    <room>rooms\rm_credits2</room>
-    <room>rooms\rm_credits3</room>
-    <room>rooms\rm_tut1</room>
-    <room>rooms\rm_level_ice</room>
-    <room>rooms\rm_level_underwater</room>
     <room>rooms\rm_bentest</room>
+    <rooms name="Credits">
+      <room>rooms\rm_credits</room>
+      <room>rooms\rm_credits2</room>
+      <room>rooms\rm_credits3</room>
+    </rooms>
+    <rooms name="Levels">
+      <rooms name="Tutorial">
+        <room>rooms\rm_tut1</room>
+      </rooms>
+      <room>rooms\rm_level_moon</room>
+      <room>rooms\rm_level_forest</room>
+      <room>rooms\rm_level_desert</room>
+      <room>rooms\rm_level_ice</room>
+      <room>rooms\rm_level_underwater</room>
+    </rooms>
+    <rooms name="Cinematics">
+      <room>rooms\rm_cinematic</room>
+      <room>rooms\rm_video_ship_damaged</room>
+      <room>rooms\rm_video_ship_moonlanding</room>
+    </rooms>
+    <rooms name="HUB">
+      <room>rooms\rm_hub</room>
+      <room>rooms\rm_hub_weapons</room>
+      <room>rooms\rm_navArray</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

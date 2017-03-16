@@ -8,38 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>towerIndex = -1; // Will contain 0-based index of tower (0-5 as of Beta) in towers array in obj_control
-tower = "No Name Set";
-towerCost = 999999;
-towerObj = noone;
-towerSpr = noone;
-towerRange = 0;
-towerWeaponXOffset = 0;
-towerWeaponYOffset = 0;
-towerPlacementDistance = 0;
-towerPlacementInfo = ds_list_create();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
@@ -94,20 +62,7 @@ with (obj_tower_RT6100) {
 
 // Check if any other instances of tower exist:
 if (instance_number(obj_tower_RT6100) &gt; 0) {
-    scr_notification("You cannot build another one.", c_black, c_yellow);
-    return 0;
-}
-
-// Check if Tower Unlocked:
-if (global.towerUnlocked[5] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
-    return 0;
-    
-}
-
-// Check if Energy Requirements Met:
-if (global.energy &lt; global.towers[5, 1] * global.towerUpgradeLevel[5]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
+    scr_notification("You cannot build another " + global.towers[5, 0] + ".", c_black, c_yellow);
     return 0;
 }
 
@@ -139,20 +94,6 @@ scr_build_switchTower(5);
     return 0;
 }
 
-// Check if Tower Unlocked:
-if (global.towerUnlocked[4] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
-    return 0;
-    
-}
-
-// Check if Energy Requirements Met:
-if (global.energy &lt; global.towers[4, 1] * global.towerUpgradeLevel[4]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
-    return 0;
-}
-
-// Build Tower:
 scr_build_switchTower(4);
 </string>
           </argument>
@@ -180,20 +121,6 @@ scr_build_switchTower(4);
     return 0;
 }
 
-// Check if Tower Unlocked:
-if (global.towerUnlocked[3] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
-    return 0;
-    
-}
-
-// Check if Energy Requirements Met:
-if (global.energy &lt; global.towers[3, 1] * global.towerUpgradeLevel[3]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
-    return 0;
-}
-
-// Build Tower:
 scr_build_switchTower(3);
 </string>
           </argument>
@@ -221,20 +148,6 @@ scr_build_switchTower(3);
     return 0;
 }
 
-// Check if Tower Unlocked:
-if (global.towerUnlocked[2] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
-    return 0;
-    
-}
-
-// Check if Energy Requirements Met:
-if (global.energy &lt; global.towers[2, 1] * global.towerUpgradeLevel[2]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
-    return 0;
-}
-
-// Build Tower:
 scr_build_switchTower(2);
 </string>
           </argument>
@@ -262,20 +175,6 @@ scr_build_switchTower(2);
     return 0;
 }
 
-// Check if Tower Unlocked:
-if (global.towerUnlocked[1] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
-    return 0;
-    
-}
-
-// Check if Energy Requirements Met:
-if (global.energy &lt; global.towers[1, 1] * global.towerUpgradeLevel[1]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
-    return 0;
-}
-
-// Build Tower:
 scr_build_switchTower(1);
 </string>
           </argument>
@@ -303,20 +202,6 @@ scr_build_switchTower(1);
     return 0;
 }
 
-// Check if Tower Unlocked:
-if (global.towerUnlocked[0] == false) {
-    scr_notification("You have not unlocked this tower.", c_black, c_yellow);
-    return 0;
-    
-}
-
-// Check if Energy Requirements Met:
-if (global.energy &lt; global.towers[0, 1] * global.towerUpgradeLevel[0]) {
-    scr_notification("You don't have enough energy to build this.", c_black, c_yellow);
-    return 0;
-}
-
-// Build Tower:
 scr_build_switchTower(0);
 </string>
           </argument>
@@ -385,27 +270,8 @@ scr_build_switchTower(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
-    // Clamp the x position to the nearest multiple of 32:
-    var tempX = mouse_x - (mouse_x % 32);
-    
-    // Clamp the y position to the nearest multiple of 32:
-    var tempY = mouse_y - (mouse_y % 32);
-    
-    // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
-    tempY += 128 - sprite_get_height(towerSpr);
-    
-    // Determine if the (x, y) location is valid:
-    var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
-    isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
-    isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
-    
-    if (tower == "M-6100") {
-        var player = instance_nearest(x, y, obj_player);
-        isLocationValid &amp;= point_distance(player.x, player.y, mouse_x, mouse_y) &lt;= 128;
-    }
-    
-    if (isLocationValid) {
+            <string>if (global.state != "Paused") {    
+    if (scr_tower_isLocationValid()) {
         instance_create(tempX, tempY, towerObj);
         
         scr_energy_change(-towerCost);
@@ -453,6 +319,11 @@ scr_build_switchTower(0);
     return 0;
 }
 
+if (!instance_exists(obj_player)) {
+    // If player dies while placing, this return avoids some errors below.
+    return 0;
+}
+
 /////////////////////////////////////////// DRAW PLACEMENT SPRITES:
 // Clamp the x position to the nearest multiple of 32:
 var tempX = mouse_x - (mouse_x % 32);
@@ -463,21 +334,10 @@ var tempY = mouse_y - (mouse_y % 32);
 // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
 tempY += 128 - sprite_get_height(towerSpr);
 
-// Determine if the (x, y) location is valid:
-var isLocationValid = collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_physicsTile, false, true) == noone;
-isLocationValid &amp;= collision_rectangle(tempX, tempY + 32, tempX + sprite_get_width(towerSpr) - 1, tempY + 32 + sprite_get_height(towerSpr)- 1, obj_physicsTile, false, true) != noone;
-isLocationValid &amp;= collision_rectangle(tempX, tempY, tempX + sprite_get_width(towerSpr) - 1, tempY + sprite_get_height(towerSpr) - 1, obj_tower, false, true) == noone;
-isLocationValid &amp;= point_distance(obj_player.x, obj_player.y, mouse_x, mouse_y) &lt;= towerPlacementDistance;
-
-if (tower == "M-6100") {
-    var player = instance_nearest(x, y, obj_player);
-    isLocationValid &amp;= point_distance(player.x, player.y, mouse_x, mouse_y) &lt;= 128;
-}
-
 // Draw Sprites:
 draw_sprite(towerSpr, 0, tempX, tempY);
 
-if (isLocationValid) {
+if (scr_tower_isLocationValid()) {
     draw_sprite_stretched(spr_build_overlay_validLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));
 } else {
     draw_sprite_stretched(spr_build_overlay_invalidLocation, 0, tempX, tempY, sprite_get_width(towerSpr), sprite_get_height(towerSpr));

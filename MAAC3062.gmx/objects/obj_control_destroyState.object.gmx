@@ -135,7 +135,8 @@
                 instance_destroy();
             }
             var tutorialBox4 = instance_create(512, 608, obj_messageBox);
-            ds_list_add(tutorialBox4.list_text, "Great! Now continue going right to your ship."); 
+            ds_list_add(tutorialBox4.list_text, "Great! Now continue going right"); 
+            ds_list_add(tutorialBox4.list_text, "to your ship."); 
             instance_destroy();
         }
         
@@ -147,7 +148,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="74">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
         <id>603</id>
