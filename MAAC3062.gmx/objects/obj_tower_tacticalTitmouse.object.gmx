@@ -49,27 +49,7 @@
  *  -Ben
  */
 
-attackRate = 4096;
-attackRateCounter = 0;
-attackDamage = 40 * global.towerUpgradeLevel[2];
-attackRange = global.towers[2, 4] * global.towerUpgradeLevel[2];
-
-weaponXOffset = global.towers[2, 5];
-weaponYOffset = global.towers[2, 6];
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_mortar);
-
-currShield = 50;
-currHealth = 100;
-
-maxShield = 50;
-maxHealth = 100;
-
-// Place weapon:
-
-if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
-    weaponObj.x = x + weaponXOffset;
-    weaponObj.y = y + weaponYOffset;
-}
+scr_entity_loadTowerData(2);
 
 // Special stuff just for mortar
 attackRange_min = 10;

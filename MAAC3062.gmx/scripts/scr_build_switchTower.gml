@@ -5,7 +5,19 @@
  *        The ID of the tower, from the 'global.towers' array, that is being built.
  */
 
-var canProceed = is_undefined(argument[0]) == false;
+var canProceed = scr_misc_isVariableInitialized(argument[0]);
+
+// Check if the tower has been unlocked:
+if (global.towerUnlocked[argument[0]] == false) {
+    scr_notification("You have not unlocked a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);
+    return 0;
+}
+
+// Check if Energy Requirements Met:
+if (global.energy < global.towers[argument[0], 1] * global.towerUpgradeLevel[argument[0]]) {
+    scr_notification("You don't have enough energy to build a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);
+    return 0;
+}
  
 if (canProceed) {
     towerIndex = argument[0];
