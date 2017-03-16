@@ -15,9 +15,9 @@ if (canProceed) {
     attackRange = global.towers[argument[0], 4] * global.towerUpgradeLevel[argument[0]];
     
     // Weapon Data:
-    weaponXOffset = global.towers[0, 5]
-    weaponYOffset = global.towers[0, 6];
-    weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, global.towers[0, 13]);
+    weaponXOffset = global.towers[argument[0], 5]
+    weaponYOffset = global.towers[argument[0], 6];
+    weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, global.towers[argument[0], 13]);
     
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
