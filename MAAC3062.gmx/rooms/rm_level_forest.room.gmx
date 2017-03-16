@@ -137,8 +137,8 @@ instance_create(-50, -50, obj_control_bosses);</code>
     <instance objName="obj_player" x="448" y="800" name="inst_0357AAE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine" x="448" y="832" name="inst_ECBF67C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine" x="1120" y="832" name="inst_E17363B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="-96" y="96" name="inst_D0DA8C18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="-96" y="352" name="inst_AA42BBE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="-96" y="96" name="inst_D0DA8C18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="-96" y="352" name="inst_AA42BBE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelEnergy" x="32" y="32" name="inst_57BE8FC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelMinerals" x="32" y="64" name="inst_7AB8A337" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="128" y="-32" name="inst_AD0DE20C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -163,8 +163,8 @@ instance_create(-50, -50, obj_control_bosses);</code>
     <instance objName="obj_physicsTile" x="896" y="320" name="inst_2FB304AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-96" y="192" name="inst_D59A32B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-64" y="192" name="inst_4FDE7326" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="1600" y="224" name="inst_BAB68ADB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="1600" y="608" name="inst_FB37B2FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="1600" y="224" name="inst_BAB68ADB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="1600" y="608" name="inst_FB37B2FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1664" y="704" name="inst_945A8230" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="704" name="inst_AD6CBEC8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1600" y="704" name="inst_BF5F08B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
