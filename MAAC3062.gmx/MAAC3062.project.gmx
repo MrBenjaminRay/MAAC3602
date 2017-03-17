@@ -64,6 +64,7 @@
         <sprite>sprites\spr_toolTipBox_minerals</sprite>
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
+        <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -565,11 +566,17 @@
         </objects>
         <objects name="NavArray">
           <object>objects\obj_cup_holder</object>
+          <object>objects\obj_cup_holder_new</object>
           <object>objects\obj_etchasketch</object>
+          <object>objects\obj_etchasketch_new</object>
           <object>objects\obj_batteries</object>
+          <object>objects\obj_batteries_new</object>
           <object>objects\obj_fridge</object>
+          <object>objects\obj_fridge_new</object>
           <object>objects\obj_rabbit_ear</object>
+          <object>objects\obj_rabbit_ear_new</object>
           <object>objects\obj_array</object>
+          <object>objects\obj_array_new</object>
           <object>objects\obj_table</object>
           <object>objects\obj_navText</object>
         </objects>
