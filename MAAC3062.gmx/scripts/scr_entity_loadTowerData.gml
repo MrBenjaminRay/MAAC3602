@@ -21,11 +21,15 @@ if (canProceed) {
     
     weaponObj.x = x + weaponXOffset;
     weaponObj.y = y + weaponYOffset;
-    
+
+    // Set reference to parent tower
+    weaponObj.parentTower = id;
+        
     // Health & Shield Data:
     currHealth = global.towers[argument[0], 12];
     currShield = global.towers[argument[0], 13];
     
     maxHealth = global.towers[argument[0], 12];
     maxShield = global.towers[argument[0], 13];
+
 }

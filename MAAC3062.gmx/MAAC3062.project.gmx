@@ -770,6 +770,8 @@
       <objects name="Special">
         <object>objects\obj_playerDeath_screenFade</object>
       </objects>
+      <object>objects\obj_smoke</object>
+      <object>objects\obj_control_particles</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
