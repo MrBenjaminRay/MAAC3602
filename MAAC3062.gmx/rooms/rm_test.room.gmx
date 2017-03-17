@@ -225,8 +225,8 @@
     <instance objName="obj_enemy_air_light" x="864" y="640" name="inst_A4029CA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_air_heavy" x="992" y="640" name="inst_929CCD3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_ground_jackal" x="1152" y="672" name="inst_BCEBD2F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="1600" y="288" name="inst_9F3E5347" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="1600" y="448" name="inst_EF9547A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="1600" y="288" name="inst_9F3E5347" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="1600" y="448" name="inst_EF9547A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1664" y="416" name="inst_1522C28A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1696" y="416" name="inst_8FD088C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1664" y="576" name="inst_6BEC8B19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
