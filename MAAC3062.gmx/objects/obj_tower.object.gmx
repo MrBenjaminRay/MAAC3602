@@ -45,6 +45,10 @@ healthBarYOffset = sprite_height - 10;
 
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
+
+// Keep reference to the tower to which this cannon belongs.
+// Needed for sloth in order to draw rope between weapon and current sloth projectile.
+parentTower = noone;
 </string>
           </argument>
         </arguments>
