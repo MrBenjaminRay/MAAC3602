@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>    obj_player.x = warpx;
-    obj_player.y = warpy;
-    room_goto(target_room);
+            <string>obj_player.x = warpx;
+obj_player.y = warpy;
+room_goto(target_room);
 
 
 </string>

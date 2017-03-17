@@ -2,9 +2,9 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,28 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (scr_getLevelId() == 0){
-  // Level 1 (moon)
-  if (global.levelStats[scr_getLevelId(), 19] &gt; 50){
-    // More than 100 enemies spawned
-    if (!global.levelStats[scr_getLevelId(), 20]){
-      // Boss has not spawned yet, so do it now
-      global.levelStats[scr_getLevelId(), 20] = true;
-      scr_spawnBoss(obj_enemy_boss_mini_A, 2112, 500);
-    }
-  }
-}
+            <string>var canSpawnBoss = scr_statistics_getKills() &gt; 50;
+canSpawnBoss &amp;= scr_statistics_hasBossSpawned() == false;
 
-if (scr_getLevelId() == 1){
-  // Level 2 (forest)
-  if (global.levelStats[scr_getLevelId(), 19] &gt; 50){
-    // More than 100 enemies spawned
-    if (!global.levelStats[scr_getLevelId(), 20]){
-      // Boss has not spawned yet, so do it now
-      global.levelStats[scr_getLevelId(), 20] = true;
-      scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
+if (canSpawnBoss) {
+    switch(room) {
+        case rm_level_moon: {
+            global.levelStats[scr_getLevelId(), 20] = true;
+            scr_spawnBoss(obj_enemy_boss_mini_A, 2112, 500);
+            break;
+        }
+        case rm_level_forest: {
+            global.levelStats[scr_getLevelId(), 20] = true;
+            scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
+            break;
+        }
     }
-  }
 }
 </string>
           </argument>

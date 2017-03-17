@@ -83,6 +83,7 @@ changeCueTime = 1250;
             <kind>1</kind>
             <string>// Set value to be drawn to match minerals level
 currentValueToDraw = global.energy;
+
 </string>
           </argument>
         </arguments>

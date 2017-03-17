@@ -10,9 +10,12 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>// Minerals that the player started with for this level.
-// If the player dies, the global minerals will be reset to this value.
-global.initialMinerals = global.minerals;</code>
+  <code>// Level Initalization Code:
+scr_statistics_initializeLevel();
+global.initialMinerals = global.minerals;
+
+// Spawn Required Control Objects:
+instance_create(-50, -50, obj_control_bosses);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -128,8 +131,8 @@ global.initialMinerals = global.minerals;</code>
     <instance objName="obj_physicsTile" x="1600" y="128" name="inst_CA61C8D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1664" y="128" name="inst_7CDC1DB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="128" name="inst_CCBADC79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="-96" y="32" name="inst_832AC493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spawner" x="1600" y="32" name="inst_A5B48B65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="-96" y="32" name="inst_832AC493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spawnerSpawner" x="1600" y="32" name="inst_A5B48B65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelEnergy" x="32" y="32" name="inst_067C4E76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelMinerals" x="32" y="64" name="inst_964D8E7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="64" y="-32" name="inst_ECE2E4DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

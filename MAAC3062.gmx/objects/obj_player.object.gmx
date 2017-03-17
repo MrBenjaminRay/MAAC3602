@@ -94,7 +94,7 @@ abilB_cooldownCounter = 0;
 abilC_cooldownCounter = 0;
 abilD_cooldownCounter = 0;
 
-global.energy = 9001;
+global.energy = 900;
 
 switch(room)
 {
@@ -572,7 +572,7 @@ if (mouse_check_button(mb_left)) {
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
             
-            scr_create_explosion(projX, projY, 'Flash');
+            scr_create_explosion(projX, projY, 'Muzzle');
             
             attackRateCounter = 0;
         }
