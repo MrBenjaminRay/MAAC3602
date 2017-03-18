@@ -252,25 +252,7 @@ abilD_cooldownCounter = abilD_cooldownTime;
             <kind>1</kind>
             <string>if(global.currentLevelComplete == 0) {
     global.minerals = global.initialMinerals;
-    
-    //reset boss complete
-    switch(room) {
-        case rm_level_moon:
-            global.levelStats[0, 21] = false;
-            break;
-        case rm_level_forest:
-            global.levelStats[1, 21] = false;
-            break;
-        case rm_level_desert:
-            global.levelStats[2, 21] = false;
-            break;
-        case rm_level_ice:
-            global.levelStats[3, 21] = false;
-            break;
-        case rm_level_underwater:
-            global.levelStats[4, 21] = false;
-            break;
-    }
+    scr_statistics_setBossSpawned(false);
 }
     
 </string>
@@ -633,7 +615,10 @@ if (mouse_check_button(mb_left)) {
                 vOffset = -4;
             } else if (weaponObj.sprite_index == spr_right_arm_weapon) {
                 vOffset = 4;
+            } else {
+                vOffset = 0; // The game has crashed due to vOffset not being set. Setting it here is a temporary measure.
             }
+            
             projX += vOffset * cos(degtorad(weaponObj.image_angle+90));
             projY += vOffset * -sin(degtorad(weaponObj.image_angle+90));
             
