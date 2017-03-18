@@ -254,6 +254,7 @@
         <sprite>sprites\spr_explosion_flash_short</sprite>
         <sprite>sprites\spr_mushroom_cloud</sprite>
         <sprite>sprites\spr_blood_and_feather_explosion</sprite>
+        <sprite>sprites\spr_bloodsplosion</sprite>
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
@@ -312,6 +313,7 @@
       <sprite>sprites\spr_green_cursor</sprite>
       <sprite>sprites\spr_red_cursor</sprite>
       <sprite>sprites\spr_target_cursor</sprite>
+      <sprite>sprites\spr_sell_cursor</sprite>
     </sprites>
     <sprites name="Spawners">
       <sprite>sprites\spr_spawner</sprite>
