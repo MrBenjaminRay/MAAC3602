@@ -31,12 +31,16 @@ canSpawnBoss &amp;= scr_statistics_hasBossSpawned() == false;
 if (canSpawnBoss) {
     switch(room) {
         case rm_level_moon: {
-            global.levelStats[scr_getLevelId(), 20] = true;
+            // Unsure of the original purpose of the following line, but it
+            // does not work with the new levelStats setup.
+            //global.levelStats[scr_getLevelId(), 20] = true;
             scr_spawnBoss(obj_enemy_boss_mini_A, 2112, 500);
             break;
         }
         case rm_level_forest: {
-            global.levelStats[scr_getLevelId(), 20] = true;
+            // Unsure of the original purpose of the following line, but it
+            // does not work with the new levelStats setup.
+            //global.levelStats[scr_getLevelId(), 20] = true;
             scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
             break;
         }
