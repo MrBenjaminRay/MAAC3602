@@ -64,6 +64,7 @@
         <sprite>sprites\spr_toolTipBox_minerals</sprite>
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
+        <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -487,6 +488,11 @@
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
     </scripts>
+    <scripts name="Spawning">
+      <script>scripts\scr_spawning_disableSpawners.gml</script>
+      <script>scripts\scr_spawning_enableSpawners.gml</script>
+      <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -560,11 +566,17 @@
         </objects>
         <objects name="NavArray">
           <object>objects\obj_cup_holder</object>
+          <object>objects\obj_cup_holder_new</object>
           <object>objects\obj_etchasketch</object>
+          <object>objects\obj_etchasketch_new</object>
           <object>objects\obj_batteries</object>
+          <object>objects\obj_batteries_new</object>
           <object>objects\obj_fridge</object>
+          <object>objects\obj_fridge_new</object>
           <object>objects\obj_rabbit_ear</object>
+          <object>objects\obj_rabbit_ear_new</object>
           <object>objects\obj_array</object>
+          <object>objects\obj_array_new</object>
           <object>objects\obj_table</object>
           <object>objects\obj_navText</object>
         </objects>
@@ -604,6 +616,7 @@
     <objects name="Entities">
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>
+      <object>objects\obj_spawnerSpawner</object>
       <object>objects\obj_spawner</object>
       <objects name="Player">
         <object>objects\obj_player</object>
@@ -757,6 +770,8 @@
       <objects name="Special">
         <object>objects\obj_playerDeath_screenFade</object>
       </objects>
+      <object>objects\obj_smoke</object>
+      <object>objects\obj_control_particles</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>

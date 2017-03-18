@@ -3,7 +3,7 @@
   <spriteName>spr_player_runs_right_with_weapon</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>15</depth>
+  <depth>-15</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
