@@ -128,6 +128,10 @@
       <sprite>sprites\spr_iceButton</sprite>
       <sprite>sprites\spr_waterButton</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
+      <sprites name="Death Screen">
+        <sprite>sprites\spr_button_retry</sprite>
+        <sprite>sprites\spr_button_toHub</sprite>
+      </sprites>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -631,6 +635,10 @@
         <object>objects\obj_weaponBox</object>
         <object>objects\obj_toolTipBox</object>
         <object>objects\obj_toolTipBox_minerals</object>
+      </objects>
+      <objects name="Death Screen">
+        <object>objects\obj_button_retry</object>
+        <object>objects\obj_button_toHub</object>
       </objects>
     </objects>
     <objects name="Entities">
