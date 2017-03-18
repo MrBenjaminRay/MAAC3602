@@ -63,4 +63,6 @@ if (canProceed) {
             break;
         }
     }
+    
+    ds_map_replace(global.levelStats, room, levelData);
 }
