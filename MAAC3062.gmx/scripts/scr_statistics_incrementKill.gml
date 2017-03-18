@@ -8,6 +8,7 @@
 var canProceed = scr_misc_isVariableInitialized(global.levelStats);
 canProceed &= scr_misc_isVariableInitialized(argument[0]);
 
+
 if (canProceed) {
     var levelData = ds_map_find_value(global.levelStats, room);
 
@@ -16,6 +17,7 @@ if (canProceed) {
             levelData[11]++;
             levelData[28]++;
             scr_kills_change(1);  // Trigger visual cue when kill count changes
+            show_debug_message('Ground light enemies killed: ' + string(levelData[11])); // DEBUG
             break;
         }
         case obj_enemy_ground_medium: {
