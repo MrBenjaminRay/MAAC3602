@@ -32,5 +32,6 @@ if (canProceed) {
     roomData[26] = false;  // Level Boss Spawned
     roomData[27] = false;  // Level Boss Defeated
     roomData[28] = 0;  // Total Enemies Killed
+    roomData[29] = 0;  // Minerals Earned
     ds_map_add(global.levelStats, room, roomData);
 }
