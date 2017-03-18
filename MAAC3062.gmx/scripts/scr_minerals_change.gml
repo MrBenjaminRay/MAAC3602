@@ -1,4 +1,10 @@
 /**
+ * NOTE:  This script needs to be reworked after TM adds minerals value for each level.
+ * global.minerals should only increase if player leaves level without dying, at which point
+ * it is incremented by the # of minerals acquired during the level.
+ * 
+ * I've temporarily rigged the script below to NOT update global.minerals.
+ *
  * Increases or decreases global minerals value by the specified amount.
  * We use a script so that minerals can be changed in various places in code,
  * and we can add effects or animations as needed in a single location (here).
@@ -25,7 +31,8 @@ if (argument[0] > 0) {
 } 
 
 // Increase or decrease the minerals by the specified amount
-global.minerals += argument[0];
+// RIGGED:  Remove increase in global.minerals
+//global.minerals += argument[0];
 if (global.minerals < 0) {
     global.minerals = 0; // Prevent negative value
 }
@@ -40,5 +47,6 @@ with (obj_hud_levelMinerals) {
         changeCueAmount += argument[0];
     }
     // Set change cue display time
+    // RIGGED:  changeCueTime in minerals is way long to make it never reset
     changeCueTimeLeft = changeCueTime;
 }

@@ -30,7 +30,7 @@ if (canProceed) {
     roomData[24] = 0;  // Ground - Large Spider Kills
     roomData[25] = 0;  // Total Enemies Spawned
     roomData[26] = false;  // Level Boss Spawned
-    roomData[27] = false;   // Level Boss Defeated
+    roomData[27] = false;  // Level Boss Defeated
     roomData[28] = 0;  // Total Enemies Killed
     ds_map_add(global.levelStats, room, roomData);
 }
