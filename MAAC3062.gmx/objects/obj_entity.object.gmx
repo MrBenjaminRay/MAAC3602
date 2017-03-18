@@ -277,12 +277,14 @@ if (!isJumping &amp;&amp; !isDropping) {
           <argument>
             <kind>1</kind>
             <string>if (isJumping) {
+    // Jumping entity has hit a title, likely from the bottom. Stop the jumping.
     isJumping = false;
     currentJumpSpeed = 0;
-    y++;
+    // We used to do y++ here, but that would only work for 1 step (jumping stopped on first occurence).
 } else {
-    y--;
+    y--; // Entity likely sitting on a tile and sinking. Pull it up.
 }
+
 </string>
           </argument>
         </arguments>

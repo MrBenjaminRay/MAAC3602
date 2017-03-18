@@ -10,7 +10,9 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>audio_stop_all();
+  <code>window_set_cursor(cr_default);
+
+audio_stop_all();
 
 if(global.levelStats[0, 21] &amp;&amp; !global.navPieceAttained[0]
     &amp;&amp; !global.plrAbilityAttained[0]) {

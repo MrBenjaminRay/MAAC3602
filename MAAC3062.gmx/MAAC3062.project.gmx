@@ -307,6 +307,7 @@
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
+      <sprite>sprites\spr_dummy_levelControl</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -343,6 +344,7 @@
         <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
       <sprite>sprites\spr_ship_arrow</sprite>
+      <sprite>sprites\spr_enemyKills</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -463,6 +465,7 @@
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
     <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_kills_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
     <scripts name="UI">
       <scripts name="Message Boxes">
@@ -511,12 +514,22 @@
       <object>objects\obj_control</object>
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
-      <object>objects\obj_tutControl</object>
+      <object>objects\obj_levelControl</object>
+      <object>objects\obj_levelControl_Tutorial</object>
+      <object>objects\obj_levelControl_1</object>
+      <object>objects\obj_levelControl_2</object>
+      <object>objects\obj_levelControl_3</object>
+      <object>objects\obj_levelControl_4</object>
+      <object>objects\obj_levelControl_5</object>
+      <object>objects\obj_levelControl_6</object>
+      <object>objects\obj_levelControl_7</object>
+      <object>objects\obj_levelControl_8</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
+      <object>objects\obj_hud_levelKills</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
     </objects>
