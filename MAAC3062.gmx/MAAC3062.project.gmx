@@ -307,6 +307,7 @@
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
+      <sprite>sprites\spr_dummy_levelControl</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -513,7 +514,16 @@
       <object>objects\obj_control</object>
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
-      <object>objects\obj_tutControl</object>
+      <object>objects\obj_levelControl</object>
+      <object>objects\obj_levelControl_Tutorial</object>
+      <object>objects\obj_levelControl_1</object>
+      <object>objects\obj_levelControl_2</object>
+      <object>objects\obj_levelControl_3</object>
+      <object>objects\obj_levelControl_4</object>
+      <object>objects\obj_levelControl_5</object>
+      <object>objects\obj_levelControl_6</object>
+      <object>objects\obj_levelControl_7</object>
+      <object>objects\obj_levelControl_8</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
