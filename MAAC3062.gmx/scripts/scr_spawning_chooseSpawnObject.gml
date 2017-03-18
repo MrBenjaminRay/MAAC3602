@@ -48,5 +48,5 @@ if (canSpawn_airHeavy) {
 // Randomly choose an object from the list and return it:
 var listSize = ds_list_size(spawnableObjects);
 var tmp = ds_list_find_value(spawnableObjects, irandom_range(0, listSize - 1));
-show_debug_message(tmp);
+//show_debug_message(tmp);
 return tmp;

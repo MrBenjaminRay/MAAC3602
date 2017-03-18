@@ -4,7 +4,7 @@
  * and we can add effects or animations as needed in a single location (here).
  *
  * @param argument[0]
- *        The amount by which to change the energy (+ or -).
+ *        The amount by which to change the minerals (+ or -).
  */
 
 // Effects/animations
@@ -24,7 +24,7 @@ if (argument[0] > 0) {
     }
 } 
 
-// Increase or decrease the energy by the specified amount
+// Increase or decrease the minerals by the specified amount
 global.minerals += argument[0];
 if (global.minerals < 0) {
     global.minerals = 0; // Prevent negative value

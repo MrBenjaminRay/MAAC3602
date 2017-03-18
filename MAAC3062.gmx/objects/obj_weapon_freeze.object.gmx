@@ -52,8 +52,6 @@
 
 draw_self();
 
-show_debug_message(parentTower);
-
 </string>
           </argument>
         </arguments>

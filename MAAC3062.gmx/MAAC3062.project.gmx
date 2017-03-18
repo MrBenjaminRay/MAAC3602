@@ -341,6 +341,7 @@
         <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
       <sprite>sprites\spr_ship_arrow</sprite>
+      <sprite>sprites\spr_enemyKills</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -461,6 +462,7 @@
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
     <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_kills_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
     <scripts name="UI">
       <scripts name="Message Boxes">
@@ -515,6 +517,7 @@
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
+      <object>objects\obj_hud_levelKills</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
     </objects>
