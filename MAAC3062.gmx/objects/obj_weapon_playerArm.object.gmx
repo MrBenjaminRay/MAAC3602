@@ -54,9 +54,11 @@ targetY = 0;
         if (obj_player.facingDirection == 1) {
             // Player facing right
             sprite_index = spr_right_arm_wrench;
+            depth = obj_player.depth + 5; // Push left arm behind player.
         } else if (obj_player.facingDirection == -1) {
             // Player facing left
             sprite_index = spr_left_arm_wrench;
+            depth = obj_player.depth - 5; // Pull left arm in front of player.
         }
     }
 } else if (global.state == "Normal") {
@@ -64,9 +66,11 @@ targetY = 0;
         if (obj_player.facingDirection == 1) {
             // Player facing right
             sprite_index = spr_right_arm_weapon;
+            depth = obj_player.depth + 5; // Push left arm behind player.
         } else if (obj_player.facingDirection == -1) {
             // Player facing left
             sprite_index = spr_left_arm_weapon;
+            depth = obj_player.depth - 5; // Pull left arm in front of player.
         }
     }
 }

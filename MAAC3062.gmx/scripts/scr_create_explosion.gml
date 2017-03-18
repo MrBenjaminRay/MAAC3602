@@ -43,4 +43,5 @@ if (argument2 == 'Sparky') {
     inst.image_speed = 1;
     inst.image_xscale = .5;
     inst.image_yscale = .5;
+    inst.depth = depth-1; // Attempt to put explosion just in front of the weapon
 }
