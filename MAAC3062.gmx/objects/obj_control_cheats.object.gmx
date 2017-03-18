@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="9" enumb="36">
+    <event eventtype="5" enumb="36">
       <action>
         <libid>1</libid>
         <id>605</id>
@@ -70,7 +70,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="35">
+    <event eventtype="5" enumb="35">
       <action>
         <libid>1</libid>
         <id>605</id>
@@ -132,7 +132,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="34">
+    <event eventtype="5" enumb="34">
       <action>
         <libid>1</libid>
         <id>605</id>
@@ -194,7 +194,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="33">
+    <event eventtype="5" enumb="33">
       <action>
         <libid>1</libid>
         <id>605</id>
@@ -252,6 +252,67 @@
           <argument>
             <kind>0</kind>
             <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="106">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Unlock all towers &amp; abilities</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Unlock all towers
+global.caterpillagerUnlock = 1;
+global.slothRopeUnlock = 1;
+global.titMouseUnlock = 1;
+global.CalibearUnlock = 1;
+global.fireAntUnlock = 1;
+global.RT6100Unlock = 1;
+global.mechaGoatUnlock = 1;
+global.armadilloUnlock = 1;
+global.porpoiseUnlock = 1;
+global.gorillaUnlock = 1;
+global.electricEelUnlock = 1;
+
+// Unlock all abilities
+global.fieldPulseUnlock = 1;
+global.sneakySnakesUnlock = 1;
+global.blasterUnlock = 1;
+global.catsAndDogsUnlock = 1;
+
+</string>
           </argument>
         </arguments>
       </action>

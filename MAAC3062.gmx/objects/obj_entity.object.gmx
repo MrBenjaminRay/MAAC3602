@@ -47,12 +47,11 @@ attackRange = sprite_width/2;   // The distance from the entity's origin that me
 weaponObj = noone;              // The weapon to display on the entity or noone if there isn't one.
 weaponXOffset = sprite_width/2; // The x-axis position, in relation to this entity, of where to place the weapon obj.
 weaponYOffset = sprite_height/2;// The y-axis position, in relation to this entity, of where to place the weapon obj.
-weaponKickbackMax = sprite_width/4;    // The maximum kickback for the entity's weapon. Overridden in player create code.
-weaponKickback = 0;                    // The current kickback for the entity's weapon
+weaponKickbackMax = sprite_width/6;    // The maximum kickback for the entity's weapon. Overridden in player create code.
+weaponKickback = weaponKickbackMax;    // The current kickback for the entity's weapon. Start with max so gun comes out after object created.
 weaponKickbackOffsetX = 0;             // The current additional x offset caused by weapon kickback. This is calculated based on weaponKickback.
 weaponKickbackOffsetY = 0;             // The current additional y offset caused by knockback. This is calculated based on weaponKickback.
 weaponKickbackResetSpeed = 0.1;        // How quickly to lower kickback. Will be multiplied by delta time.  Overridden in player create code.
-                                        // If inconsistent, decrease and also multiply by weaponKickBackMax (in step event) so it's faster for objects with larger weapon kickback.
 
 // HEALTH &amp; SHIELDS:
 currShield = 0;                 // The current sheild value.

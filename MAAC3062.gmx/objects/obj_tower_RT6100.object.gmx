@@ -99,6 +99,11 @@ reloadBarX = 0;
 reloadBarY = -20;
 
 continuousFire = false; //used to keep looping firing sound
+
+// Customize weapon kickback for this tower
+weaponKickbackMax = 15;                 // Max kickback
+weaponKickback = weaponKickbackMax;     // Start with max so gun comes out animated after created
+weaponKickbackResetSpeed = 0.2;         // How quickly to lower kickback. Will be multiplied by delta time.
 </string>
           </argument>
         </arguments>
@@ -359,6 +364,9 @@ if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
+// Shrink any existing weapon kickback
+scr_entity_weaponKickback_Shrink();
+
 if (mouse_check_button(mb_left)) {
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
@@ -377,8 +385,8 @@ if (mouse_check_button(mb_left)) {
             roundsFired++;
             //audio_play_sound(snd_playerGun, 0, false);
         
-            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
             var projectile = instance_create(projX, projY, obj_projectile_rainbowTrout);
             projectile.xDest = mouse_x + irandom_range(-20, 20);
@@ -387,6 +395,9 @@ if (mouse_check_button(mb_left)) {
             projectile.isEnemyProjectile = false;
             
             scr_create_explosion(projX, projY, 'Flash');
+            
+            // Start kickback
+            scr_entity_weaponKickback_Start();
             
             attackRateCounter = 0;
         }
@@ -397,6 +408,9 @@ if (mouse_check_button(mb_left)) {
     audio_play_sound(snd_M6100_end, 0, false);
     audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
+
+// Calculate weapon position based on offset and current kickback level
+scr_entity_weaponKickback_CalcOffset();
 
 </string>
           </argument>

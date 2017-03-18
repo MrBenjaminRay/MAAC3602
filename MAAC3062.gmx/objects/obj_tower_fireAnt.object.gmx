@@ -40,6 +40,11 @@
           <argument>
             <kind>1</kind>
             <string>scr_entity_loadTowerData(4);
+
+// Customize weapon kickback for this tower
+weaponKickbackMax = 10;                 // Max kickback
+weaponKickback = weaponKickbackMax;     // Start with max so gun comes out animated after created
+weaponKickbackResetSpeed = 0.3;         // How quickly to lower kickback. Will be multiplied by delta time.
 </string>
           </argument>
         </arguments>
@@ -124,19 +129,23 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-var nearestEnemy_any = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy);
-var nearestEnemy_ground = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
-var nearestEnemy = noone;
+// Shrink any existing weapon kickback
+scr_entity_weaponKickback_Shrink();
 
-if (nearestEnemy_ground != noone) {
-    nearestEnemy = nearestEnemy_ground;
-} else {
-    nearestEnemy = nearestEnemy_any;
-}
+if (attackRateCounter &gt;= attackRate) {
+    attackRateCounter = 0;
 
-if (nearestEnemy != noone) {
-    if (attackRateCounter &gt;= attackRate) {
-        attackRateCounter = 0;
+    var nearestEnemy_any = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy);
+    var nearestEnemy_ground = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
+    var nearestEnemy = noone;
+    
+    if (nearestEnemy_ground != noone) {
+        nearestEnemy = nearestEnemy_ground;
+    } else {
+        nearestEnemy = nearestEnemy_any;
+    }
+
+    if (nearestEnemy != noone) {
         
         // Rotate the cannon to point towards the enemy:
         var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
@@ -145,15 +154,21 @@ if (nearestEnemy != noone) {
         weaponObj.image_angle = enemyDirection;
 
         // Spawn projectile:
-        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         scr_spawn_projectile(obj_projectile_fireAnt, projX, projY, nearestEnemy, false, attackDamage);
         
         // Show projectile spawn effect:
         // Need a different effect for flame spawning. Explosion looks funny. -Ben
         //scr_create_explosion(projX, projY, 'Flash');
+        
+        // Start kickback
+        scr_entity_weaponKickback_Start();
     }
 }
+
+// Calculate weapon position based on offset and current kickback level
+scr_entity_weaponKickback_CalcOffset();
 
 attackRateCounter += global.deltaTime;
 </string>
