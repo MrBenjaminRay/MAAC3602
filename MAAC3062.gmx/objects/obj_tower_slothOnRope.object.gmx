@@ -41,6 +41,13 @@
             <kind>1</kind>
             <string>scr_entity_loadTowerData(1);
 
+
+// Customize weapon kickback for this tower
+weaponKickbackMax = 20;                 // Max kickback
+weaponKickback = weaponKickbackMax;     // Start with max so gun comes out animated after created
+weaponKickbackResetSpeed = 0.02;         // How quickly to lower kickback. Will be multiplied by delta time.
+
+
 // Reference to sloth projectile. Will be noone whenever sloth is not launched.
 slothObj = noone;
 
@@ -137,6 +144,9 @@ if (instance_exists(slothObj)) {
     return 0;
 }
 
+// Shrink any existing weapon kickback
+scr_entity_weaponKickback_Shrink();
+
 if (!instance_exists(slothObj)) {
     // Sloth not already deployed, so we can create &amp; launch one
 
@@ -160,9 +170,9 @@ if (!instance_exists(slothObj)) {
         // Rotate the cannon to point towards the enemy:
         weaponObj.image_angle = enemyDirection;
     
-        // Spawn sloth projectile:
-        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        // Spawn sloth projectile (account for any existing kickback):
+        var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         var proj = instance_create(projX, projY, obj_projectile_sloth);
         
         proj.ropeMaxLength = attackRange;
@@ -183,9 +193,16 @@ if (!instance_exists(slothObj)) {
         
         // Show projectile spawn effect:
         scr_create_explosion(projX, projY, 'Flash');
+        
+        // Start kickback
+        scr_entity_weaponKickback_Start();
 
     }
 }
+
+// Calculate weapon position based on offset and current kickback level
+scr_entity_weaponKickback_CalcOffset();
+
 
 </string>
           </argument>
