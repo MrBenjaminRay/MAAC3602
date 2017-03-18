@@ -10,7 +10,40 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>audio_stop_all();</code>
+  <code>window_set_cursor(cr_default);
+
+audio_stop_all();
+
+if(global.levelStats[0, 21] &amp;&amp; !global.navPieceAttained[0]
+    &amp;&amp; !global.plrAbilityAttained[0]) {
+    scr_msg_hubBossReward(0);
+    global.navPieceAttained[0] = true;
+    global.plrAbilityAttained[0] = true;
+}
+else if(global.levelStats[1, 21] &amp;&amp; !global.navPieceAttained[1]
+    &amp;&amp; !global.plrAbilityAttained[1]) {
+    scr_msg_hubBossReward(1);
+    global.navPieceAttained[1] = true;
+    global.plrAbilityAttained[1] = true;
+}
+else if(global.levelStats[2, 21] &amp;&amp; !global.navPieceAttained[2]
+    &amp;&amp; !global.plrAbilityAttained[2]) {
+    scr_msg_hubBossReward(2);
+    global.navPieceAttained[2] = true;
+    global.plrAbilityAttained[2] = true;
+}
+else if(global.levelStats[3, 21] &amp;&amp; !global.navPieceAttained[3]
+    &amp;&amp; !global.plrAbilityAttained[3]) {
+    scr_msg_hubBossReward(3);
+    global.navPieceAttained[3] = true;
+    global.plrAbilityAttained[3] = true;
+}
+else if(global.levelStats[4, 21] &amp;&amp; !global.navPieceAttained[4]
+    &amp;&amp; !global.plrAbilityAttained[4]) {
+    scr_msg_hubBossReward(4);
+    global.navPieceAttained[4] = true;
+    global.plrAbilityAttained[4] = true;
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

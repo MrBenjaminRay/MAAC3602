@@ -45,6 +45,10 @@ healthBarYOffset = sprite_height - 10;
 
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
+
+// Keep reference to the tower to which this cannon belongs.
+// Needed for sloth in order to draw rope between weapon and current sloth projectile.
+parentTower = noone;
 </string>
           </argument>
         </arguments>
@@ -134,13 +138,15 @@ var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_gro
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
-        
+
+        // Apply knockback (TODO)
+                
         // Rotate the cannon to point towards the enemy:
         var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
         var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
         var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
         weaponObj.image_angle = enemyDirection;
-
+        
         // Spawn projectile:
         var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));

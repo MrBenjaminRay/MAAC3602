@@ -3,7 +3,7 @@
   <spriteName>spr_player_runs_right_with_weapon</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>15</depth>
+  <depth>-15</depth>
   <persistent>0</persistent>
   <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -68,6 +68,9 @@ attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = -10;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
+weaponKickbackMax = 4;             // Override width-based weapon kickback maximum for player.
+weaponKickbackResetSpeed = 0.1;    // Override weapon kickback speed for player.
+
 
 xKeyHeld = 0;
 xKeyHeldCounter = 0;
@@ -94,7 +97,7 @@ abilB_cooldownCounter = 0;
 abilC_cooldownCounter = 0;
 abilD_cooldownCounter = 0;
 
-global.energy = 9001;
+global.energy = 900;
 
 switch(room)
 {
@@ -227,6 +230,49 @@ abilD_cooldownCounter = abilD_cooldownTime;
           <argument>
             <kind>0</kind>
             <string>y</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.currentLevelComplete == 0) {
+    global.minerals = global.initialMinerals;
+    
+    //reset boss complete
+    switch(room) {
+        case rm_level_moon:
+            global.levelStats[0, 21] = false;
+            break;
+        case rm_level_forest:
+            global.levelStats[1, 21] = false;
+            break;
+        case rm_level_desert:
+            global.levelStats[2, 21] = false;
+            break;
+        case rm_level_ice:
+            global.levelStats[3, 21] = false;
+            break;
+        case rm_level_underwater:
+            global.levelStats[4, 21] = false;
+            break;
+    }
+}
+    
+</string>
           </argument>
         </arguments>
       </action>
@@ -445,7 +491,6 @@ if (isRightPressed) {
 if(!(isRightPressed || isLeftPressed)) {
     animationSpeed = 0;
     image_speed = 0;
-    //image_index = 0;
     image_xscale = 1;
     if (isJumping) {
         if (sprite_index != spr_player_jump_right &amp;&amp; sprite_index != spr_player_jump_left) {
@@ -456,6 +501,18 @@ if(!(isRightPressed || isLeftPressed)) {
             } else {
                 sprite_index = spr_player_jump_left;
             }        
+        }
+    } else {
+        // Player is standing still, so show correct sprite.
+        // Sprite will be updated with firing stance sprites when mouse being held.
+        if (facingDirection == 1) {
+            // Player standing facing right
+            sprite_index = spr_player_runs_right_with_weapon;
+            image_index = 4; // Remove this when we have the standing facing right sprite
+        } else if (facingDirection == -1) {
+            // Player standing facing left
+            sprite_index = spr_player_runs_left_with_weapon;
+            image_index = 6; // Remove this when we have the standing facing right sprite
         }
     }
 }
@@ -519,9 +576,9 @@ if (mouse_check_button(mb_left)) {
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {
             audio_play_sound(snd_playerGun, 0, false);
-        
-            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+       
+            var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
             var projectile = instance_create(projX, projY, obj_projectile_player);
             projectile.xDest = mouse_x;
@@ -529,12 +586,68 @@ if (mouse_check_button(mb_left)) {
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
             
-            scr_create_explosion(projX, projY, 'Flash');
+            scr_create_explosion(projX, projY, 'Muzzle');
+            
+            // Start kickback
+            scr_entity_weaponKickback();
             
             attackRateCounter = 0;
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Weapon Knockback</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Calculate additional x/y weapon offset based on weapon kickback
+// Negative value X, positive value Y (because 0 is up)
+weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
+weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+
+// Shrink weapon kickback amount
+if (weaponKickback &gt; 0) {
+    weaponKickback -= weaponKickbackResetSpeed * global.deltaTime;
+    clamp(weaponKickback, 0, weaponKickbackMax);
+}
+
+
+
 </string>
           </argument>
         </arguments>
@@ -576,8 +689,8 @@ if (mouse_check_button(mb_left)) {
           <argument>
             <kind>1</kind>
             <string>if (weaponObj != noone and instance_exists(weaponObj)) {
-    weaponObj.x = x + weaponXOffset;
-    weaponObj.y = y + weaponYOffset;
+    weaponObj.x = x + weaponXOffset + weaponKickbackOffsetX;
+    weaponObj.y = y + weaponYOffset + weaponKickbackOffsetY;
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
     weaponObj.depth = depth -1 
 }
@@ -891,6 +1004,26 @@ if (isJumping == false) {
     <event eventtype="9" enumb="86">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 4 - Cats &amp; Dogs</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -908,6 +1041,8 @@ if (isJumping == false) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+// Ability - Cats &amp; Dogs
 
 if (global.plrAbilityAttained[3]) {
     if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
@@ -936,6 +1071,26 @@ if (global.plrAbilityAttained[3]) {
     <event eventtype="9" enumb="70">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 2 - Snakes</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -953,6 +1108,8 @@ if (global.plrAbilityAttained[3]) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+// Ability - Snakes
 
 // Determine Proper Cooldown Time:
 if (global.plrAbilityUpgraded[1]) {
@@ -986,6 +1143,26 @@ if (global.plrAbilityAttained[1]) {
       </action>
     </event>
     <event eventtype="9" enumb="69">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Mount/Dismount RT-6100</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1071,6 +1248,26 @@ if (global.plrAbilityAttained[1]) {
     <event eventtype="9" enumb="67">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 3 - Extreme Blaster</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -1088,6 +1285,8 @@ if (global.plrAbilityAttained[1]) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+// Ability - Extreme Blaster
 
 // Determine Proper Cooldown Time:
 if (global.plrAbilityUpgraded[2]) {
@@ -1117,6 +1316,26 @@ if (global.plrAbilityAttained[2]) {
       </action>
     </event>
     <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ability 1 - ForceField Pulse</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

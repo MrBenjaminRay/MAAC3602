@@ -39,27 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attackRate = 128;
-attackRateCounter = 0;
-attackDamage = global.towerUpgradeLevel[4]; // See also minDamagePerStack and maxDamagePerStack in obj_enemy_create
-attackRange = global.towers[4, 4] * global.towerUpgradeLevel[4];
-
-weaponXOffset = global.towers[4, 5];
-weaponYOffset = global.towers[4, 6];
-weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_flamethrower);
-
-currShield = 400;
-currHealth = 100;
-
-maxShield = 400;
-maxHealth = 100;
-
-// Place weapon:
-
-if (weaponObj != noone &amp;&amp; instance_exists(weaponObj)) {
-    weaponObj.x = x + weaponXOffset;
-    weaponObj.y = y + weaponYOffset;
-}
+            <string>scr_entity_loadTowerData(4);
 </string>
           </argument>
         </arguments>
