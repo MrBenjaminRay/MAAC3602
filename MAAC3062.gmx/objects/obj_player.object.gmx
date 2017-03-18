@@ -68,6 +68,8 @@ attackRate = 256;
 weaponXOffset = 0;
 weaponYOffset = -10;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
+weaponKnockbackMax = 4;             // Override width-based knockback maximum for player.
+weaponKnockbackResetSpeed = 0.1;    // Override knockback speed for player.
 
 xKeyHeld = 0;
 xKeyHeldCounter = 0;
@@ -488,7 +490,6 @@ if (isRightPressed) {
 if(!(isRightPressed || isLeftPressed)) {
     animationSpeed = 0;
     image_speed = 0;
-    //image_index = 0;
     image_xscale = 1;
     if (isJumping) {
         if (sprite_index != spr_player_jump_right &amp;&amp; sprite_index != spr_player_jump_left) {
@@ -499,6 +500,18 @@ if(!(isRightPressed || isLeftPressed)) {
             } else {
                 sprite_index = spr_player_jump_left;
             }        
+        }
+    } else {
+        // Player is standing still, so show correct sprite.
+        // Sprite will be updated with firing stance sprites when mouse being held.
+        if (facingDirection == 1) {
+            // Player standing facing right
+            sprite_index = spr_player_runs_right_with_weapon;
+            image_index = 4; // Remove this when we have the standing facing right sprite
+        } else if (facingDirection == -1) {
+            // Player standing facing left
+            sprite_index = spr_player_runs_left_with_weapon;
+            image_index = 6; // Remove this when we have the standing facing right sprite
         }
     }
 }
@@ -562,9 +575,9 @@ if (mouse_check_button(mb_left)) {
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {
             audio_play_sound(snd_playerGun, 0, false);
-        
-            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+       
+            var projX = x + weaponXOffset + weaponKnockbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + weaponKnockbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
             var projectile = instance_create(projX, projY, obj_projectile_player);
             projectile.xDest = mouse_x;
@@ -574,10 +587,66 @@ if (mouse_check_button(mb_left)) {
             
             scr_create_explosion(projX, projY, 'Muzzle');
             
+            // Start knockback
+            scr_entity_weaponKnockback();
+            
             attackRateCounter = 0;
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Weapon Knockback</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Calculate additional x/y weapon offset based on knockback
+// Negative value X, positive value Y (because 0 is up)
+weaponKnockbackOffsetX = -weaponKnockback * cos(degtorad(weaponObj.image_angle));
+weaponKnockbackOffsetY = weaponKnockback * sin(degtorad(weaponObj.image_angle));
+
+// Shrink knockback amount
+if (weaponKnockback &gt; 0) {
+    weaponKnockback -= weaponKnockbackResetSpeed * global.deltaTime;
+    clamp(weaponKnockback, 0, weaponKnockbackMax);
+}
+
+
+
 </string>
           </argument>
         </arguments>
@@ -619,8 +688,8 @@ if (mouse_check_button(mb_left)) {
           <argument>
             <kind>1</kind>
             <string>if (weaponObj != noone and instance_exists(weaponObj)) {
-    weaponObj.x = x + weaponXOffset;
-    weaponObj.y = y + weaponYOffset;
+    weaponObj.x = x + weaponXOffset + weaponKnockbackOffsetX;
+    weaponObj.y = y + weaponYOffset + weaponKnockbackOffsetY;
     weaponObj.image_angle = point_direction(weaponObj.x, weaponObj.y, mouse_x, mouse_y);
     weaponObj.depth = depth -1 
 }

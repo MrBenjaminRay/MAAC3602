@@ -47,6 +47,12 @@ attackRange = sprite_width/2;   // The distance from the entity's origin that me
 weaponObj = noone;              // The weapon to display on the entity or noone if there isn't one.
 weaponXOffset = sprite_width/2; // The x-axis position, in relation to this entity, of where to place the weapon obj.
 weaponYOffset = sprite_height/2;// The y-axis position, in relation to this entity, of where to place the weapon obj.
+weaponKnockbackMax = sprite_width/4;    // The maximum knockback for the entity's weapon. Overridden in player create code.
+weaponKnockback = 0;                    // The current knockback for the entity's weapon
+weaponKnockbackOffsetX = 0;             // The current additional x offset caused by knockback. This is calculated based on weaponKnockback.
+weaponKnockbackOffsetY = 0;             // The current additional y offset caused by knockback. This is calculated based on weaponKnockback.
+weaponKnockbackResetSpeed = 0.1;        // How quickly to lower knockback. Will be multiplied by delta time.  Overridden in player create code.
+                                        // If inconsistent, decrease and also multiply by weaponKnockBackMax (in step event) so it's faster for objects with larger knockback.
 
 // HEALTH &amp; SHIELDS:
 currShield = 0;                 // The current sheild value.
