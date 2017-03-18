@@ -308,6 +308,7 @@
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
+      <sprite>sprites\spr_dummy_bossControl</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -453,7 +454,9 @@
         <script>scripts\scr_entity_drop.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
-      <script>scripts\scr_entity_weaponKickback.gml</script>
+      <script>scripts\scr_entity_weaponKickback_Start.gml</script>
+      <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
+      <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
     </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>

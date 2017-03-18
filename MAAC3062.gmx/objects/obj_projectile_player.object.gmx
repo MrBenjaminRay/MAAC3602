@@ -44,6 +44,10 @@ yDest = y; // The destination y-axis coordinate.
 movementSpeed = 14;
 
 scr_particle_projectile_addsmoketrail(.05);
+
+// Slightly smaller
+image_xscale = .85;
+image_yscale = .85;
 </string>
           </argument>
         </arguments>
