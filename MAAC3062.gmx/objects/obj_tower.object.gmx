@@ -135,6 +135,12 @@ audio_sound_gain(snd_towerDestroy, 0.7, 0);
 
 var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 
+// Shrink any existing weapon kickback
+if (weaponKickback &gt; 0) {
+    weaponKickback -= weaponKickbackResetSpeed * global.deltaTime;
+    clamp(weaponKickback, 0, weaponKickbackMax);
+}
+
 if (nearestEnemy != noone) {
     if (attackRateCounter &gt;= attackRate) {
         attackRateCounter = 0;
@@ -144,16 +150,29 @@ if (nearestEnemy != noone) {
         var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
         var enemyDirection = point_direction(weaponObj.x, weaponObj.y, enemyX, enemyY);
         weaponObj.image_angle = enemyDirection;
-
-        // Spawn projectile:
-        var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-        var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+        
+        // Spawn projectile (account for any existing kickback):
+        var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+        var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
         scr_spawn_projectile(obj_projectile_normal, projX, projY, nearestEnemy, false, attackDamage);
         
         // Show projectile spawn effect:
         scr_create_explosion(projX, projY, 'Flash');
+        
+        // Start kickback
+        scr_entity_weaponKickback_Start();
+
     }
 }
+
+// Calculate additional x/y weapon offset based on weapon kickback
+// Negative value X, positive value Y (because 0 is up)
+weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
+weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+
+// Adjust the weapon position with kickback offset applied
+weaponObj.x = x + weaponXOffset + weaponKickbackOffsetX;
+weaponObj.y = y + weaponYOffset + weaponKickbackOffsetY;
 
 attackRateCounter += global.deltaTime;
 </string>

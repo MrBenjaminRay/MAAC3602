@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_speed /= 2;
+            <string>// Halve room speed
+room_speed /= 2;
 
 // Elapsed delta time since creation.
 currentTime = 0;
@@ -35,53 +36,10 @@ timeToFade = scr_misc_secondsToDeltaTime(1);
 
 // Time at which the object will destroy itself.
 timeToDeath = scr_misc_secondsToDeltaTime(2.5);
+
+// The text to display.
+text = "No text set.";
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_speed</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>60</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>224</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>11</kind>
-            <room>rm_hub</room>
           </argument>
         </arguments>
       </action>
@@ -89,89 +47,46 @@ timeToDeath = scr_misc_secondsToDeltaTime(2.5);
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>-1</relative>
+        <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentTime</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>global.deltaTime</string>
+            <string>if (currentTime &lt; timeToDeath) {
+    currentTime += global.deltaTime;
+} else {
+    // Return room speed to normal:
+    room_speed = 60;
+
+    // Create buttons if they don't already exist:
+    if (instance_number(obj_button_retry) == 0) {
+        var xPos = view_xview[0] + 64;
+        var yPos = view_yview[0] + 840;
+        
+        var tmp = instance_create(xPos, yPos, obj_button_retry);
+        tmp.depth = depth - 1;
+    }
+    
+    if (instance_number(obj_button_toHub) == 0) {
+        var xPos = view_xview[0] + 1820;
+        var yPos = view_yview[0] + 840;
+        
+        var tmp = instance_create(xPos, yPos, obj_button_toHub);
+        tmp.depth = depth - 1;
+    }
+}
+</string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>408</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>-1</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>currentTime &gt;= timeToDeath</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="75">
@@ -191,9 +106,22 @@ timeToDeath = scr_misc_secondsToDeltaTime(2.5);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(currentTime/timeToFade);
+            <string>// Set background color/alpha:
+draw_set_alpha(currentTime/timeToFade);
 draw_set_color(c_black);
+
+// Draw background:
 draw_rectangle(0, 0, room_width * 2, room_height * 2, false);
+
+// Draw death message:
+var xPos = view_xview[0] + 640;
+var yPos = view_yview[0] + 512;
+
+draw_set_color(c_red);
+draw_set_font(fnt_towerPlacement);
+draw_text(xPos, yPos, text);
+
+// Reset draw color/alpha:
 draw_set_color(c_white);
 draw_set_alpha(1);
 </string>

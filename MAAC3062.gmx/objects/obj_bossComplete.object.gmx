@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(obj_levelTitle.sprite_index) {
+            <string>/*
+switch(obj_levelTitle.sprite_index) {
     case spr_level0:
         if(global.levelStats[0, 21])
             sprite_index = spr_bossComplete;
@@ -57,6 +58,7 @@
             sprite_index = spr_bossIncomplete;
         break;
 }
+*/
 </string>
           </argument>
         </arguments>
