@@ -247,6 +247,8 @@ window_set_cursor(cr_none);</code>
     <instance objName="obj_mine_front" x="416" y="832" name="inst_41320F04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelKills" x="96" y="96" name="inst_217D6278" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelControl_1" x="160" y="-32" name="inst_C97768A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hud_bossObject" x="64" y="192" name="inst_9075B032" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_drop_navPiece_A" x="864" y="736" name="inst_A45276C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_moon_tiles" x="160" y="704" w="160" h="32" xo="0" yo="0" id="10000468" name="inst_85381C29" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
