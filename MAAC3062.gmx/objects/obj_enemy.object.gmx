@@ -62,7 +62,13 @@ age = 0;                    // Age of enemy (milliseconds since spawning) - for 
 energyDrop = 0;
 
 // TOWER-SPECIFIC DATA (Freeze):
-movementSpeed_actual = movementSpeed;
+freeze_savedMovementSpeed = movementSpeed;          // The original speed of the enemy.
+freeze_stacks = 0;                                  // The number of stacks.
+freeze_maxStacks = 20;                              // The max number of stacks.
+freeze_isFrozen = false;                            // Whether or not the enemy is frozen.
+freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
+freeze_frozenTimeCounter = 0;                       // The amount of time the enemy has been frozen.
+
 freezeMultiplier = 0;       // The current number of times the enemy has been hit by the freeze tower.
 maxFreezeMultiplier = 20;   // The number of freezeMultipliers until the enemy is frozen.
 isFrozen = false;           // Whether or not the enemy is currently frozen.
@@ -345,7 +351,7 @@ if (nearestMiner != noone) {
 }
 
 if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
-    movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
+    movementSpeed = freeze_savedMovementSpeed * (1 - (freeze_stacks/freeze_maxStacks));
 
     if (movementDirection == "LEFT") {
         scr_entity_moveLeft();
@@ -396,17 +402,27 @@ if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (freezeMultiplier &gt;= maxFreezeMultiplier) {
-    if (isFrozen == false) {
-        isFrozen = true;
-    }
-    freezeMultiplier = maxFreezeMultiplier; // Prevent overage which has bad effects on movement
-    frozenTimeCounter += global.deltaTime;
+            <string>// Don't allow stacks to exceed the maximum:
+if (freeze_stacks &gt; freeze_maxStacks) {
+    freeze_stacks = freeze_maxStacks;
 }
 
-if (frozenTimeCounter &gt;= frozenTime) {
-    freezeMultiplier = 0;
-    frozenTimeCounter = 0;
+// Set as frozen if possible:
+if (freeze_stacks == freeze_maxStacks) {
+    // If frozen, increment counter and check for unfreeze.
+    // Else, set as frozen.
+    if (freeze_isFrozen) {
+        freeze_frozenTimeCounter += global.deltaTime;
+        
+        // Unfreeze if possible:
+        if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
+            freeze_isFrozen = false;
+            freeze_frozenTimeCounter = 0;
+            freeze_stacks = 0;
+        }
+    } else {
+        freeze_isFrozen = true;
+    }
 }
 </string>
           </argument>
