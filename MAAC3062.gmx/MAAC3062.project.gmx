@@ -362,7 +362,6 @@
         <sprite>sprites\spr_explosion_titmouse</sprite>
       </sprites>
       <sprite>sprites\spr_fireAnt</sprite>
-      <sprite>sprites\Bubbles</sprite>
       <sprites name="Bubbles">
         <sprite>sprites\spr_bubble_sm</sprite>
         <sprite>sprites\spr_bubble_md</sprite>
