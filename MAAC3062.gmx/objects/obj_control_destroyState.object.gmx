@@ -173,7 +173,7 @@ var intersectedTower = collision_rectangle(mouse_x, mouse_y, mouse_x, mouse_y, o
 
 if (intersectedTower != noone) {
     with (intersectedTower) {
-        draw_sprite_stretched(spr_destroy_overlay, 0, intersectedTower.x, intersectedTower.y, intersectedTower.sprite_width, intersectedTower.sprite_height);
+        draw_sprite_stretched(spr_sell_overlay, 0, intersectedTower.x, intersectedTower.y, intersectedTower.sprite_width, intersectedTower.sprite_height);
     }
 }
 

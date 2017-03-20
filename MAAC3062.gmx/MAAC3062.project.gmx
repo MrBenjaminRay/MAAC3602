@@ -328,7 +328,6 @@
       <sprites name="Overlays">
         <sprite>sprites\spr_build_overlay_validLocation</sprite>
         <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
-        <sprite>sprites\spr_destroy_overlay</sprite>
         <sprite>sprites\spr_fire1</sprite>
         <sprite>sprites\spr_fire2</sprite>
         <sprite>sprites\spr_sell_overlay</sprite>
