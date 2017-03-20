@@ -85,7 +85,8 @@ changeCueTime = 100000;
           <argument>
             <kind>1</kind>
             <string>// Set value to be drawn to match energy level
-currentValueToDraw = global.minerals;
+var levelData = ds_map_find_value(global.levelStats, room);
+currentValueToDraw = levelData[29];
 
     
 

@@ -128,6 +128,10 @@
       <sprite>sprites\spr_iceButton</sprite>
       <sprite>sprites\spr_waterButton</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
+      <sprites name="Death Screen">
+        <sprite>sprites\spr_button_retry</sprite>
+        <sprite>sprites\spr_button_toHub</sprite>
+      </sprites>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -594,17 +598,12 @@
         </objects>
         <objects name="NavArray">
           <object>objects\obj_cup_holder</object>
-          <object>objects\obj_cup_holder_new</object>
           <object>objects\obj_etchasketch</object>
-          <object>objects\obj_etchasketch_new</object>
           <object>objects\obj_batteries</object>
-          <object>objects\obj_batteries_new</object>
-          <object>objects\obj_fridge</object>
-          <object>objects\obj_fridge_new</object>
           <object>objects\obj_rabbit_ear</object>
+          <object>objects\obj_fridge</object>
           <object>objects\obj_rabbit_ear_new</object>
           <object>objects\obj_array</object>
-          <object>objects\obj_array_new</object>
           <object>objects\obj_table</object>
           <object>objects\obj_navText</object>
         </objects>
@@ -639,6 +638,10 @@
         <object>objects\obj_weaponBox</object>
         <object>objects\obj_toolTipBox</object>
         <object>objects\obj_toolTipBox_minerals</object>
+      </objects>
+      <objects name="Death Screen">
+        <object>objects\obj_button_retry</object>
+        <object>objects\obj_button_toHub</object>
       </objects>
     </objects>
     <objects name="Entities">
