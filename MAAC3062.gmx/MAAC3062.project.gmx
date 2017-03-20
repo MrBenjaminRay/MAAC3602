@@ -675,9 +675,15 @@
           <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
+          <object>objects\obj_enemy_boss_large_A</object>
+          <object>objects\obj_enemy_boss_large_B</object>
+          <object>objects\obj_enemy_boss_large_C</object>
+          <object>objects\obj_enemy_boss_large_D</object>
           <objects name="Mini">
             <object>objects\obj_enemy_boss_mini_A</object>
             <object>objects\obj_enemy_boss_mini_B</object>
+            <object>objects\obj_enemy_boss_mini_C</object>
+            <object>objects\obj_enemy_boss_mini_D</object>
           </objects>
         </objects>
       </objects>
