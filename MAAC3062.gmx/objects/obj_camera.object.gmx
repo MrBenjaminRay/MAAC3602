@@ -152,8 +152,8 @@ image_alpha = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_hspeed[0] = 10;
-view_vspeed[0] = 10;
+            <string>//view_hspeed[0] = 10;
+//view_vspeed[0] = 10;
 
 if (screenShakeRemaining &gt; 0) {
     screenShakeRemaining -= global.deltaTime;
