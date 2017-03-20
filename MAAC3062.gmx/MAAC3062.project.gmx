@@ -503,11 +503,9 @@
       <script>scripts\scr_statistics_initializeLevel.gml</script>
       <script>scripts\scr_statistics_incrementKill.gml</script>
       <script>scripts\scr_statistics_getKills.gml</script>
-      <script>scripts\scr_statistics_hasBossSpawned.gml</script>
-      <script>scripts\scr_statistics_isBossDropPickedUp.gml</script>
-      <script>scripts\scr_statistics_setBossSpawned.gml</script>
       <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
-      <script>scripts\scr_statistics_getCurrentLevelData.gml</script>
+      <script>scripts\scr_statistics_getData.gml</script>
+      <script>scripts\scr_statistics_setData.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>

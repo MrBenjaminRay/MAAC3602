@@ -231,7 +231,7 @@ abilD_cooldownCounter = abilD_cooldownTime;
             <kind>1</kind>
             <string>if(global.currentLevelComplete == 0) {
     global.minerals = global.initialMinerals;
-    scr_statistics_setBossSpawned(false);
+    scr_statistics_setData(26, false); // Set the boss as "Not Spawned"
 }
     
 
