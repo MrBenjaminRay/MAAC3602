@@ -525,8 +525,10 @@ if(!(isRightPressed || isLeftPressed)) {
             <kind>1</kind>
             <string>// Calculate additional x/y weapon offset based on weapon kickback
 // Negative value X, positive value Y (because 0 is up)
-weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
-weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+if (is_undefined(weaponObj) == false) {
+    weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
+    weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+}
 </string>
           </argument>
         </arguments>
@@ -1208,7 +1210,11 @@ if (global.plrAbilityAttained[1]) {
           <argument>
             <kind>1</kind>
             <string>if (distance_to_object(obj_tower_RT6100) &lt;= sprite_width * 2) {
-    // Deactivate Player:
+    // Delete Weapon &amp; Deactivate Player:
+    with (weaponObj) {
+        instance_destroy();
+    }
+    
     instance_deactivate_object(self);
     
     // Allow tower to fire:
