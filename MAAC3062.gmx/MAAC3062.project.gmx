@@ -358,6 +358,13 @@
         <sprite>sprites\spr_explosion_titmouse</sprite>
       </sprites>
       <sprite>sprites\spr_fireAnt</sprite>
+      <sprite>sprites\Bubbles</sprite>
+      <sprites name="Bubbles">
+        <sprite>sprites\spr_bubble_sm</sprite>
+        <sprite>sprites\spr_bubble_md</sprite>
+        <sprite>sprites\spr_bubble_lg</sprite>
+        <sprite>sprites\spr_bubble_xl</sprite>
+      </sprites>
     </sprites>
     <sprites name="Navigation Array">
       <sprite>sprites\spr_cup_holder_old</sprite>
@@ -497,6 +504,7 @@
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
+      <script>scripts\scr_screenShake.gml</script>
     </scripts>
     <scripts name="Spawning">
       <script>scripts\scr_spawning_disableSpawners.gml</script>
