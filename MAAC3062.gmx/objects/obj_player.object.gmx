@@ -624,6 +624,9 @@ if (mouse_check_button(mb_left)) {
             y += shootKnockback * -sin(degtorad(weaponObj.image_angle+180));
             
             attackRateCounter = 0;
+            
+            // Testing screen shake (not working at the moment)
+            //scr_screenShake(0, 500);
         }
     }
 }

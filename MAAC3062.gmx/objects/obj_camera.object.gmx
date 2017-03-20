@@ -43,6 +43,15 @@ maxSpeed = 15;
 speedChangeRate = 1; // Amount by which to increase/decrease speed when travelling to desired position
 speed = 0;
 
+
+screenShakeRemaining = .5000;   // Amount of time left in current screen shake. Set this to start a screen shake.
+screenShakeAmount = 10;      // Amount of pixels to shake in any direction.
+screenShakeStopSpeed = .1;  // Amount by which to decrease screen shake when it is done. Multiplied by global.deltaTime.
+screenShakeAmountMax = 100; // Ridiculously high value
+
+preShakeViewX = 0; // Will be set to X coordinate of view before shaking begins
+preShakeViewY = 0; // Will be set to Y coordinate of view before shaking begins
+
 </string>
           </argument>
         </arguments>
@@ -99,8 +108,69 @@ if (instance_number(obj_player) &gt; 0) {
 }
 
 
-// Set to .5 to see camera position when troubleshootig, or 0 to hide
+// Set to .5 to see camera position when troubleshooting, or 0 to hide
 image_alpha = 0;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Screen Shake</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//view_hspeed[0] = 10;
+//view_vspeed[0] = 10;
+
+if (screenShakeRemaining &gt; 0) {
+    screenShakeRemaining -= global.deltaTime;
+//    view_object[0] = noone; // Disconnect view from camera
+    view_xview[0] = preShakeViewX; // + irandom_range(-screenShakeAmount, screenShakeAmount);
+    view_yview[0] = preShakeViewY; // + irandom_range(-screenShakeAmount, screenShakeAmount);
+    //view_hborder[0] = view_xview[0]/2-20;
+    //view_vborder[0] = view_yview[0]/2-20;
+    show_debug_message('shaking');
+} else {
+    view_object[0] = id; // Reconnect view to camera
+    //view_hborder[0] = view_xview[0]/2-20;
+    //view_vborder[0] = view_yview[0]/2-20;
+}
+
+clamp(screenShakeAmount, 0, screenShakeAmountMax);
+//screenShakeStopSpeed * global.deltaTime;
 
 </string>
           </argument>
