@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_dummy_normalStateControl</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -194,7 +194,13 @@ scr_normal_beginBuild(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {
+            <string>var canProceed = global.state != "Paused";
+
+if (instance_number(obj_tower_RT6100) == 1) {
+    canProceed &amp;= obj_tower_RT6100.mounted == false;
+}
+
+if (canProceed) {
     scr_state_setDestroy();
 }
 </string>

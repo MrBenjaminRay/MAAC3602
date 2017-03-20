@@ -328,7 +328,6 @@
       <sprites name="Overlays">
         <sprite>sprites\spr_build_overlay_validLocation</sprite>
         <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
-        <sprite>sprites\spr_destroy_overlay</sprite>
         <sprite>sprites\spr_fire1</sprite>
         <sprite>sprites\spr_fire2</sprite>
         <sprite>sprites\spr_sell_overlay</sprite>
@@ -430,12 +429,6 @@
     <scripts name="Notifications">
       <script>scripts\scr_notification.gml</script>
     </scripts>
-    <scripts name="States">
-      <script>scripts\scr_normal_beginBuild.gml</script>
-      <script>scripts\scr_build_switchTower.gml</script>
-      <script>scripts\scr_paused_pauseAnimation.gml</script>
-      <script>scripts\scr_paused_unpauseAnimation.gml</script>
-    </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
       <script>scripts\scr_entity_gearNearestObjectOfType.gml</script>
@@ -475,6 +468,10 @@
       <script>scripts\scr_state_setDestroy.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
+      <script>scripts\scr_build_switchTower.gml</script>
+      <script>scripts\scr_normal_beginBuild.gml</script>
+      <script>scripts\scr_paused_pauseAnimation.gml</script>
+      <script>scripts\scr_paused_unpauseAnimation.gml</script>
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
@@ -503,11 +500,9 @@
       <script>scripts\scr_statistics_initializeLevel.gml</script>
       <script>scripts\scr_statistics_incrementKill.gml</script>
       <script>scripts\scr_statistics_getKills.gml</script>
-      <script>scripts\scr_statistics_hasBossSpawned.gml</script>
-      <script>scripts\scr_statistics_isBossDropPickedUp.gml</script>
-      <script>scripts\scr_statistics_setBossSpawned.gml</script>
       <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
-      <script>scripts\scr_statistics_getCurrentLevelData.gml</script>
+      <script>scripts\scr_statistics_getData.gml</script>
+      <script>scripts\scr_statistics_setData.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
@@ -680,9 +675,15 @@
           <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
+          <object>objects\obj_enemy_boss_large_A</object>
+          <object>objects\obj_enemy_boss_large_B</object>
+          <object>objects\obj_enemy_boss_large_C</object>
+          <object>objects\obj_enemy_boss_large_D</object>
           <objects name="Mini">
             <object>objects\obj_enemy_boss_mini_A</object>
             <object>objects\obj_enemy_boss_mini_B</object>
+            <object>objects\obj_enemy_boss_mini_C</object>
+            <object>objects\obj_enemy_boss_mini_D</object>
           </objects>
         </objects>
       </objects>
