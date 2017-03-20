@@ -7,6 +7,7 @@
  *        The amount by which to change the kills (+ or -).
  */
 
+ // I don't think we're doing anything with next 2 lines, so possibly remove them. -Ben
 var canProceed = scr_misc_isVariableInitialized(global.levelStats);
 canProceed &= scr_misc_isVariableInitialized(argument[0]);
 

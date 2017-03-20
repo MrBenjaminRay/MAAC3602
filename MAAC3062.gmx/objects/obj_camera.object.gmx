@@ -44,7 +44,7 @@ speedChangeRate = 1; // Amount by which to increase/decrease speed when travelli
 speed = 0;
 
 
-screenShakeRemaining = .5000;   // Amount of time left in current screen shake. Set this to start a screen shake.
+screenShakeRemaining = 0;   // Amount of time left in current screen shake. Set this to start a screen shake.
 screenShakeAmount = 10;      // Amount of pixels to shake in any direction.
 screenShakeStopSpeed = .1;  // Amount by which to decrease screen shake when it is done. Multiplied by global.deltaTime.
 screenShakeAmountMax = 100; // Ridiculously high value

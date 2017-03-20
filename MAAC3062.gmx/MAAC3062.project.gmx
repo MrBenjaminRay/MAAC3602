@@ -482,6 +482,7 @@
     <script>scripts\scr_minerals_change.gml</script>
     <script>scripts\scr_kills_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
+    <script>scripts\scr_bossDrop_show.gml</script>
     <scripts name="UI">
       <scripts name="Message Boxes">
         <script>scripts\scr_msg_shipRefuel.gml</script>
@@ -503,7 +504,9 @@
       <script>scripts\scr_statistics_incrementKill.gml</script>
       <script>scripts\scr_statistics_getKills.gml</script>
       <script>scripts\scr_statistics_hasBossSpawned.gml</script>
+      <script>scripts\scr_statistics_isBossDropPickedUp.gml</script>
       <script>scripts\scr_statistics_setBossSpawned.gml</script>
+      <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
@@ -515,6 +518,7 @@
       <script>scripts\scr_spawning_enableSpawners.gml</script>
       <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
     </scripts>
+    <script>scripts\scr_statistics_getCurrentLevelData.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -549,6 +553,7 @@
       <object>objects\obj_hud_levelKills</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
+      <object>objects\obj_hud_bossObject</object>
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">
