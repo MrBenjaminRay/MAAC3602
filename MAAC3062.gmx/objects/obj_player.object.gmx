@@ -1268,6 +1268,9 @@ if (global.plrAbilityAttained[1]) {
     
     // Allow tower to fire:
     obj_tower_RT6100.alarm[2] = room_speed;
+    
+    // Change stats:
+    scr_state_setNormal();
 }
 </string>
           </argument>

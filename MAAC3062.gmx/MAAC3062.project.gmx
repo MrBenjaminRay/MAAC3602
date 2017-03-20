@@ -430,12 +430,6 @@
     <scripts name="Notifications">
       <script>scripts\scr_notification.gml</script>
     </scripts>
-    <scripts name="States">
-      <script>scripts\scr_normal_beginBuild.gml</script>
-      <script>scripts\scr_build_switchTower.gml</script>
-      <script>scripts\scr_paused_pauseAnimation.gml</script>
-      <script>scripts\scr_paused_unpauseAnimation.gml</script>
-    </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
       <script>scripts\scr_entity_gearNearestObjectOfType.gml</script>
@@ -475,6 +469,10 @@
       <script>scripts\scr_state_setDestroy.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
+      <script>scripts\scr_build_switchTower.gml</script>
+      <script>scripts\scr_normal_beginBuild.gml</script>
+      <script>scripts\scr_paused_pauseAnimation.gml</script>
+      <script>scripts\scr_paused_unpauseAnimation.gml</script>
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
