@@ -14,6 +14,7 @@ canProceed &= is_real(global.levelStats);
 if (canProceed) {
     var levelData = ds_map_find_value(global.levelStats, room);
     levelData[27] = argument[0];
+    ds_map_replace(global.levelStats, room, levelData);
 }
 
 // Tell boss object HUD item which sprite to draw

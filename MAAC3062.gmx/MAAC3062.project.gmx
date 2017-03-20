@@ -507,6 +507,7 @@
       <script>scripts\scr_statistics_isBossDropPickedUp.gml</script>
       <script>scripts\scr_statistics_setBossSpawned.gml</script>
       <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
+      <script>scripts\scr_statistics_getCurrentLevelData.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
@@ -518,7 +519,6 @@
       <script>scripts\scr_spawning_enableSpawners.gml</script>
       <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
     </scripts>
-    <script>scripts\scr_statistics_getCurrentLevelData.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
