@@ -51,6 +51,13 @@
 
 scr_entity_loadTowerData(2);
 
+
+// Customize weapon kickback for this tower
+weaponKickbackMax = 20;                 // Max kickback
+weaponKickback = weaponKickbackMax;     // Start with max so gun comes out animated after created
+weaponKickbackResetSpeed = 0.01;         // How quickly to lower kickback. Will be multiplied by delta time.
+
+
 // Special stuff just for mortar
 attackRange_min = 10;
 projectileSpeed = 7 * global.towerUpgradeLevel[2];
@@ -140,6 +147,9 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
+// Shrink any existing weapon kickback
+scr_entity_weaponKickback_Shrink();
+
 if (attackRateCounter &gt;= attackRate) {
     attackRateCounter = 0;
 
@@ -165,8 +175,8 @@ if (attackRateCounter &gt;= attackRate) {
             // Rotate the cannon to point towards the launch angle
             weaponObj.image_angle = angleDeg;
             // Spawn projectile
-            var projX = x + weaponXOffset + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
-            var projY = y + weaponYOffset + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
+            var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
+            var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             var proj = instance_create(projX, projY, obj_projectile_titmouse);
             proj.direction = angleDeg;
             proj.speed = projectileSpeed;
@@ -179,10 +189,16 @@ if (attackRateCounter &gt;= attackRate) {
             audio_play_sound(snd_mortar, 0, false);
             audio_sound_gain(snd_mortar, 0.65, 0);
             // Show projectile spawn effect:
-            scr_create_explosion(projX, projY, 'Flash');            
+            scr_create_explosion(projX, projY, 'Flash');    
+            
+            // Start kickback
+            scr_entity_weaponKickback_Start();        
         }
     }
 }
+
+// Calculate weapon position based on offset and current kickback level
+scr_entity_weaponKickback_CalcOffset();
 
 attackRateCounter += global.deltaTime;
 

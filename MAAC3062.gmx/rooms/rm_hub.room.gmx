@@ -10,8 +10,13 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>audio_stop_all();
+  <code>window_set_cursor(cr_default);
 
+audio_stop_all();
+
+// Unsure of the original purpose of the following line, but it
+// does not work with the new levelStats setup.
+/*
 if(global.levelStats[0, 21] &amp;&amp; !global.navPieceAttained[0]
     &amp;&amp; !global.plrAbilityAttained[0]) {
     scr_msg_hubBossReward(0);
@@ -41,7 +46,8 @@ else if(global.levelStats[4, 21] &amp;&amp; !global.navPieceAttained[4]
     scr_msg_hubBossReward(4);
     global.navPieceAttained[4] = true;
     global.plrAbilityAttained[4] = true;
-}</code>
+}
+*/</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

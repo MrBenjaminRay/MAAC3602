@@ -3,7 +3,7 @@
   <spriteName>spr_cave_back</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>25</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -65,11 +65,11 @@ repeat(miners) {
   inst.x = x + minerXOffset + (minerXSpacing * i);
   inst.y = y + minerYOffset;
   i += 1;
+  inst.depth = depth - 1; // Put in front of mine
 }
 
 front = instance_create(x, y, obj_mine_front);
-
-
+front.depth = depth - 2; // Put in front of miners
 
 </string>
           </argument>

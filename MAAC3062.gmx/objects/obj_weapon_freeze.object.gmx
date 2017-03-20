@@ -44,15 +44,13 @@
             <string>if (instance_exists(parentTower)) {
     if (instance_exists(parentTower.slothObj)) {
         // Draw temporary rope until we get something better
-        draw_set_color(c_olive);
+        draw_set_color(make_color_rgb(181,99,38));
         draw_line_width(x, y, parentTower.slothObj.x, parentTower.slothObj.y, 4);
         image_angle = point_direction(x, y, parentTower.slothObj.x, parentTower.slothObj.y);
     }
 }
 
 draw_self();
-
-show_debug_message(parentTower);
 
 </string>
           </argument>

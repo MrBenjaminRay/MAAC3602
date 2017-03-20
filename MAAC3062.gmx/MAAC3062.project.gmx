@@ -128,6 +128,10 @@
       <sprite>sprites\spr_iceButton</sprite>
       <sprite>sprites\spr_waterButton</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
+      <sprites name="Death Screen">
+        <sprite>sprites\spr_button_retry</sprite>
+        <sprite>sprites\spr_button_toHub</sprite>
+      </sprites>
     </sprites>
     <sprites name="Entities">
       <sprites name="Player">
@@ -307,6 +311,8 @@
       <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
+      <sprite>sprites\spr_dummy_levelControl</sprite>
+      <sprite>sprites\spr_dummy_bossControl</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -343,6 +349,7 @@
         <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
       <sprite>sprites\spr_ship_arrow</sprite>
+      <sprite>sprites\spr_enemyKills</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -451,6 +458,9 @@
         <script>scripts\scr_entity_drop.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
+      <script>scripts\scr_entity_weaponKickback_Start.gml</script>
+      <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
+      <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
     </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
@@ -463,6 +473,7 @@
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
     <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_kills_change.gml</script>
     <script>scripts\scr_fuel_change.gml</script>
     <scripts name="UI">
       <scripts name="Message Boxes">
@@ -485,6 +496,7 @@
       <script>scripts\scr_statistics_incrementKill.gml</script>
       <script>scripts\scr_statistics_getKills.gml</script>
       <script>scripts\scr_statistics_hasBossSpawned.gml</script>
+      <script>scripts\scr_statistics_setBossSpawned.gml</script>
     </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
@@ -511,12 +523,22 @@
       <object>objects\obj_control</object>
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
-      <object>objects\obj_tutControl</object>
+      <object>objects\obj_levelControl</object>
+      <object>objects\obj_levelControl_Tutorial</object>
+      <object>objects\obj_levelControl_1</object>
+      <object>objects\obj_levelControl_2</object>
+      <object>objects\obj_levelControl_3</object>
+      <object>objects\obj_levelControl_4</object>
+      <object>objects\obj_levelControl_5</object>
+      <object>objects\obj_levelControl_6</object>
+      <object>objects\obj_levelControl_7</object>
+      <object>objects\obj_levelControl_8</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
+      <object>objects\obj_hud_levelKills</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
     </objects>
@@ -568,17 +590,12 @@
         </objects>
         <objects name="NavArray">
           <object>objects\obj_cup_holder</object>
-          <object>objects\obj_cup_holder_new</object>
           <object>objects\obj_etchasketch</object>
-          <object>objects\obj_etchasketch_new</object>
           <object>objects\obj_batteries</object>
-          <object>objects\obj_batteries_new</object>
-          <object>objects\obj_fridge</object>
-          <object>objects\obj_fridge_new</object>
           <object>objects\obj_rabbit_ear</object>
+          <object>objects\obj_fridge</object>
           <object>objects\obj_rabbit_ear_new</object>
           <object>objects\obj_array</object>
-          <object>objects\obj_array_new</object>
           <object>objects\obj_table</object>
           <object>objects\obj_navText</object>
         </objects>
@@ -613,6 +630,10 @@
         <object>objects\obj_weaponBox</object>
         <object>objects\obj_toolTipBox</object>
         <object>objects\obj_toolTipBox_minerals</object>
+      </objects>
+      <objects name="Death Screen">
+        <object>objects\obj_button_retry</object>
+        <object>objects\obj_button_toHub</object>
       </objects>
     </objects>
     <objects name="Entities">
