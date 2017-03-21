@@ -609,8 +609,8 @@ if (mouse_check_button(mb_left)) {
             
             // Spawn projecti
             var projectile = instance_create(projX, projY, obj_projectile_player);
-            projectile.xDest = mouse_x;
-            projectile.yDest = mouse_y;
+            projectile.xDest = mouse_x + irandom_range(-20, 20);
+            projectile.yDest = mouse_y + irandom_range(-10, 10);
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
             projectile.image_angle = weaponObj.image_angle; // Set direction immediately, otherwise it's not overridden 
