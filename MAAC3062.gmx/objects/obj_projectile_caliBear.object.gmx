@@ -43,7 +43,7 @@
 yDest = y; // The destination y-axis coordinate.
 
 scr_particle_projectile_addsmoketrail(.05);
-movementSpeed = 10;
+movementSpeed = 8;
 
 
 enemiesHit = 0;

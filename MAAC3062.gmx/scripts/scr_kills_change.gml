@@ -22,7 +22,7 @@ if (canProceed) {
         with (obj_hud_levelKills) {
             scale = scaleLevelBoosted;
         }
-    } else if (argument[0] < 0 && levelData[28] > 0) {
+    } else if (argument[0] < 0 && scr_statistics_getData(28) > 0) {
         // Do something special when level decreases (do nothing if level already 0)
         
         // Shrink the icon    

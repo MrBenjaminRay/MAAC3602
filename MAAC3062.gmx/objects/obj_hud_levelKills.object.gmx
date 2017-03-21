@@ -86,8 +86,7 @@ changeCueTime = 100;
           <argument>
             <kind>1</kind>
             <string>// Set value to be drawn to match energy level
-currentValueToDraw = scr_statistics_getKills();
-
+currentValueToDraw = scr_statistics_getData(28);
 </string>
           </argument>
         </arguments>
