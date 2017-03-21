@@ -133,7 +133,7 @@ audio_sound_gain(snd_towerDestroy, 0.7, 0);
     return 0;
 }
 
-var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
+var nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 
 // Shrink any existing weapon kickback
 if (weaponKickback &gt; 0) {
