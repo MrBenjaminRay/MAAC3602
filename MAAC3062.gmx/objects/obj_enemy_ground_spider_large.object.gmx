@@ -349,8 +349,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var nearestTower = scr_entity_gearNearestObjectOfType(attackRange - (attackRange * 0.25), obj_tower);
-var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange - (attackRange * 0.25), obj_player);
+            <string>var nearestTower = scr_misc_gearNearestObjectOfType(attackRange - (attackRange * 0.25), obj_tower);
+var nearestPlayer = scr_misc_gearNearestObjectOfType(attackRange - (attackRange * 0.25), obj_player);
 var towerOrPlayerNearby = nearestTower != noone || nearestPlayer != noone;
 
 if (towerOrPlayerNearby) {
