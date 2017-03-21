@@ -76,6 +76,8 @@ weaponKickbackResetSpeed = 0.075;    // Override weapon kickback speed for playe
 
 shootKnockback = 4;         // Knockback distance when player fires weapon. Will be in opposite direction of gun.
 
+firingPaused = false;
+
 xKeyHeld = 0;
 xKeyHeldCounter = 0;
 
@@ -239,6 +241,32 @@ var tmp = instance_create(0, 0, obj_playerDeath_screenFade);
 tmp.text = causeOfDeath;
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>firingPaused</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
           </argument>
         </arguments>
       </action>
@@ -584,6 +612,7 @@ if (mouse_check_button(mb_left)) {
     canFire &amp;= global.state != "Build";
     canFire &amp;= global.state != "Destroy";
     canFire &amp;= weaponObj != noone;
+    canFire &amp;= firingPaused == false;
     
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {
