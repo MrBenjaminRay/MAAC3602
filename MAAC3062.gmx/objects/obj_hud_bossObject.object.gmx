@@ -54,6 +54,12 @@ image_yscale = .7;
 
 position_offset_x = 65;
 position_offset_y = 65;
+
+// Amount of up &amp; down movement from y position (hover effect)
+position_offset_y_variance_max = 4; // Max up/down val (+ or - position_offset_y)
+position_offset_y_variance = 0; // Current up/down val
+position_offset_y_variance_rate = 0.0075; //
+
 </string>
           </argument>
         </arguments>
@@ -91,6 +97,14 @@ position_offset_y = 65;
           <argument>
             <kind>1</kind>
             <string>//
+if (position_offset_y_variance &lt;= -position_offset_y_variance_max) {
+    position_offset_y_variance_rate *= -1;
+} else if (position_offset_y_variance &gt;= position_offset_y_variance_max) {
+    position_offset_y_variance_rate *= -1;    
+}
+
+position_offset_y_variance += position_offset_y_variance_rate * global.deltaTime;
+
 </string>
           </argument>
         </arguments>
@@ -118,8 +132,9 @@ position_offset_y = 65;
 if (drawSprite != noone) {
     //show_debug_message(scr_statistics_isBossDropPickedUp());
     //show_debug_message("drawing: " + string(drawSprite));
-    draw_sprite_ext(drawSprite, 0, x, y, .5, .5, 0, c_white, 1);
+    draw_sprite_ext(drawSprite, 0, x, y - 5 + position_offset_y_variance, .5, .5, 0, c_white, 1);
 }
+
 </string>
           </argument>
         </arguments>
