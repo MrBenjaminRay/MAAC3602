@@ -141,8 +141,10 @@ lastHitEnemy = noone;
     if (isEnemyProjectile == false) {
         scr_entity_dealDamage(other, damage);
         
-        if (other.flame_stacks &lt; other.flame_maxStacks) {
-            other.flame_stacks++;
+        if (irandom_range(0, 3) == 0) {
+            if (other.flame_stacks &lt; other.flame_maxStacks) {
+                other.flame_stacks++;
+            }
         }
         // Will set enemy on fire when fire animation is available. -Ben
         //scr_create_explosion(x, y, "Normal");

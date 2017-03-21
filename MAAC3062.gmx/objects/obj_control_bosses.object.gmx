@@ -25,20 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var canSpawnBoss = scr_statistics_getKills() &gt; 50;
+            <string>var canSpawnBoss = scr_statistics_getData(28) &gt; 50;  // If total kills &gt; 50
 canSpawnBoss &amp;= scr_statistics_getData(26) == false; // Check if boss has spawned
 
 if (canSpawnBoss) {
     switch(room) {
         case rm_level_moon: {
-            var levelData = ds_map_find_value(global.levelStats, room);
-            levelData[26] = true;
+            scr_statistics_setData(26, true);
             scr_spawnBoss(obj_enemy_boss_mini_A, 2112, 500);
             break;
         }
         case rm_level_forest: {
-            var levelData = ds_map_find_value(global.levelStats, room);
-            levelData[26] = true;
+            scr_statistics_setData(26, true);
             scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
             break;
         }
