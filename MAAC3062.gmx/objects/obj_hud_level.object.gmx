@@ -405,6 +405,7 @@ if (changeCueAlpha &gt; 0) {
 // RESET DRAW PARAMETERS so that we don't screw up stuff drawn by objects after this one
 draw_set_alpha(1);
 draw_set_halign(fa_left);
+draw_set_colour(c_white);
 </string>
           </argument>
         </arguments>
