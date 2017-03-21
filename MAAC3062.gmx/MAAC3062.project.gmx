@@ -306,9 +306,7 @@
       <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_target</sprite>
-      <sprite>sprites\spr_dummy_normalStateControl</sprite>
       <sprite>sprites\spr_dummy_cntrl</sprite>
-      <sprite>sprites\spr_dummy_buildStateControl</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
