@@ -231,7 +231,7 @@ abilD_cooldownCounter = abilD_cooldownTime;
             <kind>1</kind>
             <string>if(global.currentLevelComplete == 0) {
     global.minerals = global.initialMinerals;
-    scr_statistics_setBossSpawned(false);
+    scr_statistics_setData(26, false); // Set the boss as "Not Spawned"
 }
     
 
@@ -525,8 +525,10 @@ if(!(isRightPressed || isLeftPressed)) {
             <kind>1</kind>
             <string>// Calculate additional x/y weapon offset based on weapon kickback
 // Negative value X, positive value Y (because 0 is up)
-weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
-weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+if (is_undefined(weaponObj) == false) {
+    weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
+    weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+}
 </string>
           </argument>
         </arguments>
@@ -908,6 +910,55 @@ if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Prevent Out of Bounds Movement</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Left side of screen:
+if (x &lt; sprite_width/2) {
+    x = sprite_width/2;
+}
+
+// Right side of screen:
+if (x &gt; room_width - (sprite_width/2)) {
+    x = room_width - (sprite_width/2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="5" enumb="16">
       <action>
@@ -1208,11 +1259,18 @@ if (global.plrAbilityAttained[1]) {
           <argument>
             <kind>1</kind>
             <string>if (distance_to_object(obj_tower_RT6100) &lt;= sprite_width * 2) {
-    // Deactivate Player:
+    // Delete Weapon &amp; Deactivate Player:
+    with (weaponObj) {
+        instance_destroy();
+    }
+    
     instance_deactivate_object(self);
     
     // Allow tower to fire:
     obj_tower_RT6100.alarm[2] = room_speed;
+    
+    // Change stats:
+    scr_state_setNormal();
 }
 </string>
           </argument>

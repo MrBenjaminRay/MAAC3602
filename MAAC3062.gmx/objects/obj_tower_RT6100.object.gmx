@@ -144,10 +144,8 @@ weaponKickbackResetSpeed = 0.2;         // How quickly to lower kickback. Will b
 instance_activate_all();
     
 // Give player back it's weapon:
-with (instance_nearest(x, y, obj_player)) {
-    if (weaponObj == noone) {
-        weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
-    }
+with (obj_player) {
+    weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
 }
 
 audio_stop_sound(snd_M6100_loop);
@@ -452,17 +450,18 @@ scr_entity_weaponKickback_CalcOffset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(isReloading == true &amp;&amp; reloadingText == false) {
+            <string>/*
+if(isReloading == true &amp;&amp; reloadingText == false) {
     reloadingText = true;
     instance_create(reloadBarX, reloadBarY, obj_RT6100_ammoText);
-}
-else if(isReloading == false) {
+} else if(isReloading == false) {
     if(instance_exists(obj_RT6100_ammoText)) {
         with(obj_RT6100_ammoText)
             instance_destroy();
     }
     reloadingText = false;
 }
+*/
 </string>
           </argument>
         </arguments>
@@ -612,6 +611,11 @@ if(mounted)
             <string>if (mounted) {
     // Activate WPlayer:
     instance_activate_all();
+    
+    // Give player back it's weapon:
+    with (obj_player) {
+        weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
+    }
     
     // Allow tower to fire:
     obj_tower_RT6100.mounted = false;
