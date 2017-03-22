@@ -283,7 +283,7 @@ if (nearestMiner != noone) {
 }
 
 if (minerNearby == false) {
-    movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
+    movementSpeed = freeze_savedMovementSpeed * (1 - (freeze_stacks/freeze_maxStacks));
     
     if (movementDirection == "LEFT") {
         scr_entity_moveLeft();
@@ -292,114 +292,6 @@ if (minerNearby == false) {
     if (movementDirection == "RIGHT") {
         scr_entity_moveRight();
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Freeze Tower Effects</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (freezeMultiplier == maxFreezeMultiplier) {
-    if (isFrozen == false) {
-        isFrozen = true;
-    }
-    
-    frozenTimeCounter += global.deltaTime;
-}
-
-if (frozenTimeCounter &gt;= frozenTime) {
-    freezeMultiplier = 0;
-    frozenTimeCounter = 0;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Flame Tower Effects</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Handle stack dissipation:
-if (flameDamageStacks &gt; 0) {
-    stackDissipationTimeCounter += global.deltaTime;
-    
-    if (stackDissipationTimeCounter &gt;= stackDissipationTime) {
-        flameDamageStacks--;
-        stackDissipationTimeCounter = 0;
-    }
-    
-    // Handle stack damage:
-    var minDamage = flameDamageStacks * minDamagePerStack;
-    var maxDamage = flameDamageStacks * maxDamagePerStack;
-    scr_entity_dealDamage(self, irandom_range(minDamage, maxDamagePerStack));
-} else {
-    stackDissipationTimeCounter = 0;
 }
 </string>
           </argument>

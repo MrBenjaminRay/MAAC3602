@@ -804,6 +804,9 @@
       </objects>
       <object>objects\obj_smoke</object>
       <object>objects\obj_control_particles</object>
+      <objects name="Boss">
+        <object>objects\obj_effect_tornado</object>
+      </objects>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
