@@ -135,6 +135,9 @@ if (drawSprite != noone) {
     draw_sprite_ext(drawSprite, 0, x, y - 5 + position_offset_y_variance, .5, .5, 0, c_white, 1);
 }
 
+if(mouseHoverTime &gt;= 45)
+    draw_sprite(spr_toolTipBox_bossItem, 0, x-16, y-90);
+
 </string>
           </argument>
         </arguments>
