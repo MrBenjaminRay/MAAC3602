@@ -76,6 +76,8 @@ weaponKickbackResetSpeed = 0.075;    // Override weapon kickback speed for playe
 
 shootKnockback = 4;         // Knockback distance when player fires weapon. Will be in opposite direction of gun.
 
+firingPaused = false;
+
 xKeyHeld = 0;
 xKeyHeldCounter = 0;
 
@@ -231,7 +233,7 @@ abilD_cooldownCounter = abilD_cooldownTime;
             <kind>1</kind>
             <string>if(global.currentLevelComplete == 0) {
     global.minerals = global.initialMinerals;
-    scr_statistics_setBossSpawned(false);
+    scr_statistics_setData(26, false); // Set the boss as "Not Spawned"
 }
     
 
@@ -239,6 +241,32 @@ var tmp = instance_create(0, 0, obj_playerDeath_screenFade);
 tmp.text = causeOfDeath;
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>firingPaused</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
           </argument>
         </arguments>
       </action>
@@ -525,8 +553,10 @@ if(!(isRightPressed || isLeftPressed)) {
             <kind>1</kind>
             <string>// Calculate additional x/y weapon offset based on weapon kickback
 // Negative value X, positive value Y (because 0 is up)
-weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
-weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+if (is_undefined(weaponObj) == false) {
+    weaponKickbackOffsetX = -weaponKickback * cos(degtorad(weaponObj.image_angle));
+    weaponKickbackOffsetY = weaponKickback * sin(degtorad(weaponObj.image_angle));
+}
 </string>
           </argument>
         </arguments>
@@ -582,6 +612,7 @@ if (mouse_check_button(mb_left)) {
     canFire &amp;= global.state != "Build";
     canFire &amp;= global.state != "Destroy";
     canFire &amp;= weaponObj != noone;
+    canFire &amp;= firingPaused == false;
     
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {
@@ -607,8 +638,8 @@ if (mouse_check_button(mb_left)) {
             
             // Spawn projecti
             var projectile = instance_create(projX, projY, obj_projectile_player);
-            projectile.xDest = mouse_x;
-            projectile.yDest = mouse_y;
+            projectile.xDest = mouse_x + irandom_range(-20, 20);
+            projectile.yDest = mouse_y + irandom_range(-10, 10);
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
             projectile.image_angle = weaponObj.image_angle; // Set direction immediately, otherwise it's not overridden 
@@ -624,6 +655,9 @@ if (mouse_check_button(mb_left)) {
             y += shootKnockback * -sin(degtorad(weaponObj.image_angle+180));
             
             attackRateCounter = 0;
+            
+            // Testing screen shake (not working at the moment)
+            //scr_screenShake(0, 500);
         }
     }
 }
@@ -905,6 +939,55 @@ if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Prevent Out of Bounds Movement</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Left side of screen:
+if (x &lt; sprite_width/2) {
+    x = sprite_width/2;
+}
+
+// Right side of screen:
+if (x &gt; room_width - (sprite_width/2)) {
+    x = room_width - (sprite_width/2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="5" enumb="16">
       <action>
@@ -937,7 +1020,7 @@ if (global.plrAbilityAttained[0]) {
     // todo Code
     show_debug_message("IMPLEMENT ABILITY #1")
 } else {
-    scr_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
+    scr_misc_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
@@ -1086,7 +1169,7 @@ if (global.plrAbilityAttained[3]) {
         instance_create(randX, randY, obj_projectile_flamingAnimal);
     }
 } else {
-    scr_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
+    scr_misc_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
@@ -1160,7 +1243,7 @@ if (global.plrAbilityAttained[1]) {
         }
     }
 } else {
-    scr_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
+    scr_misc_notification("Ability #2 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
@@ -1205,11 +1288,18 @@ if (global.plrAbilityAttained[1]) {
           <argument>
             <kind>1</kind>
             <string>if (distance_to_object(obj_tower_RT6100) &lt;= sprite_width * 2) {
-    // Deactivate Player:
+    // Delete Weapon &amp; Deactivate Player:
+    with (weaponObj) {
+        instance_destroy();
+    }
+    
     instance_deactivate_object(self);
     
     // Allow tower to fire:
     obj_tower_RT6100.alarm[2] = room_speed;
+    
+    // Change stats:
+    scr_state_setNormal();
 }
 </string>
           </argument>
@@ -1333,7 +1423,7 @@ if (global.plrAbilityAttained[2]) {
         scr_abilC_normal_enable();
     }
 } else {
-    scr_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
+    scr_misc_notification("Ability #3 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>
@@ -1401,7 +1491,7 @@ if (global.plrAbilityAttained[0]) {
         instance_create(x, y, obj_forceField)
     }
 } else {
-    scr_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
+    scr_misc_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
 </string>
           </argument>

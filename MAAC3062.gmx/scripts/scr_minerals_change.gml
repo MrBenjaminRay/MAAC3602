@@ -23,7 +23,7 @@ if (argument[0] > 0) {
     with (obj_hud_levelMinerals) {
         scale = scaleLevelBoosted;
     }
-} else if (argument[0] < 0 && levelData[29] > 0) {
+} else if (argument[0] < 0 && scr_statistics_getData(29) > 0) {
     // Do something special when level decreases (do nothing if level already 0)
     
     // Shrink the icon    
@@ -35,13 +35,11 @@ if (argument[0] > 0) {
 // Increase or decrease the minerals by the specified amount
 // RIGGED:  Remove increase in global.minerals
 if (canProceed) {
-    var levelData = ds_map_find_value(global.levelStats, room);
-    levelData[29] += argument[0];
-    ds_map_replace(global.levelStats, room, levelData);
+    scr_statistics_setData(29, scr_statistics_getData(29) + argument[0])
 }
 
-if (levelData[29] < 0) {
-    levelData[29] += argument[0]; // Prevent negative value
+if (scr_statistics_getData(29) < 0) {
+    scr_statistics_setData(29, scr_statistics_getData(29) + argument[0])
 }
 
 // Trigger change cue to display. If already displayed, amount will be added.
