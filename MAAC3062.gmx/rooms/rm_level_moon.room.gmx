@@ -248,6 +248,8 @@ window_set_cursor(cr_none);</code>
     <instance objName="obj_hud_levelKills" x="96" y="96" name="inst_217D6278" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelControl_1" x="160" y="-32" name="inst_C97768A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_bossObject" x="64" y="192" name="inst_9075B032" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object" x="192" y="1408" name="inst_67CCCB9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_boss_large_B" x="800" y="608" name="inst_F5A824BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_moon_tiles" x="160" y="704" w="160" h="32" xo="0" yo="0" id="10000468" name="inst_85381C29" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
