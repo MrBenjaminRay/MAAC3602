@@ -86,14 +86,6 @@
     <instance objName="obj_physicsTile" x="192" y="416" name="inst_7EFD9252" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="160" y="416" name="inst_F1D877C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cursorCtrl" x="0" y="96" name="inst_DC69EEAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="352" y="416" name="inst_55F2A516" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="416" y="416" name="inst_3813C4F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="608" y="416" name="inst_A8CBCDFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="480" y="416" name="inst_461D76F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="544" y="416" name="inst_098AD227" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="160" y="416" name="inst_59976B16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="224" y="416" name="inst_21B7CF64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visualTile" x="288" y="416" name="inst_671581FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ship" x="224" y="672" name="inst_458C0E27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1216" y="416" name="inst_32A3A090" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1248" y="416" name="inst_3E920978" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
