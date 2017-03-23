@@ -630,14 +630,14 @@ if (mouse_check_button(mb_left)) {
             projX += vOffset * cos(degtorad(weaponObj.image_angle+90));
             projY += vOffset * -sin(degtorad(weaponObj.image_angle+90));
             
-            // Spawn projecti
+            // Spawn projectile
             var projectile = instance_create(projX, projY, obj_projectile_player);
-            projectile.xDest = mouse_x + irandom_range(-20, 20);
-            projectile.yDest = mouse_y + irandom_range(-10, 10);
+            projectile.direction = point_direction(projX, projY, mouse_x, mouse_y);
+            projectile.direction += random_range(-1.5, 1.5); // Randomize angle of fire slightly
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
-            projectile.image_angle = weaponObj.image_angle; // Set direction immediately, otherwise it's not overridden 
-                                                            // based on direction until 2nd projectile step.
+            projectile.image_angle = direction;     // Set direction immediately, otherwise it's not overridden 
+                                                    // based on direction until 2nd projectile step.
             
             scr_create_explosion(projX, projY, 'Muzzle');
             
