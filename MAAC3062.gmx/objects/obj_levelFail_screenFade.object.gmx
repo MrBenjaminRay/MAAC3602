@@ -25,20 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Halve room speed
-room_speed /= 2;
+            <string>// The text to display (reason for level failure)
+levelFailReason = "Your message could be here! Override obj_playerDeathobj_player.causeOfDeath";
 
-// Elapsed delta time since creation.
-currentTime = 0;
+// Halve room speed
+//room_speed /= 2;
+
+// Elapsed time since creation.
+timeElapsed = 0;
+
+// When to start showing the death message
+showMessageAfter = 2000;
+
+// When to start showing the buttons
+showButtonsAfter = 2000;
+
+// When to start the fade
+startFadeAfter = 5000;
 
 // Time it takes for the screen to fade to black.
-timeToFade = scr_misc_secondsToDeltaTime(1);
+fadeTime = 5000;
 
-// Time at which the object will destroy itself.
-timeToDeath = scr_misc_secondsToDeltaTime(2.5);
+// Amount of fade time already elapsed
+fadeTimeElapsed = 0;
 
-// The text to display.
-text = "No text set.";
+
 </string>
           </argument>
         </arguments>
@@ -61,12 +72,12 @@ text = "No text set.";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (currentTime &lt; timeToDeath) {
-    currentTime += global.deltaTime;
-} else {
-    // Return room speed to normal:
-    room_speed = 60;
+            <string>if (timeElapsed &gt;= startFadeAfter) {
+    // Fade in progress
+    fadeTimeElapsed += global.deltaTime;
+}
 
+if (timeElapsed &gt;= showButtonsAfter) {
     // Create buttons if they don't already exist:
     if (instance_number(obj_button_retry) == 0) {
         var xPos = view_xview[0] + 64;
@@ -84,6 +95,14 @@ text = "No text set.";
         tmp.depth = depth - 1;
     }
 }
+
+// Increase timeElapsed
+timeElapsed += global.deltaTime;
+
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -107,23 +126,36 @@ text = "No text set.";
           <argument>
             <kind>1</kind>
             <string>// Set background color/alpha:
-draw_set_alpha(currentTime/timeToFade);
+draw_set_alpha(fadeTimeElapsed/fadeTime);
 draw_set_color(c_black);
 
 // Draw background:
 draw_rectangle(0, 0, room_width * 2, room_height * 2, false);
 
 // Draw death message:
-var xPos = view_xview[0] + 640;
-var yPos = view_yview[0] + 512;
+var xPos = window_get_width()/2;
+var yPos = window_get_height()/2;
 
-draw_set_color(c_red);
-draw_set_font(fnt_towerPlacement);
-draw_text(xPos, yPos, text);
+if (timeElapsed &gt; showMessageAfter) {
+    draw_set_alpha(1);
+    draw_set_font(fnt_levelFailMessage);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    
+    draw_set_color(c_gray);
+    draw_text(xPos-1, yPos-1, levelFailReason);
+    draw_set_color(c_black);
+    draw_text(xPos+2, yPos+2, levelFailReason);
+    draw_set_color(c_red);
+    draw_text(xPos, yPos, levelFailReason);
+}
 
 // Reset draw color/alpha:
 draw_set_color(c_white);
 draw_set_alpha(1);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
 </string>
           </argument>
         </arguments>

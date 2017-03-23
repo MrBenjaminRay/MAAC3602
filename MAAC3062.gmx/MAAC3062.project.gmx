@@ -424,8 +424,19 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="Notifications">
-      <script>scripts\scr_notification.gml</script>
+    <scripts name="Abilities">
+      <script>scripts\scr_abilC_normal_enable.gml</script>
+      <script>scripts\scr_abilC_normal_disable.gml</script>
+      <script>scripts\scr_abilC_upgraded_enable.gml</script>
+      <script>scripts\scr_abilC_upgraded_disable.gml</script>
+    </scripts>
+    <scripts name="Camera">
+      <script>scripts\scr_screenShake.gml</script>
+      <script>scripts\scr_slowZoom_FixedPosition.gml</script>
+      <script>scripts\scr_camera_follow_playerObjects.gml</script>
+      <script>scripts\scr_camera_follow_targetObject.gml</script>
+      <script>scripts\scr_camera_follow_fixedCoordinates.gml</script>
+      <script>scripts\scr_camera_zoom_inOutTimed.gml</script>
     </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
@@ -460,6 +471,18 @@
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
     </scripts>
+    <scripts name="Misc">
+      <script>scripts\scr_misc_isVariableInitialized.gml</script>
+      <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
+    </scripts>
+    <scripts name="Notifications">
+      <script>scripts\scr_notification.gml</script>
+    </scripts>
+    <scripts name="Spawning">
+      <script>scripts\scr_spawning_disableSpawners.gml</script>
+      <script>scripts\scr_spawning_enableSpawners.gml</script>
+      <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
+    </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
       <script>scripts\scr_state_setBuild.gml</script>
@@ -471,13 +494,13 @@
       <script>scripts\scr_paused_pauseAnimation.gml</script>
       <script>scripts\scr_paused_unpauseAnimation.gml</script>
     </scripts>
-    <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
-    <script>scripts\scr_create_explosion.gml</script>
-    <script>scripts\scr_energy_change.gml</script>
-    <script>scripts\scr_minerals_change.gml</script>
-    <script>scripts\scr_kills_change.gml</script>
-    <script>scripts\scr_fuel_change.gml</script>
-    <script>scripts\scr_bossDrop_show.gml</script>
+    <scripts name="Statistics">
+      <script>scripts\scr_statistics_initializeLevel.gml</script>
+      <script>scripts\scr_statistics_incrementKill.gml</script>
+      <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
+      <script>scripts\scr_statistics_getData.gml</script>
+      <script>scripts\scr_statistics_setData.gml</script>
+    </scripts>
     <scripts name="UI">
       <scripts name="Message Boxes">
         <script>scripts\scr_msg_shipRefuel.gml</script>
@@ -486,35 +509,23 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
+    <script>scripts\scr_create_explosion.gml</script>
+    <script>scripts\scr_energy_change.gml</script>
+    <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_kills_change.gml</script>
+    <script>scripts\scr_fuel_change.gml</script>
+    <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_getLevelId.gml</script>
-    <scripts name="Abilities">
-      <script>scripts\scr_abilC_normal_enable.gml</script>
-      <script>scripts\scr_abilC_normal_disable.gml</script>
-      <script>scripts\scr_abilC_upgraded_enable.gml</script>
-      <script>scripts\scr_abilC_upgraded_disable.gml</script>
-    </scripts>
-    <scripts name="Statistics">
-      <script>scripts\scr_statistics_initializeLevel.gml</script>
-      <script>scripts\scr_statistics_incrementKill.gml</script>
-      <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
-      <script>scripts\scr_statistics_getData.gml</script>
-      <script>scripts\scr_statistics_setData.gml</script>
-    </scripts>
-    <scripts name="Misc">
-      <script>scripts\scr_misc_isVariableInitialized.gml</script>
-      <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
-      <script>scripts\scr_screenShake.gml</script>
-    </scripts>
-    <scripts name="Spawning">
-      <script>scripts\scr_spawning_disableSpawners.gml</script>
-      <script>scripts\scr_spawning_enableSpawners.gml</script>
-      <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
-    </scripts>
+    <script>scripts\scr_smoothStep.gml</script>
+    <script>scripts\scr_doLevelFail_minersDead.gml</script>
+    <script>scripts\scr_doLevelFail_playerDead.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
     <font>fonts\fnt_hud_mineralEnergyLevels</font>
+    <font>fonts\fnt_levelFailMessage</font>
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
@@ -802,7 +813,7 @@
         <object>objects\obj_emitter_emitter</object>
       </objects>
       <objects name="Special">
-        <object>objects\obj_playerDeath_screenFade</object>
+        <object>objects\obj_levelFail_screenFade</object>
       </objects>
       <object>objects\obj_smoke</object>
       <object>objects\obj_control_particles</object>
