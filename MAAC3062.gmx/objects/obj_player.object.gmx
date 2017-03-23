@@ -39,10 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// DEATH INFORMATION:
-causeOfDeath = "Set causeOfDeath in obj_player create event.";
-
-// MOVEMENT:
+            <string>// MOVEMENT:
 movementSpeed = 250 / 1000;     // Left/Right Movement Speed
 jumpSpeed = 400/ 1000;          // Jump Movement Speed
 gravConst = 8 / 1000;           // Gravity Constant
@@ -232,13 +229,10 @@ abilD_cooldownCounter = abilD_cooldownTime;
           <argument>
             <kind>1</kind>
             <string>if(global.currentLevelComplete == 0) {
-    global.minerals = global.initialMinerals;
     scr_statistics_setData(26, false); // Set the boss as "Not Spawned"
 }
-    
 
-var tmp = instance_create(0, 0, obj_playerDeath_screenFade);
-tmp.text = causeOfDeath;
+scr_doLevelFail_playerDead();
 
 </string>
           </argument>
