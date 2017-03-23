@@ -258,9 +258,9 @@ while (place_meeting(x, y, obj_physicsTile) == false) {
 
 
 if (attackRateCounter &gt;= attackRate) {
-    var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange, obj_player);
-    var nearestMiner = scr_entity_gearNearestObjectOfType(attackRange, obj_miner);
-    var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_tower);
+    var nearestPlayer = scr_misc_gearNearestObjectOfType(attackRange, obj_player);
+    var nearestMiner = scr_misc_gearNearestObjectOfType(attackRange, obj_miner);
+    var nearestTower = scr_misc_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
     

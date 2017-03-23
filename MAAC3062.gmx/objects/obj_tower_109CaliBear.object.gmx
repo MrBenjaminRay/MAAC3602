@@ -135,7 +135,7 @@ scr_entity_weaponKickback_Shrink();
 if (attackRateCounter &gt;= attackRate) {
     attackRateCounter = 0;
 
-    var nearestEnemy = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_air);
+    var nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy_air);
 
     if (nearestEnemy != noone) {
         // Rotate the cannon to point towards the enemy:

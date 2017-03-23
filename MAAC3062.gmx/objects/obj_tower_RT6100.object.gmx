@@ -344,7 +344,7 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
 }
 
 if (isReloading) {
-    scr_notification("Reloading", c_white, c_yellow);
+    scr_misc_notification("Reloading", c_white, c_yellow);
 }
 
 if (roundsFired == maxRoundsFired) {

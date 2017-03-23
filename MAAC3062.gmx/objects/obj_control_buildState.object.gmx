@@ -88,7 +88,7 @@ with (obj_tower_RT6100) {
 
 // Check if any other instances of tower exist:
 if (instance_number(obj_tower_RT6100) &gt; 0) {
-    scr_notification("You cannot build another " + global.towers[5, 0] + ".", c_black, c_yellow);
+    scr_misc_notification("You cannot build another " + global.towers[5, 0] + ".", c_black, c_yellow);
     return 0;
 }
 

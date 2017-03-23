@@ -424,7 +424,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="Abilities">
+	<scripts name="Abilities">
       <script>scripts\scr_abilC_normal_enable.gml</script>
       <script>scripts\scr_abilC_normal_disable.gml</script>
       <script>scripts\scr_abilC_upgraded_enable.gml</script>
@@ -438,9 +438,8 @@
       <script>scripts\scr_camera_follow_fixedCoordinates.gml</script>
       <script>scripts\scr_camera_zoom_inOutTimed.gml</script>
     </scripts>
-    <scripts name="Entities">
+	<scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
-      <script>scripts\scr_entity_gearNearestObjectOfType.gml</script>
       <script>scripts\scr_enemy_destroyOldest.gml</script>
       <script>scripts\scr_spawnBoss.gml</script>
       <scripts name="Tower">
@@ -473,7 +472,10 @@
     </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
+      <script>scripts\scr_misc_gearNearestObjectOfType.gml</script>
       <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
+      <script>scripts\scr_screenShake.gml</script>
+      <script>scripts\scr_misc_notification.gml</script>
     </scripts>
     <scripts name="Notifications">
       <script>scripts\scr_notification.gml</script>
@@ -518,7 +520,7 @@
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_getLevelId.gml</script>
-    <script>scripts\scr_smoothStep.gml</script>
+	<script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_doLevelFail_minersDead.gml</script>
     <script>scripts\scr_doLevelFail_playerDead.gml</script>
   </scripts>
@@ -817,6 +819,9 @@
       </objects>
       <object>objects\obj_smoke</object>
       <object>objects\obj_control_particles</object>
+      <objects name="Boss">
+        <object>objects\obj_effect_tornado</object>
+      </objects>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
