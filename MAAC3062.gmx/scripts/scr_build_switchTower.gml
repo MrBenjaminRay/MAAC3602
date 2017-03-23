@@ -7,15 +7,19 @@
 
 var canProceed = scr_misc_isVariableInitialized(argument[0]);
 
+if (instance_number(obj_tower_RT6100) == 1) {
+    canProceed &= obj_tower_RT6100.mounted == false;
+}
+
 // Check if the tower has been unlocked:
 if (scr_tower_checkUnlockByTowerIndex(argument[0]) == false) {
-    scr_notification("You have not unlocked a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);
+    scr_misc_notification("You have not unlocked a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);
     return 0;
 }
 
 // Check if Energy Requirements Met:
 if (global.energy < global.towers[argument[0], 1] * global.towerUpgradeLevel[argument[0]]) {
-    scr_notification("You don't have enough energy to build a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);
+    scr_misc_notification("You don't have enough energy to build a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);
     return 0;
 }
  

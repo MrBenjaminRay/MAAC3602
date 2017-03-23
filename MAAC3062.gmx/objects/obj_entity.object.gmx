@@ -350,7 +350,7 @@ if (maxShield &gt; 0 &amp;&amp; currShield &gt; 0) {
     
     // Draw Shield Bar:
     draw_set_color(healthBarColor_shieldForeground);
-    draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
+    draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom - (healthBarHeight/2.5), false);
 }
 
 // Return draw color to normal:

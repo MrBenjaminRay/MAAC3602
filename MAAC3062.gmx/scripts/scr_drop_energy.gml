@@ -14,7 +14,6 @@
  *        The y coordinate of the position from which the drop should appear.
  * @param argument[2] 
  *        The total amount of energy to be dropped.
-
  */
  
 // Maximum # of energy to store in a drop.

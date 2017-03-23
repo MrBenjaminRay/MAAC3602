@@ -134,7 +134,13 @@ picksForLevel_3 = 500; // Total # of pickCount to get to level 3 (since level st
             <string>//scr_msg_minerKilled(x - 220, y - 230);
 
 // Spawn a dying miner
-instance_create(x, y, obj_miner_dying);
+var inst = instance_create(x, y, obj_miner_dying);
+
+if (instance_number(obj_miner) == 1) {
+    // This is the last miner on the level, and it is dying now.
+    scr_doLevelFail_minersDead(inst.x + inst.sprite_width/2, inst.y + inst.sprite_width/2);
+}
+
 </string>
           </argument>
         </arguments>

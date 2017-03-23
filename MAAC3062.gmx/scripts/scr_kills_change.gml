@@ -7,6 +7,7 @@
  *        The amount by which to change the kills (+ or -).
  */
 
+ // I don't think we're doing anything with next 2 lines, so possibly remove them. -Ben
 var canProceed = scr_misc_isVariableInitialized(global.levelStats);
 canProceed &= scr_misc_isVariableInitialized(argument[0]);
 
@@ -21,7 +22,7 @@ if (canProceed) {
         with (obj_hud_levelKills) {
             scale = scaleLevelBoosted;
         }
-    } else if (argument[0] < 0 && levelData[28] > 0) {
+    } else if (argument[0] < 0 && scr_statistics_getData(28) > 0) {
         // Do something special when level decreases (do nothing if level already 0)
         
         // Shrink the icon    

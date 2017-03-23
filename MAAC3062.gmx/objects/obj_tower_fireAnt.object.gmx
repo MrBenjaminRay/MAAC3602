@@ -135,8 +135,8 @@ scr_entity_weaponKickback_Shrink();
 if (attackRateCounter &gt;= attackRate) {
     attackRateCounter = 0;
 
-    var nearestEnemy_any = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy);
-    var nearestEnemy_ground = scr_entity_gearNearestObjectOfType(attackRange, obj_enemy_ground);
+    var nearestEnemy_any = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy);
+    var nearestEnemy_ground = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy_ground);
     var nearestEnemy = noone;
     
     if (nearestEnemy_ground != noone) {

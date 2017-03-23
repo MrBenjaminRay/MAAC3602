@@ -46,7 +46,6 @@
           <argument>
             <kind>1</kind>
             <string>damage = 35;                // The amount of damage dealt by the projectile.
-movementSpeed = 6;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = false;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 

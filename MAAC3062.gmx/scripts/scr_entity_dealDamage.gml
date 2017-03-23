@@ -11,6 +11,7 @@
  */
 var canContinue = is_undefined(argument[0]) == false;
 canContinue &= is_undefined(argument[1]) == false;
+canContinue &= instance_exists(obj_player); // Don't do any entity damage once player has died
 
 if (canContinue) {
     var newShield = 0;
