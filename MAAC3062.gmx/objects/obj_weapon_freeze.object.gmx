@@ -43,10 +43,19 @@
             <kind>1</kind>
             <string>if (instance_exists(parentTower)) {
     if (instance_exists(parentTower.slothObj)) {
-        // Draw temporary rope until we get something better
-        draw_set_color(make_color_rgb(181,99,38));
-        draw_line_width(x, y, parentTower.slothObj.x, parentTower.slothObj.y, 4);
+    
         image_angle = point_direction(x, y, parentTower.slothObj.x, parentTower.slothObj.y);
+
+        var len = point_distance(x, y, parentTower.slothObj.x, parentTower.slothObj.y); // Could have also calculated this with len = sqrt(vectorX*vectorX + vectorY*vectorY)
+        var vectorX = parentTower.slothObj.x - x;
+        var vectorY = parentTower.slothObj.y - y;
+        var vectorUnitX = vectorX/len;
+        var vectorUnitY = vectorY/len;
+        
+        for (var i=0; i&lt;len; i += sprite_get_width(spr_sloth_rope)) {
+            draw_sprite_ext(spr_sloth_rope, 0, x + vectorUnitX*i, y + vectorUnitY*i, 1, 1, image_angle+180, c_white, 1);
+        }
+                    
     }
 }
 

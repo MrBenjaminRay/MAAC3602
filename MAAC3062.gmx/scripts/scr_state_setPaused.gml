@@ -8,3 +8,5 @@ if (window_get_fullscreen()) {
     instance_create(view_wview[0]/2, view_hview[0]/2 + 100, obj_mainMenu);
 }
 
+cursor_sprite = noone;
+window_set_cursor(cr_default);

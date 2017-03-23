@@ -103,7 +103,6 @@ if(levelFinish == 1) {
 
 if(levelFinish == 1 &amp;&amp; y &lt; -200) {
     global.minerals += scr_statistics_getData(29);
-    global.currentLevelComplete = 0;
     room_goto(rm_hub);
 }
 </string>

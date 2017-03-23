@@ -226,6 +226,7 @@
         <sprite>sprites\spr_projectile_rainbowTrout</sprite>
         <sprite>sprites\spr_sloth_flying</sprite>
         <sprite>sprites\spr_sloth_dragging</sprite>
+        <sprite>sprites\spr_sloth_rope</sprite>
         <sprite>sprites\spr_running_fireAnts_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
@@ -488,6 +489,7 @@
       <script>scripts\scr_state_setBuild.gml</script>
       <script>scripts\scr_state_setDestroy.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
+      <script>scripts\scr_state_setLevelFailed.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
       <script>scripts\scr_build_switchTower.gml</script>
       <script>scripts\scr_normal_beginBuild.gml</script>
@@ -521,6 +523,7 @@
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_doLevelFail_minersDead.gml</script>
     <script>scripts\scr_doLevelFail_playerDead.gml</script>
+    <script>scripts\scr_level_initialize.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
