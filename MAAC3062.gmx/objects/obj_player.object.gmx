@@ -40,10 +40,8 @@
           <argument>
             <kind>1</kind>
             <string>// MOVEMENT:
-movementSpeed = 250 / 1000;     // Left/Right Movement Speed
-jumpSpeed = 400/ 1000;          // Jump Movement Speed
-gravConst = 8 / 1000;           // Gravity Constant
-
+movementSpeed = 250 / 1000; // Left/Right Movement Speed
+jumpSpeed = .72;            // Jump Speed
 
 // ???
 image_speed = 0;
@@ -1095,9 +1093,8 @@ if(distance_to_object(obj_ship) &lt;= global.messageDistance) {
     return 0;
 }
 
-if (isJumping == false) {
-    scr_entity_jump();
-}
+scr_entity_jump();
+
 </string>
           </argument>
         </arguments>
@@ -1165,6 +1162,29 @@ if (global.plrAbilityAttained[3]) {
 } else {
     scr_misc_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>isDropping = true;
 </string>
           </argument>
         </arguments>

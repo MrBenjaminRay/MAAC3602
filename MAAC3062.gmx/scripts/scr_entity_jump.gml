@@ -1,12 +1,15 @@
 // To Jump:
-//      Must not be jumping.
+//      Must not be dropping through platform.
 //      Must be standing on the ground.
-var canJump = isJumping == false;
+var canJump = isDropping == false;
 canJump &= place_meeting(x, y + 1, obj_physicsTile);
 
 if (canJump) {
-    currentJumpSpeed = -abs(jumpSpeed) * global.deltaTime;
-    isJumping = true;
+
+    //isJumping = true;
+    
+    // Boost vertical speed to jump
+    vspeed = -abs(jumpSpeed);
     
     // Boss-Specific Code:
     switch (self) {
