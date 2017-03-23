@@ -387,6 +387,12 @@
       <sprite>sprites\spr_array_new</sprite>
     </sprites>
     <sprite>sprites\spr_camera</sprite>
+    <sprites name="Story">
+      <sprite>sprites\spr_story1</sprite>
+      <sprite>sprites\spr_story2</sprite>
+      <sprite>sprites\spr_story_script1</sprite>
+      <sprite>sprites\spr_story_script2</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -829,6 +835,10 @@
       <object>objects\obj_control_buildState</object>
       <object>objects\obj_control_destroyState</object>
     </objects>
+    <objects name="Story">
+      <object>objects\obj_story_pic_controller</object>
+      <object>objects\obj_story_text_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
@@ -858,6 +868,9 @@
       <room>rooms\rm_hub</room>
       <room>rooms\rm_hub_weapons</room>
       <room>rooms\rm_navArray</room>
+    </rooms>
+    <rooms name="Story">
+      <room>rooms\rm_Story1</room>
     </rooms>
   </rooms>
   <help>
