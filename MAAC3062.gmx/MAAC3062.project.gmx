@@ -148,6 +148,8 @@
         <sprite>sprites\spr_player_falling</sprite>
         <sprite>sprites\spr_player_deathPart1</sprite>
         <sprite>sprites\spr_player_deathPart2</sprite>
+        <sprite>sprites\spr_player_alt</sprite>
+        <sprite>sprites\spr_player_alt_standing</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
