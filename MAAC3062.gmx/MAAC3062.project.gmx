@@ -424,7 +424,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-	<scripts name="Abilities">
+    <scripts name="Abilities">
       <script>scripts\scr_abilC_normal_enable.gml</script>
       <script>scripts\scr_abilC_normal_disable.gml</script>
       <script>scripts\scr_abilC_upgraded_enable.gml</script>
@@ -438,7 +438,7 @@
       <script>scripts\scr_camera_follow_fixedCoordinates.gml</script>
       <script>scripts\scr_camera_zoom_inOutTimed.gml</script>
     </scripts>
-	<scripts name="Entities">
+    <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
       <script>scripts\scr_enemy_destroyOldest.gml</script>
       <script>scripts\scr_spawnBoss.gml</script>
@@ -474,11 +474,7 @@
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_gearNearestObjectOfType.gml</script>
       <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
-      <script>scripts\scr_screenShake.gml</script>
       <script>scripts\scr_misc_notification.gml</script>
-    </scripts>
-    <scripts name="Notifications">
-      <script>scripts\scr_notification.gml</script>
     </scripts>
     <scripts name="Spawning">
       <script>scripts\scr_spawning_disableSpawners.gml</script>
@@ -520,7 +516,7 @@
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_getLevelId.gml</script>
-	<script>scripts\scr_smoothStep.gml</script>
+    <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_doLevelFail_minersDead.gml</script>
     <script>scripts\scr_doLevelFail_playerDead.gml</script>
   </scripts>
@@ -829,36 +825,7 @@
       <object>objects\obj_control_destroyState</object>
     </objects>
   </objects>
-  <rooms name="rooms">
-    <room>rooms\rm_menu</room>
-    <room>rooms\rm_test</room>
-    <room>rooms\rm_bentest</room>
-    <rooms name="Credits">
-      <room>rooms\rm_credits</room>
-      <room>rooms\rm_credits2</room>
-      <room>rooms\rm_credits3</room>
-    </rooms>
-    <rooms name="Levels">
-      <rooms name="Tutorial">
-        <room>rooms\rm_tut1</room>
-      </rooms>
-      <room>rooms\rm_level_moon</room>
-      <room>rooms\rm_level_forest</room>
-      <room>rooms\rm_level_desert</room>
-      <room>rooms\rm_level_ice</room>
-      <room>rooms\rm_level_underwater</room>
-    </rooms>
-    <rooms name="Cinematics">
-      <room>rooms\rm_cinematic</room>
-      <room>rooms\rm_video_ship_damaged</room>
-      <room>rooms\rm_video_ship_moonlanding</room>
-    </rooms>
-    <rooms name="HUB">
-      <room>rooms\rm_hub</room>
-      <room>rooms\rm_hub_weapons</room>
-      <room>rooms\rm_navArray</room>
-    </rooms>
-  </rooms>
+  <rooms name="rooms"/>
   <help>
     <rtf>help.rtf</rtf>
   </help>
