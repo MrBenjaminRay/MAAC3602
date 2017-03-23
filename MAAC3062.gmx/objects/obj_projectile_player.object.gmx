@@ -3,7 +3,7 @@
   <spriteName>spr_projectile_catapillager</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>obj_projectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
