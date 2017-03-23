@@ -260,6 +260,7 @@
         <sprite>sprites\spr_explosion_flash</sprite>
         <sprite>sprites\spr_explosion_flash_short</sprite>
         <sprite>sprites\spr_mushroom_cloud</sprite>
+        <sprite>sprites\spr_mushroom_yellowed</sprite>
         <sprite>sprites\spr_blood_and_feather_explosion</sprite>
         <sprite>sprites\spr_bloodsplosion</sprite>
       </sprites>
@@ -414,18 +415,35 @@
       <background>background\bkg_desert_front</background>
       <background>background\bkg_desert_2</background>
     </backgrounds>
-    <backgrounds name="IceBackground">
+    <backgrounds name="IceBackgrounds">
       <background>background\bkg_ice_0</background>
       <background>background\bkg_ice_front</background>
       <background>background\bkg_ice_tileset</background>
     </backgrounds>
-    <backgrounds name="Underwater">
+    <backgrounds name="UnderwaterBackgrounds">
       <background>background\bkg_underwater_0</background>
       <background>background\bkg_underwater_1</background>
       <background>background\bkg_underwater_2</background>
       <background>background\bkg_underwater_3</background>
       <background>background\bkg_underwater_front</background>
       <background>background\bkg_underwater_tiles</background>
+    </backgrounds>
+    <backgrounds name="AsteroidBackgrounds">
+      <background>background\bkg_asteroid_0</background>
+      <background>background\bkg_asteroid_1</background>
+      <background>background\bkg_asteroid_backtiles</background>
+      <background>background\bkg_asteroid_fronttiles</background>
+    </backgrounds>
+    <backgrounds name="MarsBackgrounds">
+      <background>background\bkg_mars_0</background>
+      <background>background\bkg_mars_1</background>
+      <background>background\bkg_mars_tiles</background>
+    </backgrounds>
+    <backgrounds name="EarthBackgrounds">
+      <background>background\bkg_earth_0</background>
+      <background>background\bkg_earth1</background>
+      <background>background\bkg_earth_2</background>
+      <background>background\bkg_earth_front</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -554,6 +572,7 @@
       <object>objects\obj_levelControl_6</object>
       <object>objects\obj_levelControl_7</object>
       <object>objects\obj_levelControl_8</object>
+      <object>objects\obj_parallax_controller</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
@@ -854,6 +873,9 @@
       <room>rooms\rm_level_desert</room>
       <room>rooms\rm_level_ice</room>
       <room>rooms\rm_level_underwater</room>
+      <room>rooms\rm_level_asteroid</room>
+      <room>rooms\rm_level_mars</room>
+      <room>rooms\rm_level_earth</room>
     </rooms>
     <rooms name="Cinematics">
       <room>rooms\rm_cinematic</room>
