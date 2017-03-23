@@ -299,9 +299,6 @@
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
-      <sprites name="Visual">
-        <sprite>sprites\spr_testVisualTile</sprite>
-      </sprites>
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
@@ -769,7 +766,6 @@
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
-      <object>objects\obj_visualTile</object>
     </objects>
     <objects name="Misc">
       <object>objects\obj_cursorCtrl</object>

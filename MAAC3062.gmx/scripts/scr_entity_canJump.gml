@@ -1,3 +1,8 @@
+if (object_index == obj_player) {
+    // Player can always jump, as he will be bounced back down if there is no room
+    return true;
+}
+
 // Clamp the y position to the nearest multiple of 32:
 var tempY;
 
