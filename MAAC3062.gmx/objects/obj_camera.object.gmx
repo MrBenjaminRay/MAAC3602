@@ -67,7 +67,7 @@ zoomState_TimeTotal = 0;
 zoomState_TimeElapsed = 0;
 
 // Set to .5 to see camera position when troubleshooting, or 0 to hide
-image_alpha = .5;
+image_alpha = 0;
 
 </string>
           </argument>

@@ -3,6 +3,9 @@
  *
  */
 
+// Set the variable that prevents damage & other things after level failed
+global.currentLevelFailed = true;
+
 // Make sure camera is focusing on player (in case it is aimed elsewhere)
 scr_camera_follow_playerObjects();
 
@@ -13,6 +16,7 @@ scr_camera_zoom_inOutTimed(4, 100000, 3000, 3000);
 var tmp = instance_create(0, 0, obj_levelFail_screenFade);
 tmp.levelFailReason = "You died."; 
 
-
+// Set cursors
+scr_state_setLevelFailed();
 
 

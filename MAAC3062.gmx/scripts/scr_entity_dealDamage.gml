@@ -11,7 +11,8 @@
  */
 var canContinue = is_undefined(argument[0]) == false;
 canContinue &= is_undefined(argument[1]) == false;
-canContinue &= instance_exists(obj_player); // Don't do any entity damage once player has died
+canContinue &= !global.currentLevelFailed;      // Don't do any entity damage once level has been failed
+canContinue &= !global.currentLevelComplete;    // Don't do any entity damage once level has been completed
 
 if (canContinue) {
     var newShield = 0;
