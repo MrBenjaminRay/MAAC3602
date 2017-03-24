@@ -48,6 +48,9 @@ changeCueOffset_x = -24;
 // Override cue length. Shorter for minerals as they are constantly increasing.
 changeCueTime = 100000;
 
+//used to set minerals to starting amount
+currentValueToDraw = global.minerals;
+
 </string>
           </argument>
         </arguments>
@@ -85,7 +88,7 @@ changeCueTime = 100000;
           <argument>
             <kind>1</kind>
             <string>// Set value to be drawn to match energy level
-currentValueToDraw = scr_statistics_getData(29);
+//currentValueToDraw = scr_statistics_getData(29);
 
     
 
