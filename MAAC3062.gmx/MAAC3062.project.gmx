@@ -38,6 +38,7 @@
     </sounds>
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
+      <sound>sound\snd_menuClick_reject</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
