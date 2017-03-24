@@ -66,7 +66,6 @@
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
-        <sprite>sprites\spr_toolTipBox_Background</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -555,7 +554,6 @@
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
-    <font>fonts\fnt_hud_hover</font>
   </fonts>
   <objects name="objects">
     <object>objects\object</object>

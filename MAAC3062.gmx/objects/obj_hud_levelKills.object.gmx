@@ -123,44 +123,8 @@ currentValueToDraw = scr_statistics_getData(28);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouseHoverTime &gt;= 45) {
-
-    var text;
-    text[0] = 'Number of enemies killed';
-    text[1] = 'while on this planet.';
-    
-    var backX = x-164;
-    var backY = y-64;
-    
-    // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
-    
-    // Draw background
-    draw_sprite_ext(spr_toolTipBox_Background, 0, backX, backY, 1, 1, 0, c_white, .5);
-    
-    // Configure
-    draw_set_font(fnt_hud_hover);
-    draw_set_halign(fa_middle); // Align text so we don't have to calculate its width
-    draw_set_colour(c_white);
-    draw_set_alpha(1);
-    
-    // Draw text line 1
-    draw_text(
-        round(backX + sprite_get_width(spr_toolTipBox_Background)/2), // Center drawing point horizontally
-        round(backY + 12),
-        text[0]
-    );
-    show_debug_message(string(backX + sprite_get_width(spr_toolTipBox_Background)/2) + ', ' + string(backY + 5));
-    // Draw text line 2
-    draw_text(
-        round(backX + sprite_get_width(spr_toolTipBox_Background)/2), // Center drawing point horizontally
-        round(backY + 23),
-        text[1]
-    );
-    
-    // Reset drawing stuff to defaults
-    draw_set_halign(fa_left);
-
-}
+            <string>if(mouseHoverTime &gt;= 45)
+    draw_sprite(spr_toolTipBox_enemiesKilled, 0, x-164, y-64);
 </string>
           </argument>
         </arguments>
