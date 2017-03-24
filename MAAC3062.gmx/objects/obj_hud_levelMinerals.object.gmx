@@ -48,6 +48,9 @@ changeCueOffset_x = -24;
 // Override cue length. Shorter for minerals as they are constantly increasing.
 changeCueTime = 100000;
 
+//used to set minerals to starting amount
+levelStartMinerals = global.minerals;
+
 </string>
           </argument>
         </arguments>
