@@ -109,6 +109,10 @@ pickCount = 0;      // Total # of times the miner has mined
 picksForLevel_2 = 150; // Total # of pickCount to get to level 2 (since level started)
 picksForLevel_3 = 500; // Total # of pickCount to get to level 3 (since level started)
 
+
+deadMinerOffsetX = 12; // X offset to use when creating miner dying object (miners not lined up in sprites)
+deadMinerOffsetY = 5; // X offset to use when creating miner dying object (miners not lined up in sprites)
+
 </string>
           </argument>
         </arguments>
@@ -134,7 +138,13 @@ picksForLevel_3 = 500; // Total # of pickCount to get to level 3 (since level st
             <string>//scr_msg_minerKilled(x - 220, y - 230);
 
 // Spawn a dying miner
-instance_create(x, y, obj_miner_dying);
+var inst = instance_create(x+deadMinerOffsetX, y+deadMinerOffsetY, obj_miner_dying);
+
+if (instance_number(obj_miner) == 1) {
+    // This is the last miner on the level, and it is dying now.
+    scr_doLevelFail_minersDead(inst.x + inst.sprite_width/2, inst.y + inst.sprite_width/2);
+}
+
 </string>
           </argument>
         </arguments>
@@ -161,7 +171,10 @@ instance_create(x, y, obj_miner_dying);
     return 0;
 }
 
-currentTimeToMinerals += global.deltaTime;
+if (damageAnimationRemaining &lt;= 0) {
+    // Only increment minerals when not taking damage
+    currentTimeToMinerals += global.deltaTime;
+}
 
 if (currentTimeToMinerals &gt;= timeToMinerals) {
     currentTimeToMinerals -= timeToMinerals;

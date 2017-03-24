@@ -148,6 +148,8 @@
         <sprite>sprites\spr_player_falling</sprite>
         <sprite>sprites\spr_player_deathPart1</sprite>
         <sprite>sprites\spr_player_deathPart2</sprite>
+        <sprite>sprites\spr_player_alt</sprite>
+        <sprite>sprites\spr_player_alt_standing</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -224,6 +226,7 @@
         <sprite>sprites\spr_projectile_rainbowTrout</sprite>
         <sprite>sprites\spr_sloth_flying</sprite>
         <sprite>sprites\spr_sloth_dragging</sprite>
+        <sprite>sprites\spr_sloth_rope</sprite>
         <sprite>sprites\spr_running_fireAnts_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
@@ -257,6 +260,7 @@
         <sprite>sprites\spr_explosion_flash</sprite>
         <sprite>sprites\spr_explosion_flash_short</sprite>
         <sprite>sprites\spr_mushroom_cloud</sprite>
+        <sprite>sprites\spr_mushroom_yellowed</sprite>
         <sprite>sprites\spr_blood_and_feather_explosion</sprite>
         <sprite>sprites\spr_bloodsplosion</sprite>
       </sprites>
@@ -296,9 +300,6 @@
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
-      <sprites name="Visual">
-        <sprite>sprites\spr_testVisualTile</sprite>
-      </sprites>
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
@@ -384,6 +385,12 @@
       <sprite>sprites\spr_array_new</sprite>
     </sprites>
     <sprite>sprites\spr_camera</sprite>
+    <sprites name="Story">
+      <sprite>sprites\spr_story1</sprite>
+      <sprite>sprites\spr_story2</sprite>
+      <sprite>sprites\spr_story_script1</sprite>
+      <sprite>sprites\spr_story_script2</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -408,12 +415,12 @@
       <background>background\bkg_desert_front</background>
       <background>background\bkg_desert_2</background>
     </backgrounds>
-    <backgrounds name="IceBackground">
+    <backgrounds name="IceBackgrounds">
       <background>background\bkg_ice_0</background>
       <background>background\bkg_ice_front</background>
       <background>background\bkg_ice_tileset</background>
     </backgrounds>
-    <backgrounds name="Underwater">
+    <backgrounds name="UnderwaterBackgrounds">
       <background>background\bkg_underwater_0</background>
       <background>background\bkg_underwater_1</background>
       <background>background\bkg_underwater_2</background>
@@ -421,9 +428,40 @@
       <background>background\bkg_underwater_front</background>
       <background>background\bkg_underwater_tiles</background>
     </backgrounds>
+    <backgrounds name="AsteroidBackgrounds">
+      <background>background\bkg_asteroid_0</background>
+      <background>background\bkg_asteroid_1</background>
+      <background>background\bkg_asteroid_backtiles</background>
+      <background>background\bkg_asteroid_fronttiles</background>
+    </backgrounds>
+    <backgrounds name="MarsBackgrounds">
+      <background>background\bkg_mars_0</background>
+      <background>background\bkg_mars_1</background>
+      <background>background\bkg_mars_tiles</background>
+    </backgrounds>
+    <backgrounds name="EarthBackgrounds">
+      <background>background\bkg_earth_0</background>
+      <background>background\bkg_earth1</background>
+      <background>background\bkg_earth_2</background>
+      <background>background\bkg_earth_front</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Abilities">
+      <script>scripts\scr_abilC_normal_enable.gml</script>
+      <script>scripts\scr_abilC_normal_disable.gml</script>
+      <script>scripts\scr_abilC_upgraded_enable.gml</script>
+      <script>scripts\scr_abilC_upgraded_disable.gml</script>
+    </scripts>
+    <scripts name="Camera">
+      <script>scripts\scr_screenShake.gml</script>
+      <script>scripts\scr_slowZoom_FixedPosition.gml</script>
+      <script>scripts\scr_camera_follow_playerObjects.gml</script>
+      <script>scripts\scr_camera_follow_targetObject.gml</script>
+      <script>scripts\scr_camera_follow_fixedCoordinates.gml</script>
+      <script>scripts\scr_camera_zoom_inOutTimed.gml</script>
+    </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
       <script>scripts\scr_enemy_destroyOldest.gml</script>
@@ -456,41 +494,23 @@
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
     </scripts>
-    <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
-    <script>scripts\scr_create_explosion.gml</script>
-    <script>scripts\scr_energy_change.gml</script>
-    <script>scripts\scr_minerals_change.gml</script>
-    <script>scripts\scr_kills_change.gml</script>
-    <script>scripts\scr_fuel_change.gml</script>
-    <script>scripts\scr_bossDrop_show.gml</script>
-    <scripts name="UI">
-      <scripts name="Message Boxes">
-        <script>scripts\scr_msg_shipRefuel.gml</script>
-        <script>scripts\scr_msg_shipPlanetEscape.gml</script>
-        <script>scripts\scr_msg_hubBossReward.gml</script>
-        <script>scripts\scr_msg_minerKilled.gml</script>
-      </scripts>
-    </scripts>
-    <script>scripts\scr_drop_energy.gml</script>
-    <script>scripts\scr_getLevelId.gml</script>
-    <scripts name="Abilities">
-      <script>scripts\scr_abilC_normal_enable.gml</script>
-      <script>scripts\scr_abilC_normal_disable.gml</script>
-      <script>scripts\scr_abilC_upgraded_enable.gml</script>
-      <script>scripts\scr_abilC_upgraded_disable.gml</script>
-    </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_gearNearestObjectOfType.gml</script>
       <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
-      <script>scripts\scr_screenShake.gml</script>
       <script>scripts\scr_misc_notification.gml</script>
+    </scripts>
+    <scripts name="Spawning">
+      <script>scripts\scr_spawning_disableSpawners.gml</script>
+      <script>scripts\scr_spawning_enableSpawners.gml</script>
+      <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
     </scripts>
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
       <script>scripts\scr_state_setBuild.gml</script>
       <script>scripts\scr_state_setDestroy.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
+      <script>scripts\scr_state_setLevelFailed.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
       <script>scripts\scr_build_switchTower.gml</script>
       <script>scripts\scr_normal_beginBuild.gml</script>
@@ -504,15 +524,32 @@
       <script>scripts\scr_statistics_getData.gml</script>
       <script>scripts\scr_statistics_setData.gml</script>
     </scripts>
-    <scripts name="Spawning">
-      <script>scripts\scr_spawning_disableSpawners.gml</script>
-      <script>scripts\scr_spawning_enableSpawners.gml</script>
-      <script>scripts\scr_spawning_chooseSpawnObject.gml</script>
+    <scripts name="UI">
+      <scripts name="Message Boxes">
+        <script>scripts\scr_msg_shipRefuel.gml</script>
+        <script>scripts\scr_msg_shipPlanetEscape.gml</script>
+        <script>scripts\scr_msg_hubBossReward.gml</script>
+        <script>scripts\scr_msg_minerKilled.gml</script>
+      </scripts>
     </scripts>
+    <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
+    <script>scripts\scr_create_explosion.gml</script>
+    <script>scripts\scr_energy_change.gml</script>
+    <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_kills_change.gml</script>
+    <script>scripts\scr_fuel_change.gml</script>
+    <script>scripts\scr_bossDrop_show.gml</script>
+    <script>scripts\scr_drop_energy.gml</script>
+    <script>scripts\scr_getLevelId.gml</script>
+    <script>scripts\scr_smoothStep.gml</script>
+    <script>scripts\scr_doLevelFail_minersDead.gml</script>
+    <script>scripts\scr_doLevelFail_playerDead.gml</script>
+    <script>scripts\scr_level_initialize.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
     <font>fonts\fnt_hud_mineralEnergyLevels</font>
+    <font>fonts\fnt_levelFailMessage</font>
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
@@ -535,6 +572,7 @@
       <object>objects\obj_levelControl_6</object>
       <object>objects\obj_levelControl_7</object>
       <object>objects\obj_levelControl_8</object>
+      <object>objects\obj_parallax_controller</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
@@ -753,7 +791,6 @@
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
-      <object>objects\obj_visualTile</object>
     </objects>
     <objects name="Misc">
       <object>objects\obj_cursorCtrl</object>
@@ -800,7 +837,7 @@
         <object>objects\obj_emitter_emitter</object>
       </objects>
       <objects name="Special">
-        <object>objects\obj_playerDeath_screenFade</object>
+        <object>objects\obj_levelFail_screenFade</object>
       </objects>
       <object>objects\obj_smoke</object>
       <object>objects\obj_control_particles</object>
@@ -812,6 +849,10 @@
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
       <object>objects\obj_control_destroyState</object>
+    </objects>
+    <objects name="Story">
+      <object>objects\obj_story_pic_controller</object>
+      <object>objects\obj_story_text_controller</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -832,6 +873,9 @@
       <room>rooms\rm_level_desert</room>
       <room>rooms\rm_level_ice</room>
       <room>rooms\rm_level_underwater</room>
+      <room>rooms\rm_level_asteroid</room>
+      <room>rooms\rm_level_mars</room>
+      <room>rooms\rm_level_earth</room>
     </rooms>
     <rooms name="Cinematics">
       <room>rooms\rm_cinematic</room>
@@ -842,6 +886,9 @@
       <room>rooms\rm_hub</room>
       <room>rooms\rm_hub_weapons</room>
       <room>rooms\rm_navArray</room>
+    </rooms>
+    <rooms name="Story">
+      <room>rooms\rm_Story1</room>
     </rooms>
   </rooms>
   <help>

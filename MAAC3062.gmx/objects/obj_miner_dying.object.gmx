@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0.1;
+            <string>image_speed = 0.05;
 fading = false;
 fadeAlphaAmount = .0001;
+
 </string>
           </argument>
         </arguments>

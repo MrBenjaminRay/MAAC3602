@@ -10,14 +10,8 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>// Level Initalization Code:
-scr_statistics_initializeLevel();
-global.initialMinerals = global.minerals;
-
-// Spawn Required Control Objects:
-instance_create(-50, -50, obj_control_bosses);
-
-window_set_cursor(cr_none);</code>
+  <code>// Run single script to initialize everything needed for a standard game level
+scr_level_initialize();</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -223,6 +217,8 @@ window_set_cursor(cr_none);</code>
     <instance objName="obj_physicsTile" x="1120" y="320" name="inst_A253CBBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="864" y="320" name="inst_3423E1CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelControl_2" x="192" y="-32" name="inst_4B8C7555" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="928" y="512" name="inst_5797B490" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="960" y="512" name="inst_04FC9FE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_forest_tiles" x="192" y="832" w="64" h="32" xo="96" yo="64" id="10000001" name="inst_85762925" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -321,7 +317,6 @@ window_set_cursor(cr_none);</code>
     <tile bgName="bkg_forest_tiles" x="928" y="416" w="32" h="32" xo="96" yo="0" id="10000300" name="inst_7AE414AF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="448" w="32" h="32" xo="96" yo="0" id="10000302" name="inst_63217B64" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="480" w="32" h="32" xo="96" yo="0" id="10000304" name="inst_6EE25BC3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_forest_tiles" x="928" y="544" w="32" h="32" xo="96" yo="0" id="10000308" name="inst_9A829044" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="576" w="32" h="32" xo="96" yo="0" id="10000311" name="inst_60F9A619" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="640" w="32" h="32" xo="96" yo="0" id="10000312" name="inst_1C6FD203" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="672" w="32" h="32" xo="96" yo="0" id="10000314" name="inst_1EC08787" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -424,6 +419,7 @@ window_set_cursor(cr_none);</code>
     <tile bgName="bkg_forest_tiles" x="960" y="320" w="32" h="32" xo="192" yo="32" id="10001548" name="inst_6E0657AD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="320" w="32" h="32" xo="32" yo="32" id="10001549" name="inst_60643A51" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1216" y="320" w="32" h="32" xo="32" yo="32" id="10001550" name="inst_EA2E80A1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_forest_tiles" x="928" y="544" w="32" h="32" xo="96" yo="64" id="10001551" name="inst_61C572F3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
