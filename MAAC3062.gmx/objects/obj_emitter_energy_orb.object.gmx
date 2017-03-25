@@ -42,7 +42,7 @@
             <string>// Override stuff in parent emitter type
 // Set type of particle
 particleType = obj_particle_energy_orb;
-particleScale = .75;
+particleScale = .5;
 maxImageAlpha = 1; 
 particleCount = 100; // Override this when creating an instance of this object
 
