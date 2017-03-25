@@ -3,7 +3,7 @@
   <spriteName>spr_drop_energy_outer</spriteName>
   <solid>-1</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-20</depth>
   <persistent>0</persistent>
   <parentName>obj_drop</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -68,6 +68,7 @@ backObj.depth = depth + 5;
 backObj.image_xscale = image_xscale;
 backObj.image_yscale = image_yscale
 
+speedDecrease = 0.0002;
 </string>
           </argument>
         </arguments>
@@ -183,6 +184,31 @@ if (instance_exists(backObj)) {
 if (x &lt; 0-maxOffScreenRange || x &gt; room_width+maxOffScreenRange || y &lt; 0-maxOffScreenRange || y &gt; room_height+maxOffScreenRange) {
     instance_destroy();
     return 0;
+}
+
+x += hspeed * global.deltaTime;
+
+// Speed needs to be reduced if not 0
+if (hspeed &gt; 0) {
+    // Is moving to the right
+    var newSpeed = hspeed - speedDecrease * global.deltaTime;
+    if (newSpeed &gt;= 0) {
+        // New speed would still be &gt;= 0, so do it
+        hspeed = newSpeed;
+    } else {
+        // New speed would be &lt; 0, so just set to 0
+        hspeed = 0;
+    }
+} else if (hspeed &lt; 0) {
+    // Is moving to the left
+    var newSpeed = hspeed + speedDecrease * global.deltaTime;
+    if (newSpeed &lt;= 0) {
+        // New speed would still be &lt;= 0, so do it
+        hspeed = newSpeed;
+    } else {
+        // New speed would be &gt; 0, so just set to 0
+        hspeed = 0;
+    }
 }
 
 </string>

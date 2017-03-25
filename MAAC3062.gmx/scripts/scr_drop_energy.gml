@@ -39,18 +39,11 @@ while (toDispense > 0) {
     }
     toDispense -= inst.value;
     
-    
     with inst {
-        if (irandom_range(0, 1) == 0) {
-            movementDirection = "LEFT";
-        } else {
-            movementDirection = "RIGHT";
-        }
-        // Force mini jump. Can't use scr_entity_jump() as it must be called when entity is on a tile.
-        jumpSpeed = 150/ 1000;
-        movementSpeed = random_range(0, .1);
-        isJumping = true;
+        speed = .3;
+        direction = random_range(45, 135);
     }
+    show_debug_message(direction);
 
 }
 
