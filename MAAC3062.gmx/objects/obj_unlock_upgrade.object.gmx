@@ -29,6 +29,7 @@
 upgraded = 0;
 isAbility = 0;
 towerUpgrade = 1.5;
+clickSuccess = false;
 </string>
           </argument>
         </arguments>
@@ -248,6 +249,7 @@ if(unlocked == 0) {
                 global.minerals -= global.caterpillagerUnlockCost*-1;
                 scr_minerals_change(global.caterpillagerUnlockCost*-1);
                 global.caterpillagerUnlock = 1;
+                clickSuccess = true;
             } 
         }
         else {
@@ -256,6 +258,7 @@ if(unlocked == 0) {
                     global.minerals -= global.caterpillagerUpgradeCost*-1;
                     scr_minerals_change(global.caterpillagerUpgradeCost*-1);
                     global.towerUpgradeLevel[0] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }  
@@ -266,6 +269,7 @@ if(unlocked == 0) {
                 global.minerals -= global.slothRopeUnlockCost*-1;
                 scr_minerals_change(global.slothRopeUnlockCost*-1);
                 global.slothRopeUnlock = 1;
+                clickSuccess = true;
             }
             
         }
@@ -275,6 +279,7 @@ if(unlocked == 0) {
                     global.minerals -= global.slothRopeUpgradeCost*-1;
                     scr_minerals_change(global.slothRopeUpgradeCost*-1);
                     global.towerUpgradeLevel[1] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }  
@@ -285,6 +290,7 @@ if(unlocked == 0) {
                 global.minerals -= global.titMouseUnlockCost*-1;
                 scr_minerals_change(global.titMouseUnlockCost*-1);
                 global.titMouseUnlock = 1;
+                clickSuccess = true;
             } 
         }
         else {
@@ -293,6 +299,7 @@ if(unlocked == 0) {
                     global.minerals -= global.titMouseUpgradeCost*-1;
                     scr_minerals_change(global.titMouseUpgradeCost*-1);
                     global.towerUpgradeLevel[2] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -303,6 +310,7 @@ if(unlocked == 0) {
                 global.minerals -= global.fireAntUnlockCost*-1;
                 scr_minerals_change(global.fireAntUnlockCost*-1);
                 global.fireAntUnlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -311,6 +319,7 @@ if(unlocked == 0) {
                     global.minerals -= global.fireAntUpgradeCost*-1;
                     scr_minerals_change(global.fireAntUpgradeCost*-1);
                     global.towerUpgradeLevel[4] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -320,6 +329,7 @@ if(unlocked == 0) {
                 global.minerals -= global.CalibearUnlockCost*-1;
                 scr_minerals_change(global.CalibearUnlockCost*-1);
                 global.CalibearUnlock = 1;
+                clickSuccess = true;
             } 
         }
         else {
@@ -328,6 +338,7 @@ if(unlocked == 0) {
                     global.minerals -= global.CalibearUpgradeCost*-1;
                     scr_minerals_change(global.CalibearUpgradeCost*-1);
                     global.towerUpgradeLevel[3] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -338,6 +349,7 @@ if(unlocked == 0) {
                 global.minerals -= global.RT6100UnlockCost*-1;
                 scr_minerals_change(global.RT6100UnlockCost*-1);
                 global.RT6100Unlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -346,6 +358,7 @@ if(unlocked == 0) {
                     global.minerals -= global.RT6100UpgradeCost*-1;
                     scr_minerals_change(global.RT6100UpgradeCost*-1);
                     global.towerUpgradeLevel[5] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -356,6 +369,7 @@ if(unlocked == 0) {
                 global.minerals -= global.mechaGoatUnlockCost*-1;
                 scr_minerals_change(global.mechaGoatUnlockCost*-1);
                 global.mechaGoatUnlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -364,6 +378,7 @@ if(unlocked == 0) {
                     global.minerals -= global.mechaGoatUpgradeCost*-1;
                     scr_minerals_change(global.mechaGoatUpgradeCost*-1);
                     global.towerUpgradeLevel[6] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -373,6 +388,7 @@ if(unlocked == 0) {
             if(global.minerals &gt;= global.armadilloUnlockCost) {
                 scr_minerals_change(global.armadilloUnlockCost*-1);
                 global.armadilloUnlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -380,6 +396,7 @@ if(unlocked == 0) {
                 if(global.towerUpgradeLevel[7] == 1) {
                     scr_minerals_change(global.armadilloUpgradeCost*-1);
                     global.towerUpgradeLevel[7] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -389,6 +406,7 @@ if(unlocked == 0) {
             if(global.minerals &gt;= global.porpoiseUnlockCost) {
                 scr_minerals_change(global.porpoiseUnlockCost*-1);
                 global.porpoiseUnlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -396,6 +414,7 @@ if(unlocked == 0) {
                 if(global.towerUpgradeLevel[8] == 1) {
                     scr_minerals_change(global.porpoiseUpgradeCost*-1);
                     global.towerUpgradeLevel[8] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -405,6 +424,7 @@ if(unlocked == 0) {
             if(global.minerals &gt;= global.gorillaUnlockCost) {
                 scr_minerals_change(global.gorillaUnlockCost*-1);
                 global.gorillaUnlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -412,6 +432,7 @@ if(unlocked == 0) {
                 if(global.towerUpgradeLevel[9] == 1) {
                     scr_minerals_change(global.gorillaUpgradeCost*-1);
                     global.towerUpgradeLevel[9] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -421,6 +442,7 @@ if(unlocked == 0) {
             if(global.minerals &gt;= global.electricEelUnlockCost) {
                 scr_minerals_change(global.electricEelUnlockCost*-1);
                 global.electricEelUnlock = 1;
+                clickSuccess = true;
             }
         }
         else {
@@ -428,6 +450,7 @@ if(unlocked == 0) {
                 if(global.towerUpgradeLevel[10] == 1) {
                     scr_minerals_change(global.electricEelUpgradeCost*-1);
                     global.towerUpgradeLevel[10] = towerUpgrade;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -439,6 +462,7 @@ if(unlocked == 0) {
                     global.minerals -= global.fieldPulseUpgradeCost*-1;
                     scr_minerals_change(global.fieldPulseUpgradeCost*-1);
                     global.plrAbilityUpgraded[0] = true;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -450,6 +474,7 @@ if(unlocked == 0) {
                     global.minerals -= global.sneakySnakesUpgradeCost*-1;
                     scr_minerals_change(global.sneakySnakesUpgradeCost*-1);
                     global.plrAbilityUpgraded[1] = true;
+                    clickSuccess = true;
                 }
             } 
         }
@@ -461,6 +486,7 @@ if(unlocked == 0) {
                     global.minerals -= global.blasterUpgradeCost*-1;
                     scr_minerals_change(global.blasterUpgradeCost*-1);
                     global.plrAbilityUpgraded[2] = true;
+                    clickSuccess = true;
                 }
             }
         }
@@ -472,11 +498,23 @@ if(unlocked == 0) {
                     global.minerals -= global.catsAndDogsUpgradeCost*-1;
                     scr_minerals_change(global.catsAndDogsUpgradeCost*-1);
                     global.plrAbilityUpgraded[3] = true;
+                    clickSuccess = true;
                 }
             }
         }
         break;
 }
+
+if(clickSuccess) {
+    audio_play_sound(snd_menuClick, 0, false);
+    audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
+}
+else {
+    audio_play_sound(snd_menuClick_reject, 0, false);
+    audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
+}
+
+clickSuccess = false;
 </string>
           </argument>
         </arguments>

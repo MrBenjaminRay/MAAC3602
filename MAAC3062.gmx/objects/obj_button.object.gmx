@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>audio_play_sound(snd_menuClick, 0, false);
-//audio_sound_gain(snd_menuClick, 1.5, 0);
+audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
 </string>
           </argument>
         </arguments>
