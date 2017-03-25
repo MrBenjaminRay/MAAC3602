@@ -40,7 +40,7 @@
           <argument>
             <kind>1</kind>
             <string>// Set image rotation speed
-spriteRotateSpeed = .35;
+spriteRotateSpeed = 0;
 
 // Amount by which to decrease left/right movement until stopped
 movementSlowDownAmount = .001;
@@ -95,24 +95,22 @@ if (x &lt; 0-maxOffScreenRange || x &gt; room_width+maxOffScreenRange || y &lt; 
     return 0;
 }
 
-if (currentJumpSpeed &gt; 0 || currentFallSpeed &gt; 0) {
-    if (movementDirection == "LEFT") {
-        scr_entity_moveLeft();
-    }
-    
-    if (movementDirection == "RIGHT") {
-        scr_entity_moveRight();
-    }
+if (movementDirection == "LEFT") {
+    //scr_entity_moveLeft();
 }
+
+if (movementDirection == "RIGHT") {
+    //scr_entity_moveRight();
+}
+
 
 // FALLING - TEMPORARY - Special behaviour, which I (Ben) copied &amp; pasted from entity movement code.
 // But in this case, once the object collides with the floor, we stop the movementSpeed as well.
 if (!isJumping &amp;&amp; !isDropping) {
-    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_physicsTile);
+    var collisionAtNewLocation = place_meeting(x, y, obj_physicsTile);
     
     // If there is a collision at the new location, ease it down to the tile then stop everything
     if (collisionAtNewLocation) {
-        currentFallSpeed = 0;
         movementSpeed = 0;
         
         // Ease 'er on down

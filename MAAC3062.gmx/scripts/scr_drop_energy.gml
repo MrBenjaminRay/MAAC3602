@@ -49,7 +49,6 @@ while (toDispense > 0) {
         // Force mini jump. Can't use scr_entity_jump() as it must be called when entity is on a tile.
         jumpSpeed = 150/ 1000;
         movementSpeed = random_range(0, .1);
-        currentJumpSpeed = -abs(jumpSpeed) * global.deltaTime;
         isJumping = true;
     }
 
