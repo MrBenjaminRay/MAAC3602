@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.CalibearUnlock == 0)
+            <string>if(global.towerUnlocked[3])
     instance_create(x+lockedX, y+lockedY, obj_locked);
 </string>
           </argument>

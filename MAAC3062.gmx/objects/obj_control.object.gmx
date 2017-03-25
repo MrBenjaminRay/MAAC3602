@@ -79,24 +79,6 @@ global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;
 
-// Tower and ability is unlocked
-// NOTE: You can use scr_tower_checkUnlockByTowerIndex() to check unlock variable by tower index (0-5)
-
-global.caterpillagerUnlock = 1;
-global.slothRopeUnlock = 1;
-global.titMouseUnlock = 1;
-global.CalibearUnlock = 0;
-global.fireAntUnlock = 0;
-global.RT6100Unlock = 0;
-global.mechaGoatUnlock = 0;
-global.armadilloUnlock = 0;
-global.porpoiseUnlock = 0;
-global.gorillaUnlock = 0;
-global.electricEelUnlock = 0;
-
-global.fieldPulseUnlock = 0;
-global.sneakySnakesUnlock = 0;
-global.blasterUnlock = 0;
 global.catsAndDogsUnlock = 0;
 
 // Tower unlock costs
