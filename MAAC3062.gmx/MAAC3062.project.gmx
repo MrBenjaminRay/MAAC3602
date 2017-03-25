@@ -39,6 +39,7 @@
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
       <sound>sound\snd_menuClick_reject</sound>
+      <sound>sound\snd_menuClick_squeak</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -395,6 +396,7 @@
       <sprite>sprites\spr_story_script1</sprite>
       <sprite>sprites\spr_story_script2</sprite>
     </sprites>
+    <sprite>sprites\spr_sound_volumes</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -803,6 +805,7 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
+      <object>objects\obj_sound_volumes</object>
     </objects>
     <objects name="CutScenes">
       <object>objects\obj_video_ship_damaged</object>
