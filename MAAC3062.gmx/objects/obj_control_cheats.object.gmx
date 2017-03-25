@@ -31,41 +31,25 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>0</relative>
+        <relative>-1</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_minerals_change</script>
+            <kind>1</kind>
+            <string>global.minerals</string>
           </argument>
           <argument>
             <kind>0</kind>
             <string>100</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
@@ -93,41 +77,25 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>0</relative>
+        <relative>-1</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_minerals_change</script>
+            <kind>1</kind>
+            <string>global.minerals</string>
           </argument>
           <argument>
             <kind>0</kind>
             <string>-100</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
@@ -708,6 +676,13 @@ global.tutorial_part3 = true;
 global.tutorial_part1 = true;
 global.tutorial_part2 = true;
 global.tutorial_part3 = true;
+
+// HUB requires first room to be initialized, as it needs to know
+// if the first boss is spawned or not.  So we trick it by initializing
+// the stats data for the first object in case the player did not play
+// that level before hitting 0 to cut to the HUB.
+scr_statistics_initializeLevel(rm_level_moon);
+
 </string>
           </argument>
         </arguments>

@@ -67,7 +67,6 @@
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
-        <sprite>sprites\spr_toolTipBox_Background</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -500,6 +499,12 @@
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
     </scripts>
+    <scripts name="Levels">
+      <script>scripts\scr_getLevelId.gml</script>
+      <script>scripts\scr_doLevelFail_minersDead.gml</script>
+      <script>scripts\scr_doLevelFail_playerDead.gml</script>
+      <script>scripts\scr_level_initialize.gml</script>
+    </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_gearNearestObjectOfType.gml</script>
@@ -546,11 +551,7 @@
     <script>scripts\scr_fuel_change.gml</script>
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
-    <script>scripts\scr_getLevelId.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
-    <script>scripts\scr_doLevelFail_minersDead.gml</script>
-    <script>scripts\scr_doLevelFail_playerDead.gml</script>
-    <script>scripts\scr_level_initialize.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -559,7 +560,6 @@
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
-    <font>fonts\fnt_hud_hover</font>
   </fonts>
   <objects name="objects">
     <object>objects\object</object>
