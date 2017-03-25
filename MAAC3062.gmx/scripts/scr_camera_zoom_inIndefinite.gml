@@ -1,21 +1,14 @@
 /**
- * Zooms camera in on current target for the specified period of time.
- * Zoom time doesn't start counting down until zoom level reached, so
- * account for zoom in and out time when you call this script.
+ * Zooms camera in on current target indefinitely, with a customizable
+ * zoom-in time.
  *
  * @param argument[0]
  *        The zoom level to use when zooming (e.g. 2, 3.5 4, etc.)
  *
  * @param argument[1]
- *        The length (ms) of the zoom (after zoom-in, before zoom-out)
- *
- * @param argument[2]
  *        The length (ms) of the zoom-in transition
  *
- * @param argument[3]
- *        The length (ms) of the zoom-out transition
  */
-
 
 // Start zoom transition
 
@@ -24,10 +17,9 @@ with (obj_camera) {
     zoomLevelDesired = argument[0];
 
     // Set zoom in time, zoom time, and zoom out time
-    zoomTime = argument[1];
-    zoomInTime = argument[2];
-    zoomOutTime = argument[3];
-    
+    zoomTime = 0; // No zoomTime with indefinite zoom (it's indefinite...)
+    zoomInTime = argument[1];
+    zoomOutTime = 0; // No zoom out with indefinite zoom
 
     // Set state stuff
     zoomState = 1;
@@ -35,6 +27,7 @@ with (obj_camera) {
     zoomState_TimeElapsed = 0;
     zoomTransition_LevelStart = zoomLevelActual; // Start wherever zoom is now
     zoomTransition_LevelEnd = zoomLevelDesired; //End at desired zoom level
-    indefiniteZoom = false; // Zoom-in time specified, not indefinite.
+    indefiniteZoom = true; // Leaves camera zoomed in indefinitely
+
 }
 
