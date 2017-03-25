@@ -66,6 +66,7 @@
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
+        <sprite>sprites\spr_toolTipBox_Background</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -151,6 +152,7 @@
         <sprite>sprites\spr_player_deathPart2</sprite>
         <sprite>sprites\spr_player_alt</sprite>
         <sprite>sprites\spr_player_alt_standing</sprite>
+        <sprite>sprites\spr_alt_weapon</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -334,7 +336,8 @@
       </sprites>
       <sprite>sprites\spr_ship</sprite>
       <sprite>sprites\spr_enery_resource</sprite>
-      <sprite>sprites\spr_energy_pickup</sprite>
+      <sprite>sprites\spr_energy_container</sprite>
+      <sprite>sprites\spr_energy_drop</sprite>
       <sprite>sprites\spr_minerals</sprite>
       <sprite>sprites\spr_exhaust</sprite>
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
@@ -554,6 +557,7 @@
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
+    <font>fonts\fnt_hud_hover</font>
   </fonts>
   <objects name="objects">
     <object>objects\object</object>
