@@ -144,14 +144,33 @@
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
-        <sprite>sprites\spr_Boss_1_crouching</sprite>
-        <sprite>sprites\spr_Boss_1_eating_tower</sprite>
-        <sprite>sprites\spr_Boss_1_walk</sprite>
-        <sprite>sprites\spr_MiniBoss_1</sprite>
-        <sprite>sprites\spr_MiniBoss_2</sprite>
-        <sprite>sprites\spr_MiniBoss_2_Projectile</sprite>
-        <sprite>sprites\spr_Boss_2</sprite>
-        <sprite>sprites\spr_tornado</sprite>
+        <sprites name="Boss1">
+          <sprite>sprites\spr_Boss_1_crouching</sprite>
+          <sprite>sprites\spr_Boss_1_eating_tower</sprite>
+          <sprite>sprites\spr_Boss_1_walk</sprite>
+        </sprites>
+        <sprites name="MiniBoss1">
+          <sprite>sprites\spr_MiniBoss_1</sprite>
+        </sprites>
+        <sprites name="Boss2">
+          <sprite>sprites\spr_tornado</sprite>
+          <sprite>sprites\spr_Boss_2</sprite>
+        </sprites>
+        <sprites name="MiniBoss2">
+          <sprite>sprites\spr_MiniBoss_2</sprite>
+          <sprite>sprites\spr_MiniBoss_2_Projectile</sprite>
+        </sprites>
+        <sprites name="Boss3">
+          <sprite>sprites\spr_Boss3</sprite>
+        </sprites>
+        <sprites name="MiniBoss3">
+          <sprite>sprites\spr_miniboss_shield</sprite>
+          <sprite>sprites\spr_miniboss3</sprite>
+        </sprites>
+        <sprites name="MiniBoss4">
+          <sprite>sprites\spr_miniboss4</sprite>
+          <sprite>sprites\spr_miniboss4_attack</sprite>
+        </sprites>
       </sprites>
       <sprites name="Drops">
         <sprite>sprites\spr_drop_navPiece</sprite>
@@ -276,6 +295,8 @@
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_orb</sprite>
+        <sprite>sprites\spr_heart1</sprite>
+        <sprite>sprites\spr_heart2</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
