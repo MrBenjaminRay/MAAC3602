@@ -30,16 +30,12 @@ global.navPieceAttained[1] = false; // Whether or not the player has attained th
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
 global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
 
-
-// NOT BEING USED. Use the unlock variables in obj_control.
-// If you enable these, switch everything to use these instead of
-// the variables in obj_control so we don't have two systems in place.
-//global.towerUnlocked[0] = true; // Basic Tower
-//global.towerUnlocked[1] = true; // Freezer Tower
-//global.towerUnlocked[2] = true; // Mortar Tower
-//global.towerUnlocked[3] = false; // 109 Cal Tower
-//global.towerUnlocked[4] = false; // Flame Tower
-//global.towerUnlocked[5] = false; // M6100 Tower
+global.towerUnlocked[0] = true; // Basic Tower
+global.towerUnlocked[1] = true; // Freezer Tower
+global.towerUnlocked[2] = true; // Mortar Tower
+global.towerUnlocked[3] = false; // 109 Cal Tower
+global.towerUnlocked[4] = false; // Flame Tower
+global.towerUnlocked[5] = false; // M6100 Tower
 
 
 // NOTE:
@@ -77,6 +73,43 @@ global.towerUpgradeLevel[10] = 1; // Electric Eel Tower
           <argument>
             <kind>1</kind>
             <string>Ability Data</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.plrAbilityAttained[0] = false; // Whether or not the player has attained the first ability.
+global.plrAbilityAttained[1] = false; // Whether or not the player has attained the second ability.
+global.plrAbilityAttained[2] = false; // Whether or not the player has attained the third ability.
+global.plrAbilityAttained[3] = false; // Whether or not the player has attained the fourth ability.
+
+global.plrAbilityUpgraded[0] = false; // Whether or not the player has attained the first ability upgrade.
+global.plrAbilityUpgraded[1] = false; // Whether or not the player has attained the second ability upgrade.
+global.plrAbilityUpgraded[2] = false; // Whether or not the player has attained the third ability upgrade.
+
+global.plrAbilityCooldown_normal[0] = 10000;    // Delta time value.
+global.plrAbilityCooldown_normal[1] = 15000;    // Delta time value.
+global.plrAbilityCooldown_normal[2] = 15000;    // Delta time value.
+global.plrAbilityCooldown_normal[3] = 20000;    // Delta time value.
+
+global.plrAbilityCooldown_upgraded[0] = 8000;   // Delta time value.
+global.plrAbilityCooldown_upgraded[1] = 12000;  // Delta time value.
+global.plrAbilityCooldown_upgraded[2] = 10000;  // Delta time value.
+</string>
           </argument>
         </arguments>
       </action>
@@ -309,43 +342,6 @@ global.towers[5, 13] = obj_weapon_m6100;
           <argument>
             <kind>1</kind>
             <string>global.levelStats = ds_map_create();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>global.plrAbilityAttained[0] = false; // Whether or not the player has attained the first ability.
-global.plrAbilityAttained[1] = false; // Whether or not the player has attained the second ability.
-global.plrAbilityAttained[2] = false; // Whether or not the player has attained the third ability.
-global.plrAbilityAttained[3] = false; // Whether or not the player has attained the fourth ability.
-
-global.plrAbilityUpgraded[0] = false; // Whether or not the player has attained the first ability upgrade.
-global.plrAbilityUpgraded[1] = false; // Whether or not the player has attained the second ability upgrade.
-global.plrAbilityUpgraded[2] = false; // Whether or not the player has attained the third ability upgrade.
-
-global.plrAbilityCooldown_normal[0] = 10000;    // Delta time value.
-global.plrAbilityCooldown_normal[1] = 15000;    // Delta time value.
-global.plrAbilityCooldown_normal[2] = 15000;    // Delta time value.
-global.plrAbilityCooldown_normal[3] = 20000;    // Delta time value.
-
-global.plrAbilityCooldown_upgraded[0] = 8000;   // Delta time value.
-global.plrAbilityCooldown_upgraded[1] = 12000;  // Delta time value.
-global.plrAbilityCooldown_upgraded[2] = 10000;  // Delta time value.
 </string>
           </argument>
         </arguments>
