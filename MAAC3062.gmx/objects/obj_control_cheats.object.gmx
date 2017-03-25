@@ -311,23 +311,18 @@ if (instance_exists(obj_player)) {
           <argument>
             <kind>1</kind>
             <string>// Unlock all towers
-global.caterpillagerUnlock = 1;
-global.slothRopeUnlock = 1;
-global.titMouseUnlock = 1;
-global.CalibearUnlock = 1;
-global.fireAntUnlock = 1;
-global.RT6100Unlock = 1;
-global.mechaGoatUnlock = 1;
-global.armadilloUnlock = 1;
-global.porpoiseUnlock = 1;
-global.gorillaUnlock = 1;
-global.electricEelUnlock = 1;
+global.towerUnlocked[0] = true;
+global.towerUnlocked[1] = true;
+global.towerUnlocked[2] = true;
+global.towerUnlocked[3] = true;
+global.towerUnlocked[4] = true;
+global.towerUnlocked[5] = true;
 
 // Unlock all abilities
-global.fieldPulseUnlock = 1;
-global.sneakySnakesUnlock = 1;
-global.blasterUnlock = 1;
-global.catsAndDogsUnlock = 1;
+global.plrAbilityAttained[0] = true;
+global.plrAbilityAttained[1] = true;
+global.plrAbilityAttained[2] = true;
+global.plrAbilityAttained[3] = true;
 
 </string>
           </argument>
