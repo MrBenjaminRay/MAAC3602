@@ -226,6 +226,56 @@ if (intersectedTower != noone) {
     with (intersectedTower) {
         draw_sprite_stretched(spr_sell_overlay, 0, intersectedTower.x, intersectedTower.y, intersectedTower.sprite_width, intersectedTower.sprite_height);
     }
+    
+    // CALCULATE TOWER SALE PRICE:
+    var towerHealthPct = intersectedTower.currHealth/intersectedTower.maxHealth;
+    var salePrice = -1;
+
+    switch (intersectedTower.object_index) {
+        case obj_tower_caterpillager: {
+            salePrice = ((global.towers[0, 1] * global.towerUpgradeLevel[0]) * towerHealthPct) * costRecoveryPercentage;
+            break;
+        }
+        case obj_tower_slothOnRope: {
+            salePrice = ((global.towers[1, 1] * global.towerUpgradeLevel[1]) * towerHealthPct) * costRecoveryPercentage;
+            break;
+        }
+        case obj_tower_tacticalTitmouse: {
+            salePrice = ((global.towers[2, 1] * global.towerUpgradeLevel[2]) * towerHealthPct) * costRecoveryPercentage;
+            break;
+        }
+        case obj_tower_109CaliBear: {
+            salePrice = ((global.towers[3, 1] * global.towerUpgradeLevel[3]) * towerHealthPct) * costRecoveryPercentage;
+            break;
+        }
+        case obj_tower_fireAnt: {
+            salePrice = ((global.towers[4, 1] * global.towerUpgradeLevel[4]) * towerHealthPct) * costRecoveryPercentage;
+            break;
+        }
+        case obj_tower_RT6100: {
+            salePrice = ((global.towers[5, 1] * global.towerUpgradeLevel[5]) * towerHealthPct) * costRecoveryPercentage;
+            break;
+        }
+    }
+    
+    /////////////////////////////////////////// DRAW TOWER SELL PRICE:
+    // Determine Position:
+    var xCoord = mouse_x + 32;
+    var yCoord = mouse_y + 32;
+    
+    // Set Font:
+    draw_set_font(fnt_towerPlacement);
+    
+    // Draw Background:
+    draw_set_color(c_black);
+    draw_text(xCoord + 2, yCoord + 2, "+" + string(salePrice) + " Energy");
+    
+    // Draw Foreground:
+    draw_set_color(c_yellow);
+    draw_text(xCoord, yCoord, "+" + string(salePrice) + " Energy");
+    
+    // Reset Draw Color:
+    draw_set_color(c_white);
 }
 
 </string>
