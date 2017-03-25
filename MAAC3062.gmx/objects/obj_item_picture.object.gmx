@@ -97,40 +97,40 @@ switch(obj_itemTitle.sprite_index) {
         }
         break;
     case spr_mechaGoat_title:
-        if(global.mechaGoatUnlock == 1) {
+        if(global.towerUnlocked[6]) {
             sprite_index = spr_tower; // replace with mechaGoat tower sprite
             obj_item_projectile.sprite_index = spr_projectile; // replace with mechaGoat projectile sprite
             pictureUnlock = 1;
         }
         break;
-    case spr_armadillos_title:
-        if(global.armadilloUnlock == 1) {
-            sprite_index = spr_tower; // replace with armadillo tower sprite
-            obj_item_projectile.sprite_index = spr_projectile; // replace with armadillo projectile sprite
-            pictureUnlock = 1;
-        }
-        break;
-    case spr_porpoise_title:
-        if(global.porpoiseUnlock == 1) {
-            sprite_index = spr_tower; // replace with porpoise tower sprite
-            obj_item_projectile.sprite_index = spr_projectile; // replace with porpoise projectile sprite
-            pictureUnlock = 1;
-        }
-        break;
-    case spr_gorilla_title:
-        if(global.gorillaUnlock == 1) {
-            sprite_index = spr_tower; // replace with gorilla tower sprite
-            obj_item_projectile.sprite_index = -1;
-            pictureUnlock = 1;
-        }
-        break;
-    case spr_electricEel_title:
-        if(global.electricEelUnlock == 1) {
-            sprite_index = spr_tower; // replace with electricEel tower sprite
-            obj_item_projectile.sprite_index = spr_projectile; // replace with electricEel projectile sprite
-            pictureUnlock = 1;
-        }
-        break;
+//    case spr_armadillos_title:
+//        if(global.armadilloUnlock == 1) {
+//            sprite_index = spr_tower; // replace with armadillo tower sprite
+//            obj_item_projectile.sprite_index = spr_projectile; // replace with armadillo projectile sprite
+//            pictureUnlock = 1;
+//        }
+//        break;
+//    case spr_porpoise_title:
+//        if(global.porpoiseUnlock == 1) {
+//            sprite_index = spr_tower; // replace with porpoise tower sprite
+//            obj_item_projectile.sprite_index = spr_projectile; // replace with porpoise projectile sprite
+//            pictureUnlock = 1;
+//        }
+//        break;
+//    case spr_gorilla_title:
+//        if(global.gorillaUnlock == 1) {
+//            sprite_index = spr_tower; // replace with gorilla tower sprite
+//            obj_item_projectile.sprite_index = -1;
+//            pictureUnlock = 1;
+//        }
+//        break;
+//    case spr_electricEel_title:
+//        if(global.electricEelUnlock == 1) {
+//            sprite_index = spr_tower; // replace with electricEel tower sprite
+//            obj_item_projectile.sprite_index = spr_projectile; // replace with electricEel projectile sprite
+//            pictureUnlock = 1;
+//        }
+//        break;
     case spr_forcePulse_title:
         if(global.plrAbilityAttained[0]) {
             sprite_index = spr_player; // replace with forceField sprite

@@ -117,7 +117,7 @@ switch(obj_itemTitle.sprite_index) {
         }
         break;
     case spr_mechaGoat_title:
-        if(global.mechaGoatUnlock == 1) {
+        if(global.towerUnlocked[6]) {
             sprite_index = spr_upgrade;
             
             if(global.towerUpgradeLevel[6] != 1)
@@ -126,46 +126,46 @@ switch(obj_itemTitle.sprite_index) {
             unlocked = 1;
         }
         break;
-    case spr_armadillos_title:
-        if(global.armadilloUnlock == 1) {
-            sprite_index = spr_upgrade;
-            
-            if(global.towerUpgradeLevel[7] != 1)
-                sprite_index = spr_upgraded;
-                
-            unlocked = 1;
-        }
-        break;
-    case spr_porpoise_title:
-        if(global.porpoiseUnlock == 1) {
-            sprite_index = spr_upgrade;
-            
-            if(global.towerUpgradeLevel[8] != 1)
-                sprite_index = spr_upgraded;
-                
-            unlocked = 1;
-        }
-        break;
-    case spr_gorilla_title:
-        if(global.gorillaUnlock == 1) {
-            sprite_index = spr_upgrade;
-            
-            if(global.towerUpgradeLevel[9] != 1)
-                sprite_index = spr_upgraded;
-                
-            unlocked = 1;
-        }
-        break;
-    case spr_electricEel_title:
-        if(global.electricEelUnlock == 1) {
-            sprite_index = spr_upgrade;
-            
-            if(global.towerUpgradeLevel[10] != 1)
-                sprite_index = spr_upgraded;
-                
-            unlocked = 1;
-        }
-        break;
+//    case spr_armadillos_title:
+//        if(global.armadilloUnlock == 1) {
+//            sprite_index = spr_upgrade;
+//            
+//            if(global.towerUpgradeLevel[7] != 1)
+//                sprite_index = spr_upgraded;
+//                
+//            unlocked = 1;
+//        }
+//        break;
+//    case spr_porpoise_title:
+//        if(global.porpoiseUnlock == 1) {
+//            sprite_index = spr_upgrade;
+//            
+//            if(global.towerUpgradeLevel[8] != 1)
+//                sprite_index = spr_upgraded;
+//                
+//            unlocked = 1;
+//        }
+//        break;
+//    case spr_gorilla_title:
+//        if(global.gorillaUnlock == 1) {
+//            sprite_index = spr_upgrade;
+//            
+//            if(global.towerUpgradeLevel[9] != 1)
+//                sprite_index = spr_upgraded;
+//                
+//            unlocked = 1;
+//        }
+//        break;
+//    case spr_electricEel_title:
+//        if(global.electricEelUnlock == 1) {
+//            sprite_index = spr_upgrade;
+//            
+//            if(global.towerUpgradeLevel[10] != 1)
+//                sprite_index = spr_upgraded;
+//                
+//            unlocked = 1;
+//        }
+//        break;
     case spr_forcePulse_title:
         if(global.plrAbilityAttained[0] == 1) {
             sprite_index = spr_upgrade;
@@ -364,11 +364,11 @@ if(unlocked == 0) {
         }
         break;
     case spr_mechaGoat_title:
-        if(global.mechaGoatUnlock == 0) {
+        if(global.towerUnlocked[6] == false) {
             if(global.minerals &gt;= global.mechaGoatUnlockCost) {
                 global.minerals -= global.mechaGoatUnlockCost*-1;
                 scr_minerals_change(global.mechaGoatUnlockCost*-1);
-                global.mechaGoatUnlock = 1;
+                global.towerUnlocked[6] = true;
                 clickSuccess = true;
             }
         }
@@ -383,78 +383,78 @@ if(unlocked == 0) {
             } 
         }
         break;
-    case spr_armadillos_title:
-        if(global.armadilloUnlock == 0) {
-            if(global.minerals &gt;= global.armadilloUnlockCost) {
-                scr_minerals_change(global.armadilloUnlockCost*-1);
-                global.armadilloUnlock = 1;
-                clickSuccess = true;
-            }
-        }
-        else {
-            if(global.minerals &gt;= global.armadilloUpgradeCost) {
-                if(global.towerUpgradeLevel[7] == 1) {
-                    scr_minerals_change(global.armadilloUpgradeCost*-1);
-                    global.towerUpgradeLevel[7] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
-        break;
-    case spr_porpoise_title:
-        if(global.porpoiseUnlock == 0) {
-            if(global.minerals &gt;= global.porpoiseUnlockCost) {
-                scr_minerals_change(global.porpoiseUnlockCost*-1);
-                global.porpoiseUnlock = 1;
-                clickSuccess = true;
-            }
-        }
-        else {
-            if(global.minerals &gt;= global.porpoiseUpgradeCost) {
-                if(global.towerUpgradeLevel[8] == 1) {
-                    scr_minerals_change(global.porpoiseUpgradeCost*-1);
-                    global.towerUpgradeLevel[8] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
-        break;
-    case spr_gorilla_title:
-        if(global.gorillaUnlock == 0) {
-            if(global.minerals &gt;= global.gorillaUnlockCost) {
-                scr_minerals_change(global.gorillaUnlockCost*-1);
-                global.gorillaUnlock = 1;
-                clickSuccess = true;
-            }
-        }
-        else {
-            if(global.minerals &gt;= global.gorillaUpgradeCost) {
-                if(global.towerUpgradeLevel[9] == 1) {
-                    scr_minerals_change(global.gorillaUpgradeCost*-1);
-                    global.towerUpgradeLevel[9] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
-        break;
-    case spr_electricEel_title:
-        if(global.electricEelUnlock == 0) {
-            if(global.minerals &gt;= global.electricEelUnlockCost) {
-                scr_minerals_change(global.electricEelUnlockCost*-1);
-                global.electricEelUnlock = 1;
-                clickSuccess = true;
-            }
-        }
-        else {
-            if(global.minerals &gt;= global.electricEelUpgradeCost) {
-                if(global.towerUpgradeLevel[10] == 1) {
-                    scr_minerals_change(global.electricEelUpgradeCost*-1);
-                    global.towerUpgradeLevel[10] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
-        break;
+//    case spr_armadillos_title:
+//        if(global.armadilloUnlock == 0) {
+//            if(global.minerals &gt;= global.armadilloUnlockCost) {
+//                scr_minerals_change(global.armadilloUnlockCost*-1);
+//                global.armadilloUnlock = 1;
+//                clickSuccess = true;
+//            }
+//        }
+//        else {
+//            if(global.minerals &gt;= global.armadilloUpgradeCost) {
+//                if(global.towerUpgradeLevel[7] == 1) {
+//                    scr_minerals_change(global.armadilloUpgradeCost*-1);
+//                    global.towerUpgradeLevel[7] = towerUpgrade;
+//                    clickSuccess = true;
+//                }
+//            } 
+//        }
+//        break;
+//    case spr_porpoise_title:
+//        if(global.porpoiseUnlock == 0) {
+//            if(global.minerals &gt;= global.porpoiseUnlockCost) {
+//                scr_minerals_change(global.porpoiseUnlockCost*-1);
+//                global.porpoiseUnlock = 1;
+//                clickSuccess = true;
+//            }
+//        }
+//        else {
+//            if(global.minerals &gt;= global.porpoiseUpgradeCost) {
+//                if(global.towerUpgradeLevel[8] == 1) {
+//                    scr_minerals_change(global.porpoiseUpgradeCost*-1);
+//                    global.towerUpgradeLevel[8] = towerUpgrade;
+//                    clickSuccess = true;
+//                }
+//            } 
+//        }
+//        break;
+//    case spr_gorilla_title:
+//        if(global.gorillaUnlock == 0) {
+//            if(global.minerals &gt;= global.gorillaUnlockCost) {
+//                scr_minerals_change(global.gorillaUnlockCost*-1);
+//                global.gorillaUnlock = 1;
+//                clickSuccess = true;
+//            }
+//        }
+//        else {
+//            if(global.minerals &gt;= global.gorillaUpgradeCost) {
+//                if(global.towerUpgradeLevel[9] == 1) {
+//                    scr_minerals_change(global.gorillaUpgradeCost*-1);
+//                    global.towerUpgradeLevel[9] = towerUpgrade;
+//                    clickSuccess = true;
+//                }
+//            } 
+//        }
+//        break;
+//    case spr_electricEel_title:
+//        if(global.electricEelUnlock == 0) {
+//            if(global.minerals &gt;= global.electricEelUnlockCost) {
+//                scr_minerals_change(global.electricEelUnlockCost*-1);
+//                global.electricEelUnlock = 1;
+//                clickSuccess = true;
+//            }
+//        }
+//        else {
+//            if(global.minerals &gt;= global.electricEelUpgradeCost) {
+//                if(global.towerUpgradeLevel[10] == 1) {
+//                    scr_minerals_change(global.electricEelUpgradeCost*-1);
+//                    global.towerUpgradeLevel[10] = towerUpgrade;
+//                    clickSuccess = true;
+//                }
+//            } 
+//        }
+//        break;
     case spr_forcePulse_title:
         if(global.plrAbilityAttained[0] == 1) {
             if(global.minerals &gt;= global.fieldPulseUpgradeCost) {
