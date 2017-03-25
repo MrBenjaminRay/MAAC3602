@@ -31,9 +31,6 @@ animationSpeed = 1;
 // MOVEMENT:
 movementSpeed = 150 / 1000;     // Left/Right Movement Speed
 jumpSpeed = .72;                // Jump Movement Speed
-currentJumpSpeed = 0;           // Current Jump Movement Speed
-currentDropSpeed = 0;           // Current Drop Movement Speed
-currentFallSpeed = 0;           // Current Fall Movement Speed
 gravConst = .0015;              // Gravity Constant - Can override for entities that are really light or really heavy (feathers, pianos, etc.)
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
