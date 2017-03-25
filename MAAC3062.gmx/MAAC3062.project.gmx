@@ -39,6 +39,7 @@
     <sounds name="Menu">
       <sound>sound\snd_menuClick</sound>
       <sound>sound\snd_menuClick_reject</sound>
+      <sound>sound\snd_menuClick_squeak</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -151,6 +152,7 @@
         <sprite>sprites\spr_player_deathPart2</sprite>
         <sprite>sprites\spr_player_alt</sprite>
         <sprite>sprites\spr_player_alt_standing</sprite>
+        <sprite>sprites\spr_alt_weapon</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -334,7 +336,8 @@
       </sprites>
       <sprite>sprites\spr_ship</sprite>
       <sprite>sprites\spr_enery_resource</sprite>
-      <sprite>sprites\spr_energy_pickup</sprite>
+      <sprite>sprites\spr_energy_container</sprite>
+      <sprite>sprites\spr_energy_drop</sprite>
       <sprite>sprites\spr_minerals</sprite>
       <sprite>sprites\spr_exhaust</sprite>
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
@@ -392,6 +395,7 @@
       <sprite>sprites\spr_story_script1</sprite>
       <sprite>sprites\spr_story_script2</sprite>
     </sprites>
+    <sprite>sprites\spr_sound_volumes</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -799,6 +803,7 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
+      <object>objects\obj_sound_volumes</object>
     </objects>
     <objects name="CutScenes">
       <object>objects\obj_video_ship_damaged</object>
