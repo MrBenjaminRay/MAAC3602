@@ -295,6 +295,8 @@
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_orb</sprite>
+        <sprite>sprites\spr_heart1</sprite>
+        <sprite>sprites\spr_heart2</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
