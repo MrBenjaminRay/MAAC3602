@@ -14,6 +14,11 @@
 
 audio_stop_all();
 
+// Show windows cursor
+window_set_cursor(cr_default);
+// Hide game cursor
+cursor_sprite = noone;
+
 // Unsure of the original purpose of the following line, but it
 // does not work with the new levelStats setup.
 /*

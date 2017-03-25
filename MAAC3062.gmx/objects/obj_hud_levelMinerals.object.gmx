@@ -87,10 +87,9 @@ currentValueToDraw = global.minerals;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set value to be drawn to match energy level
-//currentValueToDraw = scr_statistics_getData(29);
-
-    
+            <string>// Set value to be drawn to match current global minerals value
+// (does not include minerals acquired during this level)
+currentValueToDraw = global.minerals;  
 
 </string>
           </argument>
