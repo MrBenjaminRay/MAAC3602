@@ -112,7 +112,11 @@ image_alpha = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// HANDLE FOLLOWING PLAYER (IF SET)
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// HANDLE FOLLOWING PLAYER (IF SET)
 if (followPlayer) {
     // Automatically find the player or the player death objects and
     // set the target to whatever we find
