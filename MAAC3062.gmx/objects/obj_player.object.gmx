@@ -420,7 +420,7 @@ alarm[0] = shieldRegenInterval;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Movement</string>
+            <string>Horizontal Movement &amp; Sprite Changes</string>
           </argument>
         </arguments>
       </action>
@@ -1184,7 +1184,7 @@ if (global.plrAbilityAttained[3]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>isDropping = true;
+            <string>scr_entity_drop();
 </string>
           </argument>
         </arguments>

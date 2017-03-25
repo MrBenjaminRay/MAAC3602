@@ -6,7 +6,7 @@ canJump &= place_meeting(x, y + 1, obj_physicsTile);
 
 if (canJump) {
 
-    //isJumping = true;
+    isJumping = true;
     
     // Boost vertical speed to jump
     vspeed = -abs(jumpSpeed);
