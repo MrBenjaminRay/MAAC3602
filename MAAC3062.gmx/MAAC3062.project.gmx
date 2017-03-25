@@ -461,11 +461,12 @@
     </scripts>
     <scripts name="Camera">
       <script>scripts\scr_screenShake.gml</script>
-      <script>scripts\scr_slowZoom_FixedPosition.gml</script>
       <script>scripts\scr_camera_follow_playerObjects.gml</script>
       <script>scripts\scr_camera_follow_targetObject.gml</script>
       <script>scripts\scr_camera_follow_fixedCoordinates.gml</script>
       <script>scripts\scr_camera_zoom_inOutTimed.gml</script>
+      <script>scripts\scr_camera_zoom_reset.gml</script>
+      <script>scripts\scr_camera_zoom_inIndefinite.gml</script>
     </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
@@ -552,6 +553,7 @@
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
+    <script>scripts\scr_smootherStep.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
