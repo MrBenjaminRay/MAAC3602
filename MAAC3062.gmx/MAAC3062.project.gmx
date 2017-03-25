@@ -57,6 +57,7 @@
       <sprites name="Messages">
         <sprite>sprites\spr_messageBoxAnim</sprite>
         <sprite>sprites\spr_messageBox</sprite>
+        <sprite>sprites\spr_sideways_message_box</sprite>
         <sprite>sprites\spr_credits1</sprite>
         <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
@@ -133,6 +134,12 @@
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
         <sprite>sprites\spr_button_toHub</sprite>
+      </sprites>
+      <sprites name="GreyedOutPlanets">
+        <sprite>sprites\spr_grey_forest</sprite>
+        <sprite>sprites\spr_desert_grey</sprite>
+        <sprite>sprites\spr_ice_grey</sprite>
+        <sprite>sprites\spr_water_grey</sprite>
       </sprites>
     </sprites>
     <sprites name="Entities">
@@ -451,6 +458,8 @@
       <background>background\bkg_earth_2</background>
       <background>background\bkg_earth_front</background>
     </backgrounds>
+    <background>background\bkg_HUB</background>
+    <background>background\bkg_space</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -835,6 +844,11 @@
           <object>objects\obj_navText</object>
         </objects>
         <object>objects\obj_windowPlaceholder</object>
+        <object>objects\obj_spaceController</object>
+        <objects name="AltDestination">
+          <object>objects\obj_messageBoxMain</object>
+          <object>objects\obj_sideways_message</object>
+        </objects>
       </objects>
       <object>objects\obj_button</object>
       <object>objects\obj_play</object>
@@ -905,6 +919,7 @@
       <room>rooms\rm_hub</room>
       <room>rooms\rm_hub_weapons</room>
       <room>rooms\rm_navArray</room>
+      <room>rooms\rm_hubAlt</room>
     </rooms>
     <rooms name="Story">
       <room>rooms\rm_Story1</room>
