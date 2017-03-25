@@ -2,11 +2,12 @@
 //      Must not be dropping through platform.
 //      Must be standing on the ground.
 var canJump = isDropping == false;
+canJump &= isJumping == false;
 canJump &= place_meeting(x, y + 1, obj_physicsTile);
 
 if (canJump) {
 
-    //isJumping = true;
+    isJumping = true;
     
     // Boost vertical speed to jump
     vspeed = -abs(jumpSpeed);

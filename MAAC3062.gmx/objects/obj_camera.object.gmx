@@ -65,6 +65,7 @@ zoomTransition_LevelStart = 0;
 zoomTransition_LevelEnd = 0;
 zoomState_TimeTotal = 0;
 zoomState_TimeElapsed = 0;
+indefiniteZoom = false; // Forces camera not to leave zoomed state (state 2) as long as this is true.
 
 // Set to .5 to see camera position when troubleshooting, or 0 to hide
 image_alpha = 0;
@@ -111,7 +112,11 @@ image_alpha = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// HANDLE FOLLOWING PLAYER (IF SET)
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// HANDLE FOLLOWING PLAYER (IF SET)
 if (followPlayer) {
     // Automatically find the player or the player death objects and
     // set the target to whatever we find
@@ -278,8 +283,8 @@ if (zoomState == 0) {
             //show_debug_message("Switching from state 1 to 2");
         } else {
             // State 1 still has some time left
-            // Increase the zoom level using smooth step based on amount of time between zoom levels and amount of time passed
-            var zoomSmoothRatio = scr_smoothStep(0, zoomState_TimeTotal, zoomState_TimeElapsed);
+            // Increase the zoom level using smooth(er) step based on amount of time between zoom levels and amount of time passed
+            var zoomSmoothRatio = scr_smootherStep(0, zoomState_TimeTotal, zoomState_TimeElapsed);
             zoomLevelActual = zoomTransition_LevelStart + (zoomTransition_LevelEnd - zoomTransition_LevelStart) * zoomSmoothRatio;
             //show_debug_message(
             //    string(zoomTransition_LevelStart) + ', ' + 
@@ -293,7 +298,7 @@ if (zoomState == 0) {
         // Sitting at desired zoom level
         // This zoom level lasts a specific (configurable) amount of time
         //show_debug_message("zoom state 2 step");
-        if (zoomState_TimeElapsed &gt;= zoomState_TimeTotal) {
+        if (zoomState_TimeElapsed &gt;= zoomState_TimeTotal &amp;&amp; !indefiniteZoom) {
             // This state has expired. Go to next state (3: restoring normal zoom)
             zoomState = 3;
             zoomState_TimeTotal = zoomOutTime;
@@ -320,8 +325,8 @@ if (zoomState == 0) {
             //show_debug_message("Switching from state 3 to 0");
         } else {
             // State 3 still has some time left
-            // Increase the zoom level using smooth step
-            var zoomSmoothRatio = scr_smoothStep(0, zoomState_TimeTotal, zoomState_TimeElapsed);
+            // Increase the zoom level using smooth(er) step
+            var zoomSmoothRatio = scr_smootherStep(0, zoomState_TimeTotal, zoomState_TimeElapsed);
             zoomLevelActual = zoomTransition_LevelStart + (zoomTransition_LevelEnd - zoomTransition_LevelStart) * zoomSmoothRatio;
         }
     }
@@ -442,7 +447,8 @@ clamp(screenShakeAmount, 0, screenShakeAmountMax);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_camera_follow_targetObject(obj_tower_caterpillager);
+            <string>scr_camera_zoom_reset(1000);
+
 </string>
           </argument>
         </arguments>
@@ -485,8 +491,8 @@ clamp(screenShakeAmount, 0, screenShakeAmountMax);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_slowZoom_FixedPosition(obj_player.x, obj_player.y, 10000);
-scr_camera_follow_playerObjects();
+            <string>// Zoom camera slowly to 4x over 3 seconds and hold indefinitely
+scr_camera_zoom_inIndefinite(4, 3000);
 
 </string>
           </argument>

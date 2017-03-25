@@ -182,9 +182,10 @@ if (currentTimeToMinerals &gt;= timeToMinerals) {
     pickCount++;
     
     scr_minerals_change(minerLevel);
-    
-    var temp = instance_create(x, y, obj_mineText);
-    temp.text = "+" + string(minerLevel)
+
+    // Create miner cue. With no text specified, minerals sprite will be displayed instead.    
+    var temp = instance_create(x + sprite_width/2, y, obj_minerCue);
+
 }
 
 if (animStartCounter &gt; 0) {
@@ -208,13 +209,13 @@ if (animStartCounter &gt; 0) {
 if (minerLevel == 1 &amp;&amp; pickCount &gt; picksForLevel_2) {
     // Miner has leveled up to level 2
     minerLevel++;
-    var temp = instance_create(x, y, obj_mineText);
-    temp.text = "LEVEL UP!";
+    var temp = instance_create(x + sprite_width/2, y, obj_minerCue);
+    temp.text = "LEVEL UP!"; // Set text to be displayed instead of minerals sprite
 } else if (minerLevel == 2 &amp;&amp; pickCount &gt; picksForLevel_3) {
     // Miner has leveled up to level 3
     minerLevel++;
-    var temp = instance_create(x, y, obj_mineText);
-    temp.text = "LEVEL UP!";
+    var temp = instance_create(x + sprite_width/2, y, obj_minerCue);
+    temp.text = "LEVEL UP!"; // Set text to be displayed instead of minerals sprite
 }
 
 </string>

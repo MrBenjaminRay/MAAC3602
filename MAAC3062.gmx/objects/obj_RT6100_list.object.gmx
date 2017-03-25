@@ -39,7 +39,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.RT6100Unlock == 0)
+            <string>if(global.towerUnlocked[5] == false)
     instance_create(x+lockedX, y+lockedY, obj_locked);
 </string>
           </argument>
