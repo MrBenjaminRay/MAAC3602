@@ -90,10 +90,10 @@ global.CalibearUnlockCost = 3000;
 global.fireAntUnlockCost = 5000;
 global.RT6100UnlockCost = 10000;
 global.mechaGoatUnlockCost = 474747;
-global.armadilloUnlockCost = 5000;
-global.porpoiseUnlockCost = 6000;
-global.gorillaUnlockCost = 5000;
-global.electricEelUnlockCost = 7500;
+//global.armadilloUnlockCost = 5000;
+//global.porpoiseUnlockCost = 6000;
+//global.gorillaUnlockCost = 5000;
+//global.electricEelUnlockCost = 7500;
 
 // Tower and ability upgrade costs
 
@@ -104,10 +104,10 @@ global.fireAntUpgradeCost = 3500;
 global.CalibearUpgradeCost = 3000;
 global.RT6100UpgradeCost = 6000;
 global.mechaGoatUpgradeCost = 696969;
-global.armadilloUpgradeCost = 4500;
-global.porpoiseUpgradeCost = 3500;
-global.gorillaUpgradeCost = 3000;
-global.electricEelUpgradeCost = 3000;
+//global.armadilloUpgradeCost = 4500;
+//global.porpoiseUpgradeCost = 3500;
+//global.gorillaUpgradeCost = 3000;
+//global.electricEelUpgradeCost = 3000;
 
 global.fieldPulseUpgradeCost = 2000;
 global.sneakySnakesUpgradeCost = 2000;

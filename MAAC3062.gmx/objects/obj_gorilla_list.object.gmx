@@ -39,8 +39,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.gorillaUnlock == 0)
-    instance_create(x+lockedX, y+lockedY, obj_locked);
+            <string>//if(global.gorillaUnlock == 0)
+//    instance_create(x+lockedX, y+lockedY, obj_locked);
 </string>
           </argument>
         </arguments>

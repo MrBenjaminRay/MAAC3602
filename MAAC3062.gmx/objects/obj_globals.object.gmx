@@ -36,6 +36,7 @@ global.towerUnlocked[2] = true; // Mortar Tower
 global.towerUnlocked[3] = false; // 109 Cal Tower
 global.towerUnlocked[4] = false; // Flame Tower
 global.towerUnlocked[5] = false; // M6100 Tower
+global.towerUnlocked[6] = false; // Goat Tower
 
 
 // NOTE:

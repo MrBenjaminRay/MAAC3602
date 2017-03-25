@@ -39,8 +39,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.armadilloUnlock == 0)
-    instance_create(x+lockedX, y+lockedY, obj_locked);
+            <string>//if(global.armadilloUnlock == 0)
+//    instance_create(x+lockedX, y+lockedY, obj_locked);
 </string>
           </argument>
         </arguments>
@@ -63,7 +63,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_itemTitle.sprite_index = spr_armadillos_title;
+            <string>//obj_itemTitle.sprite_index = spr_armadillos_title;
 </string>
           </argument>
         </arguments>
