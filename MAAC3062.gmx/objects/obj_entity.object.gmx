@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>// ANIMATION:
 animationSpeed = 1;
+animationSpeedAdjust = 1;           // Increase or decrease the animation speed for a level. E.g. underwater level has speed adjust &lt; 1.
 
 // MOVEMENT:
 movementSpeed = 0;                  // Actual current Left/Right Movement Speed
@@ -152,6 +153,8 @@ with (weaponObj) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+image_speed = animationSpeed * animationSpeedAdjust;
 
 // SPECIAL CASE:
 // If the entity's y-axis coordinate is above 0, then force the entity to
