@@ -9,8 +9,8 @@ if (canJump) {
 
     isJumping = true;
     
-    // Boost vertical speed to jump
-    vspeed = -abs(jumpSpeed);
+    // Boost vertical speed to jump (with jump speed adjustment if set, where 1 = normal)
+    vspeed = -abs(jumpSpeed * jumpAdjust);
     
     // Boss-Specific Code:
     switch (self) {
