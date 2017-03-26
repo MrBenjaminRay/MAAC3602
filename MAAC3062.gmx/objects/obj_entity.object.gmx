@@ -170,6 +170,7 @@ if (y &lt; 0) {
 // Note: If entity is dropping or jumping through a tile, this block is skipped, 
 // as the entity is allowed to be inside a tile.
 while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !isJumping) {
+    show_debug_message(object_get_name(object_index));
     y--;
 }
 

@@ -2,6 +2,8 @@ if (global.state == "Paused") {
     return 0;
 }
 
+show_debug_message('moving left: ' + object_get_name(object_index));
+
 var newX = x + movementSpeed * global.deltaTime; // Get new proposed x value based on speed & delta time
 
 if (place_meeting(newX, y, obj_physicsTile)) {
