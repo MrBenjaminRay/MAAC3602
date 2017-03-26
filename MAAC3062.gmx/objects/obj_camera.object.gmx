@@ -25,16 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var vw;         // Width of viewport. Will be calculated based on height and
-                // aspect ratio of display.
-var vh = 700;   // Desired height of viewport (use fixed height for all screens, maybe height
-                // range in the future to be more flexible.
+            <string>vh = 700;                       // Desired height of viewport.  Use fixed height for all screens. Inflexible but consistent.
+vw = vh * global.screenRatio;   // Width of viewport. Is calculated based on height and aspect ratio of display.
 
-// NOTE: Could set vh based on view in room so level designer can tweak it in UI instead of this code
-
-// Set width of view dynamically based on screen ratio
-view_hview[0] = vh;
-view_wview[0] = vh * global.screenRatio;
+followPlayer = true;    // Whether or not to follow player (or player death objects if player doesn't exist)
+targetObj = noone;      // Target for camera to follow.  When followPlayer==true, will be automatically
+                        // set in step code to follow the player (or player death objects if player doesn't exist)
+                        // Otherwise, if this is set to any other object, that object will be followed.
+custom_target_x = 0;    // x-axis camera position when followPlayer==false and targetObj==noone.
+custom_target_y = 0;    // y-axis camera position when followPlayer==false and targetObj==noone.
 
 // Where camera wants to be (based mainly on player position &amp; angle)
 desiredX = 0;
@@ -43,12 +42,60 @@ maxSpeed = 15;
 speedChangeRate = 1; // Amount by which to increase/decrease speed when travelling to desired position
 speed = 0;
 
+
+screenShakeRemaining = 0;   // Amount of time left in current screen shake. Set this to start a screen shake.
+screenShakeAmount = 10;      // Amount of pixels to shake in any direction.
+screenShakeStopSpeed = .1;  // Amount by which to decrease screen shake when it is done. Multiplied by global.deltaTime.
+screenShakeAmountMax = 100; // Ridiculously high value
+
+preShakeViewX = 0; // Will be set to X coordinate of view before shaking begins
+preShakeViewY = 0; // Will be set to Y coordinate of view before shaking begins
+
+zoomLevelNormal = 1;    // The zoom level when not zoomed.
+zoomLevelDesired = 1;   // The current desired zoom level.  (E.g. 3 = 3x, which makes room size 1/3)
+zoomLevelActual = 1;    // The current actual zoom level.  May be somewhere between zoomLevelNormal and zoomLevelDesired.
+zoomTime = 0;           // Amount of time left on current zoom. Only decremented when at desired zoom level (zoom in/out not counted)
+zoomInTime = 1000;      // Length (ms) of zoom in. Overridden as needed by scripts.
+zoomOutTime = 1000;     // Length (ms) of zoom out. Overridden as needed by scripts.
+
+
+// Zoom state management
+zoomState = 0; // 0 = not zoomed, 1 = transition to zoom level, 2 = zoomed at desired level, 3 = transition to non-zoom level
+zoomTransition_LevelStart = 0;
+zoomTransition_LevelEnd = 0;
+zoomState_TimeTotal = 0;
+zoomState_TimeElapsed = 0;
+indefiniteZoom = false; // Forces camera not to leave zoomed state (state 2) as long as this is true.
+
+// Set to .5 to see camera position when troubleshooting, or 0 to hide
+image_alpha = 0;
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Camera Following</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -65,10 +112,84 @@ speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// For now, follow player exactly. In future, will smoothly slide camera
-// in front of the player based on where he is facing.
+            <string>if (global.state == "Paused") {
+    return 0;
+}
 
-// SKIP THIS FOR NOW (&amp;&amp; false)
+// HANDLE FOLLOWING PLAYER (IF SET)
+if (followPlayer) {
+    // Automatically find the player or the player death objects and
+    // set the target to whatever we find
+    if (instance_exists(obj_player)) {
+        // Player is alive on level, so we follow that
+        followObj = obj_player;
+    } else if (instance_exists(obj_player_death)) {
+        // Player is dead, and dying animation is playing,
+        // so we follow that
+        followObj = obj_player_death;
+    } else if (instance_exists(obj_player_deadBody)) {
+        // Player is dead, and dead body animation is playing,
+        // so we follow that
+        followObj = obj_player_deadBody;
+    } else {
+        // No player exists at all, so the camera will sit where it is
+        // Don't force followPlayer to false, as a playe object may show up
+        // next step.
+        show_debug_message("Camera:  followPlayer==true but no player-related object currently exists in this room.");    
+    }
+}
+
+// FOLLOW OBJECT POSITION OR CUSTOM X/Y POSITION (may or may not be player)
+if (instance_exists(followObj)) {
+    // We have an object to follow, so set x/y to match that object
+    x = followObj.x;
+    y = followObj.y;
+} else {
+    // No object to follow, so set x/y to whatever the custom x/y values are
+    x = custom_target_x;
+    y = custom_target_y;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>LERP</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// SKIP THIS FOR NOW (&amp;&amp; false)
 if (instance_number(obj_player) &gt; 0 &amp;&amp; false) {
     // Player is on level, so follow him.
     
@@ -93,15 +214,458 @@ if (instance_number(obj_player) &gt; 0 &amp;&amp; false) {
     // stay still.
 }
 
-if (instance_number(obj_player) &gt; 0) {
-    x = obj_player.x;
-    y = obj_player.y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Zoom</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Handle zoom states
+// 0:   No zooming taking place
+// 1:   Zoom changing from default to desired zoom level (over x milliseconds)
+// 2:   Zoom sitting at desired zoom level (for x milliseconds)
+// 3:   Zoom changing from desired to default zoom level (over x milliseconds)
+
+if (zoomState == 0) {
+    // Nothing happening with zoom, so force it to default non-zoomed level
+    zoomLevelActual = zoomLevelNormal;
+} else {
+    // A zoom state is in effect
+    
+    // Increment time elapsed for current zoom state
+    zoomState_TimeElapsed += global.deltaTime;
+    
+    if (zoomState == 1) {
+        // Transitioning zoom level from non-zoomed normal to desired zoom level
+        // This transition lasts a specific (configurable) amount of time
+        //show_debug_message("zoom state 1 step");
+        if (zoomState_TimeElapsed &gt;= zoomState_TimeTotal) {
+            // This state has expired. Go to next state (2:  sitting at desired zoom level)
+            zoomState = 2;
+            zoomState_TimeTotal = zoomTime;
+            zoomState_TimeElapsed = 0;
+            zoomTransition_LevelStart = zoomLevelDesired;   // Set just in case (should have no effect)
+            zoomTransition_LevelEnd = zoomLevelDesired;     // Set just in case (should have no effect)
+            //show_debug_message("Switching from state 1 to 2");
+        } else {
+            // State 1 still has some time left
+            // Increase the zoom level using smooth(er) step based on amount of time between zoom levels and amount of time passed
+            var zoomSmoothRatio = scr_smootherStep(0, zoomState_TimeTotal, zoomState_TimeElapsed);
+            zoomLevelActual = zoomTransition_LevelStart + (zoomTransition_LevelEnd - zoomTransition_LevelStart) * zoomSmoothRatio;
+            //show_debug_message(
+            //    string(zoomTransition_LevelStart) + ', ' + 
+            //    string(zoomTransition_LevelEnd) + ', ' + 
+            //    string(1+(zoomState_TimeElapsed/zoomState_TimeTotal)) + ', ' + 
+            //    string(zoomLevelActual)
+            //);
+            //show_debug_message("zoom state 1 has time left");
+        }
+    } else if (zoomState == 2) {
+        // Sitting at desired zoom level
+        // This zoom level lasts a specific (configurable) amount of time
+        //show_debug_message("zoom state 2 step");
+        if (zoomState_TimeElapsed &gt;= zoomState_TimeTotal &amp;&amp; !indefiniteZoom) {
+            // This state has expired. Go to next state (3: restoring normal zoom)
+            zoomState = 3;
+            zoomState_TimeTotal = zoomOutTime;
+            zoomState_TimeElapsed = 0;
+            zoomTransition_LevelStart = zoomLevelActual;    // Start wherever zoom level is now (should be zoomLevelDesired, but don't assume)
+            zoomTransition_LevelEnd = zoomLevelNormal;      // Go to normal zoom level
+            //show_debug_message("Switching from state 2 to 3");
+        } else {
+            // State 2 still has some time left
+            // Sit at desired zoom level
+            zoomLevelActual = zoomLevelDesired;
+        }
+    } else if (zoomState == 3) {
+        // Transitioning zoom level from desired zoom level to non-zoomed normal
+        // This transition lasts a specific (configurable) amount of time
+        //show_debug_message("zoom state 3 step");
+        if (zoomState_TimeElapsed &gt;= zoomState_TimeTotal) {
+            // This state has expired. Go to next state (0: no zooming)
+            zoomState = 0;
+            zoomState_TimeTotal = 0;
+            zoomState_TimeElapsed = 0;
+            zoomTransition_LevelStart = 0;
+            zoomTransition_LevelEnd = 0;
+            //show_debug_message("Switching from state 3 to 0");
+        } else {
+            // State 3 still has some time left
+            // Increase the zoom level using smooth(er) step
+            var zoomSmoothRatio = scr_smootherStep(0, zoomState_TimeTotal, zoomState_TimeElapsed);
+            zoomLevelActual = zoomTransition_LevelStart + (zoomTransition_LevelEnd - zoomTransition_LevelStart) * zoomSmoothRatio;
+        }
+    }
 }
 
+if (zoomLevelActual == 0) {
+    show_debug_message('Camera: zoomLevelActual somehow = 0, which will break stuff. Forcing back to 1.')
+    zoomLevelActual = 1;
+}
 
-// Set to .5 to see camera position when troubleshootig, or 0 to hide
-image_alpha = 0;
+//show_debug_message("setting view with zoomLevelActual " + string(zoomLevelActual));
 
+// Set view height/width with zoom
+view_hview[0] = vh / zoomLevelActual;
+view_wview[0] = vw / zoomLevelActual;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Screen Shake</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//view_hspeed[0] = 10;
+//view_vspeed[0] = 10;
+
+return 0;
+
+if (screenShakeRemaining &gt; 0) {
+    screenShakeRemaining -= global.deltaTime;
+//    view_object[0] = noone; // Disconnect view from camera
+    view_xview[0] = preShakeViewX; // + irandom_range(-screenShakeAmount, screenShakeAmount);
+    view_yview[0] = preShakeViewY; // + irandom_range(-screenShakeAmount, screenShakeAmount);
+    //view_hborder[0] = view_xview[0]/2-20;
+    //view_vborder[0] = view_yview[0]/2-20;
+    show_debug_message('shaking');
+} else {
+    view_object[0] = id; // Reconnect view to camera
+    //view_hborder[0] = view_xview[0]/2-20;
+    //view_vborder[0] = view_yview[0]/2-20;
+}
+
+clamp(screenShakeAmount, 0, screenShakeAmountMax);
+//screenShakeStopSpeed * global.deltaTime;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="122">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Test camera stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_camera_zoom_reset(1000);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="121">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Test camera stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Zoom camera slowly to 4x over 3 seconds and hold indefinitely
+scr_camera_zoom_inIndefinite(4, 3000);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="120">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Test camera stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_camera_follow_targetObject(obj_player);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="119">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Test camera stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_camera_zoom_inOutTimed(2, 2000, 2000, 2000);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="118">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Test camera stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_doLevelFail_playerDead();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="117">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Test camera stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_doLevelFail_minersDead(obj_miner.x, obj_miner.y);
 </string>
           </argument>
         </arguments>

@@ -102,9 +102,7 @@ if(levelFinish == 1) {
 }
 
 if(levelFinish == 1 &amp;&amp; y &lt; -200) {
-    var levelData = ds_map_find_value(global.levelStats, room);
-    global.minerals += levelData[29];
-    global.currentLevelComplete = 0;
+    global.minerals += scr_statistics_getData(29);
     room_goto(rm_hub);
 }
 </string>

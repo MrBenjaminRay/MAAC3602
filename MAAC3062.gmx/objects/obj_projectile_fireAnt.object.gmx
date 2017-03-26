@@ -3,7 +3,7 @@
   <spriteName>spr_projectile_fireAnt</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>obj_projectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -141,8 +141,10 @@ lastHitEnemy = noone;
     if (isEnemyProjectile == false) {
         scr_entity_dealDamage(other, damage);
         
-        if (other.flameDamageStacks &lt; other.maxFlameDamageStacks) {
-            other.flameDamageStacks++;
+        if (irandom_range(0, 3) == 0) {
+            if (other.flame_stacks &lt; other.flame_maxStacks) {
+                other.flame_stacks++;
+            }
         }
         // Will set enemy on fire when fire animation is available. -Ben
         //scr_create_explosion(x, y, "Normal");

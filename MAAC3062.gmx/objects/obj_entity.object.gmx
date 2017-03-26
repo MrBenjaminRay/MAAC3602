@@ -30,11 +30,8 @@ animationSpeed = 1;
 
 // MOVEMENT:
 movementSpeed = 150 / 1000;     // Left/Right Movement Speed
-jumpSpeed = 300/ 1000;          // Jump Movement Speed
-currentJumpSpeed = jumpSpeed;   // Current Jump Movement Speed
-currentDropSpeed = 0;           // Current Drop Movement Speed
-currentFallSpeed = 0;           // Current Fall Movement Speed
-gravConst = 6 / 1000;           // Gravity Constant
+jumpSpeed = .72;                // Jump Movement Speed
+gravConst = .0015;              // Gravity Constant - Can override for entities that are really light or really heavy (feathers, pianos, etc.)
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
 
@@ -120,7 +117,7 @@ with (weaponObj) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Movement</string>
+            <string>Vertical Movement</string>
           </argument>
         </arguments>
       </action>
@@ -150,144 +147,71 @@ with (weaponObj) {
 if (y &lt; 0) {
     scr_entity_forceDrop();
 }
-    
 
 // SPECIAL CASE:
-// If the entity is jumping, but the jump ends with the entity stuck inside of
-// a tile, then push the entity back down.
-if (!isJumping &amp;&amp; !isDropping) {
-    if (currentJumpSpeed == 0) {
-        while (place_meeting(x, y, obj_physicsTile)) {
-            if (object_index == obj_drop_energy) {
-                // Push energy drops up (they rotate and collide with tiles, so they need a boost)
-                y--;
-            } else {
-                // Push everything else up as well
-                // This was y++ as of March 10, but it was causing player to push down through
-                // platforms after he jumped once, ultimately killing him underground.
-                // Changing this to y-- appears to solve that issue. TylerM to review in case
-                // this has unwanted consequences. -Ben on March 11 (am)
-                y--;
-            }
-        }
-    }
+// If the entity is inside a tile at the start of a step, either it was erroneously
+// pushed down into the tile, the sprite is animated or rotating and the collision
+// mask has pushed down into the tile without the y position changing.
+// Note: If entity is dropping or jumping through a tile, this block is skipped, 
+// as the entity is allowed to be inside a tile.
+while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !isJumping) {
+    y--;
 }
 
-// JUMPING:
-if (isJumping &amp;&amp; !isDropping) {
-    currentJumpSpeed += gravConst * global.deltaTime;
-    
-    if (currentJumpSpeed &gt; 0) {
-        currentJumpSpeed = 0;
-        isJumping = false;
+// APPLY GRAVITY
+// Increase vertical speed (regardless of jumping or not)
+vspeed += gravConst * global.deltaTime; // Increase speed based on delta time
+
+var newY = y + vspeed * global.deltaTime; // Get new proposed y value based on speed &amp; delta time
+
+if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
+    // Collision at new Y
+    if (!isJumping || (isJumping &amp;&amp; vspeed &gt; 0 &amp;&amp; !place_meeting(x, y, obj_physicsTile))) {
+        // Either:
+        //      Entity is not jumping, or
+        //      Entity is jumping, is on the way down from the jump (vspeed&gt;0), and has cleared
+        //      the platform - it was not colliding last step (y) and is colliding this step (newY).
+        //      Entity will now be standing on top of the platform.
+        
+        // With collision at new Y, we can't just move there. Instead, we change y until it would collide.
+        var tweakY;
+        if (vspeed &lt; 0) {
+            tweakY = -1; // Entity is travelling upward
+        } else {
+            tweakY = 1; // Entity is travelling downward
+        }
+
+        // Increase/decrease Y until entity would collide.
+        while (place_meeting(x, y+tweakY, obj_physicsTile) == false) {
+            y += tweakY;
+        }
+
+        // Whether entity was going up or down, vspeed must be set to 0.
+        vspeed = 0;
+        
+        // If entity was jumping, clear the flag now that it has stuck the landing
+        if (isJumping) { 
+            isJumping = false;
+        }
+                
     } else {
-        y += currentJumpSpeed;
+        // Entity is jumping, is colliding with a platform, and has not cleared the platform yet, 
+        // so let him pass through it.
+        y = newY;
     }
+
+} else {
+    // No collision at new Y, or player is dropping through tile, so we can just move there.
+    y = newY;
 }
 
 // DROPPING:
-if (!isJumping &amp;&amp; isDropping) {
-    if (currentDropSpeed == 0) {
-        currentDropSpeed = movementSpeed * global.deltaTime;
-    } else {
-        currentDropSpeed += gravConst * global.deltaTime;
-    }
-
-
-    // If there is no collision at the new location, then change the drop state
-    // and allow the fall code to take over:
-    if (place_meeting(x, y + currentDropSpeed, obj_physicsTile) == false) {
-        y += currentDropSpeed;
+if (isDropping) {
+    // If there is no collision at the current location, the player has finished dropping through the
+    // tile he was on, and we can let the gravity/collision code do the rest.
+    if (place_meeting(x, y, obj_physicsTile) == false) {
         isDropping = false;
-        currentDropSpeed = 0;
-    } else {
-        y += currentDropSpeed;
-     }
-}
-
-// FALLING:
-if (!isJumping &amp;&amp; !isDropping) {
-    if (currentFallSpeed == 0) {
-        currentFallSpeed = movementSpeed * global.deltaTime;
-    } else {
-        currentFallSpeed += gravConst * global.deltaTime;
     }
-
-    var collisionAtNewLocation = place_meeting(x, y + currentFallSpeed, obj_physicsTile);
-    
-    // If there is a collision at the new location, then do nothing and reset fall data:
-    if (collisionAtNewLocation) {
-        currentFallSpeed = 0;
-        
-        while (place_meeting(x, y + 1, obj_physicsTile) == false) {
-            y++;
-        }
-    }
-    
-    // If there is no collision at the new location, then continue falling:
-    if (collisionAtNewLocation == false) {
-        y += currentFallSpeed;
-    }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_visualTile">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (isJumping) {
-    isJumping = false;
-    currentJumpSpeed = 0;
-    y++;
-} else {
-    y--;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_physicsTile">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (isJumping) {
-    // Jumping entity has hit a title, likely from the bottom. Stop the jumping.
-    isJumping = false;
-    currentJumpSpeed = 0;
-    // We used to do y++ here, but that would only work for 1 step (jumping stopped on first occurence).
-} else {
-    y--; // Entity likely sitting on a tile and sinking. Pull it up.
 }
 
 </string>
@@ -350,7 +274,7 @@ if (maxShield &gt; 0 &amp;&amp; currShield &gt; 0) {
     
     // Draw Shield Bar:
     draw_set_color(healthBarColor_shieldForeground);
-    draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
+    draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom - (healthBarHeight/2.5), false);
 }
 
 // Return draw color to normal:

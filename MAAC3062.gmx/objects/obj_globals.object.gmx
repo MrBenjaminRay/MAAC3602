@@ -30,16 +30,13 @@ global.navPieceAttained[1] = false; // Whether or not the player has attained th
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
 global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
 
-
-// NOT BEING USED. Use the unlock variables in obj_control.
-// If you enable these, switch everything to use these instead of
-// the variables in obj_control so we don't have two systems in place.
-//global.towerUnlocked[0] = true; // Basic Tower
-//global.towerUnlocked[1] = true; // Freezer Tower
-//global.towerUnlocked[2] = true; // Mortar Tower
-//global.towerUnlocked[3] = false; // 109 Cal Tower
-//global.towerUnlocked[4] = false; // Flame Tower
-//global.towerUnlocked[5] = false; // M6100 Tower
+global.towerUnlocked[0] = true; // Basic Tower
+global.towerUnlocked[1] = true; // Freezer Tower
+global.towerUnlocked[2] = true; // Mortar Tower
+global.towerUnlocked[3] = false; // 109 Cal Tower
+global.towerUnlocked[4] = false; // Flame Tower
+global.towerUnlocked[5] = false; // M6100 Tower
+global.towerUnlocked[6] = false; // Goat Tower
 
 
 // NOTE:
@@ -190,7 +187,7 @@ global.towers[0, 10] = scr_misc_secondsToDeltaTime(0.5);
 global.towers[0, 11] = 15;
 global.towers[0, 12] = 100;
 global.towers[0, 13] = 100;
-global.towers[0, 13] = obj_weapon_basic;
+global.towers[0, 13] = obj_weapon_caterpillager;
 
 // SLOTH ON A ROPE:
 global.towers[1, 0] = "Sloth On a Rope";
@@ -212,7 +209,7 @@ global.towers[1, 10] = scr_misc_secondsToDeltaTime(0);
 global.towers[1, 11] = 0;
 global.towers[1, 12] = 100;
 global.towers[1, 13] = 400;
-global.towers[1, 13] = obj_weapon_freeze;
+global.towers[1, 13] = obj_weapon_sloth;
 
 // TACTICAL TITMOUSE:
 global.towers[2, 0] = "Tactical Titmouse";
@@ -235,7 +232,7 @@ global.towers[2, 10] = scr_misc_secondsToDeltaTime(4);
 global.towers[2, 11] = 40;
 global.towers[2, 12] = 100;
 global.towers[2, 13] = 50;
-global.towers[2, 13] = obj_weapon_mortar;
+global.towers[2, 13] = obj_weapon_titmouse;
 
 // 109 CALI-BEAR RIFLE:
 global.towers[3, 0] = "109 Cali-Bear Rifle";
@@ -258,7 +255,7 @@ global.towers[3, 10] = scr_misc_secondsToDeltaTime(2);
 global.towers[3, 11] = 35;
 global.towers[3, 12] = 100;
 global.towers[3, 13] = 200;
-global.towers[3, 13] = obj_weapon_109CalRifle;
+global.towers[3, 13] = obj_weapon_caliBear;
 
 // FIREANT HOSE:
 global.towers[4, 0] = "FireAnt Hose";
@@ -281,7 +278,7 @@ global.towers[4, 10] = scr_misc_secondsToDeltaTime(0.125);
 global.towers[4, 11] = 0;
 global.towers[4, 12] = 100;
 global.towers[4, 13] = 400;
-global.towers[4, 13] = obj_weapon_flamethrower;
+global.towers[4, 13] = obj_weapon_fireAnt;
 
 // RT-6100
 global.towers[5, 0] = "RT-6100";
@@ -304,7 +301,8 @@ global.towers[5, 10] = scr_misc_secondsToDeltaTime(0.084);
 global.towers[5, 11] = 3;
 global.towers[5, 12] = 100;
 global.towers[5, 13] = 800;
-global.towers[5, 13] = obj_weapon_m6100;
+global.towers[5, 13] = obj_weapon_rt6100;
+
 </string>
           </argument>
         </arguments>

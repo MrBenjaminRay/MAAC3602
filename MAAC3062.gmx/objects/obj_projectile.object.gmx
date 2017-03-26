@@ -46,7 +46,7 @@
           <argument>
             <kind>1</kind>
             <string>damage = 10;                // The amount of damage dealt by the projectile.
-movementSpeed = 6;          // Up/Down/Left/Right Movement Speed
+movementSpeed = 5;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 
@@ -142,6 +142,40 @@ switch (object_index) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (isEnemyProjectile) {
+    // Upgraded version of Ability #3 (Ability C)
+    // reduces damage taken by 20%:
+    if (other.abilC_isActive &amp;&amp; global.plrAbilityUpgraded[2]) {
+        scr_entity_dealDamage(other, damage * 0.8);
+    } else {
+        scr_entity_dealDamage(other, damage);
+    }
+    
+    scr_create_explosion(x, y, "SmallHit");
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_enemy">
       <action>
         <libid>1</libid>
@@ -184,40 +218,6 @@ if (isEnemyProjectile == false) {
         }
     }
     
-    instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_player">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (isEnemyProjectile) {
-    // Upgraded version of Ability #3 (Ability C)
-    // reduces damage taken by 20%:
-    if (other.abilC_isActive &amp;&amp; global.plrAbilityUpgraded[2]) {
-        scr_entity_dealDamage(other, damage * 0.8);
-    } else {
-        scr_entity_dealDamage(other, damage);
-    }
-    
-    scr_create_explosion(x, y, "SmallHit");
     instance_destroy();
 }
 </string>

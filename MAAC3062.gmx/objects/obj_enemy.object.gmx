@@ -62,7 +62,13 @@ age = 0;                    // Age of enemy (milliseconds since spawning) - for 
 energyDrop = 0;
 
 // TOWER-SPECIFIC DATA (Freeze):
-movementSpeed_actual = movementSpeed;
+freeze_savedMovementSpeed = movementSpeed;          // The original speed of the enemy.
+freeze_stacks = 0;                                  // The number of stacks.
+freeze_maxStacks = 20;                              // The max number of stacks.
+freeze_isFrozen = false;                            // Whether or not the enemy is frozen.
+freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
+freeze_frozenTimeCounter = 0;                       // The amount of time the enemy has been frozen.
+
 freezeMultiplier = 0;       // The current number of times the enemy has been hit by the freeze tower.
 maxFreezeMultiplier = 20;   // The number of freezeMultipliers until the enemy is frozen.
 isFrozen = false;           // Whether or not the enemy is currently frozen.
@@ -70,12 +76,15 @@ frozenTime = 4096;          // The amount of time that the enemy will remain fro
 frozenTimeCounter = 0;      // The amount of time that the enemy has been frozen for.
 
 // TOWER-SPECIFIC DATA (Flame):
-minDamagePerStack = .5;           // The minimum amount of damage applied to the enemy per-stack.
-maxDamagePerStack = 1.5;           // The maximum amount of damage applied to the enemy per-stack.
-flameDamageStacks = 0;           // The current number of flame damage stacks applied to the enemy.
-maxFlameDamageStacks = 5;        // The maximum number of flame damage stacks that can be applied to an enemy.
-stackDissipationTime = 2048;     // The amount of time before a stack of flame damage will be removed.
-stackDissipationTimeCounter = 0; // The amount of time that has elapsed since the last stack of flame damage was removed.
+flame_minDamage = 0.5;                                  // The min amnt of dmg applied per-stack.
+flame_maxDamage = 1;                                    // The max amnt of dmg applied per-stack.
+flame_stacks = 0;                                       // The number of stacks.
+flame_maxStacks = 5;                                    // The max number of stacks.
+flame_stackLifetime = scr_misc_secondsToDeltaTime(2);   // The time before a stack is removed, in delta time.
+flame_stackLifetimeCounter = 0;                         // The amount of time since the last stack was removed.
+flame_damageTime = scr_misc_secondsToDeltaTime(0.5);    // The time between stack damage applications.
+flame_damageTimeCounter = 0;                            // The amount of time since the last stack damage application.
+
 
 // ABILITY-SPECIFIC DATA (Ability #2/AbilityB/Snake Ability):
 isRootedBySnake = false;
@@ -249,9 +258,9 @@ while (place_meeting(x, y, obj_physicsTile) == false) {
 
 
 if (attackRateCounter &gt;= attackRate) {
-    var nearestPlayer = scr_entity_gearNearestObjectOfType(attackRange, obj_player);
-    var nearestMiner = scr_entity_gearNearestObjectOfType(attackRange, obj_miner);
-    var nearestTower = scr_entity_gearNearestObjectOfType(attackRange, obj_tower);
+    var nearestPlayer = scr_misc_gearNearestObjectOfType(attackRange, obj_player);
+    var nearestMiner = scr_misc_gearNearestObjectOfType(attackRange, obj_miner);
+    var nearestTower = scr_misc_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
     
@@ -342,7 +351,7 @@ if (nearestMiner != noone) {
 }
 
 if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
-    movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
+    movementSpeed = freeze_savedMovementSpeed * (1 - (freeze_stacks/freeze_maxStacks));
 
     if (movementDirection == "LEFT") {
         scr_entity_moveLeft();
@@ -393,17 +402,27 @@ if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (freezeMultiplier &gt;= maxFreezeMultiplier) {
-    if (isFrozen == false) {
-        isFrozen = true;
-    }
-    freezeMultiplier = maxFreezeMultiplier; // Prevent overage which has bad effects on movement
-    frozenTimeCounter += global.deltaTime;
+            <string>// Don't allow stacks to exceed the maximum:
+if (freeze_stacks &gt; freeze_maxStacks) {
+    freeze_stacks = freeze_maxStacks;
 }
 
-if (frozenTimeCounter &gt;= frozenTime) {
-    freezeMultiplier = 0;
-    frozenTimeCounter = 0;
+// Set as frozen if possible:
+if (freeze_stacks == freeze_maxStacks) {
+    // If frozen, increment counter and check for unfreeze.
+    // Else, set as frozen.
+    if (freeze_isFrozen) {
+        freeze_frozenTimeCounter += global.deltaTime;
+        
+        // Unfreeze if possible:
+        if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
+            freeze_isFrozen = false;
+            freeze_frozenTimeCounter = 0;
+            freeze_stacks = 0;
+        }
+    } else {
+        freeze_isFrozen = true;
+    }
 }
 </string>
           </argument>
@@ -445,21 +464,31 @@ if (frozenTimeCounter &gt;= frozenTime) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Handle stack dissipation:
-if (flameDamageStacks &gt; 0) {
-    stackDissipationTimeCounter += global.deltaTime;
+            <string>// Don't allow more than the max number of stacks:
+if (flame_stacks &gt; flame_maxStacks) {
+    flame_stacks = flame_maxStacks;
+}
+
+if (flame_stacks &gt; 0) {
+    // Increment Counter:
+    flame_stackLifetimeCounter += global.deltaTime;
+    flame_damageTimeCounter += global.deltaTime;
     
-    if (stackDissipationTimeCounter &gt;= stackDissipationTime) {
-        flameDamageStacks--;
-        stackDissipationTimeCounter = 0;
+    // Remove a stack if the counter is high enough:
+    if (flame_stackLifetimeCounter &gt;= flame_stackLifetime) {
+        flame_stacks--;
+        flame_stackLifetimeCounter = 0;
     }
     
-    // Handle stack damage:
-    var minDamage = flameDamageStacks * minDamagePerStack;
-    var maxDamage = flameDamageStacks * maxDamagePerStack;
-    scr_entity_dealDamage(self, irandom_range(minDamage, maxDamagePerStack));
-} else {
-    stackDissipationTimeCounter = 0;
+    // Apply damage if the counter is high enough:
+    if (flame_damageTimeCounter &gt;= flame_damageTime) {
+        // Handle stack damage:
+        var minDamage = flame_stacks * flame_minDamage;
+        var maxDamage = flame_stacks * flame_maxDamage;
+        scr_entity_dealDamage(self, irandom_range(minDamage, maxDamage));
+        
+        flame_damageTimeCounter = 0;
+    }
 }
 </string>
           </argument>

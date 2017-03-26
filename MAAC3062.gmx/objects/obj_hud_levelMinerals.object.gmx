@@ -48,6 +48,9 @@ changeCueOffset_x = -24;
 // Override cue length. Shorter for minerals as they are constantly increasing.
 changeCueTime = 100000;
 
+//used to set minerals to starting amount
+currentValueToDraw = global.minerals;
+
 </string>
           </argument>
         </arguments>
@@ -84,11 +87,9 @@ changeCueTime = 100000;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set value to be drawn to match energy level
-var levelData = ds_map_find_value(global.levelStats, room);
-currentValueToDraw = levelData[29];
-
-    
+            <string>// Set value to be drawn to match current global minerals value
+// (does not include minerals acquired during this level)
+currentValueToDraw = global.minerals;  
 
 </string>
           </argument>

@@ -3,7 +3,7 @@
   <spriteName>spr_projectile_freeze</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>obj_projectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -42,7 +42,7 @@
             <string>xDest = x; // The destination x-axis coordinate.
 yDest = y; // The destination y-axis coordinate.
 
-movementSpeed = 8;
+movementSpeed = 6;
 scr_particle_projectile_addsmoketrail(.05);
 </string>
           </argument>
@@ -115,7 +115,7 @@ scr_particle_projectile_addsmoketrail(.05);
             <kind>1</kind>
             <string>if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
-    other.freezeMultiplier++;
+    other.freeze_stacks++;
     instance_destroy();
     scr_create_explosion(x, y, "Normal");
 }

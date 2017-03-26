@@ -3,7 +3,7 @@
   <spriteName>spr_projectile_rainbowTrout</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>obj_projectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>xDest = x; // The destination x-axis coordinate.
 yDest = y; // The destination y-axis coordinate.
-movementSpeed = 14;
+movementSpeed = 5;
 
 scr_particle_projectile_addsmoketrail(.05);
 </string>

@@ -3,7 +3,7 @@
   <spriteName>spr_projectile_caliBear</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>45</depth>
+  <depth>-45</depth>
   <persistent>0</persistent>
   <parentName>obj_projectile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -43,7 +43,7 @@
 yDest = y; // The destination y-axis coordinate.
 
 scr_particle_projectile_addsmoketrail(.05);
-movementSpeed = 10;
+movementSpeed = 8;
 
 
 enemiesHit = 0;

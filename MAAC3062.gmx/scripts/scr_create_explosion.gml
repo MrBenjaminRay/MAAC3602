@@ -43,5 +43,5 @@ if (argument2 == 'Sparky') {
     inst.image_speed = 1;
     inst.image_xscale = .5;
     inst.image_yscale = .5;
-    inst.depth = depth-1; // Attempt to put explosion just in front of the weapon
+    inst.depth = obj_projectile_player.depth-1; // Ensure flash is visible in front of first projectile
 }

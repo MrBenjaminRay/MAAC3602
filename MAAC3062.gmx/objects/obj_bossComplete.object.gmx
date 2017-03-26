@@ -25,40 +25,48 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>// This sets a sprite in the HUB based on whether or not the boss is completed
+// for a given level, based on value set in levelData stats array.
+
+var levelData;
+
 switch(obj_levelTitle.sprite_index) {
     case spr_level0:
-        if(global.levelStats[0, 21])
+        levelData = ds_map_find_value(global.levelStats, rm_level_moon);
+        if(levelData[27])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level1:
-        if(global.levelStats[1, 21])
+        levelData = ds_map_find_value(global.levelStats, rm_level_forest);
+        if(levelData[27])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level2:
-        if(global.levelStats[2, 21])
+        levelData = ds_map_find_value(global.levelStats, rm_level_desert);
+        if(levelData[27])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level3:
-        if(global.levelStats[3, 21])
+        levelData = ds_map_find_value(global.levelStats, rm_level_ice);
+        if(levelData[27])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
     case spr_level4:
-        if(global.levelStats[4, 21])
+        levelData = ds_map_find_value(global.levelStats, rm_level_underwater);
+        if(levelData[27])
             sprite_index = spr_bossComplete;
         else
             sprite_index = spr_bossIncomplete;
         break;
 }
-*/
 </string>
           </argument>
         </arguments>
