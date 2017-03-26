@@ -29,9 +29,21 @@
 animationSpeed = 1;
 
 // MOVEMENT:
-movementSpeed = 150 / 1000;     // Left/Right Movement Speed
+movementSpeed = 0;                  // Actual current Left/Right Movement Speed
+// SMOOTH MOVEMENT (currently used by player, nothing else yet)
+movementSpeedDefault = 150 / 1000;  // Speed to set as desired speed when (mainly left/right)
+movementSpeedDesired = 0;           // Current desired movement speed (normally -movementSpeedDefault or +movementSpeedDefault)
+movementSpeedAdjust = 1;            // Increase or decrease movement speed for a level.  E.g. underwater level has speed adjust &lt; 1.
+movementSpeedAcceleration = 0.005;  // Speed at which to accelerate movement speed until moving at movementSpeedDesired
+movementSpeedDeceleration = 0.01;   // Speed at which to decelerate movement speed until moving at movementSpeedDesired
+movementFrictionLevel = 1;          // Friction level. Only affects acceleration &amp; deceleration speed. Typically between 0 and 1. 
+                                    // 0 = no friction, 1 = normal. 1+ would be extra friction. Use low value (.1 or .2) for ice level,
+                                    // and medium-low level (.5) for underwater level.
+
 jumpSpeed = .72;                // Jump Movement Speed
+jumpAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 jump speed adjustment.
 gravConst = .0015;              // Gravity Constant - Can override for entities that are really light or really heavy (feathers, pianos, etc.)
+gravAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 gravity adjustment.
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
 
@@ -160,7 +172,7 @@ while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !i
 
 // APPLY GRAVITY
 // Increase vertical speed (regardless of jumping or not)
-vspeed += gravConst * global.deltaTime; // Increase speed based on delta time
+vspeed += gravConst * gravAdjust * global.deltaTime; // Increase speed based on delta time
 
 var newY = y + vspeed * global.deltaTime; // Get new proposed y value based on speed &amp; delta time
 

@@ -11,7 +11,14 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>// Run single script to initialize everything needed for a standard game level
-scr_level_initialize();</code>
+scr_level_initialize();
+
+// Add medium-low friction for underwater level. (1 = normal)
+obj_player.movementFrictionLevel = .3;
+// Add low gravity (and lower jump speed) for underwater level. (1 = normal)
+obj_player.gravAdjust = .3;
+obj_player.jumpAdjust = .6;
+obj_player.movementSpeedAdjust = .6;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
