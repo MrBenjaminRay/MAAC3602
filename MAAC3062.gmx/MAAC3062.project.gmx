@@ -326,6 +326,10 @@
         <sprite>sprites\spr_mechagoat</sprite>
         <sprite>sprites\spr_goat_jet</sprite>
       </sprites>
+      <sprites name="ShellCasing">
+        <sprite>sprites\spr_shellCasing</sprite>
+        <sprite>sprites\spr_shellCasing_cucoon</sprite>
+      </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
         <sprite>sprites\spr_weapon_caterpillager</sprite>
@@ -334,7 +338,6 @@
         <sprite>sprites\spr_weapon_slothOnRope</sprite>
         <sprite>sprites\spr_weapon_109CaliBear</sprite>
         <sprite>sprites\spr_weapon_fireAnt</sprite>
-        <sprite>sprites\spr_cocoon</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
     </sprites>
@@ -783,6 +786,10 @@
         <object>objects\obj_weapon_titmouse</object>
         <object>objects\obj_weapon_sloth</object>
         <object>objects\obj_weapon_caliBear</object>
+      </objects>
+      <objects name="ShellCasing">
+        <object>objects\obj_shellCasing</object>
+        <object>objects\obj_shellCasing_cucoon</object>
       </objects>
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>
