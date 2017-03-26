@@ -400,6 +400,9 @@
         <sprite>sprites\spr_bubble_lg</sprite>
         <sprite>sprites\spr_bubble_xl</sprite>
       </sprites>
+      <sprites name="Boss">
+        <sprite>sprites\spr_effect_shield</sprite>
+      </sprites>
     </sprites>
     <sprites name="Navigation Array">
       <sprite>sprites\spr_cup_holder_old</sprite>
@@ -659,6 +662,7 @@
       <object>objects\obj_control_particles</object>
       <objects name="Boss">
         <object>objects\obj_effect_tornado</object>
+        <object>objects\obj_effect_shield</object>
       </objects>
     </objects>
     <objects name="Entities">
