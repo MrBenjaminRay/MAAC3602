@@ -57,6 +57,7 @@
       <sprites name="Messages">
         <sprite>sprites\spr_messageBoxAnim</sprite>
         <sprite>sprites\spr_messageBox</sprite>
+        <sprite>sprites\spr_sideways_message_box</sprite>
         <sprite>sprites\spr_credits1</sprite>
         <sprite>sprites\spr_credits3</sprite>
         <sprite>sprites\spr_credits2</sprite>
@@ -67,7 +68,6 @@
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
-        <sprite>sprites\spr_toolTipBox_Background</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -135,25 +135,70 @@
         <sprite>sprites\spr_button_retry</sprite>
         <sprite>sprites\spr_button_toHub</sprite>
       </sprites>
+      <sprites name="GreyedOutPlanets">
+        <sprite>sprites\spr_grey_forest</sprite>
+        <sprite>sprites\spr_desert_grey</sprite>
+        <sprite>sprites\spr_ice_grey</sprite>
+        <sprite>sprites\spr_water_grey</sprite>
+      </sprites>
     </sprites>
     <sprites name="Entities">
-      <sprites name="Player">
-        <sprite>sprites\spr_player_old</sprite>
-        <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
-        <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
-        <sprite>sprites\spr_left_arm_weapon</sprite>
-        <sprite>sprites\spr_left_arm_wrench</sprite>
-        <sprite>sprites\spr_right_arm_weapon</sprite>
-        <sprite>sprites\spr_right_arm_wrench</sprite>
-        <sprite>sprites\spr_player</sprite>
-        <sprite>sprites\spr_player_jump_right</sprite>
-        <sprite>sprites\spr_player_jump_left</sprite>
-        <sprite>sprites\spr_player_falling</sprite>
-        <sprite>sprites\spr_player_deathPart1</sprite>
-        <sprite>sprites\spr_player_deathPart2</sprite>
-        <sprite>sprites\spr_player_alt</sprite>
-        <sprite>sprites\spr_player_alt_standing</sprite>
-        <sprite>sprites\spr_alt_weapon</sprite>
+      <sprites name="Bosses">
+        <sprites name="Boss1">
+          <sprite>sprites\spr_Boss_1_crouching</sprite>
+          <sprite>sprites\spr_Boss_1_eating_tower</sprite>
+          <sprite>sprites\spr_Boss_1_walk</sprite>
+        </sprites>
+        <sprites name="MiniBoss1">
+          <sprite>sprites\spr_MiniBoss_1</sprite>
+        </sprites>
+        <sprites name="Boss2">
+          <sprite>sprites\spr_tornado</sprite>
+          <sprite>sprites\spr_Boss_2</sprite>
+        </sprites>
+        <sprites name="MiniBoss2">
+          <sprite>sprites\spr_MiniBoss_2</sprite>
+          <sprite>sprites\spr_MiniBoss_2_Projectile</sprite>
+        </sprites>
+        <sprites name="Boss3">
+          <sprite>sprites\spr_Boss3</sprite>
+        </sprites>
+        <sprites name="MiniBoss3">
+          <sprite>sprites\spr_miniboss_shield</sprite>
+          <sprite>sprites\spr_miniboss3</sprite>
+        </sprites>
+        <sprites name="MiniBoss4">
+          <sprite>sprites\spr_miniboss4</sprite>
+          <sprite>sprites\spr_miniboss4_attack</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Drops">
+        <sprite>sprites\spr_drop_navPiece</sprite>
+        <sprite>sprites\spr_drop_plrAbility</sprite>
+        <sprite>sprites\spr_drop_rawMaterial1</sprite>
+        <sprite>sprites\spr_drop_rawMaterial2</sprite>
+        <sprite>sprites\spr_drop_rawMaterial3</sprite>
+        <sprite>sprites\spr_drop_rawMaterial4</sprite>
+        <sprite>sprites\spr_drop_ability1</sprite>
+        <sprite>sprites\spr_drop_ability2</sprite>
+        <sprite>sprites\spr_drop_ability3</sprite>
+        <sprite>sprites\spr_drop_ability4</sprite>
+        <sprite>sprites\spr_drop_energy_outer</sprite>
+        <sprite>sprites\spr_drop_energy_inner</sprite>
+        <sprite>sprites\spr_drop_energy_back</sprite>
+      </sprites>
+      <sprites name="Explosions">
+        <sprite>sprites\spr_explode2</sprite>
+        <sprite>sprites\spr_explode1</sprite>
+        <sprite>sprites\spr_explosion_normal</sprite>
+        <sprite>sprites\spr_explosion_sparky</sprite>
+        <sprite>sprites\spr_explosion_smallhit</sprite>
+        <sprite>sprites\spr_explosion_flash</sprite>
+        <sprite>sprites\spr_explosion_flash_short</sprite>
+        <sprite>sprites\spr_mushroom_cloud</sprite>
+        <sprite>sprites\spr_mushroom_yellowed</sprite>
+        <sprite>sprites\spr_blood_and_feather_explosion</sprite>
+        <sprite>sprites\spr_bloodsplosion</sprite>
       </sprites>
       <sprites name="Enemy">
         <sprite>sprites\spr_enemy</sprite>
@@ -193,6 +238,24 @@
           <sprite>sprites\spr_light_spider_P</sprite>
         </sprites>
       </sprites>
+      <sprites name="Player">
+        <sprite>sprites\spr_player_old</sprite>
+        <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
+        <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
+        <sprite>sprites\spr_left_arm_weapon</sprite>
+        <sprite>sprites\spr_left_arm_wrench</sprite>
+        <sprite>sprites\spr_right_arm_weapon</sprite>
+        <sprite>sprites\spr_right_arm_wrench</sprite>
+        <sprite>sprites\spr_player</sprite>
+        <sprite>sprites\spr_player_jump_right</sprite>
+        <sprite>sprites\spr_player_jump_left</sprite>
+        <sprite>sprites\spr_player_falling</sprite>
+        <sprite>sprites\spr_player_deathPart1</sprite>
+        <sprite>sprites\spr_player_deathPart2</sprite>
+        <sprite>sprites\spr_player_alt</sprite>
+        <sprite>sprites\spr_player_alt_standing</sprite>
+        <sprite>sprites\spr_alt_weapon</sprite>
+      </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_caterpillager</sprite>
@@ -217,25 +280,6 @@
           <sprite>sprites\spr_slow_Upgrade</sprite>
         </sprites>
       </sprites>
-      <sprites name="Projectile">
-        <sprite>sprites\spr_projectile</sprite>
-        <sprite>sprites\spr_projectile_flamingAnimal</sprite>
-        <sprite>sprites\spr_projectile_catapillager</sprite>
-        <sprite>sprites\spr_projectile_unknown</sprite>
-        <sprite>sprites\spr_projectile_titmouse</sprite>
-        <sprite>sprites\spr_projectile_freeze</sprite>
-        <sprite>sprites\spr_projectile_caliBear</sprite>
-        <sprite>sprites\spr_projectile_fireAnt</sprite>
-        <sprite>sprites\spr_3600_projectile</sprite>
-        <sprite>sprites\spr_projectile_rainbowTrout</sprite>
-        <sprite>sprites\spr_sloth_flying</sprite>
-        <sprite>sprites\spr_sloth_dragging</sprite>
-        <sprite>sprites\spr_sloth_rope</sprite>
-        <sprite>sprites\spr_running_fireAnts_64x64</sprite>
-        <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
-        <sprite>sprites\spr_running_fireAnts_48x32</sprite>
-        <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
-      </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
         <sprite>sprites\spr_cave_back_dead</sprite>
@@ -251,56 +295,43 @@
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_orb</sprite>
+        <sprite>sprites\spr_heart1</sprite>
+        <sprite>sprites\spr_heart2</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
       </sprites>
-      <sprites name="Explosions">
-        <sprite>sprites\spr_explode2</sprite>
-        <sprite>sprites\spr_explode1</sprite>
-        <sprite>sprites\spr_explosion_normal</sprite>
-        <sprite>sprites\spr_explosion_sparky</sprite>
-        <sprite>sprites\spr_explosion_smallhit</sprite>
-        <sprite>sprites\spr_explosion_flash</sprite>
-        <sprite>sprites\spr_explosion_flash_short</sprite>
-        <sprite>sprites\spr_mushroom_cloud</sprite>
-        <sprite>sprites\spr_mushroom_yellowed</sprite>
-        <sprite>sprites\spr_blood_and_feather_explosion</sprite>
-        <sprite>sprites\spr_bloodsplosion</sprite>
+      <sprites name="Projectile">
+        <sprite>sprites\spr_projectile</sprite>
+        <sprite>sprites\spr_projectile_flamingAnimal</sprite>
+        <sprite>sprites\spr_projectile_caterpillager_player</sprite>
+        <sprite>sprites\spr_projectile_caterpillager_tower</sprite>
+        <sprite>sprites\spr_projectile_unknown</sprite>
+        <sprite>sprites\spr_projectile_titmouse</sprite>
+        <sprite>sprites\spr_projectile_freeze</sprite>
+        <sprite>sprites\spr_projectile_caliBear</sprite>
+        <sprite>sprites\spr_projectile_fireAnt</sprite>
+        <sprite>sprites\spr_3600_projectile</sprite>
+        <sprite>sprites\spr_projectile_rainbowTrout</sprite>
+        <sprite>sprites\spr_sloth_flying</sprite>
+        <sprite>sprites\spr_sloth_dragging</sprite>
+        <sprite>sprites\spr_sloth_rope</sprite>
+        <sprite>sprites\spr_running_fireAnts_64x64</sprite>
+        <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
+        <sprite>sprites\spr_running_fireAnts_48x32</sprite>
+        <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
-        <sprite>sprites\spr_weapon_basic</sprite>
-        <sprite>sprites\spr_weapon_mortar</sprite>
-        <sprite>sprites\spr_weapon_m6100</sprite>
-        <sprite>sprites\spr_weapon_slow</sprite>
-        <sprite>sprites\spr_weapon_rifle</sprite>
-        <sprite>sprites\spr_weapon_flamethrower</sprite>
+        <sprite>sprites\spr_weapon_caterpillager</sprite>
+        <sprite>sprites\spr_weapon_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_weapon_RT6100</sprite>
+        <sprite>sprites\spr_weapon_slothOnRope</sprite>
+        <sprite>sprites\spr_weapon_109CaliBear</sprite>
+        <sprite>sprites\spr_weapon_fireAnt</sprite>
         <sprite>sprites\spr_cocoon</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
-      <sprites name="Drops">
-        <sprite>sprites\spr_drop_navPiece</sprite>
-        <sprite>sprites\spr_drop_plrAbility</sprite>
-        <sprite>sprites\spr_raw_material_drop1</sprite>
-        <sprite>sprites\spr_raw_material_drop2</sprite>
-        <sprite>sprites\spr_raw_material_drop3</sprite>
-        <sprite>sprites\spr_raw_material_drop4</sprite>
-        <sprite>sprites\spr_ability_drop_1</sprite>
-        <sprite>sprites\spr_ability_drop_2</sprite>
-        <sprite>sprites\spr_ability_drop_3</sprite>
-        <sprite>sprites\spr_ability_drop_4</sprite>
-      </sprites>
-      <sprites name="Bosses">
-        <sprite>sprites\spr_Boss_1_crouching</sprite>
-        <sprite>sprites\spr_Boss_1_eating_tower</sprite>
-        <sprite>sprites\spr_Boss_1_walk</sprite>
-        <sprite>sprites\spr_MiniBoss_1</sprite>
-        <sprite>sprites\spr_MiniBoss_2</sprite>
-        <sprite>sprites\spr_MiniBoss_2_Projectile</sprite>
-        <sprite>sprites\spr_Boss_2</sprite>
-        <sprite>sprites\spr_tornado</sprite>
-      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\spr_physicsTile</sprite>
@@ -328,20 +359,6 @@
       <sprite>sprites\spr_spawner</sprite>
     </sprites>
     <sprites name="Misc">
-      <sprites name="Overlays">
-        <sprite>sprites\spr_build_overlay_validLocation</sprite>
-        <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
-        <sprite>sprites\spr_fire1</sprite>
-        <sprite>sprites\spr_fire2</sprite>
-        <sprite>sprites\spr_sell_overlay</sprite>
-      </sprites>
-      <sprite>sprites\spr_ship</sprite>
-      <sprite>sprites\spr_enery_resource</sprite>
-      <sprite>sprites\spr_energy_container</sprite>
-      <sprite>sprites\spr_energy_drop</sprite>
-      <sprite>sprites\spr_minerals</sprite>
-      <sprite>sprites\spr_exhaust</sprite>
-      <sprite>sprites\spr_ship_fire_exhaust</sprite>
       <sprites name="Abilities">
         <sprite>sprites\spr_ForceField</sprite>
         <sprite>sprites\spr_snakeLeft</sprite>
@@ -352,6 +369,18 @@
         <sprite>sprites\spr_flaming_dog</sprite>
         <sprite>sprites\spr_flaming_cat</sprite>
       </sprites>
+      <sprites name="Overlays">
+        <sprite>sprites\spr_build_overlay_validLocation</sprite>
+        <sprite>sprites\spr_build_overlay_invalidLocation</sprite>
+        <sprite>sprites\spr_fire1</sprite>
+        <sprite>sprites\spr_fire2</sprite>
+        <sprite>sprites\spr_sell_overlay</sprite>
+      </sprites>
+      <sprite>sprites\spr_ship</sprite>
+      <sprite>sprites\spr_enery_resource</sprite>
+      <sprite>sprites\spr_minerals</sprite>
+      <sprite>sprites\spr_exhaust</sprite>
+      <sprite>sprites\spr_ship_fire_exhaust</sprite>
       <sprite>sprites\spr_ship_arrow</sprite>
       <sprite>sprites\spr_enemyKills</sprite>
     </sprites>
@@ -360,7 +389,6 @@
       <sprite>sprites\spr_video_ship_landing_moon</sprite>
       <sprite>sprites\spr_video_esc_to_skip_TEMP</sprite>
     </sprites>
-    <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprites name="Effects">
       <sprites name="Explosions">
         <sprite>sprites\spr_explosion_titmouse</sprite>
@@ -389,13 +417,14 @@
       <sprite>sprites\spr_array_old</sprite>
       <sprite>sprites\spr_array_new</sprite>
     </sprites>
-    <sprite>sprites\spr_camera</sprite>
     <sprites name="Story">
       <sprite>sprites\spr_story1</sprite>
       <sprite>sprites\spr_story2</sprite>
       <sprite>sprites\spr_story_script1</sprite>
       <sprite>sprites\spr_story_script2</sprite>
     </sprites>
+    <sprite>sprites\spr_109CalPlaceholder</sprite>
+    <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_sound_volumes</sprite>
   </sprites>
   <backgrounds name="background">
@@ -451,6 +480,8 @@
       <background>background\bkg_earth_2</background>
       <background>background\bkg_earth_front</background>
     </backgrounds>
+    <background>background\bkg_HUB</background>
+    <background>background\bkg_space</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -462,11 +493,12 @@
     </scripts>
     <scripts name="Camera">
       <script>scripts\scr_screenShake.gml</script>
-      <script>scripts\scr_slowZoom_FixedPosition.gml</script>
       <script>scripts\scr_camera_follow_playerObjects.gml</script>
       <script>scripts\scr_camera_follow_targetObject.gml</script>
       <script>scripts\scr_camera_follow_fixedCoordinates.gml</script>
       <script>scripts\scr_camera_zoom_inOutTimed.gml</script>
+      <script>scripts\scr_camera_zoom_reset.gml</script>
+      <script>scripts\scr_camera_zoom_inIndefinite.gml</script>
     </scripts>
     <scripts name="Entities">
       <script>scripts\scr_entity_dealDamage.gml</script>
@@ -500,6 +532,12 @@
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
     </scripts>
+    <scripts name="Levels">
+      <script>scripts\scr_getLevelId.gml</script>
+      <script>scripts\scr_doLevelFail_minersDead.gml</script>
+      <script>scripts\scr_doLevelFail_playerDead.gml</script>
+      <script>scripts\scr_level_initialize.gml</script>
+    </scripts>
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_gearNearestObjectOfType.gml</script>
@@ -529,6 +567,7 @@
       <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
       <script>scripts\scr_statistics_getData.gml</script>
       <script>scripts\scr_statistics_setData.gml</script>
+      <script>scripts\scr_statistics_getTotalKills.gml</script>
     </scripts>
     <scripts name="UI">
       <scripts name="Message Boxes">
@@ -546,11 +585,8 @@
     <script>scripts\scr_fuel_change.gml</script>
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
-    <script>scripts\scr_getLevelId.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
-    <script>scripts\scr_doLevelFail_minersDead.gml</script>
-    <script>scripts\scr_doLevelFail_playerDead.gml</script>
-    <script>scripts\scr_level_initialize.gml</script>
+    <script>scripts\scr_smootherStep.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -559,11 +595,8 @@
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
-    <font>fonts\fnt_hud_hover</font>
   </fonts>
   <objects name="objects">
-    <object>objects\object</object>
-    <object>objects\obj_globals</object>
     <objects name="Control">
       <object>objects\obj_menu_ingame_placeholder</object>
       <object>objects\obj_control</object>
@@ -580,6 +613,191 @@
       <object>objects\obj_levelControl_7</object>
       <object>objects\obj_levelControl_8</object>
       <object>objects\obj_parallax_controller</object>
+    </objects>
+    <objects name="CutScenes">
+      <object>objects\obj_video_ship_damaged</object>
+      <object>objects\obj_video_ship_landing_moon</object>
+      <object>objects\obj_video_esc_to_skip_TEMP</object>
+    </objects>
+    <objects name="Effects">
+      <object>objects\obj_effect</object>
+      <object>objects\obj_forceField</object>
+      <object>objects\obj_minerCue</object>
+      <object>objects\obj_messageText</object>
+      <objects name="Explosions">
+        <object>objects\obj_explosion</object>
+        <object>objects\obj_explosion_titmouse</object>
+        <object>objects\obj_explosion_nuke</object>
+        <object>objects\obj_explosion_normal</object>
+        <object>objects\obj_explosion_sparky</object>
+        <object>objects\obj_explosion_smallhit</object>
+        <object>objects\obj_explosion_flash</object>
+        <object>objects\obj_explosion_med</object>
+        <object>objects\obj_explosion_small</object>
+      </objects>
+      <objects name="Particles">
+        <object>objects\obj_particle</object>
+        <object>objects\obj_particle_smoketrail</object>
+        <object>objects\obj_particle_flame</object>
+        <object>objects\obj_particle_smoke_puff</object>
+        <object>objects\obj_particle_energy_orb</object>
+      </objects>
+      <objects name="Particle Emitters">
+        <object>objects\obj_emitter_continual</object>
+        <object>objects\obj_emitter_smoketrail</object>
+        <object>objects\obj_emitter_instant</object>
+        <object>objects\obj_emitter_energy_orb</object>
+        <object>objects\obj_emitter_explosion</object>
+        <object>objects\obj_emitter_flame</object>
+        <object>objects\obj_emitter_emitter</object>
+      </objects>
+      <objects name="Special">
+        <object>objects\obj_levelFail_screenFade</object>
+      </objects>
+      <object>objects\obj_smoke</object>
+      <object>objects\obj_control_particles</object>
+      <objects name="Boss">
+        <object>objects\obj_effect_tornado</object>
+      </objects>
+    </objects>
+    <objects name="Entities">
+      <objects name="Enemy">
+        <object>objects\obj_enemy</object>
+        <objects name="Air">
+          <object>objects\obj_enemy_air</object>
+          <object>objects\obj_enemy_air_light</object>
+          <object>objects\obj_enemy_air_heavy</object>
+        </objects>
+        <objects name="Ground">
+          <object>objects\obj_enemy_ground</object>
+          <object>objects\obj_enemy_ground_light</object>
+          <object>objects\obj_enemy_ground_medium</object>
+          <object>objects\obj_enemy_ground_heavy</object>
+          <object>objects\obj_enemy_ground_jackal</object>
+          <object>objects\obj_enemy_ground_spider_small</object>
+          <object>objects\obj_enemy_ground_spider_large</object>
+        </objects>
+        <objects name="Tutorial Enemies">
+          <object>objects\obj_enemy_tutLight1</object>
+          <object>objects\obj_enemy_tutLight2</object>
+        </objects>
+        <objects name="Bosses">
+          <object>objects\obj_enemy_boss_large_A</object>
+          <object>objects\obj_enemy_boss_large_B</object>
+          <object>objects\obj_enemy_boss_large_C</object>
+          <object>objects\obj_enemy_boss_large_D</object>
+          <objects name="Mini">
+            <object>objects\obj_enemy_boss_mini_A</object>
+            <object>objects\obj_enemy_boss_mini_B</object>
+            <object>objects\obj_enemy_boss_mini_C</object>
+            <object>objects\obj_enemy_boss_mini_D</object>
+          </objects>
+        </objects>
+      </objects>
+      <objects name="Drops">
+        <object>objects\obj_drop</object>
+        <objects name="Energy">
+          <object>objects\obj_drop_energy</object>
+          <object>objects\obj_drop_energy_inner1</object>
+          <object>objects\obj_drop_energy_inner2</object>
+          <object>objects\obj_drop_energy_inner3</object>
+          <object>objects\obj_drop_energy_inner4</object>
+          <object>objects\obj_drop_energy_back</object>
+        </objects>
+        <objects name="Navigation Pieces">
+          <object>objects\obj_drop_navPiece</object>
+          <object>objects\obj_drop_navPiece_A</object>
+          <object>objects\obj_drop_navPiece_B</object>
+          <object>objects\obj_drop_navPiece_C</object>
+          <object>objects\obj_drop_navPiece_D</object>
+        </objects>
+        <objects name="Player Abilities">
+          <object>objects\obj_drop_plrAbility</object>
+          <object>objects\obj_drop_plrAbility_A</object>
+          <object>objects\obj_drop_plrAbility_B</object>
+          <object>objects\obj_drop_plrAbility_C</object>
+          <object>objects\obj_drop_plrAbility_D</object>
+        </objects>
+      </objects>
+      <objects name="Player">
+        <object>objects\obj_player</object>
+        <object>objects\obj_player_death</object>
+        <object>objects\obj_player_deadBody</object>
+      </objects>
+      <objects name="Projectile">
+        <object>objects\obj_projectile</object>
+        <object>objects\obj_projectile_flamingAnimal</object>
+        <object>objects\obj_projectile_homing</object>
+        <object>objects\obj_projectile_caterpillager</object>
+        <object>objects\obj_projectile_player</object>
+        <object>objects\obj_projectile_titmouse</object>
+        <object>objects\obj_projectile_sloth</object>
+        <object>objects\obj_projectile_freeze</object>
+        <object>objects\obj_projectile_fireAnt</object>
+        <object>objects\obj_projectile_caliBear</object>
+        <object>objects\obj_projectile_rainbowTrout</object>
+      </objects>
+      <objects name="Tower">
+        <object>objects\obj_tower</object>
+        <object>objects\obj_tower_caterpillager</object>
+        <object>objects\obj_tower_slothOnRope</object>
+        <object>objects\obj_tower_tacticalTitmouse</object>
+        <object>objects\obj_tower_109CaliBear</object>
+        <object>objects\obj_tower_fireAnt</object>
+        <object>objects\obj_tower_RT6100</object>
+        <objects name="Destroyed">
+          <object>objects\obj_destroyedTower</object>
+          <object>objects\obj_tower_destroyed_basic</object>
+          <object>objects\obj_tower_destroyed_slothOnRope</object>
+          <object>objects\obj_tower_destroyed_tacticalTitmouse</object>
+          <object>objects\obj_tower_destroyed_109CaliBear</object>
+          <object>objects\obj_tower_destroyed_fireAnt</object>
+          <object>objects\obj_tower_destroyed_RT6100</object>
+        </objects>
+      </objects>
+      <objects name="Mine">
+        <object>objects\obj_mine</object>
+        <object>objects\obj_mine_dead</object>
+        <object>objects\obj_mine_front</object>
+      </objects>
+      <objects name="Miner">
+        <object>objects\obj_miner</object>
+        <object>objects\obj_miner_dying</object>
+      </objects>
+      <objects name="Weapon">
+        <object>objects\obj_weapon_ranged</object>
+        <object>objects\obj_weapon_playerArm</object>
+        <object>objects\obj_weapon_caterpillager</object>
+        <object>objects\obj_weapon_rt6100</object>
+        <object>objects\obj_weapon_fireAnt</object>
+        <object>objects\obj_weapon_titmouse</object>
+        <object>objects\obj_weapon_sloth</object>
+        <object>objects\obj_weapon_caliBear</object>
+      </objects>
+      <object>objects\obj_entity</object>
+      <object>objects\obj_snake</object>
+      <object>objects\obj_spawnerSpawner</object>
+      <object>objects\obj_spawner</object>
+    </objects>
+    <objects name="Misc">
+      <object>objects\obj_cursorCtrl</object>
+      <object>objects\obj_ship</object>
+      <object>objects\obj_camera</object>
+      <object>objects\obj_dummy_target</object>
+      <object>objects\obj_warp</object>
+      <object>objects\obj_sound_volumes</object>
+    </objects>
+    <objects name="States">
+      <object>objects\obj_control_normalState</object>
+      <object>objects\obj_control_buildState</object>
+      <object>objects\obj_control_destroyState</object>
+    </objects>
+    <objects name="Story">
+      <object>objects\obj_story_pic_controller</object>
+      <object>objects\obj_story_text_controller</object>
+    </objects>
+    <objects name="Tiles">
+      <object>objects\obj_physicsTile</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
@@ -648,6 +866,11 @@
           <object>objects\obj_navText</object>
         </objects>
         <object>objects\obj_windowPlaceholder</object>
+        <object>objects\obj_spaceController</object>
+        <objects name="AltDestination">
+          <object>objects\obj_messageBoxMain</object>
+          <object>objects\obj_sideways_message</object>
+        </objects>
       </objects>
       <object>objects\obj_button</object>
       <object>objects\obj_play</object>
@@ -684,184 +907,8 @@
         <object>objects\obj_button_toHub</object>
       </objects>
     </objects>
-    <objects name="Entities">
-      <object>objects\obj_entity</object>
-      <object>objects\obj_snake</object>
-      <object>objects\obj_spawnerSpawner</object>
-      <object>objects\obj_spawner</object>
-      <objects name="Player">
-        <object>objects\obj_player</object>
-        <object>objects\obj_player_death</object>
-        <object>objects\obj_player_deadBody</object>
-      </objects>
-      <objects name="Enemy">
-        <object>objects\obj_enemy</object>
-        <objects name="Air">
-          <object>objects\obj_enemy_air</object>
-          <object>objects\obj_enemy_air_light</object>
-          <object>objects\obj_enemy_air_heavy</object>
-        </objects>
-        <objects name="Ground">
-          <object>objects\obj_enemy_ground</object>
-          <object>objects\obj_enemy_ground_light</object>
-          <object>objects\obj_enemy_ground_medium</object>
-          <object>objects\obj_enemy_ground_heavy</object>
-          <object>objects\obj_enemy_ground_jackal</object>
-          <object>objects\obj_enemy_ground_spider_small</object>
-          <object>objects\obj_enemy_ground_spider_large</object>
-        </objects>
-        <objects name="Tutorial Enemies">
-          <object>objects\obj_enemy_tutLight1</object>
-          <object>objects\obj_enemy_tutLight2</object>
-        </objects>
-        <objects name="Bosses">
-          <object>objects\obj_enemy_boss_large_A</object>
-          <object>objects\obj_enemy_boss_large_B</object>
-          <object>objects\obj_enemy_boss_large_C</object>
-          <object>objects\obj_enemy_boss_large_D</object>
-          <objects name="Mini">
-            <object>objects\obj_enemy_boss_mini_A</object>
-            <object>objects\obj_enemy_boss_mini_B</object>
-            <object>objects\obj_enemy_boss_mini_C</object>
-            <object>objects\obj_enemy_boss_mini_D</object>
-          </objects>
-        </objects>
-      </objects>
-      <objects name="Tower">
-        <object>objects\obj_tower</object>
-        <object>objects\obj_tower_caterpillager</object>
-        <object>objects\obj_tower_slothOnRope</object>
-        <object>objects\obj_tower_tacticalTitmouse</object>
-        <object>objects\obj_tower_109CaliBear</object>
-        <object>objects\obj_tower_fireAnt</object>
-        <object>objects\obj_tower_RT6100</object>
-        <objects name="Destroyed">
-          <object>objects\obj_destroyedTower</object>
-          <object>objects\obj_tower_destroyed_basic</object>
-          <object>objects\obj_tower_destroyed_slothOnRope</object>
-          <object>objects\obj_tower_destroyed_tacticalTitmouse</object>
-          <object>objects\obj_tower_destroyed_109CaliBear</object>
-          <object>objects\obj_tower_destroyed_fireAnt</object>
-          <object>objects\obj_tower_destroyed_RT6100</object>
-        </objects>
-      </objects>
-      <objects name="Projectile">
-        <object>objects\obj_projectile</object>
-        <object>objects\obj_projectile_flamingAnimal</object>
-        <object>objects\obj_projectile_homing</object>
-        <object>objects\obj_projectile_catapillager</object>
-        <object>objects\obj_projectile_player</object>
-        <object>objects\obj_projectile_titmouse</object>
-        <object>objects\obj_projectile_sloth</object>
-        <object>objects\obj_projectile_freeze</object>
-        <object>objects\obj_projectile_fireAnt</object>
-        <object>objects\obj_projectile_caliBear</object>
-        <object>objects\obj_projectile_rainbowTrout</object>
-      </objects>
-      <objects name="Mine">
-        <object>objects\obj_mine</object>
-        <object>objects\obj_mine_dead</object>
-        <object>objects\obj_mine_front</object>
-      </objects>
-      <objects name="Miner">
-        <object>objects\obj_miner</object>
-        <object>objects\obj_miner_dying</object>
-      </objects>
-      <objects name="Weapon">
-        <object>objects\obj_weapon_ranged</object>
-        <object>objects\obj_weapon_playerArm</object>
-        <object>objects\obj_weapon_basic</object>
-        <object>objects\obj_weapon_m6100</object>
-        <object>objects\obj_weapon_flamethrower</object>
-        <object>objects\obj_weapon_mortar</object>
-        <object>objects\obj_weapon_freeze</object>
-        <object>objects\obj_weapon_109CalRifle</object>
-      </objects>
-      <objects name="Drops">
-        <object>objects\obj_drop</object>
-        <object>objects\obj_drop_energy</object>
-        <objects name="Navigation Pieces">
-          <object>objects\obj_drop_navPiece</object>
-          <object>objects\obj_drop_navPiece_A</object>
-          <object>objects\obj_drop_navPiece_B</object>
-          <object>objects\obj_drop_navPiece_C</object>
-          <object>objects\obj_drop_navPiece_D</object>
-        </objects>
-        <objects name="Player Abilities">
-          <object>objects\obj_drop_plrAbility</object>
-          <object>objects\obj_drop_plrAbility_A</object>
-          <object>objects\obj_drop_plrAbility_B</object>
-          <object>objects\obj_drop_plrAbility_C</object>
-          <object>objects\obj_drop_plrAbility_D</object>
-        </objects>
-      </objects>
-    </objects>
-    <objects name="Tiles">
-      <object>objects\obj_physicsTile</object>
-    </objects>
-    <objects name="Misc">
-      <object>objects\obj_cursorCtrl</object>
-      <object>objects\obj_ship</object>
-      <object>objects\obj_camera</object>
-      <object>objects\obj_dummy_target</object>
-      <object>objects\obj_warp</object>
-      <object>objects\obj_sound_volumes</object>
-    </objects>
-    <objects name="CutScenes">
-      <object>objects\obj_video_ship_damaged</object>
-      <object>objects\obj_video_ship_landing_moon</object>
-      <object>objects\obj_video_esc_to_skip_TEMP</object>
-    </objects>
-    <objects name="Effects">
-      <object>objects\obj_effect</object>
-      <object>objects\obj_forceField</object>
-      <object>objects\obj_mineText</object>
-      <object>objects\obj_messageText</object>
-      <objects name="Explosions">
-        <object>objects\obj_explosion</object>
-        <object>objects\obj_explosion_titmouse</object>
-        <object>objects\obj_explosion_nuke</object>
-        <object>objects\obj_explosion_normal</object>
-        <object>objects\obj_explosion_sparky</object>
-        <object>objects\obj_explosion_smallhit</object>
-        <object>objects\obj_explosion_flash</object>
-        <object>objects\obj_explosion_med</object>
-        <object>objects\obj_explosion_small</object>
-      </objects>
-      <objects name="Particles">
-        <object>objects\obj_particle</object>
-        <object>objects\obj_particle_smoketrail</object>
-        <object>objects\obj_particle_flame</object>
-        <object>objects\obj_particle_smoke_puff</object>
-        <object>objects\obj_particle_energy_orb</object>
-      </objects>
-      <objects name="Particle Emitters">
-        <object>objects\obj_emitter_continual</object>
-        <object>objects\obj_emitter_smoketrail</object>
-        <object>objects\obj_emitter_instant</object>
-        <object>objects\obj_emitter_energy_orb</object>
-        <object>objects\obj_emitter_explosion</object>
-        <object>objects\obj_emitter_flame</object>
-        <object>objects\obj_emitter_emitter</object>
-      </objects>
-      <objects name="Special">
-        <object>objects\obj_levelFail_screenFade</object>
-      </objects>
-      <object>objects\obj_smoke</object>
-      <object>objects\obj_control_particles</object>
-      <objects name="Boss">
-        <object>objects\obj_effect_tornado</object>
-      </objects>
-    </objects>
-    <objects name="States">
-      <object>objects\obj_control_normalState</object>
-      <object>objects\obj_control_buildState</object>
-      <object>objects\obj_control_destroyState</object>
-    </objects>
-    <objects name="Story">
-      <object>objects\obj_story_pic_controller</object>
-      <object>objects\obj_story_text_controller</object>
-    </objects>
+    <object>objects\obj_globals</object>
+    <object>objects\object</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
@@ -894,6 +941,7 @@
       <room>rooms\rm_hub</room>
       <room>rooms\rm_hub_weapons</room>
       <room>rooms\rm_navArray</room>
+      <room>rooms\rm_hubAlt</room>
     </rooms>
     <rooms name="Story">
       <room>rooms\rm_Story1</room>

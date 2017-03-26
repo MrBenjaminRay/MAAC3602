@@ -79,24 +79,6 @@ global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;
 
-// Tower and ability is unlocked
-// NOTE: You can use scr_tower_checkUnlockByTowerIndex() to check unlock variable by tower index (0-5)
-
-global.caterpillagerUnlock = 1;
-global.slothRopeUnlock = 1;
-global.titMouseUnlock = 1;
-global.CalibearUnlock = 0;
-global.fireAntUnlock = 0;
-global.RT6100Unlock = 0;
-global.mechaGoatUnlock = 0;
-global.armadilloUnlock = 0;
-global.porpoiseUnlock = 0;
-global.gorillaUnlock = 0;
-global.electricEelUnlock = 0;
-
-global.fieldPulseUnlock = 0;
-global.sneakySnakesUnlock = 0;
-global.blasterUnlock = 0;
 global.catsAndDogsUnlock = 0;
 
 // Tower unlock costs
@@ -108,10 +90,10 @@ global.CalibearUnlockCost = 3000;
 global.fireAntUnlockCost = 5000;
 global.RT6100UnlockCost = 10000;
 global.mechaGoatUnlockCost = 474747;
-global.armadilloUnlockCost = 5000;
-global.porpoiseUnlockCost = 6000;
-global.gorillaUnlockCost = 5000;
-global.electricEelUnlockCost = 7500;
+//global.armadilloUnlockCost = 5000;
+//global.porpoiseUnlockCost = 6000;
+//global.gorillaUnlockCost = 5000;
+//global.electricEelUnlockCost = 7500;
 
 // Tower and ability upgrade costs
 
@@ -122,10 +104,10 @@ global.fireAntUpgradeCost = 3500;
 global.CalibearUpgradeCost = 3000;
 global.RT6100UpgradeCost = 6000;
 global.mechaGoatUpgradeCost = 696969;
-global.armadilloUpgradeCost = 4500;
-global.porpoiseUpgradeCost = 3500;
-global.gorillaUpgradeCost = 3000;
-global.electricEelUpgradeCost = 3000;
+//global.armadilloUpgradeCost = 4500;
+//global.porpoiseUpgradeCost = 3500;
+//global.gorillaUpgradeCost = 3000;
+//global.electricEelUpgradeCost = 3000;
 
 global.fieldPulseUpgradeCost = 2000;
 global.sneakySnakesUpgradeCost = 2000;

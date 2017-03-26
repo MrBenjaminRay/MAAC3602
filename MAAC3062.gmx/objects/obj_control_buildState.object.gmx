@@ -390,8 +390,8 @@ draw_ellipse(xPos_left, yPos_top, xPos_right, yPos_bottom, true);
 
 /////////////////////////////////////////// DRAW TOWER COST:
 // Determine Position:
-var xCoord = mouse_x;
-var yCoord = mouse_y + sprite_get_height(towerSpr);
+var xCoord = mouse_x + 32;
+var yCoord = mouse_y + 32;
 
 // Set Font:
 draw_set_font(fnt_towerPlacement);
