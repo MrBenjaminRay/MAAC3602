@@ -59,6 +59,7 @@ window_set_cursor(cr_default);</code>
     <instance objName="obj_control_cheats" x="224" y="-32" name="inst_CB0300A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_globals" x="288" y="-32" name="inst_3DC4F439" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sound_volumes" x="416" y="-32" name="inst_5A5A14FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quit" x="608" y="672" name="inst_FFBA9780" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

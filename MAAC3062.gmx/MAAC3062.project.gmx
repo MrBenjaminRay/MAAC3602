@@ -55,6 +55,11 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="UI_HUD">
+      <sprite>sprites\spr_bossItemHUD</sprite>
+      <sprite>sprites\spr_energyHUD</sprite>
+      <sprite>sprites\spr_enemiesKilledHUD</sprite>
+      <sprite>sprites\spr_mineralsHUD</sprite>
+      <sprite>sprites\spr_progressHUD</sprite>
       <sprite>sprites\spr_bossItemHUD_mockup</sprite>
       <sprite>sprites\spr_energyHUD_mockup</sprite>
       <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
@@ -152,6 +157,7 @@
         <sprite>sprites\spr_ice_grey</sprite>
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
+      <sprite>sprites\spr_quit</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -275,12 +281,16 @@
         <sprite>sprites\spr_tower_109CaliBear</sprite>
         <sprite>sprites\spr_tower_fireAnt</sprite>
         <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
+        <sprite>sprites\spr_tower_mechaGoat_left</sprite>
+        <sprite>sprites\spr_tower_mechaGoat_right</sprite>
         <sprite>sprites\spr_tower_destroyed_basic</sprite>
         <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
         <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
         <sprite>sprites\spr_tower_destroyed_109CaliBear</sprite>
         <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
         <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
+        <sprite>sprites\spr_tower_destroyed_mechaGoat</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
         <sprites name="TowerUpgrades">
           <sprite>sprites\spr_6100_Upgrade</sprite>
@@ -322,6 +332,8 @@
         <sprite>sprites\spr_projectile_freeze</sprite>
         <sprite>sprites\spr_projectile_caliBear</sprite>
         <sprite>sprites\spr_projectile_fireAnt</sprite>
+        <sprite>sprites\spr_goat_jet</sprite>
+        <sprite>sprites\spr_mechagoat</sprite>
         <sprite>sprites\spr_3600_projectile</sprite>
         <sprite>sprites\spr_projectile_rainbowTrout</sprite>
         <sprite>sprites\spr_sloth_flying</sprite>
@@ -331,6 +343,11 @@
         <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
+      </sprites>
+      <sprites name="ShellCasing">
+        <sprite>sprites\spr_shellCasing</sprite>
+        <sprite>sprites\spr_shellCasing_RT6100</sprite>
+        <sprite>sprites\spr_shellCasing_cucoon</sprite>
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
@@ -755,6 +772,7 @@
         <object>objects\obj_projectile_fireAnt</object>
         <object>objects\obj_projectile_caliBear</object>
         <object>objects\obj_projectile_rainbowTrout</object>
+        <object>objects\obj_projectile_mechaGoat</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -764,6 +782,7 @@
         <object>objects\obj_tower_109CaliBear</object>
         <object>objects\obj_tower_fireAnt</object>
         <object>objects\obj_tower_RT6100</object>
+        <object>objects\obj_tower_mechaGoat</object>
         <objects name="Destroyed">
           <object>objects\obj_destroyedTower</object>
           <object>objects\obj_tower_destroyed_basic</object>
@@ -772,6 +791,7 @@
           <object>objects\obj_tower_destroyed_109CaliBear</object>
           <object>objects\obj_tower_destroyed_fireAnt</object>
           <object>objects\obj_tower_destroyed_RT6100</object>
+          <object>objects\obj_tower_destroyed_mechaGoat</object>
         </objects>
       </objects>
       <objects name="Mine">
@@ -792,6 +812,10 @@
         <object>objects\obj_weapon_titmouse</object>
         <object>objects\obj_weapon_sloth</object>
         <object>objects\obj_weapon_caliBear</object>
+      </objects>
+      <objects name="ShellCasing">
+        <object>objects\obj_shellCasing</object>
+        <object>objects\obj_shellCasing_cucoon</object>
       </objects>
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>
@@ -928,6 +952,7 @@
         <object>objects\obj_button_toHub</object>
       </objects>
     </objects>
+    <object>objects\obj_quit</object>
     <object>objects\obj_globals</object>
     <object>objects\object</object>
   </objects>

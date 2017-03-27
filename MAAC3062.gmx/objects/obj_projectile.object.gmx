@@ -48,11 +48,13 @@
             <string>damage = 10;                // The amount of damage dealt by the projectile.
 movementSpeed = 5;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
-projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
+projectileHitGain = 0.4;    // gain value for the projectileHit sounds.
 
 smokeTrail = noone;         // Keep reference to smoke trail (if one is added)
 
 scale = 1;                  // May override scale if needed
+
+targetObj = noone;          // In case projectile follows target (e.g. goat projectile)
 </string>
           </argument>
         </arguments>
