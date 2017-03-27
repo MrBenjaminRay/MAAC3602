@@ -2,14 +2,7 @@ if (global.state == "Paused") {
     return 0;
 }
 
-show_debug_message('moving left: ' + object_get_name(object_index));
-
 var newX = x - movementSpeed * global.deltaTime; // Get new proposed x value based on speed & delta time
-show_debug_message(movementSpeed);
-//show_debug_message(string(x) + ', ' + string(newX));
-if (place_meeting(x, y, obj_physicsTile)) {
-
-}
 
 if (place_meeting(newX, y, obj_physicsTile)) {
     // Collision at new X
