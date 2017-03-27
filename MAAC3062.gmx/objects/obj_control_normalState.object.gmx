@@ -55,7 +55,9 @@
     return 0;
 }
 
-scr_build_switchTower(6);
+// Build tower
+scr_normal_beginBuild(6);
+
 </string>
           </argument>
         </arguments>
@@ -90,6 +92,7 @@ if (instance_number(obj_tower_RT6100) &gt; 0) {
 
 // Build Tower:
 scr_normal_beginBuild(5);
+
 </string>
           </argument>
         </arguments>

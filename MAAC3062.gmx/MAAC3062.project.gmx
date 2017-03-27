@@ -549,6 +549,7 @@
         <script>scripts\scr_sloth_startFall.gml</script>
         <script>scripts\scr_sloth_startSwing.gml</script>
         <script>scripts\scr_sloth_startHug.gml</script>
+        <script>scripts\scr_projectile_enforceMaxLife.gml</script>
       </scripts>
       <scripts name="Movement">
         <scripts name="Checks">

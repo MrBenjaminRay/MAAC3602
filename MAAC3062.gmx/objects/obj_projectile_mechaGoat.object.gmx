@@ -43,10 +43,25 @@
 yDest = y; // The destination y-axis coordinate.
 
 scr_particle_projectile_addsmoketrail(.05);
-movementSpeed = 8;
+movementSpeed = .1;
+speed = .3;
+gravity = 0.0005;
 
 rocketDelay = 1000;         // Delay before rocket starts
 rocketDelayElapsed = 0;     // Rocket delay elapsed
+
+// Reference to enemy targeted by this projectile
+targetEnemy = noone;
+
+// Allow to fly around trying to hit enemy for about 30 seconds
+maxLife = 30000;
+
+// Reference to jet pack
+jetPack = noone;
+
+// Direction in which the goat's rocket is aimed (goat sprite will follow this direction)
+// This is different from direction variable, as aim will not always match actual direction
+direction_aim = 0;
 
 </string>
           </argument>
@@ -132,29 +147,34 @@ audio_sound_gain(snd_projectileHit_medium, projectileHitGain, 0);
     return 0;
 }
 
+// Reduce speed
+if (speed &gt; 0) {
+    speed -= 0.007;
+    if (speed &lt; 0) {
+        speed = 0;
+    }
+}
+
+// Apply gravity (may have to move this to initial launch stage and not apply to flight stage)
+vspeed += gravity * global.deltaTime;
+
 if (rocketDelayElapsed &lt; rocketDelay) {
     // Handle initial launch stage
     
     rocketDelayElapsed += global.deltaTime;
     
-    // Apply gravity
-    vspeed += gravity * global.deltaTime;
-    
     // Vertical movement (don't worry about collision yet)
-    y = vspeed * global.deltaTime;
+    y += vspeed * global.deltaTime;
     
     // Horizontal movement (don't worry about collision yet)
-    x = hspeed * global.deltaTime;
-    
+    x += hspeed * global.deltaTime;
     
 } else {
     // Handle rocket flight
-
-    
     
 }
 
-
+scr_projectile_enforceMaxLife();
 
 </string>
           </argument>

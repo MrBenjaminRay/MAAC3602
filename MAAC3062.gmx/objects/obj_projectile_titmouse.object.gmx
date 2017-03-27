@@ -48,6 +48,9 @@ audio_sound_gain(snd_mortarFlying, 0.5, 0);
 
 rotation = irandom_range(-10, -1);
 
+// Override with really long value 1 min), as these projectiles should not be a lag problem
+maxLife = 60000
+
 </string>
           </argument>
         </arguments>
@@ -153,7 +156,6 @@ rotation = irandom_range(-10, -1);
             <string>audio_play_sound(snd_projectileHit_heavy, 0, false);
 audio_sound_gain(snd_projectileHit_heavy, projectileHitGain, 0);
 
-
 // Hit all enemies in range:
 var range = 256;
 
@@ -166,6 +168,7 @@ for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
         scr_create_explosion(x, y, "SmallHit");
     }
 }
+
 </string>
           </argument>
         </arguments>
@@ -190,6 +193,26 @@ for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Override parent step event</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -205,6 +228,8 @@ for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
           <argument>
             <kind>1</kind>
             <string>image_angle += rotation;
+
+scr_projectile_enforceMaxLife();
 
 </string>
           </argument>
