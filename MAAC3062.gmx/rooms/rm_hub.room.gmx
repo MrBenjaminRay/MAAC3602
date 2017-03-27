@@ -14,6 +14,9 @@
 
 audio_stop_all();
 
+// Initialize stats objects for all levels (doesn't overwrite if already initialized)
+scr_statistics_initializeAllLevels();
+
 // Show windows cursor
 window_set_cursor(cr_default);
 // Hide game cursor
