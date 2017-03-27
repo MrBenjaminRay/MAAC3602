@@ -604,6 +604,7 @@
       <script>scripts\scr_statistics_getData.gml</script>
       <script>scripts\scr_statistics_setData.gml</script>
       <script>scripts\scr_statistics_getTotalKills.gml</script>
+      <script>scripts\scr_statistics_initializeAllLevels.gml</script>
     </scripts>
     <scripts name="UI">
       <scripts name="Message Boxes">

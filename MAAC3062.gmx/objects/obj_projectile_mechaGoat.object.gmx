@@ -47,9 +47,6 @@ movementSpeed = .1;
 speed = .3;
 gravity = 0.0005;
 
-rocketDelay = 1000;         // Delay before rocket starts
-rocketDelayElapsed = 0;     // Rocket delay elapsed
-
 // Reference to enemy targeted by this projectile
 targetEnemy = noone;
 
@@ -59,9 +56,25 @@ maxLife = 30000;
 // Reference to jet pack
 jetPack = noone;
 
-// Direction in which the goat's rocket is aimed (goat sprite will follow this direction)
+// Direction in which the goat and his rocket are aimed. Rocket propels goat based on this direction.
+// Will be slowly adjusted towards target.
 // This is different from direction variable, as aim will not always match actual direction
 direction_aim = 0;
+
+aimChangeRate = 0.01; // Rate at which the direction can be rotated towards the target.
+
+// Variables to control how much speed the goat gets from the rocket. When rocket is enabled,
+// rocketSpeed_actual will increase (+= rocketSpeed_changeRate * global.detlaTime) until it reaches
+// rocketSpeed_max, at which poitn 
+rocketSpeed_actual = 0;
+rocketSpeed_max = 1;
+rocketSpeed_changeRate = 0.01; // Rate of acceleration when rocket speed climbing from 0 to max
+
+rocketDelay = 1000;         // Delay before rocket starts
+rocketDelayElapsed = 0;     // Rocket delay elapsed
+
+// Whether or not the rocket is currently on. rocketSpeeed_actual only increases when rocketOn = true.
+rocketOn = false;
 
 </string>
           </argument>
@@ -171,10 +184,15 @@ if (rocketDelayElapsed &lt; rocketDelay) {
     
 } else {
     // Handle rocket flight
-    
+    rocketOn = true;
+    // Create the rocket flame animation if not already there
+    // and fire it up
+    //instance_create(x, y, obj_
 }
 
 scr_projectile_enforceMaxLife();
+
+image_angle = direction_aim;
 
 </string>
           </argument>
