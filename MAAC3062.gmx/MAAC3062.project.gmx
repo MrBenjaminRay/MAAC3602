@@ -28,6 +28,17 @@
       <sound>sound\snd_enemyDeath_light</sound>
       <sound>sound\snd_enemyDeath_medium</sound>
     </sounds>
+    <sounds name="Bosses">
+      <sound>sound\snd_forestBoss_attack</sound>
+      <sound>sound\snd_desertBoss_attack</sound>
+      <sound>sound\snd_iceBoss_attack</sound>
+      <sound>sound\snd_waterBoss_attack_towerPull</sound>
+      <sound>sound\snd_waterBoss_attack_gulp</sound>
+      <sound>sound\snd_asteroidBoss_shieldBreak</sound>
+      <sound>sound\snd_marsBoss_attack</sound>
+      <sound>sound\snd_earthBoss_aimingLaser_loop</sound>
+      <sound>sound\snd_earthBoss_fireBigLaser</sound>
+    </sounds>
     <sounds name="Game">
       <sound>sound\snd_build</sound>
       <sound>sound\snd_projectileHit_light</sound>
@@ -400,6 +411,9 @@
         <sprite>sprites\spr_bubble_lg</sprite>
         <sprite>sprites\spr_bubble_xl</sprite>
       </sprites>
+      <sprites name="Boss">
+        <sprite>sprites\spr_effect_shield</sprite>
+      </sprites>
     </sprites>
     <sprites name="Navigation Array">
       <sprite>sprites\spr_cup_holder_old</sprite>
@@ -419,9 +433,12 @@
     </sprites>
     <sprites name="Story">
       <sprite>sprites\spr_story1</sprite>
+      <sprite>sprites\spr_story3</sprite>
       <sprite>sprites\spr_story2</sprite>
       <sprite>sprites\spr_story_script1</sprite>
       <sprite>sprites\spr_story_script2</sprite>
+      <sprite>sprites\spr_story_script3</sprite>
+      <sprite>sprites\spr_story_4</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -659,6 +676,7 @@
       <object>objects\obj_control_particles</object>
       <objects name="Boss">
         <object>objects\obj_effect_tornado</object>
+        <object>objects\obj_effect_shield</object>
       </objects>
     </objects>
     <objects name="Entities">
@@ -795,7 +813,9 @@
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>
+      <object>objects\obj_story_pic_controller2</object>
       <object>objects\obj_story_text_controller</object>
+      <object>objects\obj_story_text_controller2</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
