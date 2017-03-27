@@ -50,6 +50,9 @@ enemiesHit = 0;
 maxEnemiesHit = 4;
 alarm[1] = room_speed * 1.5;
 lastHitEnemy = noone;
+
+if (hspeed &lt; 0)
+    image_xscale = -1;
 </string>
           </argument>
         </arguments>
