@@ -58,7 +58,7 @@ weaponKickback = weaponKickbackMax;     // Start with max so gun comes out anima
 weaponKickbackResetSpeed = 0.01;         // How quickly to lower kickback. Will be multiplied by delta time.
 
 
-// Special stuff just for mortar
+// Special stuff just for titmouse
 attackRange_min = 10;
 projectileSpeed = 7 * global.towerUpgradeLevel[2];
 projectileGravity = .05;

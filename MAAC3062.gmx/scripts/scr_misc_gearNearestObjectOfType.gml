@@ -50,3 +50,4 @@ for (i = 0 ; i < instance_number(argument[1]) ; i++) {
 }
 
 return nearestEnemy;
+
