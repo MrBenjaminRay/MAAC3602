@@ -265,12 +265,14 @@
         <sprite>sprites\spr_tower_109CaliBear</sprite>
         <sprite>sprites\spr_tower_fireAnt</sprite>
         <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_tower_mechaGoat</sprite>
         <sprite>sprites\spr_tower_destroyed_basic</sprite>
         <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
         <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
         <sprite>sprites\spr_tower_destroyed_109CaliBear</sprite>
         <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
         <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
+        <sprite>sprites\spr_tower_destroyed_mechaGoat</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
         <sprites name="TowerUpgrades">
           <sprite>sprites\spr_6100_Upgrade</sprite>
@@ -280,8 +282,6 @@
           <sprite>sprites\spr_mortar_Upgrade</sprite>
           <sprite>sprites\spr_slow_Upgrade</sprite>
         </sprites>
-        <sprite>sprites\spr_mecha_goat_tower</sprite>
-        <sprite>sprites\spr_goat_destroyed</sprite>
       </sprites>
       <sprites name="Mine">
         <sprite>sprites\spr_cave_back</sprite>
@@ -326,6 +326,11 @@
         <sprite>sprites\spr_mechagoat</sprite>
         <sprite>sprites\spr_goat_jet</sprite>
       </sprites>
+      <sprites name="ShellCasing">
+        <sprite>sprites\spr_shellCasing</sprite>
+        <sprite>sprites\spr_shellCasing_RT6100</sprite>
+        <sprite>sprites\spr_shellCasing_cucoon</sprite>
+      </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
         <sprite>sprites\spr_weapon_caterpillager</sprite>
@@ -334,7 +339,6 @@
         <sprite>sprites\spr_weapon_slothOnRope</sprite>
         <sprite>sprites\spr_weapon_109CaliBear</sprite>
         <sprite>sprites\spr_weapon_fireAnt</sprite>
-        <sprite>sprites\spr_cocoon</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
     </sprites>
@@ -783,6 +787,10 @@
         <object>objects\obj_weapon_titmouse</object>
         <object>objects\obj_weapon_sloth</object>
         <object>objects\obj_weapon_caliBear</object>
+      </objects>
+      <objects name="ShellCasing">
+        <object>objects\obj_shellCasing</object>
+        <object>objects\obj_shellCasing_cucoon</object>
       </objects>
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>

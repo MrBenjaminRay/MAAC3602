@@ -27,9 +27,15 @@
             <kind>1</kind>
             <string>// ANIMATION:
 animationSpeed = 1;
+animationSpeedAdjust = 1;           // Increase or decrease the animation speed for a level. E.g. underwater level has speed adjust &lt; 1.
 
 // MOVEMENT:
-movementSpeed = 0;                  // Actual current Left/Right Movement Speed
+movementSpeed = 150 / 1000;         // Left/Right Movement Speed
+                                    // NOTE: For player (and entities using smooth left/right movement), this represents the 
+                                    // actual, current movement speed (which goes between 0 and movementSpeedDesired).
+                                    // For all other entities, this represents the simple entity movement speed, and is overridden
+                                    // at the entity level as needed.
+
 // SMOOTH MOVEMENT (currently used by player, nothing else yet)
 movementSpeedDefault = 150 / 1000;  // Speed to set as desired speed when (mainly left/right)
 movementSpeedDesired = 0;           // Current desired movement speed (normally -movementSpeedDefault or +movementSpeedDefault)
@@ -152,6 +158,8 @@ with (weaponObj) {
             <string>if (global.state == "Paused") {
     return 0;
 }
+
+image_speed = animationSpeed * animationSpeedAdjust;
 
 // SPECIAL CASE:
 // If the entity's y-axis coordinate is above 0, then force the entity to
