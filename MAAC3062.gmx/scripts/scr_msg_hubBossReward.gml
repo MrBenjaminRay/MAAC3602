@@ -10,6 +10,8 @@
  */
 var canProceed = true;
 
+
+
 if (is_undefined(argument[0])) {
     show_debug_message("Error: argument[0] of scr_msg_hubBossReward is undefined.");
     canProceed = false;
@@ -20,16 +22,20 @@ if (canProceed) {
     ds_list_add(messageBox.list_text, "You have defeated a planet leader!");
     ds_list_add(messageBox.list_text, "");
     ds_list_add(messageBox.list_text, "You've gather some crucial materials from");
-    ds_list_add(messageBox.list_text, "its remains. They were used to repair a");
-    ds_list_add(messageBox.list_text, "piece of the Navigation Array!");
+    ds_list_add(messageBox.list_text, "its remains.");
+    ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "Click to Research.");
+    /*
+    ds_list_add(messageBox.list_text, "Research them to undercover their purpose.");
     ds_list_add(messageBox.list_text, "A new ability for the pilot has also been");
     ds_list_add(messageBox.list_text, "Discovered!"); 
     ds_list_add(messageBox.list_text, "");
     ds_list_add(messageBox.list_text, "Head over to the Navigation Array and");
     ds_list_add(messageBox.list_text, "Weapons Research to see your findings.");
     ds_list_add(messageBox.list_text, "");
-    ds_list_add(messageBox.list_text, "Click to close.");
-    
+    ds_list_add(messageBox.list_text, "Click to Research.");
+    */
     instance_create(0, 0, obj_dimFilter);
     
     return messageBox;
