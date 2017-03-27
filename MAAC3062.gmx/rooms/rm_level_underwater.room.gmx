@@ -16,9 +16,10 @@ scr_level_initialize();
 // Add medium-low friction for underwater level. (1 = normal)
 obj_player.movementFrictionLevel = .3;
 // Add low gravity (and lower jump speed) for underwater level. (1 = normal)
-obj_player.gravAdjust = .3;
-obj_player.jumpAdjust = .6;
-obj_player.movementSpeedAdjust = .6;</code>
+obj_player.gravAdjust = .2;
+obj_player.jumpAdjust = .45;
+obj_player.movementSpeedAdjust = .6;
+obj_player.animationSpeedAdjust = .35;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

@@ -44,11 +44,11 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="UI_HUD">
-      <sprite>sprites\spr_bossItemHUD_mockup</sprite>
-      <sprite>sprites\spr_energyHUD_mockup</sprite>
-      <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
-      <sprite>sprites\spr_mineralsHUD_mockup</sprite>
-      <sprite>sprites\spr_progressHUD_mockup</sprite>
+      <sprite>sprites\spr_bossItemHUD</sprite>
+      <sprite>sprites\spr_energyHUD</sprite>
+      <sprite>sprites\spr_enemiesKilledHUD</sprite>
+      <sprite>sprites\spr_mineralsHUD</sprite>
+      <sprite>sprites\spr_progressHUD</sprite>
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
@@ -141,6 +141,7 @@
         <sprite>sprites\spr_ice_grey</sprite>
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
+      <sprite>sprites\spr_quit</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -264,12 +265,14 @@
         <sprite>sprites\spr_tower_109CaliBear</sprite>
         <sprite>sprites\spr_tower_fireAnt</sprite>
         <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_tower_mechaGoat</sprite>
         <sprite>sprites\spr_tower_destroyed_basic</sprite>
         <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
         <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
         <sprite>sprites\spr_tower_destroyed_109CaliBear</sprite>
         <sprite>sprites\spr_tower_destroyed_fireAnt</sprite>
         <sprite>sprites\spr_tower_destroyed_RT6100</sprite>
+        <sprite>sprites\spr_tower_destroyed_mechaGoat</sprite>
         <sprite>sprites\spr_tower_unknown</sprite>
         <sprites name="TowerUpgrades">
           <sprite>sprites\spr_6100_Upgrade</sprite>
@@ -320,6 +323,13 @@
         <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
+        <sprite>sprites\spr_mechagoat</sprite>
+        <sprite>sprites\spr_goat_jet</sprite>
+      </sprites>
+      <sprites name="ShellCasing">
+        <sprite>sprites\spr_shellCasing</sprite>
+        <sprite>sprites\spr_shellCasing_RT6100</sprite>
+        <sprite>sprites\spr_shellCasing_cucoon</sprite>
       </sprites>
       <sprites name="Weapon">
         <sprite>sprites\spr_weapon_ranged_test</sprite>
@@ -329,7 +339,6 @@
         <sprite>sprites\spr_weapon_slothOnRope</sprite>
         <sprite>sprites\spr_weapon_109CaliBear</sprite>
         <sprite>sprites\spr_weapon_fireAnt</sprite>
-        <sprite>sprites\spr_cocoon</sprite>
       </sprites>
       <sprite>sprites\spr_smoke_puff</sprite>
     </sprites>
@@ -779,6 +788,10 @@
         <object>objects\obj_weapon_sloth</object>
         <object>objects\obj_weapon_caliBear</object>
       </objects>
+      <objects name="ShellCasing">
+        <object>objects\obj_shellCasing</object>
+        <object>objects\obj_shellCasing_cucoon</object>
+      </objects>
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>
       <object>objects\obj_spawnerSpawner</object>
@@ -911,6 +924,7 @@
         <object>objects\obj_button_retry</object>
         <object>objects\obj_button_toHub</object>
       </objects>
+      <object>objects\obj_quit</object>
     </objects>
     <object>objects\obj_globals</object>
     <object>objects\object</object>
