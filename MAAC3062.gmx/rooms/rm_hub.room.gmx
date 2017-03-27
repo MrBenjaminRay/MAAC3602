@@ -26,6 +26,7 @@ cursor_sprite = noone;
 // does not work with the new levelStats setup.
 
 var levelData;
+var bossDropIcon;
 foundFalse = false;
 
 levelData = ds_map_find_value(global.levelStats, rm_level_moon);
@@ -33,6 +34,8 @@ if(levelData[30]) {
     scr_msg_hubBossReward(0);
     levelData[30] = false;
     ds_map_replace(global.levelStats, rm_level_moon, levelData);
+    bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+    bossDropIcon.sprite_index = spr_drop_rawMaterial1;
 }
 else
     foundFalse = true;
@@ -42,7 +45,10 @@ if(!foundFalse) {
     if(levelData[30]) {
         scr_msg_hubBossReward(1);
         levelData[30] = false;
+        global.navPieceAttained[0] = true;
         ds_map_replace(global.levelStats, rm_level_forest, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial2;
     }
     else
         foundFalse = true;
@@ -53,7 +59,10 @@ if(!foundFalse) {
     if(levelData[30]) {
         scr_msg_hubBossReward(2);
         levelData[30] = false;
+        global.navPieceAttained[1] = true;
         ds_map_replace(global.levelStats, rm_level_desert, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial3;
     }
     else
        foundFalse = true; 
@@ -64,7 +73,10 @@ if(!foundFalse) {
     if(levelData[30]) {
         scr_msg_hubBossReward(3);
         levelData[30] = false;
+        global.navPieceAttained[2] = true;
         ds_map_replace(global.levelStats, rm_level_ice, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial4;
     }
     else
         foundFalse = true; 
@@ -75,8 +87,8 @@ if(!foundFalse) {
     if(levelData[30]) {
         scr_msg_hubBossReward(4);
         levelData[30] = false;
+        global.navPieceAttained[3] = true;
         ds_map_replace(global.levelStats, rm_level_underwater, levelData);
-        global.allNavPiecesAttained = true;
     }
     else
         foundFalse = true; 
@@ -173,6 +185,7 @@ if(!foundFalse) {
     <instance objName="obj_hud_levelMinerals" x="1472" y="32" name="inst_C1E8BE20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_navArray" x="1344" y="128" name="inst_D4044949" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bossComplete" x="1280" y="544" name="inst_7838E8E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_earthButton" x="448" y="512" name="inst_19EDFF39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

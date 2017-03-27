@@ -24,6 +24,8 @@ if (canProceed) {
     ds_list_add(messageBox.list_text, "You've gather some crucial materials from");
     ds_list_add(messageBox.list_text, "its remains.");
     ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "");
+    ds_list_add(messageBox.list_text, "Click to Research.");
     /*
     ds_list_add(messageBox.list_text, "Research them to undercover their purpose.");
     ds_list_add(messageBox.list_text, "A new ability for the pilot has also been");
