@@ -317,6 +317,7 @@ global.towerUnlocked[2] = true;
 global.towerUnlocked[3] = true;
 global.towerUnlocked[4] = true;
 global.towerUnlocked[5] = true;
+global.towerUnlocked[6] = true;
 
 // Unlock all abilities
 global.plrAbilityAttained[0] = true;

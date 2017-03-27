@@ -265,7 +265,9 @@
         <sprite>sprites\spr_tower_109CaliBear</sprite>
         <sprite>sprites\spr_tower_fireAnt</sprite>
         <sprite>sprites\spr_tower_RT6100</sprite>
-        <sprite>sprites\spr_tower_mechaGoat</sprite>
+        <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
+        <sprite>sprites\spr_tower_mechaGoat_left</sprite>
+        <sprite>sprites\spr_tower_mechaGoat_right</sprite>
         <sprite>sprites\spr_tower_destroyed_basic</sprite>
         <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
         <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
@@ -750,6 +752,7 @@
         <object>objects\obj_projectile_fireAnt</object>
         <object>objects\obj_projectile_caliBear</object>
         <object>objects\obj_projectile_rainbowTrout</object>
+        <object>objects\obj_projectile_mechaGoat</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -759,6 +762,7 @@
         <object>objects\obj_tower_109CaliBear</object>
         <object>objects\obj_tower_fireAnt</object>
         <object>objects\obj_tower_RT6100</object>
+        <object>objects\obj_tower_mechaGoat</object>
         <objects name="Destroyed">
           <object>objects\obj_destroyedTower</object>
           <object>objects\obj_tower_destroyed_basic</object>
@@ -767,6 +771,7 @@
           <object>objects\obj_tower_destroyed_109CaliBear</object>
           <object>objects\obj_tower_destroyed_fireAnt</object>
           <object>objects\obj_tower_destroyed_RT6100</object>
+          <object>objects\obj_tower_destroyed_mechaGoat</object>
         </objects>
       </objects>
       <objects name="Mine">

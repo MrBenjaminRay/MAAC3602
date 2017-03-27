@@ -28,7 +28,7 @@
             <string>// Automatically pull info from global.towers[] (see obj_control create event)
 // Tower count must match # of entries in global.towers, otherwise it will blow up.
 
-towerCount = 6; 
+towerCount = 7; 
 
 slotWidth = sprite_get_width(spr_hotbar_item_back);
 
