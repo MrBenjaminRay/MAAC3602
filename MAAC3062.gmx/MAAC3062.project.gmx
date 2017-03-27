@@ -431,9 +431,12 @@
     </sprites>
     <sprites name="Story">
       <sprite>sprites\spr_story1</sprite>
+      <sprite>sprites\spr_story3</sprite>
       <sprite>sprites\spr_story2</sprite>
       <sprite>sprites\spr_story_script1</sprite>
       <sprite>sprites\spr_story_script2</sprite>
+      <sprite>sprites\spr_story_script3</sprite>
+      <sprite>sprites\spr_story_4</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -812,7 +815,9 @@
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>
+      <object>objects\obj_story_pic_controller2</object>
       <object>objects\obj_story_text_controller</object>
+      <object>objects\obj_story_text_controller2</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
