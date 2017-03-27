@@ -85,6 +85,10 @@ ropeLength = 0;
 
 // Mode FLY, HUG, FALL, SWING
 mode = "FLY"; // Default mode for sloth projectile
+
+// Set high max life (3 min)
+maxLife = 180000;
+
 </string>
           </argument>
         </arguments>
@@ -220,6 +224,9 @@ if (mode == "HUG") {
         scr_sloth_startFall();
     }
 }
+
+scr_projectile_enforceMaxLife();
+
 
 </string>
           </argument>

@@ -69,6 +69,9 @@ mouthAnimationSpeed = .1; // Speed to use when opening and closing (closing will
 mouthOpenTime = 1000; // Amount of time to leave mouth open before closing
 mouthOpenTimeElapsed = 0;
 
+// Reference to goat projectile. Will be noone when no goat is in the air.
+goatObj = noone;
+
 </string>
           </argument>
         </arguments>
@@ -156,52 +159,64 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
 if (attackRateCounter &gt;= attackRate) {
     attackRateCounter = 0;
     
-    // Search for potential targets in order, aiming for biggest/baddest ones first (array defined in create code)
-    var nearestEnemy;
-    for (var i = 0; i &lt; array_length_1d(enemyTypePriority); i++) {
-        nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, enemyTypePriority[i]);
+    // Can only fire if this tower doesn't already have a goat out there flying around
+    if (!instance_exists(goatObj)) {
+    
+        // Search for potential targets in order, aiming for biggest/baddest ones first (array defined in create code)
+        var nearestEnemy;
+        for (var i = 0; i &lt; array_length_1d(enemyTypePriority); i++) {
+            nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, enemyTypePriority[i]);
+            if (nearestEnemy != noone) {
+                break;
+            }
+        }
+    
         if (nearestEnemy != noone) {
-            break;
+            // For the goat tower, just decide whether target is more to left or right,
+            // mirror the tower if needed, open the mouth, spawn the projectile, set the 
+            // projectile's target object, then close the mouth.
+            var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
+            var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
+            var projDir;
+            var projDirAimed; // Angle towards which the goat is aimed (different from movement)
+            
+            if (enemyX &lt; x + sprite_width/2) {
+                // Target is currently to the left of tower's center point
+                sprite_index = spr_tower_mechaGoat_left;
+                projDir = 180;
+                projDirAim = 210;
+            } else {
+                // Target is currently to the right (or exactly same) as tower's center point
+                sprite_index = spr_tower_mechaGoat_right;
+                projDir = 0;
+                projDirAim = 30;
+            }
+    
+            // Spawn projectile (use offset to spawn goat behind tower's mouth):
+            var projX = x + weaponXOffset;
+            var projY = y + weaponYOffset;
+            var proj = scr_spawn_projectile(obj_projectile_mechaGoat, projX, projY, nearestEnemy, false, attackDamage);
+            proj.direction = projDir;
+            proj.direction_aim = projDirAim;
+            proj.targetEnemy = nearestEnemy;
+            
+            // Get reference to goat object
+            goatObj = proj;
+            
+            audio_play_sound(snd_basicTower, 0, false);
+            audio_sound_gain(snd_basicTower, 0.4, 0);
+            
+            // Show projectile spawn effect: (NONE FOR GOAT, UNLESS WE THINK OF SOMETHING FUNNY)
+            //scr_create_explosion(projX, projY, 'Flash');
+            
+            // Start kickback (NONE FOR GOAT)
+            //scr_entity_weaponKickback_Start();
+            
+            // Start the mouth open-close animation
+            mouthState = 1;
+            image_index = 0;
+            image_speed = mouthAnimationSpeed;
         }
-    }
-
-    if (nearestEnemy != noone) {
-        // For the goat tower, just decide whether target is more to left or right,
-        // mirror the tower if needed, open the mouth, spawn the projectile, set the 
-        // projectile's target object, then close the mouth.
-        var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
-        var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-        var projDir;
-        
-        if (enemyX &lt; x + sprite_width/2) {
-            // Target is currently to the left of tower's center point
-            sprite_index = spr_tower_mechaGoat_left;
-            projDir = 0;
-        } else {
-            // Target is currently to the right (or exactly same) as tower's center point
-            sprite_index = spr_tower_mechaGoat_right;
-            projDir = 180;
-        }
-
-        // Spawn projectile (use offset to spawn goat behind tower's mouth):
-        var projX = x + weaponXOffset;
-        var projY = y + weaponYOffset;
-        var proj = scr_spawn_projectile(obj_projectile_mechaGoat, projX, projY, nearestEnemy, false, attackDamage);
-        proj.speed = .05;
-        proj.direction = projDir;
-        audio_play_sound(snd_basicTower, 0, false);
-        audio_sound_gain(snd_basicTower, 0.4, 0);
-        
-        // Show projectile spawn effect: (NONE FOR GOAT, UNLESS WE THINK OF SOMETHING FUNNY)
-        //scr_create_explosion(projX, projY, 'Flash');
-        
-        // Start kickback (NONE FOR GOAT)
-        //scr_entity_weaponKickback_Start();
-        
-        // Start the mouth open-close animation
-        mouthState = 1;
-        image_index = 0;
-        image_speed = mouthAnimationSpeed;
     }
 }
 

@@ -92,6 +92,8 @@ var xTarget = target.x + target.sprite_width/2;
 var yTarget = target.y + target.sprite_height/2;
 mp_potential_step(xTarget, yTarget, movementSpeed, false);
 
+scr_projectile_enforceMaxLife();
+
 </string>
           </argument>
         </arguments>
