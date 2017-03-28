@@ -95,6 +95,7 @@
         <sprite>sprites\spr_level2</sprite>
         <sprite>sprites\spr_level3</sprite>
         <sprite>sprites\spr_level4</sprite>
+        <sprite>sprites\spr_levelEarth</sprite>
         <sprite>sprites\spr_Travel</sprite>
         <sprite>sprites\spr_windowPlaceholder</sprite>
         <sprite>sprites\spr_listItem</sprite>
@@ -146,6 +147,7 @@
       <sprite>sprites\spr_desertButton</sprite>
       <sprite>sprites\spr_iceButton</sprite>
       <sprite>sprites\spr_waterButton</sprite>
+      <sprite>sprites\spr_earthButton</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
@@ -873,6 +875,7 @@
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
           <object>objects\obj_bossComplete</object>
+          <object>objects\obj_earthButton</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
@@ -919,6 +922,7 @@
           <object>objects\obj_messageBoxMain</object>
           <object>objects\obj_sideways_message</object>
         </objects>
+        <object>objects\obj_bossDropIcon</object>
       </objects>
       <object>objects\obj_button</object>
       <object>objects\obj_play</object>

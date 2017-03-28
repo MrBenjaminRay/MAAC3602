@@ -11,7 +11,9 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>// Run single script to initialize everything needed for a standard game level
-scr_level_initialize();</code>
+scr_level_initialize();
+
+var levelData;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
