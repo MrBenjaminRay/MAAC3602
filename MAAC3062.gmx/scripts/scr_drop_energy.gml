@@ -43,7 +43,6 @@ while (toDispense > 0) {
         speed = .3;
         direction = random_range(45, 135);
     }
-    show_debug_message(direction);
 
 }
 

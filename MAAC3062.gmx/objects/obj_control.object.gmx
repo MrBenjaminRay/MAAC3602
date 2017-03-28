@@ -73,12 +73,17 @@ global.currentLevelComplete = 0;    // Used to make sure that player doesn't los
                                     // animation/sequence
 global.currentLevelFailed = 0;      // Used to prevent damage and possibly other things from occurring
                                     // once the player has failed the level due to death or losing all miners
-                                 
+                             
+global.skipToNavRoom = false; //used to skip to nav room when closing clickMessage
+                                    
 global.moonLevelComplete = 0;
 global.forestLevelComplete = 0;
 global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;
+global.asteroidLevelComplete = 0;
+global.marsLevelComplete = 0;
+global.earthLevelComplete = 0;
 
 global.catsAndDogsUnlock = 0;
 
