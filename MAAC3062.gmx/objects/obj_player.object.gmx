@@ -1357,6 +1357,10 @@ if (global.plrAbilityAttained[1]) {
     
     // Change stats:
     scr_state_setNormal();
+    
+    // Tell camera to follow RT-6100 (player now deactivated)
+    scr_camera_follow_targetObject(obj_tower_RT6100);
+    
 }
 </string>
           </argument>

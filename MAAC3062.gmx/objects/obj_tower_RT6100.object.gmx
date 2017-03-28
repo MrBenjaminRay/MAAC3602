@@ -153,6 +153,11 @@ audio_stop_sound(snd_M6100_loop);
 instance_create(x, y, obj_tower_destroyed_RT6100);
 
 scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
+
+if (mounted) {
+    // Tell camera to go back to following player
+    scr_camera_follow_playerObjects();
+}
 </string>
           </argument>
         </arguments>
@@ -619,6 +624,10 @@ if(mounted)
     
     // Allow tower to fire:
     obj_tower_RT6100.mounted = false;
+    
+    // Tell camera to go back to following player
+    scr_camera_follow_playerObjects();
+    
 }
 </string>
           </argument>
