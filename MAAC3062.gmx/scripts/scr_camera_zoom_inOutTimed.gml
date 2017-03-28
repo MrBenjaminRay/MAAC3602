@@ -35,6 +35,6 @@ with (obj_camera) {
     zoomState_TimeElapsed = 0;
     zoomTransition_LevelStart = zoomLevelActual; // Start wherever zoom is now
     zoomTransition_LevelEnd = zoomLevelDesired; //End at desired zoom level
-
+    indefiniteZoom = false; // Zoom-in time specified, not indefinite.
 }
 

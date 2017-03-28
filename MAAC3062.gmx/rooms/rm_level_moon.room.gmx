@@ -11,7 +11,9 @@
   <colour>0</colour>
   <showcolour>-1</showcolour>
   <code>// Run single script to initialize everything needed for a standard game level
-scr_level_initialize();</code>
+scr_level_initialize();
+
+var levelData;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -111,10 +113,6 @@ scr_level_initialize();</code>
     <instance objName="obj_mine" x="416" y="832" name="inst_900EFA0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ship" x="288" y="800" name="inst_B28E6080" locked="0" code="fuelTarget = 750;&#xA;global.fuel = 0;&#xA;" scaleX="0.744186043739319" scaleY="0.670270264148712" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="864" name="inst_BC64172E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_levelEnergy" x="32" y="32" name="inst_BAAC2E23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_levelMinerals" x="96" y="32" name="inst_6E693D15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_control_normalState" x="96" y="-32" name="inst_8B23729D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_emitter_emitter" x="32" y="128" name="inst_A73B3071" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="864" name="inst_E967C612" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1664" y="864" name="inst_7A399792" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1696" y="864" name="inst_D3738BC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -132,7 +130,6 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="2080" y="864" name="inst_43093B02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2112" y="864" name="inst_F8B8F08A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="352" y="672" name="inst_F650A2AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera" x="192" y="160" name="inst_36C73D82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2144" y="864" name="inst_7791680C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2176" y="864" name="inst_104CA934" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2208" y="864" name="inst_01DFA76A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -150,7 +147,6 @@ scr_level_initialize();</code>
     <instance objName="obj_spawnerSpawner" x="2208" y="288" name="inst_64B49B09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="2208" y="448" name="inst_D3BE91E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="2208" y="608" name="inst_670085DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object" x="352" y="480" name="inst_B3D0D345" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="0" y="704" name="inst_1CEAF2C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="32" y="704" name="inst_0807E481" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="64" y="704" name="inst_0576E6F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -235,15 +231,10 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="2112" y="704" name="inst_F69448B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2144" y="704" name="inst_9A7CA7E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2176" y="704" name="inst_08AC54AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_hotbar" x="192" y="32" name="inst_6FB43D5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine" x="1600" y="832" name="inst_455204E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine_front" x="1600" y="832" name="inst_944B9714" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mine_front" x="416" y="832" name="inst_41320F04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_levelKills" x="96" y="96" name="inst_217D6278" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelControl_1" x="160" y="-32" name="inst_C97768A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_bossObject" x="64" y="192" name="inst_9075B032" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object" x="192" y="1408" name="inst_67CCCB9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss_large_B" x="800" y="608" name="inst_F5A824BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_moon_tiles" x="160" y="704" w="160" h="32" xo="0" yo="0" id="10000468" name="inst_85381C29" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -55,7 +55,8 @@ speedTowardsTargetChange = 1.05;
 speedTowardsTargetMax = 10;
 image_index = irandom_range(0, image_number-1);
 image_speed = random_range(0.5, 0.75);
-//image_alpha = random_range(.7, 1);
+image_alpha = random_range(.7, 1);
+
 </string>
           </argument>
         </arguments>

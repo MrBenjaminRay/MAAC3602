@@ -14,8 +14,8 @@ global.currentLevelFailed = true;
 // Tell camera to focus on location of last miner's death
 scr_camera_follow_fixedCoordinates(argument[0], argument[1]);
 
-// Zoom camera slowly to 4x and hold for a long time
-scr_camera_zoom_inOutTimed(4, 100000, 3000, 3000);
+// Zoom camera slowly to 4x and hold indefinitely
+scr_camera_zoom_inIndefinite(4, 3000);
 
 // Start fade-to-black and set message
 var tmp = instance_create(0, 0, obj_levelFail_screenFade);

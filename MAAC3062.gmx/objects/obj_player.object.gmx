@@ -25,6 +25,30 @@
       </action>
       <action>
         <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>allowedToFire</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -39,9 +63,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// MOVEMENT:
-movementSpeed = 250 / 1000; // Left/Right Movement Speed
+            <string>// Override movement-related variables for player:
+movementSpeedDefault = 310 / 1000;
+movementSpeedAcceleration = 0.005;  // Speed at which to accelerate movement speed until moving at movementSpeedDesired
+movementSpeedDeceleration = 0.01;   // Speed at which to decelerate movement speed until moving at movementSpeedDesired
+
+// Override jump speed for player
 jumpSpeed = .72;            // Jump Speed
+
+animationSpeed = 0.33;
 
 // ???
 image_speed = 0;
@@ -139,30 +169,6 @@ abilC_cooldownCounter = abilC_cooldownTime;
 abilD_cooldownTime = global.plrAbilityCooldown_normal[3];
 abilD_cooldownCounter = abilD_cooldownTime;
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>allowedToFire</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>true</string>
           </argument>
         </arguments>
       </action>
@@ -420,7 +426,53 @@ alarm[0] = shieldRegenInterval;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Movement</string>
+            <string>Drop Through Platform</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var isDownPressed = keyboard_check(ord('s')) || keyboard_check(ord('S'));
+
+if (isDownPressed) {
+    scr_entity_drop();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Horizontal Movement &amp; Sprite Changes</string>
           </argument>
         </arguments>
       </action>
@@ -444,14 +496,17 @@ alarm[0] = shieldRegenInterval;
     return 0;
 }
 
-// LEFT &amp; RIGHT MOVEMENT:
+// LEFT &amp; RIGHT MOVEMENT INPUT:
 var isLeftPressed = keyboard_check(ord('a')) || keyboard_check(ord('A'));
 var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
 
+// Set default desired movement speed unless overrided due to keypress below
+movementSpeedDesired = 0;
+
 if (isLeftPressed) {
-    scr_entity_moveLeft();
-    animationSpeed = 0.33;
-    image_speed = 0.33;
+    movementSpeedDesired = -movementSpeedDefault * movementSpeedAdjust; // Set desired speed (left = negative)
+    //scr_entity_moveLeft();
+    image_speed = animationSpeed * animationSpeedAdjust;
     image_xscale = 1;
     if (isJumping) {
         sprite_index = spr_player_jump_left;
@@ -462,9 +517,9 @@ if (isLeftPressed) {
 }
 
 if (isRightPressed) {
-    scr_entity_moveRight();
-    animationSpeed = 0.33;
-    image_speed = 0.33;
+    movementSpeedDesired = +movementSpeedDefault * movementSpeedAdjust; // Set desired speed (right = positive)
+    //scr_entity_moveRight();
+    image_speed = animationSpeed * animationSpeedAdjust;
     image_xscale = 1;
     if (isJumping) {
         sprite_index = spr_player_jump_right;
@@ -475,7 +530,6 @@ if (isRightPressed) {
 }
 
 if(!(isRightPressed || isLeftPressed)) {
-    animationSpeed = 0;
     image_speed = 0;
     image_xscale = 1;
     if (isJumping) {
@@ -502,6 +556,9 @@ if(!(isRightPressed || isLeftPressed)) {
         }
     }
 }
+
+// LEFT &amp; RIGHT MOVEMENT:
+scr_entity_moveHorizontal();
 
 </string>
           </argument>
@@ -610,7 +667,7 @@ if (mouse_check_button(mb_left)) {
         if (attackRateCounter &gt;= attackRate) {
             audio_play_sound(snd_playerGun, 0, false);
        
-            // Set starting position of projectile based on weapon position, angle, and kickback
+            // Set starting position of projectile based on weapon position, angle, and kickback position before we fire this shell
             var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
             var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
@@ -648,6 +705,14 @@ if (mouse_check_button(mb_left)) {
             
             attackRateCounter = 0;
             
+            // Spit out a shell casing
+            // For now, just start the casing at the weapon offset
+            var casingX = x + weaponXOffset + weaponKickbackOffsetX;
+            var casingY = y + weaponYOffset + weaponKickbackOffsetY;
+            
+            casing = instance_create(casingX, casingY, obj_shellCasing_cucoon);
+            casing.direction = projectile.direction + random_range(115, 125);
+
             // Testing screen shake (not working at the moment)
             //scr_screenShake(0, 500);
         }
@@ -976,6 +1041,7 @@ if (x &lt; sprite_width/2) {
 if (x &gt; room_width - (sprite_width/2)) {
     x = room_width - (sprite_width/2);
 }
+
 </string>
           </argument>
         </arguments>
@@ -1167,29 +1233,6 @@ if (global.plrAbilityAttained[3]) {
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="83">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>isDropping = true;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="70">
       <action>
         <libid>1</libid>
@@ -1314,6 +1357,10 @@ if (global.plrAbilityAttained[1]) {
     
     // Change stats:
     scr_state_setNormal();
+    
+    // Tell camera to follow RT-6100 (player now deactivated)
+    scr_camera_follow_targetObject(obj_tower_RT6100);
+    
 }
 </string>
           </argument>

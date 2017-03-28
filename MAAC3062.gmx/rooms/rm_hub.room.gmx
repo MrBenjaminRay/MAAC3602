@@ -14,40 +14,118 @@
 
 audio_stop_all();
 
+// Initialize stats objects for all levels (doesn't overwrite if already initialized)
+scr_statistics_initializeAllLevels();
+
+// Show windows cursor
+window_set_cursor(cr_default);
+// Hide game cursor
+cursor_sprite = noone;
+
 // Unsure of the original purpose of the following line, but it
 // does not work with the new levelStats setup.
-/*
-if(global.levelStats[0, 21] &amp;&amp; !global.navPieceAttained[0]
-    &amp;&amp; !global.plrAbilityAttained[0]) {
+
+var levelData;
+var bossDropIcon;
+foundFalse = false;
+
+levelData = ds_map_find_value(global.levelStats, rm_level_moon);
+if(levelData[30]) {
     scr_msg_hubBossReward(0);
-    global.navPieceAttained[0] = true;
-    global.plrAbilityAttained[0] = true;
+    levelData[30] = false;
+    ds_map_replace(global.levelStats, rm_level_moon, levelData);
+    bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+    bossDropIcon.sprite_index = spr_drop_rawMaterial1;
 }
-else if(global.levelStats[1, 21] &amp;&amp; !global.navPieceAttained[1]
-    &amp;&amp; !global.plrAbilityAttained[1]) {
-    scr_msg_hubBossReward(1);
-    global.navPieceAttained[1] = true;
-    global.plrAbilityAttained[1] = true;
+else
+    foundFalse = true;
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_forest);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(1);
+        levelData[30] = false;
+        global.navPieceAttained[0] = true;
+        ds_map_replace(global.levelStats, rm_level_forest, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial2;
+    }
+    else
+        foundFalse = true;
 }
-else if(global.levelStats[2, 21] &amp;&amp; !global.navPieceAttained[2]
-    &amp;&amp; !global.plrAbilityAttained[2]) {
-    scr_msg_hubBossReward(2);
-    global.navPieceAttained[2] = true;
-    global.plrAbilityAttained[2] = true;
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_desert);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(2);
+        levelData[30] = false;
+        global.navPieceAttained[1] = true;
+        ds_map_replace(global.levelStats, rm_level_desert, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial3;
+    }
+    else
+       foundFalse = true; 
 }
-else if(global.levelStats[3, 21] &amp;&amp; !global.navPieceAttained[3]
-    &amp;&amp; !global.plrAbilityAttained[3]) {
-    scr_msg_hubBossReward(3);
-    global.navPieceAttained[3] = true;
-    global.plrAbilityAttained[3] = true;
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_ice);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(3);
+        levelData[30] = false;
+        global.navPieceAttained[2] = true;
+        ds_map_replace(global.levelStats, rm_level_ice, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial4;
+    }
+    else
+        foundFalse = true; 
 }
-else if(global.levelStats[4, 21] &amp;&amp; !global.navPieceAttained[4]
-    &amp;&amp; !global.plrAbilityAttained[4]) {
-    scr_msg_hubBossReward(4);
-    global.navPieceAttained[4] = true;
-    global.plrAbilityAttained[4] = true;
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_underwater);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(4);
+        levelData[30] = false;
+        global.navPieceAttained[3] = true;
+        ds_map_replace(global.levelStats, rm_level_underwater, levelData);
+    }
+    else
+        foundFalse = true; 
 }
-*/</code>
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_asteroid);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(5);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_asteroid, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_mars);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(6);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_mars, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_earth);
+    if(levelData[30]) {
+        //scr_msg_hubBossReward(7);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_earth, levelData);
+    }
+    else
+        foundFalse = true;
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -104,9 +182,9 @@ else if(global.levelStats[4, 21] &amp;&amp; !global.navPieceAttained[4]
     <instance objName="obj_levelSelScrn" x="128" y="544" name="inst_0ADBB0CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelSelScrnFlip" x="128" y="544" name="inst_33E542C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_back_small" x="16" y="832" name="inst_502DEA9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_levelMinerals" x="1472" y="32" name="inst_C1E8BE20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_navArray" x="1344" y="128" name="inst_D4044949" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bossComplete" x="1280" y="544" name="inst_7838E8E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_earthButton" x="448" y="512" name="inst_19EDFF39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -135,10 +135,6 @@ scr_level_initialize();</code>
     <instance objName="obj_mine" x="1120" y="832" name="inst_E17363B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-96" y="96" name="inst_D0DA8C18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-96" y="352" name="inst_AA42BBE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_levelEnergy" x="32" y="32" name="inst_57BE8FC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_levelMinerals" x="32" y="64" name="inst_7AB8A337" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_control_normalState" x="128" y="-32" name="inst_AD0DE20C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera" x="128" y="64" name="inst_302A4A9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="320" name="inst_3B7F738C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1664" y="320" name="inst_4AF10FF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1600" y="320" name="inst_16E5BE95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -207,7 +203,6 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1216" y="704" name="inst_DA90EEC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1248" y="704" name="inst_DCD0EE42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1280" y="704" name="inst_23E41D89" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_hotbar" x="64" y="128" name="inst_F738BE1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="896" y="512" name="inst_8082B7BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="864" y="512" name="inst_5F502142" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="800" y="512" name="inst_88E3495C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -216,7 +211,6 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1024" y="512" name="inst_B1BCBD0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1120" y="320" name="inst_A253CBBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="864" y="320" name="inst_3423E1CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelControl_2" x="192" y="-32" name="inst_4B8C7555" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="928" y="512" name="inst_5797B490" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="960" y="512" name="inst_04FC9FE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
@@ -357,8 +351,6 @@ scr_level_initialize();</code>
     <tile bgName="bkg_forest_tiles" x="1216" y="736" w="32" h="32" xo="96" yo="32" id="10000544" name="inst_1050F687" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="864" y="704" w="32" h="32" xo="192" yo="0" id="10001465" name="inst_FF0030EB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="896" y="704" w="32" h="32" xo="192" yo="0" id="10001466" name="inst_FAA276FD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_forest_tiles" x="928" y="704" w="32" h="32" xo="192" yo="0" id="10001467" name="inst_49A59FF2" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_forest_tiles" x="960" y="704" w="32" h="32" xo="192" yo="0" id="10001468" name="inst_0184839B" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="992" y="704" w="32" h="32" xo="192" yo="0" id="10001469" name="inst_34F12A22" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1024" y="704" w="32" h="32" xo="192" yo="0" id="10001470" name="inst_6C1BD70A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1056" y="704" w="32" h="32" xo="192" yo="0" id="10001471" name="inst_46BDCFFA" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -366,8 +358,6 @@ scr_level_initialize();</code>
     <tile bgName="bkg_forest_tiles" x="1120" y="704" w="32" h="32" xo="192" yo="0" id="10001473" name="inst_95B7A6C8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1152" y="704" w="32" h="32" xo="192" yo="0" id="10001474" name="inst_C1E09442" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1184" y="704" w="32" h="32" xo="192" yo="0" id="10001475" name="inst_0BF4D504" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_forest_tiles" x="1216" y="704" w="32" h="32" xo="192" yo="0" id="10001476" name="inst_145F0AB5" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_forest_tiles" x="1248" y="704" w="32" h="32" xo="192" yo="0" id="10001477" name="inst_5E20501D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1280" y="704" w="32" h="32" xo="192" yo="0" id="10001478" name="inst_6DB24BC8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1312" y="704" w="32" h="32" xo="192" yo="0" id="10001479" name="inst_584A92ED" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1344" y="704" w="32" h="32" xo="192" yo="0" id="10001480" name="inst_8CC7A932" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -420,6 +410,10 @@ scr_level_initialize();</code>
     <tile bgName="bkg_forest_tiles" x="928" y="320" w="32" h="32" xo="32" yo="32" id="10001549" name="inst_60643A51" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="1216" y="320" w="32" h="32" xo="32" yo="32" id="10001550" name="inst_EA2E80A1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_forest_tiles" x="928" y="544" w="32" h="32" xo="96" yo="64" id="10001551" name="inst_61C572F3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_forest_tiles" x="928" y="704" w="32" h="32" xo="32" yo="32" id="10001652" name="inst_D789515F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_forest_tiles" x="960" y="704" w="32" h="32" xo="192" yo="32" id="10001653" name="inst_BB3FBC6C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_forest_tiles" x="1216" y="704" w="32" h="32" xo="32" yo="32" id="10001654" name="inst_DF54F4F5" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_forest_tiles" x="1248" y="704" w="32" h="32" xo="192" yo="32" id="10001655" name="inst_E6D1C8A0" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

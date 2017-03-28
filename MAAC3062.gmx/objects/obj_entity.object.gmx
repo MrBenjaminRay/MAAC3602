@@ -27,14 +27,29 @@
             <kind>1</kind>
             <string>// ANIMATION:
 animationSpeed = 1;
+animationSpeedAdjust = 1;           // Increase or decrease the animation speed for a level. E.g. underwater level has speed adjust &lt; 1.
 
 // MOVEMENT:
-movementSpeed = 150 / 1000;     // Left/Right Movement Speed
+movementSpeed = 150 / 1000;         // Left/Right Movement Speed
+                                    // NOTE: For player (and entities using smooth left/right movement), this represents the 
+                                    // actual, current movement speed (which goes between 0 and movementSpeedDesired).
+                                    // For all other entities, this represents the simple entity movement speed, and is overridden
+                                    // at the entity level as needed.
+
+// SMOOTH MOVEMENT (currently used by player, nothing else yet)
+movementSpeedDefault = 150 / 1000;  // Speed to set as desired speed when (mainly left/right)
+movementSpeedDesired = 0;           // Current desired movement speed (normally -movementSpeedDefault or +movementSpeedDefault)
+movementSpeedAdjust = 1;            // Increase or decrease movement speed for a level.  E.g. underwater level has speed adjust &lt; 1.
+movementSpeedAcceleration = 0.005;  // Speed at which to accelerate movement speed until moving at movementSpeedDesired
+movementSpeedDeceleration = 0.01;   // Speed at which to decelerate movement speed until moving at movementSpeedDesired
+movementFrictionLevel = 1;          // Friction level. Only affects acceleration &amp; deceleration speed. Typically between 0 and 1. 
+                                    // 0 = no friction, 1 = normal. 1+ would be extra friction. Use low value (.1 or .2) for ice level,
+                                    // and medium-low level (.5) for underwater level.
+
 jumpSpeed = .72;                // Jump Movement Speed
-currentJumpSpeed = 0;           // Current Jump Movement Speed
-currentDropSpeed = 0;           // Current Drop Movement Speed
-currentFallSpeed = 0;           // Current Fall Movement Speed
+jumpAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 jump speed adjustment.
 gravConst = .0015;              // Gravity Constant - Can override for entities that are really light or really heavy (feathers, pianos, etc.)
+gravAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 gravity adjustment.
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
 
@@ -120,7 +135,7 @@ with (weaponObj) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Movement</string>
+            <string>Vertical Movement</string>
           </argument>
         </arguments>
       </action>
@@ -144,6 +159,8 @@ with (weaponObj) {
     return 0;
 }
 
+image_speed = animationSpeed * animationSpeedAdjust;
+
 // SPECIAL CASE:
 // If the entity's y-axis coordinate is above 0, then force the entity to
 // drop to a lower platform.
@@ -151,41 +168,30 @@ if (y &lt; 0) {
     scr_entity_forceDrop();
 }
 
-// If we are already inside a tile, something sent us there that should not have,
-// or the sprite collision mask changed (animated or rotating sprite) and it got
-// pushed into the tile.  In those cases, we can safely move the sprite up if the
-// colliding tile is below it.  If colliding tile is beside it, e.g. an animated
-// enemy standing against a wall with animated sprite (collision box changing),
-// we need to figure something else out, or the sprite will climb the wall.
-// Note: If we are dropping, this block is skipped (entity is expected to be inside tile)
+// SPECIAL CASE:
+// If the entity is inside a tile at the start of a step, either it was erroneously
+// pushed down into the tile, the sprite is animated or rotating and the collision
+// mask has pushed down into the tile without the y position changing.
+// Note: If entity is dropping or jumping through a tile, this block is skipped, 
+// as the entity is allowed to be inside a tile.
 while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !isJumping) {
-    if (object_index == obj_drop_energy) {
-        // Push energy drops up (they rotate and collide with tiles, so they need a boost)
-        y--;
-    } else {
-        // Push everything else up as well
-        // Will expand this section if needed. Can't remember why I separated this out. -Ben
-        y--;        
-    }
+    y--;
 }
 
 // APPLY GRAVITY
-// Increase vertical speed (regardless of jumping or not still)
-var oldVspeed = vspeed;
-vspeed += gravConst * global.deltaTime; // Increase speed based on delta time
+// Increase vertical speed (regardless of jumping or not)
+vspeed += gravConst * gravAdjust * global.deltaTime; // Increase speed based on delta time
 
-var newY = y + vspeed * global.deltaTime; // Increase position based on delta time
-var oldY = y;
+var newY = y + vspeed * global.deltaTime; // Get new proposed y value based on speed &amp; delta time
 
 if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
     // Collision at new Y
-    if (!isJumping || (isJumping &amp;&amp; vspeed &gt; 0 &amp;&amp; !place_meeting(x, oldY, obj_physicsTile))) {
+    if (!isJumping || (isJumping &amp;&amp; vspeed &gt; 0 &amp;&amp; !place_meeting(x, y, obj_physicsTile))) {
         // Either:
         //      Entity is not jumping, or
         //      Entity is jumping, is on the way down from the jump (vspeed&gt;0), and has cleared
-        //      the platform and will now stand on top of it. We can tell that by checking if
-        //      isJumping==true, vspeed &gt; 0, and if no collision at current Y but collision at new Y.
-        //      NOTE:  The jumping through platforms is currently disabled, pending a bug fix.
+        //      the platform - it was not colliding last step (y) and is colliding this step (newY).
+        //      Entity will now be standing on top of the platform.
         
         // With collision at new Y, we can't just move there. Instead, we change y until it would collide.
         var tweakY;
@@ -194,10 +200,12 @@ if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
         } else {
             tweakY = 1; // Entity is travelling downward
         }
+
         // Increase/decrease Y until entity would collide.
         while (place_meeting(x, y+tweakY, obj_physicsTile) == false) {
             y += tweakY;
         }
+
         // Whether entity was going up or down, vspeed must be set to 0.
         vspeed = 0;
         
@@ -206,7 +214,11 @@ if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
             isJumping = false;
         }
                 
-    } 
+    } else {
+        // Entity is jumping, is colliding with a platform, and has not cleared the platform yet, 
+        // so let him pass through it.
+        y = newY;
+    }
 
 } else {
     // No collision at new Y, or player is dropping through tile, so we can just move there.

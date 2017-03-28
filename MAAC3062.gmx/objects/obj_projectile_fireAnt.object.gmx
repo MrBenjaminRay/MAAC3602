@@ -49,6 +49,7 @@ enemiesHit = 0;
 maxEnemiesHit = 10;
 alarm[1] = room_speed * 0.75;
 lastHitEnemy = noone;
+
 </string>
           </argument>
         </arguments>
