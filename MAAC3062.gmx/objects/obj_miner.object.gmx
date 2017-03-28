@@ -113,6 +113,9 @@ pickCount = 0;      // Total # of times the miner has mined
 deadMinerOffsetX = 12; // X offset to use when creating miner dying object (miners not lined up in sprites)
 deadMinerOffsetY = 5; // X offset to use when creating miner dying object (miners not lined up in sprites)
 
+// Update stats object every time a miner is spawned on a level
+scr_statistics_setData(31, scr_statistics_getData(31)+1);
+
 </string>
           </argument>
         </arguments>
@@ -144,6 +147,9 @@ if (instance_number(obj_miner) == 1) {
     // This is the last miner on the level, and it is dying now.
     scr_doLevelFail_minersDead(inst.x + inst.sprite_width/2, inst.y + inst.sprite_width/2);
 }
+
+// Update stats object every time a miner is killed on a level
+scr_statistics_setData(32, scr_statistics_getData(32)+1);
 
 </string>
           </argument>
