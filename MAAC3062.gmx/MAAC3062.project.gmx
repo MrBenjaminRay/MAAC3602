@@ -777,6 +777,7 @@
         <object>objects\obj_projectile_caliBear</object>
         <object>objects\obj_projectile_rainbowTrout</object>
         <object>objects\obj_projectile_mechaGoat</object>
+        <object>objects\obj_projectile_mechaGoat_jetPack</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
