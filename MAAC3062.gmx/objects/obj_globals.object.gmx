@@ -28,7 +28,7 @@
             <string>global.navPieceAttained[0] = false; // Whether or not the player has attained the first nav piece.
 global.navPieceAttained[1] = false; // Whether or not the player has attained the second nav piece.
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
-global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
+global.navPieceAttained[3] = true; // Whether or not the player has attained the fourth nav piece.
 
 global.towerUnlocked[0] = true; // Basic Tower
 global.towerUnlocked[1] = true; // Freezer Tower
@@ -303,6 +303,28 @@ global.towers[5, 12] = 100;
 global.towers[5, 13] = 800;
 global.towers[5, 13] = obj_weapon_rt6100;
 
+// Mecha Goat Deployer
+global.towers[6, 0] = "Mecha Goat Deployer";
+global.towers[6, 1] = 2000;
+global.towers[6, 2] = obj_tower_mechaGoat;
+global.towers[6, 3] = spr_tower_mechaGoat_left;
+global.towers[6, 4] = 400;
+global.towers[6, 5] = sprite_get_width(global.towers[6, 3]) / 2;
+global.towers[6, 6] = (sprite_get_height(global.towers[6, 3]) / 2) - 16;
+global.towers[6, 7] = 200;
+global.towers[6, 8] = 256;
+global.towers[6, 9] = ds_list_create();
+ds_list_add(global.towers[6, 9], global.towers[6, 0]);
+ds_list_add(global.towers[6, 9], "Damage: High");
+ds_list_add(global.towers[6, 9], "Fire Rate: Low-Medium");
+ds_list_add(global.towers[6, 9], "Range: High");
+ds_list_add(global.towers[6, 9], "Armor: High");
+ds_list_add(global.towers[6, 9], "Costs " + string(global.towers[6, 1]) + " Energy");
+global.towers[6, 10] = scr_misc_secondsToDeltaTime(5);
+global.towers[6, 11] = 60;
+global.towers[6, 12] = 100;
+global.towers[6, 13] = 800;
+global.towers[6, 13] = noone; // No weapon for this tower
 </string>
           </argument>
         </arguments>

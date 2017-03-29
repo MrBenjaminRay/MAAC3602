@@ -67,6 +67,7 @@ rotation = 0;   // Use this to do custom rotation in draw event. This allows the
     return 0;
 }
 
+// Reduce speed
 if (speed &gt; 0) {
     speed -= 0.007;
     if (speed &lt; 0) {

@@ -73,12 +73,17 @@ global.currentLevelComplete = 0;    // Used to make sure that player doesn't los
                                     // animation/sequence
 global.currentLevelFailed = 0;      // Used to prevent damage and possibly other things from occurring
                                     // once the player has failed the level due to death or losing all miners
-                                 
+                             
+global.skipToNavRoom = false; //used to skip to nav room when closing clickMessage
+                                    
 global.moonLevelComplete = 0;
 global.forestLevelComplete = 0;
 global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;
+global.asteroidLevelComplete = 0;
+global.marsLevelComplete = 0;
+global.earthLevelComplete = 0;
 
 global.catsAndDogsUnlock = 0;
 
@@ -90,7 +95,7 @@ global.titMouseUnlockCost = 3000;
 global.CalibearUnlockCost = 3000;
 global.fireAntUnlockCost = 5000;
 global.RT6100UnlockCost = 10000;
-global.mechaGoatUnlockCost = 474747;
+global.mechaGoatUnlockCost = 13000;
 //global.armadilloUnlockCost = 5000;
 //global.porpoiseUnlockCost = 6000;
 //global.gorillaUnlockCost = 5000;
@@ -104,7 +109,7 @@ global.titMouseUpgradeCost = 5000;
 global.fireAntUpgradeCost = 3500;
 global.CalibearUpgradeCost = 3000;
 global.RT6100UpgradeCost = 6000;
-global.mechaGoatUpgradeCost = 696969;
+global.mechaGoatUpgradeCost = 8000;
 //global.armadilloUpgradeCost = 4500;
 //global.porpoiseUpgradeCost = 3500;
 //global.gorillaUpgradeCost = 3000;

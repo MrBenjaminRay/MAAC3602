@@ -39,8 +39,7 @@ if (canSpawn) {
     projectile.yDest = argument[3].y + (argument[3].sprite_height/2);
     projectile.isEnemyProjectile = argument[4];
     projectile.damage = argument[5];
+    // Return the object spawned in case more work needs to be done to it
+    return projectile;
 }
-
-// Return the object spawned in case more work needs to be done to it
-return projectile;
 
