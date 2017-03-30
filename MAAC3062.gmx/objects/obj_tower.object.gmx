@@ -45,6 +45,47 @@ healthBarYOffset = sprite_height - 10;
 
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
+
+
+// Use upgraded art if possible:
+switch (self.object_index) {
+    case obj_tower_caterpillager: {
+        if (global.towerUpgradeLevel[0] &gt; 1) {
+            sprite_index = spr_basic_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_slothOnRope: {
+        if (global.towerUpgradeLevel[1] &gt; 1) {
+            sprite_index = spr_slow_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_tacticalTitmouse: {
+        if (global.towerUpgradeLevel[2] &gt; 1) {
+            sprite_index = spr_mortar_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_109CaliBear: {
+        if (global.towerUpgradeLevel[3] &gt; 1) {
+            sprite_index = spr_rifle_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_fireAnt: {
+        if (global.towerUpgradeLevel[4] &gt; 1) {
+            sprite_index = spr_flame_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_RT6100: {
+        if (global.towerUpgradeLevel[5] &gt; 1) {
+            sprite_index = spr_6100_Upgrade;
+        }
+        break;
+    }
+}
 </string>
           </argument>
         </arguments>
