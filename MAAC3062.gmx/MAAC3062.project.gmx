@@ -52,6 +52,9 @@
       <sound>sound\snd_menuClick_reject</sound>
       <sound>sound\snd_menuClick_squeak</sound>
     </sounds>
+    <sounds name="Story">
+      <sound>sound\snd_asteroidImpact</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="UI_HUD">
