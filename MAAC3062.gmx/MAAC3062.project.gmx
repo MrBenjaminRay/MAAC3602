@@ -377,6 +377,7 @@
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
       <sprite>sprites\spr_dummy_bossControl</sprite>
+      <sprite>sprites\spr_dummy_saleButton</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -590,7 +591,6 @@
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
       <script>scripts\scr_state_setBuild.gml</script>
-      <script>scripts\scr_state_setDestroy.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_setLevelFailed.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
@@ -838,7 +838,9 @@
     <objects name="States">
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
-      <object>objects\obj_control_destroyState</object>
+      <objects name="Misc">
+        <object>objects\obj_button_sellTower</object>
+      </objects>
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>
