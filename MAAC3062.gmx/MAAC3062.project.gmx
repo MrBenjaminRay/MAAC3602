@@ -61,6 +61,7 @@
       <sprite>sprites\spr_bossItemHUD</sprite>
       <sprite>sprites\spr_energyHUD</sprite>
       <sprite>sprites\spr_enemiesKilledHUD</sprite>
+      <sprite>sprites\spr_minersAliveHUD</sprite>
       <sprite>sprites\spr_mineralsHUD</sprite>
       <sprite>sprites\spr_progressHUD</sprite>
       <sprite>sprites\spr_bossItemHUD_mockup</sprite>
@@ -87,6 +88,7 @@
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
+        <sprite>sprites\spr_toolTipBox_Background</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -637,6 +639,7 @@
     <font>fonts\fnt_hud_hotbar_hotkey</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
+    <font>fonts\fnt_hud_hover</font>
   </fonts>
   <objects name="objects">
     <objects name="Control">
@@ -859,6 +862,7 @@
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
       <object>objects\obj_hud_levelKills</object>
+      <object>objects\spr_hud_minersAlive</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
       <object>objects\obj_hud_bossObject</object>
