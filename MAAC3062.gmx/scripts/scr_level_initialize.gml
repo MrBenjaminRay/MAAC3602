@@ -7,7 +7,7 @@ global.initialMinerals = global.minerals;
 // Spawn Required Objects:
 instance_create(-50, -50, obj_control_bosses);
 instance_create(-50, -50, obj_hud_levelEnergy);
-instance_create(-50, -50, obj_hud_levelMinerals);
+//instance_create(-50, -50, obj_hud_levelMinerals);
 instance_create(-50, -50, obj_hud_levelKills);
 instance_create(-50, -50, obj_hud_bossObject);
 instance_create(-50, -50, obj_camera);
