@@ -60,5 +60,8 @@ if (canProceed) {
     roomData[28] = 0;  // Total Enemies Killed
     roomData[29] = 0;  // Minerals Earned
     roomData[30] = false; // Level Boss Killed This Trip
+    roomData[31] = 0;  // Miners spawned on level
+    roomData[32] = 0;  // Miners killed on level
     ds_map_add(global.levelStats, roomToInitialize, roomData);
 }
+

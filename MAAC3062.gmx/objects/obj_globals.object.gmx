@@ -42,17 +42,12 @@ global.towerUnlocked[6] = false; // Goat Tower
 // NOTE:
 //      The "upgrade level" is a multiplier applied to the damage, range, and cost
 //      values of the associated tower.
-global.towerUpgradeLevel[0] = 1; // Basic Tower
-global.towerUpgradeLevel[1] = 1; // Freezer Tower
-global.towerUpgradeLevel[2] = 1; // Mortar Tower
+global.towerUpgradeLevel[0] = 1; // Caterpillager Tower
+global.towerUpgradeLevel[1] = 1; // Sloth Tower
+global.towerUpgradeLevel[2] = 1; // Titmouse Tower
 global.towerUpgradeLevel[3] = 1; // 109 Cal Tower
 global.towerUpgradeLevel[4] = 1; // Flame Tower
 global.towerUpgradeLevel[5] = 1; // M6100 Tower
-global.towerUpgradeLevel[6] = 1; // Mecha-goat Tower
-global.towerUpgradeLevel[7] = 1; // Armadillo Tower
-global.towerUpgradeLevel[8] = 1; // Porpoise Tower
-global.towerUpgradeLevel[9] = 1; // Gorilla Tower
-global.towerUpgradeLevel[10] = 1; // Electric Eel Tower
 </string>
           </argument>
         </arguments>
@@ -321,7 +316,7 @@ ds_list_add(global.towers[6, 9], "Range: High");
 ds_list_add(global.towers[6, 9], "Armor: High");
 ds_list_add(global.towers[6, 9], "Costs " + string(global.towers[6, 1]) + " Energy");
 global.towers[6, 10] = scr_misc_secondsToDeltaTime(5);
-global.towers[6, 11] = 3;
+global.towers[6, 11] = 60;
 global.towers[6, 12] = 100;
 global.towers[6, 13] = 800;
 global.towers[6, 13] = noone; // No weapon for this tower

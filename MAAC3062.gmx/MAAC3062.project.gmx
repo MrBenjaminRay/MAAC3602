@@ -52,6 +52,9 @@
       <sound>sound\snd_menuClick_reject</sound>
       <sound>sound\snd_menuClick_squeak</sound>
     </sounds>
+    <sounds name="Story">
+      <sound>sound\snd_asteroidImpact</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="UI_HUD">
@@ -377,6 +380,7 @@
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
       <sprite>sprites\spr_dummy_bossControl</sprite>
+      <sprite>sprites\spr_dummy_saleButton</sprite>
     </sprites>
     <sprites name="Cursors">
       <sprite>sprites\spr_wrench_cursor</sprite>
@@ -590,7 +594,6 @@
     <scripts name="States">
       <script>scripts\scr_state_setNormal.gml</script>
       <script>scripts\scr_state_setBuild.gml</script>
-      <script>scripts\scr_state_setDestroy.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
       <script>scripts\scr_state_setLevelFailed.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
@@ -601,12 +604,12 @@
     </scripts>
     <scripts name="Statistics">
       <script>scripts\scr_statistics_initializeLevel.gml</script>
+      <script>scripts\scr_statistics_initializeAllLevels.gml</script>
       <script>scripts\scr_statistics_incrementKill.gml</script>
       <script>scripts\scr_statistics_setBossDropPickedUp.gml</script>
       <script>scripts\scr_statistics_getData.gml</script>
       <script>scripts\scr_statistics_setData.gml</script>
       <script>scripts\scr_statistics_getTotalKills.gml</script>
-      <script>scripts\scr_statistics_initializeAllLevels.gml</script>
     </scripts>
     <scripts name="UI">
       <scripts name="Message Boxes">
@@ -777,6 +780,7 @@
         <object>objects\obj_projectile_caliBear</object>
         <object>objects\obj_projectile_rainbowTrout</object>
         <object>objects\obj_projectile_mechaGoat</object>
+        <object>objects\obj_projectile_mechaGoat_jetPack</object>
       </objects>
       <objects name="Tower">
         <object>objects\obj_tower</object>
@@ -837,7 +841,9 @@
     <objects name="States">
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
-      <object>objects\obj_control_destroyState</object>
+      <objects name="Misc">
+        <object>objects\obj_button_sellTower</object>
+      </objects>
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>
