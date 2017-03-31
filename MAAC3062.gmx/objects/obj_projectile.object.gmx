@@ -46,7 +46,7 @@
           <argument>
             <kind>1</kind>
             <string>damage = 10;                // The amount of damage dealt by the projectile.
-movementSpeed = 5;          // Up/Down/Left/Right Movement Speed
+//movementSpeed = 5;          // Up/Down/Left/Right Movement Speed
 isEnemyProjectile = true;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;    // gain value for the projectileHit sounds.
 
@@ -207,7 +207,7 @@ if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
     
-    if (other.movementDirection == "LEFT") {
+    if (other.hspeed &lt; 0) {
         if (damage &gt; 15) {
             other.x += damage;
         } else {
@@ -215,7 +215,7 @@ if (isEnemyProjectile == false) {
         }
     }
     
-    if (other.movementDirection == "RIGHT") {
+    if (other.hspeed &gt;= 0) {
         if (damage &gt; 15) {
             other.x -= damage;
         } else {

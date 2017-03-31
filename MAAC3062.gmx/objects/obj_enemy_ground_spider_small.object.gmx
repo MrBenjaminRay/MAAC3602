@@ -159,7 +159,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>movementSpeed</string>
+            <string>hspeed</string>
           </argument>
           <argument>
             <kind>0</kind>

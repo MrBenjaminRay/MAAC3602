@@ -143,13 +143,14 @@ alarm[0] = irandom_range(0.25, 0.75) * room_speed
     return 0;
 }
 
-if (movementDirection == "LEFT") {
-    scr_entity_moveLeft();
-}
+//if (movementDirection == "LEFT") {
+//    scr_entity_moveLeft();
+//}
 
-if (movementDirection == "RIGHT") {
-    scr_entity_moveRight();
-}
+//if (movementDirection == "RIGHT") {
+//    scr_entity_moveRight();
+//}
+
 </string>
           </argument>
         </arguments>
