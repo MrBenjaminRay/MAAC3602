@@ -691,7 +691,7 @@ if (mouse_check_button(mb_left)) {
             projectile.direction += random_range(-1.5, 1.5); // Randomize angle of fire slightly
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
-            projectile.image_angle = direction;     // Set direction immediately, otherwise it's not overridden 
+            projectile.image_angle = projectile.direction;     // Set direction immediately, otherwise it's not overridden 
                                                     // based on direction until 2nd projectile step.
             
             scr_create_explosion(projX, projY, 'Muzzle');
