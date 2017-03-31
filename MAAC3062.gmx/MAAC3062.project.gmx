@@ -581,7 +581,10 @@
         <script>scripts\scr_entity_moveLeft.gml</script>
         <script>scripts\scr_entity_moveRight.gml</script>
         <script>scripts\scr_entity_moveHorizontal.gml</script>
+        <script>scripts\scr_entity_startMovingRight.gml</script>
+        <script>scripts\scr_entity_startMovingLeft.gml</script>
         <script>scripts\scr_entity_drop.gml</script>
+        <script>scripts\scr_entity_moveTowardsPlayerOrRandom.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
