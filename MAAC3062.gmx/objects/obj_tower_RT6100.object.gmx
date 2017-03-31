@@ -396,6 +396,9 @@ if (mouse_check_button(mb_left)) {
             projectile.yDest = mouse_y + irandom_range(-10, 10);
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
+            projectile.direction = point_direction(x, y, projectile.xDest, projectile.yDest)
+            projectile.image_angle = projectile.direction;
+            
             
             scr_create_explosion(projX, projY, 'Flash');
             
