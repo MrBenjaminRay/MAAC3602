@@ -46,7 +46,6 @@ healthBarYOffset = sprite_height - 10;
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
 
-
 // Use upgraded art if possible:
 switch (self.object_index) {
     case obj_tower_caterpillager: {
@@ -85,6 +84,14 @@ switch (self.object_index) {
         }
         break;
     }
+    
+    // Tower warmup
+    warmUpTotal = 4000; // DEFAULT - will be overwritten in scr_entity_loadTowerData(#) with data from obj_globals
+    warmUpRemaining = warmUpTotal;
+    warmUpYOffset = 0;  // This is set automatically in scr_entity_loadTowerData(#) and is used to simulate the 
+                        // tower growing from the ground during warmup when being placed
+    originalY = 0;      // This keeps track of actual tower Y position so we can reset y after tower has grown
+
 }
 </string>
           </argument>
@@ -220,14 +227,22 @@ audio_sound_gain(snd_towerDestroy, 0.7, 0);
 
 var nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 
-// Shrink any existing weapon kickback
-if (weaponKickback &gt; 0) {
-    weaponKickback -= weaponKickbackResetSpeed * global.deltaTime;
-    clamp(weaponKickback, 0, weaponKickbackMax);
+// Decrement warmup time remaining if not 0
+if (warmUpRemaining &gt; 0) { 
+    warmUpRemaining -= global.deltaTime;
+    image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
+    y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
+    weaponObj.image_alpha = 0;
+}
+else {
+    warmUpRemaining = 0;
+    weaponObj.image_alpha = 1;
+    // Shrink any existing weapon kickback
+    scr_entity_weaponKickback_Shrink();
 }
 
 if (nearestEnemy != noone) {
-    if (attackRateCounter &gt;= attackRate) {
+    if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {
         attackRateCounter = 0;
         
         // Rotate the cannon to point towards the enemy:
