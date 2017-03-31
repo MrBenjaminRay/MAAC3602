@@ -72,6 +72,7 @@
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
+      <sprite>sprites\spr_minerbarHUD</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
@@ -480,6 +481,12 @@
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_sound_volumes</sprite>
+    <sprites name="Destroyed Buildings">
+      <sprite>sprites\spr_destroyed_building1</sprite>
+      <sprite>sprites\spr_destroyed_building2</sprite>
+      <sprite>sprites\spr_destroyed_building3</sprite>
+      <sprite>sprites\spr_destroyed_building4</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
