@@ -405,6 +405,14 @@ if (mouse_check_button(mb_left)) {
             // Start kickback
             scr_entity_weaponKickback_Start();
             
+            // Spit out a shell casing
+            // For now, just start the casing at the weapon offset
+            var casingX = x + weaponXOffset + weaponKickbackOffsetX;
+            var casingY = y + weaponYOffset + weaponKickbackOffsetY;
+            
+            casing = instance_create(casingX, casingY, obj_shellCasing_RT6100);
+            casing.direction = projectile.direction + random_range(115, 125);
+            
             attackRateCounter = 0;
         }
     }

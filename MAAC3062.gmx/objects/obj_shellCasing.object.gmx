@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>gravity = 0.0025;
-speed = random_range(.50, .55);
+speed = random_range(.50, .55); // Override this for RT-6100 shell casing
 
 // This is only needed if gravity &amp; speed are out of whack.
 // When gravity &amp; speed properly balanced, should only bounce a couple of times.
