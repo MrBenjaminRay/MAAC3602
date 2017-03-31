@@ -637,6 +637,7 @@
     <font>fonts\fnt_hud_mineralEnergyLevels</font>
     <font>fonts\fnt_levelFailMessage</font>
     <font>fonts\fnt_hud_hotbar_hotkey</font>
+    <font>fonts\fnt_hud_hoverNew</font>
     <font>fonts\fnt_hud_mineralEnergyLevelCues</font>
     <font>fonts\fnt_towerPlacement</font>
     <font>fonts\fnt_hud_hover</font>
@@ -862,7 +863,7 @@
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_levelMinerals</object>
       <object>objects\obj_hud_levelKills</object>
-      <object>objects\spr_hud_minersAlive</object>
+      <object>objects\obj_hud_minersAlive</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
       <object>objects\obj_hud_bossObject</object>

@@ -131,6 +131,9 @@ if (selected) {
     draw_sprite(spr_hotbar_item_selectedOverlay, 0, x, y);
 }
 
+// Set the font for the hotbar hover text (use same font for hotkey and hover text)
+draw_set_font(fnt_hud_hotbar_hotkey);
+
 if (enabled) {
     // Draw the tower sprite - it sits behind everything else, so draw it early
     var towerSprite = global.towers[towerIndex, 3];
@@ -138,11 +141,7 @@ if (enabled) {
     var towerOffset_x = (sprite_width - sprite_get_width(towerSprite)*towerScale)/2;
     var towerOffset_y = (sprite_height - sprite_get_height(towerSprite)*towerScale)/2;
     draw_sprite_ext(towerSprite, 0, x+towerOffset_x, y+towerOffset_y, towerScale, towerScale, 0, c_white, 1);
-    
-    
-    // Set the font for the hotkey number
-    draw_set_font(fnt_hud_hotbar_hotkey);
-    
+
     // Draw hotkey number shadow
     draw_set_colour(c_black);
     draw_set_alpha(0.5);
@@ -184,13 +183,25 @@ if (hover) {
     }
     
     draw_set_halign(fa_middle); // Center-align text so we don't have to calculate its width
-    draw_set_colour(c_white);
-    draw_set_alpha(1);
+
+    // Round values so text is pixel-perfect
+    // Draw shadow
+    draw_set_alpha(.5);
+    draw_set_colour(c_black);
     draw_text(
-        x + sprite_width/2, // Center drawing point
-        y -20,
+        round(x + sprite_width/2)+2, // Center drawing point
+        round(y - 20)+2,
         text
     );
+    // Draw hover text
+    draw_set_alpha(1);
+    draw_set_colour(c_white);
+    draw_text(
+        round(x + sprite_width/2), // Center drawing point
+        round(y - 20),
+        text
+    );
+    
     // Reset drawing alignment so we don't screw up other stuff drawn after this
     draw_set_halign(fa_left);
 }

@@ -44,7 +44,6 @@ changeCueTime = 1000;       // Amount of time to display cue before fading. Will
 textOffset_y = 0; // Leave at 0 for text to be vertically centered with icon
 
 
-
 // STUFF TO LEAVE ALONE (generally speaking)
 
 textShadowOffset_x = 2; // Always positive value
@@ -62,15 +61,14 @@ changeCueShadowOffset_x = 1; // Always positive value
 changeCueShadowOffset_y = 1; // Always positive value
 
 scaleNormal = 1;
-scaleLevelBoosted = 1.4;
-scaleLevelBoostedResetSpeed = 0.001;
-scaleLevelShrunk = .6;
-scaleLevelShrunkResetSpeed = 0.001;
+scale = scaleNormal;
+//scaleLevelBoosted = 1.4;
+//scaleLevelBoostedResetSpeed = 0.001;
+//scaleLevelShrunk = .6;
+//scaleLevelShrunkResetSpeed = 0.001;
 
 position_offset_x = 25; // Always positive value - how far away (x) from position to be drawn
 position_offset_y = 25; // Always positive value - how far away (y) from position to be drawn
-
-scale = scaleNormal;
 
 // DO NOT SET THIS VALUE ANYWHERE. It will be set automatically in Step code
 // by the inheriting objects based on either global.energy or global.minerals.
@@ -80,6 +78,8 @@ currentValueToDraw = 0;
 //tool tip stuff
 mouseHoverTime = 0;
 toolTipEnabled = false;
+
+shadowOffset = 1;
 
 </string>
           </argument>
@@ -105,12 +105,12 @@ toolTipEnabled = false;
             <kind>1</kind>
             <string>if (scale &gt; scaleNormal) {
     // Shrink scale towards normal size based on boost reset speed
-    scale -= scaleLevelBoostedResetSpeed * global.deltaTime;
+    //scale -= scaleLevelBoostedResetSpeed * global.deltaTime;
 }
 
 if (scale &lt; scaleNormal) {
     // Increase scale towards normal size based on shrink reset speed
-    scale += scaleLevelShrunkResetSpeed * global.deltaTime;
+    //scale += scaleLevelShrunkResetSpeed * global.deltaTime;
 }
 
 // Set image scale
@@ -240,15 +240,15 @@ if(mouseHoverTime &gt;= 60)
             <kind>1</kind>
             <string>// Draw the icon
 
-if (scale &gt; scaleNormal) {
-    // Shrink scale towards normal size based on boost reset speed
-    scale -= scaleLevelBoostedResetSpeed * global.deltaTime;
-}
+//if (scale &gt; scaleNormal) {
+//    // Shrink scale towards normal size based on boost reset speed
+//    scale -= scaleLevelBoostedResetSpeed * global.deltaTime;
+//}
 
-if (scale &lt; scaleNormal) {
-    // Increase scale towards normal size based on shrink reset speed
-    scale += scaleLevelShrunkResetSpeed * global.deltaTime;
-}
+//if (scale &lt; scaleNormal) {
+//    // Increase scale towards normal size based on shrink reset speed
+//    scale += scaleLevelShrunkResetSpeed * global.deltaTime;
+//}
 
 // Set image scale
 image_xscale = scale;
@@ -256,6 +256,7 @@ image_yscale = scale;
 
 // Draw the sprite in Draw GUI event to force it to appear above objects in the level
 draw_self();
+
 </string>
           </argument>
         </arguments>
@@ -319,7 +320,6 @@ draw_text(x+textOffset_x+textShadowOffset_x, y+textOffset_y+textShadowOffset_y, 
 draw_set_colour(c_yellow);
 draw_set_alpha(1);
 draw_text(x+textOffset_x, y+textOffset_y, currentValueToDraw);
-
 
 // Reset v &amp; h alignment
 draw_set_valign(fa_top);
