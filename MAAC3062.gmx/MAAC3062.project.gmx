@@ -828,6 +828,7 @@
       <objects name="ShellCasing">
         <object>objects\obj_shellCasing</object>
         <object>objects\obj_shellCasing_cucoon</object>
+        <object>objects\obj_shellCasing_RT6100</object>
       </objects>
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>

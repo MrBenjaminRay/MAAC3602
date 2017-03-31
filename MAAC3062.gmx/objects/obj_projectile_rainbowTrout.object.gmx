@@ -41,7 +41,7 @@
             <kind>1</kind>
             <string>xDest = x; // The destination x-axis coordinate.
 yDest = y; // The destination y-axis coordinate.
-movementSpeed = 5;
+movementSpeed = 6;
 
 scr_particle_projectile_addsmoketrail(.05);
 </string>
@@ -128,7 +128,7 @@ audio_sound_gain(snd_projectileHit_light, projectileHitGain, 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>motion_set(point_direction(x, y, xDest, yDest), movementSpeed);
+            <string>motion_set(direction, movementSpeed);
 </string>
           </argument>
         </arguments>

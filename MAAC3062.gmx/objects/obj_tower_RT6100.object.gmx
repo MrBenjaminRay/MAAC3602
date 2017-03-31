@@ -362,13 +362,23 @@ if (roundsFired == maxRoundsFired) {
     audio_sound_gain(snd_M6100_end, 0.5, 0);
 }
 
-
 if (attackRateCounter &lt; attackRate) {
     attackRateCounter += global.deltaTime;
 }
 
-// Shrink any existing weapon kickback
-scr_entity_weaponKickback_Shrink();
+// Decrement warmup time remaining if not 0
+if (warmUpRemaining &gt; 0) { 
+    warmUpRemaining -= global.deltaTime;
+    image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
+    y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
+    weaponObj.image_alpha = 0;
+}
+else {
+    warmUpRemaining = 0;
+    weaponObj.image_alpha = 1;
+    // Shrink any existing weapon kickback
+    scr_entity_weaponKickback_Shrink();
+}
 
 if (mouse_check_button(mb_left)) {
     var canFire = global.state != "Paused";
@@ -392,15 +402,26 @@ if (mouse_check_button(mb_left)) {
             var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
             
             var projectile = instance_create(projX, projY, obj_projectile_rainbowTrout);
-            projectile.xDest = mouse_x + irandom_range(-20, 20);
-            projectile.yDest = mouse_y + irandom_range(-10, 10);
+            //projectile.xDest = mouse_x + irandom_range(-20, 20);
+            //projectile.yDest = mouse_y + irandom_range(-10, 10);
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
+            projectile.direction = point_direction(projX, projY, mouse_x, mouse_y)
+            projectile.direction += random_range(-1.5, 1.5); // Randomize angle of fire slightly
+            projectile.image_angle = projectile.direction;
             
             scr_create_explosion(projX, projY, 'Flash');
             
             // Start kickback
             scr_entity_weaponKickback_Start();
+            
+            // Spit out a shell casing
+            // For now, just start the casing at the weapon offset
+            var casingX = x + weaponXOffset + weaponKickbackOffsetX;
+            var casingY = y + weaponYOffset + weaponKickbackOffsetY;
+            
+            casing = instance_create(casingX, casingY, obj_shellCasing_RT6100);
+            casing.direction = projectile.direction + random_range(115, 125);
             
             attackRateCounter = 0;
         }
@@ -586,7 +607,7 @@ if(isReloading == true &amp;&amp; reloadingText == false) {
             <string>draw_healthbar(x+reloadBarX, y+reloadBarY, x+reloadBarX+sprite_width, y+reloadBarY+10, ((maxRoundsFired - roundsFired)/maxRoundsFired)*100,
     c_black,c_yellow, c_yellow, 0, true, true);
     
-if(distance_to_object(obj_player) &lt;= sprite_width * 2)
+if(distance_to_object(obj_player) &lt;= sprite_width * 2 &amp;&amp; warmUpRemaining == 0)
     draw_text(x-31, y-43, "Press E to Mount");
 
 if(mounted)
