@@ -61,7 +61,7 @@ if (player != noone) {
         }
     }
     
-    show_debug_message(string(distance) + "---" + string(global.towers[towerId, 7]));
+    //show_debug_message(string(distance) + "---" + string(global.towers[towerId, 7]));
     isLocationValid &= distance <= global.towers[towerId, 7];
 }
 

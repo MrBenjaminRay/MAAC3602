@@ -146,20 +146,22 @@ global.plrAbilityCooldown_upgraded[2] = 10000;  // Delta time value.
           <argument>
             <kind>1</kind>
             <string>// Format:
-//      Name
-//      Object
-//      Sprite
-//      Range
-//      WeaponXOffset
-//      WeaponYOffset
-//      ????? No clue what this is for
-//      Placement distance. The distance from the player to placement location, in pixels.
-//      List of strings to display on tower placement.
-//      Attack Rate
-//      Damage
-//      Health
-//      Shield
-//      Weapon Object
+//       [0] Name
+//       [1] Cost
+//       [2] Object
+//       [3] Sprite
+//       [4] Range
+//       [5] WeaponXOffset
+//       [6] WeaponYOffset
+//       [7] ????? No clue what this is for
+//       [8] Placement distance. The distance from the player to placement location, in pixels.
+//       [9] List of strings to display on tower placement.
+//      [10] Attack Rate
+//      [11] Damage
+//      [12] Health
+//      [13] Shield
+//      [14] Weapon Object
+//      [15] Warmup before first attack after placement (milliseconds) 
 
 // CATER PILLAGER:
 global.towers[0, 0] = "CaterPillager";
@@ -182,7 +184,8 @@ global.towers[0, 10] = scr_misc_secondsToDeltaTime(0.5);
 global.towers[0, 11] = 15;
 global.towers[0, 12] = 100;
 global.towers[0, 13] = 100;
-global.towers[0, 13] = obj_weapon_caterpillager;
+global.towers[0, 14] = obj_weapon_caterpillager;
+global.towers[0, 15] = 4000;
 
 // SLOTH ON A ROPE:
 global.towers[1, 0] = "Sloth On a Rope";
@@ -204,7 +207,8 @@ global.towers[1, 10] = scr_misc_secondsToDeltaTime(0);
 global.towers[1, 11] = 0;
 global.towers[1, 12] = 100;
 global.towers[1, 13] = 400;
-global.towers[1, 13] = obj_weapon_sloth;
+global.towers[1, 14] = obj_weapon_sloth;
+global.towers[1, 15] = 4000;
 
 // TACTICAL TITMOUSE:
 global.towers[2, 0] = "Tactical Titmouse";
@@ -227,7 +231,8 @@ global.towers[2, 10] = scr_misc_secondsToDeltaTime(4);
 global.towers[2, 11] = 40;
 global.towers[2, 12] = 100;
 global.towers[2, 13] = 50;
-global.towers[2, 13] = obj_weapon_titmouse;
+global.towers[2, 14] = obj_weapon_titmouse;
+global.towers[2, 15] = 4000;
 
 // 109 CALI-BEAR RIFLE:
 global.towers[3, 0] = "109 Cali-Bear Rifle";
@@ -250,7 +255,8 @@ global.towers[3, 10] = scr_misc_secondsToDeltaTime(2);
 global.towers[3, 11] = 35;
 global.towers[3, 12] = 100;
 global.towers[3, 13] = 200;
-global.towers[3, 13] = obj_weapon_caliBear;
+global.towers[3, 14] = obj_weapon_caliBear;
+global.towers[3, 15] = 4000;
 
 // FIREANT HOSE:
 global.towers[4, 0] = "FireAnt Hose";
@@ -273,7 +279,8 @@ global.towers[4, 10] = scr_misc_secondsToDeltaTime(0.125);
 global.towers[4, 11] = 0;
 global.towers[4, 12] = 100;
 global.towers[4, 13] = 400;
-global.towers[4, 13] = obj_weapon_fireAnt;
+global.towers[4, 14] = obj_weapon_fireAnt;
+global.towers[4, 15] = 4000;
 
 // RT-6100
 global.towers[5, 0] = "RT-6100";
@@ -296,7 +303,8 @@ global.towers[5, 10] = scr_misc_secondsToDeltaTime(0.084);
 global.towers[5, 11] = 3;
 global.towers[5, 12] = 100;
 global.towers[5, 13] = 800;
-global.towers[5, 13] = obj_weapon_rt6100;
+global.towers[5, 14] = obj_weapon_rt6100;
+global.towers[5, 15] = 4000;
 
 // Mecha Goat Deployer
 global.towers[6, 0] = "Mecha Goat Deployer";
@@ -319,7 +327,9 @@ global.towers[6, 10] = scr_misc_secondsToDeltaTime(5);
 global.towers[6, 11] = 60;
 global.towers[6, 12] = 100;
 global.towers[6, 13] = 800;
-global.towers[6, 13] = noone; // No weapon for this tower
+global.towers[6, 14] = noone; // No weapon for this tower
+global.towers[6, 15] = 4000;
+
 </string>
           </argument>
         </arguments>
