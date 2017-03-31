@@ -64,15 +64,12 @@
       <sprite>sprites\spr_minersAliveHUD</sprite>
       <sprite>sprites\spr_mineralsHUD</sprite>
       <sprite>sprites\spr_progressHUD</sprite>
-      <sprite>sprites\spr_bossItemHUD_mockup</sprite>
-      <sprite>sprites\spr_energyHUD_mockup</sprite>
-      <sprite>sprites\spr_enemiesKilledHUD_mockup</sprite>
-      <sprite>sprites\spr_mineralsHUD_mockup</sprite>
-      <sprite>sprites\spr_progressHUD_mockup</sprite>
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
       <sprite>sprites\spr_minerbarHUD</sprite>
+      <sprite>sprites\spr_ability_1and2</sprite>
+      <sprite>sprites\spr_ability_3and4</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
