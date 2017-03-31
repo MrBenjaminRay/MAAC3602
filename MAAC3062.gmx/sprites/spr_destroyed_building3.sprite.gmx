@@ -7,19 +7,21 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>4</bbox_left>
-  <bbox_right>276</bbox_right>
-  <bbox_top>2</bbox_top>
-  <bbox_bottom>42</bbox_bottom>
+  <bbox_left>0</bbox_left>
+  <bbox_right>233</bbox_right>
+  <bbox_top>0</bbox_top>
+  <bbox_bottom>279</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>286</width>
-  <height>43</height>
+  <width>234</width>
+  <height>280</height>
   <frames>
-    <frame index="0">images\spr_progressHUD_0.png</frame>
+    <frame index="0">images\spr_destroyed_building3_0.png</frame>
+    <frame index="1">images\spr_destroyed_building3_1.png</frame>
+    <frame index="2">images\spr_destroyed_building3_2.png</frame>
   </frames>
 </sprite>

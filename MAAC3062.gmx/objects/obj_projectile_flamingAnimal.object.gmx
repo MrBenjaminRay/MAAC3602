@@ -49,7 +49,7 @@
 isEnemyProjectile = false;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 
-vspeed = movementSpeed;
+vspeed = movementSpeedDesired;
 
 maxLife = 10000;
 life = 0;

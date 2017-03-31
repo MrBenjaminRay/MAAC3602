@@ -72,6 +72,7 @@
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
+      <sprite>sprites\spr_minerbarHUD</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
@@ -480,6 +481,12 @@
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_sound_volumes</sprite>
+    <sprites name="Destroyed Buildings">
+      <sprite>sprites\spr_destroyed_building1</sprite>
+      <sprite>sprites\spr_destroyed_building2</sprite>
+      <sprite>sprites\spr_destroyed_building3</sprite>
+      <sprite>sprites\spr_destroyed_building4</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -578,10 +585,12 @@
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
-        <script>scripts\scr_entity_moveLeft.gml</script>
-        <script>scripts\scr_entity_moveRight.gml</script>
-        <script>scripts\scr_entity_moveHorizontal.gml</script>
+        <script>scripts\scr_entity_moveLeft_OLD.gml</script>
+        <script>scripts\scr_entity_moveRight_OLD.gml</script>
+        <script>scripts\scr_entity_startMovingRight.gml</script>
+        <script>scripts\scr_entity_startMovingLeft.gml</script>
         <script>scripts\scr_entity_drop.gml</script>
+        <script>scripts\scr_entity_moveTowardsPlayerOrRandom.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
