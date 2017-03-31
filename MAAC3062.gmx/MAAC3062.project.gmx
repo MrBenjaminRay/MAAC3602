@@ -71,6 +71,7 @@
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
+      <sprite>sprites\spr_minerbarHUD</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
