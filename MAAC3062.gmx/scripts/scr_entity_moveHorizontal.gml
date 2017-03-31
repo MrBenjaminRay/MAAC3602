@@ -8,15 +8,14 @@ if (global.state == "Paused") {
 //movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedAcceleration * global.deltaTime; //Smoothly accelerate / decelerate to the wanted speed.
 
 // TWO-SPEED VERSION (different acceleration & deceleration speeds)
-if (abs(movementSpeed) < abs(movementSpeedDesired - movementSpeed)) {
-    movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
+if (abs(hspeed) < abs(movementSpeedDesired - hspeed)) {
+    hspeed += (movementSpeedDesired - hspeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
 } else {
-    movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
+    hspeed += (movementSpeedDesired - hspeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
 }
 
-
 // Calculate new proposed position
-var newX = x + movementSpeed * movementSlowEffectLevel * global.deltaTime;
+var newX = x + hspeed * movementSlowEffectLevel * global.deltaTime;
 
 // Check collision
 if (place_meeting(newX, y, obj_physicsTile)) {

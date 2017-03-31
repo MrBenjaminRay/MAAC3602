@@ -578,9 +578,8 @@
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
-        <script>scripts\scr_entity_moveLeft.gml</script>
-        <script>scripts\scr_entity_moveRight.gml</script>
-        <script>scripts\scr_entity_moveHorizontal.gml</script>
+        <script>scripts\scr_entity_moveLeft_OLD.gml</script>
+        <script>scripts\scr_entity_moveRight_OLD.gml</script>
         <script>scripts\scr_entity_startMovingRight.gml</script>
         <script>scripts\scr_entity_startMovingLeft.gml</script>
         <script>scripts\scr_entity_drop.gml</script>

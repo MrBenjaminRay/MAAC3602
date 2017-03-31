@@ -363,15 +363,15 @@ var nearestPlayer = scr_misc_gearNearestObjectOfType(attackRange - (attackRange 
 var towerOrPlayerNearby = nearestTower != noone || nearestPlayer != noone;
 
 if (towerOrPlayerNearby) {
-    movementSpeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
+    hspeed = movementSpeed_actual * ((maxFreezeMultiplier - freezeMultiplier) / maxFreezeMultiplier);
     
-    if (movementDirection == "LEFT") {
-        scr_entity_moveRight();
-    }
+    //if (movementDirection == "LEFT") {
+    //    scr_entity_moveRight();
+    //}
     
-    if (movementDirection == "RIGHT") {
-        scr_entity_moveLeft();
-    }
+    //if (movementDirection == "RIGHT") {
+    //    scr_entity_moveLeft();
+    //}
 }
 </string>
           </argument>
