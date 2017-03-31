@@ -851,7 +851,8 @@ if (weaponKickback &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(keyboard_check(ord('X'))) {
+            <string>/*
+if(keyboard_check(ord('X'))) {
     xKeyHeld = 1;
 }
 else {
@@ -891,7 +892,7 @@ if(xKeyHeldCounter == 90) {
         }
     }
 }
-
+*/
 
 </string>
           </argument>

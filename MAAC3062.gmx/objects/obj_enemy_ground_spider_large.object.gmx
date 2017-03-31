@@ -160,15 +160,24 @@
           <argument>
             <kind>1</kind>
             <string>if (scr_getLevelId() == 0) {
-    sprite_index = spr_heavy_spider_O;
+    sprite_index = spr_heavy_spider_small_P;
 } else if (scr_getLevelId() == 1) {
-    sprite_index = spr_heavy_spider_O;
+    sprite_index = spr_heavy_spider_small_O;
 } else if (scr_getLevelId() == 2) {
-    sprite_index = spr_heavy_spider_O;
-} else if (scr_getLevelId() == 3) {
-    sprite_index = spr_heavy_spider_O;
+    sprite_index = spr_heavy_spider_small_O;
+} 
+else if (scr_getLevelId() == 3) {
+    sprite_index = spr_heavy_spider_small_B;
 } else if (scr_getLevelId() == 4) {
-    sprite_index = spr_heavy_spider_O;
+    sprite_index = spr_heavy_spider_small_P;
+} else if (scr_getLevelId() == 5) {
+    sprite_index = spr_heavy_spider_small_P;
+}
+else if (scr_getLevelId() == 6) {
+    sprite_index = spr_heavy_spider_small_O;
+}
+else if (scr_getLevelId() == 7) {
+    sprite_index = spr_heavy_spider_small_O;
 }
 </string>
           </argument>
