@@ -119,6 +119,9 @@ global.fieldPulseUpgradeCost = 2000;
 global.sneakySnakesUpgradeCost = 2000;
 global.blasterUpgradeCost = 5000;
 global.catsAndDogsUpgradeCost = 10000;
+
+
+
 </string>
           </argument>
         </arguments>

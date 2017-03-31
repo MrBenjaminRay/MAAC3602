@@ -95,6 +95,21 @@ timeUntilUnrooted = 0;
 while (place_meeting(x, y, obj_physicsTile) == false) {
     y++;
 }
+
+
+
+//set colour blends for levels 5-8
+if (scr_getLevelId() == 4) {
+    image_blend = c_blue; //water
+} else if (scr_getLevelId() == 5) {
+    image_blend = make_color_rgb(40, 40, 40); //asteroid
+}
+else if (scr_getLevelId() == 6) {
+    image_blend = make_color_rgb(255, 0, 0); //mars
+}
+else if (scr_getLevelId() == 7) {
+    image_blend = make_color_rgb(128, 0, 0); //earth
+}
 </string>
           </argument>
         </arguments>
