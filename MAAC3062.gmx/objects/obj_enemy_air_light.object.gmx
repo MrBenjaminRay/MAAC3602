@@ -165,10 +165,18 @@
     sprite_index = spr_flying_light_G;
 } else if (scr_getLevelId() == 2) {
     sprite_index = spr_flying_light_O;
-} else if (scr_getLevelId() == 3) {
-    sprite_index = spr_flying_light_P;
+}else if (scr_getLevelId() == 3) {
+    sprite_index = spr_light_flying_B;
 } else if (scr_getLevelId() == 4) {
-    sprite_index = spr_flying_light_G;
+    sprite_index = spr_flying_light_P;
+} else if (scr_getLevelId() == 5) {
+    sprite_index = spr_flying_light_P;
+}
+else if (scr_getLevelId() == 6) {
+    sprite_index = spr_flying_light_O;
+}
+else if (scr_getLevelId() == 7) {
+    sprite_index = spr_flying_light_O;
 }
 </string>
           </argument>

@@ -74,12 +74,13 @@
         x = selectedPlanet.x + 33;
         y = selectedPlanet.y + 39;
         break;
+    /*
     case spr_levelEarth:
         selectedPlanet = instance_nearest(x, y, obj_earthButton);
         x = selectedPlanet.x + 33;
         y = selectedPlanet.y + 39;
         break;
-    
+    */
 }
 </string>
           </argument>
@@ -119,6 +120,7 @@
     case spr_level4:
         room_goto(rm_level_underwater);
         break;
+    /*
     case spr_levelEarth:
         if(global.asteroidLevelComplete == 0)
             room_goto(rm_level_asteroid);
@@ -127,6 +129,7 @@
         else
             room_goto(rm_level_earth);
         break;
+    */
     default:
         show_debug_message("Go nowhere");
 }

@@ -262,6 +262,18 @@
           <sprite>sprites\spr_spider_light_small_P</sprite>
           <sprite>sprites\spr_light_spider_P</sprite>
         </sprites>
+        <sprites name="lightBlue">
+          <sprite>sprites\spr_medium_enemy_B</sprite>
+          <sprite>sprites\spr_light_enemy_B</sprite>
+          <sprite>sprites\spr_light_flying_B</sprite>
+          <sprite>sprites\spr_light_spider_B</sprite>
+          <sprite>sprites\spr_heavy_spider_small_B</sprite>
+          <sprite>sprites\spr_heavy_enemy_B</sprite>
+          <sprite>sprites\spr_flying_heavy_B</sprite>
+          <sprite>sprites\spr_jackal_B</sprite>
+          <sprite>sprites\spr_spider_light_small_B</sprite>
+          <sprite>sprites\spr_heavy_spider_B</sprite>
+        </sprites>
       </sprites>
       <sprites name="Player">
         <sprite>sprites\spr_player_old</sprite>
@@ -576,7 +588,10 @@
         <script>scripts\scr_entity_moveLeft.gml</script>
         <script>scripts\scr_entity_moveRight.gml</script>
         <script>scripts\scr_entity_moveHorizontal.gml</script>
+        <script>scripts\scr_entity_startMovingRight.gml</script>
+        <script>scripts\scr_entity_startMovingLeft.gml</script>
         <script>scripts\scr_entity_drop.gml</script>
+        <script>scripts\scr_entity_moveTowardsPlayerOrRandom.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
@@ -638,6 +653,7 @@
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
+    <script>scripts\script76.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -835,6 +851,7 @@
       <objects name="ShellCasing">
         <object>objects\obj_shellCasing</object>
         <object>objects\obj_shellCasing_cucoon</object>
+        <object>objects\obj_shellCasing_RT6100</object>
       </objects>
       <object>objects\obj_entity</object>
       <object>objects\obj_snake</object>
@@ -892,7 +909,6 @@
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
           <object>objects\obj_bossComplete</object>
-          <object>objects\obj_earthButton</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>

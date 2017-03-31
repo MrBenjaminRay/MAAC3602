@@ -51,6 +51,9 @@ type = "Ground";
 attackRate = 240;
 attackRange = sprite_width/4;
 
+// Automatically set horizontal movement to move towards player (if exists), otherwise random left/right.
+scr_entity_moveTowardsPlayerOrRandom();
+
 // Direction in which the entity is moving:
 //      LEFT
 //      RIGHT
@@ -62,7 +65,6 @@ age = 0;                    // Age of enemy (milliseconds since spawning) - for 
 energyDrop = 0;
 
 // TOWER-SPECIFIC DATA (Freeze):
-freeze_savedMovementSpeed = movementSpeed;          // The original speed of the enemy.
 freeze_stacks = 0;                                  // The number of stacks.
 freeze_maxStacks = 20;                              // The max number of stacks.
 freeze_isFrozen = false;                            // Whether or not the enemy is frozen.
@@ -94,6 +96,21 @@ timeUntilUnrooted = 0;
 // Clamp the enemy onto the tile it's spawned above:
 while (place_meeting(x, y, obj_physicsTile) == false) {
     y++;
+}
+
+
+
+//set colour blends for levels 5-8
+if (scr_getLevelId() == 4) {
+    image_blend = c_blue; //water
+} else if (scr_getLevelId() == 5) {
+    image_blend = make_color_rgb(40, 40, 40); //asteroid
+}
+else if (scr_getLevelId() == 6) {
+    image_blend = make_color_rgb(255, 0, 0); //mars
+}
+else if (scr_getLevelId() == 7) {
+    image_blend = make_color_rgb(128, 0, 0); //earth
 }
 </string>
           </argument>
@@ -350,17 +367,31 @@ if (nearestMiner != noone) {
     minerNearby = distance_to_point(nearestMiner.x, nearestMiner.y) &lt;= attackRange;
 }
 
-if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
-    movementSpeed = freeze_savedMovementSpeed * (1 - (freeze_stacks/freeze_maxStacks));
-
-    if (movementDirection == "LEFT") {
-        scr_entity_moveLeft();
-    }
-    
-    if (movementDirection == "RIGHT") {
-        scr_entity_moveRight();
-    }
+// HANDLE STUFF THAT MAKES ENEMIES STOP OR SLOW DOWN
+if (isRootedBySnake) {
+    // Complete movement freeze by setting slow effect level to 0
+    movementSlowEffectLevel = 0;
+    // Also force movement speed to 0 so speed has to accelerate again after snake rooting
+    movementSpeed = 0;
+} else if (minerNearby) {
+    // Force movement to 0 when attacking miner by setting slow effect level to 0 (bit of a hack, but it works)
+    movementSlowEffectLevel = 0;
+    // Also force movement speed to 0 so speed has to accelerate again after passing miner
+    movementSpeed = 0;
+} else {
+    // Set slow effect level based on freeze stacks
+    movementSlowEffectLevel = (1 - (freeze_stacks/freeze_maxStacks));
 }
+
+// RANDOM MOVEMENT DIRECTION IF DESIRED SPEED IS 0
+// Enemy is the scren, but not moving, so set a random direction
+if (movementSpeedDesired == 0) {
+    // Enemy is not moving horizontally, so we set a movement speed, hopefully
+    // moving towards player, otherwise random left/right.
+    scr_entity_moveTowardsPlayerOrRandom();
+}
+
+scr_entity_moveHorizontal();
 
 </string>
           </argument>

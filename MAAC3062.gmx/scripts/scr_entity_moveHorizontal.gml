@@ -9,13 +9,14 @@ if (global.state == "Paused") {
 
 // TWO-SPEED VERSION (different acceleration & deceleration speeds)
 if (abs(movementSpeed) < abs(movementSpeedDesired - movementSpeed)) {
-    movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime; 
+    movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
 } else {
-    movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime; 
+    movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
 }
 
+
 // Calculate new proposed position
-var newX = x + movementSpeed * global.deltaTime;
+var newX = x + movementSpeed * movementSlowEffectLevel * global.deltaTime;
 
 // Check collision
 if (place_meeting(newX, y, obj_physicsTile)) {

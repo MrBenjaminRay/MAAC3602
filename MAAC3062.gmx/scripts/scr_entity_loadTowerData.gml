@@ -20,7 +20,7 @@ if (canProceed) {
     
     // Create Object:   (for every weapon except goat tower)
     if (object_index != obj_tower_mechaGoat) {
-        weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, global.towers[argument[0], 13]);    
+        weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, global.towers[argument[0], 14]);    
             
         weaponObj.x = x + weaponXOffset;
         weaponObj.y = y + weaponYOffset;
@@ -35,5 +35,12 @@ if (canProceed) {
     
     maxHealth = global.towers[argument[0], 12];
     maxShield = global.towers[argument[0], 13];
+    
+    // Tower warmup
+    warmUpTotal = global.towers[argument[0], 15];
+    warmUpRemaining = warmUpTotal;
+    warmUpYOffset = 0; // UPDATE THIS
+    warmUpState = 0; // Two stages, 1 where tower is built, 1 where cannon is mounted
+    originalY = y; // Capture current Y so we can reset it after tower warmup growth complete
 
 }

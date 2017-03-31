@@ -1,3 +1,6 @@
+// Force random randoms
+randomize();
+
 // Initialize stats object for level
 scr_statistics_initializeLevel();
 
