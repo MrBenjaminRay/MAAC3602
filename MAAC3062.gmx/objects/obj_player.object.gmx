@@ -557,8 +557,7 @@ if(!(isRightPressed || isLeftPressed)) {
     }
 }
 
-// LEFT &amp; RIGHT MOVEMENT:
-scr_entity_moveHorizontal();
+
 
 </string>
           </argument>

@@ -284,14 +284,14 @@ if (nearestMiner != noone) {
 
 if (minerNearby == false) {
     movementSpeedDesired = movementSpeedDefault * (1 - (freeze_stacks/freeze_maxStacks));
+    // UDPATE THIS TO BE SIMILAR TO GROUND MOVEMENT
+    //if (movementDirection == "LEFT") {
+    //    scr_entity_moveLeft();
+    //}
     
-    if (movementDirection == "LEFT") {
-        scr_entity_moveLeft();
-    }
-    
-    if (movementDirection == "RIGHT") {
-        scr_entity_moveRight();
-    }
+    //if (movementDirection == "RIGHT") {
+    //    scr_entity_moveRight();
+    //}
 }
 
 </string>
