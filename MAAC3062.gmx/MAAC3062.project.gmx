@@ -568,7 +568,9 @@
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path_goat</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
       <script>scripts\scr_abilC_normal_enable.gml</script>

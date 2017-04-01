@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>rm_hub</room>
+            <room>-100</room>
           </argument>
         </arguments>
       </action>
