@@ -68,8 +68,14 @@
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
       <sprite>sprites\spr_minerbarHUD</sprite>
-      <sprite>sprites\spr_ability_1and2</sprite>
-      <sprite>sprites\spr_ability_3and4</sprite>
+      <sprite>sprites\spr_abilityorb_1</sprite>
+      <sprite>sprites\spr_abilityorb_2</sprite>
+      <sprite>sprites\spr_abilityorb_3</sprite>
+      <sprite>sprites\spr_abilityorb_4</sprite>
+      <sprite>sprites\spr_abilityorb_charging_1</sprite>
+      <sprite>sprites\spr_abilityorb_charging_2</sprite>
+      <sprite>sprites\spr_abilityorb_charging_3</sprite>
+      <sprite>sprites\spr_abilityorb_charging_4</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
