@@ -374,6 +374,7 @@
         <sprite>sprites\spr_running_fireAnts_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
+        <sprite>sprites\spr_projectile_fireball</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
       </sprites>
       <sprites name="ShellCasing">
@@ -810,6 +811,7 @@
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
+        <object>objects\obj_projectile_fireball</object>
         <object>objects\obj_projectile_flamingAnimal</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_caterpillager</object>
