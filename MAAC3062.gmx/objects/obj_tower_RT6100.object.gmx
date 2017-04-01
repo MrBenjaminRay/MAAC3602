@@ -348,6 +348,10 @@ if (mounted) {
     return 0;
 }
 
+if (frozenByBossThree) {
+    return 0;
+}
+
 if (isReloading) {
     scr_misc_notification("Reloading", c_white, c_yellow);
 }

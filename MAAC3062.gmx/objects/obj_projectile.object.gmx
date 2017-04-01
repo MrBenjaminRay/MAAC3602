@@ -120,6 +120,37 @@ scr_projectile_enforceMaxLife();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_projectile_fireball">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>other.currHealth--;
+
+if (other.currHealth &lt;= 0) {
+    with (other) {
+        instance_destroy();
+    }
+}
+
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_tower">
       <action>
         <libid>1</libid>
@@ -233,17 +264,50 @@ if (isEnemyProjectile == false) {
     <event eventtype="4" ename="obj_effect_shield">
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Titmouse &amp; sloth enemy collisions handled in their respective objects
+if (object_index == obj_projectile_titmouse || object_index == obj_projectile_sloth) {
+    return 0;
+}
+
+if (isEnemyProjectile == false) {
+    scr_entity_dealDamage(other, damage);
+    scr_create_explosion(x, y, "SmallHit");
+    
+    if (other.hspeed &lt; 0) {
+        if (damage &gt; 15) {
+            other.x += damage;
+        } else {
+            other.x += 15;
+        }
+    }
+    
+    if (other.hspeed &gt;= 0) {
+        if (damage &gt; 15) {
+            other.x -= damage;
+        } else {
+            other.x -= 15;
+        }
+    }
+    
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
   </events>
