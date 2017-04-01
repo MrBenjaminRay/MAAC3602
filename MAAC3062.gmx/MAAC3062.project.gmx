@@ -883,6 +883,7 @@
       <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
       <object>objects\obj_sound_volumes</object>
+      <object>objects\obj_fallenBuilding</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
