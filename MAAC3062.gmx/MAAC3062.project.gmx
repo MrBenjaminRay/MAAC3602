@@ -170,6 +170,8 @@
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
+      <sprite>sprites\spr_asteroidButton</sprite>
+      <sprite>sprites\spr_marsButton</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -492,6 +494,10 @@
       <sprite>sprites\spr_story_script2</sprite>
       <sprite>sprites\spr_story_script3</sprite>
       <sprite>sprites\spr_story_4</sprite>
+      <sprite>sprites\spr_travel_to_another_planet</sprite>
+      <sprite>sprites\spr_phil_and_janice_1</sprite>
+      <sprite>sprites\spr_phil_and_janice_2</sprite>
+      <sprite>sprites\spr_phil_and_janice_3</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -530,6 +536,7 @@
       <background>background\bkg_ice_0</background>
       <background>background\bkg_ice_front</background>
       <background>background\bkg_ice_tileset</background>
+      <background>background\bkg_ice_tile_2</background>
     </backgrounds>
     <backgrounds name="UnderwaterBackgrounds">
       <background>background\bkg_underwater_0</background>
