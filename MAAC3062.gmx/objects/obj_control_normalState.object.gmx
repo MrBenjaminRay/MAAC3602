@@ -251,12 +251,10 @@ scr_normal_beginBuild(0);
           <argument>
             <kind>1</kind>
             <string>if (global.state == 'Paused') {
-    scr_state_setNormal();
-    scr_paused_unpauseAnimation();
-} else {
-    scr_state_setPaused();
-    scr_paused_pauseAnimation();
+    return 0;
 }
+
+scr_state_setNormal();
 </string>
           </argument>
         </arguments>
