@@ -193,6 +193,11 @@
           <sprite>sprites\spr_miniboss4</sprite>
           <sprite>sprites\spr_miniboss4_attack</sprite>
         </sprites>
+        <sprites name="Boss4">
+          <sprite>sprites\spr_Boss4_standing</sprite>
+          <sprite>sprites\spr_cow_shooting</sprite>
+          <sprite>sprites\spr_cow_beam</sprite>
+        </sprites>
       </sprites>
       <sprites name="Drops">
         <sprite>sprites\spr_drop_navPiece</sprite>
@@ -273,11 +278,9 @@
         </sprites>
       </sprites>
       <sprites name="Player">
-        <sprite>sprites\spr_player_old</sprite>
         <sprite>sprites\spr_player_runs_left_with_weapon</sprite>
         <sprite>sprites\spr_player_runs_right_with_weapon</sprite>
         <sprite>sprites\spr_left_arm_weapon</sprite>
-        <sprite>sprites\spr_left_arm_wrench</sprite>
         <sprite>sprites\spr_right_arm_weapon</sprite>
         <sprite>sprites\spr_right_arm_wrench</sprite>
         <sprite>sprites\spr_player</sprite>
@@ -289,6 +292,10 @@
         <sprite>sprites\spr_player_alt</sprite>
         <sprite>sprites\spr_player_alt_standing</sprite>
         <sprite>sprites\spr_alt_weapon</sprite>
+        <sprite>sprites\spr_player_jump_alt</sprite>
+        <sprite>sprites\spr_player_falling_alt</sprite>
+        <sprite>sprites\spr_dying_1_alt</sprite>
+        <sprite>sprites\spr_dying_2_alt</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
