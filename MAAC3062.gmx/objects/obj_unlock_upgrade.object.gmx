@@ -244,143 +244,65 @@ if(unlocked == 0) {
             <kind>1</kind>
             <string>switch(obj_itemTitle.sprite_index) {
     case spr_caterpillager_title:
-        if(global.towerUnlocked[0] == false) {
-            if(global.minerals &gt;= global.caterpillagerUnlockCost) {
-                global.minerals -= global.caterpillagerUnlockCost*-1;
-                //scr_minerals_change(global.caterpillagerUnlockCost*-1);
-                global.towerUnlocked[0] = true;
-                clickSuccess = true;
-            } 
-        }
-        else {
-            if(global.minerals &gt;= global.caterpillagerUpgradeCost) {
-                if(global.towerUpgradeLevel[0] == 1) {
-                    global.minerals -= global.caterpillagerUpgradeCost*-1;
-                    //scr_minerals_change(global.caterpillagerUpgradeCost*-1);
-                    global.towerUpgradeLevel[0] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }  
-        break;
-    case spr_slothRope_title:
-        if(global.towerUnlocked[1] == false) {   
-            if(global.minerals &gt;= global.slothRopeUnlockCost) {
-                global.minerals -= global.slothRopeUnlockCost*-1;
-                //scr_minerals_change(global.slothRopeUnlockCost*-1);
-                global.towerUnlocked[1] = true;
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[0] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[0] = towerUpgrade;
                 clickSuccess = true;
             }
-            
-        }
-        else {
-            if(global.minerals &gt;= global.slothRopeUpgradeCost) {
-                if(global.towerUpgradeLevel[1] == 1) {
-                    global.minerals -= global.slothRopeUpgradeCost*-1;
-                    //scr_minerals_change(global.slothRopeUpgradeCost*-1);
-                    global.towerUpgradeLevel[1] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
+        } 
+        break;
+    case spr_slothRope_title:
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[1] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[1] = towerUpgrade;
+                clickSuccess = true;
+            }
         }  
         break;
     case spr_titMouse_title:
-        if(global.towerUnlocked[2] == false) {
-            if(global.minerals &gt;= global.titMouseUnlockCost) {
-                global.minerals -= global.titMouseUnlockCost*-1;
-                //scr_minerals_change(global.titMouseUnlockCost*-1);
-                global.towerUnlocked[2] = true;
-                clickSuccess = true;
-            } 
-        }
-        else {
-            if(global.minerals &gt;= global.titMouseUpgradeCost) {
-                if(global.towerUpgradeLevel[2] == 1) {
-                    global.minerals -= global.titMouseUpgradeCost*-1;
-                    //scr_minerals_change(global.titMouseUpgradeCost*-1);
-                    global.towerUpgradeLevel[2] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
-        break;
-    case spr_fireAntHose_title:
-        if(global.towerUnlocked[4] == false) {
-            if(global.minerals &gt;= global.fireAntUnlockCost) {
-                global.minerals -= global.fireAntUnlockCost*-1;
-                //scr_minerals_change(global.fireAntUnlockCost*-1);
-                global.towerUnlocked[4] = true;
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[2] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[2] = towerUpgrade;
                 clickSuccess = true;
             }
         }
-        else {
-            if(global.minerals &gt;= global.fireAntUpgradeCost) {
-                if(global.towerUpgradeLevel[4] == 1) {
-                    global.minerals -= global.fireAntUpgradeCost*-1;
-                    //scr_minerals_change(global.fireAntUpgradeCost*-1);
-                    global.towerUpgradeLevel[4] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
+        break;
     case spr_109Calibear_title:
-        if(global.towerUnlocked[3] == false) {
-            if(global.minerals &gt;= global.CalibearUnlockCost) {
-                global.minerals -= global.CalibearUnlockCost*-1;
-                //scr_minerals_change(global.CalibearUnlockCost*-1);
-                global.towerUnlocked[3] = true;
-                clickSuccess = true;
-            } 
-        }
-        else {
-            if(global.minerals &gt;= global.CalibearUpgradeCost) {
-                if(global.towerUpgradeLevel[3] == 1) {
-                    global.minerals -= global.CalibearUpgradeCost*-1;
-                    //scr_minerals_change(global.CalibearUpgradeCost*-1);
-                    global.towerUpgradeLevel[3] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
-        }
-        break;
-    case spr_RT6100_title:
-        if(global.towerUnlocked[5] == false) {
-            if(global.minerals &gt;= global.RT6100UnlockCost) {
-                global.minerals -= global.RT6100UnlockCost*-1;
-                //scr_minerals_change(global.RT6100UnlockCost*-1);
-                global.towerUnlocked[5] = true;
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[3] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[3] = towerUpgrade;
                 clickSuccess = true;
             }
         }
-        else {
-            if(global.minerals &gt;= global.RT6100UpgradeCost) {
-                if(global.towerUpgradeLevel[5] == 1) {
-                    global.minerals -= global.RT6100UpgradeCost*-1;
-                    //scr_minerals_change(global.RT6100UpgradeCost*-1);
-                    global.towerUpgradeLevel[5] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
+        break;   
+    case spr_fireAntHose_title:
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[4] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[4] = towerUpgrade;
+                clickSuccess = true;
+            }
+        }   
+    case spr_RT6100_title:
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[5] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[5] = towerUpgrade;
+                clickSuccess = true;
+            }
         }
         break;
     case spr_mechaGoat_title:
-        if(global.towerUnlocked[6] == false) {
-            if(global.minerals &gt;= global.mechaGoatUnlockCost) {
-                global.minerals -= global.mechaGoatUnlockCost*-1;
-                //scr_minerals_change(global.mechaGoatUnlockCost*-1);
-                global.towerUnlocked[6] = true;
+        if(global.upgradeTokens &gt; 0) {
+            if(global.towerUpgradeLevel[6] == 1) {
+                global.upgradeTokens--;
+                global.towerUpgradeLevel[6] = towerUpgrade;
                 clickSuccess = true;
             }
-        }
-        else {
-            if(global.minerals &gt;= global.mechaGoatUpgradeCost) {
-                if(global.towerUpgradeLevel[6] == 1) {
-                    global.minerals -= global.mechaGoatUpgradeCost*-1;
-                    //scr_minerals_change(global.mechaGoatUpgradeCost*-1);
-                    global.towerUpgradeLevel[6] = towerUpgrade;
-                    clickSuccess = true;
-                }
-            } 
         }
         break;
 //    case spr_armadillos_title:
