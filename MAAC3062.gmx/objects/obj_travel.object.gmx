@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>var selectedPlanet = instance_nearest(x, y, obj_moonButton);
+
+changeState = false;
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(obj_levelTitle.sprite_index) {
+            <string>
+/*
+switch(obj_levelTitle.sprite_index) {
     case spr_level0:
         selectedPlanet = instance_nearest(x, y, obj_moonButton);
         x = selectedPlanet.x + 45;
@@ -81,7 +85,8 @@
         y = selectedPlanet.y + 39;
         break;
     */
-}
+//}
+
 </string>
           </argument>
         </arguments>
@@ -104,32 +109,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(obj_levelTitle.sprite_index) {
-    case spr_level0:
+            <string>switch(global.selectedPlanet) {
+    case 0:
         room_goto(rm_level_moon);
         break;
-    case spr_level1:
+    case 1:
         room_goto(rm_level_forest);
         break;
-    case spr_level2:
+    case 2:
         room_goto(rm_level_desert);
         break;
-    case spr_level3:
+    case 3:
         room_goto(rm_level_ice);
         break;
-    case spr_level4:
+    case 4:
         room_goto(rm_level_underwater);
         break;
-    /*
-    case spr_levelEarth:
-        if(global.asteroidLevelComplete == 0)
-            room_goto(rm_level_asteroid);
-        else if(global.marsLevelComplete == 0)
-            room_goto(rm_level_mars);
-        else
-            room_goto(rm_level_earth);
+    case 5:
+        room_goto(rm_level_mars);
         break;
-    */
+    case 6:
+        room_goto(rm_level_asteroid);
+        break;
     default:
         show_debug_message("Go nowhere");
 }

@@ -31,8 +31,8 @@ global.navPieceAttained[2] = false; // Whether or not the player has attained th
 global.navPieceAttained[3] = true; // Whether or not the player has attained the fourth nav piece.
 
 global.towerUnlocked[0] = true; // Basic Tower
-global.towerUnlocked[1] = true; // Freezer Tower
-global.towerUnlocked[2] = true; // Mortar Tower
+global.towerUnlocked[1] = false; // Freezer Tower
+global.towerUnlocked[2] = false; // Mortar Tower
 global.towerUnlocked[3] = false; // 109 Cal Tower
 global.towerUnlocked[4] = false; // Flame Tower
 global.towerUnlocked[5] = false; // M6100 Tower
@@ -48,6 +48,7 @@ global.towerUpgradeLevel[2] = 1; // Titmouse Tower
 global.towerUpgradeLevel[3] = 1; // 109 Cal Tower
 global.towerUpgradeLevel[4] = 1; // Flame Tower
 global.towerUpgradeLevel[5] = 1; // M6100 Tower
+global.towerUpgradeLevel[6] = 1; // M6100 Tower
 </string>
           </argument>
         </arguments>

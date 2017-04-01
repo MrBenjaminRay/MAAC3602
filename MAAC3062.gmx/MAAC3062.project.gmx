@@ -673,6 +673,7 @@
     <objects name="Control">
       <object>objects\obj_menu_ingame_placeholder</object>
       <object>objects\obj_control</object>
+      <object>objects\obj_hub_control</object>
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
       <object>objects\obj_levelControl</object>
@@ -909,10 +910,15 @@
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
           <object>objects\obj_researchWep</object>
+          <object>objects\obj_hudModeSelect</object>
           <object>objects\obj_selectDest</object>
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
           <object>objects\obj_bossComplete</object>
+          <object>objects\obj_hubTowerAbility</object>
+          <object>objects\obj_hub_caterpillager</object>
+          <object>objects\obj_hub_sloth</object>
+          <object>objects\obj_hud_fireAnt</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
