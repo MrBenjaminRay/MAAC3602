@@ -35,6 +35,7 @@ upgrade_ratio = 1.3;    // The amount by which to increase the radius when upgra
 isUpgraded = false;     // Whether or not the ability is upgraded (affects radius &amp; speed)
 multiplier = 1;         // Use this to upgrade radius and knockback speed
                         // 1 by default, or upgrade_ratio when upgraded 
+knockback_multiplier_boss = 0.5; // Half knockback for bosses
 
 </string>
           </argument>
@@ -88,8 +89,30 @@ for (var i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
     if (tmpDist &lt;= radius_current) {
         var angle = point_direction(x, y, tmpEnem.x, tmpEnem.y);
         tmpEnem.direction = angle;
-        tmpEnem.speed = knockback_speed * multiplier;
-        tmpEnem.isJumping = true; // This allows passing through platform above
+        var isBoss = scr_entity_isObjectBoss(tmpEnem);
+        
+        if (isBoss) {
+            // Slower knockback speed for all bosses
+            tmpEnem.speed = knockback_speed * multiplier * knockback_multiplier_boss;
+        } else {
+            // Regular knockback speed for all non-bosses
+            tmpEnem.speed = knockback_speed * multiplier;        
+        }
+        
+        // Allow enemies to pass through platforms above them when being knocked back
+        tmpEnem.isJumping = true;
+        
+        // Deal damage in upgraded version of ability
+        if (isUpgraded) {
+            if (isBoss) {
+                // Deal 5% of max damage to all bosses
+                scr_entity_dealDamage(tmpEnem, tmpEnem.maxHealth * .05);
+            } else {
+                // Deal 25% of max damage to all non-bosses
+                scr_entity_dealDamage(tmpEnem, tmpEnem.maxHealth * .25);
+            }
+        }
+        
     }
 
 }

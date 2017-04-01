@@ -597,6 +597,7 @@
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
+      <script>scripts\scr_entity_isObjectBoss.gml</script>
     </scripts>
     <scripts name="Levels">
       <script>scripts\scr_getLevelId.gml</script>
