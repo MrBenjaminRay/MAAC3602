@@ -410,6 +410,7 @@
     <sprites name="Misc">
       <sprites name="Abilities">
         <sprite>sprites\spr_ForceField</sprite>
+        <sprite>sprites\spr_ForceField_Single</sprite>
         <sprite>sprites\spr_snakeLeft</sprite>
         <sprite>sprites\spr_HeavyEnemy_Snake_Wrap</sprite>
         <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
