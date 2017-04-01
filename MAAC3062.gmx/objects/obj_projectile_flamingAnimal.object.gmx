@@ -49,31 +49,24 @@
 isEnemyProjectile = false;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 
-vspeed = movementSpeedDesired;
+vspeed = 8;
 
 maxLife = 10000;
 life = 0;
 
+if (irandom_range(0, 1)) {
+    sprite_index = spr_flaming_dog;
+} else {
+    sprite_index = spr_flaming_cat;
+}
+
+image_angle = irandom_range(0, 359);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -92,6 +85,10 @@ life = 0;
             <kind>1</kind>
             <string>scr_projectile_enforceMaxLife();
 
+
+if (y &gt; room_height + 64) {
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

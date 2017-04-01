@@ -206,7 +206,7 @@
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>obj_effect_tornado</object>
+            <object>-100</object>
           </argument>
           <argument>
             <kind>0</kind>
@@ -236,6 +236,30 @@
             <kind>1</kind>
             <string>alarm[0] = irandom_range(room_speed * 2, room_speed * 8);
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_desertBoss_attack</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>

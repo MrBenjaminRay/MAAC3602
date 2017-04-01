@@ -1225,8 +1225,6 @@ if (global.plrAbilityAttained[3]) {
         var randY = irandom_range(-64, -room_height * 2);
         instance_create(randX, randY, obj_projectile_flamingAnimal);
     }
-    
-    instance_create(0, 256, obj_flameScreen);
 } else {
     scr_misc_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
 }
