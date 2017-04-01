@@ -376,6 +376,7 @@
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
         <sprite>sprites\spr_projectile_fireball</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
+        <sprite>sprites\spr_goat_ball</sprite>
       </sprites>
       <sprites name="ShellCasing">
         <sprite>sprites\spr_shellCasing</sprite>
