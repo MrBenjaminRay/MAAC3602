@@ -120,6 +120,33 @@ scr_projectile_enforceMaxLife();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_tower">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (isEnemyProjectile) {
+    scr_entity_dealDamage(other, damage);
+    instance_destroy();
+    scr_create_explosion(x, y, "Sparky");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_projectile_fireball">
       <action>
         <libid>1</libid>
@@ -146,33 +173,6 @@ if (other.currHealth &lt;= 0) {
 }
 
 instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_tower">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (isEnemyProjectile) {
-    scr_entity_dealDamage(other, damage);
-    instance_destroy();
-    scr_create_explosion(x, y, "Sparky");
-}
 </string>
           </argument>
         </arguments>
