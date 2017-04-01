@@ -49,7 +49,7 @@ audio_sound_gain(snd_mortarFlying, 0.5, 0);
 movementSpeed = 0; // Don't use this for sloth
 
 freezeInterval = 100; // How long to wait before incrementing enemy freeze multiplier
-timeToNextFreeze = 0; // Time before the sloth can freeze increment the enemy freeze multiplier
+timeToNextFreeze = 0; // Time before the sloth can increment the enemy freeze multiplier
 
 // Parameters for sloth flight (set speed &amp; gravity to these)
 flightSpeed = 4;
@@ -212,7 +212,7 @@ if (mode == "HUG") {
     if (instance_exists(targetEnemy)) {
         var xscale = 1;
         var xoffset = 0;
-        if (targetEnemy.movementDirection == "RIGHT") {
+        if (targetEnemy.hspeed &gt;= 0) {
             xscale = -1;
             xoffset = 71;
         }
@@ -260,14 +260,17 @@ if (instance_exists(targetEnemy)) {
             // Switch mode from flying to hugging
             scr_sloth_startHug();
         }
-        // If counter has elapsed, increase freeze effect
-        if (timeToNextFreeze == 0) {
-            targetEnemy.freezeMultiplier++;
-            timeToNextFreeze = freezeInterval;
-        } else {
-            timeToNextFreeze -= global.deltaTime;
-            timeToNextFreeze = clamp(timeToNextFreeze, 0, freezeInterval);
-        }
+        
+        targetEnemy.freeze_stacks++; // Max freeze stacks enforced in enemy step code
+        
+        //// If counter has elapsed, increase freeze effect
+//        if (timeToNextFreeze == 0) {
+//            targetEnemy.freeze_stacks++; // Max freeze stacks enforced in enemy step code
+//            timeToNextFreeze = freezeInterval;
+//        } else {
+//            timeToNextFreeze -= global.deltaTime;
+//          timeToNextFreeze = clamp(timeToNextFreeze, 0, freezeInterval);
+//        }
     }
 }
 
@@ -300,7 +303,7 @@ if (mode == "HUG" &amp;&amp; instance_exists(targetEnemy)) {
 
     // Mirror image when enemy moving right
     var xscale = 1;
-    if (targetEnemy.movementDirection == "RIGHT") {
+    if (targetEnemy.hspeed &gt;= 0) {
         xscale = -1;
     }
 

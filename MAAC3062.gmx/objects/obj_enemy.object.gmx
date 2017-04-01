@@ -62,7 +62,7 @@ energyDrop = 0;
 freeze_stacks = 0;                                  // The number of stacks.
 freeze_maxStacks = 20;                              // The max number of stacks.
 freeze_isFrozen = false;                            // Whether or not the enemy is frozen.
-freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
+//freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
 freeze_frozenTimeCounter = 0;                       // The amount of time the enemy has been frozen.
 
 freezeMultiplier = 0;       // The current number of times the enemy has been hit by the freeze tower.
@@ -438,13 +438,13 @@ if (freeze_stacks == freeze_maxStacks) {
     // Else, set as frozen.
     if (freeze_isFrozen) {
         freeze_frozenTimeCounter += global.deltaTime;
-        
         // Unfreeze if possible:
-        if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
-            freeze_isFrozen = false;
-            freeze_frozenTimeCounter = 0;
-            freeze_stacks = 0;
-        }
+        // REMOVED 2017/04/01 - Sloth can freeze enemy indefinitely
+        //if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
+        //    freeze_isFrozen = false;
+        //    freeze_frozenTimeCounter = 0;
+        //    freeze_stacks = 0;
+        //}
     } else {
         freeze_isFrozen = true;
     }
