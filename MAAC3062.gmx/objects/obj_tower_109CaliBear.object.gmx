@@ -129,6 +129,10 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
+if (frozenByBossThree) {
+    return 0;
+}
+
 // Decrement warmup time remaining if not 0
 if (warmUpRemaining &gt; 0) { 
     warmUpRemaining -= global.deltaTime;

@@ -144,6 +144,10 @@ if (instance_exists(slothObj)) {
     return 0;
 }
 
+if (frozenByBossThree) {
+    return 0;
+}
+
 // Decrement warmup time remaining if not 0
 if (warmUpRemaining &gt; 0) { 
     warmUpRemaining -= global.deltaTime;
