@@ -11,7 +11,121 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>// Initialize stats objects for all levels (doesn't overwrite if already initialized)
-scr_statistics_initializeAllLevels();</code>
+scr_statistics_initializeAllLevels();
+
+window_set_cursor(cr_default);
+
+audio_stop_all();
+
+// Show windows cursor
+window_set_cursor(cr_default);
+// Hide game cursor
+cursor_sprite = noone;
+
+// Unsure of the original purpose of the following line, but it
+// does not work with the new levelStats setup.
+
+var levelData;
+var bossDropIcon;
+foundFalse = false;
+
+levelData = ds_map_find_value(global.levelStats, rm_level_moon);
+if(levelData[30]) {
+    scr_msg_hubBossReward(0);
+    levelData[30] = false;
+    ds_map_replace(global.levelStats, rm_level_moon, levelData);
+    bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+    bossDropIcon.sprite_index = spr_drop_rawMaterial1;
+}
+else
+    foundFalse = true;
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_forest);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(1);
+        levelData[30] = false;
+        global.navPieceAttained[0] = true;
+        ds_map_replace(global.levelStats, rm_level_forest, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial2;
+    }
+    else
+        foundFalse = true;
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_desert);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(2);
+        levelData[30] = false;
+        global.navPieceAttained[1] = true;
+        ds_map_replace(global.levelStats, rm_level_desert, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial3;
+    }
+    else
+       foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_ice);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(3);
+        levelData[30] = false;
+        global.navPieceAttained[2] = true;
+        ds_map_replace(global.levelStats, rm_level_ice, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial4;
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_underwater);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(4);
+        levelData[30] = false;
+        global.navPieceAttained[3] = true;
+        ds_map_replace(global.levelStats, rm_level_underwater, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_asteroid);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(5);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_asteroid, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_mars);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(6);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_mars, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_earth);
+    if(levelData[30]) {
+        //scr_msg_hubBossReward(7);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_earth, levelData);
+    }
+    else
+        foundFalse = true;
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -55,13 +169,14 @@ scr_statistics_initializeAllLevels();</code>
     <instance objName="obj_spaceController" x="0" y="0" name="inst_D473589E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_messageBoxMain" x="384" y="320" name="inst_B130D59A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sideways_message" x="1184" y="32" name="inst_05B517C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_nextStop" x="1312" y="96" name="inst_F48A7BC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelTitle" x="1312" y="160" name="inst_BBF94172" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_travel" x="1312" y="672" name="inst_FC7ABBFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_researchWep" x="128" y="96" name="inst_279D6271" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bossComplete" x="1376" y="512" name="inst_874366DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moonButton" x="448" y="352" name="inst_626E6643" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_forestButton" x="640" y="416" name="inst_A27A00A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_forestButton" x="512" y="512" name="inst_A27A00A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_desertButton" x="608" y="384" name="inst_B771FCE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceButton" x="768" y="352" name="inst_F025ABD8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_waterButton" x="672" y="544" name="inst_D8CBBEB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hub_control" x="64" y="-32" name="inst_0ADAA44D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_infoText" x="1248" y="160" name="inst_18D38EE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

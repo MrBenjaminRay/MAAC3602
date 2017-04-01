@@ -235,9 +235,33 @@
             <kind>1</kind>
             <string>for(var i = 0 ; i &lt; 20 ; i++) {
     var spider = instance_create(x, y, obj_enemy_ground_spider_small);
-    spider.movementSpeed *= irandom_range(0.75, 1.5);
+    spider.hspeed *= irandom_range(0.75, 1.5);
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_forestBoss_attack</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>

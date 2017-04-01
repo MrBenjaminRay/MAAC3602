@@ -22,9 +22,21 @@ switch (room) {
         levelId = 4;
         break;
     }
+    case rm_level_asteroid: {
+        levelId = 5;
+        break;
+    }
+    case rm_level_mars: {
+        levelId = 6;
+        break;
+    }
+    case rm_level_earth: {
+        levelId = 7;
+        break;
+    }
     // When we add more levels, insert them starting at id 5 and bump tutorials to end of array
     case rm_tut1: {
-        levelId = 5;
+        levelId = 8;
         break;
     }
 

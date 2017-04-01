@@ -557,8 +557,7 @@ if(!(isRightPressed || isLeftPressed)) {
     }
 }
 
-// LEFT &amp; RIGHT MOVEMENT:
-scr_entity_moveHorizontal();
+
 
 </string>
           </argument>
@@ -691,7 +690,7 @@ if (mouse_check_button(mb_left)) {
             projectile.direction += random_range(-1.5, 1.5); // Randomize angle of fire slightly
             projectile.damage = attackDamage;
             projectile.isEnemyProjectile = false;
-            projectile.image_angle = direction;     // Set direction immediately, otherwise it's not overridden 
+            projectile.image_angle = projectile.direction;     // Set direction immediately, otherwise it's not overridden 
                                                     // based on direction until 2nd projectile step.
             
             scr_create_explosion(projX, projY, 'Muzzle');
@@ -851,7 +850,8 @@ if (weaponKickback &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(keyboard_check(ord('X'))) {
+            <string>/*
+if(keyboard_check(ord('X'))) {
     xKeyHeld = 1;
 }
 else {
@@ -891,7 +891,7 @@ if(xKeyHeldCounter == 90) {
         }
     }
 }
-
+*/
 
 </string>
           </argument>
@@ -1225,6 +1225,8 @@ if (global.plrAbilityAttained[3]) {
         var randY = irandom_range(-64, -room_height * 2);
         instance_create(randX, randY, obj_projectile_flamingAnimal);
     }
+    
+    instance_create(0, 256, obj_flameScreen);
 } else {
     scr_misc_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
 }
@@ -1344,7 +1346,7 @@ if (global.plrAbilityAttained[1]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (distance_to_object(obj_tower_RT6100) &lt;= sprite_width * 2) {
+            <string>if (distance_to_object(obj_tower_RT6100) &lt;= sprite_width * 2 &amp;&amp; obj_tower_RT6100.warmUpRemaining == 0) {
     // Delete Weapon &amp; Deactivate Player:
     with (weaponObj) {
         instance_destroy();
@@ -1547,13 +1549,16 @@ if (global.plrAbilityAttained[0]) {
     }
     
     if (global.plrAbilityUpgraded[0]) {
-        // Do something
+        ability = instance_create(x, y, obj_forceField);
+        ability.isUpgraded = true;
     } else {
-        instance_create(x, y, obj_forceField)
+        ability = instance_create(x, y, obj_forceField);
+        ability.isUpgraded = false;
     }
 } else {
     scr_misc_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
+
 </string>
           </argument>
         </arguments>
