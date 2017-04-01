@@ -659,14 +659,14 @@
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
-    <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_minersAlive_change.gml</script>
+    <script>scripts\scr_minerals_change_OLD.gml</script>
     <script>scripts\scr_kills_change.gml</script>
-    <script>scripts\scr_fuel_change.gml</script>
+    <script>scripts\scr_fuel_change_OLD.gml</script>
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
-    <script>scripts\script76.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -898,9 +898,9 @@
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
+      <object>objects\obj_hud_minersAlive</object>
       <object>objects\obj_hud_levelMinerals</object>
       <object>objects\obj_hud_levelKills</object>
-      <object>objects\obj_hud_minersAlive</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
       <object>objects\obj_hud_bossObject</object>

@@ -27,22 +27,20 @@
             <kind>1</kind>
             <string>// ALWAYS SET POSITION FOR INHERITING OBJECTS
 
-position = ""; // Must be set by inheriting object to top_left, top_right, bottom_left, bottom_right
+position = ""; // Must be set by inheriting object to bottom_left or bottom_right
 
 // OVERRIDE IN INHERITING OBJECTS IF USING top_right OR bottom_right POSITION
 // SO THAT THE TEXT &amp; ICON ARE RIGHT-ALIGNED
 
 rightAligned = false; // Override this to cause text to be drawn on left side of icon (icon &amp; text are right-aligned)
-textOffset_x = 24; // Override with negative value in inheriting class if rightAligned=true
-changeCueOffset_x = 24; // Override with negative value in inheriting class if rightAligned=true
-changeCueOffset_y = 20; // Override with negative value in inheriting class if using bottom left or right positions.
-changeCueTime = 1000;       // Amount of time to display cue before fading. Will be different for minerals/energy.
-
+textOffset_x = 48; // Override with negative value in inheriting class if rightAligned=true
+changeCueOffset_x = 48; // Override with negative value in inheriting class if rightAligned=true
+changeCueOffset_y = -15; // Override with negative value in inheriting class if using bottom left or right positions.
+changeCueTime = 1500;       // Amount of time to display cue before fading. Will be different for minerals/energy.
 
 // SHOULDN'T NEED TO OVERRIDE THESE UNLESS YOU WANT TO CHANGE VERT POSITION OF TEXT/CUE
 
 textOffset_y = 0; // Leave at 0 for text to be vertically centered with icon
-
 
 // STUFF TO LEAVE ALONE (generally speaking)
 
@@ -60,15 +58,15 @@ changeCueColor_Decrease = make_color_rgb(255, 0, 0); // Colour of change cue whe
 changeCueShadowOffset_x = 1; // Always positive value
 changeCueShadowOffset_y = 1; // Always positive value
 
-scaleNormal = 1;
+scaleNormal = 1.25;
 scale = scaleNormal;
-//scaleLevelBoosted = 1.4;
-//scaleLevelBoostedResetSpeed = 0.001;
-//scaleLevelShrunk = .6;
-//scaleLevelShrunkResetSpeed = 0.001;
+scaleLevelBoosted = scaleNormal * 1.2;
+scaleLevelShrunk = scaleNormal * .9;
+scaleLevelBoostedResetSpeed = .0005;
+scaleLevelShrunkResetSpeed = .0005;
 
-position_offset_x = 25; // Always positive value - how far away (x) from position to be drawn
-position_offset_y = 25; // Always positive value - how far away (y) from position to be drawn
+position_offset_x = 35; // Always positive value - how far away (x) from position to be drawn
+position_offset_y = 35; // Always positive value - how far away (y) from position to be drawn
 
 // DO NOT SET THIS VALUE ANYWHERE. It will be set automatically in Step code
 // by the inheriting objects based on either global.energy or global.minerals.
@@ -105,29 +103,31 @@ shadowOffset = 1;
             <kind>1</kind>
             <string>if (scale &gt; scaleNormal) {
     // Shrink scale towards normal size based on boost reset speed
-    //scale -= scaleLevelBoostedResetSpeed * global.deltaTime;
+    scale -= scaleLevelBoostedResetSpeed * global.deltaTime;
 }
 
 if (scale &lt; scaleNormal) {
     // Increase scale towards normal size based on shrink reset speed
-    //scale += scaleLevelShrunkResetSpeed * global.deltaTime;
+    scale += scaleLevelShrunkResetSpeed * global.deltaTime;
 }
 
 // Set image scale
 image_xscale = scale;
 image_yscale = scale;
 
-if (position == "top_left") {
-    x = 0 + position_offset_x;
-    y = 0 + position_offset_y;
-} else if (position == "top_right") {
-    if (window_get_fullscreen()) {
-        x = global.screenWidth - position_offset_x;
-    } else {
-        x = view_wview[0] - position_offset_x;
-    }
-    y = 0 + position_offset_y;
-} else if (position == "bottom_left") {
+//if (position == "top_left") {
+//    x = 0 + position_offset_x;
+//    y = 0 + position_offset_y;
+//} else if (position == "top_right") {
+//    if (window_get_fullscreen()) {
+//        x = global.screenWidth - position_offset_x;
+//    } else {
+//        x = view_wview[0] - position_offset_x;
+//    }
+//    y = 0 + position_offset_y;
+//} else 
+
+if (position == "bottom_left") {
     x = 0 + position_offset_x;
     if (window_get_fullscreen()) {
         y = global.screenHeight - position_offset_y;    
@@ -142,6 +142,7 @@ if (position == "top_left") {
         x = view_wview[0] - position_offset_x;
         y = view_hview[0] - position_offset_y;
     }
+    rightAligned = true;
 } else {
     show_debug_message("ERROR:  Invalid position for " + string(object_get_name(object_index)));
     // Draw center of screen to make it obvious there's an issue
@@ -174,7 +175,7 @@ if (changeCueAlpha == 0) {
 }
 
 
-//hover message stuff
+// Hover tooltip stuff
 if (
     point_in_rectangle(
         window_mouse_get_x(), 
@@ -303,23 +304,36 @@ draw_self();
 draw_set_font(fnt_hud_mineralEnergyLevels);
 
 if (rightAligned) {
-    draw_set_halign(fa_right);
+    //draw_set_halign(fa_right);
 } else {
-    draw_set_halign(fa_left);
+    //draw_set_halign(fa_left);
 }
+
+// Draw horizontally centered
+draw_set_halign(fa_center);
 
 // Draw vertically-aligned
 draw_set_valign(fa_middle);
 
+// Calculate text position with scale applied to offset
+var textX;
+var textY;
+if (rightAligned) {
+    textX = round(x - textOffset_x * scale);
+} else {
+    textX = round(x + textOffset_x * scale);
+}
+textY = round(y + textOffset_y * scale);
+
 // Draw main level shadow
 draw_set_colour(c_black);
 draw_set_alpha(0.5);
-draw_text(x+textOffset_x+textShadowOffset_x, y+textOffset_y+textShadowOffset_y, currentValueToDraw);
+draw_text(textX + textShadowOffset_x, textY + textShadowOffset_y, currentValueToDraw);
 
 // Draw main level
 draw_set_colour(c_yellow);
 draw_set_alpha(1);
-draw_text(x+textOffset_x, y+textOffset_y, currentValueToDraw);
+draw_text(textX, textY, currentValueToDraw);
 
 // Reset v &amp; h alignment
 draw_set_valign(fa_top);
@@ -370,14 +384,11 @@ draw_set_halign(fa_left);
 // Set the font
 draw_set_font(fnt_hud_mineralEnergyLevelCues);
 
-if (rightAligned) {
-    draw_set_halign(fa_right);
-} else {
-    draw_set_halign(fa_left);
-}
+// Center horizontal alignment (above value)
+draw_set_halign(fa_center);
 
-// Draw vertically-aligned
-draw_set_valign(fa_middle);
+// Bottom vertical alignment for change cues
+draw_set_valign(fa_bottom);
 
 // Add + or - before cue amount 
 var plusOrMinus;
@@ -390,22 +401,34 @@ if (changeCueAmount &gt; 0) {
 // Draw if alpha above 0
 if (changeCueAlpha &gt; 0) {
 
+    var changeCueX;
+    var changeCueY;
+    
+    // Calculate change cue position with scale applied to offset
+    if (rightAligned) {
+        changeCueX = round(x - changeCueOffset_x * scale);
+    } else {
+        changeCueX = round(x + changeCueOffset_x * scale);
+    }
+    changeCueY = round(y + changeCueOffset_y * scale);
+    
     // Draw the shadow first
     draw_set_alpha(changeCueAlpha/2); // Half as opaque as cue level
     draw_set_colour(c_black);
-    draw_text(x+changeCueOffset_x+changeCueShadowOffset_x, y+changeCueOffset_y+changeCueShadowOffset_y, plusOrMinus + string(changeCueAmount));
+    draw_text(changeCueX + changeCueShadowOffset_x, changeCueY + changeCueShadowOffset_y, plusOrMinus + string(changeCueAmount));
     
     // Draw change cue
     draw_set_alpha(changeCueAlpha);
     draw_set_colour(changeCueColor);
-    
-    draw_text(x+changeCueOffset_x, y+changeCueOffset_y, plusOrMinus + string(changeCueAmount));
+    draw_text(changeCueX, changeCueY, plusOrMinus + string(changeCueAmount));
 }
 
 // RESET DRAW PARAMETERS so that we don't screw up stuff drawn by objects after this one
 draw_set_alpha(1);
-draw_set_halign(fa_left);
 draw_set_colour(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
 </string>
           </argument>
         </arguments>
