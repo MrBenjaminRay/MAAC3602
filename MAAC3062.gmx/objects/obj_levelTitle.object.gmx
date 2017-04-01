@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.navPieceAttained[3])
+            <string>
+
+if(global.navPieceAttained[3])
     sprite_index = spr_levelEarth;
 else if(global.moonLevelComplete == 0)
     sprite_index = spr_level0;

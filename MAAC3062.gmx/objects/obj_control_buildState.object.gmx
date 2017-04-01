@@ -217,6 +217,7 @@ var xPos_right = tempX + towerWeaponXOffset + towerRange;
 var yPos_bottom = tempY + towerWeaponYOffset + towerRange;
 
 draw_set_color(c_green);
+draw_set_circle_precision(64);
 draw_ellipse(xPos_left, yPos_top, xPos_right, yPos_bottom, true);
 
 /////////////////////////////////////////// DRAW TOWER COST:

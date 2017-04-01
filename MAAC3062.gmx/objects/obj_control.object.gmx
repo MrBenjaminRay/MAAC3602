@@ -62,6 +62,9 @@ global.deltaTime = delta_time;
  */
 global.state = "Normal";
 
+/**NEW**/
+global.upgradeTokens = 2;
+
 global.minerals = 0;
 global.energy = 900;    // The amount of energy the player currently has throughout the game.
                         // Should start at 3x cost of basic tower.

@@ -42,16 +42,7 @@
             <string>// Set position
 position = "bottom_left";
 
-// Override cue length
-changeCueTime = 1250;
-
-scaleNormal = .5;
-scale = scaleNormal;
-scaleLevelBoosted = scaleNormal * 1.3;
-scaleLevelShrunk = scaleNormal * .7;
-
-position_offset_x += 1;
-position_offset_y += 1;
+image_speed = 0.25;
 
 </string>
           </argument>
@@ -100,6 +91,20 @@ currentValueToDraw = global.energy;
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -114,33 +119,23 @@ currentValueToDraw = global.energy;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_aqua, c_blue, 0, false, false);
-
-if(global.energy &gt;= global.maxFuel) {
-   draw_healthbar(x+24, y-8, x+132, y+8, global.energy/global.maxFuel*100, c_black, c_green, c_green, 0, false, false);
-}
-
-if(mouseHoverTime &gt;= 45) {
+            <string>if(mouseHoverTime &gt;= 45) {
 
     var text;
-    text[0] = 'Use Energy to build towers.';
-    text[1] = 'Collect energy drops to replenish.';
-    text[2] = "enough to fuel the ship's departure!";
+    text[0] = '';
+    text[1] = 'Use Energy to build towers.';
+    text[2] = 'Collect energy drops to replenish.';
     
     var backX = x;
     var backY = y-31;
     
     // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
-    
-    // Draw background
-    //draw_sprite_ext(spr_toolTipBox_Background, 0, backX, backY, 1, 1, 0, c_white, .35);
-    
+
     // Configure
     draw_set_font(fnt_hud_hoverNew);
     draw_set_halign(fa_left); // Align text so we don't have to calculate its width
     draw_set_colour(c_white);
     draw_set_alpha(1);
-    
     
     // Draw text line 1
     draw_set_colour(c_black);
@@ -197,40 +192,6 @@ if(mouseHoverTime &gt;= 45) {
 </string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Draw custom background first</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">

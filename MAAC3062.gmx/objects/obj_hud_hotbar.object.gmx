@@ -28,7 +28,8 @@
             <string>// Automatically pull info from global.towers[] (see obj_control create event)
 // Tower count must match # of entries in global.towers, otherwise it will blow up.
 
-towerCount = 7; 
+towerCount = 7;
+hotbarItems = noone;
 
 slotWidth = sprite_get_width(spr_hotbar_item_back);
 
@@ -55,7 +56,57 @@ for (var i=0; i&lt;towerCount; i++) {
     }
     var slot = instance_create(item_x, y, obj_hud_hotbar_item);
     slot.towerIndex = i;
+    // Add to array so we can check positions later (mainly for hover stuff)
+    hotbarItems[i] = slot;
 }
+
+// Handle hotbar hover at the hotbar level (not the individual hotbar item level), as once the player has
+// hovered long enough over the hotbar for the tooltip to appear, it should stay visible as the player
+// moves from tower to tower with the mouse.  Should not have hover delay over individual hotbar items.
+toolTipEnabled = false; // Whether or not the hover tooltip should be displayed
+mouseHoverTime = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Is cursor over an item in the hotbar?
+if (
+    point_in_rectangle(
+        global.window_mouse_x,
+        global.window_mouse_y,
+        hotbarItems[0].x, // Ignore left-most pixel as slots overlap by 1 pixel
+        hotbarItems[0].y,
+        hotbarItems[6].x + sprite_get_width(spr_hotbar_item_back),
+        hotbarItems[6].y + sprite_get_height(spr_hotbar_item_back)
+    )
+) {
+    if (!toolTipEnabled) {
+        mouseHoverTime += global.deltaTime;
+    }
+} else {
+    mouseHoverTime = 0;
+}
+toolTipEnabled = mouseHoverTime &gt;= 500;
+
 </string>
           </argument>
         </arguments>

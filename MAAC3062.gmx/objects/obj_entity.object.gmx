@@ -86,6 +86,7 @@ healthBarColor_shieldForeground = c_teal;      // The foreground color of the sh
 healthBarColor_shieldForeground_alternate = c_aqua; // The secondary foreground color of the shield bar.
 healthBarColor_shieldforeground_current = c_teal;
 healthBarColor_shieldforeground_stepCntr = 0;
+
 </string>
           </argument>
         </arguments>

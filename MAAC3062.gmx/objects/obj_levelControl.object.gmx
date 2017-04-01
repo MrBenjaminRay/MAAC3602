@@ -49,10 +49,19 @@ scr_statistics_setData(24, 0);
 scr_statistics_setData(25, 0);
 scr_statistics_setData(28, 0);
 scr_statistics_setData(29, 0);
+scr_statistics_setData(30, 0);
+scr_statistics_setData(31, 0);
+scr_statistics_setData(32, 0);
 
 // Sets Prep time at the start of each level (in frames)
 global.prepTimeTotal = 600;
 global.prepTimeRemaining = global.prepTimeTotal;
+
+// Set # of miners on level (can't do it in miner create code as that fires before this)
+// # of miners alive
+scr_minersAlive_change(instance_number(obj_miner));
+// # of miners spawned
+scr_statistics_setData(31, instance_number(obj_miner));
 
 </string>
           </argument>
