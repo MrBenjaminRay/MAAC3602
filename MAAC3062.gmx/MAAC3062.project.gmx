@@ -94,6 +94,7 @@
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
         <sprite>sprites\spr_toolTipBox_Background</sprite>
+        <sprite>sprites\spr_title</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -172,6 +173,7 @@
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_asteroidButton</sprite>
       <sprite>sprites\spr_marsButton</sprite>
+      <sprite>sprites\spr_dead_goat</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -566,7 +568,9 @@
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path_goat</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
       <script>scripts\scr_abilC_normal_enable.gml</script>
@@ -904,6 +908,8 @@
       <object>objects\obj_story_pic_controller2</object>
       <object>objects\obj_story_text_controller</object>
       <object>objects\obj_story_text_controller2</object>
+      <object>objects\obj_dead_goat</object>
+      <object>objects\obj_title</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
