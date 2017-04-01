@@ -415,6 +415,7 @@
     <sprites name="Misc">
       <sprites name="Abilities">
         <sprite>sprites\spr_ForceField</sprite>
+        <sprite>sprites\spr_ForceField_Single</sprite>
         <sprite>sprites\spr_snakeLeft</sprite>
         <sprite>sprites\spr_HeavyEnemy_Snake_Wrap</sprite>
         <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
@@ -601,6 +602,7 @@
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
+      <script>scripts\scr_entity_isObjectBoss.gml</script>
     </scripts>
     <scripts name="Levels">
       <script>scripts\scr_getLevelId.gml</script>
