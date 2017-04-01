@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>obj_button</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,6 +29,9 @@
 image_yscale = 0.8;
 image_xscale = 1.5;
 image_yscale = image_yscale + image_xscale - 1;
+
+image_xscale = image_xscale * 0.75;
+image_yscale = image_yscale * 0.75;
 
 /*
 if(global.navPieceAttained[3]) {
