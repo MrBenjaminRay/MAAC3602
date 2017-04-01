@@ -336,6 +336,7 @@
         <sprite>sprites\spr_miner_hurt</sprite>
         <sprite>sprites\spr_miner_hurt2</sprite>
         <sprite>sprites\spr_miner_death</sprite>
+        <sprite>sprites\spr_miner_walk_right</sprite>
       </sprites>
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
