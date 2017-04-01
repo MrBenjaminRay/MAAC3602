@@ -8,21 +8,21 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>105</bbox_right>
-  <bbox_top>3</bbox_top>
-  <bbox_bottom>184</bbox_bottom>
+  <bbox_right>24</bbox_right>
+  <bbox_top>14</bbox_top>
+  <bbox_bottom>56</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>107</width>
-  <height>185</height>
+  <width>33</width>
+  <height>59</height>
   <frames>
-    <frame index="0">images\spr_Ability3_Fire_0.png</frame>
-    <frame index="1">images\spr_Ability3_Fire_1.png</frame>
-    <frame index="2">images\spr_Ability3_Fire_2.png</frame>
-    <frame index="3">images\spr_Ability3_Fire_3.png</frame>
+    <frame index="0">images\spr_miner_walk_right_0.png</frame>
+    <frame index="1">images\spr_miner_walk_right_1.png</frame>
+    <frame index="2">images\spr_miner_walk_right_2.png</frame>
+    <frame index="3">images\spr_miner_walk_right_3.png</frame>
   </frames>
 </sprite>
