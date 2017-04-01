@@ -31,20 +31,35 @@
                 // Must be set by creator (obj_hud_hotbar) after this is created
 
 keyNumberOffset_x = 4; // x offset from hotbar item when drawing hotkey number
-keyNumberOffset_y = 2; // y offset from hotbar item when drawing hotkey number
+keyNumberOffset_y = 1; // y offset from hotbar item when drawing hotkey number
 
 textShadowOffset_x = 2; // x offset from hotkey number when drawing shadow
 textShadowOffset_y = 2; // y offset from hotkey number when drawing shadow
 
 enabled = false;    // Whether or not this tower is currently enabled. Updated in step code.
 selected = false;   // Whether or not this tower is currently being placed. Updated in step code.
-hover = false;      // Whether or not the mouse is currently hovered over this hotbar item. Updated in step code.
+hover = false;      // Whether or not the mouse is currently hovered over this specific hotbar item. Updated in step code.
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -85,8 +100,7 @@ if (instance_exists(obj_control_buildState)) {
     }
 }
 
-
-// Is cursor over this item?
+// Is cursor over this specific item?
 if (
     point_in_rectangle(
         global.window_mouse_x,
@@ -101,6 +115,7 @@ if (
 } else {
     hover = false;
 }
+
 </string>
           </argument>
         </arguments>
@@ -133,6 +148,7 @@ if (selected) {
 
 // Set the font for the hotbar hover text (use same font for hotkey and hover text)
 draw_set_font(fnt_hud_hotbar_hotkey);
+draw_set_valign(fa_top);
 
 if (enabled) {
     // Draw the tower sprite - it sits behind everything else, so draw it early
@@ -146,8 +162,8 @@ if (enabled) {
     draw_set_colour(c_black);
     draw_set_alpha(0.5);
     draw_text(
-        x + keyNumberOffset_x + textShadowOffset_x,
-        y + keyNumberOffset_y + textShadowOffset_y,
+        round(x + keyNumberOffset_x + textShadowOffset_x),
+        round(y + keyNumberOffset_y + textShadowOffset_y),
         towerIndex + 1
     );
     
@@ -155,8 +171,8 @@ if (enabled) {
     draw_set_colour(c_white);
     draw_set_alpha(1);
     draw_text(
-        x + keyNumberOffset_x,
-        y + keyNumberOffset_y,
+        round(x + keyNumberOffset_x),
+        round(y + keyNumberOffset_y),
         towerIndex + 1
     );
 
@@ -173,7 +189,10 @@ if (enabled) {
     draw_sprite_ext(spr_locked, 0, x+lockOffset_x, y+lockOffset_y, lockScale, lockScale, 0, c_white, .15);
 }
 
-if (hover) {
+if (obj_hud_hotbar.toolTipEnabled &amp;&amp; hover) {
+    // Player has overed over toolbar long enough for tooltip to appear,
+    // and is currently hovering over this toolbar item.
+    
     // Draw name of tower or generic text if locked
     var text;
     if (enabled) {
@@ -182,15 +201,15 @@ if (hover) {
         text = 'Locked Tower';
     }
     
-    draw_set_halign(fa_middle); // Center-align text so we don't have to calculate its width
+    draw_set_halign(fa_center); // Center-align text so we don't have to calculate its width
 
     // Round values so text is pixel-perfect
     // Draw shadow
     draw_set_alpha(.5);
     draw_set_colour(c_black);
     draw_text(
-        round(x + sprite_width/2)+2, // Center drawing point
-        round(y - 20)+2,
+        round(x + sprite_width/2 + 2), // Center drawing point
+        round(y - 20 + 2),
         text
     );
     // Draw hover text

@@ -68,8 +68,15 @@
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
       <sprite>sprites\spr_minerbarHUD</sprite>
-      <sprite>sprites\spr_ability_1and2</sprite>
-      <sprite>sprites\spr_ability_3and4</sprite>
+      <sprite>sprites\spr_abilityorb_locked</sprite>
+      <sprite>sprites\spr_abilityorb_1</sprite>
+      <sprite>sprites\spr_abilityorb_2</sprite>
+      <sprite>sprites\spr_abilityorb_3</sprite>
+      <sprite>sprites\spr_abilityorb_4</sprite>
+      <sprite>sprites\spr_abilityorb_charging_1</sprite>
+      <sprite>sprites\spr_abilityorb_charging_2</sprite>
+      <sprite>sprites\spr_abilityorb_charging_3</sprite>
+      <sprite>sprites\spr_abilityorb_charging_4</sprite>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
@@ -367,7 +374,9 @@
         <sprite>sprites\spr_running_fireAnts_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_64x64</sprite>
         <sprite>sprites\spr_running_fireAnts_48x32</sprite>
+        <sprite>sprites\spr_projectile_fireball</sprite>
         <sprite>sprites\spr_running_fireAnts_with_fire_48_32</sprite>
+        <sprite>sprites\spr_goat_ball</sprite>
       </sprites>
       <sprites name="ShellCasing">
         <sprite>sprites\spr_shellCasing</sprite>
@@ -415,6 +424,7 @@
     <sprites name="Misc">
       <sprites name="Abilities">
         <sprite>sprites\spr_ForceField</sprite>
+        <sprite>sprites\spr_ForceField_Single</sprite>
         <sprite>sprites\spr_snakeLeft</sprite>
         <sprite>sprites\spr_HeavyEnemy_Snake_Wrap</sprite>
         <sprite>sprites\spr_SpiderEnemy_Snake_Wrap</sprite>
@@ -601,6 +611,7 @@
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
+      <script>scripts\scr_entity_isObjectBoss.gml</script>
     </scripts>
     <scripts name="Levels">
       <script>scripts\scr_getLevelId.gml</script>
@@ -650,14 +661,14 @@
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
-    <script>scripts\scr_minerals_change.gml</script>
+    <script>scripts\scr_minersAlive_change.gml</script>
+    <script>scripts\scr_minerals_change_OLD.gml</script>
     <script>scripts\scr_kills_change.gml</script>
-    <script>scripts\scr_fuel_change.gml</script>
+    <script>scripts\scr_fuel_change_OLD.gml</script>
     <script>scripts\scr_bossDrop_show.gml</script>
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
-    <script>scripts\script76.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -727,6 +738,7 @@
       </objects>
       <objects name="Special">
         <object>objects\obj_levelFail_screenFade</object>
+        <object>objects\obj_flameScreen</object>
       </objects>
       <object>objects\obj_smoke</object>
       <object>objects\obj_control_particles</object>
@@ -801,6 +813,7 @@
       </objects>
       <objects name="Projectile">
         <object>objects\obj_projectile</object>
+        <object>objects\obj_projectile_fireball</object>
         <object>objects\obj_projectile_flamingAnimal</object>
         <object>objects\obj_projectile_homing</object>
         <object>objects\obj_projectile_caterpillager</object>
@@ -890,12 +903,17 @@
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
       <object>objects\obj_hud_levelEnergy</object>
+      <object>objects\obj_hud_minersAlive</object>
       <object>objects\obj_hud_levelMinerals</object>
       <object>objects\obj_hud_levelKills</object>
-      <object>objects\obj_hud_minersAlive</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
       <object>objects\obj_hud_bossObject</object>
+      <object>objects\obj_hud_abilityorb</object>
+      <object>objects\obj_hud_abilityorb_1</object>
+      <object>objects\obj_hud_abilityorb_2</object>
+      <object>objects\obj_hud_abilityorb_3</object>
+      <object>objects\obj_hud_abilityorb_4</object>
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">

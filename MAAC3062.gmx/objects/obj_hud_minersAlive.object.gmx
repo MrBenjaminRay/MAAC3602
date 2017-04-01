@@ -39,23 +39,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set position and make everything right-aligned
+            <string>// Set position
 position = "bottom_right";
-rightAligned = true;
-textOffset_x = -24;
-changeCueOffset_x = -24;
-changeCueOffset_y = -20;
-
-// Override cue length. Shorter for minerals as they are constantly increasing.
-changeCueTime = 100;
-
-scaleNormal = .5;
-scale = scaleNormal;
-scaleLevelBoosted = scaleNormal * 1.3;
-scaleLevelShrunk = scaleNormal * .7;
-
-position_offset_x += 1;
-position_offset_y += 1;
 
 </string>
           </argument>
@@ -95,8 +80,7 @@ position_offset_y += 1;
             <kind>1</kind>
             <string>// Set value to be drawn to match energy level
 var minersSpawned = scr_statistics_getData(31);
-var minersKilled = scr_statistics_getData(32);
-var minersAlive = minersSpawned - minersKilled;
+var minersAlive = scr_statistics_getData(32);
 currentValueToDraw = string(minersAlive) + '/' + string(minersSpawned);
 
 </string>
@@ -147,29 +131,25 @@ currentValueToDraw = string(minersAlive) + '/' + string(minersSpawned);
     
     // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
     
-    // Draw background
-    //draw_sprite_ext(spr_toolTipBox_Background, 0, backX, backY, 1, 1, 0, c_white, .35);
-    
     // Configure
     draw_set_font(fnt_hud_hoverNew);
     draw_set_halign(fa_right); // Align text so we don't have to calculate its width
     draw_set_colour(c_white);
     draw_set_alpha(1);
     
-    
     // Draw text line 1
     draw_set_colour(c_black);
     draw_set_alpha(.5);
     draw_text(
         round(backX + shadowOffset), // Center drawing point horizontally
-        round(backY - 24) + shadowOffset,
+        round(backY - 28) + shadowOffset,
         text[0]
     );
     draw_set_colour(c_white);
     draw_set_alpha(1);
     draw_text(
         round(backX), // Center drawing point horizontally
-        round(backY - 24),
+        round(backY - 28),
         text[0]
     );
 
@@ -178,14 +158,14 @@ currentValueToDraw = string(minersAlive) + '/' + string(minersSpawned);
     draw_set_alpha(.5);
     draw_text(
         round(backX + shadowOffset), // Center drawing point horizontally
-        round(backY - 12 + shadowOffset),
+        round(backY - 14 + shadowOffset),
         text[1]
     );
     draw_set_colour(c_white);
     draw_set_alpha(1);
     draw_text(
         round(backX), // Center drawing point horizontally
-        round(backY - 12),
+        round(backY - 14),
         text[1]
     );
     

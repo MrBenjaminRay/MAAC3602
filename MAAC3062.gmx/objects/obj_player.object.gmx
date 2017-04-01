@@ -1225,6 +1225,8 @@ if (global.plrAbilityAttained[3]) {
         var randY = irandom_range(-64, -room_height * 2);
         instance_create(randX, randY, obj_projectile_flamingAnimal);
     }
+    
+    instance_create(0, 256, obj_flameScreen);
 } else {
     scr_misc_notification("Ability #4 has not been unlocked.", c_black, c_yellow);
 }
@@ -1547,13 +1549,16 @@ if (global.plrAbilityAttained[0]) {
     }
     
     if (global.plrAbilityUpgraded[0]) {
-        // Do something
+        ability = instance_create(x, y, obj_forceField);
+        ability.isUpgraded = true;
     } else {
-        instance_create(x, y, obj_forceField)
+        ability = instance_create(x, y, obj_forceField);
+        ability.isUpgraded = false;
     }
 } else {
     scr_misc_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
+
 </string>
           </argument>
         </arguments>
