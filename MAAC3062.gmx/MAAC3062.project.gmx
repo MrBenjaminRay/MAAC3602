@@ -913,6 +913,7 @@
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
+      <object>objects\obj_wallTile</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
