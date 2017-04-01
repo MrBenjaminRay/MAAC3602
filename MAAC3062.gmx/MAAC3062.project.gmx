@@ -68,6 +68,7 @@
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
       <sprite>sprites\spr_minerbarHUD</sprite>
+      <sprite>sprites\spr_abilityorb_locked</sprite>
       <sprite>sprites\spr_abilityorb_1</sprite>
       <sprite>sprites\spr_abilityorb_2</sprite>
       <sprite>sprites\spr_abilityorb_3</sprite>
@@ -903,6 +904,11 @@
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
       <object>objects\obj_hud_bossObject</object>
+      <object>objects\obj_hud_abilityorb</object>
+      <object>objects\obj_hud_abilityorb_1</object>
+      <object>objects\obj_hud_abilityorb_2</object>
+      <object>objects\obj_hud_abilityorb_3</object>
+      <object>objects\obj_hud_abilityorb_4</object>
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">
