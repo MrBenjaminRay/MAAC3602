@@ -300,13 +300,13 @@
         <sprite>sprites\spr_player_falling</sprite>
         <sprite>sprites\spr_player_deathPart1</sprite>
         <sprite>sprites\spr_player_deathPart2</sprite>
-        <sprite>sprites\spr_player_alt</sprite>
-        <sprite>sprites\spr_player_alt_standing</sprite>
-        <sprite>sprites\spr_alt_weapon</sprite>
-        <sprite>sprites\spr_player_jump_alt</sprite>
-        <sprite>sprites\spr_player_falling_alt</sprite>
-        <sprite>sprites\spr_dying_1_alt</sprite>
-        <sprite>sprites\spr_dying_2_alt</sprite>
+        <sprite>sprites\spr_player_new</sprite>
+        <sprite>sprites\spr_player_new_standing</sprite>
+        <sprite>sprites\spr_player_new_weapon</sprite>
+        <sprite>sprites\spr_player_new_jump</sprite>
+        <sprite>sprites\spr_player_new_falling</sprite>
+        <sprite>sprites\spr_player_new_dying_1</sprite>
+        <sprite>sprites\spr_player_new_dying_2</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
@@ -610,6 +610,7 @@
         <scripts name="Checks">
           <script>scripts\scr_entity_canDrop.gml</script>
           <script>scripts\scr_entity_canJump.gml</script>
+          <script>scripts\instance_place_list.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
