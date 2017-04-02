@@ -334,22 +334,6 @@ if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
     
-    if (other.hspeed &lt; 0) {
-        if (damage &gt; 15) {
-            other.x += damage;
-        } else {
-            other.x += 15;
-        }
-    }
-    
-    if (other.hspeed &gt;= 0) {
-        if (damage &gt; 15) {
-            other.x -= damage;
-        } else {
-            other.x -= 15;
-        }
-    }
-    
     instance_destroy();
 }
 </string>

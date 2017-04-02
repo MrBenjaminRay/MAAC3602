@@ -207,7 +207,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>shieldObj = instance_create(x - 32, y + 32, obj_effect_shield);
+            <string>shieldObj = instance_create(x, y, obj_effect_shield);
 </string>
           </argument>
         </arguments>
@@ -244,7 +244,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>shieldObj.x = x - 32;
+            <string>shieldObj.x = x + 32;
 shieldObj.y = y + 64;
 </string>
           </argument>

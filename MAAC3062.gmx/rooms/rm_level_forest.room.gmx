@@ -225,6 +225,7 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1056" y="544" name="inst_46EF26EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1088" y="544" name="inst_EB584BCF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="192" y="864" name="inst_8C5353C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_boss_mini_C" x="1408" y="416" name="inst_446FA3F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_forest_tiles" x="192" y="832" w="64" h="32" xo="96" yo="64" id="10000001" name="inst_85762925" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
