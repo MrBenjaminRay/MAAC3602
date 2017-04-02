@@ -269,7 +269,7 @@ else if (scr_getLevelId() == 7) {
 
 if (attackRateCounter &gt;= attackRate) {
     var nearestPlayer = scr_misc_gearNearestObjectOfType(attackRange, obj_player);
-    var nearestMiner = scr_misc_gearNearestObjectOfType(attackRange, obj_miner);
+    var nearestMiner = scr_misc_gearNearestObjectOfType(attackRange + 15, obj_miner);
     var nearestTower = scr_misc_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
