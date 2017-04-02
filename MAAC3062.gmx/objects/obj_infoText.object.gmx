@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>lineOffset = 20;
+titleScale = 2;
 </string>
           </argument>
         </arguments>
@@ -50,55 +51,57 @@
             <kind>1</kind>
             <string>if(global.hubMode == 0) {
     draw_text(x, y + lineOffset*3, "Environment");
-    draw_text(x, y + lineOffset*7, "Leader");
+    draw_text(x, y + lineOffset*10, "Leader");
     
     switch(global.selectedPlanet) {
         case 0:
-            draw_text(x, y, "Moon X-52");
+            draw_text_transformed(x, y, "Moon X-52", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*4, "Rocky and Mountainous.");
-            draw_text(x, y + lineOffset*8, "Covered in rock. Unadvanced, but");
-            draw_text(x, y + lineOffset*9, "heavily armoured.");
+            draw_text(x, y + lineOffset*11, "Covered in rock. Unadvanced, but");
+            draw_text(x, y + lineOffset*12, "heavily armoured.");
             break;
         case 1:
-            draw_text(x, y, "Forest");
+            draw_text_transformed(x, y, "Tria", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*4, "Void of anything but trees the size of");
             draw_text(x, y + lineOffset*5, "skyscapers.");
-            draw_text(x, y + lineOffset*8, "A venomous, ghostly being made of brush.");
+            draw_text(x, y + lineOffset*11, "A venomous, ghostly being made of");
+            draw_text(x, y + lineOffset*12, "brush.");
             break;
         case 2:
-            draw_text(x, y, "Desert");
+            draw_text_transformed(x, y, "Desertonios", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*4, "Literally scorching sands.");
-            draw_text(x, y + lineOffset*8, "A massive flying beast threatens intruders.");
+            draw_text(x, y + lineOffset*11, "A massive flying beast threatens");
+            draw_text(x, y + lineOffset*12, "intruders.");
             break;
         case 3:
-            draw_text(x, y, "Ice");
+            draw_text_transformed(x, y, "Glacius", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*4, "A planet stuck in an eternal ice age.");
-            draw_text(x, y + lineOffset*8, "Somehow acts as a living creature but");
-            draw_text(x, y + lineOffset*9, "is made solely of ice.");
+            draw_text(x, y + lineOffset*11, "Somehow acts as a living creature");
+            draw_text(x, y + lineOffset*12, "but is made solely of ice.");
             break;
         case 4:
-            draw_text(x, y, "Water");
-            draw_text(x, y + lineOffset*4, "A planet with a rocky core, surrounded");
-            draw_text(x, y + lineOffset*5, "entirely by water. A shipwreck has been");
-            draw_text(x, y + lineOffset*6, "spotted. This technology looks familiar.");
-            draw_text(x, y + lineOffset*8, "A fish-like beast that consumes the metal");
-            draw_text(x, y + lineOffset*9, "of sunken ships.");
+            draw_text_transformed(x, y, "Eaut", titleScale, titleScale, 0);
+            draw_text(x, y + lineOffset*4, "A water-covered planet. A shipwreck");
+            draw_text(x, y + lineOffset*5, "has been spotted. This technology");
+            draw_text(x, y + lineOffset*6, "looks familiar.");
+            draw_text(x, y + lineOffset*11, "A fish-like beast that consumes the");
+            draw_text(x, y + lineOffset*12, "remains of sunken ships.");
             break;
         case 5:
-            draw_text(x, y, "Red Mars-like Planet");
-            draw_text(x, y + lineOffset*4, "Our radar high temperatures produced by");
-            draw_text(x, y + lineOffset*5, "burning gases.");
+            draw_text_transformed(x, y, "Mike", titleScale, titleScale, 0);
+            draw_text(x, y + lineOffset*4, "Our radar high temperatures");
+            draw_text(x, y + lineOffset*5, "produced by burning gases.");
             draw_text(x, y + lineOffset*6, "");
-            draw_text(x, y + lineOffset*8, "Unknown");
-            draw_text(x, y + lineOffset*9, "");
+            draw_text(x, y + lineOffset*11, "Unknown");
+            draw_text(x, y + lineOffset*12, "");
             break;
         case 6:
-            draw_text(x, y, "Asteroid");
+            draw_text_transformed(x, y, "Large Asteroid", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*4, "Was is love?");
-            draw_text(x, y + lineOffset*5, "Baby don't hurt me.");
-            draw_text(x, y + lineOffset*6, "Don't hurt me.");
-            draw_text(x, y + lineOffset*8, "No more.");
-            draw_text(x, y + lineOffset*9, "");
+            draw_text(x, y + lineOffset*5, "Baby don't hurt me,");
+            draw_text(x, y + lineOffset*6, "Don't hurt me,");
+            draw_text(x, y + lineOffset*11, "No more.");
+            draw_text(x, y + lineOffset*12, "");
             break;
         default:
             draw_text(x, y, "Invalid selectedPlanet value");
@@ -109,7 +112,7 @@ else if(global.hubMode == 1) {
     switch(global.selectedTower_Ability) {
         //TOWERS
         case 0:
-            draw_text(x, y, "Caterpillager");
+            draw_text_transformed(x, y, "Caterpillager", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Fires a barrage of lethal caterpillars.");
             draw_text(x, y + lineOffset*5, "Can target grounded and aerial enemies.");
             draw_text(x, y + lineOffset*7, "Damage: x x");
@@ -126,7 +129,7 @@ else if(global.hubMode == 1) {
                 obj_unlock_upgrade.sprite_index = spr_upgrade;
             break;
         case 1:
-            draw_text(x, y, "Sloth on a Rope");
+            draw_text_transformed(x, y, "Sloth on a Rope", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Lobs a love-seeking sloth on a leash.");
             draw_text(x, y + lineOffset*4, "The sloth will cling to the enemy until the enemies dies.");
             draw_text(x, y + lineOffset*5, "Can target grounded and aerial enemies.");
@@ -145,7 +148,7 @@ else if(global.hubMode == 1) {
                 obj_unlock_upgrade.sprite_index = spr_upgrade;
             break;
         case 2:
-            draw_text(x, y, "Tactical Titmouse");
+            draw_text_transformed(x, y, "Tactical Titmouse", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Fires a small, fragile bird causes a nuclear explosion.");
             draw_text(x, y + lineOffset*4, "Bounces once before detonating.");
             draw_text(x, y + lineOffset*5, "Can only target grounded enemies.");
@@ -164,7 +167,7 @@ else if(global.hubMode == 1) {
                 obj_unlock_upgrade.sprite_index = spr_upgrade;
             break;
         case 3:
-            draw_text(x, y, "Fire Ant Hose");
+            draw_text_transformed(x, y, "Fire Ant Hose", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Sprays a stream of fiery fire ants at close range.");
             draw_text(x, y + lineOffset*4, "");
             draw_text(x, y + lineOffset*5, "Can target grounded and aerial enemies.");
@@ -183,7 +186,7 @@ else if(global.hubMode == 1) {
                 obj_unlock_upgrade.sprite_index = spr_upgrade;
             break;
         case 4:
-            draw_text(x, y, "109 Calibear Rifle");
+            draw_text_transformed(x, y, "109 Calibear Rifle", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Shoots a soaring teddy bear with its fist out.");
             draw_text(x, y + lineOffset*4, "");
             draw_text(x, y + lineOffset*5, "Can only target aerial enemies.");
@@ -201,7 +204,7 @@ else if(global.hubMode == 1) {
                 obj_unlock_upgrade.sprite_index = spr_upgrade;
             break;
         case 5:
-            draw_text(x, y, "RT-6100");
+            draw_text_transformed(x, y, "RT-6100", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "The magnificent Rainbow Trout Repeater Model 6100.");
             draw_text(x, y + lineOffset*4, "A power turret that shoots battle-ready trouts at high speeds.");
             draw_text(x, y + lineOffset*5, "Player-controller");
@@ -220,7 +223,7 @@ else if(global.hubMode == 1) {
                 obj_unlock_upgrade.sprite_index = spr_upgrade;
             break;
         case 6:
-            draw_text(x, y, "Mecha-Goat Deployer");
+            draw_text_transformed(x, y, "Mecha-Goat Deployer", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Fires a JET PROPELLED, SUPER POWERFUL ROBOT GOAT.");
             draw_text(x, y + lineOffset*4, "Slow to take off, but annihilates its targets.");
             draw_text(x, y + lineOffset*5, "Can target grounded and aerial enemies.");
@@ -241,7 +244,7 @@ else if(global.hubMode == 1) {
             
         //ABILITIES    
         case -1:
-            draw_text(x, y, "Force Field Pulse");
+            draw_text_transformed(x, y, "Force Field Pulse", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "A force field radiates out of your space suit,");
             draw_text(x, y + lineOffset*4, "pushing nearby enemies away.");
             draw_text(x, y + lineOffset*6, "Damage: None");
@@ -256,7 +259,7 @@ else if(global.hubMode == 1) {
             
             break;
         case -2:
-            draw_text(x, y, "Super Sneaky Snaring Snakes");
+            draw_text_transformed(x, y, "Super Sneaky Snaring Snakes", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "You deploy several snakes in both directions,");
             draw_text(x, y + lineOffset*4, "snaring enemies that they touch for several seconds.");
             draw_text(x, y + lineOffset*6, "Damage: None");
@@ -271,7 +274,7 @@ else if(global.hubMode == 1) {
             
             break;
         case -3:
-            draw_text(x, y, "Extreme Blaster Boost");
+            draw_text_transformed(x, y, "Extreme Blaster Boost", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Your pistol because super rapid fire machine pistol");
             draw_text(x, y + lineOffset*4, "for several seconds. Activate again to cancel.");
             draw_text(x, y + lineOffset*6, "Damage: x x x");
@@ -286,7 +289,7 @@ else if(global.hubMode == 1) {
             
             break;
         case -4:
-            draw_text(x, y, "It's Raining Cats and Dogs!");
+            draw_text_transformed(x, y, "It's Raining Cats and Dogs!", titleScale, titleScale, 0);
             draw_text(x, y + lineOffset*3, "Tons of cats and dogs rain from the sky.");
             draw_text(x, y + lineOffset*4, "Their damage is unexpectedly high.");
             draw_text(x, y + lineOffset*6, "Damage: x x x x x");

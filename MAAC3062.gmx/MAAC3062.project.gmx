@@ -163,6 +163,10 @@
       <sprite>sprites\spr_ice_locked</sprite>
       <sprite>sprites\spr_waterButton</sprite>
       <sprite>sprites\spr_water_locked</sprite>
+      <sprite>sprites\spr_asteroidButton</sprite>
+      <sprite>sprites\spr_asteroid_locked</sprite>
+      <sprite>sprites\spr_marsButton</sprite>
+      <sprite>sprites\spr_mars_locked</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
@@ -175,8 +179,6 @@
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
-      <sprite>sprites\spr_asteroidButton</sprite>
-      <sprite>sprites\spr_marsButton</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
     </sprites>
     <sprites name="Entities">
@@ -953,6 +955,8 @@
           <object>objects\obj_desertButton</object>
           <object>objects\obj_iceButton</object>
           <object>objects\obj_waterButton</object>
+          <object>objects\obj_asteroidButton</object>
+          <object>objects\obj_redPlanetButton</object>
           <object>objects\obj_levelTitle</object>
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
