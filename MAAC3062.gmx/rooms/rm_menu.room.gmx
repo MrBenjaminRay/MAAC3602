@@ -56,11 +56,9 @@ window_set_cursor(cr_default);</code>
     <instance objName="obj_spaceBG" x="800" y="448" name="inst_3F6400B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_play" x="608" y="352" name="inst_5770A2AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_credits" x="608" y="512" name="inst_FAA4B43E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_control" x="352" y="-32" name="inst_C44F1B01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_control_cheats" x="224" y="-32" name="inst_CB0300A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_globals" x="288" y="-32" name="inst_3DC4F439" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sound_volumes" x="416" y="-32" name="inst_5A5A14FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quit" x="608" y="672" name="inst_FFBA9780" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_title" x="288" y="64" name="inst_9BFE5D4B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_dead_goat" x="1376" y="384" name="inst_655BF1A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

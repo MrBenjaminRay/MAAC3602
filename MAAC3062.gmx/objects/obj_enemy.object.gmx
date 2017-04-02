@@ -58,11 +58,11 @@ age = 0;                    // Age of enemy (milliseconds since spawning) - for 
 
 energyDrop = 0;
 
-// TOWER-SPECIFIC DATA (Freeze):
+// TOWER-SPECIFIC DATA (Sloth):
 freeze_stacks = 0;                                  // The number of stacks.
 freeze_maxStacks = 20;                              // The max number of stacks.
 freeze_isFrozen = false;                            // Whether or not the enemy is frozen.
-freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
+//freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
 freeze_frozenTimeCounter = 0;                       // The amount of time the enemy has been frozen.
 
 freezeMultiplier = 0;       // The current number of times the enemy has been hit by the freeze tower.
@@ -80,7 +80,6 @@ flame_stackLifetime = scr_misc_secondsToDeltaTime(2);   // The time before a sta
 flame_stackLifetimeCounter = 0;                         // The amount of time since the last stack was removed.
 flame_damageTime = scr_misc_secondsToDeltaTime(0.5);    // The time between stack damage applications.
 flame_damageTimeCounter = 0;                            // The amount of time since the last stack damage application.
-
 
 // ABILITY-SPECIFIC DATA (Ability #2/AbilityB/Snake Ability):
 isRootedBySnake = false;
@@ -427,7 +426,19 @@ if (movementSpeedDesired == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Don't allow stacks to exceed the maximum:
+            <string>// If frozen, atttempt to slowly unfreeze (sloth will freeze faster than this ufreezes)
+// A good side-effect of this is that instead of the sloth always freezing enemies completely,
+// this allows them to move extremely slowly
+if (freeze_stacks &gt; 0) {
+    freeze_stacks -= 0.5;
+}
+
+// Don't allow negative stacks:
+if (freeze_stacks &lt; 0) {
+    freeze_stacks = 0;
+}
+
+// Don't allow stacks to exceed the maximum:
 if (freeze_stacks &gt; freeze_maxStacks) {
     freeze_stacks = freeze_maxStacks;
 }
@@ -440,15 +451,17 @@ if (freeze_stacks == freeze_maxStacks) {
         freeze_frozenTimeCounter += global.deltaTime;
         
         // Unfreeze if possible:
-        if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
-            freeze_isFrozen = false;
-            freeze_frozenTimeCounter = 0;
-            freeze_stacks = 0;
-        }
+        // REMOVED 2017/04/01 - Sloth can freeze enemy indefinitely
+        //if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
+        //    freeze_isFrozen = false;
+        //    freeze_frozenTimeCounter = 0;
+        //    freeze_stacks = 0;
+        //}
     } else {
         freeze_isFrozen = true;
     }
 }
+
 </string>
           </argument>
         </arguments>
@@ -604,52 +617,6 @@ if (timeSpentRooted &gt;= timeUntilUnrooted) {
     timeSpentRooted = 0;
     timeUntilUnrooted = 0;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="113">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>TESTING FORCEFIELD</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>obj_enemy.speed = 1.2;
-obj_enemy.direction = 125;
-isJumping = true; // This allows vertical movement through tiles
-
 </string>
           </argument>
         </arguments>
