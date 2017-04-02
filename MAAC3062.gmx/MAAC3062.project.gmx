@@ -348,8 +348,8 @@
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_orb</sprite>
-        <sprite>sprites\spr_heart1</sprite>
-        <sprite>sprites\spr_heart2</sprite>
+        <sprite>sprites\spr_sloth_heart1</sprite>
+        <sprite>sprites\spr_sloth_heart2</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
@@ -407,6 +407,7 @@
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
       <sprite>sprites\spr_dummy_bossControl</sprite>
+      <sprite>sprites\spr_dummy_particleControl</sprite>
       <sprite>sprites\spr_dummy_saleButton</sprite>
     </sprites>
     <sprites name="Cursors">
@@ -556,6 +557,7 @@
     </backgrounds>
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
+    <background>background\bck_initializeGame</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -695,6 +697,7 @@
       <object>objects\obj_levelControl_6</object>
       <object>objects\obj_levelControl_7</object>
       <object>objects\obj_levelControl_8</object>
+      <object>objects\obj_control_particles</object>
       <object>objects\obj_parallax_controller</object>
     </objects>
     <objects name="CutScenes">
@@ -738,7 +741,7 @@
         <object>objects\obj_levelFail_screenFade</object>
       </objects>
       <object>objects\obj_smoke</object>
-      <object>objects\obj_control_particles</object>
+      <object>objects\obj_particles_slothHeart_testing</object>
       <objects name="Boss">
         <object>objects\obj_effect_tornado</object>
         <object>objects\obj_effect_shield</object>
@@ -1021,6 +1024,7 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_bentest</room>

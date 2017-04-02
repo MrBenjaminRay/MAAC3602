@@ -89,6 +89,85 @@ mode = "FLY"; // Default mode for sloth projectile
 // Set high max life (3 min)
 maxLife = 180000;
 
+//Set the alarm[0] event that handles the heart projectiles (first alarm will be next step)
+alarm[0]=1;
+
+// Create the emitter(s)
+emitter = part_emitter_create(global.partSystem_sloth);
+
+//Set up the area that will emit particles
+part_emitter_region(global.partSystem_sloth, emitter, x-10, x+10, y-10, y+10, ps_shape_ellipse, ps_distr_gaussian);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Emit Hearts</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Check how many ground enemies the sloth is colliding with (only if sloth hugging the target)
+var enemiesSlowed = 0;
+if (mode == "HUG") {
+    with (obj_enemy_ground) {
+        if (place_meeting(x, y, other)) {
+            enemiesSlowed += 1;
+        }
+    }
+}
+
+// Calculate a spawning ratio based on how many enemies the sloth is colliding with at the moment
+heartSpawningRate = max(1, enemiesSlowed);
+
+// Set emitter area (a small area around the sloth's origin)
+part_emitter_region(global.partSystem_sloth, emitter, x-10, x+10, y-10, y+10, ps_shape_ellipse, ps_distr_gaussian);
+
+// Burst some smaller, red hearts
+part_emitter_burst(global.partSystem_sloth, emitter, global.part_sloth1, irandom_range(heartSpawningRate/2, heartSpawningRate * 1.25));
+
+// Burst some larger, pink hearts (only if at least 1 enemy being slowed, which only happens 
+// while sloth is "hugging" the designated target)
+if (enemiesSlowed &gt;= 1) {
+    part_emitter_burst(global.partSystem_sloth, emitter, global.part_sloth2, irandom_range(heartSpawningRate/2, heartSpawningRate));
+}
+
+// Reset the alarm with some randomization
+alarm[0]=irandom_range(20, 30);
+
 </string>
           </argument>
         </arguments>
@@ -211,10 +290,11 @@ if (mode == "FALL") {
 if (mode == "HUG") {
     if (instance_exists(targetEnemy)) {
         var xscale = 1;
-        var xoffset = 0;
+        var xoffset = 33;
         if (targetEnemy.hspeed &gt;= 0) {
+            // Flip sprite when enemy moving to the right
             xscale = -1;
-            xoffset = 71;
+            xoffset = 38;
         }
         // Keep the sloth on the enemy
         x = targetEnemy.x + targetEnemy.sprite_width/2 * xscale + xoffset;
@@ -256,21 +336,27 @@ scr_projectile_enforceMaxLife();
 if (instance_exists(targetEnemy)) {
     if(targetEnemy == other) {
         // This is the enemy that this projectile was sent to target
+        // Start hugging if not already hugging
         if (mode == "FLY") {
-            // Switch mode from flying to hugging
             scr_sloth_startHug();
         }
+    }
+    // Apply slow effect to all enemies in range
+    if (mode == "HUG") {
         
-        targetEnemy.freeze_stacks++; // Max freeze stacks enforced in enemy step code
+        other.freeze_stacks++; // Max freeze stacks enforced in enemy step code
         
+        // This (below) worked when we were freezing 1 enemy, but this won't work when sloth
+        // freezes multiple enemies. We would need a per-enemy freeze, and we don't need
+        // to do any of that anymore.
         //// If counter has elapsed, increase freeze effect
-//        if (timeToNextFreeze == 0) {
-//            targetEnemy.freeze_stacks++; // Max freeze stacks enforced in enemy step code
-//            timeToNextFreeze = freezeInterval;
-//        } else {
-//            timeToNextFreeze -= global.deltaTime;
-//          timeToNextFreeze = clamp(timeToNextFreeze, 0, freezeInterval);
-//        }
+        //if (timeToNextFreeze == 0) {
+        //    targetEnemy.freeze_stacks++; // Max freeze stacks enforced in enemy step code
+        //    timeToNextFreeze = freezeInterval;
+        //} else {
+        //    timeToNextFreeze -= global.deltaTime;
+        //    timeToNextFreeze = clamp(timeToNextFreeze, 0, freezeInterval);
+        //}    
     }
 }
 
