@@ -77,6 +77,10 @@
       <sprite>sprites\spr_abilityorb_charging_2</sprite>
       <sprite>sprites\spr_abilityorb_charging_3</sprite>
       <sprite>sprites\spr_abilityorb_charging_4</sprite>
+      <sprites name="Tutorials">
+        <sprite>sprites\spr_thumbsUp_Huge</sprite>
+        <sprite>sprites\spr_thumbsUp_Normal</sprite>
+      </sprites>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
@@ -687,6 +691,9 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Tutorial">
+      <script>scripts\scr_tutorial_thumbsUp.gml</script>
+    </scripts>
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
@@ -949,6 +956,9 @@
       <object>objects\obj_hud_abilityorb_2</object>
       <object>objects\obj_hud_abilityorb_3</object>
       <object>objects\obj_hud_abilityorb_4</object>
+      <objects name="Tutorials">
+        <object>objects\obj_thumbsUp</object>
+      </objects>
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">
