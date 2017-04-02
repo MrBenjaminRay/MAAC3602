@@ -212,6 +212,7 @@
         </sprites>
         <sprites name="MiniBoss4">
           <sprite>sprites\spr_miniboss4</sprite>
+          <sprite>sprites\spr_miniboss4_attack</sprite>
         </sprites>
         <sprites name="Boss4">
           <sprite>sprites\spr_Boss4_standing</sprite>

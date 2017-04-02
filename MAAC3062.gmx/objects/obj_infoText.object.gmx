@@ -27,6 +27,13 @@
             <kind>1</kind>
             <string>lineOffset = 20;
 titleScale = 2;
+
+ratioX = x / room_width;
+ratioY = y / room_height;
+
+x = ratioX * global.screenWidth;
+y = ratioY * global.screenHeight;
+
 </string>
           </argument>
         </arguments>
@@ -49,7 +56,11 @@ titleScale = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.hubMode == 0) {
+            <string>
+
+show_debug_message(string(ratioX) + ', ' + string(ratioY));
+
+if(global.hubMode == 0) {
     draw_text(x, y + lineOffset*3, "Environment");
     draw_text(x, y + lineOffset*10, "Leader");
     
