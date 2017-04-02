@@ -55,15 +55,7 @@ with(obj_spawnerSpawner){
     canSpawn_groundMedium = true;
 }
 
-
-
-
-
-
-scr_camera_follow_targetObject(inst_73C86E9A)
-var tutorialBox1 = instance_create(96, 608, obj_messageBox);
-ds_list_add(tutorialBox1.list_text, "There are too many enemies for you");
-ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
+scr_camera_follow_targetObject(inst_73C86E9A);
 </string>
           </argument>
         </arguments>
@@ -111,6 +103,11 @@ ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
           <argument>
             <kind>1</kind>
             <string>scr_camera_follow_targetObject(obj_player)
+
+var tutorialBox1 = instance_create(96, 608, obj_messageBox);
+ds_list_add(tutorialBox1.list_text, "There are too many enemies for you");
+ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
+
 </string>
           </argument>
         </arguments>
@@ -136,6 +133,18 @@ ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
             <string>// Add custom stuff for this level here
 if(tutorialComplete){
     global.enemiesCanSpawn = true;
+}
+
+if(instance_exists(obj_tower_caterpillager)){
+    isTowerPlaced = true;
+}
+
+if(isTowerPlaced &amp;&amp; mouse_check_button_pressed(mb_right)){
+    hasPlayerRightClicked = true;
+}
+
+if(hasPlayerRightClicked){
+    tutorialComplete = true;
 }
 </string>
           </argument>
