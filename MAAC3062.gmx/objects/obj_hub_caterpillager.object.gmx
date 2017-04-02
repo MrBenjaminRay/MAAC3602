@@ -8,6 +8,46 @@
   <parentName>obj_hubTowerAbility</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.towerUpgradeLevel[0] &gt; 1)
+    sprite_index = spr_basic_Upgrade;
+if(!global.towerUnlocked[0])
+    sprite_index = spr_caterpillager_locked;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
@@ -25,12 +65,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.selectedTower_Ability = 0;
-
-audio_play_sound(snd_menuClick, 0, false);
-audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
-
-
+            <string>if(global.towerUnlocked[0]) {
+    global.selectedTower_Ability = 0;
+    audio_play_sound(snd_menuClick, 0, false);
+    audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
+}
+else {
+    audio_play_sound(snd_menuClick_reject, 0, false);
+    audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
+}
 </string>
           </argument>
         </arguments>

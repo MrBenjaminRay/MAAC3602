@@ -60,14 +60,14 @@
     <sprites name="UI_HUD">
       <sprite>sprites\spr_bossItemHUD</sprite>
       <sprite>sprites\spr_energyHUD</sprite>
-      <sprite>sprites\spr_enemiesKilledHUD</sprite>
       <sprite>sprites\spr_minersAliveHUD</sprite>
+      <sprite>sprites\spr_enemiesKilledHUD</sprite>
+      <sprite>sprites\spr_minersAliveHUD_OLD</sprite>
       <sprite>sprites\spr_mineralsHUD</sprite>
       <sprite>sprites\spr_progressHUD</sprite>
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
-      <sprite>sprites\spr_minerbarHUD</sprite>
       <sprite>sprites\spr_abilityorb_locked</sprite>
       <sprite>sprites\spr_abilityorb_1</sprite>
       <sprite>sprites\spr_abilityorb_2</sprite>
@@ -77,6 +77,10 @@
       <sprite>sprites\spr_abilityorb_charging_2</sprite>
       <sprite>sprites\spr_abilityorb_charging_3</sprite>
       <sprite>sprites\spr_abilityorb_charging_4</sprite>
+      <sprites name="Tutorials">
+        <sprite>sprites\spr_thumbsUp_Huge</sprite>
+        <sprite>sprites\spr_thumbsUp_Normal</sprite>
+      </sprites>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
@@ -154,11 +158,19 @@
       <sprite>sprites\spr_leftArrow</sprite>
       <sprite>sprites\spr_hubMockupBG</sprite>
       <sprite>sprites\spr_moonButton</sprite>
+      <sprite>sprites\spr_moon_locked</sprite>
       <sprite>sprites\spr_forestButton</sprite>
+      <sprite>sprites\spr_forest_locked</sprite>
       <sprite>sprites\spr_desertButton</sprite>
+      <sprite>sprites\spr_desert_locked</sprite>
       <sprite>sprites\spr_iceButton</sprite>
+      <sprite>sprites\spr_ice_locked</sprite>
       <sprite>sprites\spr_waterButton</sprite>
-      <sprite>sprites\spr_earthButton</sprite>
+      <sprite>sprites\spr_water_locked</sprite>
+      <sprite>sprites\spr_asteroidButton</sprite>
+      <sprite>sprites\spr_asteroid_locked</sprite>
+      <sprite>sprites\spr_marsButton</sprite>
+      <sprite>sprites\spr_mars_locked</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
@@ -171,8 +183,6 @@
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
-      <sprite>sprites\spr_asteroidButton</sprite>
-      <sprite>sprites\spr_marsButton</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
     </sprites>
     <sprites name="Entities">
@@ -202,7 +212,6 @@
         </sprites>
         <sprites name="MiniBoss4">
           <sprite>sprites\spr_miniboss4</sprite>
-          <sprite>sprites\spr_miniboss4_attack</sprite>
         </sprites>
         <sprites name="Boss4">
           <sprite>sprites\spr_Boss4_standing</sprite>
@@ -300,25 +309,32 @@
         <sprite>sprites\spr_player_falling</sprite>
         <sprite>sprites\spr_player_deathPart1</sprite>
         <sprite>sprites\spr_player_deathPart2</sprite>
-        <sprite>sprites\spr_player_alt</sprite>
-        <sprite>sprites\spr_player_alt_standing</sprite>
-        <sprite>sprites\spr_alt_weapon</sprite>
-        <sprite>sprites\spr_player_jump_alt</sprite>
-        <sprite>sprites\spr_player_falling_alt</sprite>
-        <sprite>sprites\spr_dying_1_alt</sprite>
-        <sprite>sprites\spr_dying_2_alt</sprite>
+        <sprite>sprites\spr_player_new</sprite>
+        <sprite>sprites\spr_player_new_standing</sprite>
+        <sprite>sprites\spr_player_new_weapon</sprite>
+        <sprite>sprites\spr_player_new_jump</sprite>
+        <sprite>sprites\spr_player_new_falling</sprite>
+        <sprite>sprites\spr_player_new_dying_1</sprite>
+        <sprite>sprites\spr_player_new_dying_2</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_caterpillager</sprite>
+        <sprite>sprites\spr_caterpillager_locked</sprite>
         <sprite>sprites\spr_tower_slothOnRope</sprite>
+        <sprite>sprites\spr_sloth_locked</sprite>
         <sprite>sprites\spr_tower_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_titMouse_locked</sprite>
         <sprite>sprites\spr_tower_109CaliBear</sprite>
+        <sprite>sprites\spr_109Calibear_locked</sprite>
         <sprite>sprites\spr_tower_fireAnt</sprite>
+        <sprite>sprites\spr_fireAnt_locked</sprite>
         <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_RT6100_locked</sprite>
         <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
         <sprite>sprites\spr_tower_mechaGoat_left</sprite>
         <sprite>sprites\spr_tower_mechaGoat_right</sprite>
+        <sprite>sprites\spr_mechaGoat_locked</sprite>
         <sprite>sprites\spr_tower_destroyed_basic</sprite>
         <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
         <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
@@ -352,8 +368,8 @@
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_orb</sprite>
-        <sprite>sprites\spr_heart1</sprite>
-        <sprite>sprites\spr_heart2</sprite>
+        <sprite>sprites\spr_sloth_heart1</sprite>
+        <sprite>sprites\spr_sloth_heart2</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
@@ -413,6 +429,7 @@
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
       <sprite>sprites\spr_dummy_bossControl</sprite>
+      <sprite>sprites\spr_dummy_particleControl</sprite>
       <sprite>sprites\spr_dummy_saleButton</sprite>
     </sprites>
     <sprites name="Cursors">
@@ -567,6 +584,7 @@
     </backgrounds>
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
+    <background>background\bck_initializeGame</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_goat</path>
@@ -608,15 +626,18 @@
         <scripts name="Checks">
           <script>scripts\scr_entity_canDrop.gml</script>
           <script>scripts\scr_entity_canJump.gml</script>
+          <script>scripts\instance_place_list.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
         <script>scripts\scr_entity_moveLeft_OLD.gml</script>
         <script>scripts\scr_entity_moveRight_OLD.gml</script>
         <script>scripts\scr_entity_startMovingRight.gml</script>
         <script>scripts\scr_entity_startMovingLeft.gml</script>
-        <script>scripts\scr_entity_drop.gml</script>
-        <script>scripts\scr_entity_moveTowardsPlayerOrRandom.gml</script>
+        <script>scripts\scr_entity_startMovingTowardsPlayerOrRandom.gml</script>
+        <script>scripts\scr_entity_stopMoving_Sudden.gml</script>
+        <script>scripts\scr_entity_stopMoving_Gengly.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
@@ -669,6 +690,9 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Tutorial">
+      <script>scripts\scr_tutorial_thumbsUp.gml</script>
+    </scripts>
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
     <script>scripts\scr_energy_change.gml</script>
@@ -699,7 +723,7 @@
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
       <object>objects\obj_levelControl</object>
-      <object>objects\obj_levelControl_Tutorial</object>
+      <object>objects\obj_levelControl_Tutorial1</object>
       <object>objects\obj_levelControl_1</object>
       <object>objects\obj_levelControl_2</object>
       <object>objects\obj_levelControl_3</object>
@@ -708,6 +732,7 @@
       <object>objects\obj_levelControl_6</object>
       <object>objects\obj_levelControl_7</object>
       <object>objects\obj_levelControl_8</object>
+      <object>objects\obj_control_particles</object>
       <object>objects\obj_parallax_controller</object>
     </objects>
     <objects name="CutScenes">
@@ -752,7 +777,7 @@
         <object>objects\obj_flameScreen</object>
       </objects>
       <object>objects\obj_smoke</object>
-      <object>objects\obj_control_particles</object>
+      <object>objects\obj_particles_slothHeart_testing</object>
       <objects name="Boss">
         <object>objects\obj_effect_tornado</object>
         <object>objects\obj_effect_shield</object>
@@ -777,6 +802,7 @@
         </objects>
         <objects name="Tutorial Enemies">
           <object>objects\obj_enemy_tutLight1</object>
+          <object>objects\obj_level1_TutEnemy</object>
           <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
@@ -929,6 +955,9 @@
       <object>objects\obj_hud_abilityorb_2</object>
       <object>objects\obj_hud_abilityorb_3</object>
       <object>objects\obj_hud_abilityorb_4</object>
+      <objects name="Tutorials">
+        <object>objects\obj_thumbsUp</object>
+      </objects>
     </objects>
     <objects name="UI_Menus">
       <objects name="Hub">
@@ -939,6 +968,8 @@
           <object>objects\obj_desertButton</object>
           <object>objects\obj_iceButton</object>
           <object>objects\obj_waterButton</object>
+          <object>objects\obj_asteroidButton</object>
+          <object>objects\obj_redPlanetButton</object>
           <object>objects\obj_levelTitle</object>
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
@@ -950,8 +981,16 @@
           <object>objects\obj_bossComplete</object>
           <object>objects\obj_hubTowerAbility</object>
           <object>objects\obj_hub_caterpillager</object>
+          <object>objects\obj_hub_fireAnt</object>
+          <object>objects\obj_hub_109Calibear</object>
+          <object>objects\obj_hub_titMouse</object>
           <object>objects\obj_hub_sloth</object>
-          <object>objects\obj_hud_fireAnt</object>
+          <object>objects\obj_hub_RT6100</object>
+          <object>objects\obj_hub_mechaGoat</object>
+          <object>objects\obj_hub_forcePulse</object>
+          <object>objects\obj_hub_sneakySnakes</object>
+          <object>objects\obj_hub_blaster</object>
+          <object>objects\obj_hub_catsAndDogs</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
@@ -1040,6 +1079,7 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_bentest</room>
