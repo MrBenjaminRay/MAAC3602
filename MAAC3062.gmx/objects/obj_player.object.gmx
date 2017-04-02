@@ -98,7 +98,7 @@ alarm[0] = shieldRegenInterval;
 attackDamage = 4;
 attackRate = 256;
 weaponXOffset = 0;
-weaponYOffset = -7;
+weaponYOffset = 3;
 weaponObj = instance_create(x + weaponXOffset, y + weaponYOffset, obj_weapon_playerArm);
 weaponKickbackMax = 4;             // Override width-based weapon kickback maximum for player.
 weaponKickbackResetSpeed = 0.075;    // Override weapon kickback speed for player.
@@ -774,9 +774,9 @@ if (mouse_check_button(mb_left)) {
             // Add slight offset, as end of gun is higher in the sprite than origin (rotation point) of arm.
             // Offset is positive for one arm and negative for the other (sprite is inverted vertically).
             var vOffset;
-            if (weaponObj.sprite_index == spr_left_arm_weapon) {
+            if (weaponObj.image_yscale &lt; 0) {
                 vOffset = -4;
-            } else if (weaponObj.sprite_index == spr_right_arm_weapon) {
+            } else if (weaponObj.image_yscale &gt; 0) {
                 vOffset = 4;
             } else {
                 vOffset = 0; // The game has crashed due to vOffset not being set. Setting it here is a temporary measure.
