@@ -1089,6 +1089,7 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_Traveling</room>
     <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
@@ -1124,7 +1125,6 @@
     </rooms>
     <rooms name="Story">
       <room>rooms\rm_Story1</room>
-      <room>rooms\rm_Traveling</room>
     </rooms>
   </rooms>
   <help>
