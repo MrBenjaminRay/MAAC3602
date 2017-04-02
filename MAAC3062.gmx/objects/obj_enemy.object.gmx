@@ -52,7 +52,7 @@ attackRate = 240;
 attackRange = sprite_width/4;
 
 // Automatically set horizontal movement to move towards player (if exists), otherwise random left/right.
-scr_entity_moveTowardsPlayerOrRandom();
+scr_entity_startMovingTowardsPlayerOrRandom();
 
 age = 0;                    // Age of enemy (milliseconds since spawning) - for lag prevention purposes.
 

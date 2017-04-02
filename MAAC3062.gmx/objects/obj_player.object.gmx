@@ -374,7 +374,7 @@ alarm[0] = shieldRegenInterval;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Drop Through Platform (BEFORE PARENT STEP)</string>
+            <string>Drop Through Platform (BEFORE INHERITED EVENT)</string>
           </argument>
         </arguments>
       </action>
@@ -426,7 +426,7 @@ if (isDownPressed) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Movement &amp; Sprite Changes (BEFORE PARENT STEP)</string>
+            <string>Movement &amp; Sprite Changes (BEFORE INHERITED EVENT)</string>
           </argument>
         </arguments>
       </action>
@@ -540,6 +540,68 @@ if (isJumping) {
 //            image_xscale = -1;
 //        }
 //    }
+//}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Stop Out of Bounds Movement (BEFORE INHERITED EVENT)</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Player is trying to move off of the left side of the screen. Stop movement.
+if (bbox_left &lt; 0) {
+    show_debug_message('Left Edge ' + string(0) + ', ' + string(bbox_left) + ', ' + string(x) + ', ' + string(bbox_right) + ', ' + string(room_width));
+    scr_entity_stopMoving_Sudden();
+}
+
+if (bbox_right &gt; room_width) {
+    show_debug_message('Right Edge ' + string(0) + ', ' + string(bbox_left) + ', ' + string(x) + ', ' + string(bbox_right) + ', ' + string(room_width));
+    scr_entity_stopMoving_Sudden();
+}
+
+//if (x - sprite_width * image_xscale / 2 &lt; 0 &amp;&amp; movementSpeedDesired &lt; 0) {
+//    show_debug_message('left border hit');
+//    scr_entity_stopMoving_Sudden();
+//}
+
+// Player is trying to move off of the right side of the screen. Shut 'er down.
+//if (x + sprite_width * image_xscale / 2 &gt; room_width &amp;&amp; movementSpeedDesired &gt; 0) {
+//    show_debug_message('right border hit');
+//    scr_entity_stopMoving_Sudden();
 //}
 
 </string>
@@ -1029,56 +1091,6 @@ if (abilC_cooldownCounter &lt; abilC_cooldownTime) {
 
 if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
     abilD_cooldownCounter += global.deltaTime;
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Prevent Out of Bounds Movement</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Left side of screen:
-if (x &lt; sprite_width/2) {
-    x = sprite_width/2;
-}
-
-// Right side of screen:
-if (x &gt; room_width - (sprite_width/2)) {
-    x = room_width - (sprite_width/2);
 }
 
 </string>

@@ -626,13 +626,15 @@
           <script>scripts\instance_place_list.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
         <script>scripts\scr_entity_moveLeft_OLD.gml</script>
         <script>scripts\scr_entity_moveRight_OLD.gml</script>
         <script>scripts\scr_entity_startMovingRight.gml</script>
         <script>scripts\scr_entity_startMovingLeft.gml</script>
-        <script>scripts\scr_entity_drop.gml</script>
-        <script>scripts\scr_entity_moveTowardsPlayerOrRandom.gml</script>
+        <script>scripts\scr_entity_startMovingTowardsPlayerOrRandom.gml</script>
+        <script>scripts\scr_entity_stopMoving_Sudden.gml</script>
+        <script>scripts\scr_entity_stopMoving_Gengly.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
@@ -715,7 +717,7 @@
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
       <object>objects\obj_levelControl</object>
-      <object>objects\obj_levelControl_Tutorial</object>
+      <object>objects\obj_levelControl_Tutorial1</object>
       <object>objects\obj_levelControl_1</object>
       <object>objects\obj_levelControl_2</object>
       <object>objects\obj_levelControl_3</object>
