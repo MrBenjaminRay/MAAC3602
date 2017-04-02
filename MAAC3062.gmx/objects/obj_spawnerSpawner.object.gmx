@@ -38,9 +38,9 @@ spawnedCount = 0;
 // Whether or not specific enemies are allowed to spawn.
 // If multiple enemies are allowed to spawn, then one is
 // chosen at random during every spawn event.
-canSpawn_groundLight = true;
-canSpawn_groundMedium = true;
-canSpawn_groundHeavy = true;
+canSpawn_groundLight = false;
+canSpawn_groundMedium = false;
+canSpawn_groundHeavy = false;
 canSpawn_groundJackal = false;
 canSpawn_groundSpiderSmall = false;
 canSpawn_groundSpiderLarge = false;

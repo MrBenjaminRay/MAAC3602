@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_levelControl</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -41,8 +41,26 @@
             <kind>1</kind>
             <string>// Add custom stuff for this level here
 tutorialComplete = false;
+isTowerPlaced = false;
+hasPlayerRightClicked = false;
 
 
+with(obj_player){
+    firingPaused = true;
+    movementSpeedDefault = 0;
+}
+
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+}
+
+
+
+
+
+
+scr_camera_follow_targetObject(inst_73C86E9A)
 var tutorialBox1 = instance_create(96, 608, obj_messageBox);
 ds_list_add(tutorialBox1.list_text, "There are too many enemies for you");
 ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
@@ -50,22 +68,55 @@ ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>604</id>
+        <id>301</id>
         <kind>0</kind>
-        <userelative>0</userelative>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
+        <useapplyto>-1</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
+        <functionname>action_set_alarm</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>120</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
       </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_camera_follow_targetObject(obj_player)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -83,8 +134,7 @@ ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
           <argument>
             <kind>1</kind>
             <string>// Add custom stuff for this level here
-
-if(global.prepTimeRemaining &lt; 0 and tutorialComplete == true){
+if(tutorialComplete){
     global.enemiesCanSpawn = true;
 }
 </string>
