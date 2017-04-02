@@ -8,15 +8,16 @@ scr_statistics_initializeLevel();
 global.initialMinerals = global.minerals;
 
 // Spawn Required Objects:
-instance_create(-50, -50, obj_control_bosses);
 instance_create(-50, -50, obj_hud_levelEnergy);
-instance_create(-50, -50, obj_hud_minersAlive);
-//instance_create(-50, -50, obj_hud_levelMinerals);
-//instance_create(-50, -50, obj_hud_levelKills);
-//instance_create(-50, -50, obj_hud_bossObject);
 instance_create(-50, -50, obj_camera);
-instance_create(-50, -50, obj_hud_hotbar);
 instance_create(-50, -50, obj_control_normalState);
+
+// Spawn hotbar, miners, boss control on all levels except tutorial
+if (room != rm_tut1) {
+    instance_create(-50, -50, obj_hud_hotbar);
+    instance_create(-50, -50, obj_hud_minersAlive);
+    instance_create(-50, -50, obj_control_bosses);
+}
 
 // Spawn ability orbs on all levels except tutorial and moon (1st ability unlocked when moon beaten)
 if (room != rm_tut1 && room != rm_level_moon) {
