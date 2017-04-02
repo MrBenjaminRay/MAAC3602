@@ -46,6 +46,10 @@ global.tutorial_part3 = false;
 var tutorialBox1 = instance_create(96, 608, obj_messageBox);
 ds_list_add(tutorialBox1.list_text, "Press WASD to move");
 ds_list_add(tutorialBox1.list_text, "and left click to shoot.");
+
+with(obj_enemy) {
+    scr_entity_stopMoving_Sudden()
+}
 </string>
           </argument>
         </arguments>

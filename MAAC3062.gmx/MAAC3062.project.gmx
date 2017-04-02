@@ -60,14 +60,14 @@
     <sprites name="UI_HUD">
       <sprite>sprites\spr_bossItemHUD</sprite>
       <sprite>sprites\spr_energyHUD</sprite>
-      <sprite>sprites\spr_enemiesKilledHUD</sprite>
       <sprite>sprites\spr_minersAliveHUD</sprite>
+      <sprite>sprites\spr_enemiesKilledHUD</sprite>
+      <sprite>sprites\spr_minersAliveHUD_OLD</sprite>
       <sprite>sprites\spr_mineralsHUD</sprite>
       <sprite>sprites\spr_progressHUD</sprite>
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
-      <sprite>sprites\spr_minerbarHUD</sprite>
       <sprite>sprites\spr_abilityorb_locked</sprite>
       <sprite>sprites\spr_abilityorb_1</sprite>
       <sprite>sprites\spr_abilityorb_2</sprite>
@@ -306,13 +306,13 @@
         <sprite>sprites\spr_player_falling</sprite>
         <sprite>sprites\spr_player_deathPart1</sprite>
         <sprite>sprites\spr_player_deathPart2</sprite>
-        <sprite>sprites\spr_player_alt</sprite>
-        <sprite>sprites\spr_player_alt_standing</sprite>
-        <sprite>sprites\spr_alt_weapon</sprite>
-        <sprite>sprites\spr_player_jump_alt</sprite>
-        <sprite>sprites\spr_player_falling_alt</sprite>
-        <sprite>sprites\spr_dying_1_alt</sprite>
-        <sprite>sprites\spr_dying_2_alt</sprite>
+        <sprite>sprites\spr_player_new</sprite>
+        <sprite>sprites\spr_player_new_standing</sprite>
+        <sprite>sprites\spr_player_new_weapon</sprite>
+        <sprite>sprites\spr_player_new_jump</sprite>
+        <sprite>sprites\spr_player_new_falling</sprite>
+        <sprite>sprites\spr_player_new_dying_1</sprite>
+        <sprite>sprites\spr_player_new_dying_2</sprite>
       </sprites>
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
@@ -623,15 +623,18 @@
         <scripts name="Checks">
           <script>scripts\scr_entity_canDrop.gml</script>
           <script>scripts\scr_entity_canJump.gml</script>
+          <script>scripts\instance_place_list.gml</script>
         </scripts>
         <script>scripts\scr_entity_jump.gml</script>
+        <script>scripts\scr_entity_drop.gml</script>
         <script>scripts\scr_entity_forceDrop.gml</script>
         <script>scripts\scr_entity_moveLeft_OLD.gml</script>
         <script>scripts\scr_entity_moveRight_OLD.gml</script>
         <script>scripts\scr_entity_startMovingRight.gml</script>
         <script>scripts\scr_entity_startMovingLeft.gml</script>
-        <script>scripts\scr_entity_drop.gml</script>
-        <script>scripts\scr_entity_moveTowardsPlayerOrRandom.gml</script>
+        <script>scripts\scr_entity_startMovingTowardsPlayerOrRandom.gml</script>
+        <script>scripts\scr_entity_stopMoving_Sudden.gml</script>
+        <script>scripts\scr_entity_stopMoving_Gengly.gml</script>
       </scripts>
       <script>scripts\scr_entity_loadTowerData.gml</script>
       <script>scripts\scr_entity_weaponKickback_Start.gml</script>
@@ -714,7 +717,7 @@
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
       <object>objects\obj_levelControl</object>
-      <object>objects\obj_levelControl_Tutorial</object>
+      <object>objects\obj_levelControl_Tutorial1</object>
       <object>objects\obj_levelControl_1</object>
       <object>objects\obj_levelControl_2</object>
       <object>objects\obj_levelControl_3</object>

@@ -63,7 +63,7 @@
 if (x &lt; 0 &amp;&amp; movementSpeedDesired &lt; 0) {
     // Is at left of screen and still trying to move left, 
     // so start moving to the right.
-    hspeed = 0; // Instant stop instead of usual slowdown
+    scr_entity_stopMoving_Sudden();
     scr_entity_startMovingRight();
 }
 
@@ -71,7 +71,7 @@ if (x &lt; 0 &amp;&amp; movementSpeedDesired &lt; 0) {
 if (x + sprite_width &gt; room_width &amp;&amp; movementSpeedDesired &gt; 0) {
     // Is at right of screen and still trying to move right, 
     // so start moving to the left.
-    hspeed = 0; // Instant stop instead of usual slowdown
+    scr_entity_stopMoving_Sudden();
     scr_entity_startMovingLeft();
 }
 
