@@ -60,14 +60,14 @@
     <sprites name="UI_HUD">
       <sprite>sprites\spr_bossItemHUD</sprite>
       <sprite>sprites\spr_energyHUD</sprite>
-      <sprite>sprites\spr_enemiesKilledHUD</sprite>
       <sprite>sprites\spr_minersAliveHUD</sprite>
+      <sprite>sprites\spr_enemiesKilledHUD</sprite>
+      <sprite>sprites\spr_minersAliveHUD_OLD</sprite>
       <sprite>sprites\spr_mineralsHUD</sprite>
       <sprite>sprites\spr_progressHUD</sprite>
       <sprite>sprites\spr_hotbar_item_back</sprite>
       <sprite>sprites\spr_hotbar_item_selectedOverlay</sprite>
       <sprite>sprites\spr_hotbar_item_disabledOverlay</sprite>
-      <sprite>sprites\spr_minerbarHUD</sprite>
       <sprite>sprites\spr_abilityorb_locked</sprite>
       <sprite>sprites\spr_abilityorb_1</sprite>
       <sprite>sprites\spr_abilityorb_2</sprite>
