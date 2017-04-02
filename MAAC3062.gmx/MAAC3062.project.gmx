@@ -147,6 +147,8 @@
         <sprite>sprites\spr_table</sprite>
         <sprite>sprites\spr_bossIncomplete</sprite>
         <sprite>sprites\spr_bossComplete</sprite>
+        <sprite>sprites\spr_unlock_token</sprite>
+        <sprite>sprites\spr_upgrade_token</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -175,12 +177,6 @@
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
         <sprite>sprites\spr_button_toHub</sprite>
-      </sprites>
-      <sprites name="GreyedOutPlanets">
-        <sprite>sprites\spr_grey_forest</sprite>
-        <sprite>sprites\spr_desert_grey</sprite>
-        <sprite>sprites\spr_ice_grey</sprite>
-        <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
@@ -212,6 +208,7 @@
         </sprites>
         <sprites name="MiniBoss4">
           <sprite>sprites\spr_miniboss4</sprite>
+          <sprite>sprites\spr_miniboss4_attack</sprite>
         </sprites>
         <sprites name="Boss4">
           <sprite>sprites\spr_Boss4_standing</sprite>
@@ -527,6 +524,16 @@
       <sprite>sprites\spr_destroyed_building3</sprite>
       <sprite>sprites\spr_destroyed_building4</sprite>
     </sprites>
+    <sprites name="WelcomeSprites">
+      <sprite>sprites\spr_moon_1_welcome</sprite>
+      <sprite>sprites\spr_moon_2_welcome</sprite>
+      <sprite>sprites\spr_forest_welcome</sprite>
+      <sprite>sprites\spr_desert_welcome</sprite>
+      <sprite>sprites\spr_ice_welcome</sprite>
+      <sprite>sprites\spr_water_welcome</sprite>
+      <sprite>sprites\spr_mars_welcome</sprite>
+      <sprite>sprites\spr_asteroid_welcome</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="MoonBackgrounds">
@@ -689,6 +696,7 @@
         <script>scripts\scr_msg_hubBossReward.gml</script>
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
+      <script>scripts\draw_text_shadow.gml</script>
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
@@ -925,9 +933,7 @@
     <objects name="States">
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
-      <objects name="Misc">
-        <object>objects\obj_button_sellTower</object>
-      </objects>
+      <object>objects\obj_button_sellTower</object>
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>

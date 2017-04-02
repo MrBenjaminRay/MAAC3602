@@ -82,11 +82,11 @@ var playerWithinRange = global.distanceFromShipToPlayer &lt; global.messageDista
 
 if (playerWithinRange) {
     if(currentMessageBox == noone) {
-        if(global.energy/global.maxFuel &gt;= 1) {
-            currentMessageBox = scr_msg_shipPlanetEscape(messageXPos, messageYPos);
-        } else {
-            currentMessageBox = scr_msg_shipRefuel(messageXPos, messageYPos);
-        }
+        //if(global.energy/global.maxFuel &gt;= 1) {
+        //    currentMessageBox = scr_msg_shipPlanetEscape(messageXPos, messageYPos);
+        //} else {
+        //    currentMessageBox = scr_msg_shipRefuel(messageXPos, messageYPos);
+        //}
     }
 } else {
     currentMessageBox = noone;
