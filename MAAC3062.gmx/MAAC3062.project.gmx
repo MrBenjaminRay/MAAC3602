@@ -94,6 +94,7 @@
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
         <sprite>sprites\spr_toolTipBox_Background</sprite>
+        <sprite>sprites\spr_title</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -174,6 +175,9 @@
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
+      <sprite>sprites\spr_asteroidButton</sprite>
+      <sprite>sprites\spr_marsButton</sprite>
+      <sprite>sprites\spr_dead_goat</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -359,8 +363,8 @@
       <sprites name="Particle">
         <sprite>sprites\spr_smoke1</sprite>
         <sprite>sprites\spr_particle_energy_orb</sprite>
-        <sprite>sprites\spr_heart1</sprite>
-        <sprite>sprites\spr_heart2</sprite>
+        <sprite>sprites\spr_sloth_heart1</sprite>
+        <sprite>sprites\spr_sloth_heart2</sprite>
       </sprites>
       <sprites name="ParticleEmitter">
         <sprite>sprites\spr_emitter</sprite>
@@ -420,6 +424,7 @@
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
       <sprite>sprites\spr_dummy_bossControl</sprite>
+      <sprite>sprites\spr_dummy_particleControl</sprite>
       <sprite>sprites\spr_dummy_saleButton</sprite>
     </sprites>
     <sprites name="Cursors">
@@ -503,6 +508,10 @@
       <sprite>sprites\spr_story_script2</sprite>
       <sprite>sprites\spr_story_script3</sprite>
       <sprite>sprites\spr_story_4</sprite>
+      <sprite>sprites\spr_travel_to_another_planet</sprite>
+      <sprite>sprites\spr_phil_and_janice_1</sprite>
+      <sprite>sprites\spr_phil_and_janice_2</sprite>
+      <sprite>sprites\spr_phil_and_janice_3</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -541,6 +550,7 @@
       <background>background\bkg_ice_0</background>
       <background>background\bkg_ice_front</background>
       <background>background\bkg_ice_tileset</background>
+      <background>background\bkg_ice_tile_2</background>
     </backgrounds>
     <backgrounds name="UnderwaterBackgrounds">
       <background>background\bkg_underwater_0</background>
@@ -569,8 +579,11 @@
     </backgrounds>
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
+    <background>background\bck_initializeGame</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path_goat</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
       <script>scripts\scr_abilC_normal_enable.gml</script>
@@ -708,6 +721,7 @@
       <object>objects\obj_levelControl_6</object>
       <object>objects\obj_levelControl_7</object>
       <object>objects\obj_levelControl_8</object>
+      <object>objects\obj_control_particles</object>
       <object>objects\obj_parallax_controller</object>
     </objects>
     <objects name="CutScenes">
@@ -752,7 +766,7 @@
         <object>objects\obj_flameScreen</object>
       </objects>
       <object>objects\obj_smoke</object>
-      <object>objects\obj_control_particles</object>
+      <object>objects\obj_particles_slothHeart_testing</object>
       <objects name="Boss">
         <object>objects\obj_effect_tornado</object>
         <object>objects\obj_effect_shield</object>
@@ -894,6 +908,7 @@
       <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
       <object>objects\obj_sound_volumes</object>
+      <object>objects\obj_fallenBuilding</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
@@ -907,9 +922,12 @@
       <object>objects\obj_story_pic_controller2</object>
       <object>objects\obj_story_text_controller</object>
       <object>objects\obj_story_text_controller2</object>
+      <object>objects\obj_dead_goat</object>
+      <object>objects\obj_title</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
+      <object>objects\obj_wallTile</object>
     </objects>
     <objects name="UI_HUD">
       <object>objects\obj_hud_level</object>
@@ -1044,6 +1062,7 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_bentest</room>
