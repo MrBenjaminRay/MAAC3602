@@ -154,11 +154,19 @@
       <sprite>sprites\spr_leftArrow</sprite>
       <sprite>sprites\spr_hubMockupBG</sprite>
       <sprite>sprites\spr_moonButton</sprite>
+      <sprite>sprites\spr_moon_locked</sprite>
       <sprite>sprites\spr_forestButton</sprite>
+      <sprite>sprites\spr_forest_locked</sprite>
       <sprite>sprites\spr_desertButton</sprite>
+      <sprite>sprites\spr_desert_locked</sprite>
       <sprite>sprites\spr_iceButton</sprite>
+      <sprite>sprites\spr_ice_locked</sprite>
       <sprite>sprites\spr_waterButton</sprite>
-      <sprite>sprites\spr_earthButton</sprite>
+      <sprite>sprites\spr_water_locked</sprite>
+      <sprite>sprites\spr_asteroidButton</sprite>
+      <sprite>sprites\spr_asteroid_locked</sprite>
+      <sprite>sprites\spr_marsButton</sprite>
+      <sprite>sprites\spr_mars_locked</sprite>
       <sprite>sprites\spr_dimFilter</sprite>
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
@@ -171,8 +179,6 @@
         <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
-      <sprite>sprites\spr_asteroidButton</sprite>
-      <sprite>sprites\spr_marsButton</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
     </sprites>
     <sprites name="Entities">
@@ -311,14 +317,21 @@
       <sprites name="Tower">
         <sprite>sprites\spr_tower</sprite>
         <sprite>sprites\spr_tower_caterpillager</sprite>
+        <sprite>sprites\spr_caterpillager_locked</sprite>
         <sprite>sprites\spr_tower_slothOnRope</sprite>
+        <sprite>sprites\spr_sloth_locked</sprite>
         <sprite>sprites\spr_tower_tacticalTitmouse</sprite>
+        <sprite>sprites\spr_titMouse_locked</sprite>
         <sprite>sprites\spr_tower_109CaliBear</sprite>
+        <sprite>sprites\spr_109Calibear_locked</sprite>
         <sprite>sprites\spr_tower_fireAnt</sprite>
+        <sprite>sprites\spr_fireAnt_locked</sprite>
         <sprite>sprites\spr_tower_RT6100</sprite>
+        <sprite>sprites\spr_RT6100_locked</sprite>
         <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
         <sprite>sprites\spr_tower_mechaGoat_left</sprite>
         <sprite>sprites\spr_tower_mechaGoat_right</sprite>
+        <sprite>sprites\spr_mechaGoat_locked</sprite>
         <sprite>sprites\spr_tower_destroyed_basic</sprite>
         <sprite>sprites\spr_tower_destroyed_slothOnRope</sprite>
         <sprite>sprites\spr_tower_destroyed_tacticalTitmouse</sprite>
@@ -942,6 +955,8 @@
           <object>objects\obj_desertButton</object>
           <object>objects\obj_iceButton</object>
           <object>objects\obj_waterButton</object>
+          <object>objects\obj_asteroidButton</object>
+          <object>objects\obj_redPlanetButton</object>
           <object>objects\obj_levelTitle</object>
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
@@ -953,8 +968,16 @@
           <object>objects\obj_bossComplete</object>
           <object>objects\obj_hubTowerAbility</object>
           <object>objects\obj_hub_caterpillager</object>
+          <object>objects\obj_hub_fireAnt</object>
+          <object>objects\obj_hub_109Calibear</object>
+          <object>objects\obj_hub_titMouse</object>
           <object>objects\obj_hub_sloth</object>
-          <object>objects\obj_hud_fireAnt</object>
+          <object>objects\obj_hub_RT6100</object>
+          <object>objects\obj_hub_mechaGoat</object>
+          <object>objects\obj_hub_forcePulse</object>
+          <object>objects\obj_hub_sneakySnakes</object>
+          <object>objects\obj_hub_blaster</object>
+          <object>objects\obj_hub_catsAndDogs</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>
