@@ -129,7 +129,7 @@ currentValueToDraw = global.energy;
     text[2] = 'Collect energy drops to replenish.';
     
     var backX = x;
-    var backY = y-31;
+    var backY = y-45;
     
     // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
 
