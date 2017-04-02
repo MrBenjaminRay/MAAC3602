@@ -796,6 +796,7 @@
         </objects>
         <objects name="Tutorial Enemies">
           <object>objects\obj_enemy_tutLight1</object>
+          <object>objects\obj_level1_TutEnemy</object>
           <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">

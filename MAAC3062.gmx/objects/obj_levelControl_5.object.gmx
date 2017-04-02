@@ -40,7 +40,15 @@
           <argument>
             <kind>1</kind>
             <string>// Add custom stuff for this level here
-
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_groundHeavy = true;
+    canSpawn_groundJackal = true;
+    canSpawn_groundSpiderLarge = true;
+    canSpawn_airLight = true;
+    canSpawn_airHeavy = true;
+}
 </string>
           </argument>
         </arguments>
