@@ -208,6 +208,7 @@
         </sprites>
         <sprites name="MiniBoss4">
           <sprite>sprites\spr_miniboss4</sprite>
+          <sprite>sprites\spr_miniboss4_attack</sprite>
         </sprites>
         <sprites name="Boss4">
           <sprite>sprites\spr_Boss4_standing</sprite>
@@ -695,6 +696,7 @@
         <script>scripts\scr_msg_hubBossReward.gml</script>
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
+      <script>scripts\draw_text_shadow.gml</script>
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
@@ -931,9 +933,7 @@
     <objects name="States">
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
-      <objects name="Misc">
-        <object>objects\obj_button_sellTower</object>
-      </objects>
+      <object>objects\obj_button_sellTower</object>
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>

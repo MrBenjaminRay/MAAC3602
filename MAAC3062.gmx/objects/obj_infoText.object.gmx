@@ -27,12 +27,19 @@
             <kind>1</kind>
             <string>lineOffset = 20;
 titleScale = 2;
+
+ratioX = x / room_width;
+ratioY = y / room_height;
+
+x = ratioX * global.screenWidth;
+y = ratioY * global.screenHeight;
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,16 +56,23 @@ titleScale = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.hubMode == 0) {
+            <string>
+
+show_debug_message(string(ratioX) + ', ' + string(ratioY));
+
+if(global.hubMode == 0) {
     draw_text(x, y + lineOffset*3, "Environment");
     draw_text(x, y + lineOffset*10, "Leader");
+    
+    var shadowOffset = 1;
+    var shadowAlpha = 0.5;
     
     switch(global.selectedPlanet) {
         case 0:
             draw_text_transformed(x, y, "Moon X-52", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "Rocky and Mountainous.");
-            draw_text(x, y + lineOffset*11, "Covered in rock. Unadvanced, but");
-            draw_text(x, y + lineOffset*12, "heavily armoured.");
+            draw_text_shadow(x, y + lineOffset*4, "Rocky and Mountainous.");
+            draw_text_shadow(x, y + lineOffset*11, "Covered in rock. Unadvanced, but");
+            draw_text_shadow(x, y + lineOffset*12, "heavily armoured.");
             break;
         case 1:
             draw_text_transformed(x, y, "Tria", titleScale, titleScale, 0);
@@ -308,6 +322,30 @@ else if(global.hubMode == 1) {
 
 
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Draw in Draw GUI instead
 
 </string>
           </argument>

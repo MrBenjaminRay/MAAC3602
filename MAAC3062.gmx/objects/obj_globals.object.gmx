@@ -28,11 +28,11 @@
             <string>global.navPieceAttained[0] = false; // Whether or not the player has attained the first nav piece.
 global.navPieceAttained[1] = false; // Whether or not the player has attained the second nav piece.
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
-global.navPieceAttained[3] = true; // Whether or not the player has attained the fourth nav piece.
+global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
 
 global.towerUnlocked[0] = true; // Basic Tower
 global.towerUnlocked[1] = false; // Freezer Tower
-global.towerUnlocked[2] = true; // Mortar Tower
+global.towerUnlocked[2] = false; // Mortar Tower
 global.towerUnlocked[3] = false; // 109 Cal Tower
 global.towerUnlocked[4] = false; // Flame Tower
 global.towerUnlocked[5] = false; // M6100 Tower
@@ -90,7 +90,7 @@ global.towerUpgradeLevel[6] = 1; // Mechagoat Tower
           <argument>
             <kind>1</kind>
             <string>global.plrAbilityAttained[0] = false; // Whether or not the player has attained the first ability.
-global.plrAbilityAttained[1] = true; // Whether or not the player has attained the second ability.
+global.plrAbilityAttained[1] = false; // Whether or not the player has attained the second ability.
 global.plrAbilityAttained[2] = false; // Whether or not the player has attained the third ability.
 global.plrAbilityAttained[3] = false; // Whether or not the player has attained the fourth ability.
 
