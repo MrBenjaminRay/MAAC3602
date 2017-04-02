@@ -348,6 +348,10 @@ if (mounted) {
     return 0;
 }
 
+if (frozenByBossThree) {
+    return 0;
+}
+
 if (isReloading) {
     scr_misc_notification("Reloading", c_white, c_yellow);
 }
@@ -494,6 +498,20 @@ if(isReloading == true &amp;&amp; reloadingText == false) {
       </action>
     </event>
     <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>408</id>

@@ -88,9 +88,11 @@ scr_particle_projectile_addsmoketrail(.05);
     return 0;
 }
 
-var xTarget = target.x + target.sprite_width/2;
-var yTarget = target.y + target.sprite_height/2;
-mp_potential_step(xTarget, yTarget, movementSpeed, false);
+if (is_undefined(target) == false) {
+    mp_potential_step(target.x, target.y, 6, false);
+} else {
+    instance_destroy();
+}
 
 scr_projectile_enforceMaxLife();
 
