@@ -70,9 +70,15 @@ indefiniteZoom = false; // Forces camera not to leave zoomed state (state 2) as 
 // Set to .5 to see camera position when troubleshooting, or 0 to hide
 image_alpha = 0;
 
+// OVERRIDE LEVEL-SPECIFIC VALUES:
+
 // Camera speed (prevents jittering when player knocked around due to damage)
 view_hspeed = 10;
 view_vspeed = 10;
+
+// Camera border
+view_hborder = view_wview[0]/2;
+view_vborder = view_hview[0]/2;
 
 </string>
           </argument>

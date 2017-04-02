@@ -42,6 +42,7 @@
             <string>// Set position
 position = "bottom_right";
 
+textColor = c_blue;
 </string>
           </argument>
         </arguments>

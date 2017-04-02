@@ -52,22 +52,21 @@ scr_level_initialize();</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="object" x="-544" y="1024" name="inst_54921CDA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="864" name="inst_4E7D5D76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="832" name="inst_462C67E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="800" name="inst_C1D15A7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="768" name="inst_420D2C3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="736" name="inst_ED37310D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="704" name="inst_E29CB0AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="672" name="inst_0572D72F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="640" name="inst_BCD3DE19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="608" name="inst_D5403DAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="576" name="inst_C011288D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="544" name="inst_DEA615D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="416" name="inst_C9DE99D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="448" name="inst_017535A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="480" name="inst_1018C25F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="-32" y="512" name="inst_AD3BE708" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="864" name="inst_4E7D5D76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="832" name="inst_462C67E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="800" name="inst_C1D15A7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="768" name="inst_420D2C3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="736" name="inst_ED37310D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="704" name="inst_E29CB0AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="672" name="inst_0572D72F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="640" name="inst_BCD3DE19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="608" name="inst_D5403DAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="576" name="inst_C011288D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="544" name="inst_DEA615D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="416" name="inst_C9DE99D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="448" name="inst_017535A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="480" name="inst_1018C25F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="-96" y="512" name="inst_AD3BE708" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="0" y="864" name="inst_3F3FC074" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="32" y="864" name="inst_B65BAFB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="64" y="864" name="inst_727C5E82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -175,13 +174,10 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="2944" y="864" name="inst_CC392CBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="2976" y="864" name="inst_54640A61" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="3008" y="864" name="inst_7E130AD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_tutLight1" x="608" y="768" name="inst_9B098C2F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_tutLight2" x="1120" y="768" name="inst_50F465A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_tutLight2" x="1184" y="768" name="inst_348BAE7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_tutLight2" x="1248" y="768" name="inst_040245F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_tutLight2" x="1312" y="768" name="inst_AC652315" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warp" x="2944" y="832" name="inst_971C53D7" locked="0" code="    warpx = 320;&#xA;    warpy = 608;&#xA;    target_room = rm_level_moon;&#xA;" scaleX="-0.5" scaleY="9.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelControl_Tutorial" x="128" y="-32" name="inst_7D6ECCF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_light" x="512" y="736" name="inst_418A5A57" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_heavy" x="768" y="736" name="inst_B0EAE308" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_spider_large" x="992" y="736" name="inst_85511543" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_moon_tiles" x="0" y="896" w="32" h="32" xo="0" yo="0" id="10002072" name="inst_893F407B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

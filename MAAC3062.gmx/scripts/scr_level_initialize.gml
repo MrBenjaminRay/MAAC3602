@@ -28,6 +28,9 @@ if (room != rm_tut1 && room != rm_level_moon) {
 
 // Add appropriate level control object
 switch (room) {
+    case rm_tut1:
+        instance_create(-50, -50, obj_levelControl_Tutorial1);
+        break;
     case rm_level_moon: 
         instance_create(-50, -50, obj_levelControl_1);
         break;

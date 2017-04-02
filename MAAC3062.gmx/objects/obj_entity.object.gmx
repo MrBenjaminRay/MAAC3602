@@ -48,6 +48,12 @@ gravConst = 0.0015;             // Gravity Constant - Can override for entities 
 gravAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 gravity adjustment.
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
+dropPlatformY = 0;              // The y coordinate of the platform where the entity's current drop was last approved.  This helps us prevent the entity from dropping 
+                                // through the floor when dropping from a higher level when drop speed is high and entity is tall. Previously we let him continue dropping if
+                                // he was already dropping and he collided with a platform, and we cleared the drop flag once we detected he was no longer colliding
+                                // with a platform. But when drop speed is high and player is tall, he may not have a step where he is collision-free between two platforms.
+                                // So when we detect collision at a y position that is much different from when the drop was approved, we recheck and validate the drop.
+                                // If not validated, he is pushed up to the platform above.
 
 // WEAPON:
 attackRate = room_speed / 2;    // The number of delta time between attacks.
@@ -184,32 +190,55 @@ vspeed += gravConst * gravAdjust * global.deltaTime; // Increase speed based on 
 
 var newY = y + vspeed * global.deltaTime; // Get new proposed y value based on speed &amp; delta time
 
-if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
+
+
+if (place_meeting(x, newY, obj_physicsTile)) {
     // Collision at new Y
+    
+    // DROPPING STUFF
+    if (isDropping) {
+        
+        // Flag isDropping can only be set when the drop is valid, given the fact that we do some pretty
+        // exhaustive checks in the drop() script, as well as checks at the end of this code block to
+        // clear the flag when it is no longer needed.
+        // Given that, if the flag is set, we let the entity drop.
+        
+        y = newY;
+        
+    }
+    
+    // JUMPING STUFF
     if (!isJumping || (isJumping &amp;&amp; vspeed &gt; 0 &amp;&amp; !place_meeting(x, y, obj_physicsTile))) {
         // Either:
         //      Entity is not jumping, or
         //      Entity is jumping, is on the way down from the jump (vspeed&gt;0), and has cleared
         //      the platform - it was not colliding last step (y) and is colliding this step (newY).
         //      Entity will now be standing on top of the platform.
-        
-        // With collision at new Y, we can't just move there. Instead, we change y until it would collide.
-        var tweakY;
-        if (vspeed &lt; 0) {
-            tweakY = -1; // Entity is travelling upward
-        } else {
-            tweakY = 1; // Entity is travelling downward
-        }
 
-        // Increase/decrease Y until entity would collide.
-        while (place_meeting(x, y+tweakY, obj_physicsTile) == false) {
-            y += tweakY;
-        }
+        // Don't halt movement if we are already dropping (player can start a drop before entity lands
+        // during a jump, so there may be some overlap)
+        if (!isDropping) {
+            // Not dropping, so end the jump with a hard stop at the top of the tile
+            
+            // With collision at new Y, we can't just move there. Instead, we change y until it would collide.
+            var tweakY;
+            if (vspeed &lt; 0) {
+                tweakY = -1; // Entity is travelling upward
+            } else {
+                tweakY = 1; // Entity is travelling downward
+            }
+    
+            // Increase/decrease Y until entity would collide.
+            while (place_meeting(x, y+tweakY, obj_physicsTile) == false) {
+                y += tweakY;
+            }
 
-        // Whether entity was going up or down, vspeed must be set to 0.
-        vspeed = 0;
+            // Whether entity was going up or down, vspeed must be set to 0.
+            vspeed = 0;
+
+        }
         
-        // If entity was jumping, clear the flag now that it has stuck the landing
+        // If entity was jumping, clear the flag now that the jump is over (either player landed on tile or is dropping through)
         if (isJumping) { 
             isJumping = false;
         }
@@ -221,17 +250,65 @@ if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
     }
 
 } else {
-    // No collision at new Y, or player is dropping through tile, so we can just move there.
+    // No collision at new Y, so we can just go there
     y = newY;
+    
+    // DROPPING:
+    //if (isDropping) {
+        // If there is no collision at the current location, the player has finished dropping through the
+        // tile he was on, and we can let the gravity/collision code do the rest.
+        //if (place_meeting(x, y, obj_physicsTile) == false) {
+            //isDropping = false;
+        //}
+    //}
+
 }
 
-// DROPPING:
+// THIS SECTION CLEARS THE DROP FLAG IF THE FLAG IS CURRENTLY SET AND THE ENTITY IS
+// NOT CURRENTLY COLLIDING WITH A PLATFORM WITH THE SAME Y POSITION AS dropPlatformY.
+// This check occurs after gravity is applied, so if the player was holding the drop key
+// and was in the air when the step began, and gravity made him collide with a lower platform,
+// the flag won't be cleared in that case.
+
+// Attempt to clear dropping flag if possible
 if (isDropping) {
-    // If there is no collision at the current location, the player has finished dropping through the
-    // tile he was on, and we can let the gravity/collision code do the rest.
-    if (place_meeting(x, y, obj_physicsTile) == false) {
+    //show_debug_message('START CHECK');
+    //show_debug_message('entity y = ' + string(y));
+    //show_debug_message('platform y = ' + string(dropPlatformY));
+    // The entity is dropping. If the entity's current position (before gravity applied) is 
+    // not colliding with a platform at the Y position where the drop was approved, then
+    // this drop flag can be cleared.
+    var instList = instance_place_list(x, newY, obj_physicsTile);
+    var foundMatch = false;
+    if (instList != noone) {
+        for (var i = 0; i &lt; ds_list_size(instList); i++) {
+            if (instance_exists(instList[| i])) {
+                var item = instList[| i];
+                //show_debug_message('checking y: ' + string(item.y));
+                if (item.y == dropPlatformY) {
+                    foundMatch = true;
+                    //show_debug_message('found y match!');
+                }
+            }
+            //show_debug_message('colliding with ' + string(ds_list_size(instList)) + ' instances');
+        }
+        if (foundMatch == true) {
+            // Currently colliding with a platform at the approved Y
+            // Do nothing        
+        } else {
+            // Not colliding with a platform at the approved Y
+            isDropping = false;
+            dropPlatformY = 0;
+            //show_debug_message('clearing flag and Y... - collision but not with right platforms');
+        }
+    } else {
+        // No collision with any platforms
         isDropping = false;
+        dropPlatformY = 0;
+        //show_debug_message('clearing flag and Y... - no collision at all');
     }
+    
+    //show_debug_message('END CHECK');
 }
 
 </string>
