@@ -147,6 +147,8 @@
         <sprite>sprites\spr_table</sprite>
         <sprite>sprites\spr_bossIncomplete</sprite>
         <sprite>sprites\spr_bossComplete</sprite>
+        <sprite>sprites\spr_unlock_token</sprite>
+        <sprite>sprites\spr_upgrade_token</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -175,12 +177,6 @@
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
         <sprite>sprites\spr_button_toHub</sprite>
-      </sprites>
-      <sprites name="GreyedOutPlanets">
-        <sprite>sprites\spr_grey_forest</sprite>
-        <sprite>sprites\spr_desert_grey</sprite>
-        <sprite>sprites\spr_ice_grey</sprite>
-        <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
@@ -526,6 +522,16 @@
       <sprite>sprites\spr_destroyed_building2</sprite>
       <sprite>sprites\spr_destroyed_building3</sprite>
       <sprite>sprites\spr_destroyed_building4</sprite>
+    </sprites>
+    <sprites name="WelcomeSprites">
+      <sprite>sprites\spr_moon_1_welcome</sprite>
+      <sprite>sprites\spr_moon_2_welcome</sprite>
+      <sprite>sprites\spr_forest_welcome</sprite>
+      <sprite>sprites\spr_desert_welcome</sprite>
+      <sprite>sprites\spr_ice_welcome</sprite>
+      <sprite>sprites\spr_water_welcome</sprite>
+      <sprite>sprites\spr_mars_welcome</sprite>
+      <sprite>sprites\spr_asteroid_welcome</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
