@@ -107,6 +107,7 @@ scr_camera_follow_targetObject(inst_73C86E9A);
 var tutorialBox1 = instance_create(96, 608, obj_messageBox);
 ds_list_add(tutorialBox1.list_text, "There are too many enemies for you");
 ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
+ds_list_add(tutorialBox1.list_text, "Try right clicking on a tower to sell it.");
 
 </string>
           </argument>
@@ -139,12 +140,16 @@ if(instance_exists(obj_tower_caterpillager)){
     isTowerPlaced = true;
 }
 
-if(isTowerPlaced &amp;&amp; mouse_check_button_pressed(mb_right)){
-    hasPlayerRightClicked = true;
-}
-
 if(hasPlayerRightClicked){
     tutorialComplete = true;
+    
+    with(obj_level1_TutEnemy){
+    scr_entity_startMovingTowardsPlayerOrRandom();
+    }
+    with(obj_player){
+        firingPaused = false;
+        movementSpeedDefault = 310 / 1000;
+    }
 }
 </string>
           </argument>
