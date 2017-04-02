@@ -1135,7 +1135,7 @@ if (abilD_cooldownCounter &lt; abilD_cooldownTime) {
             <kind>1</kind>
             <string>var nearestBuilding = scr_misc_gearNearestObjectOfType(0, obj_fallenBuilding);
 
-with (obj_fallenbuilding) {
+with (obj_fallenBuilding) {
     disabled = true;
 }
 
