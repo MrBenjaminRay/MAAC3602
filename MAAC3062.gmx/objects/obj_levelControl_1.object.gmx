@@ -40,7 +40,12 @@
           <argument>
             <kind>1</kind>
             <string>// Add custom stuff for this level here
+tutorialComplete = false;
 
+
+var tutorialBox1 = instance_create(96, 608, obj_messageBox);
+ds_list_add(tutorialBox1.list_text, "There are too many enemies for you");
+ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
 </string>
           </argument>
         </arguments>
@@ -79,6 +84,9 @@
             <kind>1</kind>
             <string>// Add custom stuff for this level here
 
+if(global.prepTimeRemaining &lt; 0 and tutorialComplete == true){
+    global.enemiesCanSpawn = true;
+}
 </string>
           </argument>
         </arguments>
