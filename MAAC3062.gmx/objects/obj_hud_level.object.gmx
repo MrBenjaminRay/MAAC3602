@@ -34,6 +34,7 @@ position = ""; // Must be set by inheriting object to bottom_left or bottom_righ
 
 rightAligned = false; // Override this to cause text to be drawn on left side of icon (icon &amp; text are right-aligned)
 textOffset_x = 48; // Override with negative value in inheriting class if rightAligned=true
+textColor = c_yellow; // Override as needed
 changeCueOffset_x = 48; // Override with negative value in inheriting class if rightAligned=true
 changeCueOffset_y = -15; // Override with negative value in inheriting class if using bottom left or right positions.
 changeCueTime = 1500;       // Amount of time to display cue before fading. Will be different for minerals/energy.
@@ -44,8 +45,8 @@ textOffset_y = 0; // Leave at 0 for text to be vertically centered with icon
 
 // STUFF TO LEAVE ALONE (generally speaking)
 
-textShadowOffset_x = 2; // Always positive value
-textShadowOffset_y = 2; // Always positive value
+textShadowOffset_x = 1; // Always positive value
+textShadowOffset_y = 1; // Always positive value
 
 changeCueAmount = 0;        // Value to be drawn in change cue (e.g. 100 becomes +100), etc.)
 changeCueTimeLeft = 0;      // Amount of change cue time left (gets set to changeCueTime when cue displayed)
@@ -331,7 +332,7 @@ draw_set_alpha(0.5);
 draw_text(textX + textShadowOffset_x, textY + textShadowOffset_y, currentValueToDraw);
 
 // Draw main level
-draw_set_colour(c_yellow);
+draw_set_colour(textColor);
 draw_set_alpha(1);
 draw_text(textX, textY, currentValueToDraw);
 

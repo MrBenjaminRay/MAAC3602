@@ -42,6 +42,8 @@
             <string>// Set position
 position = "bottom_left";
 
+
+
 image_speed = 0.25;
 
 </string>
