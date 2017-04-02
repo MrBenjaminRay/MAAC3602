@@ -32,7 +32,7 @@ global.navPieceAttained[3] = true; // Whether or not the player has attained the
 
 global.towerUnlocked[0] = true; // Basic Tower
 global.towerUnlocked[1] = false; // Freezer Tower
-global.towerUnlocked[2] = false; // Mortar Tower
+global.towerUnlocked[2] = true; // Mortar Tower
 global.towerUnlocked[3] = false; // 109 Cal Tower
 global.towerUnlocked[4] = false; // Flame Tower
 global.towerUnlocked[5] = false; // M6100 Tower
@@ -48,7 +48,7 @@ global.towerUpgradeLevel[2] = 1; // Titmouse Tower
 global.towerUpgradeLevel[3] = 1; // 109 Cal Tower
 global.towerUpgradeLevel[4] = 1; // Flame Tower
 global.towerUpgradeLevel[5] = 1; // M6100 Tower
-global.towerUpgradeLevel[6] = 1; // M6100 Tower
+global.towerUpgradeLevel[6] = 1; // Mechagoat Tower
 </string>
           </argument>
         </arguments>
@@ -90,13 +90,14 @@ global.towerUpgradeLevel[6] = 1; // M6100 Tower
           <argument>
             <kind>1</kind>
             <string>global.plrAbilityAttained[0] = false; // Whether or not the player has attained the first ability.
-global.plrAbilityAttained[1] = false; // Whether or not the player has attained the second ability.
+global.plrAbilityAttained[1] = true; // Whether or not the player has attained the second ability.
 global.plrAbilityAttained[2] = false; // Whether or not the player has attained the third ability.
 global.plrAbilityAttained[3] = false; // Whether or not the player has attained the fourth ability.
 
 global.plrAbilityUpgraded[0] = false; // Whether or not the player has attained the first ability upgrade.
 global.plrAbilityUpgraded[1] = false; // Whether or not the player has attained the second ability upgrade.
 global.plrAbilityUpgraded[2] = false; // Whether or not the player has attained the third ability upgrade.
+global.plrAbilityUpgraded[3] = false; // Whether or not the player has attained the forth ability upgrade.
 
 global.plrAbilityCooldown_normal[0] = 10000;    // Delta time value.
 global.plrAbilityCooldown_normal[1] = 15000;    // Delta time value.

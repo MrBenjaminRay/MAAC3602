@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var selectedPlanet = instance_nearest(x, y, obj_moonButton);
-
-changeState = false;
+            <string>changeState = false;
 </string>
           </argument>
         </arguments>
