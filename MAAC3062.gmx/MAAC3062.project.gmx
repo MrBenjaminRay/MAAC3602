@@ -515,6 +515,7 @@
       <sprite>sprites\spr_phil_and_janice_1</sprite>
       <sprite>sprites\spr_phil_and_janice_2</sprite>
       <sprite>sprites\spr_phil_and_janice_3</sprite>
+      <sprite>sprites\spr_ship_cartoon</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -593,6 +594,7 @@
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
     <background>background\bck_initializeGame</background>
+    <background>background\bkg_currently_travelling</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_goat</path>
@@ -930,6 +932,7 @@
       <object>objects\obj_warp</object>
       <object>objects\obj_sound_volumes</object>
       <object>objects\obj_fallenBuilding</object>
+      <object>objects\obj_ship_travelling</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
@@ -1121,6 +1124,7 @@
     </rooms>
     <rooms name="Story">
       <room>rooms\rm_Story1</room>
+      <room>rooms\rm_Traveling</room>
     </rooms>
   </rooms>
   <help>
