@@ -39,13 +39,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.tutorial_part1 = true;
-global.tutorial_part2 = false;
-global.tutorial_part3 = false;
+            <string>//global.tutorial_part1 = true;
+//global.tutorial_part2 = false;
+//global.tutorial_part3 = false;
 
-var tutorialBox1 = instance_create(96, 608, obj_messageBox);
-ds_list_add(tutorialBox1.list_text, "Press WASD to move");
-ds_list_add(tutorialBox1.list_text, "and left click to shoot.");
+//var tutorialBox1 = instance_create(96, 608, obj_messageBox);
+//ds_list_add(tutorialBox1.list_text, "Press WASD to move");
+//ds_list_add(tutorialBox1.list_text, "and left click to shoot.");
 
 with(obj_enemy) {
     scr_entity_stopMoving_Sudden()
@@ -65,6 +65,15 @@ with(obj_enemy) {
 
 state = 0;
 
+state1_ball = instance_create(100, 100, obj_drop_energy);
+state2_ball = instance_create(150, 100, obj_drop_energy);
+state3_ball = instance_create(200, 100, obj_drop_energy);
+state4_ball = instance_create(250, 100, obj_drop_energy);
+
+instance_deactivate_object(obj_hud_levelEnergy);
+instance_deactivate_object(obj_enemy);
+instance_deactivate_object(obj_drop_energy);
+instance_activate_object(obj_player);
 
 </string>
           </argument>
@@ -194,12 +203,12 @@ state = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var messageBox = instance_create(200, 200, obj_messageBox);
-ds_list_add(messageBox.list_text, "");
-ds_list_add(messageBox.list_text, "Your Energy Bar (top left) will turn");
-ds_list_add(messageBox.list_text, "green when you have enough Energy to");
-ds_list_add(messageBox.list_text, "fuel your ship's departure!");
-ds_list_add(messageBox.list_text, "");
+            <string>//var messageBox = instance_create(200, 200, obj_messageBox);
+//ds_list_add(messageBox.list_text, "");
+//ds_list_add(messageBox.list_text, "Your Energy Bar (top left) will turn");
+//ds_list_add(messageBox.list_text, "green when you have enough Energy to");
+//ds_list_add(messageBox.list_text, "fuel your ship's departure!");
+//ds_list_add(messageBox.list_text, "");
 
 </string>
           </argument>
