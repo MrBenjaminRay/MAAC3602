@@ -465,6 +465,7 @@
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
       <sprite>sprites\spr_ship_arrow</sprite>
       <sprite>sprites\spr_enemyKills</sprite>
+      <sprite>sprites\spr_sale_button</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
