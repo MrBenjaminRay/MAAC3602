@@ -64,6 +64,8 @@ with(obj_enemy) {
  */
 
 state = 0;
+
+
 </string>
           </argument>
         </arguments>
@@ -169,6 +171,35 @@ state = 0;
 } else if (state == 7) {
 
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var messageBox = instance_create(200, 200, obj_messageBox);
+ds_list_add(messageBox.list_text, "");
+ds_list_add(messageBox.list_text, "Your Energy Bar (top left) will turn");
+ds_list_add(messageBox.list_text, "green when you have enough Energy to");
+ds_list_add(messageBox.list_text, "fuel your ship's departure!");
+ds_list_add(messageBox.list_text, "");
 
 </string>
           </argument>
