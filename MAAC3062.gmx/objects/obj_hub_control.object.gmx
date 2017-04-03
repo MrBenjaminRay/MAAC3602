@@ -41,6 +41,109 @@ global.selectedTower_Ability = 0;
 0: planet view, 1: weapons view
 */
 global.hubMode = 0;
+
+
+var levelData;
+var bossDropIcon;
+foundFalse = false;
+
+levelData = ds_map_find_value(global.levelStats, rm_level_moon);
+if(levelData[30]) {
+    scr_msg_hubBossReward(0);
+    levelData[30] = false;
+    ds_map_replace(global.levelStats, rm_level_moon, levelData);
+    bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+    bossDropIcon.sprite_index = spr_drop_rawMaterial1;
+}
+else
+    foundFalse = true;
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_forest);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(1);
+        levelData[30] = false;
+        global.navPieceAttained[0] = true;
+        ds_map_replace(global.levelStats, rm_level_forest, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial2;
+    }
+    else
+        foundFalse = true;
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_desert);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(2);
+        levelData[30] = false;
+        global.navPieceAttained[1] = true;
+        ds_map_replace(global.levelStats, rm_level_desert, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial3;
+    }
+    else
+       foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_ice);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(3);
+        levelData[30] = false;
+        global.navPieceAttained[2] = true;
+        ds_map_replace(global.levelStats, rm_level_ice, levelData);
+        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
+        bossDropIcon.sprite_index = spr_drop_rawMaterial4;
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_underwater);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(4);
+        levelData[30] = false;
+        global.navPieceAttained[3] = true;
+        ds_map_replace(global.levelStats, rm_level_underwater, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_asteroid);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(5);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_asteroid, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_mars);
+    if(levelData[30]) {
+        scr_msg_hubBossReward(6);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_mars, levelData);
+    }
+    else
+        foundFalse = true; 
+}
+
+if(!foundFalse) {
+    levelData = ds_map_find_value(global.levelStats, rm_level_earth);
+    if(levelData[30]) {
+        //scr_msg_hubBossReward(7);
+        levelData[30] = false;
+        ds_map_replace(global.levelStats, rm_level_earth, levelData);
+    }
+    else
+        foundFalse = true;
+}
 </string>
           </argument>
         </arguments>
