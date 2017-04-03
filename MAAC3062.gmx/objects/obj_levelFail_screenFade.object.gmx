@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>obj_effect</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -78,22 +78,29 @@ fadeTimeElapsed = 0;
 }
 
 if (timeElapsed &gt;= showButtonsAfter) {
-    // Create buttons if they don't already exist:
-    if (instance_number(obj_button_retry) == 0) {
-        var xPos = view_xview[0] + 64;
-        var yPos = view_yview[0] + 840;
-        
-        var tmp = instance_create(xPos, yPos, obj_button_retry);
-        tmp.depth = depth - 1;
-    }
-    
+    var btnScale = 0.6;
+
     if (instance_number(obj_button_toHub) == 0) {
-        var xPos = view_xview[0] + 1820;
-        var yPos = view_yview[0] + 840;
+        var xPos = window_get_width()/2 + 300 - sprite_get_width(obj_button_toHub);
+        var yPos = window_get_height()/2 + 100;
         
         var tmp = instance_create(xPos, yPos, obj_button_toHub);
+        tmp.image_xscale = btnScale;
+        tmp.image_yscale = btnScale;
         tmp.depth = depth - 1;
     }
+        
+    // Create buttons if they don't already exist:
+    if (instance_number(obj_button_retry) == 0) {
+        var xPos = window_get_width()/2 - 300 + sprite_get_width(obj_button_retry);
+        var yPos = window_get_height()/2 + 100;
+
+        var tmp = instance_create(xPos, yPos, obj_button_retry);
+        tmp.image_xscale = btnScale;
+        tmp.image_yscale = btnScale;
+        tmp.depth = depth - 1;
+    }
+
 }
 
 // Increase timeElapsed
