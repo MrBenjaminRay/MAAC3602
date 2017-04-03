@@ -7,6 +7,6 @@
  */
 
 // Note: Position is automatically centered, so any x/y coords are ignored
-var inst = instance_create(0, 0, obj_notification);
+var inst = instance_create(0, 0, obj_notificationResearch);
 inst.sprite_index = argument[0];
 

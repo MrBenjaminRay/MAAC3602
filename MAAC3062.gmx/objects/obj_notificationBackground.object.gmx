@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(0.5);
+            <string>draw_set_alpha(0.75);
 draw_set_color(c_black);
 
 draw_rectangle(0, 0, global.screenWidth, global.screenHeight, 0);
@@ -33,6 +33,28 @@ draw_rectangle(0, 0, global.screenWidth, global.screenHeight, 0);
 draw_set_alpha(1);
 draw_set_color(c_white);
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Draw in Draw GUI Instead</string>
           </argument>
         </arguments>
       </action>
