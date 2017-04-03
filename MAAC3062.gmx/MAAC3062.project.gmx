@@ -115,6 +115,14 @@
           <sprite>sprites\spr_ability2_notification</sprite>
           <sprite>sprites\spr_ability3_notification</sprite>
           <sprite>sprites\spr_ability4_notification</sprite>
+          <sprite>sprites\spr_research_button</sprite>
+          <sprite>sprites\spr_catapillager_note</sprite>
+          <sprite>sprites\spr_sloth_note</sprite>
+          <sprite>sprites\spr_fire_note</sprite>
+          <sprite>sprites\spr_bear_note</sprite>
+          <sprite>sprites\spr_rt_note</sprite>
+          <sprite>sprites\spr_goat_note</sprite>
+          <sprite>sprites\spr_tit_note</sprite>
         </sprites>
       </sprites>
       <sprites name="Hub">
@@ -543,6 +551,7 @@
         <sprite>sprites\spr_phil_and_janice_4</sprite>
         <sprite>sprites\spr_phil_and_janice_5</sprite>
       </sprites>
+      <sprite>sprites\spr_navigation_complete</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -1137,7 +1146,6 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_Epilogue</room>
     <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
@@ -1179,6 +1187,7 @@
       <room>rooms\rm_Post_Post_Hub</room>
       <room>rooms\rm_Traveling</room>
       <room>rooms\rm_Returning_Home</room>
+      <room>rooms\rm_Epilogue</room>
     </rooms>
   </rooms>
   <help>
