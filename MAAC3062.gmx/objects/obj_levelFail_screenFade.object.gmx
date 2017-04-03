@@ -81,10 +81,8 @@ if (timeElapsed &gt;= showButtonsAfter) {
     var btnScale = 0.6;
 
     if (instance_number(obj_button_toHub) == 0) {
-        var xPos = window_get_width()/2 + 300 - sprite_get_width(obj_button_toHub);
-        var yPos = window_get_height()/2 + 100;
-        
-        var tmp = instance_create(xPos, yPos, obj_button_toHub);
+        // Position will be automatically updated by object
+        var tmp = instance_create(0, 0, obj_button_toHub);
         tmp.image_xscale = btnScale;
         tmp.image_yscale = btnScale;
         tmp.depth = depth - 1;
@@ -92,10 +90,8 @@ if (timeElapsed &gt;= showButtonsAfter) {
         
     // Create buttons if they don't already exist:
     if (instance_number(obj_button_retry) == 0) {
-        var xPos = window_get_width()/2 - 300 + sprite_get_width(obj_button_retry);
-        var yPos = window_get_height()/2 + 100;
-
-        var tmp = instance_create(xPos, yPos, obj_button_retry);
+        // Position will be automatically updated by object
+        var tmp = instance_create(0, 0, obj_button_retry);
         tmp.image_xscale = btnScale;
         tmp.image_yscale = btnScale;
         tmp.depth = depth - 1;
