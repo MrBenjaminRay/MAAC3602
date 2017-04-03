@@ -99,7 +99,10 @@ instance_deactivate_object(obj_enemy);
 instance_deactivate_object(obj_drop_energy);
 instance_activate_object(obj_player);
 
-
+// TEMP
+msgTemp = instance_create(state1_thumbsUp_X-200, state1_thumbsUp_Y, obj_messageBox);
+ds_list_add(msgTemp.list_text, "Tutorial still in progress.");
+ds_list_add(msgTemp.list_text, "Will be done asap. -Ben"); 
 </string>
           </argument>
         </arguments>
