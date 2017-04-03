@@ -165,11 +165,11 @@ if (warmUpRemaining &gt; 0) {
     warmUpRemaining -= global.deltaTime;
     image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
     y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
-    weaponObj.image_alpha = 0;
+    //weaponObj.image_alpha = 0;
 }
 else {
     warmUpRemaining = 0;
-    weaponObj.image_alpha = 1;
+    //weaponObj.image_alpha = 1;
 
     // Enable health bar display:
     showHealthBar = true;

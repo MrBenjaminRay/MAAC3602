@@ -52,7 +52,7 @@ with(obj_enemy) {
 }
 
 /* Use states to track player's progress through the tutorial.
- *  1: Move left
+ *  1: Move left, right, up, down to pick up all of the energy
  *  2: Move right
  *  3: Jump
  *  4: Drop
@@ -83,28 +83,29 @@ state7_thumbsUp_Y = 600;
 state8_thumbsUp_X = 450;
 state8_thumbsUp_Y = 600;
 
-state1_ball = instance_create(100, 100, obj_drop_energy);
-state2_ball = instance_create(150, 100, obj_drop_energy);
-state3_ball = instance_create(200, 100, obj_drop_energy);
-state4_ball = instance_create(250, 100, obj_drop_energy);
-state5_ball = instance_create(300, 100, obj_drop_energy);
+
+state1_ball = instance_create(224, 320, obj_drop_energy);
+state2_ball = instance_create(608, 224, obj_drop_energy);
+state3_ball = instance_create(320, 544, obj_drop_energy);
+//state4_ball = instance_create(250, 100, obj_drop_energy);
+//state5_ball = instance_create(300, 100, obj_drop_energy);
 
 // Set energy values to 0
 with (obj_drop_energy) {
     value = 0;
+    maxLife = 100000000; // Permanent
 }
 
 instance_deactivate_object(obj_hud_levelEnergy);
 instance_deactivate_object(obj_enemy);
-instance_deactivate_object(obj_drop_energy);
-instance_activate_object(obj_player);
-instance_activate_object(obj_enemy_ground_spider_large);
+instance_deactivate_object(obj_warp);
 
+msg1 = instance_create(525, 320, obj_messageBox);
+ds_list_add(msg1.list_text, "Use WASD to pick up the 3 items.");
 
-// TEMP
-msgTemp = instance_create(state1_thumbsUp_X-200, state1_thumbsUp_Y, obj_messageBox);
-ds_list_add(msgTemp.list_text, "Tutorial still in progress.");
-ds_list_add(msgTemp.list_text, "Will be done asap. -Ben"); 
+msg2 = noone;
+msg3 = noone;
+
 </string>
           </argument>
         </arguments>
@@ -152,7 +153,7 @@ ds_list_add(msgTemp.list_text, "Will be done asap. -Ben");
           <argument>
             <kind>1</kind>
             <string>// Activate the ball for state 1, which gets state 1 started
-instance_activate_object(state1_ball);
+//instance_activate_object(state1_ball);
 
 </string>
           </argument>
@@ -178,18 +179,54 @@ instance_activate_object(state1_ball);
             <kind>1</kind>
             <string>if (state == 0) {
 
-    // Wait for alarm to activate the first ball. Until then, we stay in state 0.
-    if (instance_exists(state1_ball)) {
-        // Ball 1 exists (has been activated)
+    // Player needs to collect all of the energy drops, which will require full WASD movement.
+    if (instance_number(obj_drop_energy) == 0) {
+        // Player can move to next state of tutorial
+        scr_tutorial_thumbsUp(obj_player.x, obj_player.y - 30);
+        // Set the state
         state = 1;
-        // Show the next instruction
-        msg = instance_create(state1_thumbsUp_X, state1_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use A to move LEFT to");
-        ds_list_add(msg.list_text, "pick up the item.");    
+        // Activate the enemies
+        instance_activate_object(obj_hud_levelEnergy);
+        instance_activate_object(obj_enemy);
+        // Destroy the previous instruction
+        with (msg1) { instance_destroy(); }
+        if (!instance_exists(msg2)) {
+            // Show the next instruction
+            msg2 = instance_create(obj_player.x + 50, obj_player.y - 60, obj_messageBox);
+            ds_list_add(msg2.list_text, "Kill the enemies with left mouse,");
+            ds_list_add(msg2.list_text, "and collect the energy they drop.");
+            ds_list_add(msg2.list_text, "We store the energy collected.");        
+        }
+
     }
     
 } else if (state == 1) {
-    if (!instance_exists(state1_ball)) {
+
+    // Player needs to kill the enemies and collect any energy dropped    
+    if (instance_number(obj_enemy) == 0 &amp;&amp; instance_number(obj_drop_energy) == 0) {
+        // Player can move to next state of tutorial
+        scr_tutorial_thumbsUp(obj_player.x, obj_player.y - 30);
+        // Set the state
+        state = 2;
+        // Activate the enemies
+        instance_activate_object(obj_warp);
+        // Destroy the previous instruction
+        with (msg2) { instance_destroy(); }
+        if (!instance_exists(msg3)) {
+            // Show the next instruction
+            msg3 = instance_create(obj_player.x + 50, obj_player.y - 60, obj_messageBox);
+            ds_list_add(msg3.list_text, "Proceed all the way to the right");
+            ds_list_add(msg3.list_text, "to go find your ship!");        
+        }
+
+    }
+    
+} 
+return 0;
+
+
+if (state == 2) {
+
         // Ball 1 has been picked up
         scr_tutorial_thumbsUp(state2_thumbsUp_X, state2_thumbsUp_Y);
         // Set state and activate next ball
@@ -202,7 +239,7 @@ instance_activate_object(state1_ball);
         ds_list_add(msg.list_text, "Use D to move RIGHT to");
         ds_list_add(msg.list_text, "pick up the item.");   
     }
-} else if (state == 2) {
+ else if (state == 2) {
     if (!instance_exists(state2_ball)) {
         // Ball 2 has been picked up
         scr_tutorial_thumbsUp(state3_thumbsUp_X, state3_thumbsUp_Y);
