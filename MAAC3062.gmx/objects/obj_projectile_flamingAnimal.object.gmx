@@ -58,6 +58,7 @@ if (irandom_range(0, 1)) {
     sprite_index = spr_flaming_dog;
 } else {
     sprite_index = spr_flaming_cat;
+    
 }
 
 image_angle = irandom_range(0, 359);
