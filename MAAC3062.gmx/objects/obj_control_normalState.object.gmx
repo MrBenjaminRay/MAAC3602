@@ -233,37 +233,6 @@ scr_normal_beginBuild(0);
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="48">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var canProceed = global.state != "Paused";
-
-if (instance_number(obj_tower_RT6100) == 1) {
-    canProceed &amp;= obj_tower_RT6100.mounted == false;
-}
-
-if (canProceed) {
-    scr_state_setDestroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="10" enumb="27">
       <action>
         <libid>1</libid>
@@ -282,12 +251,10 @@ if (canProceed) {
           <argument>
             <kind>1</kind>
             <string>if (global.state == 'Paused') {
-    scr_state_setNormal();
-    scr_paused_unpauseAnimation();
-} else {
-    scr_state_setPaused();
-    scr_paused_pauseAnimation();
+    return 0;
 }
+
+scr_state_setNormal();
 </string>
           </argument>
         </arguments>

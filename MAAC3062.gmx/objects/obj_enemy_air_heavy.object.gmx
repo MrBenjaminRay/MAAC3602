@@ -165,10 +165,19 @@
     sprite_index = spr_flying_heavy_G;
 } else if (scr_getLevelId() == 2) {
     sprite_index = spr_flying_heavy_O;
-} else if (scr_getLevelId() == 3) {
-    sprite_index = spr_flying_heavy_P;
+} 
+else if (scr_getLevelId() == 3) {
+    sprite_index = spr_flying_heavy_B;
 } else if (scr_getLevelId() == 4) {
-    sprite_index = spr_flying_heavy_G;
+    sprite_index = spr_flying_heavy_P;
+} else if (scr_getLevelId() == 5) {
+    sprite_index = spr_flying_heavy_P;
+}
+else if (scr_getLevelId() == 6) {
+    sprite_index = spr_flying_heavy_O;
+}
+else if (scr_getLevelId() == 7) {
+    sprite_index = spr_flying_heavy_O;
 }
 </string>
           </argument>
@@ -291,6 +300,31 @@
           <argument>
             <kind>3</kind>
             <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+draw_sprite_ext(spr_running_fireAnts_64x64, 0, x, y, 1, 1, 0, c_white, 0 + (20 * flame_stacks));
+
+</string>
           </argument>
         </arguments>
       </action>

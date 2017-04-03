@@ -41,10 +41,8 @@
             <kind>1</kind>
             <string>untoggle = 0;
 
-if(global.moonLevelComplete == 1)
-    image_index = 0;
-else
-    image_index = 2;
+if(global.moonLevelComplete != 1)
+    sprite_index = spr_forest_locked;
 
 
 </string>
@@ -69,7 +67,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(obj_levelTitle.sprite_index == spr_level1) {
+            <string>if(global.selectedPlanet == 1) {
     image_index = 3;
     untoggle = 1;
 }
@@ -164,8 +162,46 @@ else if(untoggle == 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.moonLevelComplete == 1)
-    obj_levelTitle.sprite_index = spr_level1;
+            <string>if(global.moonLevelComplete == 1) {
+    global.selectedPlanet = 1;
+    audio_play_sound(snd_menuClick, 0, false);
+    audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
+}
+else {
+    audio_play_sound(snd_menuClick_reject, 0, false);
+    audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.selectedPlanet == 1) {
+    draw_set_colour(circleColour);
+    draw_set_alpha(rectangleAlpha);
+    draw_circle(x+sprite_width/2, y+sprite_height/2, (sprite_width/2)+circleRadius+2, false);
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+}
+
+draw_self();
 </string>
           </argument>
         </arguments>

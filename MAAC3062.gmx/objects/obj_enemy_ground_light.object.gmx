@@ -165,11 +165,22 @@
     sprite_index = spr_light_enemy_G;
 } else if (scr_getLevelId() == 2) {
     sprite_index = spr_light_enemy_O;
-} else if (scr_getLevelId() == 3) {
-    sprite_index = spr_light_enemy_P;
+} 
+else if (scr_getLevelId() == 3) {
+    sprite_index = spr_light_enemy_B;
 } else if (scr_getLevelId() == 4) {
-    sprite_index = spr_light_enemy_G;
+    sprite_index = spr_light_enemy_P;
+} else if (scr_getLevelId() == 5) {
+    sprite_index = spr_light_enemy_P;
 }
+else if (scr_getLevelId() == 6) {
+    sprite_index = spr_light_enemy_O;
+}
+else if (scr_getLevelId() == 7) {
+    sprite_index = spr_light_enemy_O;
+}
+
+alarm[0] = 420 + irandom(1080);
 </string>
           </argument>
         </arguments>
@@ -291,6 +302,60 @@
           <argument>
             <kind>3</kind>
             <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//if(scr_entity_canJump()){
+    if (irandom(1) == 0) {
+        scr_entity_jump();
+    }
+//}
+
+alarm[0] = 420 + irandom(1080);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+draw_sprite_ext(spr_running_fireAnts_48x32, 0, x, y, 1, 1, 0, c_white, 0 + (20 * flame_stacks));
+
+</string>
           </argument>
         </arguments>
       </action>

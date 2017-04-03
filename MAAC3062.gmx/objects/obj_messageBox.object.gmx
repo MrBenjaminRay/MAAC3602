@@ -3,7 +3,7 @@
   <spriteName>spr_newMessageAnim</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>1</depth>
+  <depth>-10000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,8 +30,8 @@ image_xscale = 0.5;
 image_yscale = image_xscale;
 
 list_text = ds_list_create();
-textXOffset = 20;
-textYOffset = 10;
+textXOffset = 45;
+textYOffset = 20;
 
 textBackgroundWidth = 2;
 
@@ -122,7 +122,7 @@ for (var i = 0 ; i &lt; ds_list_size(list_text) ; i++) {
     
     // Determine Position:
     var xCoord = x + textXOffset;
-    var yCoord = y + textYOffset + (i * 12);
+    var yCoord = y + textYOffset + (i * 25);
     
     // Set Font:
     draw_set_font(fnt_messageBox);
@@ -138,6 +138,7 @@ for (var i = 0 ; i &lt; ds_list_size(list_text) ; i++) {
     // Reset Draw Color:
     draw_set_color(c_white);
 }
+
 </string>
           </argument>
         </arguments>

@@ -60,63 +60,21 @@
           <argument>
             <kind>1</kind>
             <string>// Enemy is moving off of the left side of the screen:
-if (x &lt; 0) {
-    movementDirection = "RIGHT";
+if (x &lt; 0 &amp;&amp; movementSpeedDesired &lt; 0) {
+    // Is at left of screen and still trying to move left, 
+    // so start moving to the right.
+    scr_entity_stopMoving_Sudden();
+    scr_entity_startMovingRight();
 }
 
 // Enemy is moving off of the right side of the screen:
-if (x + sprite_width &gt; room_width) {
-    movementDirection = "LEFT";
+if (x + sprite_width &gt; room_width &amp;&amp; movementSpeedDesired &gt; 0) {
+    // Is at right of screen and still trying to move right, 
+    // so start moving to the left.
+    scr_entity_stopMoving_Sudden();
+    scr_entity_startMovingLeft();
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Random dir if not moving</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Enemy is the scren, but not moving, so set a random direction
-if (movementDirection == "NONE") {
-    if (irandom_range(0, 1)) {
-        movementDirection = "LEFT";
-    } else {
-        movementDirection = "RIGHT";
-    }
-}
 </string>
           </argument>
         </arguments>

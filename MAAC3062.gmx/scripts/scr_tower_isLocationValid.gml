@@ -27,4 +27,42 @@ for (var i = tempX ; i < tempX + sprite_get_width(towerSpr) ; i += 32) {
     isLocationValid &= collision_rectangle(i, tempY + sprite_get_height(towerSpr), i + 32, tempY + sprite_get_height(towerSpr) + 32, obj_physicsTile, false, true) != noone;
 }
 
+// Ensure the location is within the tower's "build range" of the player:
+var player = obj_player;
+
+if (player != noone) {
+    var distance = point_distance(player.x, player.y, tempX, tempY);
+    var towerId = 0;
+    
+    switch (self.object_index) {
+        case obj_tower_caterpillager: {
+            towerId = 0;
+            break;
+        }
+        case obj_tower_slothOnRope: {
+            towerId = 1;
+            break;
+        }
+        case obj_tower_tacticalTitmouse: {
+            towerId = 2;
+            break;
+        }
+        case obj_tower_109CaliBear: {
+            towerId = 3;
+            break;
+        }
+        case obj_tower_fireAnt: {
+            towerId = 4;
+            break;
+        }
+        case obj_tower_RT6100: {
+            towerId = 5;
+            break;
+        }
+    }
+    
+    //show_debug_message(string(distance) + "---" + string(global.towers[towerId, 7]));
+    isLocationValid &= distance <= global.towers[towerId, 7];
+}
+
 return isLocationValid;

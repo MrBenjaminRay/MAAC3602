@@ -46,7 +46,105 @@ healthBarYOffset = sprite_height - 10;
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
 
+// Boss #3 "Stop Firing" ability:
+frozenByBossThree = false;
+
+// Use upgraded art if possible:
+switch (self.object_index) {
+    case obj_tower_caterpillager: {
+        if (global.towerUpgradeLevel[0] &gt; 1) {
+            sprite_index = spr_basic_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_slothOnRope: {
+        if (global.towerUpgradeLevel[1] &gt; 1) {
+            sprite_index = spr_slow_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_tacticalTitmouse: {
+        if (global.towerUpgradeLevel[2] &gt; 1) {
+            sprite_index = spr_mortar_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_109CaliBear: {
+        if (global.towerUpgradeLevel[3] &gt; 1) {
+            sprite_index = spr_rifle_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_fireAnt: {
+        if (global.towerUpgradeLevel[4] &gt; 1) {
+            sprite_index = spr_flame_Upgrade;
+        }
+        break;
+    }
+    case obj_tower_RT6100: {
+        if (global.towerUpgradeLevel[5] &gt; 1) {
+            sprite_index = spr_6100_Upgrade;
+        }
+        break;
+    }
+    
+    // Tower warmup
+    warmUpTotal = 4000; // DEFAULT - will be overwritten in scr_entity_loadTowerData(#) with data from obj_globals
+    warmUpRemaining = warmUpTotal;
+    warmUpYOffset = 0;  // This is set automatically in scr_entity_loadTowerData(#) and is used to simulate the 
+                        // tower growing from the ground during warmup when being placed
+    originalY = 0;      // This keeps track of actual tower Y position so we can reset y after tower has grown
+
+}
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>saleStateEnabled</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>costRecoveryPercentage</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0.25</string>
           </argument>
         </arguments>
       </action>
@@ -85,6 +183,32 @@ healthBarWidth = sprite_width;
             <string>audio_play_sound(snd_towerDestroy, 0, false);
 audio_sound_gain(snd_towerDestroy, 0.7, 0);  
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>frozenByBossThree</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
           </argument>
         </arguments>
       </action>
@@ -130,16 +254,28 @@ audio_sound_gain(snd_towerDestroy, 0.7, 0);
     return 0;
 }
 
+if (frozenByBossThree) {
+    return 0;
+}
+
 var nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy_ground);
 
-// Shrink any existing weapon kickback
-if (weaponKickback &gt; 0) {
-    weaponKickback -= weaponKickbackResetSpeed * global.deltaTime;
-    clamp(weaponKickback, 0, weaponKickbackMax);
+// Decrement warmup time remaining if not 0
+if (warmUpRemaining &gt; 0) { 
+    warmUpRemaining -= global.deltaTime;
+    image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
+    y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
+    weaponObj.image_alpha = 0;
+}
+else {
+    warmUpRemaining = 0;
+    weaponObj.image_alpha = 1;
+    // Shrink any existing weapon kickback
+    scr_entity_weaponKickback_Shrink();
 }
 
 if (nearestEnemy != noone) {
-    if (attackRateCounter &gt;= attackRate) {
+    if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {
         attackRateCounter = 0;
         
         // Rotate the cannon to point towards the enemy:
@@ -172,6 +308,236 @@ weaponObj.x = x + weaponXOffset + weaponKickbackOffsetX;
 weaponObj.y = y + weaponYOffset + weaponKickbackOffsetY;
 
 attackRateCounter += global.deltaTime;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="54">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// When the mouse is right-clicked anywhere except for on a tower,
+// then all towers have their sell states disabled and sale buttons
+// deleted.
+var intersectedTower = collision_rectangle(mouse_x, mouse_y, mouse_x, mouse_y, obj_tower, false, false);
+
+//show_debug_message(intersectedTower);
+
+if (intersectedTower == noone) {
+    // Disable sale state for all other towerS:
+    with (obj_tower) {
+        saleStateEnabled = false;
+    }
+    
+    // Destroy all existing sell buttons:
+    with (obj_button_sellTower) {
+        instance_destroy();
+    }
+} else if (intersectedTower == self) {
+    // Disable sale state for all other towerS:
+    with (obj_tower) {
+        saleStateEnabled = false;
+    }
+    
+    // Destroy all existing sell buttons:
+    with (obj_button_sellTower) {
+        instance_destroy();
+    }
+    
+    // Enable sale state:
+    saleStateEnabled = true;
+    
+    // Create a new sell button for this tower:
+    var sellButton = instance_create(x, y - 32, obj_button_sellTower);
+    sellButton.tower = self;
+    sellButton.costRecoveryPercentage = costRecoveryPercentage;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Disable sale state for all other towerS:
+with (obj_tower) {
+    saleStateEnabled = false;
+}
+
+// Destroy all existing sell buttons:
+with (obj_button_sellTower) {
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Tutorial stuff</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with(obj_levelControl_1){
+    if(hasPlayerRightClicked == false)
+    scr_tutorial_thumbsUp(416, 576);
+    hasPlayerRightClicked = true;
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (saleStateEnabled == false) {
+    return 0;
+}
+
+// Draw Sale Overlay:
+draw_sprite_stretched(spr_sell_overlay, 0, x, y, sprite_width, sprite_height);
+
+// CALCULATE TOWER SALE PRICE:
+var towerHealthPct = currHealth/maxHealth;
+var salePrice = -1;
+
+switch (self.object_index) {
+    case obj_tower_caterpillager: {
+        salePrice = ((global.towers[0, 1] * global.towerUpgradeLevel[0]) * towerHealthPct) * costRecoveryPercentage;
+        break;
+    }
+    case obj_tower_slothOnRope: {
+        salePrice = ((global.towers[1, 1] * global.towerUpgradeLevel[1]) * towerHealthPct) * costRecoveryPercentage;
+        break;
+    }
+    case obj_tower_tacticalTitmouse: {
+        salePrice = ((global.towers[2, 1] * global.towerUpgradeLevel[2]) * towerHealthPct) * costRecoveryPercentage;
+        break;
+    }
+    case obj_tower_109CaliBear: {
+        salePrice = ((global.towers[3, 1] * global.towerUpgradeLevel[3]) * towerHealthPct) * costRecoveryPercentage;
+        break;
+    }
+    case obj_tower_fireAnt: {
+        salePrice = ((global.towers[4, 1] * global.towerUpgradeLevel[4]) * towerHealthPct) * costRecoveryPercentage;
+        break;
+    }
+    case obj_tower_RT6100: {
+        salePrice = ((global.towers[5, 1] * global.towerUpgradeLevel[5]) * towerHealthPct) * costRecoveryPercentage;
+        break;
+    }
+}
+
+/////////////////////////////////////////// DRAW TOWER SELL PRICE:
+// Determine Position:
+var xCoord = x + 32;
+var yCoord = y - 16;
+
+// Set Font:
+draw_set_font(fnt_towerPlacement);
+
+// Draw Background:
+draw_set_color(c_black);
+draw_text(xCoord + 1, yCoord + 1, "Recover " + string(salePrice) + " Energy");
+
+// Draw Foreground:
+draw_set_color(c_yellow);
+draw_text(xCoord, yCoord, "Recover " + string(salePrice) + " Energy");
+
+// Reset Draw Color:
+draw_set_color(c_white);
 </string>
           </argument>
         </arguments>

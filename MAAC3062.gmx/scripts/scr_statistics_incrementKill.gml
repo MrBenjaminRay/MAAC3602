@@ -17,7 +17,7 @@ if (canProceed) {
             levelData[11]++;
             levelData[28]++;
             scr_kills_change(1);  // Trigger visual cue when kill count changes
-            show_debug_message('Ground light enemies killed: ' + string(levelData[11])); // DEBUG
+            //show_debug_message('Ground light enemies killed: ' + string(levelData[11])); // DEBUG
             break;
         }
         case obj_enemy_ground_medium: {

@@ -51,22 +51,18 @@ type = "Ground";
 attackRate = 240;
 attackRange = sprite_width/4;
 
-// Direction in which the entity is moving:
-//      LEFT
-//      RIGHT
-//      NONE
-movementDirection = "NONE";
+// Automatically set horizontal movement to move towards player (if exists), otherwise random left/right.
+scr_entity_startMovingTowardsPlayerOrRandom();
 
 age = 0;                    // Age of enemy (milliseconds since spawning) - for lag prevention purposes.
 
 energyDrop = 0;
 
-// TOWER-SPECIFIC DATA (Freeze):
-freeze_savedMovementSpeed = movementSpeed;          // The original speed of the enemy.
+// TOWER-SPECIFIC DATA (Sloth):
 freeze_stacks = 0;                                  // The number of stacks.
 freeze_maxStacks = 20;                              // The max number of stacks.
 freeze_isFrozen = false;                            // Whether or not the enemy is frozen.
-freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
+//freeze_frozenTime = scr_misc_secondsToDeltaTime(4); // The time to remain frozen, in delta time.
 freeze_frozenTimeCounter = 0;                       // The amount of time the enemy has been frozen.
 
 freezeMultiplier = 0;       // The current number of times the enemy has been hit by the freeze tower.
@@ -85,7 +81,6 @@ flame_stackLifetimeCounter = 0;                         // The amount of time si
 flame_damageTime = scr_misc_secondsToDeltaTime(0.5);    // The time between stack damage applications.
 flame_damageTimeCounter = 0;                            // The amount of time since the last stack damage application.
 
-
 // ABILITY-SPECIFIC DATA (Ability #2/AbilityB/Snake Ability):
 isRootedBySnake = false;
 timeSpentRooted = 0;
@@ -94,6 +89,21 @@ timeUntilUnrooted = 0;
 // Clamp the enemy onto the tile it's spawned above:
 while (place_meeting(x, y, obj_physicsTile) == false) {
     y++;
+}
+
+
+
+//set colour blends for levels 5-8
+if (scr_getLevelId() == 4) {
+    image_blend = c_blue; //water
+} else if (scr_getLevelId() == 5) {
+    image_blend = make_color_rgb(40, 40, 40); //asteroid
+}
+else if (scr_getLevelId() == 6) {
+    image_blend = make_color_rgb(255, 0, 0); //mars
+}
+else if (scr_getLevelId() == 7) {
+    image_blend = make_color_rgb(128, 0, 0); //earth
 }
 </string>
           </argument>
@@ -259,7 +269,7 @@ while (place_meeting(x, y, obj_physicsTile) == false) {
 
 if (attackRateCounter &gt;= attackRate) {
     var nearestPlayer = scr_misc_gearNearestObjectOfType(attackRange, obj_player);
-    var nearestMiner = scr_misc_gearNearestObjectOfType(attackRange, obj_miner);
+    var nearestMiner = scr_misc_gearNearestObjectOfType(attackRange + 15, obj_miner);
     var nearestTower = scr_misc_gearNearestObjectOfType(attackRange, obj_tower);
     
     var hasAttacked = false;
@@ -350,17 +360,31 @@ if (nearestMiner != noone) {
     minerNearby = distance_to_point(nearestMiner.x, nearestMiner.y) &lt;= attackRange;
 }
 
-if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
-    movementSpeed = freeze_savedMovementSpeed * (1 - (freeze_stacks/freeze_maxStacks));
-
-    if (movementDirection == "LEFT") {
-        scr_entity_moveLeft();
-    }
-    
-    if (movementDirection == "RIGHT") {
-        scr_entity_moveRight();
-    }
+// HANDLE STUFF THAT MAKES ENEMIES STOP OR SLOW DOWN
+if (isRootedBySnake) {
+    // Complete movement freeze by setting slow effect level to 0
+    movementSlowEffectLevel = 0;
+    // Also force movement speed to 0 so speed has to accelerate again after snake rooting
+    hspeed = 0;
+} else if (minerNearby) {
+    // Force movement to 0 when attacking miner by setting slow effect level to 0 (bit of a hack, but it works)
+    movementSlowEffectLevel = 0;
+    // Also force movement speed to 0 so speed has to accelerate again after passing miner
+    hspeed = 0;
+} else {
+    // Set slow effect level based on freeze stacks
+    movementSlowEffectLevel = (1 - (freeze_stacks/freeze_maxStacks));
 }
+
+// RANDOM MOVEMENT DIRECTION IF DESIRED SPEED IS 0
+// Enemy is the scren, but not moving, so set a random direction
+if (movementSpeedDesired == 0) {
+    // Enemy is not moving horizontally, so we set a movement speed, hopefully
+    // moving towards player, otherwise random left/right.
+    //scr_entity_moveTowardsPlayerOrRandom();
+}
+
+
 
 </string>
           </argument>
@@ -402,7 +426,19 @@ if (minerNearby == false &amp;&amp; isRootedBySnake == false) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Don't allow stacks to exceed the maximum:
+            <string>// If frozen, atttempt to slowly unfreeze (sloth will freeze faster than this ufreezes)
+// A good side-effect of this is that instead of the sloth always freezing enemies completely,
+// this allows them to move extremely slowly
+if (freeze_stacks &gt; 0) {
+    freeze_stacks -= 0.5;
+}
+
+// Don't allow negative stacks:
+if (freeze_stacks &lt; 0) {
+    freeze_stacks = 0;
+}
+
+// Don't allow stacks to exceed the maximum:
 if (freeze_stacks &gt; freeze_maxStacks) {
     freeze_stacks = freeze_maxStacks;
 }
@@ -415,15 +451,17 @@ if (freeze_stacks == freeze_maxStacks) {
         freeze_frozenTimeCounter += global.deltaTime;
         
         // Unfreeze if possible:
-        if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
-            freeze_isFrozen = false;
-            freeze_frozenTimeCounter = 0;
-            freeze_stacks = 0;
-        }
+        // REMOVED 2017/04/01 - Sloth can freeze enemy indefinitely
+        //if (freeze_frozenTimeCounter &gt;= freeze_frozenTime) {
+        //    freeze_isFrozen = false;
+        //    freeze_frozenTimeCounter = 0;
+        //    freeze_stacks = 0;
+        //}
     } else {
         freeze_isFrozen = true;
     }
 }
+
 </string>
           </argument>
         </arguments>

@@ -113,9 +113,6 @@ pickCount = 0;      // Total # of times the miner has mined
 deadMinerOffsetX = 12; // X offset to use when creating miner dying object (miners not lined up in sprites)
 deadMinerOffsetY = 5; // X offset to use when creating miner dying object (miners not lined up in sprites)
 
-// Update stats object every time a miner is spawned on a level
-scr_statistics_setData(31, scr_statistics_getData(31)+1);
-
 </string>
           </argument>
         </arguments>
@@ -138,9 +135,7 @@ scr_statistics_setData(31, scr_statistics_getData(31)+1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_msg_minerKilled(x - 220, y - 230);
-
-// Spawn a dying miner
+            <string>// Spawn a dying miner
 var inst = instance_create(x+deadMinerOffsetX, y+deadMinerOffsetY, obj_miner_dying);
 
 if (instance_number(obj_miner) == 1) {
@@ -149,7 +144,7 @@ if (instance_number(obj_miner) == 1) {
 }
 
 // Update stats object every time a miner is killed on a level
-scr_statistics_setData(32, scr_statistics_getData(32)+1);
+scr_minersAlive_change(-1);
 
 </string>
           </argument>

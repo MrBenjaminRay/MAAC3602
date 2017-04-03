@@ -48,18 +48,18 @@ weaponKickback = weaponKickbackMax;     // Start with max so gun comes out anima
 weaponKickbackResetSpeed = 0.1;         // How quickly to lower kickback. Will be multiplied by delta time.
 
 
-if(global.tutorial_part2){
-    global.tutorial_part2 = false;
-    global.tutorial_part3 = true;
-    with(obj_messageBox){
-       instance_destroy();
-    }
-    var tutorialBox3 = instance_create(512, 608, obj_messageBox);
-    ds_list_add(tutorialBox3.list_text, "You might need some of those");
-    ds_list_add(tutorialBox3.list_text, "resources later. Sell the tower"); 
-    ds_list_add(tutorialBox3.list_text, "(Press 0) and you will get some of");
-    ds_list_add(tutorialBox3.list_text, "the energy back.");   
-}
+//if(global.tutorial_part2){
+//    global.tutorial_part2 = false;
+//    global.tutorial_part3 = true;
+//    with(obj_messageBox){
+//       instance_destroy();
+//    }
+//    var tutorialBox3 = instance_create(512, 608, obj_messageBox);
+//    ds_list_add(tutorialBox3.list_text, "You might need some of those");
+//    ds_list_add(tutorialBox3.list_text, "resources later. Sell the tower"); 
+//    ds_list_add(tutorialBox3.list_text, "(Press 0) and you will get some of");
+//    ds_list_add(tutorialBox3.list_text, "the energy back.");   
+//}
 
 </string>
           </argument>
@@ -145,10 +145,25 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
-// Shrink any existing weapon kickback
-scr_entity_weaponKickback_Shrink();
+if (frozenByBossThree) {
+    return 0;
+}
 
-if (attackRateCounter &gt;= attackRate) {
+// Decrement warmup time remaining if not 0
+if (warmUpRemaining &gt; 0) { 
+    warmUpRemaining -= global.deltaTime;
+    image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
+    y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
+    weaponObj.image_alpha = 0;
+}
+else {
+    warmUpRemaining = 0;
+    weaponObj.image_alpha = 1;
+    // Shrink any existing weapon kickback
+    scr_entity_weaponKickback_Shrink();
+}
+
+if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {
     attackRateCounter = 0;
     
     var nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, obj_enemy);

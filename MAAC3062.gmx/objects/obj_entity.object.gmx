@@ -29,15 +29,10 @@
 animationSpeed = 1;
 animationSpeedAdjust = 1;           // Increase or decrease the animation speed for a level. E.g. underwater level has speed adjust &lt; 1.
 
-// MOVEMENT:
-movementSpeed = 150 / 1000;         // Left/Right Movement Speed
-                                    // NOTE: For player (and entities using smooth left/right movement), this represents the 
-                                    // actual, current movement speed (which goes between 0 and movementSpeedDesired).
-                                    // For all other entities, this represents the simple entity movement speed, and is overridden
-                                    // at the entity level as needed.
-
-// SMOOTH MOVEMENT (currently used by player, nothing else yet)
-movementSpeedDefault = 150 / 1000;  // Speed to set as desired speed when (mainly left/right)
+// SMOOTH MOVEMENT
+// NOTE: To make an entity move left/right, SET movementSpeedDesired = movementSpeedDefault (right) or -movementSpeedDefault (left)
+speed = 0;                  // DO NOT SET THIS VALUE. Current actual left/right movement (cotrolled using variables below)
+movementSpeedDefault = 125 / 1000;  // Speed to use when setting desired speed (when entity moves left/right)
 movementSpeedDesired = 0;           // Current desired movement speed (normally -movementSpeedDefault or +movementSpeedDefault)
 movementSpeedAdjust = 1;            // Increase or decrease movement speed for a level.  E.g. underwater level has speed adjust &lt; 1.
 movementSpeedAcceleration = 0.005;  // Speed at which to accelerate movement speed until moving at movementSpeedDesired
@@ -45,13 +40,20 @@ movementSpeedDeceleration = 0.01;   // Speed at which to decelerate movement spe
 movementFrictionLevel = 1;          // Friction level. Only affects acceleration &amp; deceleration speed. Typically between 0 and 1. 
                                     // 0 = no friction, 1 = normal. 1+ would be extra friction. Use low value (.1 or .2) for ice level,
                                     // and medium-low level (.5) for underwater level.
+movementSlowEffectLevel = 1;        // 1 = normal, .5 = 1/2 speed, etc. This is necessary for implementing a slow effect on the entity, e.g. calculating speed ratio based on slow stacks.
 
 jumpSpeed = .72;                // Jump Movement Speed
 jumpAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 jump speed adjustment.
-gravConst = .0015;              // Gravity Constant - Can override for entities that are really light or really heavy (feathers, pianos, etc.)
+gravConst = 0.0015;             // Gravity Constant - Can override for entities that are really light or really heavy (feathers, pianos, etc.)
 gravAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 gravity adjustment.
 isJumping = false;              // Whether or not the entity is jumping.
 isDropping = false;             // Whether or not the entity is dropping to a lower platform.
+dropPlatformY = 0;              // The y coordinate of the platform where the entity's current drop was last approved.  This helps us prevent the entity from dropping 
+                                // through the floor when dropping from a higher level when drop speed is high and entity is tall. Previously we let him continue dropping if
+                                // he was already dropping and he collided with a platform, and we cleared the drop flag once we detected he was no longer colliding
+                                // with a platform. But when drop speed is high and player is tall, he may not have a step where he is collision-free between two platforms.
+                                // So when we detect collision at a y position that is much different from when the drop was approved, we recheck and validate the drop.
+                                // If not validated, he is pushed up to the platform above.
 
 // WEAPON:
 attackRate = room_speed / 2;    // The number of delta time between attacks.
@@ -86,7 +88,11 @@ healthBarWidth = sprite_width;
 
 healthBarColor_background = c_black;           // The background color of the health/shield bar.
 healthBarColor_healthForeground = c_lime;      // The foreground color of the health bar.
-healthBarColor_shieldForeground = c_teal;      // The foreground color of the sheld bar.
+healthBarColor_shieldForeground = c_teal;      // The foreground color of the shield bar.
+healthBarColor_shieldForeground_alternate = c_aqua; // The secondary foreground color of the shield bar.
+healthBarColor_shieldforeground_current = c_teal;
+healthBarColor_shieldforeground_stepCntr = 0;
+
 </string>
           </argument>
         </arguments>
@@ -184,32 +190,55 @@ vspeed += gravConst * gravAdjust * global.deltaTime; // Increase speed based on 
 
 var newY = y + vspeed * global.deltaTime; // Get new proposed y value based on speed &amp; delta time
 
-if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
+
+
+if (place_meeting(x, newY, obj_physicsTile)) {
     // Collision at new Y
+    
+    // DROPPING STUFF
+    if (isDropping) {
+        
+        // Flag isDropping can only be set when the drop is valid, given the fact that we do some pretty
+        // exhaustive checks in the drop() script, as well as checks at the end of this code block to
+        // clear the flag when it is no longer needed.
+        // Given that, if the flag is set, we let the entity drop.
+        
+        y = newY;
+        
+    }
+    
+    // JUMPING STUFF
     if (!isJumping || (isJumping &amp;&amp; vspeed &gt; 0 &amp;&amp; !place_meeting(x, y, obj_physicsTile))) {
         // Either:
         //      Entity is not jumping, or
         //      Entity is jumping, is on the way down from the jump (vspeed&gt;0), and has cleared
         //      the platform - it was not colliding last step (y) and is colliding this step (newY).
         //      Entity will now be standing on top of the platform.
-        
-        // With collision at new Y, we can't just move there. Instead, we change y until it would collide.
-        var tweakY;
-        if (vspeed &lt; 0) {
-            tweakY = -1; // Entity is travelling upward
-        } else {
-            tweakY = 1; // Entity is travelling downward
-        }
 
-        // Increase/decrease Y until entity would collide.
-        while (place_meeting(x, y+tweakY, obj_physicsTile) == false) {
-            y += tweakY;
-        }
+        // Don't halt movement if we are already dropping (player can start a drop before entity lands
+        // during a jump, so there may be some overlap)
+        if (!isDropping) {
+            // Not dropping, so end the jump with a hard stop at the top of the tile
+            
+            // With collision at new Y, we can't just move there. Instead, we change y until it would collide.
+            var tweakY;
+            if (vspeed &lt; 0) {
+                tweakY = -1; // Entity is travelling upward
+            } else {
+                tweakY = 1; // Entity is travelling downward
+            }
+    
+            // Increase/decrease Y until entity would collide.
+            while (place_meeting(x, y+tweakY, obj_physicsTile) == false) {
+                y += tweakY;
+            }
 
-        // Whether entity was going up or down, vspeed must be set to 0.
-        vspeed = 0;
+            // Whether entity was going up or down, vspeed must be set to 0.
+            vspeed = 0;
+
+        }
         
-        // If entity was jumping, clear the flag now that it has stuck the landing
+        // If entity was jumping, clear the flag now that the jump is over (either player landed on tile or is dropping through)
         if (isJumping) { 
             isJumping = false;
         }
@@ -221,19 +250,211 @@ if (place_meeting(x, newY, obj_physicsTile) &amp;&amp; !isDropping) {
     }
 
 } else {
-    // No collision at new Y, or player is dropping through tile, so we can just move there.
+    // No collision at new Y, so we can just go there
     y = newY;
+    
+    // DROPPING:
+    //if (isDropping) {
+        // If there is no collision at the current location, the player has finished dropping through the
+        // tile he was on, and we can let the gravity/collision code do the rest.
+        //if (place_meeting(x, y, obj_physicsTile) == false) {
+            //isDropping = false;
+        //}
+    //}
+
 }
 
-// DROPPING:
+// THIS SECTION CLEARS THE DROP FLAG IF THE FLAG IS CURRENTLY SET AND THE ENTITY IS
+// NOT CURRENTLY COLLIDING WITH A PLATFORM WITH THE SAME Y POSITION AS dropPlatformY.
+// This check occurs after gravity is applied, so if the player was holding the drop key
+// and was in the air when the step began, and gravity made him collide with a lower platform,
+// the flag won't be cleared in that case.
+
+// Attempt to clear dropping flag if possible
 if (isDropping) {
-    // If there is no collision at the current location, the player has finished dropping through the
-    // tile he was on, and we can let the gravity/collision code do the rest.
-    if (place_meeting(x, y, obj_physicsTile) == false) {
+    //show_debug_message('START CHECK');
+    //show_debug_message('entity y = ' + string(y));
+    //show_debug_message('platform y = ' + string(dropPlatformY));
+    // The entity is dropping. If the entity's current position (before gravity applied) is 
+    // not colliding with a platform at the Y position where the drop was approved, then
+    // this drop flag can be cleared.
+    var instList = instance_place_list(x, newY, obj_physicsTile);
+    var foundMatch = false;
+    if (instList != noone) {
+        for (var i = 0; i &lt; ds_list_size(instList); i++) {
+            if (instance_exists(instList[| i])) {
+                var item = instList[| i];
+                //show_debug_message('checking y: ' + string(item.y));
+                if (item.y == dropPlatformY) {
+                    foundMatch = true;
+                    //show_debug_message('found y match!');
+                }
+            }
+            //show_debug_message('colliding with ' + string(ds_list_size(instList)) + ' instances');
+        }
+        if (foundMatch == true) {
+            // Currently colliding with a platform at the approved Y
+            // Do nothing        
+        } else {
+            // Not colliding with a platform at the approved Y
+            isDropping = false;
+            dropPlatformY = 0;
+            //show_debug_message('clearing flag and Y... - collision but not with right platforms');
+        }
+    } else {
+        // No collision with any platforms
         isDropping = false;
+        dropPlatformY = 0;
+        //show_debug_message('clearing flag and Y... - no collision at all');
+    }
+    
+    //show_debug_message('END CHECK');
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Horizontal Movement</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Handle smooth movement acceleration &amp; deceleration to wanted speed.
+
+// ONE-LINE VERSION (if acceleration &amp; deceleration speeds are stored in same variable)
+//movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedAcceleration * global.deltaTime; //Smoothly accelerate / decelerate to the wanted speed.
+
+// TWO-SPEED VERSION (different acceleration &amp; deceleration speeds)
+if (abs(hspeed) &lt; abs(movementSpeedDesired - hspeed)) {
+    hspeed += (movementSpeedDesired - hspeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
+} else {
+    hspeed += (movementSpeedDesired - hspeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
+}
+
+// Calculate new proposed position
+var newX = x + hspeed * movementSlowEffectLevel * global.deltaTime;
+
+// Check collision
+if (place_meeting(newX, y, obj_physicsTile)) {
+    // Collision at new X
+    
+    if (place_meeting(x, y, obj_physicsTile) == false) {
+        // No collision at current (prev) X, so horizontal movement would be responsible for
+        // pushing entity into a tile, and we can't have that.
+        
+        // Increase X until entity would collide
+        while (place_meeting(newX, y, obj_physicsTile) == false) {
+            x--;
+        }
+    } else {
+        // Collision at both current and new X, so this horizontal movement would not be
+        // responsible for pushing entity into a tile. Entity was already in a tile (for
+        // whatever reason), so allow it to continue being in the tile.
+        // NOTE: Vertical entity movement occurs first, so it most likely pushed player into
+        // a tile. Because jumping &amp; dropping are handled there, we trust it would not let
+        // an entity into a tile unless it was warranted.
+        // NOTE: This logic is bad when it comes to player jumping into a platform that has a
+        // side wall attached (e.g. player jumps into top left/right corner of a box from inside),
+        // as player would be allowed into the platform, and nothing would stop it from going
+        // through the wall once inside the ceiling. If we ever have that kind of shape on a level,
+        // we'll need to adjust this.  (Probably this:  check whether horizontal collision this step 
+        // is with same tile as last step, and reject if it's a different tile. Maybe.)
+        // ALSO:  If player is falling into a lower left/right corner and dips into the platform,
+        // appears to let horizontal movement into platform, then y-- pulls it to top of wall.
+        x = newX;
+    }
+
+} else {
+    // No collision at new X
+    x = newX;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Shield Bar Color Change</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>healthBarColor_shieldforeground_stepCntr++;
+
+if (healthBarColor_shieldforeground_stepCntr &gt;= room_speed/2) {
+    healthBarColor_shieldforeground_stepCntr = 0;
+    
+    if (healthBarColor_shieldforeground_current = healthBarColor_shieldForeground) {
+        healthBarColor_shieldforeground_current = healthBarColor_shieldForeground_alternate;
+    } else {
+        healthBarColor_shieldforeground_current = healthBarColor_shieldForeground;
     }
 }
-
 </string>
           </argument>
         </arguments>
@@ -293,7 +514,7 @@ if (maxShield &gt; 0 &amp;&amp; currShield &gt; 0) {
     var xPos_right = xPos_left + (healthBarWidth * shieldPct) - (borderWidth * 2);
     
     // Draw Shield Bar:
-    draw_set_color(healthBarColor_shieldForeground);
+    draw_set_color(healthBarColor_shieldforeground_current);
     draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom - (healthBarHeight/2.5), false);
 }
 
