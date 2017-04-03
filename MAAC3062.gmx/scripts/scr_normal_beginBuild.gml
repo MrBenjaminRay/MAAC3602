@@ -14,6 +14,11 @@ if (instance_number(obj_tower_RT6100) == 1) {
     canProceed &= obj_tower_RT6100.mounted == false;
 }
 
+if (room == rm_tut1) {
+    scr_state_setNormal();
+    return 0;
+}
+
 // Check if the tower has been unlocked:
 if (scr_tower_checkUnlockByTowerIndex(argument[0]) == false) {
     scr_misc_notification("You have not unlocked a " + global.towers[argument[0], 0] + ".", c_black, c_yellow);

@@ -113,33 +113,33 @@
         <sprite>sprites\spr_creditsNew3</sprite>
         <sprite>sprites\spr_creditsNew4</sprite>
         <sprite>sprites\spr_creditsNew5</sprite>
-        <sprites name="Notifications">
-          <sprite>sprites\spr_token_notification</sprite>
-          <sprite>sprites\spr_ns_fridge_notification</sprite>
-          <sprite>sprites\spr_ns_kindle_notification</sprite>
-          <sprite>sprites\spr_ns_rabbit_notification</sprite>
-          <sprite>sprites\spr_ns_battery_notification</sprite>
-          <sprite>sprites\spr_ability1_notfication</sprite>
-          <sprite>sprites\spr_ability2_notification</sprite>
-          <sprite>sprites\spr_ability3_notification</sprite>
-          <sprite>sprites\spr_ability4_notification</sprite>
-          <sprite>sprites\spr_research_button</sprite>
-          <sprite>sprites\spr_catapillager_note</sprite>
-          <sprite>sprites\spr_sloth_note</sprite>
-          <sprite>sprites\spr_fire_note</sprite>
-          <sprite>sprites\spr_bear_note</sprite>
-          <sprite>sprites\spr_rt_note</sprite>
-          <sprite>sprites\spr_goat_note</sprite>
-          <sprite>sprites\spr_tit_note</sprite>
-          <sprite>sprites\spr_drop_rm1_note</sprite>
-          <sprite>sprites\spr_drop_rm2_note</sprite>
-          <sprite>sprites\spr_drop_rm3_note</sprite>
-          <sprite>sprites\spr_drop_rm4_note</sprite>
-          <sprite>sprites\spr_drop_a1_note</sprite>
-          <sprite>sprites\spr_drop_a2_note</sprite>
-          <sprite>sprites\spr_drop_a3_note</sprite>
-          <sprite>sprites\spr_drop_a4_note</sprite>
-        </sprites>
+      </sprites>
+      <sprites name="Notifications">
+        <sprite>sprites\spr_token_notification</sprite>
+        <sprite>sprites\spr_ns_fridge_notification</sprite>
+        <sprite>sprites\spr_ns_kindle_notification</sprite>
+        <sprite>sprites\spr_ns_rabbit_notification</sprite>
+        <sprite>sprites\spr_ns_battery_notification</sprite>
+        <sprite>sprites\spr_ability1_notfication</sprite>
+        <sprite>sprites\spr_ability2_notification</sprite>
+        <sprite>sprites\spr_ability3_notification</sprite>
+        <sprite>sprites\spr_ability4_notification</sprite>
+        <sprite>sprites\spr_research_button</sprite>
+        <sprite>sprites\spr_catapillager_note</sprite>
+        <sprite>sprites\spr_sloth_note</sprite>
+        <sprite>sprites\spr_fire_note</sprite>
+        <sprite>sprites\spr_bear_note</sprite>
+        <sprite>sprites\spr_rt_note</sprite>
+        <sprite>sprites\spr_goat_note</sprite>
+        <sprite>sprites\spr_tit_note</sprite>
+        <sprite>sprites\spr_drop_rm1_note</sprite>
+        <sprite>sprites\spr_drop_rm2_note</sprite>
+        <sprite>sprites\spr_drop_rm3_note</sprite>
+        <sprite>sprites\spr_drop_rm4_note</sprite>
+        <sprite>sprites\spr_drop_a1_note</sprite>
+        <sprite>sprites\spr_drop_a2_note</sprite>
+        <sprite>sprites\spr_drop_a3_note</sprite>
+        <sprite>sprites\spr_drop_a4_note</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -759,6 +759,7 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
       <script>scripts\draw_text_shadow.gml</script>
+      <script>scripts\scr_notification.gml</script>
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
@@ -1141,7 +1142,6 @@
         <object>objects\obj_confirmMessage</object>
         <object>objects\obj_briefPopupMessage</object>
       </objects>
-      <object>objects\obj_hubMockupBG</object>
       <objects name="Message Boxes">
         <object>objects\obj_messageBox</object>
         <object>objects\obj_clickMessageBox</object>
@@ -1152,11 +1152,16 @@
         <object>objects\obj_toolTipBox</object>
         <object>objects\obj_toolTipBox_minerals</object>
       </objects>
+      <objects name="Notifications">
+        <object>objects\obj_notification</object>
+        <object>objects\obj_notificationBackground</object>
+      </objects>
       <objects name="Death Screen">
         <object>objects\obj_button_retry</object>
         <object>objects\obj_button_toHub</object>
       </objects>
     </objects>
+    <object>objects\obj_hubMockupBG</object>
     <object>objects\obj_quit</object>
     <object>objects\obj_globals</object>
     <object>objects\object</object>
