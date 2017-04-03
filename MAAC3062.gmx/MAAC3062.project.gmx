@@ -1092,7 +1092,6 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_returning_home</room>
     <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
@@ -1127,8 +1126,11 @@
       <room>rooms\rm_hubAlt</room>
     </rooms>
     <rooms name="Story">
-      <room>rooms\rm_Story1</room>
+      <room>rooms\rm_PreTutorial</room>
       <room>rooms\rm_Traveling</room>
+      <room>rooms\rm_returning_home</room>
+      <room>rooms\rm_Epilogue</room>
+      <room>rooms\rm_Post_Hub_Tutorial</room>
     </rooms>
   </rooms>
   <help>
