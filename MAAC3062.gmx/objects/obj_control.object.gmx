@@ -29,6 +29,9 @@
 draw_set_colour(c_white);
 global.messageBoxAnimSpeed = 0.20;
 
+global.musicVolume = 0.6;
+global.musicFadeIn = 240; //per frame until at musicVolume;
+
 // Store screen dimensions
 global.screenWidth = display_get_width();
 global.screenHeight = display_get_height();
@@ -63,7 +66,7 @@ global.deltaTime = delta_time;
 global.state = "Normal";
 
 /**NEW**/
-global.upgradeTokens = 2;
+global.upgradeTokens = 0;
 
 global.minerals = 0;
 global.energy = 900;    // The amount of energy the player currently has throughout the game.
@@ -80,7 +83,7 @@ global.currentLevelFailed = 0;      // Used to prevent damage and possibly other
 global.skipToNavRoom = false; //used to skip to nav room when closing clickMessage
                                     
 global.moonLevelComplete = 0;
-global.forestLevelComplete = 1;
+global.forestLevelComplete = 0;
 global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;

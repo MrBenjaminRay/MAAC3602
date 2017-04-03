@@ -96,11 +96,11 @@ if (y &gt; room_height + 64) {
 if(y &gt; 86 &amp;&amp; playSound) {
     if(sprite_index == spr_flaming_cat) {
         audio_play_sound(snd_cat, 0, false);
-        audio_sound_gain(snd_cat, 1, 0);
+        audio_sound_gain(snd_cat, 0.5, 0);
     }
     else {
         audio_play_sound(snd_dog, 0, false);
-        audio_sound_gain(snd_dog, 1, 0);
+        audio_sound_gain(snd_dog, 0.5, 0);
     }
     playSound = false;
 }

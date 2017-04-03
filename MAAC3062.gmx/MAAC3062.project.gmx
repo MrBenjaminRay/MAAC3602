@@ -65,6 +65,21 @@
       <sound>sound\snd_forceField</sound>
       <sound>sound\snd_snakes</sound>
     </sounds>
+    <sounds name="Music">
+      <sound>sound\mus_desert</sound>
+      <sound>sound\mus_tutorial</sound>
+      <sound>sound\mus_forest</sound>
+      <sound>sound\mus_ice</sound>
+      <sound>sound\mus_earthIntro</sound>
+      <sound>sound\mus_earthLoop</sound>
+      <sound>sound\mus_loseIntro</sound>
+      <sound>sound\mus_loseLoop</sound>
+      <sound>sound\mus_asteroid</sound>
+      <sound>sound\mus_mars</sound>
+      <sound>sound\mus_water</sound>
+      <sound>sound\mus_win</sound>
+      <sound>sound\mus_tutorialBeat</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Tutorials">
@@ -470,6 +485,7 @@
       <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_target</sprite>
       <sprite>sprites\spr_dummy_cntrl</sprite>
+      <sprite>sprites\spr_ctrl_music</sprite>
       <sprite>sprites\spr_dummy_ingameMenu</sprite>
       <sprite>sprites\spr_warp</sprite>
       <sprite>sprites\spr_dummy_levelControl</sprite>
@@ -799,6 +815,7 @@
     <objects name="Control">
       <object>objects\obj_menu_ingame_placeholder</object>
       <object>objects\obj_control</object>
+      <object>objects\obj_control_music</object>
       <object>objects\obj_hub_control</object>
       <object>objects\obj_control_cheats</object>
       <object>objects\obj_control_bosses</object>
@@ -1068,6 +1085,7 @@
           <object>objects\obj_selectDest</object>
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
+          <object>objects\obj_credits6</object>
           <object>objects\obj_bossComplete</object>
           <object>objects\obj_hubTowerAbility</object>
           <object>objects\obj_hub_caterpillager</object>
@@ -1190,6 +1208,7 @@
       <room>rooms\rm_credits3</room>
       <room>rooms\rm_credits4</room>
       <room>rooms\rm_credits5</room>
+      <room>rooms\room32</room>
     </rooms>
     <rooms name="Levels">
       <rooms name="Tutorial">

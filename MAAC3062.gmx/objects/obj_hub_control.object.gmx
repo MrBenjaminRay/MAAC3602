@@ -42,9 +42,12 @@ global.selectedTower_Ability = 0;
 */
 global.hubMode = 0;
 
+audio_stop_all();
+
+global.hubRefresh = false;
+
 //BOSS REWARD NOTIFICATIONS
 if(global.moonLevelComplete == 1 &amp;&amp; global.moonRewardsObtained == 0) {
-    
     scr_notification_research(spr_drop_rm1_note);
     scr_notification_normal(spr_fire_note);
     scr_notification_normal(spr_ability1_notfication);
@@ -53,12 +56,10 @@ if(global.moonLevelComplete == 1 &amp;&amp; global.moonRewardsObtained == 0) {
     global.plrAbilityAttained[0] = true;
     
     global.moonRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 
 else if(global.forestLevelComplete == 1 &amp;&amp; global.forestRewardsObtained == 0) {
-    
     scr_notification_research(spr_drop_rm2_note);
     scr_notification_normal(spr_ns_fridge_notification);
     scr_notification_normal(spr_bear_note);
@@ -69,8 +70,7 @@ else if(global.forestLevelComplete == 1 &amp;&amp; global.forestRewardsObtained 
     global.plrAbilityAttained[1] = true;
     
     global.forestRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 else if(global.desertLevelComplete == 1 &amp;&amp; global.desertRewardsObtained == 0) {
     
@@ -82,8 +82,7 @@ else if(global.desertLevelComplete == 1 &amp;&amp; global.desertRewardsObtained 
     global.towerUnlocked[2] = true;
     
     global.desertRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 else if(global.iceLevelComplete == 1 &amp;&amp; global.iceRewardsObtained == 0) {
     
@@ -96,8 +95,7 @@ else if(global.iceLevelComplete == 1 &amp;&amp; global.iceRewardsObtained == 0) 
     global.plrAbilityAttained[2] = true;
     
     global.iceRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 else if(global.waterLevelComplete == 1 &amp;&amp; global.waterRewardsObtained == 0) {
     
@@ -112,8 +110,7 @@ else if(global.waterLevelComplete == 1 &amp;&amp; global.waterRewardsObtained ==
     global.plrAbilityAttained[3] = true;
     
     global.waterRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 else if(global.marsLevelComplete == 1 &amp;&amp; global.marsRewardsObtained == 0) {
     
@@ -123,8 +120,7 @@ else if(global.marsLevelComplete == 1 &amp;&amp; global.marsRewardsObtained == 0
     global.towerUnlocked[6] = true;
     
     global.marsRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 else if(global.asteroidLevelComplete == 1 &amp;&amp; global.asteroidRewardsObtained == 0) {
     
@@ -134,10 +130,41 @@ else if(global.asteroidLevelComplete == 1 &amp;&amp; global.asteroidRewardsObtai
     global.navPieceAttained[3] = true;
     
     global.asteroidRewardsObtained = 1;
-    
-    room_restart();
+    global.hubRefresh = true;
 }
 
+if(global.hubRefresh) {
+    scr_notification_normal(spr_token_notification);
+    global.upgradeTokens++;
+}
+    
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(scr_notificationCount() == 0 &amp;&amp; global.hubRefresh) {
+    global.hubRefresh = false;
+    room_restart();
+}
 </string>
           </argument>
         </arguments>
