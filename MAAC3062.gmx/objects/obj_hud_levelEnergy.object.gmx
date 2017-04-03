@@ -46,6 +46,12 @@ position = "bottom_left";
 
 image_speed = 0.25;
 
+// These variables control where on the level the energy orbs fly to.
+// Will be updated in STEP code as they must follow the lower left corner
+// of the view.
+collectionPointX = 0;
+collectionPointY = 0;
+
 </string>
           </argument>
         </arguments>
@@ -84,6 +90,10 @@ image_speed = 0.25;
             <kind>1</kind>
             <string>// Set value to be drawn to match minerals level
 currentValueToDraw = global.energy;
+
+// Make lower left corner of screen
+collectionPointX = view_xview[0];
+collectionPointY = view_yview[0] + view_hview[0];
 
 </string>
           </argument>
