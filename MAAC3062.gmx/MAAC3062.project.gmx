@@ -52,6 +52,8 @@
       <sound>sound\snd_menuClick</sound>
       <sound>sound\snd_menuClick_reject</sound>
       <sound>sound\snd_menuClick_squeak</sound>
+      <sound>sound\snd_ringing</sound>
+      <sound>sound\snd_cowAlert</sound>
     </sounds>
     <sounds name="Story">
       <sound>sound\snd_asteroidImpact</sound>
@@ -113,6 +115,7 @@
         <sprite>sprites\spr_creditsNew3</sprite>
         <sprite>sprites\spr_creditsNew4</sprite>
         <sprite>sprites\spr_creditsNew5</sprite>
+        <sprite>sprites\spr_hub_tut</sprite>
       </sprites>
       <sprites name="Notifications">
         <sprite>sprites\spr_token_notification</sprite>
@@ -224,6 +227,7 @@
       <sprite>sprites\spr_continue</sprite>
       <sprite>sprites\spr_continue2</sprite>
       <sprite>sprites\spr_retry</sprite>
+      <sprite>sprites\spr_answer</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -651,6 +655,7 @@
       <background>background\bkg_currently_travelling</background>
       <background>background\bkg_returning_home</background>
     </backgrounds>
+    <background>background\bkg_HubTut</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_goat</path>
@@ -759,7 +764,9 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
       <script>scripts\draw_text_shadow.gml</script>
-      <script>scripts\scr_notification.gml</script>
+      <script>scripts\scr_notification_normal.gml</script>
+      <script>scripts\scr_notification_research.gml</script>
+      <script>scripts\scr_notificationCount.gml</script>
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
@@ -1014,6 +1021,7 @@
       </objects>
       <object>objects\obj_epilogue_controller</object>
       <object>objects\obj_epilogue_controller2</object>
+      <object>objects\obj_answer</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
@@ -1154,6 +1162,8 @@
       </objects>
       <objects name="Notifications">
         <object>objects\obj_notification</object>
+        <object>objects\obj_notificationNormal</object>
+        <object>objects\obj_notificationResearch</object>
         <object>objects\obj_notificationBackground</object>
       </objects>
       <objects name="Death Screen">
@@ -1165,6 +1175,7 @@
     <object>objects\obj_quit</object>
     <object>objects\obj_globals</object>
     <object>objects\object</object>
+    <object>objects\obj_hub_captions</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initializeGame</room>
@@ -1204,6 +1215,7 @@
     </rooms>
     <rooms name="Story">
       <room>rooms\rm_PreTutorial</room>
+      <room>rooms\rm_hub_tutorial</room>
       <room>rooms\rm_Post_Hub_Tutorial</room>
       <room>rooms\rm_Post_Post_Hub</room>
       <room>rooms\rm_Traveling</room>

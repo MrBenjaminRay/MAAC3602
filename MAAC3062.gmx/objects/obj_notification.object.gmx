@@ -28,12 +28,9 @@
             <string>// Sprite index is set when created by scr_notification
 
 // This will be decremented every time a new notification is added.
-if (global.lastNotificationDepth != undefined) {
-    global.lastNotificationDepth += 2; // 2 because button &amp; sprite on different layers
-    depth = global.lastNotificationDepth; // Set depth. Button will be this - 1.
-} else {
-    global.lastNotificationDepth = -10000; // Default value if not already defined
-}
+
+global.lastNotificationDepth += 1; // Every new one is 1 level more deep
+depth = global.lastNotificationDepth; // Set depth
 
 if (instance_number(obj_notificationBackground) == 0) {
     // Spawn the background if it doesn't already exist
@@ -41,7 +38,7 @@ if (instance_number(obj_notificationBackground) == 0) {
     instance_create(0, 0, obj_notificationBackground);
 }
 
-btnSprite = spr_continue;
+btnSprite = noone;
 
 // Positions of sprite and buttons be updated in STEP event, as we don't know how 
 // big the sprite will be when this object is created (it is set in the script 
@@ -49,9 +46,13 @@ btnSprite = spr_continue;
 btnX = 0;
 btnY = 0; 
 
-// Offset from bottom right corner of notification sprite
-btnOffsetX = -10;
-btnOffsetY = -10;
+btnOffsetY = 0;
+
+btnScale = 1;
+
+// Hidden by default. Will be set to visible in step code
+// if this has the least depth of any other notifications.
+visible = false;
 
 </string>
           </argument>
@@ -99,9 +100,21 @@ btnOffsetY = -10;
 x = global.screenWidth / 2 - sprite_width / 2;
 y = global.screenHeight / 2 - sprite_height / 2;
 
-// Set button position (UPDATE TO BE BASED ON BUTTON WIDTH + OFFSET)
-btnX = x + sprite_width - sprite_get_width(btnSprite) - btnOffsetX;
-btnY = y + sprite_height - sprite_get_height(btnSprite) - btnOffsetY;
+// Set to visible when this is the least deep notification
+var deepestDepth = 100000; // Start with crazy deep value
+for (var i=0; i&lt;instance_number(obj_notification); i++) {
+    var inst = instance_find(obj_notification, i);
+    if (inst.depth &lt; deepestDepth) {
+        deepestDepth = inst.depth;
+    }
+}
+if (depth == deepestDepth) {
+    visible = true;
+}
+
+// Set button position (below the sprite)
+btnX = global.screenWidth / 2 - btnScale * sprite_get_width(btnSprite)/2;
+btnY = y + sprite_height + btnOffsetY;
 
 </string>
           </argument>
@@ -129,10 +142,16 @@ btnY = y + sprite_height - sprite_get_height(btnSprite) - btnOffsetY;
 // and the player has clicked within the expected button coordinates,
 // close this modal.
 
-lowestDept = false;
-clicked = false;
+clicked = point_in_rectangle(
+            window_mouse_get_x(), 
+            window_mouse_get_y(), 
+            btnX,
+            btnY,
+            btnX + btnScale * sprite_get_width(btnSprite),
+            btnY + btnScale * sprite_get_height(btnSprite)
+        )
 
-if (clicked &amp;&amp; lowestDepth) {
+if (clicked &amp;&amp; visible) {
     // Player clicked in expected button area and this is the notification
     // closest to the screen, so this needs to be closed.
 
@@ -169,12 +188,11 @@ if (clicked &amp;&amp; lowestDepth) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-// Draw
+            <string>// Draw
 draw_self();
 
-// Draw the button
+// Draw the button so it appears in front
+draw_sprite_ext(btnSprite, 0, btnX, btnY, btnScale, btnScale, 0, c_white, 1);
 
 </string>
           </argument>
