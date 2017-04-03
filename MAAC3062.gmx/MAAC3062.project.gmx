@@ -99,6 +99,11 @@
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
         <sprite>sprites\spr_toolTipBox_Background</sprite>
         <sprite>sprites\spr_title</sprite>
+        <sprite>sprites\spr_creditsNew1</sprite>
+        <sprite>sprites\spr_creditsNew2</sprite>
+        <sprite>sprites\spr_creditsNew3</sprite>
+        <sprite>sprites\spr_creditsNew4</sprite>
+        <sprite>sprites\spr_creditsNew5</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -517,6 +522,7 @@
       <sprite>sprites\spr_phil_and_janice_3</sprite>
       <sprite>sprites\spr_ship_cartoon</sprite>
       <sprite>sprites\spr_returning_home_ship</sprite>
+      <sprite>sprites\spr_story_asteroid</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -592,14 +598,20 @@
       <background>background\bkg_earth_2</background>
       <background>background\bkg_earth_front</background>
     </backgrounds>
-    <background>background\bkg_HUB</background>
-    <background>background\bkg_space</background>
     <background>background\bck_initializeGame</background>
-    <background>background\bkg_currently_travelling</background>
-    <background>background\bkg_returning_home</background>
+    <backgrounds name="space">
+      <background>background\bkg_space</background>
+      <background>background\bkg_morespace</background>
+      <background>background\bkg_HUB</background>
+      <background>background\bkg_currently_travelling</background>
+      <background>background\bkg_returning_home</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_goat</path>
+    <path>paths\path_ship_turning</path>
+    <path>paths\path_crashing_ship</path>
+    <path>paths\path_asteroid</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
@@ -934,8 +946,6 @@
       <object>objects\obj_warp</object>
       <object>objects\obj_sound_volumes</object>
       <object>objects\obj_fallenBuilding</object>
-      <object>objects\obj_ship_travelling</object>
-      <object>objects\obj_ship_returning_home</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
@@ -944,11 +954,19 @@
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>
-      <object>objects\obj_story_pic_controller2</object>
       <object>objects\obj_story_text_controller</object>
       <object>objects\obj_story_text_controller2</object>
+      <object>objects\obj_story_controller_3</object>
       <object>objects\obj_dead_goat</object>
       <object>objects\obj_title</object>
+      <objects name="Ships">
+        <object>objects\obj_ship_returning_home</object>
+        <object>objects\obj_ship_travelling</object>
+        <object>objects\obj_ship_turning</object>
+        <object>objects\obj_ship_hit</object>
+        <object>objects\obj_asteroid_story</object>
+      </objects>
+      <object>objects\obj_epilogue_controller</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
@@ -981,11 +999,12 @@
           <object>objects\obj_desertButton</object>
           <object>objects\obj_iceButton</object>
           <object>objects\obj_waterButton</object>
-          <object>objects\obj_asteroidButton</object>
           <object>objects\obj_redPlanetButton</object>
+          <object>objects\obj_asteroidButton</object>
           <object>objects\obj_levelTitle</object>
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
+          <object>objects\obj_unlock_upgrade</object>
           <object>objects\obj_researchWep</object>
           <object>objects\obj_hudModeSelect</object>
           <object>objects\obj_selectDest</object>
@@ -1028,7 +1047,6 @@
           <object>objects\obj_weaponInfoText</object>
           <object>objects\obj_item_picture</object>
           <object>objects\obj_item_projectile</object>
-          <object>objects\obj_unlock_upgrade</object>
           <object>objects\obj_locked</object>
           <object>objects\obj_towersHeading</object>
           <object>objects\obj_abilitiesHeading</object>
@@ -1065,6 +1083,11 @@
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
       <object>objects\obj_credits3</object>
+      <object>objects\obj_creditsNew1</object>
+      <object>objects\obj_creditsNew2</object>
+      <object>objects\obj_creditsNew3</object>
+      <object>objects\obj_creditsNew4</object>
+      <object>objects\obj_creditsNew5</object>
       <object>objects\obj_dimFilter</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
@@ -1100,6 +1123,8 @@
       <room>rooms\rm_credits</room>
       <room>rooms\rm_credits2</room>
       <room>rooms\rm_credits3</room>
+      <room>rooms\rm_credits4</room>
+      <room>rooms\rm_credits5</room>
     </rooms>
     <rooms name="Levels">
       <rooms name="Tutorial">
@@ -1127,10 +1152,11 @@
     </rooms>
     <rooms name="Story">
       <room>rooms\rm_PreTutorial</room>
-      <room>rooms\rm_Traveling</room>
-      <room>rooms\rm_returning_home</room>
-      <room>rooms\rm_Epilogue</room>
       <room>rooms\rm_Post_Hub_Tutorial</room>
+      <room>rooms\rm_Post_Post_Hub</room>
+      <room>rooms\rm_Traveling</room>
+      <room>rooms\rm_Returning_Home</room>
+      <room>rooms\rm_Epilogue</room>
     </rooms>
   </rooms>
   <help>
