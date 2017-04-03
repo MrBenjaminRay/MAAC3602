@@ -110,8 +110,6 @@ image_alpha = random_range(.7, 1);
     are affecting the particle, just at varying levels.
 */
 
-show_debug_message(depth);
-
 // FIRST PART: Explosion from energy drop
 
 // Calculate next position for the explosion effect based on randomized speed &amp; angle

@@ -91,7 +91,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>5</string>
           </argument>
         </arguments>
       </action>
@@ -159,11 +159,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hspeed</string>
+            <string>movementSpeedDefault</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>2</string>
+            <string>.2</string>
           </argument>
         </arguments>
       </action>
@@ -204,6 +204,30 @@ else if (scr_getLevelId() == 7) {
     sprite_index = spr_spider_light_small_O;
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>random_range(30,60)</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -305,11 +329,134 @@ else if (scr_getLevelId() == 7) {
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>snd_enemyDeath_light</sound>
+            <sound>-100</sound>
           </argument>
           <argument>
             <kind>3</kind>
             <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var xDist = obj_player.x - (x+sprite_width/2); // Player origin is centered, spider origin is top left
+var yDist = obj_player.y - (y+sprite_height/2);
+
+if (instance_exists(obj_player)) {
+    // Move towards player horizontally
+    if (abs(xDist) &lt; 50) {
+        // Horizontally very close to player, so stop moving for now
+        scr_entity_stopMoving_Sudden();
+    } else if (abs(xDist) &lt; 400) {
+        // Somewhat close to player, so speed up and move towards player
+        if (xDist &gt; 0) {
+            movementSpeedDesired = movementSpeedDefault * 1.25;
+        } else {
+            movementSpeedDesired = -movementSpeedDefault * 1.25;
+        }
+    } else {
+        // Distant enough from player, so just move at normal speed
+        if (xDist &gt; 0) {
+            movementSpeedDesired = movementSpeedDefault;
+        } else {
+            movementSpeedDesired = -movementSpeedDefault;
+        }
+    }
+    
+
+    // Move towards player vertically when nearby
+    // Account for the fact that the player origin is higher than the small spider origin
+    if (abs(obj_player.x-x) &lt; 100) {
+        if (yDist &lt; -30) {
+            // Player is above
+            // Try to jump
+            scr_entity_jump();
+        } else if (yDist &gt; 30) {
+            // Player is below
+            // Try to drop
+            scr_entity_drop();
+        }    
+    }
+
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>random_range(30,60)</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
