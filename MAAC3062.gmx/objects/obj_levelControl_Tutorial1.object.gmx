@@ -184,7 +184,6 @@ instance_activate_object(state1_ball);
     }
     
 } else if (state == 1) {
-    show_debug_message('is state 1');
     if (!instance_exists(state1_ball)) {
         // Ball 1 has been picked up
         scr_tutorial_thumbsUp(state2_thumbsUp_X, state2_thumbsUp_Y);
@@ -211,7 +210,6 @@ instance_activate_object(state1_ball);
         msg = instance_create(state3_thumbsUp_X + 40, state3_thumbsUp_Y, obj_messageBox);
         ds_list_add(msg.list_text, "Use A to JUMP to platform");
         ds_list_add(msg.list_text, "to pick up the energy drop.");
-        room_goto(rm_level_moon);
     }
 } else if (state == 3) {
     if (!instance_exists(state3_ball)) {
