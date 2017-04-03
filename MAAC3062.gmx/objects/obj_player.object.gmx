@@ -1353,10 +1353,14 @@ if (global.plrAbilityAttained[1]) {
     }
     
     if (global.plrAbilityUpgraded[2]) {
+        audio_play_sound(snd_snakes, 0, false);
+        audio_sound_gain(snd_snakes, 1, 0);
         for (var i = 0 ; i &lt; 12 ; i++) {
             instance_create(x, y - 72, obj_snake);
         }
     } else {
+        audio_play_sound(snd_snakes, 0, false);
+        audio_sound_gain(snd_snakes, 1, 0);
         for (var i = 0 ; i &lt; 8 ; i++) {
             instance_create(x, y - 72, obj_snake);
         }
@@ -1488,8 +1492,12 @@ if (global.plrAbilityAttained[2]) {
     
     if (global.plrAbilityUpgraded[2]) {
         scr_abilC_upgraded_enable();
+        audio_play_sound(snd_blaster, 0, false);
+        audio_sound_gain(snd_blaster, 1, 0);
     } else {
         scr_abilC_normal_enable();
+        audio_play_sound(snd_blaster, 0, false);
+        audio_sound_gain(snd_blaster, 1, 0);
     }
 } else {
     scr_misc_notification("Ability #3 has not been unlocked.", c_black, c_yellow);

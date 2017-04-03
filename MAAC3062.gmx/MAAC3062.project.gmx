@@ -5,6 +5,7 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\snd_shipTakeOff</sound>
     <sounds name="Towers">
       <sound>sound\snd_basicTower</sound>
       <sound>sound\snd_mortarFlying</sound>
@@ -54,6 +55,13 @@
     </sounds>
     <sounds name="Story">
       <sound>sound\snd_asteroidImpact</sound>
+    </sounds>
+    <sounds name="Abilities">
+      <sound>sound\snd_blaster</sound>
+      <sound>sound\snd_cat</sound>
+      <sound>sound\snd_dog</sound>
+      <sound>sound\snd_forceField</sound>
+      <sound>sound\snd_snakes</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
