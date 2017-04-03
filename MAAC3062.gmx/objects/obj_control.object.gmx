@@ -29,6 +29,9 @@
 draw_set_colour(c_white);
 global.messageBoxAnimSpeed = 0.20;
 
+global.musicVolume = 0.6;
+global.musicFadeIn = 240; //per frame until at musicVolume;
+
 // Store screen dimensions
 global.screenWidth = display_get_width();
 global.screenHeight = display_get_height();
@@ -63,7 +66,7 @@ global.deltaTime = delta_time;
 global.state = "Normal";
 
 /**NEW**/
-global.upgradeTokens = 2;
+global.upgradeTokens = 0;
 
 global.minerals = 0;
 global.energy = 900;    // The amount of energy the player currently has throughout the game.
@@ -87,6 +90,20 @@ global.waterLevelComplete = 0;
 global.asteroidLevelComplete = 0;
 global.marsLevelComplete = 0;
 global.earthLevelComplete = 0;
+
+global.moonRewardsObtained = 0;
+global.forestRewardsObtained = 0;
+global.desertRewardsObtained = 0;
+global.iceRewardsObtained = 0;
+global.waterRewardsObtained = 0;
+global.asteroidRewardsObtained = 0;
+global.marsRewardsObtained = 0;
+global.earthRewardsObtained = 0;
+
+
+
+
+
 
 global.catsAndDogsUnlock = 0;
 
