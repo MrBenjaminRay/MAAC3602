@@ -52,18 +52,28 @@ with(obj_enemy) {
 }
 
 /* Use states to track player's progress through the tutorial.
- *  0: Move left
- *  1: Move right
- *  2: Jump
- *  3: Drop
- *  4: Attack (shoot the target)
- *  5: Kill an enemy
- *  6: Pick up an energy drop
- *  7: Go to the right to go towards the ship  (ship arrow)
+ *  1: Move left
+ *  2: Move right
+ *  3: Jump
+ *  4: Drop
+ *  5: Attack (shoot the target)
+ *  6: Kill an enemy
+ *  7: Pick up an energy drop
+ *  8: Go to the right to go towards the ship  (ship arrow)
  *
  */
 
-state = 0;
+state = 0; // Will immediately be switched to state 1
+
+
+state1_thumbsUp_X = 50;
+state1_thumbsUp_Y = 100;
+state2_thumbsUp_X = 50;
+state2_thumbsUp_Y = 100;
+state3_thumbsUp_X = 50;
+state3_thumbsUp_Y = 100;
+state4_thumbsUp_X = 50;
+state4_thumbsUp_Y = 100;
 
 state1_ball = instance_create(100, 100, obj_drop_energy);
 state2_ball = instance_create(150, 100, obj_drop_energy);
@@ -74,6 +84,7 @@ instance_deactivate_object(obj_hud_levelEnergy);
 instance_deactivate_object(obj_enemy);
 instance_deactivate_object(obj_drop_energy);
 instance_activate_object(obj_player);
+
 
 </string>
           </argument>
@@ -107,41 +118,24 @@ instance_activate_object(obj_player);
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>scr_tutorial_thumbsUp</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>400</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>400</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
+            <kind>1</kind>
+            <string>// Activate the ball for state 1, which gets state 1 started
+instance_activate_object(state1_ball);
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -164,15 +158,41 @@ instance_activate_object(obj_player);
           <argument>
             <kind>1</kind>
             <string>if (state == 0) {
+
+    // Wait for alarm to activate the first ball. Until then, we stay in state 0.
+    if (instance_exists(state1_ball)) {
+        // Ball 1 exists (has been activated)
+        state = 1;
+    }
     
 } else if (state == 1) {
-
+    show_debug_message('is state 1');
+    msg1 = instance_create(state1_thumbsUp_X, state1_thumbsUp_Y, obj_messageBox);
+    ds_list_add(msg1.list_text, "Use A to move LEFT to");
+    ds_list_add(msg1.list_text, "pick up the energy drop.");    
+    
+    if (!instance_exists(state1_ball)) {
+        // Ball 1 has been picked up
+        scr_tutorial_thumbsUp(state2_thumbsUp_X, state2_thumbsUp_Y);
+        // Set state and activate secod ball
+        state = 2;
+        instance_activate_object(state2_ball);
+    }
 } else if (state == 2) {
-
+    if (!instance_exists(state3_ball)) {
+        msg1 = instance_create(state2_thumbsUp_X, state2_thumbsUp_Y, obj_messageBox);
+        ds_list_add(msg1.list_text, "Use D to move RIGHT to");
+        ds_list_add(msg1.list_text, "pick up the energy drop.");
+        scr_tutorial_thumbsUp(state3_thumbsUp_X, state3_thumbsUp_Y);
+        state = 3;
+    }
 } else if (state == 3) {
-
+    if (!instance_exists(state4_ball)) {
+        scr_tutorial_thumbsUp(state4_thumbsUp_X, state4_thumbsUp_Y);
+        state = 4;
+    }
 } else if (state == 4) {
-
+    
 } else if (state == 5) {
 
 } else if (state == 6) {
