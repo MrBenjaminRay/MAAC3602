@@ -49,6 +49,16 @@ with(obj_spawnerSpawner){
     canSpawn_airLight = true;
     canSpawn_airHeavy = true;
 }
+
+with(obj_fallenBuilding){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_groundHeavy = true;
+    canSpawn_groundJackal = true;
+    canSpawn_groundSpiderLarge = true;
+    canSpawn_airLight = true;
+    canSpawn_airHeavy = true;
+}
 </string>
           </argument>
         </arguments>
