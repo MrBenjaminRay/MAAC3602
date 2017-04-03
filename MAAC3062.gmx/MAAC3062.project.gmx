@@ -966,6 +966,7 @@
         <object>objects\obj_ship_hit</object>
         <object>objects\obj_asteroid_story</object>
       </objects>
+      <object>objects\obj_epilogue_controller</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
