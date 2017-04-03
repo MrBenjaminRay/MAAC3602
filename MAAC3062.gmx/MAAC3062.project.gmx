@@ -111,6 +111,10 @@
           <sprite>sprites\spr_ns_kindle_notification</sprite>
           <sprite>sprites\spr_ns_rabbit_notification</sprite>
           <sprite>sprites\spr_ns_battery_notification</sprite>
+          <sprite>sprites\spr_ability1_notfication</sprite>
+          <sprite>sprites\spr_ability2_notification</sprite>
+          <sprite>sprites\spr_ability3_notification</sprite>
+          <sprite>sprites\spr_ability4_notification</sprite>
         </sprites>
       </sprites>
       <sprites name="Hub">
