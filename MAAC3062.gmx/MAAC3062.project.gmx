@@ -105,6 +105,33 @@
         <sprite>sprites\spr_creditsNew3</sprite>
         <sprite>sprites\spr_creditsNew4</sprite>
         <sprite>sprites\spr_creditsNew5</sprite>
+        <sprites name="Notifications">
+          <sprite>sprites\spr_token_notification</sprite>
+          <sprite>sprites\spr_ns_fridge_notification</sprite>
+          <sprite>sprites\spr_ns_kindle_notification</sprite>
+          <sprite>sprites\spr_ns_rabbit_notification</sprite>
+          <sprite>sprites\spr_ns_battery_notification</sprite>
+          <sprite>sprites\spr_ability1_notfication</sprite>
+          <sprite>sprites\spr_ability2_notification</sprite>
+          <sprite>sprites\spr_ability3_notification</sprite>
+          <sprite>sprites\spr_ability4_notification</sprite>
+          <sprite>sprites\spr_research_button</sprite>
+          <sprite>sprites\spr_catapillager_note</sprite>
+          <sprite>sprites\spr_sloth_note</sprite>
+          <sprite>sprites\spr_fire_note</sprite>
+          <sprite>sprites\spr_bear_note</sprite>
+          <sprite>sprites\spr_rt_note</sprite>
+          <sprite>sprites\spr_goat_note</sprite>
+          <sprite>sprites\spr_tit_note</sprite>
+          <sprite>sprites\spr_drop_rm1_note</sprite>
+          <sprite>sprites\spr_drop_rm2_note</sprite>
+          <sprite>sprites\spr_drop_rm3_note</sprite>
+          <sprite>sprites\spr_drop_rm4_note</sprite>
+          <sprite>sprites\spr_drop_a1_note</sprite>
+          <sprite>sprites\spr_drop_a2_note</sprite>
+          <sprite>sprites\spr_drop_a3_note</sprite>
+          <sprite>sprites\spr_drop_a4_note</sprite>
+        </sprites>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -186,6 +213,9 @@
       </sprites>
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
+      <sprite>sprites\spr_continue</sprite>
+      <sprite>sprites\spr_continue2</sprite>
+      <sprite>sprites\spr_retry</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
@@ -518,12 +548,18 @@
       <sprite>sprites\spr_story_script3</sprite>
       <sprite>sprites\spr_story_4</sprite>
       <sprite>sprites\spr_travel_to_another_planet</sprite>
-      <sprite>sprites\spr_phil_and_janice_1</sprite>
-      <sprite>sprites\spr_phil_and_janice_2</sprite>
-      <sprite>sprites\spr_phil_and_janice_3</sprite>
       <sprite>sprites\spr_ship_cartoon</sprite>
       <sprite>sprites\spr_returning_home_ship</sprite>
       <sprite>sprites\spr_story_asteroid</sprite>
+      <sprites name="Epilogue">
+        <sprite>sprites\spr_phil_and_janice_1</sprite>
+        <sprite>sprites\spr_phil_and_janice_2</sprite>
+        <sprite>sprites\spr_phil_and_janice_3</sprite>
+        <sprite>sprites\spr_phil_and_janice_3_5</sprite>
+        <sprite>sprites\spr_phil_and_janice_4</sprite>
+        <sprite>sprites\spr_phil_and_janice_5</sprite>
+      </sprites>
+      <sprite>sprites\spr_navigation_complete</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -968,6 +1004,7 @@
         <object>objects\obj_asteroid_story</object>
       </objects>
       <object>objects\obj_epilogue_controller</object>
+      <object>objects\obj_epilogue_controller2</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
