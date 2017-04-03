@@ -48,18 +48,18 @@ weaponKickback = weaponKickbackMax;     // Start with max so gun comes out anima
 weaponKickbackResetSpeed = 0.1;         // How quickly to lower kickback. Will be multiplied by delta time.
 
 
-if(global.tutorial_part2){
-    global.tutorial_part2 = false;
-    global.tutorial_part3 = true;
-    with(obj_messageBox){
-       instance_destroy();
-    }
-    var tutorialBox3 = instance_create(512, 608, obj_messageBox);
-    ds_list_add(tutorialBox3.list_text, "You might need some of those");
-    ds_list_add(tutorialBox3.list_text, "resources later. Sell the tower"); 
-    ds_list_add(tutorialBox3.list_text, "(Press 0) and you will get some of");
-    ds_list_add(tutorialBox3.list_text, "the energy back.");   
-}
+//if(global.tutorial_part2){
+//    global.tutorial_part2 = false;
+//    global.tutorial_part3 = true;
+//    with(obj_messageBox){
+//       instance_destroy();
+//    }
+//    var tutorialBox3 = instance_create(512, 608, obj_messageBox);
+//    ds_list_add(tutorialBox3.list_text, "You might need some of those");
+//    ds_list_add(tutorialBox3.list_text, "resources later. Sell the tower"); 
+//    ds_list_add(tutorialBox3.list_text, "(Press 0) and you will get some of");
+//    ds_list_add(tutorialBox3.list_text, "the energy back.");   
+//}
 
 </string>
           </argument>
