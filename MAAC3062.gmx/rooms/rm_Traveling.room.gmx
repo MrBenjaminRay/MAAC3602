@@ -52,6 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_ship_travelling" x="1632" y="320" name="inst_B60AE57A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_travelroomcontrol" x="160" y="96" name="inst_929AF659" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

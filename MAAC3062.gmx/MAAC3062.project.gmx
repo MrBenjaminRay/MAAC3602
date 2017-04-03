@@ -1184,6 +1184,7 @@
     <object>objects\obj_globals</object>
     <object>objects\object</object>
     <object>objects\obj_hub_captions</object>
+    <object>objects\obj_travelroomcontrol</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initializeGame</room>
