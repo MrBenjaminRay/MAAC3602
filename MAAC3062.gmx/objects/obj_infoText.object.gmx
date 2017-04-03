@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>lineOffset = 20;
 titleScale = 2;
+
+
 </string>
           </argument>
         </arguments>
@@ -53,6 +55,12 @@ titleScale = 2;
     draw_text(x, y + lineOffset*3, "Environment");
     draw_text(x, y + lineOffset*10, "Leader");
     
+    // JOE: Try this, or some dark colour like it
+    draw_set_color(c_navy);
+
+    var shadowOffset = 1;
+    var shadowAlpha = 0.5;
+
     switch(global.selectedPlanet) {
         case 0:
             draw_text_transformed(x, y, "Moon X-52", titleScale, titleScale, 0);

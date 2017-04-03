@@ -128,7 +128,7 @@ currentValueToDraw = string(minersAlive) + '/' + string(minersSpawned);
     text[2] = 'Keep as many miners alive as possible.';
     
     var backX = x;
-    var backY = y-31;
+    var backY = y-45;
     
     // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
     

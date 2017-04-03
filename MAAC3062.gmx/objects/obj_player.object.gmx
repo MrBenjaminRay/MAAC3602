@@ -638,48 +638,6 @@ if (bbox_right &gt; room_width) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Tutorial Check</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(global.tutorial_part3 &amp;&amp; room == rm_tut1)
-   exit;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>Weapon Kickback Calculate</string>
           </argument>
         </arguments>
@@ -1466,60 +1424,6 @@ if (global.plrAbilityAttained[1]) {
     scr_camera_follow_targetObject(obj_tower_RT6100);
     
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="68">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Tutorial Trigger</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(global.tutorial_part1){
-    global.tutorial_part1 = false;
-    global.tutorial_part2 = true;
-    with(obj_messageBox){
-        instance_destroy();
-    }
-    var tutorialBox2 = instance_create(512, 608, obj_messageBox);
-    ds_list_add(tutorialBox2.list_text, "There may be too many enemies");
-    ds_list_add(tutorialBox2.list_text, "for you. Try building a tower!");
-    ds_list_add(tutorialBox2.list_text, "(Press 1)");
-}
-
 </string>
           </argument>
         </arguments>

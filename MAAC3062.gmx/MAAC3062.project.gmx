@@ -147,6 +147,8 @@
         <sprite>sprites\spr_table</sprite>
         <sprite>sprites\spr_bossIncomplete</sprite>
         <sprite>sprites\spr_bossComplete</sprite>
+        <sprite>sprites\spr_unlock_token</sprite>
+        <sprite>sprites\spr_upgrade_token</sprite>
       </sprites>
       <sprite>sprites\spr_spaceBG</sprite>
       <sprite>sprites\spr_play</sprite>
@@ -175,12 +177,6 @@
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
         <sprite>sprites\spr_button_toHub</sprite>
-      </sprites>
-      <sprites name="GreyedOutPlanets">
-        <sprite>sprites\spr_grey_forest</sprite>
-        <sprite>sprites\spr_desert_grey</sprite>
-        <sprite>sprites\spr_ice_grey</sprite>
-        <sprite>sprites\spr_water_grey</sprite>
       </sprites>
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
@@ -212,6 +208,7 @@
         </sprites>
         <sprites name="MiniBoss4">
           <sprite>sprites\spr_miniboss4</sprite>
+          <sprite>sprites\spr_miniboss4_attack</sprite>
         </sprites>
         <sprites name="Boss4">
           <sprite>sprites\spr_Boss4_standing</sprite>
@@ -468,6 +465,7 @@
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
       <sprite>sprites\spr_ship_arrow</sprite>
       <sprite>sprites\spr_enemyKills</sprite>
+      <sprite>sprites\spr_sale_button</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -517,6 +515,8 @@
       <sprite>sprites\spr_phil_and_janice_1</sprite>
       <sprite>sprites\spr_phil_and_janice_2</sprite>
       <sprite>sprites\spr_phil_and_janice_3</sprite>
+      <sprite>sprites\spr_ship_cartoon</sprite>
+      <sprite>sprites\spr_returning_home_ship</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -526,6 +526,16 @@
       <sprite>sprites\spr_destroyed_building2</sprite>
       <sprite>sprites\spr_destroyed_building3</sprite>
       <sprite>sprites\spr_destroyed_building4</sprite>
+    </sprites>
+    <sprites name="WelcomeSprites">
+      <sprite>sprites\spr_moon_1_welcome</sprite>
+      <sprite>sprites\spr_moon_2_welcome</sprite>
+      <sprite>sprites\spr_forest_welcome</sprite>
+      <sprite>sprites\spr_desert_welcome</sprite>
+      <sprite>sprites\spr_ice_welcome</sprite>
+      <sprite>sprites\spr_water_welcome</sprite>
+      <sprite>sprites\spr_mars_welcome</sprite>
+      <sprite>sprites\spr_asteroid_welcome</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -585,6 +595,8 @@
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
     <background>background\bck_initializeGame</background>
+    <background>background\bkg_currently_travelling</background>
+    <background>background\bkg_returning_home</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_goat</path>
@@ -689,6 +701,7 @@
         <script>scripts\scr_msg_hubBossReward.gml</script>
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
+      <script>scripts\draw_text_shadow.gml</script>
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
@@ -921,13 +934,13 @@
       <object>objects\obj_warp</object>
       <object>objects\obj_sound_volumes</object>
       <object>objects\obj_fallenBuilding</object>
+      <object>objects\obj_ship_travelling</object>
+      <object>objects\obj_ship_returning_home</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
-      <objects name="Misc">
-        <object>objects\obj_button_sellTower</object>
-      </objects>
+      <object>objects\obj_button_sellTower</object>
     </objects>
     <objects name="Story">
       <object>objects\obj_story_pic_controller</object>
@@ -1113,7 +1126,11 @@
       <room>rooms\rm_hubAlt</room>
     </rooms>
     <rooms name="Story">
-      <room>rooms\rm_Story1</room>
+      <room>rooms\rm_PreTutorial</room>
+      <room>rooms\rm_Traveling</room>
+      <room>rooms\rm_returning_home</room>
+      <room>rooms\rm_Epilogue</room>
+      <room>rooms\rm_Post_Hub_Tutorial</room>
     </rooms>
   </rooms>
   <help>
