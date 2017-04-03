@@ -1186,7 +1186,6 @@
     <object>objects\obj_hub_captions</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_pre_epilogue</room>
     <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
@@ -1199,9 +1198,7 @@
       <room>rooms\rm_credits5</room>
     </rooms>
     <rooms name="Levels">
-      <rooms name="Tutorial">
-        <room>rooms\rm_tut1</room>
-      </rooms>
+      <room>rooms\rm_level_premoon</room>
       <room>rooms\rm_level_moon</room>
       <room>rooms\rm_level_forest</room>
       <room>rooms\rm_level_desert</room>
@@ -1229,6 +1226,7 @@
       <room>rooms\rm_Post_Post_Hub</room>
       <room>rooms\rm_Traveling</room>
       <room>rooms\rm_Returning_Home</room>
+      <room>rooms\rm_pre_epilogue</room>
       <room>rooms\rm_Epilogue</room>
     </rooms>
   </rooms>

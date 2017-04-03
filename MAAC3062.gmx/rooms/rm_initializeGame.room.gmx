@@ -11,7 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>// This level initializes stuff, then sends us to the first room (Menu)
-room_goto(rm_menu);</code>
+room_goto(rm_PreTutorial);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
