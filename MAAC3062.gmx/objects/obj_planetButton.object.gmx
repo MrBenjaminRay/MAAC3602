@@ -33,12 +33,6 @@ image_yscale = image_yscale + image_xscale - 1;
 image_xscale = image_xscale * 0.75;
 image_yscale = image_yscale * 0.75;
 
-circleColour = make_color_rgb(53, 255, 0);
-circleRadius = -16;
-circleMove = 0;
-rectangleAlpha = 0.4;
-
-
 /*
 if(global.navPieceAttained[3]) {
     if(object_index = obj_earthButton)

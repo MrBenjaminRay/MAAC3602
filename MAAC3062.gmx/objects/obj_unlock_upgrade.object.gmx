@@ -254,7 +254,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[0] = towerUpgrade;
                 clickSuccess = true;
-                obj_hub_caterpillager.sprite_index = spr_basic_Upgrade;
             }
         } 
         break;
@@ -264,7 +263,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[1] = towerUpgrade;
                 clickSuccess = true;
-                obj_hub_sloth.sprite_index = spr_slow_Upgrade;
             }
         }  
         break;
@@ -274,7 +272,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[2] = towerUpgrade;
                 clickSuccess = true;
-                obj_hub_titMouse.sprite_index = spr_mortar_Upgrade;
             }
         }
         break;
@@ -284,7 +281,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[3] = towerUpgrade;
                 clickSuccess = true;
-                obj_hub_109Calibear.sprite_index = spr_rifle_Upgrade;
             }
         }
         break;   
@@ -294,7 +290,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[4] = towerUpgrade;
                 clickSuccess = true;
-                obj_hub_fireAnt.sprite_index = spr_flame_Upgrade;
             }
         }   
     case 5:
@@ -303,7 +298,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[5] = towerUpgrade;
                 clickSuccess = true;
-                obj_hub_RT6100.sprite_index = spr_6100_Upgrade;
             }
         }
         break;
@@ -313,7 +307,6 @@ if(unlocked == 0) {
                 global.upgradeTokens--;
                 global.towerUpgradeLevel[6] = towerUpgrade;
                 clickSuccess = true;
-                //obj_hub_mechaGoat.sprite_index = spr_basic_Upgrade;
             }
         }
         break;

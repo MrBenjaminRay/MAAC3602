@@ -99,11 +99,6 @@
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
         <sprite>sprites\spr_toolTipBox_Background</sprite>
         <sprite>sprites\spr_title</sprite>
-        <sprite>sprites\spr_creditsNew1</sprite>
-        <sprite>sprites\spr_creditsNew2</sprite>
-        <sprite>sprites\spr_creditsNew3</sprite>
-        <sprite>sprites\spr_creditsNew4</sprite>
-        <sprite>sprites\spr_creditsNew5</sprite>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -986,12 +981,11 @@
           <object>objects\obj_desertButton</object>
           <object>objects\obj_iceButton</object>
           <object>objects\obj_waterButton</object>
-          <object>objects\obj_redPlanetButton</object>
           <object>objects\obj_asteroidButton</object>
+          <object>objects\obj_redPlanetButton</object>
           <object>objects\obj_levelTitle</object>
           <object>objects\obj_nextStop</object>
           <object>objects\obj_travel</object>
-          <object>objects\obj_unlock_upgrade</object>
           <object>objects\obj_researchWep</object>
           <object>objects\obj_hudModeSelect</object>
           <object>objects\obj_selectDest</object>
@@ -1034,6 +1028,7 @@
           <object>objects\obj_weaponInfoText</object>
           <object>objects\obj_item_picture</object>
           <object>objects\obj_item_projectile</object>
+          <object>objects\obj_unlock_upgrade</object>
           <object>objects\obj_locked</object>
           <object>objects\obj_towersHeading</object>
           <object>objects\obj_abilitiesHeading</object>
@@ -1070,11 +1065,6 @@
       <object>objects\obj_credits1</object>
       <object>objects\obj_credits2</object>
       <object>objects\obj_credits3</object>
-      <object>objects\obj_creditsNew1</object>
-      <object>objects\obj_creditsNew2</object>
-      <object>objects\obj_creditsNew3</object>
-      <object>objects\obj_creditsNew4</object>
-      <object>objects\obj_creditsNew5</object>
       <object>objects\obj_dimFilter</object>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
@@ -1110,8 +1100,6 @@
       <room>rooms\rm_credits</room>
       <room>rooms\rm_credits2</room>
       <room>rooms\rm_credits3</room>
-      <room>rooms\rm_credits4</room>
-      <room>rooms\rm_credits5</room>
     </rooms>
     <rooms name="Levels">
       <rooms name="Tutorial">
