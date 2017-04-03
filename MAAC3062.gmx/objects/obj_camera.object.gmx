@@ -80,6 +80,9 @@ view_vspeed = 10;
 view_hborder = view_wview[0]/2;
 view_vborder = view_hview[0]/2;
 
+// Force view to follow the camera by default
+view_object[0] = object_index;
+
 </string>
           </argument>
         </arguments>

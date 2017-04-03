@@ -584,13 +584,19 @@ if (isJumping) {
             <kind>1</kind>
             <string>// Player is trying to move off of the left side of the screen. Stop movement.
 if (bbox_left &lt; 0) {
-    show_debug_message('Left Edge ' + string(0) + ', ' + string(bbox_left) + ', ' + string(x) + ', ' + string(bbox_right) + ', ' + string(room_width));
+    //show_debug_message('Left Edge ' + string(0) + ', ' + string(bbox_left) + ', ' + string(x) + ', ' + string(bbox_right) + ', ' + string(room_width));
     scr_entity_stopMoving_Sudden();
+    while (bbox_left &lt; 0) {
+        x++;
+    }    
 }
 
 if (bbox_right &gt; room_width) {
-    show_debug_message('Right Edge ' + string(0) + ', ' + string(bbox_left) + ', ' + string(x) + ', ' + string(bbox_right) + ', ' + string(room_width));
+    //show_debug_message('Right Edge ' + string(0) + ', ' + string(bbox_left) + ', ' + string(x) + ', ' + string(bbox_right) + ', ' + string(room_width));
     scr_entity_stopMoving_Sudden();
+    while (bbox_right &gt; room_width) {
+        x--;
+    }    
 }
 
 //if (x - sprite_width * image_xscale / 2 &lt; 0 &amp;&amp; movementSpeedDesired &lt; 0) {

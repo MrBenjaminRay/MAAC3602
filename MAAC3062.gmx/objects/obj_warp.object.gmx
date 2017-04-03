@@ -29,14 +29,16 @@
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>605</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -45,8 +47,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message('Collided');
-</string>
+            <string>Do not draw this object</string>
           </argument>
         </arguments>
       </action>

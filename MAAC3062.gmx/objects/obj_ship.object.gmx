@@ -183,5 +183,8 @@ if(levelFinish == 1 &amp;&amp; y &lt; -200) {
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>65,93</point>
+    <point>93,93</point>
+  </PhysicsShapePoints>
 </object>
