@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>instance_deactivate_object(obj_hubTowerAbility);
+rectangleAlpha = 0.4;
+rectangleColour = make_color_rgb(53, 255, 0);
+circleRadius = 6;
+circleMove = -1;
 </string>
           </argument>
         </arguments>
