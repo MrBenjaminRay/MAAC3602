@@ -1196,6 +1196,7 @@
         <object>objects\obj_button_retry</object>
         <object>objects\obj_button_toHub</object>
       </objects>
+      <object>objects\obj_travel_control</object>
     </objects>
     <object>objects\obj_hubMockupBG</object>
     <object>objects\obj_quit</object>
