@@ -97,6 +97,7 @@
         <sprite>sprites\spr_toolTipBox_energy</sprite>
         <sprite>sprites\spr_toolTipBox_bossItem</sprite>
         <sprite>sprites\spr_toolTipBox_enemiesKilled</sprite>
+        <sprite>sprites\spr_toolTipBox_upgrade</sprite>
         <sprite>sprites\spr_toolTipBox_Background</sprite>
         <sprite>sprites\spr_title</sprite>
         <sprite>sprites\spr_creditsNew1</sprite>
@@ -983,6 +984,7 @@
       <object>objects\obj_hud_levelEnergy</object>
       <object>objects\obj_hud_minersAlive</object>
       <object>objects\obj_hud_levelMinerals</object>
+      <object>objects\obj_hud_upgradeTokens</object>
       <object>objects\obj_hud_levelKills</object>
       <object>objects\obj_hud_hotbar</object>
       <object>objects\obj_hud_hotbar_item</object>
@@ -1153,8 +1155,8 @@
     </rooms>
     <rooms name="HUB">
       <room>rooms\rm_hub</room>
-      <room>rooms\rm_hub_weapons</room>
       <room>rooms\rm_navArray</room>
+      <room>rooms\rm_hub_weapons</room>
       <room>rooms\rm_hubAlt</room>
     </rooms>
     <rooms name="Story">

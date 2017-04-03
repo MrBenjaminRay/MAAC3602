@@ -59,16 +59,15 @@ window_set_cursor(cr_default);</code>
     <instance objName="obj_windowPlaceholder" x="800" y="0" name="inst_049F6239" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="1136" y="0" name="inst_661E8DA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="1472" y="0" name="inst_2A78C1D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_selectDest" x="192" y="128" name="inst_126908BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_researchWep" x="320" y="128" name="inst_E32D80D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_table" x="656" y="496" name="inst_E20CF65D" locked="0" code="" scaleX="3" scaleY="2.01574802398682" colour="4294967295" rotation="0"/>
     <instance objName="obj_array" x="592" y="592" name="inst_50479CEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_messageBox" x="432" y="224" name="inst_CE5C0406" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_navText" x="528" y="256" name="inst_AEE91AA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_navText" x="560" y="176" name="inst_AEE91AA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fridge" x="720" y="512" name="inst_69F194DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_etchasketch" x="800" y="560" name="inst_818E56D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_batteries" x="912" y="560" name="inst_1B194DFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rabbit_ear" x="848" y="544" name="inst_89ABDCC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_messageBoxMain" x="464" y="128" name="inst_E1B1A3DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_leftArrow" x="144" y="112" name="inst_ED8C72DB" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
