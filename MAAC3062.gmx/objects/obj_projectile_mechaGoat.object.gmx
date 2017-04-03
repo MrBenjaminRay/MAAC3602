@@ -52,9 +52,9 @@ gravity = 0.0005;
 // Reference to enemy targeted by this projectile
 targetEnemy = noone;
 
-// Allow to fly around trying to hit enemy for about 30 seconds
+// Allow to fly around trying to hit enemy for about 20 seconds
 life = 0;
-maxLife = 30000;
+maxLife = 20000;
 
 // Direction in which the goat and his rocket are aimed. Rocket propels goat based on this direction.
 // Will be slowly adjusted towards target.
@@ -206,6 +206,12 @@ if (instance_exists(jetPack)) {
 
 if (!instance_exists(targetEnemy)) {
     // No enemy, so destroy this and end the step here
+    instance_destroy();
+    return 0;
+}
+
+if (y &gt; room_height) {
+    // Ground collision
     instance_destroy();
     return 0;
 }
