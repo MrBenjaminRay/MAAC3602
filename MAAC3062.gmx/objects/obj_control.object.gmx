@@ -123,7 +123,7 @@ global.sneakySnakesUpgradeCost = 2000;
 global.blasterUpgradeCost = 5000;
 global.catsAndDogsUpgradeCost = 10000;
 
-
+global.lastNotificationDepth = -10000; // Needed for notifications. Should be really high negative.
 
 </string>
           </argument>

@@ -310,7 +310,7 @@ if (instance_exists(obj_player)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_notification(spr_goat_note);
+            <string>scr_notification_research(spr_drop_rm3_note);
 </string>
           </argument>
         </arguments>
@@ -353,7 +353,7 @@ if (instance_exists(obj_player)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_notification(spr_tit_note);
+            <string>scr_notification_normal(spr_tit_note);
 </string>
           </argument>
         </arguments>
@@ -396,7 +396,7 @@ if (instance_exists(obj_player)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_notification(spr_ability2_notification);
+            <string>scr_notification_normal(spr_ability2_notification);
 </string>
           </argument>
         </arguments>

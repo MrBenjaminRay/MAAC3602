@@ -759,7 +759,9 @@
         <script>scripts\scr_msg_minerKilled.gml</script>
       </scripts>
       <script>scripts\draw_text_shadow.gml</script>
-      <script>scripts\scr_notification.gml</script>
+      <script>scripts\scr_notification_normal.gml</script>
+      <script>scripts\scr_notification_research.gml</script>
+      <script>scripts\scr_notificationCount.gml</script>
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
@@ -1154,6 +1156,8 @@
       </objects>
       <objects name="Notifications">
         <object>objects\obj_notification</object>
+        <object>objects\obj_notificationNormal</object>
+        <object>objects\obj_notificationResearch</object>
         <object>objects\obj_notificationBackground</object>
       </objects>
       <objects name="Death Screen">
