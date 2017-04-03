@@ -163,6 +163,9 @@ else {
     weaponObj.image_alpha = 1;
     // Shrink any existing weapon kickback
     scr_entity_weaponKickback_Shrink();
+
+    // Enable health bar display:
+    showHealthBar = true;
 }
 
 if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {

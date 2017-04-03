@@ -728,6 +728,7 @@
     <scripts name="Misc">
       <script>scripts\scr_misc_isVariableInitialized.gml</script>
       <script>scripts\scr_misc_gearNearestObjectOfType.gml</script>
+      <script>scripts\scr_misc_getNearestTowerOfType.gml</script>
       <script>scripts\scr_misc_secondsToDeltaTime.gml</script>
       <script>scripts\scr_misc_notification.gml</script>
     </scripts>
@@ -740,6 +741,7 @@
       <script>scripts\scr_state_setNormal.gml</script>
       <script>scripts\scr_state_setBuild.gml</script>
       <script>scripts\scr_state_setPaused.gml</script>
+      <script>scripts\scr_state_setUnpaused.gml</script>
       <script>scripts\scr_state_setLevelFailed.gml</script>
       <script>scripts\scr_state_clearControlObjects.gml</script>
       <script>scripts\scr_build_switchTower.gml</script>
