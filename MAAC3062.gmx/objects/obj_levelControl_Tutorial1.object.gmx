@@ -98,6 +98,7 @@ instance_deactivate_object(obj_hud_levelEnergy);
 instance_deactivate_object(obj_enemy);
 instance_deactivate_object(obj_drop_energy);
 instance_activate_object(obj_player);
+instance_activate_object(obj_enemy_ground_spider_large);
 
 
 // TEMP
