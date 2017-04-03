@@ -105,6 +105,13 @@
         <sprite>sprites\spr_creditsNew3</sprite>
         <sprite>sprites\spr_creditsNew4</sprite>
         <sprite>sprites\spr_creditsNew5</sprite>
+        <sprites name="Notifications">
+          <sprite>sprites\spr_token_notification</sprite>
+          <sprite>sprites\spr_ns_fridge_notification</sprite>
+          <sprite>sprites\spr_ns_kindle_notification</sprite>
+          <sprite>sprites\spr_ns_rabbit_notification</sprite>
+          <sprite>sprites\spr_ns_battery_notification</sprite>
+        </sprites>
       </sprites>
       <sprites name="Hub">
         <sprite>sprites\spr_researchWep</sprite>
@@ -186,6 +193,9 @@
       </sprites>
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_dead_goat</sprite>
+      <sprite>sprites\spr_continue</sprite>
+      <sprite>sprites\spr_continue2</sprite>
+      <sprite>sprites\spr_retry</sprite>
     </sprites>
     <sprites name="Entities">
       <sprites name="Bosses">
