@@ -80,13 +80,27 @@ global.currentLevelFailed = 0;      // Used to prevent damage and possibly other
 global.skipToNavRoom = false; //used to skip to nav room when closing clickMessage
                                     
 global.moonLevelComplete = 0;
-global.forestLevelComplete = 0;
+global.forestLevelComplete = 1;
 global.desertLevelComplete = 0;
 global.iceLevelComplete = 0;
 global.waterLevelComplete = 0;
 global.asteroidLevelComplete = 0;
 global.marsLevelComplete = 0;
 global.earthLevelComplete = 0;
+
+global.moonRewardsObtained = 0;
+global.forestRewardsObtained = 0;
+global.desertRewardsObtained = 0;
+global.iceRewardsObtained = 0;
+global.waterRewardsObtained = 0;
+global.asteroidRewardsObtained = 0;
+global.marsRewardsObtained = 0;
+global.earthRewardsObtained = 0;
+
+
+
+
+
 
 global.catsAndDogsUnlock = 0;
 

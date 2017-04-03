@@ -107,32 +107,33 @@ switch(obj_levelTitle.sprite_index) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(global.selectedPlanet) {
-    case 0:
-        room_goto(rm_level_moon);
-        break;
-    case 1:
-        room_goto(rm_level_forest);
-        break;
-    case 2:
-        room_goto(rm_level_desert);
-        break;
-    case 3:
-        room_goto(rm_level_ice);
-        break;
-    case 4:
-        room_goto(rm_level_underwater);
-        break;
-    case 5:
-        room_goto(rm_level_mars);
-        break;
-    case 6:
-        room_goto(rm_level_asteroid);
-        break;
-    default:
-        show_debug_message("Go nowhere");
+            <string>if(scr_notificationCount() == 0) {
+    switch(global.selectedPlanet) {
+        case 0:
+            room_goto(rm_level_moon);
+            break;
+        case 1:
+            room_goto(rm_level_forest);
+            break;
+        case 2:
+            room_goto(rm_level_desert);
+            break;
+        case 3:
+            room_goto(rm_level_ice);
+            break;
+        case 4:
+            room_goto(rm_level_underwater);
+            break;
+        case 5:
+            room_goto(rm_level_mars);
+            break;
+        case 6:
+            room_goto(rm_level_asteroid);
+            break;
+        default:
+            show_debug_message("Go nowhere");
+    }
 }
-
 
 </string>
           </argument>

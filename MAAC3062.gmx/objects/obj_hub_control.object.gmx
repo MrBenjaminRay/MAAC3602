@@ -42,108 +42,102 @@ global.selectedTower_Ability = 0;
 */
 global.hubMode = 0;
 
-
-var levelData;
-var bossDropIcon;
-foundFalse = false;
-
-levelData = ds_map_find_value(global.levelStats, rm_level_moon);
-if(levelData[30]) {
-    scr_msg_hubBossReward(0);
-    levelData[30] = false;
-    ds_map_replace(global.levelStats, rm_level_moon, levelData);
-    bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-    bossDropIcon.sprite_index = spr_drop_rawMaterial1;
-}
-else
-    foundFalse = true;
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_forest);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(1);
-        levelData[30] = false;
-        global.navPieceAttained[0] = true;
-        ds_map_replace(global.levelStats, rm_level_forest, levelData);
-        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-        bossDropIcon.sprite_index = spr_drop_rawMaterial2;
-    }
-    else
-        foundFalse = true;
+//BOSS REWARD NOTIFICATIONS
+if(global.moonLevelComplete == 1 &amp;&amp; global.moonRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_rm1_note);
+    scr_notification_normal(spr_fire_note);
+    scr_notification_normal(spr_ability1_notfication);
+    
+    global.towerUnlocked[4] = true;
+    global.plrAbilityAttained[0] = true;
+    
+    global.moonRewardsObtained = 1;
+    
+    room_restart();
 }
 
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_desert);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(2);
-        levelData[30] = false;
-        global.navPieceAttained[1] = true;
-        ds_map_replace(global.levelStats, rm_level_desert, levelData);
-        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-        bossDropIcon.sprite_index = spr_drop_rawMaterial3;
-    }
-    else
-       foundFalse = true; 
+else if(global.forestLevelComplete == 1 &amp;&amp; global.forestRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_rm2_note);
+    scr_notification_normal(spr_ns_fridge_notification);
+    scr_notification_normal(spr_bear_note);
+    scr_notification_normal(spr_ability2_notification);
+    
+    global.navPieceAttained[0] = true;
+    global.towerUnlocked[3] = true;
+    global.plrAbilityAttained[1] = true;
+    
+    global.forestRewardsObtained = 1;
+    
+    room_restart();
+}
+else if(global.desertLevelComplete == 1 &amp;&amp; global.desertRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_rm3_note);
+    scr_notification_normal(spr_ns_kindle_notification);
+    scr_notification_normal(spr_tit_note);
+    
+    global.navPieceAttained[1] = true;
+    global.towerUnlocked[2] = true;
+    
+    global.desertRewardsObtained = 1;
+    
+    room_restart();
+}
+else if(global.iceLevelComplete == 1 &amp;&amp; global.iceRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_rm4_note);
+    scr_notification_normal(spr_ns_rabbit_notification);
+    scr_notification_normal(spr_sloth_note);
+    scr_notification_normal(spr_ability3_notification);
+    
+    global.towerUnlocked[1] = true;
+    global.plrAbilityAttained[2] = true;
+    
+    global.iceRewardsObtained = 1;
+    
+    room_restart();
+}
+else if(global.waterLevelComplete == 1 &amp;&amp; global.waterRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_a1_note);
+    scr_notification_normal(spr_ns_rabbit_notification);
+    scr_notification_normal(spr_rt_note);
+    scr_notification_normal(spr_ability4_notification);
+    
+    
+    global.navPieceAttained[2] = true;
+    global.towerUnlocked[5] = true;
+    global.plrAbilityAttained[3] = true;
+    
+    global.waterRewardsObtained = 1;
+    
+    room_restart();
+}
+else if(global.marsLevelComplete == 1 &amp;&amp; global.marsRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_a2_note);
+    scr_notification_normal(spr_goat_note);
+    
+    global.towerUnlocked[6] = true;
+    
+    global.marsRewardsObtained = 1;
+    
+    room_restart();
+}
+else if(global.asteroidLevelComplete == 1 &amp;&amp; global.asteroidRewardsObtained == 0) {
+    
+    scr_notification_research(spr_drop_a3_note);
+    scr_notification_normal(spr_ns_battery_notification);
+    
+    global.navPieceAttained[3] = true;
+    
+    global.asteroidRewardsObtained = 1;
+    
+    room_restart();
 }
 
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_ice);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(3);
-        levelData[30] = false;
-        global.navPieceAttained[2] = true;
-        ds_map_replace(global.levelStats, rm_level_ice, levelData);
-        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-        bossDropIcon.sprite_index = spr_drop_rawMaterial4;
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_underwater);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(4);
-        levelData[30] = false;
-        global.navPieceAttained[3] = true;
-        ds_map_replace(global.levelStats, rm_level_underwater, levelData);
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_asteroid);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(5);
-        levelData[30] = false;
-        ds_map_replace(global.levelStats, rm_level_asteroid, levelData);
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_mars);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(6);
-        levelData[30] = false;
-        ds_map_replace(global.levelStats, rm_level_mars, levelData);
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_earth);
-    if(levelData[30]) {
-        //scr_msg_hubBossReward(7);
-        levelData[30] = false;
-        ds_map_replace(global.levelStats, rm_level_earth, levelData);
-    }
-    else
-        foundFalse = true;
-}
 </string>
           </argument>
         </arguments>
