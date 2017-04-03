@@ -9,7 +9,7 @@
   <bboxmode>0</bboxmode>
   <bbox_left>1</bbox_left>
   <bbox_right>94</bbox_right>
-  <bbox_top>2</bbox_top>
+  <bbox_top>1</bbox_top>
   <bbox_bottom>48</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
@@ -21,5 +21,7 @@
   <height>52</height>
   <frames>
     <frame index="0">images\spr_projectile_caliBear_0.png</frame>
+    <frame index="1">images\spr_projectile_caliBear_1.png</frame>
+    <frame index="2">images\spr_projectile_caliBear_2.png</frame>
   </frames>
 </sprite>
