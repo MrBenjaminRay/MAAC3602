@@ -49,6 +49,8 @@
 isEnemyProjectile = false;   // Whether or not an enemy fired this projectile.
 projectileHitGain = 0.4;  // gain value for the projectileHit sounds.
 
+playSound = true;
+
 vspeed = 8;
 
 maxLife = 10000;
@@ -90,6 +92,19 @@ image_angle = irandom_range(0, 359);
 if (y &gt; room_height + 64) {
     instance_destroy();
 }
+
+if(y &gt; 86 &amp;&amp; playSound) {
+    if(sprite_index == spr_flaming_cat) {
+        audio_play_sound(snd_cat, 0, false);
+        audio_sound_gain(snd_cat, 1, 0);
+    }
+    else {
+        audio_play_sound(snd_dog, 0, false);
+        audio_sound_gain(snd_dog, 1, 0);
+    }
+    playSound = false;
+}
+
 </string>
           </argument>
         </arguments>

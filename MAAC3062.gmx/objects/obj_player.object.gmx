@@ -1563,9 +1563,13 @@ if (global.plrAbilityAttained[0]) {
     }
     
     if (global.plrAbilityUpgraded[0]) {
+        audio_play_sound(snd_forceField, 0, false);
+        audio_sound_gain(snd_forceField, 1, 0);
         ability = instance_create(x, y, obj_forceField);
         ability.isUpgraded = true;
     } else {
+        audio_play_sound(snd_forceField, 0, false);
+        audio_sound_gain(snd_forceField, 1, 0);
         ability = instance_create(x, y, obj_forceField);
         ability.isUpgraded = false;
     }

@@ -33,6 +33,7 @@ image_yscale = image_xscale;
 levelFinish = 0;
 messageXPos = x - 207;
 messageYPos = y - 278
+playSound = true;
 
 currentMessageBox = noone;
 </string>
@@ -97,6 +98,12 @@ if(global.currentLevelComplete == 1) {
 }
 
 if(levelFinish == 1) {
+    if(playSound) {
+        audio_play_sound(snd_shipTakeOff, 0, false);
+        audio_sound_gain(snd_shipTakeOff, 1, 0);
+    }
+    
+    playSound = false;
     scr_particle_projectile_addsmoketrail(0.25);
     y -= 0.5 * global.deltaTime;
 }
