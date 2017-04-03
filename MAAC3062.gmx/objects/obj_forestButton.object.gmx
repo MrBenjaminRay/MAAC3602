@@ -162,14 +162,17 @@ else if(untoggle == 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.moonLevelComplete == 1) {
-    global.selectedPlanet = 1;
-    audio_play_sound(snd_menuClick, 0, false);
-    audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
-}
-else {
-    audio_play_sound(snd_menuClick_reject, 0, false);
-    audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
+            <string>
+if(scr_notificationCount() == 0) {
+    if(global.moonLevelComplete == 1) {
+        global.selectedPlanet = 1;
+        audio_play_sound(snd_menuClick, 0, false);
+        audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
+    }
+    else {
+        audio_play_sound(snd_menuClick_reject, 0, false);
+        audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
+    }
 }
 </string>
           </argument>

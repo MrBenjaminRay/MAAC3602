@@ -107,7 +107,10 @@ switch(obj_levelTitle.sprite_index) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_Traveling);
+            <string>if(scr_notificationCount() == 0) {
+    room_goto(rm_Traveling);
+}
+
 </string>
           </argument>
         </arguments>
@@ -125,8 +128,5 @@ switch(obj_levelTitle.sprite_index) {
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>43,43</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

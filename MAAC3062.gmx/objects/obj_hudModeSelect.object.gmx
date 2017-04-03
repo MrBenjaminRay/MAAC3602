@@ -25,30 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(snd_menuClick_squeak, 0, false);
-audio_sound_gain(snd_menuClick_squeak, global.clickSqueak_gain, 0);
-
-if(global.hubMode == 0) {
-    global.hubMode = 1;
-    instance_deactivate_object(obj_planetButton);
-    instance_deactivate_object(obj_travel);
+            <string>if(scr_notificationCount() == 0) {
+    audio_play_sound(snd_menuClick_squeak, 0, false);
+    audio_sound_gain(snd_menuClick_squeak, global.clickSqueak_gain, 0);
     
-    sprite_index = spr_selectDest;
-    
-    instance_activate_object(obj_hubTowerAbility);
-    instance_activate_object(obj_unlock_upgrade); 
+    if(global.hubMode == 0) {
+        global.hubMode = 1;
+        instance_deactivate_object(obj_planetButton);
+        instance_deactivate_object(obj_travel);
+        
+        sprite_index = spr_selectDest;
+        
+        instance_activate_object(obj_hubTowerAbility);
+        instance_activate_object(obj_unlock_upgrade); 
+    }
+    else {
+        global.hubMode = 0;
+        instance_deactivate_object(obj_hubTowerAbility);
+        instance_deactivate_object(obj_unlock_upgrade);
+        
+        sprite_index = spr_researchWep;
+        
+        instance_activate_object(obj_planetButton);
+        instance_activate_object(obj_travel);
+    }
 }
-else {
-    global.hubMode = 0;
-    instance_deactivate_object(obj_hubTowerAbility);
-    instance_deactivate_object(obj_unlock_upgrade);
-    
-    sprite_index = spr_researchWep;
-    
-    instance_activate_object(obj_planetButton);
-    instance_activate_object(obj_travel);
-}
-
 
 
 </string>

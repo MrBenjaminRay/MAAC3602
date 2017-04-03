@@ -29,7 +29,9 @@
 
 //audio_play_sound(snd_menuClick_squeak, 0, false);
 //audio_sound_gain(snd_menuClick_squeak, global.clickSqueak_gain, 0);
-room_goto(rm_navArray);
+
+if(scr_notificationCount() == 0)
+    room_goto(rm_navArray);
 
 </string>
           </argument>

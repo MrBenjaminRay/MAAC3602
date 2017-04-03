@@ -247,125 +247,128 @@ if(unlocked == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(global.selectedPlanet) {
-    case 0:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[0] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[0] = towerUpgrade;
-                clickSuccess = true;
-                obj_hub_caterpillager.sprite_index = spr_basic_Upgrade;
+            <string>if(scr_notificationCount() == 0) {
+    switch(global.selectedPlanet) {
+        case 0:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[0] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[0] = towerUpgrade;
+                    clickSuccess = true;
+                    obj_hub_caterpillager.sprite_index = spr_basic_Upgrade;
+                }
+            } 
+            break;
+        case 1:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[1] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[1] = towerUpgrade;
+                    clickSuccess = true;
+                    obj_hub_sloth.sprite_index = spr_slow_Upgrade;
+                }
+            }  
+            break;
+        case 2:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[2] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[2] = towerUpgrade;
+                    clickSuccess = true;
+                    obj_hub_titMouse.sprite_index = spr_mortar_Upgrade;
+                }
             }
-        } 
-        break;
-    case 1:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[1] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[1] = towerUpgrade;
-                clickSuccess = true;
-                obj_hub_sloth.sprite_index = spr_slow_Upgrade;
+            break;
+        case 4:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[3] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[3] = towerUpgrade;
+                    clickSuccess = true;
+                    obj_hub_109Calibear.sprite_index = spr_rifle_Upgrade;
+                }
             }
-        }  
-        break;
-    case 2:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[2] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[2] = towerUpgrade;
-                clickSuccess = true;
-                obj_hub_titMouse.sprite_index = spr_mortar_Upgrade;
+            break;   
+        case 3:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[4] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[4] = towerUpgrade;
+                    clickSuccess = true;
+                    obj_hub_fireAnt.sprite_index = spr_flame_Upgrade;
+                }
+            }   
+        case 5:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[5] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[5] = towerUpgrade;
+                    clickSuccess = true;
+                    obj_hub_RT6100.sprite_index = spr_6100_Upgrade;
+                }
             }
-        }
-        break;
-    case 4:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[3] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[3] = towerUpgrade;
-                clickSuccess = true;
-                obj_hub_109Calibear.sprite_index = spr_rifle_Upgrade;
+            break;
+        case 6:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.towerUpgradeLevel[6] == 1) {
+                    global.upgradeTokens--;
+                    global.towerUpgradeLevel[6] = towerUpgrade;
+                    clickSuccess = true;
+                    //obj_hub_mechaGoat.sprite_index = spr_basic_Upgrade;
+                }
             }
-        }
-        break;   
-    case 3:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[4] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[4] = towerUpgrade;
-                clickSuccess = true;
-                obj_hub_fireAnt.sprite_index = spr_flame_Upgrade;
-            }
-        }   
-    case 5:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[5] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[5] = towerUpgrade;
-                clickSuccess = true;
-                obj_hub_RT6100.sprite_index = spr_6100_Upgrade;
-            }
-        }
-        break;
-    case 6:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.towerUpgradeLevel[6] == 1) {
-                global.upgradeTokens--;
-                global.towerUpgradeLevel[6] = towerUpgrade;
-                clickSuccess = true;
-                //obj_hub_mechaGoat.sprite_index = spr_basic_Upgrade;
-            }
-        }
-        break;
-
-    case -1:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.plrAbilityUpgraded[0]) {
-                global.upgradeTokens--;
-                global.plrAbilityUpgraded[0] = true;
-                clickSuccess = true;
-            }
-        } 
-        break;
-    case -2:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.plrAbilityUpgraded[1]) {
-                global.upgradeTokens--;
-                global.plrAbilityUpgraded[1] = true;
-                clickSuccess = true;
-            }
-        } 
-        break;
-    case -3:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.plrAbilityUpgraded[2]) {
-                global.upgradeTokens--;
-                global.plrAbilityUpgraded[2] = true;
-                clickSuccess = true;
-            }
-        } 
-        break;
-    case -4:
-        if(global.upgradeTokens &gt; 0) {
-            if(global.plrAbilityUpgraded[3]) {
-                global.upgradeTokens--;
-                global.plrAbilityUpgraded[3] = true;
-                clickSuccess = true;
-            }
-        } 
-        break;
+            break;
+    
+        case -1:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.plrAbilityUpgraded[0]) {
+                    global.upgradeTokens--;
+                    global.plrAbilityUpgraded[0] = true;
+                    clickSuccess = true;
+                }
+            } 
+            break;
+        case -2:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.plrAbilityUpgraded[1]) {
+                    global.upgradeTokens--;
+                    global.plrAbilityUpgraded[1] = true;
+                    clickSuccess = true;
+                }
+            } 
+            break;
+        case -3:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.plrAbilityUpgraded[2]) {
+                    global.upgradeTokens--;
+                    global.plrAbilityUpgraded[2] = true;
+                    clickSuccess = true;
+                }
+            } 
+            break;
+        case -4:
+            if(global.upgradeTokens &gt; 0) {
+                if(global.plrAbilityUpgraded[3]) {
+                    global.upgradeTokens--;
+                    global.plrAbilityUpgraded[3] = true;
+                    clickSuccess = true;
+                }
+            } 
+            break;
+    }
+    
+    if(clickSuccess) {
+        audio_play_sound(snd_menuClick, 0, false);
+        audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
+    }
+    else {
+        audio_play_sound(snd_menuClick_reject, 0, false);
+        audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
+    }
+    clickSuccess = false;
 }
 
-if(clickSuccess) {
-    audio_play_sound(snd_menuClick, 0, false);
-    audio_sound_gain(snd_menuClick, global.clickSuccess_gain, 0);
-}
-else {
-    audio_play_sound(snd_menuClick_reject, 0, false);
-    audio_sound_gain(snd_menuClick_reject, global.clickReject_gain, 0);
-}
 
-clickSuccess = false;
 </string>
           </argument>
         </arguments>
