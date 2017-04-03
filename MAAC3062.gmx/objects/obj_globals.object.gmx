@@ -183,7 +183,7 @@ ds_list_add(global.towers[0, 9], "Range: Medium");
 ds_list_add(global.towers[0, 9], "Armor: Low-Medium");
 ds_list_add(global.towers[0, 9], "Costs " + string(global.towers[0, 1]) + " Energy");
 global.towers[0, 10] = scr_misc_secondsToDeltaTime(0.5);
-global.towers[0, 11] = 15;
+global.towers[0, 11] = 9;
 global.towers[0, 12] = 100;
 global.towers[0, 13] = 100;
 global.towers[0, 14] = obj_weapon_caterpillager;

@@ -54,8 +54,8 @@
     <instance objName="obj_spaceBG" x="800" y="448" name="inst_3F6400B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_leftArrow" x="320" y="752" name="inst_D1F00C61" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_back" x="656" y="752" name="inst_2B47D6AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_creditsNew5" x="256" y="-5" name="inst_92702257" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rightArrow" x="1200" y="752" name="inst_3A607914" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_messageBoxMain" x="432" y="224" name="inst_E41C70BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_credits6" x="576" y="304" name="inst_0D936F85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
