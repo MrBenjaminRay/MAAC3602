@@ -40,6 +40,8 @@
           <argument>
             <kind>1</kind>
             <string>// HEALTH/SHIELD BAR:
+showHealthBar = false;
+
 healthBarXOffset = 0;
 healthBarYOffset = sprite_height - 10;
 
@@ -87,15 +89,14 @@ switch (self.object_index) {
         }
         break;
     }
-    
-    // Tower warmup
-    warmUpTotal = 4000; // DEFAULT - will be overwritten in scr_entity_loadTowerData(#) with data from obj_globals
-    warmUpRemaining = warmUpTotal;
-    warmUpYOffset = 0;  // This is set automatically in scr_entity_loadTowerData(#) and is used to simulate the 
-                        // tower growing from the ground during warmup when being placed
-    originalY = 0;      // This keeps track of actual tower Y position so we can reset y after tower has grown
-
 }
+
+// Tower warmup
+warmUpTotal = 4000; // DEFAULT - will be overwritten in scr_entity_loadTowerData(#) with data from obj_globals
+warmUpRemaining = warmUpTotal;
+warmUpYOffset = 0;  // This is set automatically in scr_entity_loadTowerData(#) and is used to simulate the 
+                    // tower growing from the ground during warmup when being placed
+originalY = 0;      // This keeps track of actual tower Y position so we can reset y after tower has grown
 </string>
           </argument>
         </arguments>
@@ -266,12 +267,14 @@ if (warmUpRemaining &gt; 0) {
     image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
     y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
     weaponObj.image_alpha = 0;
-}
-else {
+} else {
     warmUpRemaining = 0;
     weaponObj.image_alpha = 1;
     // Shrink any existing weapon kickback
     scr_entity_weaponKickback_Shrink();
+
+    // Enable health bar display:
+    showHealthBar = true;
 }
 
 if (nearestEnemy != noone) {
@@ -347,7 +350,7 @@ if (intersectedTower == noone) {
     with (obj_button_sellTower) {
         instance_destroy();
     }
-} else if (intersectedTower == self) {
+} else if (intersectedTower == self &amp;&amp; self.warmUpRemaining == 0) {
     // Disable sale state for all other towerS:
     with (obj_tower) {
         saleStateEnabled = false;

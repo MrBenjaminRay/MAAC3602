@@ -99,6 +99,7 @@ instance_deactivate_object(obj_enemy);
 instance_deactivate_object(obj_drop_energy);
 instance_activate_object(obj_player);
 
+
 // TEMP
 msgTemp = instance_create(state1_thumbsUp_X-200, state1_thumbsUp_Y, obj_messageBox);
 ds_list_add(msgTemp.list_text, "Tutorial still in progress.");
@@ -183,7 +184,7 @@ instance_activate_object(state1_ball);
         // Show the next instruction
         msg = instance_create(state1_thumbsUp_X, state1_thumbsUp_Y, obj_messageBox);
         ds_list_add(msg.list_text, "Use A to move LEFT to");
-        ds_list_add(msg.list_text, "pick up the energy drop.");    
+        ds_list_add(msg.list_text, "pick up the item.");    
     }
     
 } else if (state == 1) {
@@ -198,7 +199,7 @@ instance_activate_object(state1_ball);
         // Show the next instruction
         msg = instance_create(state1_thumbsUp_X + 20, state1_thumbsUp_Y, obj_messageBox);
         ds_list_add(msg.list_text, "Use D to move RIGHT to");
-        ds_list_add(msg.list_text, "pick up the energy drop.");   
+        ds_list_add(msg.list_text, "pick up the item.");   
     }
 } else if (state == 2) {
     if (!instance_exists(state2_ball)) {
@@ -212,7 +213,7 @@ instance_activate_object(state1_ball);
         // Show the next instruction
         msg = instance_create(state3_thumbsUp_X + 40, state3_thumbsUp_Y, obj_messageBox);
         ds_list_add(msg.list_text, "Use A to JUMP to platform");
-        ds_list_add(msg.list_text, "to pick up the energy drop.");
+        ds_list_add(msg.list_text, "to pick up the item.");
     }
 } else if (state == 3) {
     if (!instance_exists(state3_ball)) {
@@ -226,7 +227,7 @@ instance_activate_object(state1_ball);
         // Show the next instruction
         msg = instance_create(state4_thumbsUp_X + 60, state4_thumbsUp_Y, obj_messageBox);
         ds_list_add(msg.list_text, "Use S to DROP to lower platform");
-        ds_list_add(msg.list_text, "to pick up the energy drop.");
+        ds_list_add(msg.list_text, "to pick up the item.");
     }
 } else if (state == 4) {
     if (!instance_exists(state4_ball)) {
@@ -239,10 +240,11 @@ instance_activate_object(state1_ball);
         with (msg) { instance_destroy(); }
         // Show the next instruction
         msg = instance_create(state5_thumbsUp_X + 80, state5_thumbsUp_Y, obj_messageBox);
-
+        // Activate the energy level  (MOVE THIS SOMEWHERE ELSE)
+        instance_activate_object(obj_hud_levelEnergy);
     }
 } else if (state == 5) {
-
+    
 } else if (state == 6) {
 
 } else if (state == 7) {

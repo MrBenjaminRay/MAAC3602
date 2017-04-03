@@ -3,7 +3,7 @@
   <spriteName>spr_particle_energy_orb</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100000000</depth>
   <persistent>0</persistent>
   <parentName>obj_particle</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -110,7 +110,7 @@ image_alpha = random_range(.7, 1);
     are affecting the particle, just at varying levels.
 */
 
-
+show_debug_message(depth);
 
 // FIRST PART: Explosion from energy drop
 
@@ -129,7 +129,7 @@ currentSpeed *= speedChange;
 
 // Get direction vector towards energy level indicator
 if (object_exists(obj_hud_levelEnergy)) {
-    var dir = degtorad(point_direction(x, y, view_xview[0] + obj_hud_levelEnergy.x, view_yview[0] + obj_hud_levelEnergy.y));    
+    var dir = degtorad(point_direction(x, y, obj_hud_levelEnergy.collectionPointX, obj_hud_levelEnergy.collectionPointY));
 } else {
     // This is bad - can't have energy orbs on a level if there's nowhere for them to go (energy level indicator)
     show_debug_message("Level is missing obj_hud_levelEnergy!");
@@ -190,6 +190,55 @@ if (x &lt; view_xview[0] + 10 || x &gt; window_get_width() || y &lt; view_yview[
             <string>scr_energy_change(1);
 instance_destroy();
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Draw in Draw End event so orbs appear in front of level foreground
+// (very low depth still doesn't push an object in front of a foreground)
+
+draw_self();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Draw in Draw End</string>
           </argument>
         </arguments>
       </action>
