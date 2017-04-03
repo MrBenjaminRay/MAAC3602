@@ -11,6 +11,26 @@
     <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
+        <id>224</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_another_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>11</kind>
+            <room>rm_level_moon</room>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -25,11 +45,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_player.x = warpx;
-obj_player.y = warpy;
-room_goto(target_room);
-
-
+            <string>show_debug_message('Collided');
 </string>
           </argument>
         </arguments>

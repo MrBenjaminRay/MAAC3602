@@ -66,19 +66,33 @@ with(obj_enemy) {
 state = 0; // Will immediately be switched to state 1
 
 
-state1_thumbsUp_X = 50;
-state1_thumbsUp_Y = 100;
-state2_thumbsUp_X = 50;
-state2_thumbsUp_Y = 100;
-state3_thumbsUp_X = 50;
-state3_thumbsUp_Y = 100;
-state4_thumbsUp_X = 50;
-state4_thumbsUp_Y = 100;
+state1_thumbsUp_X = 450;
+state1_thumbsUp_Y = 600;
+state2_thumbsUp_X = 450;
+state2_thumbsUp_Y = 600;
+state3_thumbsUp_X = 450;
+state3_thumbsUp_Y = 600;
+state4_thumbsUp_X = 450;
+state4_thumbsUp_Y = 600;
+state5_thumbsUp_X = 450;
+state5_thumbsUp_Y = 600;
+state6_thumbsUp_X = 450;
+state6_thumbsUp_Y = 600;
+state7_thumbsUp_X = 450;
+state7_thumbsUp_Y = 600;
+state8_thumbsUp_X = 450;
+state8_thumbsUp_Y = 600;
 
 state1_ball = instance_create(100, 100, obj_drop_energy);
 state2_ball = instance_create(150, 100, obj_drop_energy);
 state3_ball = instance_create(200, 100, obj_drop_energy);
 state4_ball = instance_create(250, 100, obj_drop_energy);
+state5_ball = instance_create(300, 100, obj_drop_energy);
+
+// Set energy values to 0
+with (obj_drop_energy) {
+    value = 0;
+}
 
 instance_deactivate_object(obj_hud_levelEnergy);
 instance_deactivate_object(obj_enemy);
@@ -163,36 +177,69 @@ instance_activate_object(state1_ball);
     if (instance_exists(state1_ball)) {
         // Ball 1 exists (has been activated)
         state = 1;
+        // Show the next instruction
+        msg = instance_create(state1_thumbsUp_X, state1_thumbsUp_Y, obj_messageBox);
+        ds_list_add(msg.list_text, "Use A to move LEFT to");
+        ds_list_add(msg.list_text, "pick up the energy drop.");    
     }
     
 } else if (state == 1) {
     show_debug_message('is state 1');
-    msg1 = instance_create(state1_thumbsUp_X, state1_thumbsUp_Y, obj_messageBox);
-    ds_list_add(msg1.list_text, "Use A to move LEFT to");
-    ds_list_add(msg1.list_text, "pick up the energy drop.");    
-    
     if (!instance_exists(state1_ball)) {
         // Ball 1 has been picked up
         scr_tutorial_thumbsUp(state2_thumbsUp_X, state2_thumbsUp_Y);
-        // Set state and activate secod ball
+        // Set state and activate next ball
         state = 2;
         instance_activate_object(state2_ball);
+        // Destroy the previous instruction
+        with (msg) { instance_destroy(); }
+        // Show the next instruction
+        msg = instance_create(state1_thumbsUp_X + 20, state1_thumbsUp_Y, obj_messageBox);
+        ds_list_add(msg.list_text, "Use D to move RIGHT to");
+        ds_list_add(msg.list_text, "pick up the energy drop.");   
     }
 } else if (state == 2) {
-    if (!instance_exists(state3_ball)) {
-        msg1 = instance_create(state2_thumbsUp_X, state2_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg1.list_text, "Use D to move RIGHT to");
-        ds_list_add(msg1.list_text, "pick up the energy drop.");
+    if (!instance_exists(state2_ball)) {
+        // Ball 2 has been picked up
         scr_tutorial_thumbsUp(state3_thumbsUp_X, state3_thumbsUp_Y);
+        // Set state and activate next ball
         state = 3;
+        instance_activate_object(state3_ball);
+        // Destroy the previous instruction
+        with (msg) { instance_destroy(); }
+        // Show the next instruction
+        msg = instance_create(state3_thumbsUp_X + 40, state3_thumbsUp_Y, obj_messageBox);
+        ds_list_add(msg.list_text, "Use A to JUMP to platform");
+        ds_list_add(msg.list_text, "to pick up the energy drop.");
+        room_goto(rm_level_moon);
     }
 } else if (state == 3) {
-    if (!instance_exists(state4_ball)) {
+    if (!instance_exists(state3_ball)) {
+        // Ball 3 has been picked up
         scr_tutorial_thumbsUp(state4_thumbsUp_X, state4_thumbsUp_Y);
+        // Set state and activate next ball
         state = 4;
+        instance_activate_object(state4_ball);
+        // Destroy the previous instruction
+        with (msg) { instance_destroy(); }
+        // Show the next instruction
+        msg = instance_create(state4_thumbsUp_X + 60, state4_thumbsUp_Y, obj_messageBox);
+        ds_list_add(msg.list_text, "Use S to DROP to lower platform");
+        ds_list_add(msg.list_text, "to pick up the energy drop.");
     }
 } else if (state == 4) {
-    
+    if (!instance_exists(state4_ball)) {
+        // Ball 4 has been picked up
+        scr_tutorial_thumbsUp(state5_thumbsUp_X, state5_thumbsUp_Y);
+        // Set state and activate next ball
+        state = 5;
+        instance_activate_object(state5_ball);
+        // Destroy the previous instruction
+        with (msg) { instance_destroy(); }
+        // Show the next instruction
+        msg = instance_create(state5_thumbsUp_X + 80, state5_thumbsUp_Y, obj_messageBox);
+
+    }
 } else if (state == 5) {
 
 } else if (state == 6) {
