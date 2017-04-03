@@ -182,7 +182,15 @@ if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {
         // Spawn projectile (account for any existing kickback):
         var projX = x + weaponXOffset + weaponKickbackOffsetX + (weaponObj.sprite_width * cos(degtorad(weaponObj.image_angle)));
         var projY = y + weaponYOffset + weaponKickbackOffsetY + (weaponObj.sprite_width * -sin(degtorad(weaponObj.image_angle)));
-        scr_spawn_projectile(obj_projectile_caterpillager, projX, projY, nearestEnemy, false, attackDamage);
+        //var projectile = scr_spawn_projectile(obj_projectile_caterpillager, projX, projY, nearestEnemy, false, attackDamage);
+        
+        var projectile = instance_create(projX, projY, obj_projectile_caterpillager);
+        projectile.damage = attackDamage;
+        projectile.isEnemyProjectile = false;
+        projectile.direction = point_direction(projX, projY, enemyX, enemyY)
+        projectile.direction += random_range(-1.5, 1.5); // Randomize angle of fire slightly
+        projectile.image_angle = projectile.direction;
+        
         audio_play_sound(snd_basicTower, 0, false);
         audio_sound_gain(snd_basicTower, 0.4, 0);
         
