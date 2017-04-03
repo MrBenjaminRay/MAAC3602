@@ -57,6 +57,10 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="Tutorials">
+      <sprite>sprites\spr_thumbsUp_Huge</sprite>
+      <sprite>sprites\spr_thumbsUp_Normal</sprite>
+    </sprites>
     <sprites name="UI_HUD">
       <sprite>sprites\spr_bossItemHUD</sprite>
       <sprite>sprites\spr_energyHUD</sprite>
@@ -77,10 +81,6 @@
       <sprite>sprites\spr_abilityorb_charging_2</sprite>
       <sprite>sprites\spr_abilityorb_charging_3</sprite>
       <sprite>sprites\spr_abilityorb_charging_4</sprite>
-      <sprites name="Tutorials">
-        <sprite>sprites\spr_thumbsUp_Huge</sprite>
-        <sprite>sprites\spr_thumbsUp_Normal</sprite>
-      </sprites>
     </sprites>
     <sprites name="UI_Menus">
       <sprites name="Messages">
