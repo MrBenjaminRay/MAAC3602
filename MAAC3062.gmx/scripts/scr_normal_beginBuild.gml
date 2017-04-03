@@ -14,7 +14,7 @@ if (instance_number(obj_tower_RT6100) == 1) {
     canProceed &= obj_tower_RT6100.mounted == false;
 }
 
-if (room == rm_tut1) {
+if (room == rm_level_premoon) {
     scr_state_setNormal();
     return 0;
 }
