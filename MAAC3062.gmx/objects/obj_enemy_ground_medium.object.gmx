@@ -179,6 +179,8 @@ else if (scr_getLevelId() == 6) {
 else if (scr_getLevelId() == 7) {
     sprite_index = spr_medium_enemy_O;
 }
+
+alarm[0] = 420 + irandom(1080);
 </string>
           </argument>
         </arguments>
@@ -304,21 +306,7 @@ else if (scr_getLevelId() == 7) {
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -335,9 +323,11 @@ else if (scr_getLevelId() == 7) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(scr_entity_canJump()){
+            <string>if(scr_entity_canJump() &amp;&amp; (irandom(1) == 0)){
     scr_entity_jump();
 }
+
+alarm[0] = 420 + random(1080);
 </string>
           </argument>
         </arguments>
