@@ -532,8 +532,6 @@
       <sprite>sprites\spr_sale_button</sprite>
     </sprites>
     <sprites name="CutScenes">
-      <sprite>sprites\spr_video_ship_damaged</sprite>
-      <sprite>sprites\spr_video_ship_landing_moon</sprite>
       <sprite>sprites\spr_video_esc_to_skip_TEMP</sprite>
     </sprites>
     <sprites name="Effects">
@@ -834,11 +832,6 @@
       <object>objects\obj_levelControl_8</object>
       <object>objects\obj_control_particles</object>
       <object>objects\obj_parallax_controller</object>
-    </objects>
-    <objects name="CutScenes">
-      <object>objects\obj_video_ship_damaged</object>
-      <object>objects\obj_video_ship_landing_moon</object>
-      <object>objects\obj_video_esc_to_skip_TEMP</object>
     </objects>
     <objects name="Effects">
       <object>objects\obj_effect</object>
@@ -1228,11 +1221,6 @@
       <room>rooms\rm_level_asteroid</room>
       <room>rooms\rm_level_mars</room>
       <room>rooms\rm_level_earth</room>
-    </rooms>
-    <rooms name="Cinematics">
-      <room>rooms\rm_cinematic</room>
-      <room>rooms\rm_video_ship_damaged</room>
-      <room>rooms\rm_video_ship_moonlanding</room>
     </rooms>
     <rooms name="HUB">
       <room>rooms\rm_hub</room>
