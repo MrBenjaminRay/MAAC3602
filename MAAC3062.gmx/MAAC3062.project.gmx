@@ -123,6 +123,14 @@
           <sprite>sprites\spr_rt_note</sprite>
           <sprite>sprites\spr_goat_note</sprite>
           <sprite>sprites\spr_tit_note</sprite>
+          <sprite>sprites\spr_drop_rm1_note</sprite>
+          <sprite>sprites\spr_drop_rm2_note</sprite>
+          <sprite>sprites\spr_drop_rm3_note</sprite>
+          <sprite>sprites\spr_drop_rm4_note</sprite>
+          <sprite>sprites\spr_drop_a1_note</sprite>
+          <sprite>sprites\spr_drop_a2_note</sprite>
+          <sprite>sprites\spr_drop_a3_note</sprite>
+          <sprite>sprites\spr_drop_a4_note</sprite>
         </sprites>
       </sprites>
       <sprites name="Hub">
