@@ -3,7 +3,7 @@
   <caption></caption>
   <width>1600</width>
   <height>900</height>
-  <vsnap>4</vsnap>
+  <vsnap>32</vsnap>
   <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
@@ -170,22 +170,22 @@ if(!foundFalse) {
     <instance objName="obj_spaceBG" x="800" y="448" name="inst_9CCECB69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="0" y="0" name="inst_4FE17B7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_back_small" x="16" y="832" name="inst_502DEA9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_navArray" x="384" y="68" name="inst_D4044949" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_navArray" x="192" y="544" name="inst_D4044949" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_control" x="320" y="-32" name="inst_E32D0300" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_messageBoxMain" x="384" y="320" name="inst_DCD83138" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moonButton" x="448" y="352" name="inst_24B84CD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_forestButton" x="512" y="512" name="inst_B4A5046D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_desertButton" x="608" y="384" name="inst_D10553EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_iceButton" x="768" y="352" name="inst_C371F491" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_waterButton" x="672" y="520" name="inst_538CF1B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_waterButton" x="672" y="544" name="inst_538CF1B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sideways_message" x="1184" y="32" name="inst_81934B16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_infoText" x="1248" y="160" name="inst_56988993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hudModeSelect" x="256" y="136" name="inst_286CA429" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hub_caterpillager" x="480" y="368" name="inst_4A4A420C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hudModeSelect" x="192" y="480" name="inst_286CA429" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hub_caterpillager" x="480" y="352" name="inst_4A4A420C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_sloth" x="480" y="512" name="inst_AE3AF8F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_fireAnt" x="608" y="384" name="inst_C9B351CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_109Calibear" x="800" y="384" name="inst_26CE47A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hub_titMouse" x="960" y="360" name="inst_BB4B7ED0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hub_titMouse" x="960" y="352" name="inst_BB4B7ED0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_RT6100" x="640" y="512" name="inst_50602CE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_mechaGoat" x="800" y="512" name="inst_4B3DD760" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_unlock_upgrade" x="1312" y="576" name="inst_8B76A3FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
