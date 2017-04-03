@@ -170,6 +170,9 @@ if (warmUpRemaining &gt; 0) {
 else {
     warmUpRemaining = 0;
     weaponObj.image_alpha = 1;
+
+    // Enable health bar display:
+    showHealthBar = true;
 }
 
 if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {
