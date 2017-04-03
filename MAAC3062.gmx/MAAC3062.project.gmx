@@ -465,6 +465,7 @@
       <sprite>sprites\spr_ship_fire_exhaust</sprite>
       <sprite>sprites\spr_ship_arrow</sprite>
       <sprite>sprites\spr_enemyKills</sprite>
+      <sprite>sprites\spr_sale_button</sprite>
     </sprites>
     <sprites name="CutScenes">
       <sprite>sprites\spr_video_ship_damaged</sprite>
@@ -514,6 +515,8 @@
       <sprite>sprites\spr_phil_and_janice_1</sprite>
       <sprite>sprites\spr_phil_and_janice_2</sprite>
       <sprite>sprites\spr_phil_and_janice_3</sprite>
+      <sprite>sprites\spr_ship_cartoon</sprite>
+      <sprite>sprites\spr_returning_home_ship</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -592,6 +595,8 @@
     <background>background\bkg_HUB</background>
     <background>background\bkg_space</background>
     <background>background\bck_initializeGame</background>
+    <background>background\bkg_currently_travelling</background>
+    <background>background\bkg_returning_home</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_goat</path>
@@ -929,6 +934,8 @@
       <object>objects\obj_warp</object>
       <object>objects\obj_sound_volumes</object>
       <object>objects\obj_fallenBuilding</object>
+      <object>objects\obj_ship_travelling</object>
+      <object>objects\obj_ship_returning_home</object>
     </objects>
     <objects name="States">
       <object>objects\obj_control_normalState</object>
@@ -1119,7 +1126,11 @@
       <room>rooms\rm_hubAlt</room>
     </rooms>
     <rooms name="Story">
-      <room>rooms\rm_Story1</room>
+      <room>rooms\rm_PreTutorial</room>
+      <room>rooms\rm_Traveling</room>
+      <room>rooms\rm_returning_home</room>
+      <room>rooms\rm_Epilogue</room>
+      <room>rooms\rm_Post_Hub_Tutorial</room>
     </rooms>
   </rooms>
   <help>
