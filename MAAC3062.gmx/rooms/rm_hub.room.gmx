@@ -4,7 +4,7 @@
   <width>1600</width>
   <height>900</height>
   <vsnap>4</vsnap>
-  <hsnap>32</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -20,112 +20,7 @@ scr_statistics_initializeAllLevels();
 // Show windows cursor
 window_set_cursor(cr_default);
 // Hide game cursor
-cursor_sprite = noone;
-
-// Unsure of the original purpose of the following line, but it
-// does not work with the new levelStats setup.
-
-var levelData;
-var bossDropIcon;
-foundFalse = false;
-
-levelData = ds_map_find_value(global.levelStats, rm_level_moon);
-if(levelData[30]) {
-    scr_msg_hubBossReward(0);
-    levelData[30] = false;
-    ds_map_replace(global.levelStats, rm_level_moon, levelData);
-    bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-    bossDropIcon.sprite_index = spr_drop_rawMaterial1;
-}
-else
-    foundFalse = true;
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_forest);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(1);
-        levelData[30] = false;
-        global.navPieceAttained[0] = true;
-        ds_map_replace(global.levelStats, rm_level_forest, levelData);
-        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-        bossDropIcon.sprite_index = spr_drop_rawMaterial2;
-    }
-    else
-        foundFalse = true;
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_desert);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(2);
-        levelData[30] = false;
-        global.navPieceAttained[1] = true;
-        ds_map_replace(global.levelStats, rm_level_desert, levelData);
-        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-        bossDropIcon.sprite_index = spr_drop_rawMaterial3;
-    }
-    else
-       foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_ice);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(3);
-        levelData[30] = false;
-        global.navPieceAttained[2] = true;
-        ds_map_replace(global.levelStats, rm_level_ice, levelData);
-        bossDropIcon = instance_create(window_get_width()/2 - 128, window_get_height()/2 - 128, obj_bossDropIcon);
-        bossDropIcon.sprite_index = spr_drop_rawMaterial4;
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_underwater);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(4);
-        levelData[30] = false;
-        global.navPieceAttained[3] = true;
-        ds_map_replace(global.levelStats, rm_level_underwater, levelData);
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_asteroid);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(5);
-        levelData[30] = false;
-        ds_map_replace(global.levelStats, rm_level_asteroid, levelData);
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_mars);
-    if(levelData[30]) {
-        scr_msg_hubBossReward(6);
-        levelData[30] = false;
-        ds_map_replace(global.levelStats, rm_level_mars, levelData);
-    }
-    else
-        foundFalse = true; 
-}
-
-if(!foundFalse) {
-    levelData = ds_map_find_value(global.levelStats, rm_level_earth);
-    if(levelData[30]) {
-        //scr_msg_hubBossReward(7);
-        levelData[30] = false;
-        ds_map_replace(global.levelStats, rm_level_earth, levelData);
-    }
-    else
-        foundFalse = true;
-}</code>
+cursor_sprite = noone;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -166,7 +61,6 @@ if(!foundFalse) {
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_travel" x="1312" y="576" name="inst_FD3621CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spaceBG" x="800" y="448" name="inst_9CCECB69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="0" y="0" name="inst_4FE17B7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_back_small" x="16" y="832" name="inst_502DEA9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -179,7 +73,7 @@ if(!foundFalse) {
     <instance objName="obj_iceButton" x="768" y="352" name="inst_C371F491" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_waterButton" x="672" y="520" name="inst_538CF1B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sideways_message" x="1184" y="32" name="inst_81934B16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_infoText" x="1248" y="160" name="inst_56988993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_infoText" x="1232" y="160" name="inst_56988993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hudModeSelect" x="256" y="136" name="inst_286CA429" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_caterpillager" x="480" y="368" name="inst_4A4A420C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_sloth" x="480" y="512" name="inst_AE3AF8F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -188,13 +82,15 @@ if(!foundFalse) {
     <instance objName="obj_hub_titMouse" x="960" y="360" name="inst_BB4B7ED0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_RT6100" x="640" y="512" name="inst_50602CE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_mechaGoat" x="800" y="512" name="inst_4B3DD760" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_unlock_upgrade" x="1312" y="576" name="inst_8B76A3FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_unlock_upgrade" x="1336" y="616" name="inst_8B76A3FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_forcePulse" x="960" y="544" name="inst_5027218D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_sneakySnakes" x="1024" y="544" name="inst_F2492221" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_blaster" x="960" y="608" name="inst_8789B031" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_catsAndDogs" x="1024" y="608" name="inst_1C663525" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_redPlanetButton" x="864" y="512" name="inst_76004E72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_asteroidButton" x="928" y="384" name="inst_1FE0904A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hud_upgradeTokens" x="1408" y="820" name="inst_E8B41E88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_travel" x="1336" y="616" name="inst_67EEACE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
