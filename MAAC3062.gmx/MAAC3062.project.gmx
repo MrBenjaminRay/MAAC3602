@@ -572,6 +572,9 @@
         <sprite>sprites\spr_phil_and_janice_5</sprite>
       </sprites>
       <sprite>sprites\spr_navigation_complete</sprite>
+      <sprite>sprites\spr_cow</sprite>
+      <sprite>sprites\spr_earth</sprite>
+      <sprite>sprites\spr_pre_epilogue</sprite>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -1022,6 +1025,9 @@
       <object>objects\obj_epilogue_controller</object>
       <object>objects\obj_epilogue_controller2</object>
       <object>objects\obj_answer</object>
+      <object>objects\obj_Earth</object>
+      <object>objects\obj_cow</object>
+      <object>objects\obj_shows_epilogue_text</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
@@ -1178,6 +1184,7 @@
     <object>objects\obj_hub_captions</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_pre_epilogue</room>
     <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
