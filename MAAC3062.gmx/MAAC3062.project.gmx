@@ -517,12 +517,17 @@
       <sprite>sprites\spr_story_script3</sprite>
       <sprite>sprites\spr_story_4</sprite>
       <sprite>sprites\spr_travel_to_another_planet</sprite>
-      <sprite>sprites\spr_phil_and_janice_1</sprite>
-      <sprite>sprites\spr_phil_and_janice_2</sprite>
-      <sprite>sprites\spr_phil_and_janice_3</sprite>
       <sprite>sprites\spr_ship_cartoon</sprite>
       <sprite>sprites\spr_returning_home_ship</sprite>
       <sprite>sprites\spr_story_asteroid</sprite>
+      <sprites name="Epilogue">
+        <sprite>sprites\spr_phil_and_janice_1</sprite>
+        <sprite>sprites\spr_phil_and_janice_2</sprite>
+        <sprite>sprites\spr_phil_and_janice_3</sprite>
+        <sprite>sprites\spr_phil_and_janice_3_5</sprite>
+        <sprite>sprites\spr_phil_and_janice_4</sprite>
+        <sprite>sprites\spr_phil_and_janice_5</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_109CalPlaceholder</sprite>
     <sprite>sprites\spr_camera</sprite>
@@ -967,6 +972,7 @@
         <object>objects\obj_asteroid_story</object>
       </objects>
       <object>objects\obj_epilogue_controller</object>
+      <object>objects\obj_epilogue_controller2</object>
     </objects>
     <objects name="Tiles">
       <object>objects\obj_physicsTile</object>
@@ -1115,6 +1121,7 @@
     <object>objects\object</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_Epilogue</room>
     <room>rooms\rm_initializeGame</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_test</room>
@@ -1156,7 +1163,6 @@
       <room>rooms\rm_Post_Post_Hub</room>
       <room>rooms\rm_Traveling</room>
       <room>rooms\rm_Returning_Home</room>
-      <room>rooms\rm_Epilogue</room>
     </rooms>
   </rooms>
   <help>
