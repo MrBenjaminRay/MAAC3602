@@ -1005,6 +1005,7 @@
       <object>objects\obj_snake</object>
       <object>objects\obj_spawnerSpawner</object>
       <object>objects\obj_spawner</object>
+      <object>objects\obj_spawnerTimedEnable</object>
     </objects>
     <objects name="Misc">
       <object>objects\obj_cursorCtrl</object>
