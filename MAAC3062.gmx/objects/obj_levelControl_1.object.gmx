@@ -139,14 +139,16 @@ if(hasPlayerRightClicked){
     tutorialComplete = true;
     
     with(obj_level1_TutEnemy){
-    scr_entity_startMovingTowardsPlayerOrRandom();
+        scr_entity_startMovingTowardsPlayerOrRandom();
     }
+    
     with(obj_player){
         firingPaused = false;
         movementSpeedDefault = 310 / 1000;
         scr_spawning_enableSpawners();
-        instance_destroy();
     }
+    
+    instance_destroy();
 }
 </string>
           </argument>
