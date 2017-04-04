@@ -91,7 +91,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>40</string>
+            <string>10</string>
           </argument>
         </arguments>
       </action>
@@ -295,7 +295,7 @@ else if (scr_getLevelId() == 7) {
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>-100</sound>
+            <sound>snd_enemyDeath_medium</sound>
           </argument>
           <argument>
             <kind>3</kind>
