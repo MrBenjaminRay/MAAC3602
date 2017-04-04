@@ -86,13 +86,8 @@ healthBarYOffset = 0;
 healthBarHeight = 10;
 healthBarWidth = sprite_width;
 
-healthBarColor_background = c_black;           // The background color of the health/shield bar.
-healthBarColor_healthForeground = c_lime;      // The foreground color of the health bar.
-healthBarColor_shieldForeground = c_teal;      // The foreground color of the shield bar.
-healthBarColor_shieldForeground_alternate = c_aqua; // The secondary foreground color of the shield bar.
-healthBarColor_shieldforeground_current = c_teal;
-healthBarColor_shieldforeground_stepCntr = 0;
-
+healthBarShieldGlowAmnt = 1.0;
+healthBarShieldGlowDecrease = true;
 </string>
           </argument>
         </arguments>
@@ -408,57 +403,6 @@ if (place_meeting(newX, y, obj_physicsTile)) {
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Shield Bar Color Change</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>healthBarColor_shieldforeground_stepCntr++;
-
-if (healthBarColor_shieldforeground_stepCntr &gt;= room_speed/2) {
-    healthBarColor_shieldforeground_stepCntr = 0;
-    
-    if (healthBarColor_shieldforeground_current = healthBarColor_shieldForeground) {
-        healthBarColor_shieldforeground_current = healthBarColor_shieldForeground_alternate;
-    } else {
-        healthBarColor_shieldforeground_current = healthBarColor_shieldForeground;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="8" enumb="73">
       <action>
@@ -488,7 +432,7 @@ var xPos_right = xPos_left + healthBarWidth;
 var yPos_bottom = yPos_top + healthBarHeight;
 
 // Draw Bar Background:
-draw_set_color(healthBarColor_background);
+draw_set_color(c_black);
 draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
 
 // Adjust coordinates to allow a border to be shown:
@@ -503,7 +447,7 @@ if (maxHealth &gt; 0 &amp;&amp; currHealth &gt; 0) {
     var xPos_right = xPos_left + (healthBarWidth * healthPct) - (borderWidth * 2);
     
     // Draw Health Bar:
-    draw_set_color(healthBarColor_healthForeground);
+    draw_set_color(c_lime);
     draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom, false);
 }
 
@@ -514,8 +458,23 @@ if (maxShield &gt; 0 &amp;&amp; currShield &gt; 0) {
     var xPos_right = xPos_left + (healthBarWidth * shieldPct) - (borderWidth * 2);
     
     // Draw Shield Bar:
-    draw_set_color(healthBarColor_shieldforeground_current);
+    draw_set_color(merge_color(c_aqua, c_teal, healthBarShieldGlowAmnt));
     draw_rectangle(xPos_left, yPos_top, xPos_right, yPos_bottom - (healthBarHeight/2.5), false);
+    
+    // Animate shield glow:
+    if (healthBarShieldGlowAmnt == 0.0) {
+         healthBarShieldGlowDecrease = false;
+    }
+    
+    if (healthBarShieldGlowAmnt == 1.0) {
+         healthBarShieldGlowDecrease = true;
+    }
+    
+    if (healthBarShieldGlowDecrease) {
+        healthBarShieldGlowAmnt -= 0.01
+    } else {
+        healthBarShieldGlowAmnt += 0.01
+    }
 }
 
 // Return draw color to normal:
