@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var canSpawnBoss = scr_statistics_getData(28) &gt; 50;  // If total kills &gt; 50
+            <string>var canSpawnBoss = scr_statistics_getData(28) &gt; 200;  // If total kills &gt; 200
 canSpawnBoss &amp;= scr_statistics_getData(26) == false; // Check if boss has spawned
 
 if (canSpawnBoss) {

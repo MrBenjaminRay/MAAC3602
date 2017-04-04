@@ -50,12 +50,7 @@ with(obj_player){
     movementSpeedDefault = 0;
 }
 
-with(obj_spawnerSpawner){
-    canSpawn_groundLight = true;
-    canSpawn_groundMedium = true;
-}
-
-scr_camera_follow_targetObject(inst_73C86E9A);
+scr_camera_follow_targetObject(obj_camera);
 </string>
           </argument>
         </arguments>
@@ -150,6 +145,7 @@ if(hasPlayerRightClicked){
         firingPaused = false;
         movementSpeedDefault = 310 / 1000;
         scr_spawning_enableSpawners();
+        instance_destroy();
     }
 }
 </string>
