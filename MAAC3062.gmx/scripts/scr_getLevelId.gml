@@ -34,12 +34,6 @@ switch (room) {
         levelId = 7;
         break;
     }
-    // When we add more levels, insert them starting at id 5 and bump tutorials to end of array
-    case rm_level_premoon: {
-        levelId = 8;
-        break;
-    }
-
 }
 
 return levelId;
