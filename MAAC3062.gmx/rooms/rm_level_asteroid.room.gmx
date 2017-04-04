@@ -205,6 +205,13 @@ with(obj_spawnerSpawner){
     <instance objName="obj_spawnerSpawner" x="-128" y="832" name="inst_ADAC3497" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-128" y="1312" name="inst_E5D422D7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_music" x="32" y="-32" name="inst_3C62B278" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2240" y="1408" name="inst_D7EDC333" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2272" y="1408" name="inst_EA290CCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2304" y="1408" name="inst_5020A2AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2336" y="1408" name="inst_483D6BBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2368" y="1408" name="inst_04FA816D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2400" y="1408" name="inst_42D49B7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="2432" y="1408" name="inst_F19B4E31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_asteroid_backtiles" x="0" y="928" w="32" h="32" xo="0" yo="224" id="10002400" name="inst_79A0F1AD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
