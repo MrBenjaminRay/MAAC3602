@@ -35,6 +35,10 @@ failurePlaying = false;
 loopPlaying = false;
 
 switch(room) {
+    case rm_level_premoon:
+        audio_play_sound(mus_tutorial, 100, true);
+        music = mus_tutorial;
+        break;
     case rm_level_moon:
         audio_play_sound(mus_tutorialBeat, 100, true);
         music = mus_tutorialBeat;
