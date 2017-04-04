@@ -91,7 +91,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>25</string>
+            <string>8</string>
           </argument>
         </arguments>
       </action>
@@ -297,7 +297,7 @@ alarm[0] = 420 + irandom(1080);
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>-100</sound>
+            <sound>snd_enemyDeath_light</sound>
           </argument>
           <argument>
             <kind>3</kind>

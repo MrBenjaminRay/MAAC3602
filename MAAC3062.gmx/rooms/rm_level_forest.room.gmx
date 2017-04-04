@@ -11,7 +11,18 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>// Run single script to initialize everything needed for a standard game level
-scr_level_initialize();</code>
+scr_level_initialize();
+
+// Enable Spawners:
+var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+tmp.alarm[0] = room_speed * 3;
+
+// Set spawnable enemies:
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_airLight = true;
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -129,10 +140,10 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="32" y="192" name="inst_A2681528" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="64" y="192" name="inst_16DE8338" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="480" y="192" name="inst_3BFF6A85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ship" x="288" y="800" name="inst_227DBEF9" locked="0" code="fuelTarget = 1500;&#xA;global.fuel = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ship" x="96" y="800" name="inst_227DBEF9" locked="0" code="fuelTarget = 1500;&#xA;global.fuel = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="448" y="800" name="inst_0357AAE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="448" y="832" name="inst_ECBF67C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="1120" y="832" name="inst_E17363B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="224" y="832" name="inst_ECBF67C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="1248" y="832" name="inst_E17363B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-96" y="96" name="inst_D0DA8C18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-96" y="352" name="inst_AA42BBE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="320" name="inst_3B7F738C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
