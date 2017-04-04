@@ -76,7 +76,7 @@ if (canSpawnBoss) {
             break;
         }
         case rm_level_forest: {
-            scr_spawnBoss(obj_enemy_boss_mini_D, 1600, 416);
+            scr_spawnBoss(obj_enemy_boss_large_A, 1600, 416);
             break;
         }
         case rm_level_desert: {
@@ -88,7 +88,7 @@ if (canSpawnBoss) {
             break;
         }
         case rm_level_underwater: {
-            scr_spawnBoss(obj_enemy_boss_large_A, 1408, 416);
+            scr_spawnBoss(obj_enemy_boss_mini_D, 1408, 416);
             break;
         }
         case rm_level_asteroid: {
