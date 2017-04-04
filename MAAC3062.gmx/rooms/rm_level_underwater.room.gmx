@@ -109,8 +109,8 @@ obj_player.animationSpeedAdjust = .35;</code>
     <instance objName="obj_physicsTile" x="736" y="352" name="inst_1A67CE42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="352" name="inst_F237267B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ship" x="128" y="736" name="inst_264DA70F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="416" y="800" name="inst_DF2BECDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="832" y="800" name="inst_E4A5F85A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="256" y="800" name="inst_DF2BECDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="928" y="800" name="inst_E4A5F85A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="832" y="608" name="inst_895F4CD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="832" name="inst_1670A296" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="0" y="832" name="inst_7296B82C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
