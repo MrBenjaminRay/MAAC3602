@@ -44,12 +44,6 @@ tutorialComplete = false;
 isTowerPlaced = false;
 hasPlayerRightClicked = false;
 
-
-with(obj_player){
-    firingPaused = true;
-    movementSpeedDefault = 0;
-}
-
 scr_camera_follow_targetObject(obj_camera);
 </string>
           </argument>
