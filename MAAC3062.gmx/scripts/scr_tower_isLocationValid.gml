@@ -24,7 +24,7 @@ isLocationValid &= collision_rectangle(tempX, tempY, tempX + sprite_get_width(to
 
 // Ensure there are physics tiles beneath every part of the tower:
 for (var i = tempX ; i < tempX + sprite_get_width(towerSpr) ; i += 32) {
-    isLocationValid &= collision_rectangle(i, tempY + sprite_get_height(towerSpr), i + 32, tempY + sprite_get_height(towerSpr) + 32, obj_physicsTile, false, true) != noone;
+    isLocationValid &= collision_rectangle(i, tempY + sprite_get_height(towerSpr), i + 32, tempY + sprite_get_height(towerSpr) + 16, obj_physicsTile, false, true) != noone;
 }
 
 // Ensure the location is within the tower's "build range" of the player:
@@ -61,7 +61,6 @@ if (player != noone) {
         }
     }
     
-    //show_debug_message(string(distance) + "---" + string(global.towers[towerId, 7]));
     isLocationValid &= distance <= global.towers[towerId, 7];
 }
 
