@@ -65,7 +65,7 @@ scr_camera_follow_targetObject(obj_camera);
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>120</string>
+            <string>room_speed * 2</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -93,10 +93,10 @@ scr_camera_follow_targetObject(obj_camera);
             <kind>1</kind>
             <string>scr_camera_follow_targetObject(obj_player)
 
-var tutorialBox1 = instance_create(96, 608, obj_messageBox);
-ds_list_add(tutorialBox1.list_text, "There are too many enemies for you");
-ds_list_add(tutorialBox1.list_text, "to handle, try building a tower!");
-ds_list_add(tutorialBox1.list_text, "Try right clicking on a tower to sell it.");
+textBox = instance_create(96, 608, obj_messageBox);
+ds_list_add(textBox.list_text, "There are too many enemies for you");
+ds_list_add(textBox.list_text, "to handle, try building a tower!");
+ds_list_add(textBox.list_text, "Try right clicking on a tower to sell it.");
 
 </string>
           </argument>
@@ -132,17 +132,13 @@ if(instance_exists(obj_tower_caterpillager)){
 if(hasPlayerRightClicked){
     tutorialComplete = true;
     
-    with(obj_level1_TutEnemy){
-        scr_entity_startMovingTowardsPlayerOrRandom();
+    if (textBox != noone) {
+        with (textBox) {
+            instance_destroy();
+        }
     }
     
-    with(obj_player){
-        firingPaused = false;
-        movementSpeedDefault = 310 / 1000;
-        scr_spawning_enableSpawners();
-    }
-    
-    instance_destroy();
+    scr_spawning_enableSpawners();
 }
 </string>
           </argument>
