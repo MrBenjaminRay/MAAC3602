@@ -13,14 +13,14 @@ instance_create(-50, -50, obj_camera);
 instance_create(-50, -50, obj_control_normalState);
 
 // Spawn hotbar, miners, boss control on all levels except tutorial
-if (true) {
+if (room != rm_level_premoon) {
     instance_create(-50, -50, obj_hud_hotbar);
     instance_create(-50, -50, obj_hud_minersAlive);
     instance_create(-50, -50, obj_control_bosses);
 }
 
 // Spawn ability orbs on all levels except tutorial and moon (1st ability unlocked when moon beaten)
-if (true && room != rm_level_moon) {
+if (room != rm_level_premoon && room != rm_level_moon) {
     instance_create(-50, -50, obj_hud_abilityorb_1);
     instance_create(-50, -50, obj_hud_abilityorb_2);
     instance_create(-50, -50, obj_hud_abilityorb_3);
@@ -29,6 +29,9 @@ if (true && room != rm_level_moon) {
 
 // Add appropriate level control object
 switch (room) {
+    case rm_level_premoon:
+        instance_create(-50, -50, obj_levelControl_Tutorial1);
+        break;
     case rm_level_moon: 
         instance_create(-50, -50, obj_levelControl_1);
         break;
