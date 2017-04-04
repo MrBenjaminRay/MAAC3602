@@ -29,7 +29,7 @@
 disabled = true;
 
 // The time between spawns, in delta time:
-spawnInterval = scr_misc_secondsToDeltaTime(6);
+spawnInterval = scr_misc_secondsToDeltaTime(irandom_range(6, 12));
 // The time since the last spawn, in delta time:
 spawnCounter = spawnInterval;
 // The number of spawners spawned:
