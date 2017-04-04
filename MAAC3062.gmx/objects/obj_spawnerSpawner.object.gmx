@@ -26,12 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>// Whether or not the spawner is enabled:
-disabled = false;
+disabled = true;
 
 // The time between spawns, in delta time:
-spawnInterval = scr_misc_secondsToDeltaTime(irandom_range(10, 20));
+spawnInterval = scr_misc_secondsToDeltaTime(6);
 // The time since the last spawn, in delta time:
-spawnCounter = 0;
+spawnCounter = spawnInterval;
 // The number of spawners spawned:
 spawnedCount = 0;
 

@@ -149,6 +149,7 @@ if(hasPlayerRightClicked){
     with(obj_player){
         firingPaused = false;
         movementSpeedDefault = 310 / 1000;
+        scr_spawning_enableSpawners();
     }
 }
 </string>

@@ -13,6 +13,10 @@
   <code>// Run single script to initialize everything needed for a standard game level
 scr_level_initialize();
 
+// Enable Spawners:
+var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+tmp.alarm[0] = room_speed * 3;
+
 // Add low friction for ice level. (Friction normally 1)
 obj_player.movementFrictionLevel = .1;</code>
   <enableViews>-1</enableViews>
