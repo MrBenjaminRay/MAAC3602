@@ -17,6 +17,17 @@ scr_level_initialize();
 var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
 tmp.alarm[0] = room_speed * 3;
 
+// Set spawnable enemies:
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_groundHeavy = true;
+    canSpawn_groundJackal = true;
+    canSpawn_groundSpiderLarge = true;
+    canSpawn_airLight = true;
+    canSpawn_airHeavy = true;
+}
+
 // Add low friction for ice level. (Friction normally 1)
 obj_player.movementFrictionLevel = .1;</code>
   <enableViews>-1</enableViews>

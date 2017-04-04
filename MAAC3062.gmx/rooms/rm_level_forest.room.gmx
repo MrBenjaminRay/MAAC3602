@@ -15,7 +15,14 @@ scr_level_initialize();
 
 // Enable Spawners:
 var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
-tmp.alarm[0] = room_speed * 3;</code>
+tmp.alarm[0] = room_speed * 3;
+
+// Set spawnable enemies:
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_airLight = true;
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
