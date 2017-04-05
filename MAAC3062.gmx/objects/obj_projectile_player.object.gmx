@@ -133,7 +133,7 @@ audio_sound_gain(snd_projectileHit_light, projectileHitGain, 0);
             <string>motion_set(direction, movementSpeed);
 
 // Flip projectile so it doesn't appear upside-down when travelling right
-if (hspeed &gt;= 0) {
+if (speed_x &gt;= 0) {
     image_yscale = -1;    
 }
 </string>

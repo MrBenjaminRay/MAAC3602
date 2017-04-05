@@ -84,6 +84,11 @@ walkLeft = 0;
 
 facingDirection = 1; // 1 for right, -1 for left
 
+outOfBoundsBounce = false;       // Automatically reverse direction &amp; restart movement when going out of bounds
+                                // When false, they are pushed back into the room &amp; stopped.
+wallBounce = false;              // Automatically switch direction &amp; restart movement when hitting a wall.
+                                // When false, they are simply pushed out of the wall &amp; stopped.
+
 // Shield Stuff:
 currShield = 200;
 maxShield = 200;
@@ -506,7 +511,7 @@ var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
 if (isLeftPressed &amp;&amp; isRightPressed) {
     // Both left &amp; right are pressed. Movement should be stopped.
     movementSpeedDesired = 0;   // Set desired speed
-    hspeed = 0;                 // Immediately stop horizontal movement
+    speed_x = 0;                 // Immediately stop horizontal movement
 } else if (isLeftPressed) {
     // Set desired speed (will speed up smoothly if not already moving)
     movementSpeedDesired = -movementSpeedDefault * movementSpeedAdjust;

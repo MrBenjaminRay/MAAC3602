@@ -291,7 +291,7 @@ if (mode == "HUG") {
     if (instance_exists(targetEnemy)) {
         var xscale = 1;
         var xoffset = 33;
-        if (targetEnemy.hspeed &gt;= 0) {
+        if (targetEnemy.speed_x &gt;= 0) {
             // Flip sprite when enemy moving to the right
             xscale = -1;
             xoffset = 38;
@@ -389,7 +389,7 @@ if (mode == "HUG" &amp;&amp; instance_exists(targetEnemy)) {
 
     // Mirror image when enemy moving right
     var xscale = 1;
-    if (targetEnemy.hspeed &gt;= 0) {
+    if (targetEnemy.speed_x &gt;= 0) {
         xscale = -1;
     }
 

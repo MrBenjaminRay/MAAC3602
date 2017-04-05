@@ -31,7 +31,9 @@ animationSpeedAdjust = 1;           // Increase or decrease the animation speed 
 
 // SMOOTH MOVEMENT
 // NOTE: To make an entity move left/right, SET movementSpeedDesired = movementSpeedDefault (right) or -movementSpeedDefault (left)
-speed = 0;                  // DO NOT SET THIS VALUE. Current actual left/right movement (cotrolled using variables below)
+speed = 0;                          // DO NOT SET THIS VALUE. Current actual left/right movement (cotrolled using variables below)
+speed_x = 0;
+speed_y = 0;
 movementSpeedDefault = 125 / 1000;  // Speed to use when setting desired speed (when entity moves left/right)
 movementSpeedDesired = 0;           // Current desired movement speed (normally -movementSpeedDefault or +movementSpeedDefault)
 movementSpeedAdjust = 1;            // Increase or decrease movement speed for a level.  E.g. underwater level has speed adjust &lt; 1.
@@ -41,6 +43,11 @@ movementFrictionLevel = 1;          // Friction level. Only affects acceleration
                                     // 0 = no friction, 1 = normal. 1+ would be extra friction. Use low value (.1 or .2) for ice level,
                                     // and medium-low level (.5) for underwater level.
 movementSlowEffectLevel = 1;        // 1 = normal, .5 = 1/2 speed, etc. This is necessary for implementing a slow effect on the entity, e.g. calculating speed ratio based on slow stacks.
+
+outOfBoundsBounce = true;       // Automatically reverse direction &amp; restart movement when going out of bounds
+                                // When false, they are pushed back into the room &amp; stopped.
+wallBounce = true;              // Automatically switch direction &amp; restart movement when hitting a wall.
+                                // When false, they are simply pushed out of the wall &amp; stopped.
 
 jumpSpeed = .72;                // Jump Movement Speed
 jumpAdjust = 1;                 // Increase or decrease gravity AND jump speed on a level with this. E.g. underwater level has &lt; 1 jump speed adjustment.
@@ -164,10 +171,17 @@ with (weaponObj) {
 image_speed = animationSpeed * animationSpeedAdjust;
 
 // SPECIAL CASE:
-// If the entity's y-axis coordinate is above 0, then force the entity to
-// drop to a lower platform.
+// If the entity's y-axis coordinate is above 0, then force the entity back
+// down to y = 0, unless it is the player, who is allowed to fly through the air
+// like he just don't care.
+// We used to do forceDrop here, but forcing a drop gets complicated if the entity has no platform
+// below them (e.g. jumping from top platform towards area with no platforms). The drop state
+// won't work if there are no platforms below the entity.
 if (y &lt; 0) {
-    scr_entity_forceDrop();
+    if (object_index != obj_player) {
+        y = 0;
+    }
+    //scr_entity_forceDrop();
 }
 
 // SPECIAL CASE:
@@ -179,7 +193,7 @@ if (y &lt; 0) {
 while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !isJumping) {
     y--;
     if (object_index == obj_player) {
-        show_debug_message('boosting player');
+        //show_debug_message('boosting player');
     }
 }
 
@@ -360,16 +374,89 @@ if (isDropping) {
 //movementSpeed += (movementSpeedDesired - movementSpeed) * movementSpeedAcceleration * global.deltaTime; //Smoothly accelerate / decelerate to the wanted speed.
 
 // TWO-SPEED VERSION (different acceleration &amp; deceleration speeds)
-if (abs(hspeed) &lt; abs(movementSpeedDesired - hspeed)) {
+if (abs(speed_x) &lt; abs(movementSpeedDesired - speed_x)) {
     // Slow the speed with the DEceleration variable
-    hspeed += (movementSpeedDesired - hspeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
+    //hspeed += (movementSpeedDesired - hspeed) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
+    speed_x += (movementSpeedDesired - speed_x) * movementSpeedAcceleration * movementFrictionLevel * global.deltaTime;
 } else {
     // Increase the speed with the ACCeleration variable
-    hspeed += (movementSpeedDesired - hspeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
+    //hspeed += (movementSpeedDesired - hspeed) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
+    speed_x += (movementSpeedDesired - speed_x) * movementSpeedDeceleration * movementFrictionLevel * global.deltaTime;
 }
 
+// SPECIAL CASE:
+// If the entity is inside a wall tile at the start of a step, it is
+// likely due to a change in the collision box due to the sprite index
+// changing (animated sprite), or the sprite being mirrored left/right.
+if (place_meeting(x, y, obj_wallTile)) {
+    // Push entity out of tile based on direction facing,
+    // as the entity has probably just switched to this direction and
+    // the new sprite collision box is now colliding.
+    if (speed_x &gt; 0) {
+        // Facing right, so push out to the right
+        while (place_meeting(x, y, obj_wallTile)) {
+            x++;
+        }
+    } else if (speed_x &lt; 0) {
+        // Facing left, so push out to the left
+        while (place_meeting(x, y, obj_wallTile)) {
+            x--;
+        }
+    }
+    if (!place_meeting(x, y, obj_wallTile)) {
+        show_debug_message('CLEARED EARLY COLLISION');
+    } else {
+        show_debug_message('EARLY COLLISION STILL EXISTS!');
+    }
+
+}
+
+// DO ALL ENTITY LEFT/RIGHT MIRRORING HERE so we can check if mirroring
+// pushes into tile.
+
 // Calculate new proposed position
-var newX = x + hspeed * movementSlowEffectLevel * global.deltaTime;
+//var newX = x + hspeed * movementSlowEffectLevel * global.deltaTime;
+var newX = x + speed_x * movementSlowEffectLevel * global.deltaTime;
+
+// Check collision with wall tiles first
+if (place_meeting(newX, y, obj_wallTile)) {
+    var prevSpeedX = speed_x; // Store temporarily in case we have to bounce the player
+    
+    // Stop player movement
+    scr_entity_stopMoving_Sudden();
+    
+    // Move entity right up to the wall
+    var moveAdjust = 0; // Will either be 1 or -1 depending on entity direction
+    if (newX &gt; x) { // We could have also just checked speed_x
+        // Entity is moving to the right, so we will inch the x direction by 1
+        moveAdjust = 1;
+    } else if (newX &lt; x) {
+        // Entity is moving to the left, so we will inch the x direction by -1
+        moveAdjust = -1;        
+    }        
+    while (place_meeting(x + moveAdjust, y, obj_wallTile) == false) {
+        x += moveAdjust;
+    }
+
+    // Restart entity movment if bounce variable is set
+    if (wallBounce) {
+        if (prevSpeedX &gt; 0) {
+            // Was moving right, so now move left
+            scr_entity_startMovingLeft();
+        } else {
+            // Was moving left, so now move right
+            scr_entity_startMovingRight();
+        }
+    }
+
+} else {
+    // No wall collision at new X
+    x = newX;
+}
+
+// RETURN HERE
+// We no longer check horizontal collision with floor tiles.
+return 0;
 
 // Check collision
 if (place_meeting(newX, y, obj_physicsTile)) {
@@ -382,7 +469,7 @@ if (place_meeting(newX, y, obj_physicsTile)) {
         
         // Increase X until entity would collide
         var moveAdjust = 0; // Will either be 1 or -1 depending on entity direction
-        if (newX &gt; x) { // We could have also just checked hspeed
+        if (newX &gt; x) { // We could have also just checked speed_x
             // Entity is moving to the right, so we will inch the x direction by 1
             moveAdjust = 1;
         } else if (newX &lt; x) {
@@ -393,9 +480,9 @@ if (place_meeting(newX, y, obj_physicsTile)) {
             // we would be at the new X.
         }
         
-        while (place_meeting(x+moveAdjust, y, obj_physicsTile) == false) {
+        while (place_meeting(x + moveAdjust, y, obj_physicsTile) == false) {
             x += moveAdjust;
-            //show_debug_message('move adjust: ' + string(moveAdjust));
+            show_debug_message('move adjust: ' + string(moveAdjust));
         }
         // Entity should be right against the tile now
     } else {
@@ -420,6 +507,7 @@ if (place_meeting(newX, y, obj_physicsTile)) {
     // No collision at new X
     x = newX;
 }
+
 </string>
           </argument>
         </arguments>
