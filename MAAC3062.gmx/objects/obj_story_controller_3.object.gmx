@@ -93,7 +93,7 @@
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>rm_level_premoon</room>
+            <room>rm_level_tutorial</room>
           </argument>
         </arguments>
       </action>
