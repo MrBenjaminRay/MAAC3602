@@ -269,7 +269,7 @@ if (jetDelayElapsed &lt; jetDelay) {
 y += (vspeed) * global.deltaTime;
 
 // Horizontal movement (don't worry about collision yet)
-x += (hspeed) * global.deltaTime;
+x += (speed_x) * global.deltaTime;
 
 scr_projectile_enforceMaxLife();
 

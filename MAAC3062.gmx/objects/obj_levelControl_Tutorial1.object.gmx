@@ -39,60 +39,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//global.tutorial_part1 = true;
-//global.tutorial_part2 = false;
-//global.tutorial_part3 = false;
-
-//var tutorialBox1 = instance_create(96, 608, obj_messageBox);
+            <string>//var tutorialBox1 = instance_create(96, 608, obj_messageBox);
 //ds_list_add(tutorialBox1.list_text, "Press WASD to move");
 //ds_list_add(tutorialBox1.list_text, "and left click to shoot.");
 
-with(obj_enemy) {
-    scr_entity_stopMoving_Sudden()
-}
 
 /* Use states to track player's progress through the tutorial.
- *  1: Move left, right, up, down to pick up all of the energy
- *  2: Move right
- *  3: Jump
- *  4: Drop
- *  5: Attack (shoot the target)
- *  6: Kill an enemy
- *  7: Pick up an energy drop
- *  8: Go to the right to go towards the ship  (ship arrow)
+ *  0: Use WASD to pick up 3 strategically placed energy orbs
+ *  1: Fire blaster to kill enemies and pick up their energy orbs
  *
  */
 
-state = 0; // Will immediately be switched to state 1
+state = 0;
 
-
-state1_thumbsUp_X = 450;
-state1_thumbsUp_Y = 600;
-state2_thumbsUp_X = 450;
-state2_thumbsUp_Y = 600;
-state3_thumbsUp_X = 450;
-state3_thumbsUp_Y = 600;
-state4_thumbsUp_X = 450;
-state4_thumbsUp_Y = 600;
-state5_thumbsUp_X = 450;
-state5_thumbsUp_Y = 600;
-state6_thumbsUp_X = 450;
-state6_thumbsUp_Y = 600;
-state7_thumbsUp_X = 450;
-state7_thumbsUp_Y = 600;
-state8_thumbsUp_X = 450;
-state8_thumbsUp_Y = 600;
-
-
-state1_ball = instance_create(224, 320, obj_drop_energy);
-state2_ball = instance_create(608, 224, obj_drop_energy);
-state3_ball = instance_create(320, 544, obj_drop_energy);
+//state1_ball = instance_create(224, 320, obj_drop_energy);
+//state2_ball = instance_create(608, 224, obj_drop_energy);
+//state3_ball = instance_create(320, 544, obj_drop_energy);
 //state4_ball = instance_create(250, 100, obj_drop_energy);
 //state5_ball = instance_create(300, 100, obj_drop_energy);
 
-// Set energy values to 0
+// Set energy values to 0 for the 3 drops on the level at the start,
+// and give player all the time he wants to pick them up.
 with (obj_drop_energy) {
-    value = 0;
+    value = 0;  // No energy orbs
     maxLife = 100000000; // Permanent
 }
 
@@ -177,7 +146,13 @@ msg3 = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (state == 0) {
+            <string>// Make sure energy drops dropped by enemies on this level are permanent
+// so player has all the time he wants to pick them up
+with (obj_drop_energy) {
+    maxLife = 100000000; // Permanent
+}
+
+if (state == 0) {
 
     // Player needs to collect all of the energy drops, which will require full WASD movement.
     if (instance_number(obj_drop_energy) == 0) {
