@@ -25,19 +25,82 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var canSpawnBoss = scr_statistics_getData(28) &gt; 50;  // If total kills &gt; 50
+            <string>// Boss Spawn Requirements:
+var requiredKills = 200;
+
+switch (room) {
+    case rm_level_moon: {
+        requiredKills = 200;
+        break;
+    }
+    case rm_level_forest: {
+        requiredKills = 250;
+        break;
+    }
+    case rm_level_desert: {
+        requiredKills = 300;
+        break;
+    }
+    case rm_level_ice: {
+        requiredKills = 350;
+        break;
+    }
+    case rm_level_underwater: {
+        requiredKills = 400;
+        break;
+    }
+    case rm_level_asteroid: {
+        requiredKills = 450;
+        break;
+    }
+    case rm_level_mars: {
+        requiredKills = 500;
+        break;
+    }
+    case rm_level_earth: {
+        requiredKills = 550;
+        break;
+    }
+}
+
+
+var canSpawnBoss = scr_statistics_getData(28) &gt; requiredKills;
 canSpawnBoss &amp;= scr_statistics_getData(26) == false; // Check if boss has spawned
 
 if (canSpawnBoss) {
+    scr_statistics_setData(26, true);
+            
     switch(room) {
         case rm_level_moon: {
-            scr_statistics_setData(26, true);
             scr_spawnBoss(obj_enemy_boss_mini_A, 2112, 500);
             break;
         }
         case rm_level_forest: {
-            scr_statistics_setData(26, true);
-            scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
+            scr_spawnBoss(obj_enemy_boss_large_A, 1600, 416);
+            break;
+        }
+        case rm_level_desert: {
+            scr_spawnBoss(obj_enemy_boss_large_B, -288, -160);
+            break;
+        }
+        case rm_level_ice: {
+            scr_spawnBoss(obj_enemy_boss_large_C, 1344, 384);
+            break;
+        }
+        case rm_level_underwater: {
+            scr_spawnBoss(obj_enemy_boss_mini_D, 1408, 416);
+            break;
+        }
+        case rm_level_asteroid: {
+            scr_spawnBoss(obj_enemy_boss_mini_C, 2176, 1120);
+            break;
+        }
+        case rm_level_mars: {
+            //scr_spawnBoss(obj_enemy_boss_large_D, 1600, 416);
+            break;
+        }
+        case rm_level_earth: {
+            // No boss defined???
             break;
         }
     }

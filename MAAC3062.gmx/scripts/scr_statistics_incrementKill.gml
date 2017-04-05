@@ -40,8 +40,10 @@ if (canProceed) {
         }
         case obj_enemy_ground_spider_small: {
             levelData[15]++;
-            levelData[28]++;
-            scr_kills_change(1);  // Trigger visual cue when kill count changes
+            
+            // Baby spiders are not counted towards total kills.
+            //levelData[28]++;
+            //scr_kills_change(1);  // Trigger visual cue when kill count changes
             break;
         }
         case obj_enemy_ground_spider_large: {

@@ -13,6 +13,21 @@
   <code>// Run single script to initialize everything needed for a standard game level
 scr_level_initialize();
 
+// Enable Spawners:
+var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+tmp.alarm[0] = room_speed * 3;
+
+// Set spawnable enemies:
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_groundHeavy = true;
+    canSpawn_groundJackal = true;
+    canSpawn_groundSpiderLarge = true;
+    canSpawn_airLight = true;
+    canSpawn_airHeavy = true;
+}
+
 // Add low friction for ice level. (Friction normally 1)
 obj_player.movementFrictionLevel = .1;</code>
   <enableViews>-1</enableViews>
@@ -108,7 +123,7 @@ obj_player.movementFrictionLevel = .1;</code>
     <instance objName="obj_physicsTile" x="1600" y="832" name="inst_5F42A60A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="832" name="inst_84542BB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="768" y="-96" name="inst_88D35E7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="864" y="800" name="inst_9C121CEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="800" y="800" name="inst_9C121CEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1152" y="672" name="inst_B53E35B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1184" y="672" name="inst_1FD44301" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1216" y="672" name="inst_6D3F866A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -217,6 +232,14 @@ obj_player.movementFrictionLevel = .1;</code>
     <instance objName="obj_wallTile" x="1440" y="480" name="inst_64ABD1F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1440" y="448" name="inst_CA644D1C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_music" x="32" y="-32" name="inst_7C87395B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1632" y="832" name="inst_01581709" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1664" y="832" name="inst_A84022DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1696" y="832" name="inst_FBFEA8B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1728" y="832" name="inst_B2EF1A0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1760" y="832" name="inst_6FB9F4E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1792" y="832" name="inst_3F62A625" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1824" y="832" name="inst_7CA94303" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1856" y="832" name="inst_5A52DC92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_ice_tileset" x="544" y="352" w="32" h="32" xo="64" yo="32" id="10000422" name="inst_794C1344" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -13,6 +13,21 @@
   <code>// Run single script to initialize everything needed for a standard game level
 scr_level_initialize();
 
+// Enable Spawners:
+var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+tmp.alarm[0] = room_speed * 3;
+
+// Set spawnable enemies:
+with(obj_spawnerSpawner){
+    canSpawn_groundLight = true;
+    canSpawn_groundMedium = true;
+    canSpawn_groundHeavy = true;
+    canSpawn_groundJackal = true;
+    canSpawn_groundSpiderLarge = true;
+    canSpawn_airLight = true;
+    canSpawn_airHeavy = true;
+}
+
 // Add medium-low friction for underwater level. (1 = normal)
 obj_player.movementFrictionLevel = .3;
 // Add low gravity (and lower jump speed) for underwater level. (1 = normal)
@@ -94,8 +109,8 @@ obj_player.animationSpeedAdjust = .35;</code>
     <instance objName="obj_physicsTile" x="736" y="352" name="inst_1A67CE42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="352" name="inst_F237267B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ship" x="128" y="736" name="inst_264DA70F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="416" y="800" name="inst_DF2BECDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_mine" x="832" y="800" name="inst_E4A5F85A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="256" y="800" name="inst_DF2BECDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mine" x="928" y="800" name="inst_E4A5F85A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="832" y="608" name="inst_895F4CD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="-32" y="832" name="inst_1670A296" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="0" y="832" name="inst_7296B82C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -245,6 +260,16 @@ obj_player.animationSpeedAdjust = .35;</code>
     <instance objName="obj_physicsTile" x="1344" y="672" name="inst_9F16A92C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-96" y="96" name="inst_7495E723" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_music" x="64" y="-32" name="inst_9140EC85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1632" y="832" name="inst_A1B99895" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1664" y="832" name="inst_A5A90135" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1696" y="832" name="inst_1302969A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1728" y="832" name="inst_3D932A2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1760" y="832" name="inst_E55AC264" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1792" y="832" name="inst_3D3BD265" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1824" y="832" name="inst_989FE9CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1856" y="832" name="inst_EE753D6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1888" y="832" name="inst_5A28B481" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1920" y="832" name="inst_CA6853BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_underwater_tiles" x="160" y="320" w="32" h="32" xo="64" yo="32" id="10001252" name="inst_AA12C2FE" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
