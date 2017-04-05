@@ -771,13 +771,22 @@ if (weaponObj != noone) {
     }
 }
 
+// To prevent the player from firing when he clicks obj_button_sellTower, we not only check firingPaused,
+// but we also check if the mouse is colliding with obj_button_sellTower.  firingPaused is set in step
+// code of obj_button_sellTower, but if this step code executes before that step code,
+// we need this second check.
+var isSellingTower = position_meeting(mouse_x, mouse_y, obj_button_sellTower);
+if (isSellingTower) {
+    firingPaused = true;
+}
+
 if (mouse_check_button(mb_left)) {
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
     canFire &amp;= global.state != "Destroy";
     canFire &amp;= weaponObj != noone;
     canFire &amp;= firingPaused == false;
-    
+
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {
             audio_play_sound(snd_playerGun, 0, false);
@@ -833,6 +842,7 @@ if (mouse_check_button(mb_left)) {
         }
     }
 }
+
 </string>
           </argument>
         </arguments>

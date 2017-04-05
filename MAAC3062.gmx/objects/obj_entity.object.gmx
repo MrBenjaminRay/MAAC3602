@@ -422,23 +422,22 @@ var newX = x + speed_x * movementSlowEffectLevel * global.deltaTime;
 if (place_meeting(newX, y, obj_wallTile)) {
     var prevSpeedX = speed_x; // Store temporarily in case we have to bounce the player
     
-    // Stop player movement
+    // Stop player movement. This resets speed_x, which is why we capture old speed first.
     scr_entity_stopMoving_Sudden();
     
-    // Move entity right up to the wall
+    // Move newX until it is right up against the wall tile
     var moveAdjust = 0; // Will either be 1 or -1 depending on entity direction
-    if (newX &gt; x) { // We could have also just checked speed_x
-        // Entity is moving to the right, so we will inch the x direction by 1
-        moveAdjust = 1;
-    } else if (newX &lt; x) {
-        // Entity is moving to the left, so we will inch the x direction by -1
-        moveAdjust = -1;        
-    }        
-    while (place_meeting(x + moveAdjust, y, obj_wallTile) == false) {
-        x += moveAdjust;
+    while (place_meeting(newX, y, obj_wallTile) == false) {
+        if (newX &gt; x) {
+            // Entity is moving to the right, so we will inch the x direction by 1
+            newX ++;
+        } else {
+            // Entity is moving to the left, so we will inch the x direction by -1
+            newX --;
+        }
     }
 
-    // Restart entity movment if bounce variable is set
+    // Restart entity movement if bounce variable is set
     if (wallBounce) {
         if (prevSpeedX &gt; 0) {
             // Was moving right, so now move left
@@ -449,13 +448,29 @@ if (place_meeting(newX, y, obj_wallTile)) {
         }
     }
 
-} else {
-    // No wall collision at new X
-    x = newX;
 }
 
-// RETURN HERE
-// We no longer check horizontal collision with floor tiles.
+// At this point, newX should not be in collision with a wall tile.
+
+if (place_meeting(newX, y, obj_physicsTile) &amp;&amp; !place_meeting(x, y, obj_physicsTile)) {
+    // New X would collide with floor tile, but current X doesn't. We can't let horizontal movement
+    // push player into a floor tile, so inch player in direction until he would collide.
+    while (place_meeting(newX, y, obj_physicsTile)) {
+        if (newX &gt; x) {
+            // Entity is moving to the right, so we will pull the entity back to the left by 1
+            newX --;
+        } else {
+            // Entity is moving to the left, so we will pull the entity back to the right by 1
+            newX ++;
+        }
+    }
+}
+
+// At this point, new X is not colliding with a wall tile, and is not colliding
+// with a floor tile unless we were already colliding with a floor tile (allowed by vertical movement checks)
+x = newX;
+
+// Stuff below here is out of date
 return 0;
 
 // Check collision
