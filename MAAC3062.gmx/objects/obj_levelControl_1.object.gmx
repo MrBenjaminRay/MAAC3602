@@ -44,7 +44,8 @@ tutorialComplete = false;
 isTowerPlaced = false;
 hasPlayerRightClicked = false;
 
-scr_camera_follow_targetObject(obj_camera);
+scr_camera_follow_fixedCoordinates(1600, 576);
+
 </string>
           </argument>
         </arguments>
@@ -91,7 +92,7 @@ scr_camera_follow_targetObject(obj_camera);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_camera_follow_targetObject(obj_player)
+            <string>scr_camera_follow_playerObjects();
 
 textBox = instance_create(96, 608, obj_messageBox);
 ds_list_add(textBox.list_text, "There are too many enemies for you");

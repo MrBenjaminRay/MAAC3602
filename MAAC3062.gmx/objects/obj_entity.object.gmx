@@ -160,8 +160,8 @@ with (weaponObj) {
     return 0;
 }
 
-image_speed = 0;
-//image_speed = animationSpeed * animationSpeedAdjust;
+//image_speed = 0;
+image_speed = animationSpeed * animationSpeedAdjust;
 
 // SPECIAL CASE:
 // If the entity's y-axis coordinate is above 0, then force the entity to

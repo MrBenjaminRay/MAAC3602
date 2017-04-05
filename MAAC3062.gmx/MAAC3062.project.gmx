@@ -1213,7 +1213,7 @@
       <room>rooms\room32</room>
     </rooms>
     <rooms name="Levels">
-      <room>rooms\rm_level_premoon</room>
+      <room>rooms\rm_level_tutorial</room>
       <room>rooms\rm_level_moon</room>
       <room>rooms\rm_level_forest</room>
       <room>rooms\rm_level_desert</room>
