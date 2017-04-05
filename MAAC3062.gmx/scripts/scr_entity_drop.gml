@@ -61,8 +61,8 @@ if (place_meeting(x, y, obj_physicsTile)) {
         
         var tempY = y; // Get copy of Y so we can increase it until we collide with a tile
         var originalY = y; // Get copy of current, actual Y of entity so we can restore it after this test
-        while (!place_meeting(x, tempY, obj_physicsTile)) {
-            tempY++; // Crank up temp Y (go down) until it no longer collides with platform
+        while (!place_meeting(x, tempY, obj_physicsTile) && tempY <= room_height) {
+            tempY++; // Crank up temp Y (go down) until it collides with a platform or hits height of screen
         }
         tempY--; // Bring temp y back up above the platform (it would have collided in the last while loop iteration)
         y = tempY;

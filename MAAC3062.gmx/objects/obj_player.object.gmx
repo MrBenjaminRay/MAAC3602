@@ -73,9 +73,8 @@ jumpSpeed = .72;            // Jump Speed
 
 animationSpeed = 0.33;
 
-image_scale_default = .6;
-image_xscale = image_scale_default;
-image_yscale = image_scale_default;
+image_xscale_faceRight = .6;    // Override
+image_yscale = .6;
 
 // ???
 image_speed = 0;
@@ -516,7 +515,7 @@ if (isLeftPressed &amp;&amp; isRightPressed) {
     // Set desired speed (will speed up smoothly if not already moving)
     movementSpeedDesired = -movementSpeedDefault * movementSpeedAdjust;
     // Set sprite direction to face left
-    image_xscale = -image_scale_default;
+    //image_xscale = -image_scale_default; // Now handled in entity code
     
     //image_speed = animationSpeed * animationSpeedAdjust;
     //image_xscale = -1;
@@ -531,7 +530,7 @@ if (isLeftPressed &amp;&amp; isRightPressed) {
     // Set desired speed (will speed up smoothly if not already moving)
     movementSpeedDesired = +movementSpeedDefault * movementSpeedAdjust;
     // Set sprite direction to face right
-    image_xscale = image_scale_default;
+    //image_xscale = image_scale_default; // Now handled in entity code
     
     //image_speed = animationSpeed * animationSpeedAdjust;
     //image_xscale = 1;

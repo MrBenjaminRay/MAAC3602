@@ -22,9 +22,12 @@ var enoughSpace = false;
 var tileY1 = -1; // The y position of the first level of tiles below the entity
 var tileY2 = -1; // The y position of the second level of tiles below the entity
 
+var loop = 0; // Help avoid any infinite loops
+var maxLoop = 50;
 // Determine the total number of platforms below the entity and
 // check if player would fit between the two first levels detected.
 while (tempY < room_height) {
+    if (loop > maxLoop) { show_debug_message('max candrop loop'); return false; }
     // Increment y position by 1/2 of tile sprite height, as this will hit all of them
     tempY += sprite_get_height(spr_physicsTile)/2;
     // Check if there is a tile at this x/y position
@@ -51,6 +54,7 @@ while (tempY < room_height) {
             }
         }
     }
+    loop ++;
 }
 
 // Whether we found two tile levels below the entity or we hit the height of the room,
@@ -60,7 +64,6 @@ while (tempY < room_height) {
 // sprite_height already accounts for image_yscale, so no need to consider that.
 var space = tileY2 - tileY1 - sprite_get_height(spr_physicsTile);
 if (space >= sprite_height) {
-    show_debug_message(space);
     return true;
 } else {
     return false;

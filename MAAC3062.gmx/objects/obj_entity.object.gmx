@@ -29,6 +29,10 @@
 animationSpeed = 1;
 animationSpeedAdjust = 1;           // Increase or decrease the animation speed for a level. E.g. underwater level has speed adjust &lt; 1.
 
+image_xscale_faceRight = 1;         // xscale to use when facing right. image_xscale is set to this or -this in entity horizontal movement code
+                                    // If the sprite is drawn facing left, make this negative.
+image_yscale = 1;                   // yscale for this entity
+
 // SMOOTH MOVEMENT
 // NOTE: To make an entity move left/right, SET movementSpeedDesired = movementSpeedDefault (right) or -movementSpeedDefault (left)
 speed = 0;                          // DO NOT SET THIS VALUE. Current actual left/right movement (cotrolled using variables below)
@@ -143,6 +147,52 @@ with (weaponObj) {
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>Check for Pause</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Check if game is paused
+if (os_is_paused()) {
+    show_debug_message('PAUSED - Skipping a step event. Might prevent death on pause!');
+    return 0;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>Vertical Movement</string>
           </argument>
         </arguments>
@@ -167,9 +217,6 @@ with (weaponObj) {
     return 0;
 }
 
-//image_speed = 0;
-image_speed = animationSpeed * animationSpeedAdjust;
-
 // SPECIAL CASE:
 // If the entity's y-axis coordinate is above 0, then force the entity back
 // down to y = 0, unless it is the player, who is allowed to fly through the air
@@ -192,9 +239,6 @@ if (y &lt; 0) {
 // as the entity is allowed to be inside a tile.
 while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !isJumping) {
     y--;
-    if (object_index == obj_player) {
-        //show_debug_message('boosting player');
-    }
 }
 
 // APPLY GRAVITY
@@ -202,8 +246,6 @@ while (place_meeting(x, y, obj_physicsTile) &amp;&amp; !isDropping &amp;&amp; !i
 vspeed += gravConst * gravAdjust * global.deltaTime; // Increase speed based on delta time
 
 var newY = y + vspeed * global.deltaTime; // Get new proposed y value based on speed &amp; delta time
-
-
 
 if (place_meeting(x, newY, obj_physicsTile)) {
     // Collision at new Y
@@ -277,8 +319,10 @@ if (place_meeting(x, newY, obj_physicsTile)) {
 
 }
 
-// THIS SECTION CLEARS THE DROP FLAG IF THE FLAG IS CURRENTLY SET AND THE ENTITY IS
-// NOT CURRENTLY COLLIDING WITH A PLATFORM WITH THE SAME Y POSITION AS dropPlatformY.
+// This section clears the drop flag in one of two scenarios:
+// 1:  The entity is not currently colliding with a floor tile at all
+// 2:  The entity is colliding with at least one floor tile that has a different Y position
+// than the Y position that this entity was last approved to drop through (dropPlatformY).
 // This check occurs after gravity is applied, so if the player was holding the drop key
 // and was in the air when the step began, and gravity made him collide with a lower platform,
 // the flag won't be cleared in that case.
@@ -293,25 +337,35 @@ if (isDropping) {
     // this drop flag can be cleared.
     var instList = instance_place_list(x, newY, obj_physicsTile);
     var foundMatch = false;
+    var unapprovedPlatformYFound = false;
     if (instList != noone) {
         for (var i = 0; i &lt; ds_list_size(instList); i++) {
             if (instance_exists(instList[| i])) {
                 var item = instList[| i];
                 //show_debug_message('checking y: ' + string(item.y));
                 if (item.y == dropPlatformY) {
-                    foundMatch = true;
+                    //foundMatch = true;
                     //show_debug_message('found y match!');
+                } else {
+                    unapprovedPlatformYFound = true;
                 }
             }
             //show_debug_message('colliding with ' + string(ds_list_size(instList)) + ' instances');
+        }
+        if (unapprovedPlatformYFound) {
+            // Invalid y position of platform detected
+            isDropping = false;
+            dropPlatformY = 0;
+        } else {
+        
         }
         if (foundMatch == true) {
             // Currently colliding with a platform at the approved Y
             // Do nothing        
         } else {
             // Not colliding with a platform at the approved Y
-            isDropping = false;
-            dropPlatformY = 0;
+            //isDropping = false;
+            //dropPlatformY = 0;
             //show_debug_message('clearing flag and Y... - collision but not with right platforms');
         }
     } else {
@@ -368,6 +422,9 @@ if (isDropping) {
     return 0;
 }
 
+//image_speed = 0;
+image_speed = animationSpeed * animationSpeedAdjust;
+
 // Handle smooth movement acceleration &amp; deceleration to wanted speed.
 
 // ONE-LINE VERSION (if acceleration &amp; deceleration speeds are stored in same variable)
@@ -385,34 +442,138 @@ if (abs(speed_x) &lt; abs(movementSpeedDesired - speed_x)) {
 }
 
 // SPECIAL CASE:
+// Sprite animation or sprite change (other than horizontal mirroring) has pushed
+// this entity's collision box into a wall.
 // If the entity is inside a wall tile at the start of a step, it is
 // likely due to a change in the collision box due to the sprite index
-// changing (animated sprite), or the sprite being mirrored left/right.
-if (place_meeting(x, y, obj_wallTile)) {
-    // Push entity out of tile based on direction facing,
-    // as the entity has probably just switched to this direction and
-    // the new sprite collision box is now colliding.
-    if (speed_x &gt; 0) {
-        // Facing right, so push out to the right
-        while (place_meeting(x, y, obj_wallTile)) {
-            x++;
-        }
-    } else if (speed_x &lt; 0) {
-        // Facing left, so push out to the left
-        while (place_meeting(x, y, obj_wallTile)) {
-            x--;
-        }
-    }
-    if (!place_meeting(x, y, obj_wallTile)) {
-        show_debug_message('CLEARED EARLY COLLISION');
-    } else {
-        show_debug_message('EARLY COLLISION STILL EXISTS!');
-    }
+// changing (animated sprite). Changes to mirroring of sprites are handled
+// below.
+//while (place_meeting(x, y, obj_wallTile)) {
+    // Push entity out of tile based on direction, as the entity is
+    // probably pushing against this wall and the animation changed the
+    // bounding box so that it now collides with the wall.
+    //if (speed_x &gt; 0) {
+        // Facing right, so push out to the left
+        //x--;
+    //} else if (speed_x &lt; 0) {
+        // Facing left, so push out to the right
+        //x++;
+    //}
+//}
 
+
+
+// ENTITY LEFT/RIGHT MIRRORING
+// We always do left/right mirroring so that we can check if switching the
+// sprite's image_xscale causes the object to suddenly collide with a wall tile.
+// Set xscale based on movement direction (only sets when moving)
+var prevXScale = image_xscale; // Track if we flip (mirror) the entity so we can check collision changes
+if (speed_x &gt; 0) {
+    // Normal xscale when traveling to the right
+    image_xscale = image_xscale_faceRight;
+} else if (speed_x &lt; 0) {
+    // Mirrored xscale when traveling to the right
+    image_xscale = -image_xscale_faceRight;
+}
+//if (image_xscale != prevXScale) {
+    //show_debug_message('sprite mirrored');
+    // If we are colliding at this point, the entity was likely stopped against a wall,
+    // changed direction, and the collision box pushed into the wall when the xscale changed (above).
+    // In that case, push the entity out of the wall based on the direction currently going.
+    //while (place_meeting(x, y, obj_wallTile)) {
+    //    if (speed_x &gt; 0) {
+    //        x++;
+    //    } else {
+    //        x--;
+    //    }
+    //}
+//}
+
+
+// If colliding with a wall tile at this point, it will be because of a change
+// in the entity sprite, either animation or different sprite causing the bounding box
+// to push into the wall tile.  Or knockback done wrong.
+var iLoop = 0;
+var iMaxLoop = 50;
+while (place_meeting(x, y, obj_wallTile)) {
+    show_debug_message('looping: ' + string(iLoop));
+    // Entity may be colliding against multiple wall tiles, but we will try to resolve
+    // the collision with the first one returned by instance_place() and then check
+    // again if still colliding.
+    // Will use a max loop counter in case somehow entity is stuck between two walls
+    // and being bounced back &amp; forth infinitely here.
+    if (iLoop &gt;= iMaxLoop) {
+        // Entity is obviously stuck, so throw him to the top center of the level (he will drop down)
+        x = room_width/2;
+        y = 0;
+        break;
+    }
+    // Get first tile with which the entity is colliding
+    var tile = instance_place(x, y, obj_wallTile);
+    if (tile != noone) {
+        // Colliding against at least one wall tile
+        show_debug_message(string(bbox_left) + ',' + string(bbox_right) + ' -- ' + string(tile.bbox_left) + ',' + string(tile.bbox_right));
+        var leftIn = bbox_left &gt;= tile.bbox_left &amp;&amp; bbox_left &lt;= tile.bbox_right;
+        var rightIn = bbox_right &gt;= tile.bbox_left &amp;&amp; bbox_right &lt;= tile.bbox_right;
+        show_debug_message(string(leftIn) + ' ' + string(rightIn));
+        var pushDir = 0;  // Direction to push entity x. -1 = left, 1 = right, and if 0 will move up (y--) instead
+        // See what kind of overlap we're dealing with here    
+        if (leftIn &amp;&amp; !rightIn) {
+            // Left edge of entity is inside wall, right edge is not
+            pushDir = 1; // Will push to the right
+            show_debug_message('left edge inside wall, right is not');
+        } else if (!leftIn &amp;&amp; rightIn) {
+            // Right edge of entity is inside wall, left edge is not
+            pushDir = -1; // Will push to the left
+            show_debug_message('right edge inside wall, left is not');
+        } else {
+            // EITHER:
+            //      Both edges of entity are inside wall (entity smaller than wall)
+            // OR:
+            //      Both edges of entity are outside wall (entity larger than wall)
+            show_debug_message('entities fully overlapping');
+            // If speed is set (likely, as wall/entity are overlapping completely),
+            // use speed to determine whether to send left or right (opposite)
+            if (speed_x &gt; 0) {
+                pushDir = -1; // Will push to the left (entity is moving to the right)
+            } else if (speed_x &lt; 0) {
+                pushDir = 1; // Will push to the left (entity is moving to the right)
+            } else {
+                pushDir = 0; // Will push entity UP
+            }
+        }
+
+        if (pushDir == 1) {
+            // Push to the right based on overlap of bounding boxes (+1)
+            x += tile.bbox_right - bbox_left + 1;        
+            show_debug_message('pushing to the right');
+        } else if (pushDir == -1) {
+            // Push to the left based on overlap of bounding boxes (-1)
+            x += tile.bbox_left - bbox_right - 1;
+            show_debug_message('pushing to the left');
+        } else {
+            // We have no way to know which x direction to send the entity, and
+            // it is fully overlapping (or being overlapped) against the tile,
+            // so in this very rare case we will PUSH IT UP and out of the wall.
+            show_debug_message("pushing UP, as we cant tell how to move");
+            y -= bbox_bottom - tile.bbox_top + 1;
+        }
+        
+        // At this point, the entity should no longer be in collision with this particular wall tile.
+        // Will repeat this if collides with another wall tile.
+    }
+    iLoop++;
 }
 
-// DO ALL ENTITY LEFT/RIGHT MIRRORING HERE so we can check if mirroring
-// pushes into tile.
+// TEMP CHECK FOR UNEXPECTED COLLISION 
+if (place_meeting(x, y, obj_wallTile)) {
+    if (object_index == obj_player) {
+        show_debug_message('EARLY PLAYER COLLISION STILL EXISTS!');
+    }
+}
+
+
+// At this point, we should not be colliding with wall tiles
 
 // Calculate new proposed position
 //var newX = x + hspeed * movementSlowEffectLevel * global.deltaTime;
@@ -420,31 +581,35 @@ var newX = x + speed_x * movementSlowEffectLevel * global.deltaTime;
 
 // Check collision with wall tiles first
 if (place_meeting(newX, y, obj_wallTile)) {
-    var prevSpeedX = speed_x; // Store temporarily in case we have to bounce the player
+    var prevSpeedX = speed_x; // Store temporarily as we have to stop the player
     
-    // Stop player movement. This resets speed_x, which is why we capture old speed first.
-    scr_entity_stopMoving_Sudden();
-    
-    // Move newX until it is right up against the wall tile
-    var moveAdjust = 0; // Will either be 1 or -1 depending on entity direction
-    while (place_meeting(newX, y, obj_wallTile) == false) {
-        if (newX &gt; x) {
-            // Entity is moving to the right, so we will inch the x direction by 1
-            newX ++;
+    // Round the new x position to nearest integer. Otherwise, fractions in the speed
+    // push us into the tile at different locations, and then when we back out 1 px at a time,
+    // our location outside of the tile will vary from step to step, causing a jittery
+    // effect when the entity (mainly the player) continue to try to move into the wall.
+    newX = round(newX);
+    // Reverse newX until it is not colliding with a wall tile
+    while (place_meeting(newX, y, obj_wallTile)) {
+        if (speed_x &gt; 0) {
+            // Entity was moving to the right, so we will inch the new x pos by -1
+            newX--;
         } else {
-            // Entity is moving to the left, so we will inch the x direction by -1
-            newX --;
+            // Entity was moving to the left, so we will inch the new x pos by 1
+            newX++;
         }
     }
-
+    
+    // Stop entity movement. This resets speed_x, so we can't use that to check speed anymore
+    scr_entity_stopMoving_Sudden();
+    
     // Restart entity movement if bounce variable is set
     if (wallBounce) {
         if (prevSpeedX &gt; 0) {
             // Was moving right, so now move left
-            scr_entity_startMovingLeft();
+            //scr_entity_startMovingLeft();
         } else {
             // Was moving left, so now move right
-            scr_entity_startMovingRight();
+            //scr_entity_startMovingRight();
         }
     }
 
@@ -452,11 +617,14 @@ if (place_meeting(newX, y, obj_wallTile)) {
 
 // At this point, newX should not be in collision with a wall tile.
 
-if (place_meeting(newX, y, obj_physicsTile) &amp;&amp; !place_meeting(x, y, obj_physicsTile)) {
-    // New X would collide with floor tile, but current X doesn't. We can't let horizontal movement
-    // push player into a floor tile, so inch player in direction until he would collide.
+// Check collision with floor tiles
+if (!isJumping &amp;&amp; place_meeting(newX, y, obj_physicsTile) &amp;&amp; !place_meeting(x, y, obj_physicsTile)) {
+    // Player not jumping, new X would collide with floor tile, and current X doesn't. We can't let 
+    // horizontal movement push player into a floor tile when they are not jumping, so inch player 
+    // in direction until he would collide.
+
     while (place_meeting(newX, y, obj_physicsTile)) {
-        if (newX &gt; x) {
+        if (speed_x &gt; 0) {
             // Entity is moving to the right, so we will pull the entity back to the left by 1
             newX --;
         } else {
@@ -464,14 +632,31 @@ if (place_meeting(newX, y, obj_physicsTile) &amp;&amp; !place_meeting(x, y, obj_
             newX ++;
         }
     }
+    
+    // Stop entity movement.
+    scr_entity_stopMoving_Sudden();
 }
 
 // At this point, new X is not colliding with a wall tile, and is not colliding
 // with a floor tile unless we were already colliding with a floor tile (allowed by vertical movement checks)
 x = newX;
 
+if (place_meeting(x, y, obj_wallTile)) {
+    show_debug_message("STILL horizontal collision at end of checks. Should be impossible.");
+}
+
 // Stuff below here is out of date
 return 0;
+
+
+
+
+
+
+
+
+
+
 
 // Check collision
 if (place_meeting(newX, y, obj_physicsTile)) {

@@ -96,13 +96,13 @@ if (place_meeting(x, newY, obj_physicsTile)) {
     }
     // Bounce vertically
     if (groundBounceCount &lt; groundBounceCountMax) {
-        speed_x *= -1; // Lose some horizontal speed when bouncing
-        vspeed *= .6; // Lose some vertical speed when bouncing
+        vspeed *= -1;
+        vspeed *= .6; // Lose vspeed when bouncing
         rotationSpeed *= .6; // Lose rotation when bouncing
         groundBounceCount ++;
     } else {
-        speed_x = 0;
         vspeed = 0;
+        hspeed = 0;
         rotationSpeed = 0;
     }
 
@@ -112,12 +112,12 @@ if (place_meeting(x, newY, obj_physicsTile)) {
 
 // Do horizontal movement
 var oldX = x;
-var newX = x + speed_x * global.deltaTime;
+var newX = x + hspeed * global.deltaTime;
 if (place_meeting(newX, y, obj_physicsTile)) {
     // Collision at new X position
     // With collision at new X, we can't just move there. Instead, we change X until it would collide.
     var tweakX;
-    if (speed_x &lt; 0) {
+    if (hspeed &lt; 0) {
         tweakX = -1; // Entity is travelling left
     } else {
         tweakX = 1; // Entity is travelling right
@@ -127,8 +127,8 @@ if (place_meeting(newX, y, obj_physicsTile)) {
         x += tweakX;
     }
     // Bounce horizontally
-    speed_x *= -1; // Lose horizontal speed when bouncing
-    speed_y *= .8; // Lose vertical speed when bouncing
+    hspeed *= -1;
+    hspeed *= .8; // Lose hspeed when bouncing
     rotationSpeed *= .6; // Lose rotation when bouncing
 } else {
     x = newX;
