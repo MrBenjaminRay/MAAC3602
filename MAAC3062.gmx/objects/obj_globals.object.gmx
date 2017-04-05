@@ -262,7 +262,7 @@ global.towers[3, 15] = 4000;
 
 // FIREANT HOSE:
 global.towers[4, 0] = "FireAnt Hose";
-global.towers[4, 1] = 1500;
+global.towers[4, 1] = 1250;
 global.towers[4, 2] = obj_tower_fireAnt;
 global.towers[4, 3] = spr_tower_fireAnt;
 global.towers[4, 4] = 130; // sprite_get_width(global.towers[4, 3]);

@@ -133,7 +133,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*13, "Armour: x x");
             draw_text(x, y + lineOffset*15, "Area Damage: None");
             draw_text(x, y + lineOffset*17, "Special Effect: None");
-            draw_text(x, y + lineOffset*19, "Cost: x");
+            draw_text(x, y + lineOffset*19, "Cost: 300 Energy");
             
             if(global.towerUpgradeLevel[0] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
@@ -154,7 +154,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*17, "Special Effect: While attached, ");
             draw_text(x, y + lineOffset*18, "affected enemy is slowed. The slow");
             draw_text(x, y + lineOffset*19, "worsens over time.");
-            draw_text(x, y + lineOffset*20, "Cost: x x");
+            draw_text(x, y + lineOffset*20, "Cost: 750 Energy");
             
             if(global.towerUpgradeLevel[1] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
@@ -174,7 +174,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*15, "Area Damage: x x x x 1/2");
             draw_text(x, y + lineOffset*17, "Special Effect: None");
             draw_text(x, y + lineOffset*18, "");
-            draw_text(x, y + lineOffset*20, "Cost: x x x");
+            draw_text(x, y + lineOffset*20, "Cost: 1000 Energy");
             
             if(global.towerUpgradeLevel[2] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
@@ -193,7 +193,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*15, "Area Damage: x x x");
             draw_text(x, y + lineOffset*17, "Special Effect: Ants burn enemies,");
             draw_text(x, y + lineOffset*18, "increasing damage dealt with each ant");
-            draw_text(x, y + lineOffset*20, "Cost: x x x 1/2");
+            draw_text(x, y + lineOffset*20, "Cost: 1250 Energy");
             
             if(global.towerUpgradeLevel[4] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
@@ -212,7 +212,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*15, "Area Damage: x x x 1/2");
             draw_text(x, y + lineOffset*17, "Special Effect: The teddy bear can pass");
             draw_text(x, y + lineOffset*18, "through and damage multiple enemies.");
-            draw_text(x, y + lineOffset*19, "Cost: x x 1/2");
+            draw_text(x, y + lineOffset*19, "Cost: 750 Energy");
             if(global.towerUpgradeLevel[3] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
             else
@@ -232,7 +232,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*17, "Special Effect: Player must mount ");
             draw_text(x, y + lineOffset*18, "tower and use the mouse to fire. ");
             draw_text(x, y + lineOffset*19, "Needs to reload periodically.");
-            draw_text(x, y + lineOffset*20, "Cost: x x x x");
+            draw_text(x, y + lineOffset*20, "Cost: 2000 Energy");
             
             if(global.towerUpgradeLevel[5] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
@@ -253,7 +253,7 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*15, "Area Damage: x x x x x");
             draw_text(x, y + lineOffset*17, "Special Effect: BIG BOOM.");
             draw_text(x, y + lineOffset*18, "");
-            draw_text(x, y + lineOffset*19, "Cost: x x x x x");
+            draw_text(x, y + lineOffset*19, "Cost: 2000 Energy");
             
             if(global.towerUpgradeLevel[6] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
