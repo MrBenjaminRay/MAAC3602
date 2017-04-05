@@ -11,6 +11,13 @@ if (y % 32 < 16) {
 // Determine the total number of platforms below the entity:
 var totalTiles = 0;
 
+// TODO:  Get a reference to all tiles below the entity so that we can
+// check if there is enough room for this entity immediately below
+// the first tile below him.
+var tiles;
+
+
+
 while (tempY < room_height) {
     tempY += sprite_height;
     

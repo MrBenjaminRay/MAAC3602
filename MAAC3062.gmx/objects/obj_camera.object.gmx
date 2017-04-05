@@ -83,6 +83,13 @@ view_vborder = view_hview[0]/2;
 // Force view to follow the camera by default
 view_object[0] = object_index;
 
+// Set the initial view coordinates to be the lower left of the room.
+// It is from here that the view will immediately travel towards the camera target,
+// which will typically be the player. Will refine this later. -Ben
+view_xview[0] = 0;
+view_yview[0] = room_height - view_hview[0];
+//view_xview[0] = 200;
+//view_yview[0] = 500;
 </string>
           </argument>
         </arguments>
