@@ -56,8 +56,11 @@ while (tempY < room_height) {
 // Whether we found two tile levels below the entity or we hit the height of the room,
 // either way we can check if there is enough room for the player to fit between 
 // the two tile levels.
+// Account for the height of the floor tile being dropped through.
 // sprite_height already accounts for image_yscale, so no need to consider that.
-if (tileY2 - tileY1 >= sprite_height) {
+var space = tileY2 - tileY1 - sprite_get_height(spr_physicsTile);
+if (space >= sprite_height) {
+    show_debug_message(space);
     return true;
 } else {
     return false;
