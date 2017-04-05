@@ -712,6 +712,8 @@
       <background>background\bkg_asteroid_1</background>
       <background>background\bkg_asteroid_backtiles</background>
       <background>background\bkg_asteroid_fronttiles</background>
+      <background>background\bkg_texture_back</background>
+      <background>background\bkg_texture_front</background>
     </backgrounds>
     <backgrounds name="MarsBackgrounds">
       <background>background\bkg_mars_0</background>
