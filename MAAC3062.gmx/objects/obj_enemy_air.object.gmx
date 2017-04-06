@@ -137,6 +137,8 @@ if (path != noone) {
     path_start(path, spd, path_action_continue, true);
 }
 
+// Variable helps us resume enemy speed after pause state is turned off
+prevSpeed = noone;
 
 </string>
           </argument>
@@ -170,6 +172,64 @@ if (path != noone) {
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Handle Pause</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.state == "Paused") {
+    // Game is paused
+    if (prevSpeed == noone) {
+        // Previous speed has not been set, so this must be first step after pausing
+        // Set variable and stop speed
+        prevSpeed = path_speed;
+        path_speed = 0;
+    }
+} else {
+    // Game is running
+    if (prevSpeed != noone) {
+        // Value is set, so we must have just unpaused
+        // Resume speed and clear flag
+        path_speed = prevSpeed;
+        prevSpeed = noone;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>605</id>
