@@ -51,7 +51,8 @@ if (irandom_range(0, 1)) {
 }
 
 
-healthBarYOffset -= 10;
+healthBarYOffset = -10;
+
 </string>
           </argument>
         </arguments>
@@ -124,39 +125,6 @@ instance_destroy();
       </action>
     </event>
     <event eventtype="4" ename="obj_enemy_boss_mini_B">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (other.isRootedBySnake == false) {
-    other.isRootedBySnake = true;
-}
-
-if (global.plrAbilityUpgraded[1]) {
-    other.timeUntilUnrooted += 3000;
-} else {
-    other.timeUntilUnrooted += 5000;
-}
-
-instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_enemy_boss_mini_A">
       <action>
         <libid>1</libid>
         <id>603</id>

@@ -87,8 +87,8 @@ scr_statistics_setData(31, instance_number(obj_miner));
             <kind>1</kind>
             <string>global.prepTimeRemaining--;
 
-if(global.prepTimeRemaining &lt; 0){
-    global.enemiesCanSpawn = true;
+if(global.prepTimeRemaining &lt; 0) {
+    scr_spawning_enableSpawners();
 }
 </string>
           </argument>
