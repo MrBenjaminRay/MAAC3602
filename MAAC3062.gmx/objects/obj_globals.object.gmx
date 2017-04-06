@@ -30,13 +30,13 @@ global.navPieceAttained[1] = false; // Whether or not the player has attained th
 global.navPieceAttained[2] = false; // Whether or not the player has attained the third nav piece.
 global.navPieceAttained[3] = false; // Whether or not the player has attained the fourth nav piece.
 
-global.towerUnlocked[0] = true; // Basic Tower
-global.towerUnlocked[1] = false; // Freezer Tower
-global.towerUnlocked[2] = false; // Mortar Tower
-global.towerUnlocked[3] = false; // 109 Cal Tower
-global.towerUnlocked[4] = false; // Flame Tower
-global.towerUnlocked[5] = false; // M6100 Tower
-global.towerUnlocked[6] = false; // Goat Tower
+global.towerUnlocked[0] = true; // Caterpillager Tower
+global.towerUnlocked[1] = false; // Sloth Tower
+global.towerUnlocked[2] = false; // Titmouse Tower
+global.towerUnlocked[3] = false; // 109 CaliBear Tower
+global.towerUnlocked[4] = false; // FireAnt Tower
+global.towerUnlocked[5] = false; // RT-6100 Tower
+global.towerUnlocked[6] = false; // MechaGoat Tower
 
 
 // NOTE:
@@ -262,7 +262,7 @@ global.towers[3, 15] = 4000;
 
 // FIREANT HOSE:
 global.towers[4, 0] = "FireAnt Hose";
-global.towers[4, 1] = 1500;
+global.towers[4, 1] = 1250;
 global.towers[4, 2] = obj_tower_fireAnt;
 global.towers[4, 3] = spr_tower_fireAnt;
 global.towers[4, 4] = 130; // sprite_get_width(global.towers[4, 3]);

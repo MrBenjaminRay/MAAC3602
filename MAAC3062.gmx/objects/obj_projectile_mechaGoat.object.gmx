@@ -61,6 +61,10 @@ maxLife = 20000;
 // This is different from direction variable, as aim will not always match actual direction
 direction_aim = 0;
 
+armDelay = 1000;        // 1 second between when goat is launched and when it armed
+                        // Prevents detonation at tower itself
+
+
 // Whether or not to vertically flip the image
 projFlip = false;
 
@@ -224,6 +228,13 @@ if (speed &gt; 0) {
     }
 }
 
+// Decrement armDelay
+if (armDelay &lt; 0) {
+    armDelay = 0;
+} else {
+    armDelay -= global.deltaTime;
+}
+
 // When within range of target, always fly straight (either towards or away)
 // This makes sure goat has to fly away from enemy, turn, then make another pass
 if (abs(point_distance(x, y, targetEnemy.x, targetEnemy.y)) &lt;= 400) {
@@ -269,7 +280,7 @@ if (jetDelayElapsed &lt; jetDelay) {
 y += (vspeed) * global.deltaTime;
 
 // Horizontal movement (don't worry about collision yet)
-x += (speed_x) * global.deltaTime;
+x += (hspeed) * global.deltaTime;
 
 scr_projectile_enforceMaxLife();
 
@@ -277,10 +288,13 @@ scr_projectile_enforceMaxLife();
 image_angle = direction_aim;
 direction = direction_aim;
 
-jetPack.image_angle = image_angle;
-jetPack.x = x + cos(degtorad(image_angle)) * jetPack_offsetX;
-jetPack.y = y - sin(degtorad(image_angle)) * jetPack_offsetY;
-jetPack.depth = depth -1; // Jet pack always appears in front of goat
+if (instance_exists(jetPack)) {
+    jetPack.image_angle = image_angle;
+    jetPack.x = x + cos(degtorad(image_angle)) * jetPack_offsetX;
+    jetPack.y = y - sin(degtorad(image_angle)) * jetPack_offsetY;
+    jetPack.depth = depth -1; // Jet pack always appears in front of goat
+}
+
 
 </string>
           </argument>
@@ -305,7 +319,7 @@ jetPack.depth = depth -1; // Jet pack always appears in front of goat
           <argument>
             <kind>1</kind>
             <string>// Check if is correct enemy, and detonate, otherwise ignore
-if (other.object_index == targetEnemy.object_index) {
+if (other.object_index == targetEnemy.object_index &amp;&amp; armDelay &lt; 0) {
     instance_destroy();
 }
 

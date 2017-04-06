@@ -110,6 +110,16 @@ if (maxLife &gt; 0) {
         instance_destroy();
     }
 }
+
+
+// Ensure upgrade is on-screen:
+if (x &gt; room_width) {
+    x = room_width - sprite_width;
+}
+
+if (x &lt; 0) {
+    x = 0;
+}
 </string>
           </argument>
         </arguments>

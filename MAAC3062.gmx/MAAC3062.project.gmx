@@ -238,7 +238,9 @@
           <sprite>sprites\spr_listItem_sel</sprite>
         </sprites>
         <sprite>sprites\spr_researchWep</sprite>
+        <sprite>sprites\spr_researchWep_glow</sprite>
         <sprite>sprites\spr_selectDest</sprite>
+        <sprite>sprites\spr_selectDest_glow</sprite>
         <sprite>sprites\spr_nextStop</sprite>
         <sprite>sprites\spr_Travel</sprite>
         <sprite>sprites\spr_upgrade</sprite>
@@ -247,6 +249,14 @@
         <sprite>sprites\spr_upgrade_token</sprite>
         <sprite>sprites\spr_button_red</sprite>
         <sprite>sprites\spr_button_green</sprite>
+        <sprite>sprites\spr_metalBar</sprite>
+        <sprite>sprites\spr_metalBar_rotate</sprite>
+        <sprite>sprites\spr_metalBar_shadow</sprite>
+        <sprite>sprites\spr_metalBar_shadow_cut</sprite>
+        <sprite>sprites\spr_metalBar_rotate_shadow</sprite>
+        <sprite>sprites\spr_metalBar_shadow2</sprite>
+        <sprite>sprites\spr_metalBar_shadow3</sprite>
+        <sprite>sprites\spr_nav_shadow</sprite>
       </sprites>
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
@@ -449,7 +459,7 @@
           <sprite>sprites\spr_slow_Upgrade</sprite>
           <sprites name="MechaGoatUpgrade">
             <sprite>sprites\spr_mecha_goat_update</sprite>
-            <sprite>sprites\spr_tower_open_Update</sprite>
+            <sprite>sprites\spr_mecha_goat_tower_open_update</sprite>
           </sprites>
         </sprites>
         <sprites name="Caterpillager">
@@ -496,7 +506,6 @@
         </sprites>
         <sprites name="MechaGoat">
           <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
-          <sprite>sprites\spr_tower_mechaGoat_right</sprite>
           <sprite>sprites\spr_mechaGoat_locked</sprite>
           <sprite>sprites\spr_tower_destroyed_mechaGoat</sprite>
           <sprite>sprites\spr_tower_mechaGoat_left</sprite>
@@ -747,6 +756,15 @@
     <path>paths\path_ship_turning</path>
     <path>paths\path_crashing_ship</path>
     <path>paths\path_asteroid</path>
+    <path>paths\path_flying_forest</path>
+    <path>paths\path_flying_desert</path>
+    <path>paths\path_flying_ice</path>
+    <path>paths\path_flying_underwater</path>
+    <path>paths\path_flying_asteroid</path>
+    <path>paths\path_flying_mars</path>
+    <path>paths\path_flying_earth</path>
+    <path>paths\path_tutorial_ship</path>
+    <path>paths\path_tutorial_player</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
@@ -773,6 +791,8 @@
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
         <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
         <script>scripts\scr_tower_isLocationValid.gml</script>
+        <script>scripts\scr_tower_getGoatTarget.gml</script>
+        <script>scripts\scr_tower_launchGoat.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
@@ -872,6 +892,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
+    <font>fonts\fnt_messageBox_edit</font>
     <font>fonts\fnt_hud_mineralEnergyLevels</font>
     <font>fonts\fnt_levelFailMessage</font>
     <font>fonts\fnt_hud_hotbar_hotkey</font>
@@ -1142,6 +1163,7 @@
         <object>objects\obj_quit</object>
         <object>objects\obj_back</object>
         <object>objects\obj_mainMenu</object>
+        <object>objects\obj_mainMenu_hub</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_OK</object>
         <object>objects\obj_back_small</object>
@@ -1165,6 +1187,8 @@
           <object>objects\obj_unlock_upgrade</object>
           <object>objects\obj_researchWep</object>
           <object>objects\obj_hudModeSelect</object>
+          <object>objects\obj_selectDest_new</object>
+          <object>objects\obj_researchWep_new</object>
           <object>objects\obj_selectDest</object>
           <object>objects\obj_navArray</object>
           <object>objects\obj_infoText</object>
@@ -1182,6 +1206,14 @@
           <object>objects\obj_hub_sneakySnakes</object>
           <object>objects\obj_hub_blaster</object>
           <object>objects\obj_hub_catsAndDogs</object>
+          <object>objects\obj_metalBar</object>
+          <object>objects\obj_metalBar_rotate</object>
+          <object>objects\obj_metalBar_shadow</object>
+          <object>objects\obj_metalBar_shadow2</object>
+          <object>objects\obj_metalBar_rotate_shadow</object>
+          <object>objects\obj_metalBar_shadow3</object>
+          <object>objects\obj_nav_shadow</object>
+          <object>objects\obj_upgradeToken_icon</object>
         </objects>
         <objects name="WeaponResearch">
           <object>objects\obj_listItem</object>

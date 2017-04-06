@@ -41,36 +41,33 @@
             <kind>1</kind>
             <string>scr_entity_loadTowerData(6);
 
-// Special stuff just for goat
-enemyTypePriority[0] = obj_enemy_boss_large_A;
-enemyTypePriority[1] = obj_enemy_boss_large_B;
-enemyTypePriority[2] = obj_enemy_boss_large_C;
-enemyTypePriority[3] = obj_enemy_boss_large_D;
-enemyTypePriority[4] = obj_enemy_boss_mini_A;
-enemyTypePriority[5] = obj_enemy_boss_mini_B;
-enemyTypePriority[6] = obj_enemy_boss_mini_C;
-enemyTypePriority[7] = obj_enemy_boss_mini_D;
-enemyTypePriority[8] = obj_enemy_ground_spider_large;
-enemyTypePriority[9] = obj_enemy_ground_jackal;
-enemyTypePriority[10] = obj_enemy_ground_heavy;
-enemyTypePriority[11] = obj_enemy_air_heavy;
-enemyTypePriority[12] = obj_enemy_ground_medium;
-enemyTypePriority[13] = obj_enemy_air_light;
-enemyTypePriority[14] = obj_enemy_ground_spider_small;
-enemyTypePriority[15] = obj_enemy_ground_light;
-enemyTypePriority[16] = obj_enemy_ground;    // In case a ground type was not explicitly mentioned above
-enemyTypePriority[17] = obj_enemy_air;       // In case a ground type was not explicitly mentioned above
-enemyTypePriority[18] = obj_enemy;           // In case a ground type was not explicitly mentioned above
-
 image_index = 0;
 image_speed = 0;
-mouthState = 0; // 0 = nothing, 1 = opening, 2 = open (delay), 3 = closing
+state = -1; // 0 = finding target, 1 = mouth opening, 2 = launch goat(s), 3 = mouth open delay, 4 = mouth closing, 5 = cooldown
 mouthAnimationSpeed = .1; // Speed to use when opening and closing (closing will be negative)
 mouthOpenTime = 1000; // Amount of time to leave mouth open before closing
 mouthOpenTimeElapsed = 0;
 
+mouthClosedTime = 2000; // Amount of time to leave mouth closed before allowing to fire again
+mouthClosedTimeElapsed = 0;
+
 // Reference to goat projectile. Will be noone when no goat is in the air.
-goatObj = noone;
+goatObj1 = noone;
+goatObj2 = noone;
+target1 = noone;
+target2 = noone;
+
+// When upgraded, this is how long to wait after first goat to fire second goat
+secondGoatCountdown = 1000;
+secondGoatFired = false;
+
+if (global.towerUpgradeLevel[6] == 1) {
+    // Goat tower not upgraded
+    maxGoats = 1;
+} else {
+    // Goat tower is upgraded
+    maxGoats = 2;
+}
 
 </string>
           </argument>
@@ -111,6 +108,28 @@ goatObj = noone;
             <string>instance_create(x, y, obj_tower_destroyed_mechaGoat);
 scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Launch Goat</string>
           </argument>
         </arguments>
       </action>
@@ -160,124 +179,134 @@ if (frozenByBossThree) {
     return 0;
 }
 
-// Decrement warmup time remaining if not 0
-if (warmUpRemaining &gt; 0) { 
-    warmUpRemaining -= global.deltaTime;
-    image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
-    y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
-    //weaponObj.image_alpha = 0;
-}
-else {
-    warmUpRemaining = 0;
-    //weaponObj.image_alpha = 1;
-
-    // Enable health bar display:
-    showHealthBar = true;
+var isUpgraded = false;
+// Draw upgraded tower
+if (global.towerUpgradeLevel[6] &gt; 1) {
+    isUpgraded = true; // We need to keep track of this throughout the tower states
 }
 
-if (attackRateCounter &gt;= attackRate &amp;&amp; warmUpRemaining == 0) {
-    attackRateCounter = 0;
-    
-    // Can only fire if this tower doesn't already have a goat out there flying around
-    if (!instance_exists(goatObj)) {
-    
-        // Search for potential targets in order, aiming for biggest/baddest ones first (array defined in create code)
-        var nearestEnemy;
-        for (var i = 0; i &lt; array_length_1d(enemyTypePriority); i++) {
-            nearestEnemy = scr_misc_gearNearestObjectOfType(attackRange, enemyTypePriority[i]);
-            if (nearestEnemy != noone) {
-                break;
-            }
-        }
-    
-        if (nearestEnemy != noone) {
-            // For the goat tower, just decide whether target is more to left or right,
-            // mirror the tower if needed, open the mouth, spawn the projectile, set the 
-            // projectile's target object, then close the mouth.
-            var enemyX = nearestEnemy.x + nearestEnemy.sprite_width/2;
-            var enemyY = nearestEnemy.y + nearestEnemy.sprite_height/2;
-            var projDir;
-            var projDirAimed; // Angle towards which the goat is aimed (different from movement)
-            var projFlip = false; // True when sending projectile to the left (flip vertically), false when right
-            
-            if (enemyX &lt; x + sprite_width/2) {
-                // Target is currently to the left of tower's center point
-                sprite_index = spr_tower_mechaGoat_left;
-                projDir = 150;
-                projDirAim = projDir;
-                projFlip = true;
-            } else {
-                // Target is currently to the right (or exactly same) as tower's center point
-                sprite_index = spr_tower_mechaGoat_right;
-                projDir = 30;
-                projDirAim = projDir;
-                projFlip = false;
-            }
-    
-            // Spawn projectile (use offset to spawn goat behind tower's mouth):
-            var projX = x + weaponXOffset;
-            var projY = y + weaponYOffset;
-            var proj = scr_spawn_projectile(obj_projectile_mechaGoat, projX, projY, nearestEnemy, false, attackDamage);
-            proj.direction = projDir;
-            proj.direction_aim = projDirAim;
-            proj.targetEnemy = nearestEnemy;
-            proj.depth = depth + 1; // Goat initially appears behind tower (will be changed to goat's depthAfterLaunch after launch)
-            proj.projFlip = projFlip;
+if (state == -1) {
 
-            // Get reference to goat object
-            goatObj = proj;
-            
-            audio_play_sound(snd_basicTower, 0, false);
-            audio_sound_gain(snd_basicTower, 0.4, 0);
-            
-            // Show projectile spawn effect: (NONE FOR GOAT, UNLESS WE THINK OF SOMETHING FUNNY)
-            //scr_create_explosion(projX, projY, 'Flash');
-            
-            // Start kickback (NONE FOR GOAT)
-            //scr_entity_weaponKickback_Start();
-            
-            // Start the mouth open-close animation
-            mouthState = 1;
-            image_index = 0;
-            image_speed = mouthAnimationSpeed;
+    // Decrement warmup time remaining if not 0
+    if (warmUpRemaining &gt; 0) { 
+        warmUpRemaining -= global.deltaTime;
+        image_yscale = (warmUpTotal - warmUpRemaining) / warmUpTotal;
+        y = originalY + sprite_get_height(sprite_index) - image_yscale * sprite_get_height(sprite_index);
+        //weaponObj.image_alpha = 0;
+    }
+    else {
+        warmUpRemaining = 0;
+        //weaponObj.image_alpha = 1;
+    
+        // Enable health bar display:
+        showHealthBar = true;
+        // Go to first state
+        state = 0;
+        //show_debug_message('state 0 started');
+    }
+} else if (state == 0) {
+    // Hunt for a target (mouth closed)
+
+    var canFire = !instance_exists(goatObj1) &amp;&amp; !instance_exists(goatObj2);
+    if (canFire) {
+        // Search for a potential target in order, aiming for biggest/baddest ones first (array defined in create code)
+        // Only search for first enemy now. Find second enemy (if upgraded) after first one fired while mouth already open.
+        target1 = scr_tower_getGoatTarget();
+        if (isUpgraded) {
+            sprite_index = spr_mecha_goat_update;
+            image_speed = .25;        
         }
     }
-}
-
-attackRateCounter += global.deltaTime;
-
-if (mouthState == 0) {
-    // Mouth not doing anything
+    //show_debug_message('state 0 middle');
+    if (target1 != noone) {
+        // We have a target, so move to the next state
+        state = 1;
+        image_index = 0;
+        image_speed = mouthAnimationSpeed;
+        if (isUpgraded) {
+            sprite_index = spr_mecha_goat_tower_open_update;
+        }
+    }
     
-} else if (mouthState == 1) {
+} else if (state == 1) {
     // Mouth opening
+
     if (image_index &lt; image_number) {
         // State still valid, so continue
         
     } else {
         // We are at the last frame, so stop animation and start the next step
         image_speed = 0;
-        mouthState = 2;
-        mouthOpenTimeElapsed = 0;
+        state = 2;
     }
-} else if (mouthState == 2) {
+
+} else if (state == 2) {
+
+    if (instance_exists(target1)) {
+        // Launch the goat
+        goatObj1 = scr_tower_launchGoat(target1);
+
+        // Goat(s) fired, so move to mouth delay state
+        state = 3;
+        mouthOpenTimeElapsed = 0;
+        image_speed = 0;
+        image_index = image_number - 1;
+        secondGoatCountdownLeft = secondGoatCountdown; // Only has an effect if tower upgraded
+        secondGoatFired = false;
+        
+    } else {
+        // First target disappeared while mouth opening
+        // Find another target
+        target1 = scr_tower_getGoatTarget();
+        // Keep state at 2 so this block will repeat
+        // and attempt to fire at the target found
+    }
+
+} else if (state == 3) {
+    // Mouth delay
+    image_speed = 0;
+    image_index = image_number - 1;
+    // If tower is upgraded, find a second target and launch if one is found
+    if (maxGoats == 2 &amp;&amp; secondGoatCountdownLeft &lt;= 0 &amp;&amp; secondGoatFired == false) {
+        target2 = scr_tower_getGoatTarget(target1);
+        if (target2 != noone) {
+            goatObj2 = scr_tower_launchGoat(target2);
+            secondGoatFired = true;
+        }
+    } else {
+        secondGoatCountdownLeft -= global.deltaTime;
+    }
+    
     // Mouth open, so increment time counter
     if (mouthOpenTimeElapsed &lt; mouthOpenTime) {
         mouthOpenTimeElapsed += global.deltaTime;
     } else {
         // Mouth has been open long enough, so start the next step
-        mouthState = 3;
+        state = 4;
         image_speed = -mouthAnimationSpeed;
     }
-} else if (mouthState == 3) {
-    // Mouth closing
+    
+} else if (state == 4) {
+    // Mouth close
     if (image_index &gt; 0) {
         // Continue reverse animation to close mouth   
     } else {
-        // Mouth is closed, so stop animation and switch to step 0
+        // Mouth is closed, so stop animation and switch to step 5
         image_index = 0;
         image_speed = 0;
-        mouthState = 0;
+        state = 5;
+        mouthClosedTimeElapsed = 0;
+        if (isUpgraded) {
+            sprite_index = spr_mecha_goat_update;
+            image_speed = .25;        
+        }
+    }
+} else if (state == 5) {
+    if (mouthClosedTimeElapsed &lt; mouthClosedTime) {
+        mouthClosedTimeElapsed += global.deltaTime;
+    } else {
+        // Mouth has been closed long enough, so go to the first step
+        state = 0;
     }
 }
 

@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1600</width>
   <height>900</height>
-  <vsnap>4</vsnap>
-  <hsnap>8</hsnap>
+  <vsnap>1</vsnap>
+  <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -61,7 +61,6 @@ cursor_sprite = noone;</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_back_small" x="32" y="784" name="inst_502DEA9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_navArray" x="136" y="616" name="inst_D4044949" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_control" x="320" y="-32" name="inst_E32D0300" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_messageBoxMain" x="384" y="320" name="inst_DCD83138" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -72,7 +71,6 @@ cursor_sprite = noone;</code>
     <instance objName="obj_waterButton" x="672" y="520" name="inst_538CF1B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sideways_message" x="1184" y="32" name="inst_81934B16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_infoText" x="1232" y="160" name="inst_56988993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hudModeSelect" x="152" y="108" name="inst_286CA429" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_caterpillager" x="480" y="368" name="inst_4A4A420C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_sloth" x="480" y="512" name="inst_AE3AF8F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_fireAnt" x="608" y="384" name="inst_C9B351CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -80,7 +78,7 @@ cursor_sprite = noone;</code>
     <instance objName="obj_hub_titMouse" x="960" y="360" name="inst_BB4B7ED0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_RT6100" x="640" y="512" name="inst_50602CE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_mechaGoat" x="800" y="512" name="inst_4B3DD760" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_unlock_upgrade" x="1336" y="616" name="inst_8B76A3FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_unlock_upgrade" x="1336" y="584" name="inst_8B76A3FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_forcePulse" x="960" y="544" name="inst_5027218D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_sneakySnakes" x="1024" y="544" name="inst_F2492221" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_blaster" x="960" y="608" name="inst_8789B031" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -88,11 +86,27 @@ cursor_sprite = noone;</code>
     <instance objName="obj_redPlanetButton" x="864" y="512" name="inst_76004E72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_asteroidButton" x="928" y="384" name="inst_1FE0904A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_upgradeTokens" x="768" y="764" name="inst_E8B41E88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_travel" x="1336" y="616" name="inst_67EEACE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_travel" x="1336" y="584" name="inst_67EEACE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_parallax_controller" x="1064" y="32" name="inst_F25B002C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_red" x="1360" y="824" name="inst_8623DDC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_red" x="1552" y="824" name="inst_4DEFA6C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_button_green" x="1456" y="824" name="inst_CF326C60" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_researchWep_new" x="800" y="128" name="inst_DC5A8B0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_selectDest_new" x="576" y="128" name="inst_21BE43FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar" x="695" y="684" name="inst_FF18BB18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar" x="814" y="684" name="inst_B905CFE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_rotate" x="1548" y="599" name="inst_CCAF68E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_rotate" x="1548" y="205" name="inst_F7D79F47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_shadow" x="862" y="790" name="inst_599562B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_shadow" x="743" y="790" name="inst_BE3D05B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_shadow2" x="852" y="826" name="inst_B1BD8991" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_shadow2" x="733" y="826" name="inst_94149B81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_shadow3" x="1520" y="790" name="inst_3BCE13F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_nav_shadow" x="359" y="793" name="inst_7955CF90" locked="0" code="" scaleX="1.58695650100708" scaleY="1.66666662693024" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_rotate_shadow" x="363" y="790" name="inst_3B7E5A7C" locked="0" code="" scaleX="0.263940513134003" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
+    <instance objName="obj_nav_shadow" x="221" y="715" name="inst_0A9BEB24" locked="0" code="" scaleX="1.11111116409302" scaleY="0.794871807098389" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mainMenu_hub" x="72" y="823" name="inst_B9F785FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgradeToken_icon" x="1453" y="598" name="inst_8E9BA14E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
