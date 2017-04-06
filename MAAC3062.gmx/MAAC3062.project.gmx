@@ -447,6 +447,10 @@
           <sprite>sprites\spr_flame_Upgrade</sprite>
           <sprite>sprites\spr_mortar_Upgrade</sprite>
           <sprite>sprites\spr_slow_Upgrade</sprite>
+          <sprites name="MechaGoatUpgrade">
+            <sprite>sprites\spr_mecha_goat_update</sprite>
+            <sprite>sprites\spr_tower_open_Update</sprite>
+          </sprites>
         </sprites>
         <sprites name="Caterpillager">
           <sprite>sprites\spr_caterpillager_locked</sprite>
