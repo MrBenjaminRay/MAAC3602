@@ -5,9 +5,78 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//tool tip stuff
+mouseHoverTime = 0;
+toolTipEnabled = false;
+shadowOffset = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Hover tooltip stuff
+if (
+    point_in_rectangle(
+        window_mouse_get_x(), 
+        window_mouse_get_y(), 
+        x-sprite_width/2,
+        y-sprite_height/2,
+        x+sprite_width/2,
+        y+sprite_height/2
+    )
+) {
+    if(!toolTipEnabled)
+        mouseHoverTime++;
+}
+else {
+    mouseHoverTime = 0;
+    toolTipEnabled = false;
+}
+
+if(mouseHoverTime &gt;= 60)
+    toolTipEnabled = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
@@ -33,6 +102,98 @@
 if(scr_notificationCount() == 0)
     room_goto(rm_navArray);
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(mouseHoverTime &gt;= 45) {
+
+    var text;
+    text[0] = '';
+    text[1] = '';
+    text[2] = 'Check your progress towards returning to Earth.';
+    
+    var backX = x+330;
+    var backY = y-94;//-45
+    
+    // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
+    
+    // Configure
+    draw_set_font(fnt_hud_hoverNew);
+    draw_set_halign(fa_right); // Align text so we don't have to calculate its width
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    
+    // Draw text line 1
+    draw_set_colour(c_black);
+    draw_set_alpha(.5);
+    draw_text(
+        round(backX + shadowOffset), // Center drawing point horizontally
+        round(backY - 28) + shadowOffset,
+        text[0]
+    );
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        round(backX), // Center drawing point horizontally
+        round(backY - 28),
+        text[0]
+    );
+
+    // Draw text line 2
+    draw_set_colour(c_black);
+    draw_set_alpha(.5);
+    draw_text(
+        round(backX + shadowOffset), // Center drawing point horizontally
+        round(backY - 14 + shadowOffset),
+        text[1]
+    );
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        round(backX), // Center drawing point horizontally
+        round(backY - 14),
+        text[1]
+    );
+    
+    // Draw text line 3
+    draw_set_colour(c_black);
+    draw_set_alpha(.5);
+    draw_text(
+        round(backX + shadowOffset), // Center drawing point horizontally
+        round(backY + shadowOffset),
+        text[2]
+    );
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        round(backX), // Center drawing point horizontally
+        round(backY),
+        text[2]
+    );
+    
+    // Reset drawing stuff to defaults
+    draw_set_halign(fa_left);
+
+}
 </string>
           </argument>
         </arguments>
