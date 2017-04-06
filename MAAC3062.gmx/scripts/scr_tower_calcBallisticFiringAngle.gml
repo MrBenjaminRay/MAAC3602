@@ -15,10 +15,10 @@
  *        The y-axis coordinate of the projectile target (destination)
  *
  * @param argument[4]
- *        The initial velocity of the projectile (TBD what kind of value to use here)
+ *        The initial velocity of the projectile
  *
  * @param argument[5]
- *        The gravity affecting the projectile (TBD what kind of value to use here)
+ *        The gravity affecting the projectile
  *
  * @return
  *        The firing angle in radians, or noone if target not reachable with ballistic arc

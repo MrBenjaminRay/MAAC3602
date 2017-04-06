@@ -189,28 +189,28 @@ if (x &lt; 0-maxOffScreenRange || x &gt; room_width+maxOffScreenRange || y &lt; 
     return 0;
 }
 
-x += hspeed * global.deltaTime;
+x += speed_x * global.deltaTime;
 
 // Speed needs to be reduced if not 0
-if (hspeed &gt; 0) {
+if (speed_x &gt; 0) {
     // Is moving to the right
-    var newSpeed = hspeed - speedDecrease * global.deltaTime;
+    var newSpeed = speed_x - speedDecrease * global.deltaTime;
     if (newSpeed &gt;= 0) {
         // New speed would still be &gt;= 0, so do it
-        hspeed = newSpeed;
+        speed_x = newSpeed;
     } else {
         // New speed would be &lt; 0, so just set to 0
-        hspeed = 0;
+        speed_x = 0;
     }
-} else if (hspeed &lt; 0) {
+} else if (speed_x &lt; 0) {
     // Is moving to the left
-    var newSpeed = hspeed + speedDecrease * global.deltaTime;
+    var newSpeed = speed_x + speedDecrease * global.deltaTime;
     if (newSpeed &lt;= 0) {
         // New speed would still be &lt;= 0, so do it
-        hspeed = newSpeed;
+        speed_x = newSpeed;
     } else {
         // New speed would be &gt; 0, so just set to 0
-        hspeed = 0;
+        speed_x = 0;
     }
 }
 

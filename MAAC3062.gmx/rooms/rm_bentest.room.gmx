@@ -93,159 +93,169 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1376" y="480" name="inst_F2C0735D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1120" y="480" name="inst_2B37D27B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="576" y="480" name="inst_B9C66903" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="224" y="448" name="inst_8A1734EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera" x="128" y="96" name="inst_88F603D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="224" y="384" name="inst_8A1734EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera" x="128" y="64" name="inst_88F603D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control_normalState" x="160" y="-32" name="inst_94A44DF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1344" y="448" name="inst_9259A71F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1056" y="128" name="inst_896135E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1248" y="128" name="inst_E8D8A06E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1280" y="128" name="inst_49761C72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1312" y="128" name="inst_9E7C9731" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1184" y="256" name="inst_B3CAAF6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1088" y="128" name="inst_9F230E19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1248" y="256" name="inst_9CA2A5E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1120" y="128" name="inst_7FEF3D74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1184" y="128" name="inst_E9D402D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1216" y="256" name="inst_9EA43527" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1120" y="256" name="inst_02BE6775" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1312" y="256" name="inst_A7E38EE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1152" y="128" name="inst_BDDA80A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1152" y="256" name="inst_003FF8EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1280" y="256" name="inst_AB3E916A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="1216" y="128" name="inst_0D6BED15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="448" name="inst_CC1EDEFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="416" name="inst_5B37A209" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="384" name="inst_23254677" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="352" name="inst_42C94123" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="320" name="inst_86EB1FBE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1248" y="160" name="inst_E8D8A06E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1280" y="160" name="inst_49761C72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1312" y="160" name="inst_9E7C9731" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1376" y="160" name="inst_E9D402D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1216" y="160" name="inst_0D6BED15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="96" y="288" name="inst_D04C30C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="256" name="inst_C8D93465" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="224" name="inst_61DAE6AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="128" y="288" name="inst_CAB2BDE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="160" y="288" name="inst_96FF3F68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="192" y="288" name="inst_747963B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="224" y="288" name="inst_83CC8A6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="256" y="288" name="inst_24A97350" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="288" y="288" name="inst_E361E267" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="320" y="288" name="inst_D7BAAE56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="352" y="288" name="inst_EB1A7D1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="320" name="inst_68D1F2BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="352" name="inst_8B89694A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="384" name="inst_744A7043" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="416" name="inst_EB631101" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="448" name="inst_B34B47CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="448" y="128" name="inst_9CB78F65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="416" y="128" name="inst_8163DD23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="384" y="128" name="inst_9759A1C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="352" y="128" name="inst_0503A04E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="320" y="128" name="inst_A8725CD2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="288" y="128" name="inst_56BDD625" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="256" y="128" name="inst_AAF38E4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="224" y="128" name="inst_0345777E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="192" y="128" name="inst_7EB81CE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="160" y="128" name="inst_1E90F414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="128" y="128" name="inst_B5AD2A9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="128" name="inst_20150D41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="160" name="inst_EFC43A9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="192" name="inst_90DE06F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="128" name="inst_77BCE485" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="288" y="160" name="inst_56BDD625" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="256" y="160" name="inst_AAF38E4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="224" y="160" name="inst_0345777E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="192" y="160" name="inst_7EB81CE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="160" y="160" name="inst_1E90F414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="128" y="160" name="inst_B5AD2A9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="96" y="160" name="inst_20150D41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_ground_light" x="1248" y="352" name="inst_C2DD5361" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="320" name="inst_2BBAA749" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="352" name="inst_09051E15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="384" name="inst_09DD1099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="416" name="inst_40418D8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="448" name="inst_A6B619F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="448" name="inst_C428E54A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="416" name="inst_5E8271A3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="384" name="inst_94F6E471" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="352" name="inst_A22768A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="192" name="inst_85F0C312" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="224" name="inst_F6D8E872" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="256" name="inst_A9D999CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="480" y="320" name="inst_4CC9206A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_light" x="576" y="352" name="inst_81C4E078" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_heavy" x="832" y="352" name="inst_26A0F546" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_medium" x="704" y="352" name="inst_408BF709" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_jackal" x="992" y="352" name="inst_B530E8F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_spider_large" x="608" y="288" name="inst_E9D102F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_spider_small" x="800" y="288" name="inst_52C4FD0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_spider_small" x="896" y="256" name="inst_0175426F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_ground_spider_small" x="960" y="288" name="inst_CF6ECD62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_air_light" x="672" y="96" name="inst_3E59AC96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_air_heavy" x="832" y="96" name="inst_2F419DE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="448" name="inst_2970487E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="384" name="inst_52184C8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="416" name="inst_B12D4F37" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="352" name="inst_63627160" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="320" name="inst_AE365844" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="288" name="inst_E80AC61C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="256" name="inst_B79DE02B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="224" name="inst_3D5BA068" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="192" name="inst_75F125C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1344" y="160" name="inst_586D5F99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="128" y="320" name="inst_325F0DB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="160" y="320" name="inst_9B8D20E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="352" y="320" name="inst_D47C0EC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="320" y="320" name="inst_CC2C1514" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="288" y="320" name="inst_52DFE1DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="256" y="320" name="inst_D84B8F4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="224" y="320" name="inst_9FD10394" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="192" y="320" name="inst_3F93C1BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1088" y="320" name="inst_65E647A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1120" y="320" name="inst_1D4F26FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1152" y="320" name="inst_154A35FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1184" y="320" name="inst_67775ED8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1216" y="320" name="inst_BDF94DFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1248" y="320" name="inst_D649FCB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1280" y="320" name="inst_A8BA2F4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1312" y="320" name="inst_CA69AC77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1344" y="320" name="inst_3F643AB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
-    <tile bgName="bkg_moon_tiles" x="96" y="288" w="32" h="32" xo="0" yo="0" id="10001552" name="inst_DA39C64D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="128" y="288" w="32" h="32" xo="0" yo="0" id="10001553" name="inst_4CB3FDC6" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="160" y="288" w="32" h="32" xo="0" yo="0" id="10001554" name="inst_9946A93C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="192" y="288" w="32" h="32" xo="0" yo="0" id="10001555" name="inst_06197671" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="224" y="288" w="32" h="32" xo="0" yo="0" id="10001556" name="inst_91A0A95F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="256" y="288" w="32" h="32" xo="0" yo="0" id="10001557" name="inst_B3223DD9" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="288" y="288" w="32" h="32" xo="0" yo="0" id="10001558" name="inst_63EDE3ED" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="320" y="288" w="32" h="32" xo="0" yo="0" id="10001559" name="inst_0400B0C1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="352" y="288" w="32" h="32" xo="0" yo="0" id="10001560" name="inst_40227D84" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="320" w="32" h="32" xo="0" yo="0" id="10001561" name="inst_F2AB8ECB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="352" w="32" h="32" xo="0" yo="0" id="10001562" name="inst_4AA8617C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="384" w="32" h="32" xo="0" yo="0" id="10001563" name="inst_63B9384F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="416" w="32" h="32" xo="0" yo="0" id="10001564" name="inst_72A590BC" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="448" w="32" h="32" xo="0" yo="0" id="10001565" name="inst_16A48092" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="480" w="32" h="32" xo="0" yo="0" id="10001566" name="inst_C6B6F13F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="448" y="480" w="32" h="32" xo="0" yo="0" id="10001567" name="inst_0F97EF6E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="416" y="480" w="32" h="32" xo="0" yo="0" id="10001568" name="inst_764642B7" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="384" y="480" w="32" h="32" xo="0" yo="0" id="10001569" name="inst_EF70B3BF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="352" y="480" w="32" h="32" xo="0" yo="0" id="10001570" name="inst_194981DB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="320" y="480" w="32" h="32" xo="0" yo="0" id="10001571" name="inst_6237F87C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="288" y="480" w="32" h="32" xo="0" yo="0" id="10001572" name="inst_DC6D7E7B" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="256" y="480" w="32" h="32" xo="0" yo="0" id="10001573" name="inst_734D5E70" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="224" y="480" w="32" h="32" xo="0" yo="0" id="10001574" name="inst_126B329E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="192" y="480" w="32" h="32" xo="0" yo="0" id="10001575" name="inst_A9070D12" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="160" y="480" w="32" h="32" xo="0" yo="0" id="10001576" name="inst_C6F21722" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="128" y="480" w="32" h="32" xo="0" yo="0" id="10001577" name="inst_B97EE698" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="480" w="32" h="32" xo="0" yo="0" id="10001578" name="inst_9E7287B7" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="448" w="32" h="32" xo="0" yo="0" id="10001579" name="inst_E54DA07D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="416" w="32" h="32" xo="0" yo="0" id="10001580" name="inst_A6B96716" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="384" w="32" h="32" xo="0" yo="0" id="10001581" name="inst_2350744E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="352" w="32" h="32" xo="0" yo="0" id="10001582" name="inst_54641B04" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="320" w="32" h="32" xo="0" yo="0" id="10001583" name="inst_F9B74601" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="256" w="32" h="32" xo="0" yo="0" id="10001584" name="inst_770D9D8A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="224" w="32" h="32" xo="0" yo="0" id="10001585" name="inst_E5A80683" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="192" w="32" h="32" xo="0" yo="0" id="10001586" name="inst_6099D81B" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="160" w="32" h="32" xo="0" yo="0" id="10001587" name="inst_49BC7049" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="96" y="128" w="32" h="32" xo="0" yo="0" id="10001588" name="inst_CAE25287" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="128" y="128" w="32" h="32" xo="0" yo="0" id="10001589" name="inst_7DE2C5BB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="160" y="128" w="32" h="32" xo="0" yo="0" id="10001590" name="inst_0F7FB00D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="192" y="128" w="32" h="32" xo="0" yo="0" id="10001591" name="inst_7AF0C66D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="224" y="128" w="32" h="32" xo="0" yo="0" id="10001592" name="inst_16B94737" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="256" y="128" w="32" h="32" xo="0" yo="0" id="10001593" name="inst_936A502E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="288" y="128" w="32" h="32" xo="0" yo="0" id="10001594" name="inst_225DEE0C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="320" y="128" w="32" h="32" xo="0" yo="0" id="10001595" name="inst_992ADD3E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="352" y="128" w="32" h="32" xo="0" yo="0" id="10001596" name="inst_9EB9BCC9" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="384" y="128" w="32" h="32" xo="0" yo="0" id="10001597" name="inst_3519B567" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="416" y="128" w="32" h="32" xo="0" yo="0" id="10001598" name="inst_E3D40CBA" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="448" y="128" w="32" h="32" xo="0" yo="0" id="10001599" name="inst_5C195D74" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="480" y="128" w="32" h="32" xo="0" yo="0" id="10001600" name="inst_FFC42BEB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1120" y="256" w="32" h="32" xo="0" yo="0" id="10001601" name="inst_DB790B4A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1152" y="256" w="32" h="32" xo="0" yo="0" id="10001602" name="inst_23019D86" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1184" y="256" w="32" h="32" xo="0" yo="0" id="10001603" name="inst_0694D662" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1216" y="256" w="32" h="32" xo="0" yo="0" id="10001604" name="inst_8596BF80" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1248" y="256" w="32" h="32" xo="0" yo="0" id="10001605" name="inst_F782DB0E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1280" y="256" w="32" h="32" xo="0" yo="0" id="10001606" name="inst_74BF81B2" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1312" y="256" w="32" h="32" xo="0" yo="0" id="10001607" name="inst_3F0B6BC3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1312" y="128" w="32" h="32" xo="0" yo="0" id="10001608" name="inst_B9C8AEE8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1280" y="128" w="32" h="32" xo="0" yo="0" id="10001609" name="inst_179CCC82" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1248" y="128" w="32" h="32" xo="0" yo="0" id="10001610" name="inst_B4B7333C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1216" y="128" w="32" h="32" xo="0" yo="0" id="10001611" name="inst_AE9FEC86" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1184" y="128" w="32" h="32" xo="0" yo="0" id="10001612" name="inst_6646DC3A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1152" y="128" w="32" h="32" xo="0" yo="0" id="10001613" name="inst_579A3CDA" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1120" y="128" w="32" h="32" xo="0" yo="0" id="10001614" name="inst_92E89677" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1088" y="128" w="32" h="32" xo="0" yo="0" id="10001615" name="inst_E55FD853" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1056" y="128" w="32" h="32" xo="0" yo="0" id="10001616" name="inst_6246A44F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1344" y="448" w="32" h="32" xo="0" yo="0" id="10001617" name="inst_8EB92EA3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="512" y="480" w="32" h="32" xo="0" yo="0" id="10001618" name="inst_6F8F2DF4" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="544" y="480" w="32" h="32" xo="0" yo="0" id="10001619" name="inst_E19989CB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="576" y="480" w="32" h="32" xo="0" yo="0" id="10001620" name="inst_68F9EB0C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="608" y="480" w="32" h="32" xo="0" yo="0" id="10001621" name="inst_7CE842C9" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="640" y="480" w="32" h="32" xo="0" yo="0" id="10001622" name="inst_0D51F2D8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="672" y="480" w="32" h="32" xo="0" yo="0" id="10001623" name="inst_4F96CEED" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="704" y="480" w="32" h="32" xo="0" yo="0" id="10001624" name="inst_FD1CBEA9" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="736" y="480" w="32" h="32" xo="0" yo="0" id="10001625" name="inst_E702EDA1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="768" y="480" w="32" h="32" xo="0" yo="0" id="10001626" name="inst_F30633BA" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="800" y="480" w="32" h="32" xo="0" yo="0" id="10001627" name="inst_D0EFCB4D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="832" y="480" w="32" h="32" xo="0" yo="0" id="10001628" name="inst_8AFCBE69" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="864" y="480" w="32" h="32" xo="0" yo="0" id="10001629" name="inst_74104728" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1056" y="480" w="32" h="32" xo="0" yo="0" id="10001636" name="inst_558B0550" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1088" y="480" w="32" h="32" xo="0" yo="0" id="10001637" name="inst_5F46817C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1120" y="480" w="32" h="32" xo="0" yo="0" id="10001638" name="inst_F38FF58A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1152" y="480" w="32" h="32" xo="0" yo="0" id="10001639" name="inst_29E0FF89" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1184" y="480" w="32" h="32" xo="0" yo="0" id="10001640" name="inst_B9A914E0" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1216" y="480" w="32" h="32" xo="0" yo="0" id="10001641" name="inst_B7788CD3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1248" y="480" w="32" h="32" xo="0" yo="0" id="10001642" name="inst_02ABE211" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1280" y="480" w="32" h="32" xo="0" yo="0" id="10001643" name="inst_A306FAB2" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1312" y="480" w="32" h="32" xo="0" yo="0" id="10001644" name="inst_EC48C708" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1344" y="480" w="32" h="32" xo="0" yo="0" id="10001645" name="inst_F52272C4" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1376" y="480" w="32" h="32" xo="0" yo="0" id="10001646" name="inst_4F168B98" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="1024" y="480" w="32" h="32" xo="0" yo="0" id="10001647" name="inst_3AEABF61" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="992" y="480" w="32" h="32" xo="0" yo="0" id="10001648" name="inst_76A0136F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="960" y="480" w="32" h="32" xo="0" yo="0" id="10001649" name="inst_0FD25530" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="928" y="480" w="32" h="32" xo="0" yo="0" id="10001650" name="inst_22B9F494" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bkg_moon_tiles" x="896" y="480" w="32" h="32" xo="0" yo="0" id="10001651" name="inst_B2E5E0B7" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="160" w="32" h="32" xo="128" yo="0" id="10003446" name="inst_C5A64ABF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="192" w="32" h="32" xo="128" yo="0" id="10003447" name="inst_AEB7619C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="224" w="32" h="32" xo="128" yo="0" id="10003448" name="inst_2339BA28" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="256" w="32" h="32" xo="128" yo="0" id="10003449" name="inst_026FFBCB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="288" w="32" h="32" xo="128" yo="0" id="10003450" name="inst_2D4749F9" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="320" w="32" h="32" xo="128" yo="0" id="10003451" name="inst_0C4F00F1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="352" w="32" h="32" xo="128" yo="0" id="10003452" name="inst_EC9A232D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="384" w="32" h="32" xo="128" yo="0" id="10003453" name="inst_FD1AAE95" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="416" w="32" h="32" xo="128" yo="0" id="10003454" name="inst_3F4B5B40" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="448" w="32" h="32" xo="128" yo="0" id="10003455" name="inst_4BC772D6" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="96" y="480" w="32" h="32" xo="128" yo="0" id="10003456" name="inst_614FD600" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="128" y="480" w="32" h="32" xo="128" yo="0" id="10003457" name="inst_3F26E939" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="160" y="480" w="32" h="32" xo="128" yo="0" id="10003458" name="inst_0FB420B7" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="192" y="480" w="32" h="32" xo="128" yo="0" id="10003459" name="inst_A1C9B111" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="224" y="480" w="32" h="32" xo="128" yo="0" id="10003460" name="inst_AC670587" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="256" y="480" w="32" h="32" xo="128" yo="0" id="10003461" name="inst_7D68555D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="288" y="480" w="32" h="32" xo="128" yo="0" id="10003462" name="inst_068E6FBE" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="320" y="480" w="32" h="32" xo="128" yo="0" id="10003463" name="inst_390DD11B" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="352" y="480" w="32" h="32" xo="128" yo="0" id="10003464" name="inst_012DB9D8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="384" y="480" w="32" h="32" xo="128" yo="0" id="10003465" name="inst_498E2CAF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="416" y="480" w="32" h="32" xo="128" yo="0" id="10003466" name="inst_DB3EB2A8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="448" y="480" w="32" h="32" xo="128" yo="0" id="10003467" name="inst_A6811408" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="480" w="32" h="32" xo="128" yo="0" id="10003468" name="inst_8EC1022C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="512" y="480" w="32" h="32" xo="128" yo="0" id="10003469" name="inst_914F08E4" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="544" y="480" w="32" h="32" xo="128" yo="0" id="10003470" name="inst_FA985A88" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="576" y="480" w="32" h="32" xo="128" yo="0" id="10003471" name="inst_AA020B18" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="608" y="480" w="32" h="32" xo="128" yo="0" id="10003472" name="inst_201FC74A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="640" y="480" w="32" h="32" xo="128" yo="0" id="10003473" name="inst_00B554D0" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="672" y="480" w="32" h="32" xo="128" yo="0" id="10003474" name="inst_C9D1B704" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="704" y="480" w="32" h="32" xo="128" yo="0" id="10003475" name="inst_32A6331A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="736" y="480" w="32" h="32" xo="128" yo="0" id="10003476" name="inst_CE7E14C7" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="768" y="480" w="32" h="32" xo="128" yo="0" id="10003477" name="inst_42DD6DFF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="800" y="480" w="32" h="32" xo="128" yo="0" id="10003478" name="inst_D612448C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="832" y="480" w="32" h="32" xo="128" yo="0" id="10003479" name="inst_B3BF24D5" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="864" y="480" w="32" h="32" xo="128" yo="0" id="10003480" name="inst_7A660DC8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="896" y="480" w="32" h="32" xo="128" yo="0" id="10003481" name="inst_15F8EE93" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="928" y="480" w="32" h="32" xo="128" yo="0" id="10003482" name="inst_6281B5FF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="960" y="480" w="32" h="32" xo="128" yo="0" id="10003483" name="inst_AB3E39DB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="992" y="480" w="32" h="32" xo="128" yo="0" id="10003484" name="inst_032539A6" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1024" y="480" w="32" h="32" xo="128" yo="0" id="10003485" name="inst_2A5629FD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1056" y="480" w="32" h="32" xo="128" yo="0" id="10003486" name="inst_F3D25872" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1088" y="480" w="32" h="32" xo="128" yo="0" id="10003487" name="inst_6DF0FC88" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1120" y="480" w="32" h="32" xo="128" yo="0" id="10003488" name="inst_13CE020D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1152" y="480" w="32" h="32" xo="128" yo="0" id="10003489" name="inst_63D4AFEA" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1184" y="480" w="32" h="32" xo="128" yo="0" id="10003490" name="inst_292EFF4F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1216" y="480" w="32" h="32" xo="128" yo="0" id="10003491" name="inst_0BEEC9DB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1248" y="480" w="32" h="32" xo="128" yo="0" id="10003492" name="inst_03DC546D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1280" y="480" w="32" h="32" xo="128" yo="0" id="10003493" name="inst_15EF7A90" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1312" y="480" w="32" h="32" xo="128" yo="0" id="10003494" name="inst_83D8A68A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1344" y="480" w="32" h="32" xo="128" yo="0" id="10003495" name="inst_29CA5891" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="480" w="32" h="32" xo="128" yo="0" id="10003496" name="inst_C7D7D685" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="448" w="32" h="32" xo="128" yo="0" id="10003497" name="inst_430A134C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="416" w="32" h="32" xo="128" yo="0" id="10003498" name="inst_AC0CA36C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="384" w="32" h="32" xo="128" yo="0" id="10003499" name="inst_C690BD4C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="352" w="32" h="32" xo="128" yo="0" id="10003500" name="inst_4D3CC532" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="320" w="32" h="32" xo="128" yo="0" id="10003501" name="inst_2BEEFAC1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="288" w="32" h="32" xo="128" yo="0" id="10003502" name="inst_3C194487" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="256" w="32" h="32" xo="128" yo="0" id="10003503" name="inst_5812C98A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="224" w="32" h="32" xo="128" yo="0" id="10003504" name="inst_2592B4BE" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="192" w="32" h="32" xo="128" yo="0" id="10003505" name="inst_FFCE05C1" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1376" y="160" w="32" h="32" xo="128" yo="0" id="10003506" name="inst_97F45425" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="320" w="32" h="32" xo="128" yo="0" id="10003531" name="inst_BB9FF262" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="352" w="32" h="32" xo="128" yo="0" id="10003532" name="inst_BDD5947A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="384" w="32" h="32" xo="128" yo="0" id="10003533" name="inst_065440A4" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="416" w="32" h="32" xo="128" yo="0" id="10003534" name="inst_28D2F6D0" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="448" w="32" h="32" xo="128" yo="0" id="10003535" name="inst_B095BABD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="288" y="160" w="32" h="32" xo="128" yo="0" id="10003537" name="inst_D7575A6A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="256" y="160" w="32" h="32" xo="128" yo="0" id="10003538" name="inst_28B685EE" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="224" y="160" w="32" h="32" xo="128" yo="0" id="10003539" name="inst_7942A694" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="192" y="160" w="32" h="32" xo="128" yo="0" id="10003540" name="inst_3A9EFBB3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="160" y="160" w="32" h="32" xo="128" yo="0" id="10003541" name="inst_9A0226F3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="128" y="160" w="32" h="32" xo="128" yo="0" id="10003542" name="inst_0AB8AE65" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1216" y="160" w="32" h="32" xo="128" yo="0" id="10003543" name="inst_05C52000" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1248" y="160" w="32" h="32" xo="128" yo="0" id="10003544" name="inst_DDA17D46" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1280" y="160" w="32" h="32" xo="128" yo="0" id="10003545" name="inst_21FB9567" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1312" y="160" w="32" h="32" xo="128" yo="0" id="10003546" name="inst_4217CC65" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1344" y="160" w="32" h="32" xo="128" yo="0" id="10003547" name="inst_7824767E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1344" y="320" w="32" h="32" xo="128" yo="0" id="10003548" name="inst_EFE0BEA8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1312" y="320" w="32" h="32" xo="128" yo="0" id="10003549" name="inst_8E7F7279" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1280" y="320" w="32" h="32" xo="128" yo="0" id="10003550" name="inst_BAEFC355" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1248" y="320" w="32" h="32" xo="128" yo="0" id="10003551" name="inst_D99C9E5D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1216" y="320" w="32" h="32" xo="128" yo="0" id="10003552" name="inst_53BD9378" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1184" y="320" w="32" h="32" xo="128" yo="0" id="10003553" name="inst_1395471D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1152" y="320" w="32" h="32" xo="128" yo="0" id="10003554" name="inst_2AF2CD71" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1120" y="320" w="32" h="32" xo="128" yo="0" id="10003555" name="inst_C2DAA095" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="1088" y="320" w="32" h="32" xo="128" yo="0" id="10003556" name="inst_BD980EFF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="352" y="320" w="32" h="32" xo="128" yo="0" id="10003557" name="inst_926FEAE3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="320" y="320" w="32" h="32" xo="128" yo="0" id="10003558" name="inst_37D733AD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="288" y="320" w="32" h="32" xo="128" yo="0" id="10003559" name="inst_E48AC88C" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="256" y="320" w="32" h="32" xo="128" yo="0" id="10003560" name="inst_FB5D0BAD" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="224" y="320" w="32" h="32" xo="128" yo="0" id="10003561" name="inst_0DE7DDE3" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="192" y="320" w="32" h="32" xo="128" yo="0" id="10003562" name="inst_3BCCA484" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="160" y="320" w="32" h="32" xo="128" yo="0" id="10003563" name="inst_18749460" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="128" y="320" w="32" h="32" xo="128" yo="0" id="10003564" name="inst_0694D966" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

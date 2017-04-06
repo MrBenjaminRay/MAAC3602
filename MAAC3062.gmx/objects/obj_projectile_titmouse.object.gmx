@@ -393,11 +393,11 @@ scr_projectile_enforceMaxLife();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hspeed</string>
+            <string>speed_x</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>-hspeed</string>
+            <string>-speed_x</string>
           </argument>
         </arguments>
       </action>

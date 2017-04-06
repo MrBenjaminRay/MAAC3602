@@ -387,30 +387,30 @@ if (y &lt; 0) {
 
 
 // Enemy is moving off of the left side of the screen:
-if (x &lt; 0) {
-    movementDirection = "RIGHT";
-    
-    if (canJumpOrDrop) {
-        if (isMovingDown) {
-            y += 32 + sprite_height;
-        } else {
-            y -= 32 + sprite_height;
-        }
-    }
-}
+//if (x &lt; 0) {
+//    movementDirection = "RIGHT";
+//    
+//    if (canJumpOrDrop) {
+//        if (isMovingDown) {
+//            y += 32 + sprite_height;
+//       } else {
+//            y -= 32 + sprite_height;
+//        }
+//    }
+//}
 
 // Enemy is moving off of the right side of the screen:
-if (x + sprite_width &gt; room_width) {
-    movementDirection = "LEFT";
-    
-    if (canJumpOrDrop) {
-        if (isMovingDown) {
-            y += 32 + sprite_height;
-        } else {
-            y -= 32 + sprite_height;
-        }
-    }
-}
+//if (x + sprite_width &gt; room_width) {
+//    movementDirection = "LEFT";
+//    
+//    if (canJumpOrDrop) {
+//        if (isMovingDown) {
+//            y += 32 + sprite_height;
+//        } else {
+//            y -= 32 + sprite_height;
+//        }
+//    }
+//}
 
 </string>
           </argument>
@@ -453,13 +453,13 @@ if (x + sprite_width &gt; room_width) {
           <argument>
             <kind>1</kind>
             <string>// Enemy is the scren, but not moving, so set a random direction
-if (movementDirection == "NONE") {
-    if (irandom_range(0, 1)) {
-        movementDirection = "LEFT";
-    } else {
-        movementDirection = "RIGHT";
-    }
-}
+//if (movementDirection == "NONE") {
+//    if (irandom_range(0, 1)) {
+//        movementDirection = "LEFT";
+//    } else {
+//        movementDirection = "RIGHT";
+//    }
+//}
 </string>
           </argument>
         </arguments>

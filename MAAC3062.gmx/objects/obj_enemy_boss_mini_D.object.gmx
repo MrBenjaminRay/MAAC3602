@@ -357,7 +357,7 @@
             <kind>1</kind>
             <string>for(var i = 0 ; i &lt; 20 ; i++) {
     var spider = instance_create(x, y, obj_enemy_ground_spider_small);
-    spider.hspeed *= irandom_range(0.75, 1.5);
+    spider.speed_x *= irandom_range(0.75, 1.5);
 }
 </string>
           </argument>

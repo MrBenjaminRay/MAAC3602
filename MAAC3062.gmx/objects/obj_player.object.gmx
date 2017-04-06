@@ -73,9 +73,9 @@ jumpSpeed = .72;            // Jump Speed
 
 animationSpeed = 0.33;
 
-image_scale_default = .6;
-image_xscale = image_scale_default;
-image_yscale = image_scale_default;
+image_xscale_faceRight = .6;    // Override
+image_xscale = image_xscale_faceRight;
+image_yscale = .6;
 
 // ???
 image_speed = 0;
@@ -83,6 +83,11 @@ walkRight = 0;
 walkLeft = 0;
 
 facingDirection = 1; // 1 for right, -1 for left
+
+outOfBoundsBounce = false;       // Automatically reverse direction &amp; restart movement when going out of bounds
+                                // When false, they are pushed back into the room &amp; stopped.
+wallBounce = false;              // Automatically switch direction &amp; restart movement when hitting a wall.
+                                // When false, they are simply pushed out of the wall &amp; stopped.
 
 // Shield Stuff:
 currShield = 200;
@@ -112,8 +117,8 @@ xKeyHeldCounter = 0;
 
 
 // HEALTH/SHIELD BAR:
-healthBarXOffset = -20;
-healthBarYOffset = -54;
+healthBarXOffset = -30;
+healthBarYOffset = -60;
 
 healthBarHeight = 14;
 healthBarWidth = sprite_width;
@@ -506,12 +511,12 @@ var isRightPressed = keyboard_check(ord('d')) || keyboard_check(ord('D'));
 if (isLeftPressed &amp;&amp; isRightPressed) {
     // Both left &amp; right are pressed. Movement should be stopped.
     movementSpeedDesired = 0;   // Set desired speed
-    hspeed = 0;                 // Immediately stop horizontal movement
+    speed_x = 0;                 // Immediately stop horizontal movement
 } else if (isLeftPressed) {
     // Set desired speed (will speed up smoothly if not already moving)
     movementSpeedDesired = -movementSpeedDefault * movementSpeedAdjust;
     // Set sprite direction to face left
-    image_xscale = -image_scale_default;
+    //image_xscale = -image_scale_default; // Now handled in entity code
     
     //image_speed = animationSpeed * animationSpeedAdjust;
     //image_xscale = -1;
@@ -526,7 +531,7 @@ if (isLeftPressed &amp;&amp; isRightPressed) {
     // Set desired speed (will speed up smoothly if not already moving)
     movementSpeedDesired = +movementSpeedDefault * movementSpeedAdjust;
     // Set sprite direction to face right
-    image_xscale = image_scale_default;
+    //image_xscale = image_scale_default; // Now handled in entity code
     
     //image_speed = animationSpeed * animationSpeedAdjust;
     //image_xscale = 1;
@@ -766,13 +771,22 @@ if (weaponObj != noone) {
     }
 }
 
+// To prevent the player from firing when he clicks obj_button_sellTower, we not only check firingPaused,
+// but we also check if the mouse is colliding with obj_button_sellTower.  firingPaused is set in step
+// code of obj_button_sellTower, but if this step code executes before that step code,
+// we need this second check.
+var isSellingTower = position_meeting(mouse_x, mouse_y, obj_button_sellTower);
+if (isSellingTower) {
+    firingPaused = true;
+}
+
 if (mouse_check_button(mb_left)) {
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
     canFire &amp;= global.state != "Destroy";
     canFire &amp;= weaponObj != noone;
     canFire &amp;= firingPaused == false;
-    
+
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {
             audio_play_sound(snd_playerGun, 0, false);
@@ -828,6 +842,7 @@ if (mouse_check_button(mb_left)) {
         }
     }
 }
+
 </string>
           </argument>
         </arguments>
