@@ -49,7 +49,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>x = window_get_width()/2 - 100 - sprite_width;
+y = window_get_height()/2 + 100;
+</string>
           </argument>
         </arguments>
       </action>
@@ -82,15 +84,16 @@ if (
     point_in_rectangle(
         window_mouse_get_x(), 
         window_mouse_get_y(), 
-        x-sprite_width/2,
-        y-sprite_height/2,
-        x+sprite_width/2,
-        y+sprite_height/2
+        x,
+        y,
+        x + sprite_width,
+        y + sprite_height
     )
 ) {
-    instance_deactivate_all(true);
     // User has clicked inside this sprite
-    room_goto(rm_menu);
+    // Prevent step code from continuing that might reference player after he is destroyed
+    instance_deactivate_all(true);
+    room_goto(rm_initializeGame);
 }
 </string>
           </argument>

@@ -1110,7 +1110,6 @@
     <objects name="States">
       <object>objects\obj_control_normalState</object>
       <object>objects\obj_control_buildState</object>
-      <object>objects\obj_menu_ingame_placeholder</object>
       <object>objects\obj_button_sellTower</object>
     </objects>
     <objects name="Story">
@@ -1163,6 +1162,7 @@
         <object>objects\obj_quit</object>
         <object>objects\obj_back</object>
         <object>objects\obj_mainMenu</object>
+        <object>objects\obj_retry</object>
         <object>objects\obj_mainMenu_hub</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_OK</object>
@@ -1300,6 +1300,11 @@
         <object>objects\obj_creditsNew3</object>
         <object>objects\obj_creditsNew4</object>
         <object>objects\obj_creditsNew5</object>
+      </objects>
+      <objects name="Pause Screen">
+        <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_pauseScreen_retry</object>
+        <object>objects\obj_pauseScreen_mainMenu</object>
       </objects>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_dimFilter</object>
