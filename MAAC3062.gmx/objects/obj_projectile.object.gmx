@@ -145,21 +145,22 @@ if (object_index == obj_projectile_titmouse || object_index == obj_projectile_sl
 scr_entity_dealDamage(other, damage);
 scr_create_explosion(x, y, "SmallHit");
 
-if (other.speed_x &lt; 0) {
-    if (damage &gt; 15) {
-        other.x += damage;
-    } else {
-        other.x += 15;
-    }
-}
-
-if (other.speed_x &gt;= 0) {
-    if (damage &gt; 15) {
-        other.x -= damage;
-    } else {
-        other.x -= 15;
-    }
-}
+// None of this applies to a fallen building
+//if (other.speed_x &lt; 0) {
+//    if (damage &gt; 15) {
+//        other.x += damage;
+//    } else {
+//        other.x += 15;
+//    }
+//}
+//
+//if (other.speed_x &gt;= 0) {
+//    if (damage &gt; 15) {
+//        other.x -= damage;
+//    } else {
+//        other.x -= 15;
+//    }
+//}
 
 instance_destroy();
 </string>
