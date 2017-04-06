@@ -72,7 +72,12 @@ fadeTimeElapsed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (timeElapsed &gt;= startFadeAfter) {
+            <string>// Prevent the pause state when level failed
+if (global.state == 'Paused') {
+    scr_state_setUnpaused();
+}
+
+if (timeElapsed &gt;= startFadeAfter) {
     // Fade in progress
     fadeTimeElapsed += global.deltaTime;
 }
