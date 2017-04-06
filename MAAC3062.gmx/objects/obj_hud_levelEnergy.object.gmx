@@ -92,8 +92,8 @@ collectionPointY = 0;
 currentValueToDraw = global.energy;
 
 // Make lower left corner of screen
-collectionPointX = view_xview[0];
-collectionPointY = view_yview[0] + view_hview[0];
+collectionPointX = view_xview[0] + 15;
+collectionPointY = view_yview[0] + view_hview[0] - 15;
 
 </string>
           </argument>

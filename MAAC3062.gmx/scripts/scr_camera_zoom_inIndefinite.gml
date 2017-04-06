@@ -10,6 +10,11 @@
  *
  */
 
+if (!instance_exists(obj_camera)) {
+    show_debug_message("Camera does not exist. Exiting script scr_camera_zoom_inIndefinite.");
+    return 0;
+}
+
 // Start zoom transition
 
 with (obj_camera) {

@@ -233,7 +233,7 @@ scr_normal_beginBuild(0);
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="27">
+    <event eventtype="9" enumb="27">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -250,13 +250,17 @@ scr_normal_beginBuild(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == 'Paused') {
-    scr_state_setUnpaused();
-    scr_paused_unpauseAnimation();
-} else {
-    scr_state_setPaused();
-    scr_paused_pauseAnimation();
+            <string>// Do not go into pause screen if level has failed
+if (instance_exists(obj_levelFail_screenFade) == false) {
+    if (global.state == 'Paused') {
+        scr_state_setUnpaused();
+        //scr_paused_unpauseAnimation();
+    } else {
+        scr_state_setPaused();
+        //scr_paused_pauseAnimation();
+    }
 }
+
 </string>
           </argument>
         </arguments>

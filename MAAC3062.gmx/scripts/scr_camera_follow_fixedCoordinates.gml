@@ -7,6 +7,12 @@
  *        The y coordinate where the camera will zoom (last miner's death location).
  *
  */
+ 
+if (!instance_exists(obj_camera)) {
+    show_debug_message("Camera does not exist. Exiting script scr_camera_follow_fixedCoordinates.");
+    return 0;
+}
+
 if (instance_exists(obj_camera)) {
     with (obj_camera) {
         followPlayer = false;
@@ -15,6 +21,6 @@ if (instance_exists(obj_camera)) {
         custom_target_y = argument[1];
     }
 } else {
-    show_debug_message("Cannot set camera follow position as obj_camera does not exist!");
+
 }
 
