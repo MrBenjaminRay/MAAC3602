@@ -113,6 +113,8 @@ pickCount = 0;      // Total # of times the miner has mined
 deadMinerOffsetX = 12; // X offset to use when creating miner dying object (miners not lined up in sprites)
 deadMinerOffsetY = 5; // X offset to use when creating miner dying object (miners not lined up in sprites)
 
+healthBarYOffset = 0;
+healthBarXOffset = 25;
 </string>
           </argument>
         </arguments>

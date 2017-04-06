@@ -225,10 +225,6 @@ obj_player.animationSpeedAdjust = .35;</code>
     <instance objName="obj_physicsTile" x="416" y="352" name="inst_E4259467" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="448" y="352" name="inst_F93334D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="480" y="352" name="inst_4F28EF3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="640" name="inst_3D2240E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="608" name="inst_F7BD3ED9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="576" name="inst_28C64D76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="480" y="544" name="inst_35387A2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="480" y="512" name="inst_EB7D50FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="480" y="672" name="inst_1842573F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="512" y="672" name="inst_9E6C0A0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -300,6 +296,10 @@ obj_player.animationSpeedAdjust = .35;</code>
     <instance objName="obj_physicsTile" x="-384" y="352" name="inst_8DDE7652" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="-384" y="256" name="inst_E490A0A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawnerSpawner" x="1792" y="256" name="inst_6A7A7362" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="544" name="inst_26753BB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="576" name="inst_885F7CE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="608" name="inst_B6159490" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="480" y="640" name="inst_6EDE4764" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_underwater_tiles" x="160" y="320" w="32" h="32" xo="64" yo="32" id="10001252" name="inst_AA12C2FE" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
