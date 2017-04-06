@@ -459,7 +459,7 @@
           <sprite>sprites\spr_slow_Upgrade</sprite>
           <sprites name="MechaGoatUpgrade">
             <sprite>sprites\spr_mecha_goat_update</sprite>
-            <sprite>sprites\spr_tower_open_Update</sprite>
+            <sprite>sprites\spr_mecha_goat_tower_open_update</sprite>
           </sprites>
         </sprites>
         <sprites name="Caterpillager">

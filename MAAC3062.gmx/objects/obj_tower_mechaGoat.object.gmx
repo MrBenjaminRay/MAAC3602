@@ -43,10 +43,13 @@
 
 image_index = 0;
 image_speed = 0;
-state = -1; // 0 = finding target, 1 = mouth opening, 2 = launch goat(s) and delay, 3 = closing, 4 = cooldown
+state = -1; // 0 = finding target, 1 = mouth opening, 2 = launch goat(s), 3 = mouth open delay, 4 = mouth closing, 5 = cooldown
 mouthAnimationSpeed = .1; // Speed to use when opening and closing (closing will be negative)
-mouthOpenTime = 3000; // Amount of time to leave mouth open before closing
+mouthOpenTime = 1000; // Amount of time to leave mouth open before closing
 mouthOpenTimeElapsed = 0;
+
+mouthClosedTime = 2000; // Amount of time to leave mouth closed before allowing to fire again
+mouthClosedTimeElapsed = 0;
 
 // Reference to goat projectile. Will be noone when no goat is in the air.
 goatObj1 = noone;
@@ -176,6 +179,12 @@ if (frozenByBossThree) {
     return 0;
 }
 
+var isUpgraded = false;
+// Draw upgraded tower
+if (global.towerUpgradeLevel[6] &gt; 1) {
+    isUpgraded = true; // We need to keep track of this throughout the tower states
+}
+
 if (state == -1) {
 
     // Decrement warmup time remaining if not 0
@@ -193,7 +202,7 @@ if (state == -1) {
         showHealthBar = true;
         // Go to first state
         state = 0;
-        show_debug_message('state 0 started');
+        //show_debug_message('state 0 started');
     }
 } else if (state == 0) {
     // Hunt for a target (mouth closed)
@@ -203,13 +212,20 @@ if (state == -1) {
         // Search for a potential target in order, aiming for biggest/baddest ones first (array defined in create code)
         // Only search for first enemy now. Find second enemy (if upgraded) after first one fired while mouth already open.
         target1 = scr_tower_getGoatTarget();
+        if (isUpgraded) {
+            sprite_index = spr_mecha_goat_update;
+            image_speed = .25;        
+        }
     }
-    show_debug_message('state 0 middle');
+    //show_debug_message('state 0 middle');
     if (target1 != noone) {
         // We have a target, so move to the next state
         state = 1;
         image_index = 0;
         image_speed = mouthAnimationSpeed;
+        if (isUpgraded) {
+            sprite_index = spr_mecha_goat_tower_open_update;
+        }
     }
     
 } else if (state == 1) {
@@ -275,9 +291,21 @@ if (state == -1) {
     if (image_index &gt; 0) {
         // Continue reverse animation to close mouth   
     } else {
-        // Mouth is closed, so stop animation and switch to step 0
+        // Mouth is closed, so stop animation and switch to step 5
         image_index = 0;
         image_speed = 0;
+        state = 5;
+        mouthClosedTimeElapsed = 0;
+        if (isUpgraded) {
+            sprite_index = spr_mecha_goat_update;
+            image_speed = .25;        
+        }
+    }
+} else if (state == 5) {
+    if (mouthClosedTimeElapsed &lt; mouthClosedTime) {
+        mouthClosedTimeElapsed += global.deltaTime;
+    } else {
+        // Mouth has been closed long enough, so go to the first step
         state = 0;
     }
 }
