@@ -177,6 +177,9 @@ if(!foundFalse) {
     <instance objName="obj_waterButton" x="672" y="544" name="inst_D8CBBEB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_control" x="64" y="-32" name="inst_0ADAA44D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_infoText" x="1248" y="160" name="inst_18D38EE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_red" x="1344" y="832" name="inst_9C87A5F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_red" x="1536" y="832" name="inst_0C11FC07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_button_green" x="1440" y="832" name="inst_6419EA48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
