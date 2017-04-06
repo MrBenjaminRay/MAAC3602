@@ -145,6 +145,11 @@ scr_create_explosion(x + sprite_width/2, y + sprite_height/2, 'Tower');
     return 0;
 }
 
+// Draw upgraded tower
+if (global.towerUpgradeLevel[0] &gt; 1) {
+    sprite_index = spr_basic_Upgrade;
+}
+
 if (frozenByBossThree) {
     return 0;
 }
