@@ -76,11 +76,11 @@ if (canSpawnBoss) {
             break;
         }
         case rm_level_forest: {
-            scr_spawnBoss(obj_enemy_boss_large_A, 1600, 416);
+            scr_spawnBoss(obj_enemy_boss_mini_D, 1600, 416);
             break;
         }
         case rm_level_desert: {
-            scr_spawnBoss(obj_enemy_boss_large_B, -288, -160);
+            scr_spawnBoss(obj_enemy_boss_mini_C, -288, -160);
             break;
         }
         case rm_level_ice: {
@@ -88,11 +88,11 @@ if (canSpawnBoss) {
             break;
         }
         case rm_level_underwater: {
-            scr_spawnBoss(obj_enemy_boss_mini_D, 1408, 416);
+            scr_spawnBoss(obj_enemy_boss_large_B, 1408, 416);
             break;
         }
         case rm_level_asteroid: {
-            scr_spawnBoss(obj_enemy_boss_mini_C, 2176, 1120);
+            scr_spawnBoss(obj_enemy_boss_large_A, 2176, 1120);
             break;
         }
         case rm_level_mars: {
