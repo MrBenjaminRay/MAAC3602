@@ -771,6 +771,7 @@
     <path>paths\path_flying_earth</path>
     <path>paths\path_tutorial_ship</path>
     <path>paths\path_tutorial_player</path>
+    <path>paths\path_flying_bentest</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
@@ -895,6 +896,7 @@
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
+    <script>scripts\scr_energy_transfer.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -909,7 +911,6 @@
   </fonts>
   <objects name="objects">
     <objects name="Control">
-      <object>objects\obj_menu_ingame_placeholder</object>
       <object>objects\obj_control</object>
       <object>objects\obj_control_music</object>
       <object>objects\obj_hub_control</object>
@@ -953,6 +954,7 @@
         <object>objects\obj_particle_flame</object>
         <object>objects\obj_particle_smoke_puff</object>
         <object>objects\obj_particle_energy_orb</object>
+        <object>objects\obj_particle_energy_transfer</object>
       </objects>
       <objects name="Particle Emitters">
         <object>objects\obj_emitter_continual</object>
@@ -964,7 +966,6 @@
         <object>objects\obj_emitter_emitter</object>
       </objects>
       <objects name="Special">
-        <object>objects\obj_levelFail_screenFade</object>
         <object>objects\obj_flameScreen</object>
       </objects>
       <object>objects\obj_smoke</object>
@@ -1108,6 +1109,7 @@
     <objects name="Misc">
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
+      <object>objects\obj_ship_tutorial</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
@@ -1170,6 +1172,7 @@
         <object>objects\obj_back</object>
         <object>objects\obj_back_hub</object>
         <object>objects\obj_mainMenu</object>
+        <object>objects\obj_retry</object>
         <object>objects\obj_mainMenu_hub</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_OK</object>
@@ -1294,6 +1297,7 @@
       <objects name="Death Screen">
         <object>objects\obj_button_retry</object>
         <object>objects\obj_button_toHub</object>
+        <object>objects\obj_levelFail_screenFade</object>
       </objects>
       <objects name="Credits">
         <objects name="OLD">
@@ -1306,6 +1310,11 @@
         <object>objects\obj_creditsNew3</object>
         <object>objects\obj_creditsNew4</object>
         <object>objects\obj_creditsNew5</object>
+      </objects>
+      <objects name="Pause Screen">
+        <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_pauseScreen_retry</object>
+        <object>objects\obj_pauseScreen_mainMenu</object>
       </objects>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_dimFilter</object>

@@ -25,64 +25,6 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//var tutorialBox1 = instance_create(96, 608, obj_messageBox);
-//ds_list_add(tutorialBox1.list_text, "Press WASD to move");
-//ds_list_add(tutorialBox1.list_text, "and left click to shoot.");
-
-
-/* Use states to track player's progress through the tutorial.
- *  0: Use WASD to pick up 3 strategically placed energy orbs
- *  1: Fire blaster to kill enemies and pick up their energy orbs
- *
- */
-shipSpin = .15;
-shipSpin_AfterBounce = -.75;
-
-state = 0;
-
-//state1_ball = instance_create(224, 320, obj_drop_energy);
-//state2_ball = instance_create(608, 224, obj_drop_energy);
-//state3_ball = instance_create(320, 544, obj_drop_energy);
-//state4_ball = instance_create(250, 100, obj_drop_energy);
-//state5_ball = instance_create(300, 100, obj_drop_energy);
-
-// Set energy values to 0 for the 3 drops on the level at the start,
-// and give player all the time he wants to pick them up.
-with (obj_drop_energy) {
-    value = 0;  // No energy orbs
-    maxLife = 100000000; // Permanent
-}
-
-instance_deactivate_object(obj_hud_levelEnergy);
-instance_deactivate_object(obj_enemy);
-instance_deactivate_object(obj_warp);
-
-msg1 = instance_create(525, 320, obj_messageBox);
-ds_list_add(msg1.list_text, "Use WASD to pick up the 3 items.");
-
-msg2 = noone;
-msg3 = noone;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>301</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -139,7 +81,7 @@ msg3 = noone;
         <exetype>1</exetype>
         <functionname>action_path</functionname>
         <codestring></codestring>
-        <whoName>obj_ship</whoName>
+        <whoName>obj_ship_tutorial</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -158,6 +100,64 @@ msg3 = noone;
           <argument>
             <kind>4</kind>
             <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//var tutorialBox1 = instance_create(96, 608, obj_messageBox);
+//ds_list_add(tutorialBox1.list_text, "Press WASD to move");
+//ds_list_add(tutorialBox1.list_text, "and left click to shoot.");
+
+
+/* Use states to track player's progress through the tutorial.
+ *  0: Use WASD to pick up 3 strategically placed energy orbs
+ *  1: Fire blaster to kill enemies and pick up their energy orbs
+ *
+ */
+shipSpin = .45;
+shipSpin_AfterBounce = -2.75;
+
+state = 0;
+
+//state1_ball = instance_create(224, 320, obj_drop_energy);
+//state2_ball = instance_create(608, 224, obj_drop_energy);
+//state3_ball = instance_create(320, 544, obj_drop_energy);
+//state4_ball = instance_create(250, 100, obj_drop_energy);
+//state5_ball = instance_create(300, 100, obj_drop_energy);
+
+// Set energy values to 0 for the 3 drops on the level at the start,
+// and give player all the time he wants to pick them up.
+with (obj_drop_energy) {
+    value = 0;  // No energy orbs
+    maxLife = 100000000; // Permanent
+}
+
+instance_deactivate_object(obj_hud_levelEnergy);
+instance_deactivate_object(obj_enemy);
+instance_deactivate_object(obj_warp);
+
+msg1 = instance_create(525, 320, obj_messageBox);
+ds_list_add(msg1.list_text, "Use WASD to pick up the 3 items.");
+
+msg2 = noone;
+msg3 = noone;
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -301,6 +301,20 @@ msg3 = noone;
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>605</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -338,8 +352,8 @@ msg3 = noone;
             <string>// Rotate the ship as it flies through the air
 // Ends up outside of view for rest of level
 // We don't care that it continues to spin even though out of view
-if (instance_exists(obj_ship)) {
-    obj_ship.image_angle += shipSpin;
+if (instance_exists(obj_ship_tutorial)) {
+    obj_ship_tutorial.image_angle += shipSpin;
 }
 
 </string>

@@ -127,14 +127,14 @@ with (obj_tower_RT6100) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {    
+            <string>if (global.state != "Paused") {
     if (scr_tower_isLocationValid()) {
         // Clamp the x position to the nearest multiple of 32:
         var tempX = mouse_x - (mouse_x % 32);
         
         // Clamp the y position to the nearest multiple of 32:
         var tempY = mouse_y - (mouse_y % 32);
-        
+ 
         // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
         tempY += 128 - sprite_get_height(towerSpr);
         

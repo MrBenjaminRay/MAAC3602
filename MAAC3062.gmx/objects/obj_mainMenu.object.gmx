@@ -88,6 +88,7 @@ if (
         y+sprite_height/2
     )
 ) {
+    instance_deactivate_all(true);
     // User has clicked inside this sprite
     room_goto(rm_menu);
 }
