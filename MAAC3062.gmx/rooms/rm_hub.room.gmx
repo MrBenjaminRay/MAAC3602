@@ -79,7 +79,7 @@ cursor_sprite = noone;</code>
     <instance objName="obj_hub_109Calibear" x="800" y="384" name="inst_26CE47A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_titMouse" x="960" y="360" name="inst_BB4B7ED0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_RT6100" x="640" y="512" name="inst_50602CE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hub_mechaGoat" x="800" y="512" name="inst_4B3DD760" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hub_mechaGoat" x="784" y="472" name="inst_4B3DD760" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_unlock_upgrade" x="1336" y="616" name="inst_8B76A3FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_forcePulse" x="960" y="544" name="inst_5027218D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hub_sneakySnakes" x="1024" y="544" name="inst_F2492221" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

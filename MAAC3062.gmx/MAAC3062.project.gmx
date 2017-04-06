@@ -746,6 +746,13 @@
     <path>paths\path_ship_turning</path>
     <path>paths\path_crashing_ship</path>
     <path>paths\path_asteroid</path>
+    <path>paths\path_flying_forest</path>
+    <path>paths\path_flying_desert</path>
+    <path>paths\path_flying_ice</path>
+    <path>paths\path_flying_underwater</path>
+    <path>paths\path_flying_asteroid</path>
+    <path>paths\path_flying_mars</path>
+    <path>paths\path_flying_earth</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
