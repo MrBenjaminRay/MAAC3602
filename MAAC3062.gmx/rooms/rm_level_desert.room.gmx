@@ -240,8 +240,6 @@ with(obj_spawnerSpawner){
     <instance objName="obj_physicsTile" x="224" y="832" name="inst_391DAF83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1344" y="800" name="inst_5766E000" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1344" y="768" name="inst_A4B82E79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wallTile" x="1344" y="736" name="inst_A1CBCD05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wallTile" x="1344" y="704" name="inst_B785F053" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="672" name="inst_EE7322A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="640" name="inst_005D3D17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1344" y="608" name="inst_7B7374C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -260,6 +258,13 @@ with(obj_spawnerSpawner){
     <instance objName="obj_wallTile" x="1376" y="224" name="inst_55217609" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="192" name="inst_D823E355" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="160" name="inst_A43D72AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1344" y="736" name="inst_4AFAC5CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="704" name="inst_3B23C7F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="544" name="inst_3EDCFEA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="576" name="inst_6D30B230" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="1376" y="416" name="inst_939EEFA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1696" y="128" name="inst_442BC76A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="1728" y="128" name="inst_2AD2AABE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="416" y="640" w="16" h="16" xo="0" yo="0" id="10000382" name="inst_7FD53764" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -374,6 +379,7 @@ with(obj_spawnerSpawner){
     <tile bgName="bkg_desert_tiles" x="1376" y="608" w="32" h="32" xo="1376" yo="448" id="10000778" name="inst_73AABDF8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_desert_tiles" x="1376" y="640" w="32" h="32" xo="1376" yo="480" id="10000779" name="inst_243973CE" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_desert_tiles" x="544" y="288" w="32" h="32" xo="0" yo="0" id="10001308" name="inst_B58F1745" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_desert_tiles" x="896" y="224" w="32" h="32" xo="0" yo="0" id="10003416" name="inst_2D8C7D85" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

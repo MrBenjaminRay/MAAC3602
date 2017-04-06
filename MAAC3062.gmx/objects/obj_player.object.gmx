@@ -74,6 +74,7 @@ jumpSpeed = .72;            // Jump Speed
 animationSpeed = 0.33;
 
 image_xscale_faceRight = .6;    // Override
+image_xscale = image_xscale_faceRight;
 image_yscale = .6;
 
 // ???
@@ -116,8 +117,8 @@ xKeyHeldCounter = 0;
 
 
 // HEALTH/SHIELD BAR:
-healthBarXOffset = -20;
-healthBarYOffset = -54;
+healthBarXOffset = -30;
+healthBarYOffset = -60;
 
 healthBarHeight = 14;
 healthBarWidth = sprite_width;

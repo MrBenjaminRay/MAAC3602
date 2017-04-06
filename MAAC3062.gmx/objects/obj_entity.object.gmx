@@ -496,7 +496,7 @@ if (speed_x &gt; 0) {
 var iLoop = 0;
 var iMaxLoop = 50;
 while (place_meeting(x, y, obj_wallTile)) {
-    show_debug_message('looping: ' + string(iLoop));
+    //show_debug_message('looping: ' + string(iLoop));
     // Entity may be colliding against multiple wall tiles, but we will try to resolve
     // the collision with the first one returned by instance_place() and then check
     // again if still colliding.
@@ -512,26 +512,26 @@ while (place_meeting(x, y, obj_wallTile)) {
     var tile = instance_place(x, y, obj_wallTile);
     if (tile != noone) {
         // Colliding against at least one wall tile
-        show_debug_message(string(bbox_left) + ',' + string(bbox_right) + ' -- ' + string(tile.bbox_left) + ',' + string(tile.bbox_right));
+        //show_debug_message(string(bbox_left) + ',' + string(bbox_right) + ' -- ' + string(tile.bbox_left) + ',' + string(tile.bbox_right));
         var leftIn = bbox_left &gt;= tile.bbox_left &amp;&amp; bbox_left &lt;= tile.bbox_right;
         var rightIn = bbox_right &gt;= tile.bbox_left &amp;&amp; bbox_right &lt;= tile.bbox_right;
-        show_debug_message(string(leftIn) + ' ' + string(rightIn));
+        //show_debug_message(string(leftIn) + ' ' + string(rightIn));
         var pushDir = 0;  // Direction to push entity x. -1 = left, 1 = right, and if 0 will move up (y--) instead
         // See what kind of overlap we're dealing with here    
         if (leftIn &amp;&amp; !rightIn) {
             // Left edge of entity is inside wall, right edge is not
             pushDir = 1; // Will push to the right
-            show_debug_message('left edge inside wall, right is not');
+            //show_debug_message('left edge inside wall, right is not');
         } else if (!leftIn &amp;&amp; rightIn) {
             // Right edge of entity is inside wall, left edge is not
             pushDir = -1; // Will push to the left
-            show_debug_message('right edge inside wall, left is not');
+            //show_debug_message('right edge inside wall, left is not');
         } else {
             // EITHER:
             //      Both edges of entity are inside wall (entity smaller than wall)
             // OR:
             //      Both edges of entity are outside wall (entity larger than wall)
-            show_debug_message('entities fully overlapping');
+            //show_debug_message('entities fully overlapping');
             // If speed is set (likely, as wall/entity are overlapping completely),
             // use speed to determine whether to send left or right (opposite)
             if (speed_x &gt; 0) {
@@ -546,16 +546,16 @@ while (place_meeting(x, y, obj_wallTile)) {
         if (pushDir == 1) {
             // Push to the right based on overlap of bounding boxes (+1)
             x += tile.bbox_right - bbox_left + 1;        
-            show_debug_message('pushing to the right');
+            //show_debug_message('pushing to the right');
         } else if (pushDir == -1) {
             // Push to the left based on overlap of bounding boxes (-1)
             x += tile.bbox_left - bbox_right - 1;
-            show_debug_message('pushing to the left');
+            //show_debug_message('pushing to the left');
         } else {
             // We have no way to know which x direction to send the entity, and
             // it is fully overlapping (or being overlapped) against the tile,
             // so in this very rare case we will PUSH IT UP and out of the wall.
-            show_debug_message("pushing UP, as we cant tell how to move");
+            //show_debug_message("pushing UP, as we cant tell how to move");
             y -= bbox_bottom - tile.bbox_top + 1;
         }
         

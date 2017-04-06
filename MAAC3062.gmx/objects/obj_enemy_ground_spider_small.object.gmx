@@ -355,10 +355,13 @@ else if (scr_getLevelId() == 7) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var xDist = obj_player.x - (x+sprite_width/2); // Player origin is centered, spider origin is top left
-var yDist = obj_player.y - (y+sprite_height/2);
+            <string>var xDist = 0;
+var yDist = 0;
 
 if (instance_exists(obj_player)) {
+    xDist = obj_player.x - (x+sprite_width/2); // Player origin is centered, spider origin is top left
+    yDist = obj_player.y - (y+sprite_height/2);
+    
     // Move towards player horizontally
     if (abs(xDist) &lt; 50) {
         // Horizontally very close to player, so stop moving for now
