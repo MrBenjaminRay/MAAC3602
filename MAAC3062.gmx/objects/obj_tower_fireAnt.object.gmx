@@ -133,6 +133,11 @@ if (frozenByBossThree) {
     return 0;
 }
 
+// Draw upgraded tower
+if (global.towerUpgradeLevel[4] &gt; 1) {
+    sprite_index = spr_flame_Upgrade;
+}
+
 // Decrement warmup time remaining if not 0
 if (warmUpRemaining &gt; 0) { 
     warmUpRemaining -= global.deltaTime;
