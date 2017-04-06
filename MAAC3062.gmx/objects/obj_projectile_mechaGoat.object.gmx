@@ -93,6 +93,9 @@ jetPack_offsetY = 0;
 // should pass in front of just about everything.
 depthAfterLaunch = -50;
 
+// Play random goat sound
+scr_sound_randomGoat();
+
 </string>
           </argument>
         </arguments>
@@ -321,6 +324,8 @@ if (instance_exists(jetPack)) {
             <string>// Check if is correct enemy, and detonate, otherwise ignore
 if (other.object_index == targetEnemy.object_index &amp;&amp; armDelay &lt; 0) {
     instance_destroy();
+    // Play random goat sound
+    scr_sound_randomGoat();
 }
 
 </string>

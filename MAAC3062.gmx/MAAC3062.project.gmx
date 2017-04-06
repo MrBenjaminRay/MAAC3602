@@ -897,6 +897,7 @@
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
     <script>scripts\scr_energy_transfer.gml</script>
+    <script>scripts\scr_sound_randomGoat.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
