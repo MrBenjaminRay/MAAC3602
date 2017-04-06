@@ -43,33 +43,18 @@
 isTowerPlaced = false;
 hasPlayerRightClicked = false;
 
-scr_camera_follow_fixedCoordinates(1600, 576);
+
+
+text1 = noone; // Message box telling player to place a tower
+text2 = noone; // Message box telling player to right-click to sell
+
+scr_notification_normal(spr_catapillager_note);
+
+state = 0;
+
+cameraDone = false; // Tells us when the camera is done the little pre-level tour
 
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>room_speed * 2</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -91,13 +76,11 @@ scr_camera_follow_fixedCoordinates(1600, 576);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_camera_follow_playerObjects();
+            <string>// Send the camera back to the player
+scr_camera_follow_playerObjects();
 
-textBox = instance_create(96, 608, obj_messageBox);
-ds_list_add(textBox.list_text, "There are too many enemies for you");
-ds_list_add(textBox.list_text, "to handle, try building a tower!");
-ds_list_add(textBox.list_text, "Try right clicking on a tower to sell it.");
-
+// Let the controller know we can go to the next step
+cameraDone = true;
 </string>
           </argument>
         </arguments>
@@ -120,22 +103,96 @@ ds_list_add(textBox.list_text, "Try right clicking on a tower to sell it.");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(obj_tower_caterpillager)){
-    isTowerPlaced = true;
-}
+            <string>// Note: Should have messages follow player somehow
 
-if(hasPlayerRightClicked){
-    if (textBox != noone) {
-        with (textBox) {
-            instance_destroy();
-        }
+if (state == 0) {
+    // Notification of tower unlock is being displayed
+    
+    if (scr_notificationCount() == 0) {
+        // Player has closed tower unlock notification
+        state = 1;
+        
+        // Show the level and set the alarm to bring the camera back.
+        // Alarm updates the state variable to 2 when camera is on its way back.
+        scr_camera_follow_fixedCoordinates(1600, 576);
+        alarm_set(0, room_speed * 3); // 3 seconds
     }
     
-    var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
-    tmp.alarm[0] = room_speed * 8;
+} else if (state == 1) {
+    // Alarm code will update state to 2 when the camera is on the way back to the player
+    // Nothing to do here
     
-    instance_destroy();
-}
+    if (cameraDone) {
+        // Camera on way back to player
+        // Proceed to next state
+        state = 2;
+        text1 = instance_create(96, 608, obj_messageBox);
+        ds_list_add(text1.list_text, "Hit 1 to begin placing your new tower.");
+        ds_list_add(text1.list_text, "Use left mouse button to place it.");
+        ds_list_add(text1.list_text, "You can only place towers near you.");
+    }
+} else if (state == 2) {
+
+    // Waiting for player to place a tower
+    
+    if(instance_exists(obj_tower_caterpillager)){
+        // Player has placed a tower
+        // Proceed to the next step
+        state = 3;
+        
+        // Destroy the previous message box if it exists
+        if (instance_exists(text1)) { 
+            with (text1) { instance_destroy(); }
+        }
+        // Create the next message box if it doesn't exist
+        text2 = instance_create(96, 608, obj_messageBox);
+        ds_list_add(text2.list_text, "Towers cost energy, so collect as much");
+        ds_list_add(text2.list_text, "of the energy drops as you can.");
+    }
+} else if (state == 3) {
+    // Waiting for tower to be built
+    // As soon as it's up, kill the previous message and wait for the player to right-click
+    
+    if (instance_exists(obj_tower_caterpillager)) {
+        if (obj_tower_caterpillager.warmUpRemaining &lt;= 0) {
+            // Tower is fully built. Next step.
+            
+            state = 4;
+            // Destroy the previous message box if it exists
+            if (instance_exists(text2)) { 
+                with (text2) { instance_destroy(); }
+            }
+            // Create the next message box if it doesn't exist
+            text3 = instance_create(96, 608, obj_messageBox);
+            ds_list_add(text3.list_text, "Right-click tower to see sell interface.");
+            ds_list_add(text3.list_text, "Selling a tower gives you a partial refund.");
+            ds_list_add(text3.list_text, "Either hit Sell or click elsewhere to cancel.");
+        }
+    }
+
+} else if (state == 4) {
+    // Waiting for player to right-click to see Sell interface
+
+    // NOTE:  The variable is set in the tower sell code
+        
+    if (hasPlayerRightClicked) {
+        // Player has right-clicked
+        state = 5;
+        
+        // Destroy the previous message box if it exists
+        if (instance_exists(text3)) { 
+            with (text3) { instance_destroy(); }
+        }
+        
+        var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+        tmp.alarm[0] = room_speed * 8;
+        
+        instance_destroy();
+    }
+
+} 
+
+
 </string>
           </argument>
         </arguments>

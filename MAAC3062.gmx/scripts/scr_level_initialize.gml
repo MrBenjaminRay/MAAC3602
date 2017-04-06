@@ -65,3 +65,9 @@ window_set_cursor(cr_none);
 global.currentLevelComplete = 0;
 global.currentLevelFailed = 0;
 
+// Force clearing of any pause-related stuff
+scr_state_setUnpaused();
+
+// Force state to normal
+scr_state_setNormal();
+

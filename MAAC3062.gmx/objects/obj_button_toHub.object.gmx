@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = window_get_width()/2 - 300 - sprite_get_width(obj_button_toHub) * image_xscale;
+            <string>x = window_get_width()/2 - 100 - sprite_width;
 y = window_get_height()/2 + 100;
 </string>
           </argument>
@@ -67,6 +67,8 @@ if (
     )
 ) {
     // User has clicked inside this sprite
+    // Prevent step code from continuing that might reference player after he is destroyed
+    instance_deactivate_all(true);
     room_goto(rm_hub);
 }
 </string>
