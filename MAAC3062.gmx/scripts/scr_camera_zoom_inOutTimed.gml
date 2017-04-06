@@ -16,9 +16,12 @@
  *        The length (ms) of the zoom-out transition
  */
 
+if (!instance_exists(obj_camera)) {
+    show_debug_message("Camera does not exist. Exiting script scr_camera_zoom_inOutTimed.");
+    return 0;
+}
 
 // Start zoom transition
-
 with (obj_camera) {
     // Set desired zoom level
     zoomLevelDesired = argument[0];

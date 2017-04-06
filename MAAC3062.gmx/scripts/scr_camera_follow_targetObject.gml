@@ -10,6 +10,11 @@
  *        The object that the camera should follow
  *
  */
+ 
+if (!instance_exists(obj_camera)) {
+    show_debug_message("Camera does not exist. Exiting script scr_camera_follow_targetObject.");
+    return 0;
+}
 
 var obj;
 if (instance_exists(argument[0])) {
