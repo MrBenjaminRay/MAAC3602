@@ -443,7 +443,6 @@ if (state == 0) {
             ds_list_add(msg3.list_text, "Proceed all the way to the right");
             ds_list_add(msg3.list_text, "to go find your ship!");        
         }
-
     }
     
 } 

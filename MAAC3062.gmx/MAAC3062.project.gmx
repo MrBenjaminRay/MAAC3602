@@ -91,6 +91,7 @@
     <sprites name="Tutorials">
       <sprite>sprites\spr_thumbsUp_Huge</sprite>
       <sprite>sprites\spr_thumbsUp_Normal</sprite>
+      <sprite>sprites\spr_thumbsUp_Normal_Shadow</sprite>
     </sprites>
     <sprites name="UI_HUD">
       <sprite>sprites\spr_hotbar_item_back</sprite>
