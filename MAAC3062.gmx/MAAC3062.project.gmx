@@ -490,7 +490,6 @@
         </sprites>
         <sprites name="MechaGoat">
           <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
-          <sprite>sprites\spr_tower_mechaGoat_right</sprite>
           <sprite>sprites\spr_mechaGoat_locked</sprite>
           <sprite>sprites\spr_tower_destroyed_mechaGoat</sprite>
           <sprite>sprites\spr_tower_mechaGoat_left</sprite>
@@ -765,6 +764,8 @@
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
         <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
         <script>scripts\scr_tower_isLocationValid.gml</script>
+        <script>scripts\scr_tower_getGoatTarget.gml</script>
+        <script>scripts\scr_tower_launchGoat.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>

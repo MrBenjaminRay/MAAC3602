@@ -51,7 +51,8 @@ if (irandom_range(0, 1)) {
 }
 
 
-healthBarYOffset -= 10;
+healthBarYOffset = -10;
+
 </string>
           </argument>
         </arguments>
