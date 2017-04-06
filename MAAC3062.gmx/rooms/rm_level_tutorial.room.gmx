@@ -110,7 +110,7 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1536" y="864" name="inst_CA5DDFAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1568" y="864" name="inst_411EAB8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1600" y="864" name="inst_492477B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="0" y="-96" name="inst_676B2C15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="256" y="-1792" name="inst_676B2C15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1632" y="864" name="inst_ACE1A3EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warp" x="1600" y="736" name="inst_971C53D7" locked="0" code="    warpx = 320;&#xA;    warpy = 608;&#xA;    target_room = rm_level_moon;&#xA;" scaleX="-0.5" scaleY="9.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelEnergy" x="64" y="288" name="inst_FF34CBC9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -163,6 +163,15 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1120" y="704" name="inst_3252E471" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="320" y="704" name="inst_5CA4E071" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="352" y="704" name="inst_F71DDE9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="704" y="256" name="inst_EE579255" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="736" y="256" name="inst_A3B66F1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="480" y="256" name="inst_817D8F9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="512" y="256" name="inst_DA607BEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="544" y="256" name="inst_7777DAAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="576" y="256" name="inst_FFD63E4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="608" y="256" name="inst_856536C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="640" y="256" name="inst_B9EBE173" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_physicsTile" x="672" y="256" name="inst_9D8CC5D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="1120" y="608" w="16" h="16" xo="0" yo="0" id="10003226" name="inst_65020D27" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -213,6 +222,15 @@ scr_level_initialize();</code>
     <tile bgName="bkg_moon_tiles" x="-64" y="864" w="32" h="32" xo="0" yo="0" id="10003413" name="inst_70617458" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_moon_tiles" x="-64" y="704" w="32" h="32" xo="0" yo="0" id="10003414" name="inst_83B317F8" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bkg_moon_tiles" x="-32" y="704" w="32" h="32" xo="0" yo="0" id="10003415" name="inst_8362F13F" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="480" y="256" w="32" h="32" xo="0" yo="0" id="10003729" name="inst_214BFA91" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="512" y="256" w="32" h="32" xo="0" yo="0" id="10003730" name="inst_AF24CFFB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="544" y="256" w="32" h="32" xo="0" yo="0" id="10003731" name="inst_2BCC1AFB" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="576" y="256" w="32" h="32" xo="0" yo="0" id="10003732" name="inst_4F7D3A08" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="608" y="256" w="32" h="32" xo="0" yo="0" id="10003733" name="inst_980E3B0E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="640" y="256" w="32" h="32" xo="0" yo="0" id="10003734" name="inst_467ACB14" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="672" y="256" w="32" h="32" xo="0" yo="0" id="10003735" name="inst_51F96207" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="704" y="256" w="32" h="32" xo="0" yo="0" id="10003736" name="inst_6B9C55F4" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bkg_moon_tiles" x="736" y="256" w="32" h="32" xo="0" yo="0" id="10003737" name="inst_AF1BCD53" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

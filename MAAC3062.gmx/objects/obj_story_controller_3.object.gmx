@@ -69,7 +69,7 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>fps * 10</string>
+            <string>room_speed  * 10</string>
           </argument>
           <argument>
             <kind>4</kind>
