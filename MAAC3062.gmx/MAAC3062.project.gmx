@@ -763,6 +763,8 @@
     <path>paths\path_flying_asteroid</path>
     <path>paths\path_flying_mars</path>
     <path>paths\path_flying_earth</path>
+    <path>paths\path_tutorial_ship</path>
+    <path>paths\path_tutorial_player</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
