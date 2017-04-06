@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//fuel = 10; // Looks like we're using global variables instead
-//fuelTarget = 100; // Looks like we're using global variables instead
-
-image_xscale = 0.75;
+            <string>image_xscale = 0.75;
 image_yscale = image_xscale;
 levelFinish = 0;
 messageXPos = x - 207;
@@ -36,6 +33,7 @@ messageYPos = y - 278
 playSound = true;
 
 currentMessageBox = noone;
+
 </string>
           </argument>
         </arguments>
