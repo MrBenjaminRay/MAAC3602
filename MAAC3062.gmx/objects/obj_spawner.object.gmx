@@ -85,7 +85,12 @@ if (spawnInterval &lt;= spawnCounter) {
     // Assuming that all objects that can be spawned
     // are enemy objects that inherit from obj_entity.
     var spawnedObj = instance_create(x, y, objToSpawn);
-    spawnedObj.movementSpeed = irandom_range(150,300) / 1000;
+    
+    if (irandom_range(0, 1)) {
+        spawnedObj.movementSpeedDefault += (spawnedObj.movementSpeedDefault * irandom_range(0.0, 0.15));
+    } else {
+        spawnedObj.movementSpeedDefault -= (spawnedObj.movementSpeedDefault * irandom_range(0.0, 0.15));
+    }
 }
 
 </string>

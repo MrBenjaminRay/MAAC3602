@@ -319,19 +319,34 @@ if (isEnemyProjectile == false) {
     scr_entity_dealDamage(other, damage);
     scr_create_explosion(x, y, "SmallHit");
     
-    if (other.speed_x &lt; 0) {
-        if (damage &gt; 15) {
-            other.x += damage;
-        } else {
-            other.x += 15;
+    // Knockback isn't applied to bosses:
+    switch (other.instance_id) {
+        case obj_enemy_boss_large_A:
+        case obj_enemy_boss_large_B:
+        case obj_enemy_boss_large_C:
+        case obj_enemy_boss_large_D:
+        case obj_enemy_boss_mini_A:
+        case obj_enemy_boss_mini_B:
+        case obj_enemy_boss_mini_C:
+        case obj_enemy_boss_mini_D: {
+            break;
         }
-    }
-    
-    if (other.speed_x &gt;= 0) {
-        if (damage &gt; 15) {
-            other.x -= damage;
-        } else {
-            other.x -= 15;
+        default: {
+            if (other.speed_x &lt; 0) {
+                if (damage &gt; 15) {
+                    other.x += damage;
+                } else {
+                    other.x += 15;
+                }
+            }
+            
+            if (other.speed_x &gt;= 0) {
+                if (damage &gt; 15) {
+                    other.x -= damage;
+                } else {
+                    other.x -= 15;
+                }
+            }
         }
     }
     
