@@ -245,6 +245,8 @@
         <sprite>sprites\spr_locked</sprite>
         <sprite>sprites\spr_unlock_token</sprite>
         <sprite>sprites\spr_upgrade_token</sprite>
+        <sprite>sprites\spr_button_red</sprite>
+        <sprite>sprites\spr_button_green</sprite>
       </sprites>
       <sprites name="Death Screen">
         <sprite>sprites\spr_button_retry</sprite>
@@ -1222,6 +1224,8 @@
           <object>objects\obj_sideways_message</object>
         </objects>
         <object>objects\obj_bossDropIcon</object>
+        <object>objects\obj_button_red</object>
+        <object>objects\obj_button_green</object>
       </objects>
       <objects name="Messages">
         <object>objects\obj_distanceMessage</object>
