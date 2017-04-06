@@ -40,7 +40,6 @@
           <argument>
             <kind>1</kind>
             <string>// Add custom stuff for this level here
-tutorialComplete = false;
 isTowerPlaced = false;
 hasPlayerRightClicked = false;
 
@@ -121,25 +120,21 @@ ds_list_add(textBox.list_text, "Try right clicking on a tower to sell it.");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Add custom stuff for this level here
-if(tutorialComplete){
-    global.enemiesCanSpawn = true;
-}
-
-if(instance_exists(obj_tower_caterpillager)){
+            <string>if(instance_exists(obj_tower_caterpillager)){
     isTowerPlaced = true;
 }
 
 if(hasPlayerRightClicked){
-    tutorialComplete = true;
-    
     if (textBox != noone) {
         with (textBox) {
             instance_destroy();
         }
     }
     
-    scr_spawning_enableSpawners();
+    var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+    tmp.alarm[0] = room_speed * 8;
+    
+    instance_destroy();
 }
 </string>
           </argument>
