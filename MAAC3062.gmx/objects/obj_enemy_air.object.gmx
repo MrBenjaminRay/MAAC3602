@@ -126,6 +126,8 @@ if (room == rm_level_forest) {
     path = path_flying_mars;
 } else if (room == rm_level_earth) {
     path = path_flying_earth;
+} else if (room == rm_bentest) {
+    path = path_flying_bentest;
 }
 
 var spd = random_range(1, 3);

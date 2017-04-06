@@ -786,6 +786,7 @@ if (mouse_check_button(mb_left)) {
     canFire &amp;= global.state != "Destroy";
     canFire &amp;= weaponObj != noone;
     canFire &amp;= firingPaused == false;
+    canFire &amp;= scr_notificationCount() == 0; // Can't fire while notification up (probably hitting Continue)
 
     if (canFire &amp;&amp; allowedToFire) {
         if (attackRateCounter &gt;= attackRate) {

@@ -765,6 +765,7 @@
     <path>paths\path_flying_earth</path>
     <path>paths\path_tutorial_ship</path>
     <path>paths\path_tutorial_player</path>
+    <path>paths\path_flying_bentest</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
@@ -889,6 +890,7 @@
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
+    <script>scripts\scr_energy_transfer.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -946,6 +948,7 @@
         <object>objects\obj_particle_flame</object>
         <object>objects\obj_particle_smoke_puff</object>
         <object>objects\obj_particle_energy_orb</object>
+        <object>objects\obj_particle_energy_transfer</object>
       </objects>
       <objects name="Particle Emitters">
         <object>objects\obj_emitter_continual</object>
