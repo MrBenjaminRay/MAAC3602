@@ -80,6 +80,12 @@
       <sound>sound\mus_win</sound>
       <sound>sound\mus_tutorialBeat</sound>
     </sounds>
+    <sounds name="Goat Sounds">
+      <sound>sound\snd_goat1</sound>
+      <sound>sound\snd_goat2</sound>
+      <sound>sound\snd_goat3</sound>
+      <sound>sound\snd_goat4</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Tutorials">
