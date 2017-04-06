@@ -1162,6 +1162,7 @@
         <object>objects\obj_play</object>
         <object>objects\obj_quit</object>
         <object>objects\obj_back</object>
+        <object>objects\obj_back_hub</object>
         <object>objects\obj_mainMenu</object>
         <object>objects\obj_mainMenu_hub</object>
         <object>objects\obj_credits</object>
