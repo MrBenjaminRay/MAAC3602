@@ -29,6 +29,7 @@
 titleScale = 2;
 titleYOffset = -30;
 titleLineOffset = 5;
+titleMargin = 5;
 
 
 </string>
@@ -55,11 +56,14 @@ titleLineOffset = 5;
             <kind>1</kind>
             <string>// JOE: Try this, or some dark colour like it
 draw_set_color(c_navy);
+draw_set_font(fnt_messageBox_edit);
 
 if(global.hubMode == 0) {
-    draw_text(x, y + lineOffset*3, "Environment");
-    draw_text(x, y + lineOffset*10, "Leader");
     
+    if(global.selectedPlanet != 6) {
+        draw_text_transformed(x, y+lineOffset*3, "Environment", 1.5, 1.5, 0);
+        draw_text_transformed(x, y+lineOffset*10, "Leader", 1.5, 1.5, 0);
+    }
     
 
     var shadowOffset = 1;
@@ -68,52 +72,52 @@ if(global.hubMode == 0) {
     switch(global.selectedPlanet) {
         case 0:
             draw_text_transformed(x, y+titleYOffset, "Moon X-52", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "Rocky and Mountainous.");
-            draw_text(x, y + lineOffset*11, "Covered in rock. Unadvanced, but");
-            draw_text(x, y + lineOffset*12, "heavily armoured.");
+            draw_text(x, titleMargin+y + lineOffset*4, "Rocky and Mountainous.");
+            draw_text(x, titleMargin+y + lineOffset*11, "Covered in rock. Unadvanced, but");
+            draw_text(x, titleMargin+y + lineOffset*12, "heavily armoured.");
             break;
         case 1:
             draw_text_transformed(x, y+titleYOffset, "Tria", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "Void of anything but trees the size of");
-            draw_text(x, y + lineOffset*5, "skyscapers.");
-            draw_text(x, y + lineOffset*11, "A venomous, ghostly being made of");
-            draw_text(x, y + lineOffset*12, "brush.");
+            draw_text(x, titleMargin+y + lineOffset*4, "Void of anything but trees the size of");
+            draw_text(x, titleMargin+y + lineOffset*5, "skyscapers.");
+            draw_text(x, titleMargin+y + lineOffset*11, "A venomous, ghostly being made of");
+            draw_text(x, titleMargin+y + lineOffset*12, "brush.");
             break;
         case 2:
             draw_text_transformed(x, y+titleYOffset, "Desertonios", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "Literally scorching sands.");
-            draw_text(x, y + lineOffset*11, "A massive flying beast threatens");
-            draw_text(x, y + lineOffset*12, "intruders.");
+            draw_text(x, titleMargin+y + lineOffset*4, "Literally scorching sands.");
+            draw_text(x, titleMargin+y + lineOffset*11, "A massive flying beast threatens");
+            draw_text(x, titleMargin+y + lineOffset*12, "intruders.");
             break;
         case 3:
             draw_text_transformed(x, y+titleYOffset, "Glacius", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "A planet stuck in an eternal ice age.");
-            draw_text(x, y + lineOffset*11, "Somehow acts as a living creature");
-            draw_text(x, y + lineOffset*12, "but is made solely of ice.");
+            draw_text(x, titleMargin+y + lineOffset*4, "A planet stuck in an eternal ice age.");
+            draw_text(x, titleMargin+y + lineOffset*11, "Somehow acts as a living creature");
+            draw_text(x, titleMargin+y + lineOffset*12, "but is made solely of ice.");
             break;
         case 4:
             draw_text_transformed(x, y+titleYOffset, "Eaut", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "A water-covered planet. A shipwreck");
-            draw_text(x, y + lineOffset*5, "has been spotted. This technology");
-            draw_text(x, y + lineOffset*6, "looks familiar.");
-            draw_text(x, y + lineOffset*11, "A fish-like beast that consumes the");
-            draw_text(x, y + lineOffset*12, "remains of sunken ships.");
+            draw_text(x, titleMargin+y + lineOffset*4, "A water-covered planet. A shipwreck");
+            draw_text(x, titleMargin+y + lineOffset*5, "has been spotted. This technology");
+            draw_text(x, titleMargin+y + lineOffset*6, "looks familiar.");
+            draw_text(x, titleMargin+y + lineOffset*11, "A fish-like beast that consumes the");
+            draw_text(x, titleMargin+y + lineOffset*12, "remains of sunken ships.");
             break;
         case 5:
             draw_text_transformed(x, y+titleYOffset, "Mike", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "Our radar high temperatures");
-            draw_text(x, y + lineOffset*5, "produced by burning gases.");
-            draw_text(x, y + lineOffset*6, "");
-            draw_text(x, y + lineOffset*11, "Unknown");
-            draw_text(x, y + lineOffset*12, "");
+            draw_text(x, titleMargin+y + lineOffset*4, "Our radar high temperatures");
+            draw_text(x, titleMargin+y + lineOffset*5, "produced by burning gases.");
+            draw_text(x, titleMargin+y + lineOffset*6, "");
+            draw_text(x, titleMargin+y + lineOffset*11, "Unknown");
+            draw_text(x, titleMargin+y + lineOffset*12, "");
             break;
         case 6:
             draw_text_transformed(x, y+titleYOffset, "Large Asteroid", titleScale, titleScale, 0);
-            draw_text(x, y + lineOffset*4, "Was is love?");
-            draw_text(x, y + lineOffset*5, "Baby don't hurt me,");
-            draw_text(x, y + lineOffset*6, "Don't hurt me,");
-            draw_text(x, y + lineOffset*11, "No more.");
-            draw_text(x, y + lineOffset*12, "");
+            draw_text(x, titleMargin+y + lineOffset*4, "Was is love?");
+            draw_text(x, titleMargin+y + lineOffset*5, "Baby don't hurt me,");
+            draw_text(x, titleMargin+y + lineOffset*6, "Don't hurt me,");
+            draw_text(x, titleMargin+y+lineOffset*7, "No more.");
+            draw_text(x, titleMargin+y + lineOffset*12, "");
             break;
         default:
             draw_text(x, y, "Invalid selectedPlanet value");
@@ -134,6 +138,13 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*15, "Area Damage: None");
             draw_text(x, y + lineOffset*17, "Special Effect: None");
             draw_text(x, y + lineOffset*19, "Cost: 300 Energy");
+            
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), " +Fire Rate");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "++Damage");
+            draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "++Range");
+            
             
             if(global.towerUpgradeLevel[0] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
@@ -156,6 +167,12 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*19, "worsens over time.");
             draw_text(x, y + lineOffset*20, "Cost: 750 Energy");
             
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), "+Slow Effect");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "++Enemies Trapped");
+            draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "++Range");
+            
             if(global.towerUpgradeLevel[1] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
             else
@@ -176,6 +193,12 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*18, "");
             draw_text(x, y + lineOffset*20, "Cost: 1000 Energy");
             
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), "+Damage");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "++Blast Radius");
+            draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "+Range");
+            
             if(global.towerUpgradeLevel[2] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
             else
@@ -195,6 +218,12 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*18, "increasing damage dealt with each ant");
             draw_text(x, y + lineOffset*20, "Cost: 1250 Energy");
             
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), "+Burn Stacks (Damage)");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "+Projectile Size");
+            draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "+Range");
+            
             if(global.towerUpgradeLevel[4] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
             else
@@ -213,6 +242,13 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*17, "Special Effect: The teddy bear can pass");
             draw_text(x, y + lineOffset*18, "through and damage multiple enemies.");
             draw_text(x, y + lineOffset*19, "Cost: 750 Energy");
+            
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), "+Damage");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "+++Range");
+            draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "Enemies Explode on Death");
+            
             if(global.towerUpgradeLevel[3] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
             else
@@ -234,6 +270,12 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*19, "Needs to reload periodically.");
             draw_text(x, y + lineOffset*20, "Cost: 2000 Energy");
             
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), "+Damage");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "+Accuracy");
+            draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "Sets enemies on fire");
+            
             if(global.towerUpgradeLevel[5] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
             else
@@ -254,6 +296,12 @@ else if(global.hubMode == 1) {
             draw_text(x, y + lineOffset*17, "Special Effect: BIG BOOM.");
             draw_text(x, y + lineOffset*18, "");
             draw_text(x, y + lineOffset*19, "Cost: 2000 Energy");
+            
+            //Upgrades
+            draw_text_transformed(x, y + lineOffset*24 + lineOffset/2, "Upgrades", 1.5, 1.5, 0);
+            draw_text(x, titleMargin+y + lineOffset*25 + lineOffset*(3/4), "++Fragmentation bombs");
+            draw_text(x, titleMargin+y + lineOffset*26 + lineOffset*(3/4), "Fires 2 goats each cycle");
+            //draw_text(x, titleMargin+y + lineOffset*27 + lineOffset*(3/4), "Sets enemies on fire");
             
             if(global.towerUpgradeLevel[6] &gt; 1)
                 obj_unlock_upgrade.sprite_index = -1;
