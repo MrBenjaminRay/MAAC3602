@@ -15,7 +15,7 @@ scr_level_initialize();
 
 // Enable Spawners:
 var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
-tmp.alarm[0] = room_speed * 3;
+tmp.alarm[0] = room_speed * 10;
 
 // Set spawnable enemies:
 with(obj_spawnerSpawner){

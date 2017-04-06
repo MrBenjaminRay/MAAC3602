@@ -60,7 +60,7 @@ objToSpawn = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == "Paused" || disabled || global.enemiesCanSpawn == false) {
+            <string>if (global.state == "Paused" || disabled) {
     return 0;
 }
 
