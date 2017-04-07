@@ -44,6 +44,14 @@ barX1 = x + 15;
 barY1 = y + 17;
 barX2 = barX1 + barWidthTotal;
 barY2 = barY1 + barHeight;
+
+
+//tool tip stuff
+mouseHoverTime = 0;
+toolTipEnabled = false;
+
+shadowOffset = 1;
+
 </string>
           </argument>
         </arguments>
@@ -76,6 +84,30 @@ if (instance_exists(obj_control_bosses)) {
 image_xscale = scale;
 image_yscale = scale;
 
+
+// Hover tooltip stuff
+if (
+    point_in_rectangle(
+        window_mouse_get_x(), 
+        window_mouse_get_y(), 
+        x,
+        y,
+        x+sprite_width,
+        y+sprite_height
+    )
+) {
+    if(!toolTipEnabled)
+        mouseHoverTime++;
+}
+else {
+    mouseHoverTime = 0;
+    toolTipEnabled = false;
+}
+
+if(mouseHoverTime &gt;= 60)
+    toolTipEnabled = true;
+
+    
 </string>
           </argument>
         </arguments>
@@ -103,6 +135,76 @@ draw_healthbar(barX1, barY1, barX2, barY2,  100 * kills/killsRequired, c_black, 
 // Draw the hud element itself
 draw_self();
 
+if(mouseHoverTime &gt;= 45) {
+
+    var text;
+    text[0] = '';
+    text[1] = ''
+    text[2] = string(kills) + ' of ' + string(killsRequired) + 'kills before boss arrives.';
+    
+    var backX = x + sprite_width/2;
+    var backY = y-22;
+    
+    // NOTE: Use round() when positioning text to ensure it is not divided up over 1/2 pixels
+
+    // Configure
+    draw_set_font(fnt_hud_hoverNew);
+    draw_set_halign(fa_center); // Align text so we don't have to calculate its width
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    
+    // Draw text line 1
+    draw_set_colour(c_black);
+    draw_set_alpha(.5);
+    draw_text(
+        round(backX - shadowOffset), // Center drawing point horizontally
+        round(backY - 28 + shadowOffset),
+        text[0]
+    );
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        round(backX), // Center drawing point horizontally
+        round(backY - 28),
+        text[0]
+    );
+
+    // Draw text line 2
+    draw_set_colour(c_black);
+    draw_set_alpha(.5);
+    draw_text(
+        round(backX + shadowOffset), // Center drawing point horizontally
+        round(backY - 14 + shadowOffset),
+        text[1]
+    );
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        round(backX), // Center drawing point horizontally
+        round(backY - 14),
+        text[1]
+    );
+    
+    // Draw text line 3
+    draw_set_colour(c_black);
+    draw_set_alpha(.5);
+    draw_text(
+        round(backX + shadowOffset), // Center drawing point horizontally
+        round(backY + shadowOffset),
+        text[2]
+    );
+    draw_set_colour(c_white);
+    draw_set_alpha(1);
+    draw_text(
+        round(backX), // Center drawing point horizontally
+        round(backY),
+        text[2]
+    );
+    
+    // Reset drawing stuff to defaults
+    draw_set_halign(fa_left);
+
+}
 </string>
           </argument>
         </arguments>
