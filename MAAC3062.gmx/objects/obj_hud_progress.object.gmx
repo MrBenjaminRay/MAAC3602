@@ -140,7 +140,7 @@ if(mouseHoverTime &gt;= 45) {
     var text;
     text[0] = '';
     text[1] = ''
-    text[2] = string(kills) + ' of ' + string(killsRequired) + 'kills before boss arrives.';
+    text[2] = string(kills) + ' of ' + string(killsRequired) + ' kills before boss arrives.';
     
     var backX = x + sprite_width/2;
     var backY = y-22;
