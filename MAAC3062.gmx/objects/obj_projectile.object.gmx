@@ -320,7 +320,8 @@ if (isEnemyProjectile == false) {
     scr_create_explosion(x, y, "SmallHit");
     
     // Knockback isn't applied to bosses:
-    switch (other.instance_id) {
+
+    switch (other.object_index) {
         case obj_enemy_boss_large_A:
         case obj_enemy_boss_large_B:
         case obj_enemy_boss_large_C:
