@@ -38,6 +38,7 @@ amountToSpawn = 0;
 
 // The object to spawn:
 objToSpawn = noone;
+
 </string>
           </argument>
         </arguments>
@@ -61,6 +62,11 @@ objToSpawn = noone;
           <argument>
             <kind>1</kind>
             <string>if (global.state == "Paused" || disabled) {
+    return 0;
+}
+
+if (disabled) {
+    // Don't spawn if disabled
     return 0;
 }
 
