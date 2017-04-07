@@ -72,6 +72,11 @@ canSpawn_airHeavy = false;
     return 0;
 }
 
+if (disabled) {
+    // Don't spawn if disabled
+    return 0;
+}
+
 // Increment Counter:
 spawnCounter += global.deltaTime;
 

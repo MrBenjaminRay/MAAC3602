@@ -68,7 +68,7 @@ if (
 ) {
     // User has clicked inside this sprite
     // Prevent step code from continuing that might reference player after he is destroyed
-    instance_deactivate_all(true);
+    //instance_deactivate_all(true);
     room_goto(rm_hub);
 }
 </string>

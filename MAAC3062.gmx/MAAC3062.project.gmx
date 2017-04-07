@@ -1163,6 +1163,7 @@
       <object>objects\obj_hud_abilityorb_2</object>
       <object>objects\obj_hud_abilityorb_3</object>
       <object>objects\obj_hud_abilityorb_4</object>
+      <object>objects\obj_hud_progress</object>
       <objects name="Tutorials">
         <object>objects\obj_thumbsUp</object>
       </objects>

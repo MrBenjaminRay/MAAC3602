@@ -47,31 +47,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Increase Minerals</string>
+            <string>Increase Kill Count</string>
           </argument>
         </arguments>
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>-1</relative>
+        <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.minerals</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
+            <string>// Increase the kill count for this level.
+// Usually used when trying to skip to the boss entry, 
+// which is based on # of enemies killed.
+if (instance_exists(obj_control_bosses)) {
+    var newKills = min(obj_control_bosses.requiredKills, scr_statistics_getData(28)+1);
+    scr_statistics_setData(28, newKills);
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -93,31 +96,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Decrease Minerals</string>
+            <string>Decrease Kill Count</string>
           </argument>
         </arguments>
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>-1</relative>
+        <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.minerals</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>-100</string>
+            <string>// Decrease the kill count for this level.
+// Usually used when trying to skip to the boss entry, 
+// which is based on # of enemies killed.
+if (instance_exists(obj_control_bosses)) {
+    var newKills = max(0, scr_statistics_getData(28)-1);
+    scr_statistics_setData(28, newKills);
+}
+</string>
           </argument>
         </arguments>
       </action>
