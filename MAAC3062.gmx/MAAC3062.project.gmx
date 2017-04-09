@@ -91,6 +91,7 @@
     <sprites name="Tutorials">
       <sprite>sprites\spr_thumbsUp_Huge</sprite>
       <sprite>sprites\spr_thumbsUp_Normal</sprite>
+      <sprite>sprites\spr_thumbsUp_Normal_Shadow</sprite>
     </sprites>
     <sprites name="UI_HUD">
       <sprite>sprites\spr_hotbar_item_back</sprite>
@@ -1162,6 +1163,7 @@
       <object>objects\obj_hud_abilityorb_2</object>
       <object>objects\obj_hud_abilityorb_3</object>
       <object>objects\obj_hud_abilityorb_4</object>
+      <object>objects\obj_hud_progress</object>
       <objects name="Tutorials">
         <object>objects\obj_thumbsUp</object>
       </objects>

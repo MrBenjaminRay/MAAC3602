@@ -11,6 +11,7 @@ global.initialMinerals = global.minerals;
 instance_create(-50, -50, obj_hud_levelEnergy);
 instance_create(-50, -50, obj_camera);
 instance_create(-50, -50, obj_control_normalState);
+instance_create(-50, -50, obj_hud_progress);
 
 // Spawn hotbar, miners, boss control on all levels except tutorial
 if (room != rm_level_tutorial) {

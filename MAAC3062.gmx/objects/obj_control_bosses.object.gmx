@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Will be set in step code and represets # of kills
+// required before the boss spawns on the current level.
+requiredKills = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -26,7 +52,7 @@
           <argument>
             <kind>1</kind>
             <string>// Boss Spawn Requirements:
-var requiredKills = 200;
+requiredKills = 200;
 
 switch (room) {
     case rm_level_moon: {
@@ -64,12 +90,15 @@ switch (room) {
 }
 
 
-var canSpawnBoss = scr_statistics_getData(28) &gt; requiredKills;
+var canSpawnBoss = scr_statistics_getData(28) &gt;= requiredKills;
 canSpawnBoss &amp;= scr_statistics_getData(26) == false; // Check if boss has spawned
 
 if (canSpawnBoss) {
     scr_statistics_setData(26, true);
-            
+
+    // Disable spawning of other enemies
+    scr_spawning_disableSpawners();
+    
     switch(room) {
         case rm_level_moon: {
             scr_spawnBoss(obj_enemy_boss_mini_A, 2300, 500);
@@ -96,11 +125,11 @@ if (canSpawnBoss) {
             break;
         }
         case rm_level_mars: {
-            //scr_spawnBoss(obj_enemy_boss_large_D, 1600, 416);
+            scr_spawnBoss(obj_enemy_boss_mini_B, 1600, 416);
             break;
         }
         case rm_level_earth: {
-            // No boss defined???
+            scr_spawnBoss(obj_enemy_boss_large_D, 1600, 416);
             break;
         }
     }
