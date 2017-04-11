@@ -18,7 +18,7 @@ if (canJump) {
         case obj_enemy_boss_large_B:
         case obj_enemy_boss_large_C:
         case obj_enemy_boss_large_D:
-        case obj_enemy_boss_mini_A:
+        case obj_enemy_boss_moon:
         case obj_enemy_boss_mini_B:
         case obj_enemy_boss_mini_C:
         case obj_enemy_boss_mini_D: {
