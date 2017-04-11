@@ -780,6 +780,7 @@ if (isSellingTower) {
     firingPaused = true;
 }
 
+
 if (mouse_check_button(mb_left)) {
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
@@ -1060,7 +1061,7 @@ if(xKeyHeldCounter == 90) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(y &gt;= room_height || currHealth &lt;= 0){
+            <string>if(bbox_top &gt;= room_height || currHealth &lt;= 0){
   instance_destroy();
 }
 </string>
