@@ -402,6 +402,11 @@ with (obj_drop_energy) {
     maxLife = 100000000; // Permanent
 }
 
+// Avoid any errors to do with the player dying
+if (!instance_exists(obj_player)) {
+    return 0;
+}
+
 if (state == 0) {
 
     // Player needs to collect all of the energy drops, which will require full WASD movement.
@@ -445,72 +450,6 @@ if (state == 0) {
         }
     }
     
-} 
-return 0;
-
-
-if (state == 2) {
-
-        // Ball 1 has been picked up
-        scr_tutorial_thumbsUp(state2_thumbsUp_X, state2_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 2;
-        instance_activate_object(state2_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state1_thumbsUp_X + 20, state1_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use D to move RIGHT to");
-        ds_list_add(msg.list_text, "pick up the item.");   
-    }
- else if (state == 2) {
-    if (!instance_exists(state2_ball)) {
-        // Ball 2 has been picked up
-        scr_tutorial_thumbsUp(state3_thumbsUp_X, state3_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 3;
-        instance_activate_object(state3_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state3_thumbsUp_X + 40, state3_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use A to JUMP to platform");
-        ds_list_add(msg.list_text, "to pick up the item.");
-    }
-} else if (state == 3) {
-    if (!instance_exists(state3_ball)) {
-        // Ball 3 has been picked up
-        scr_tutorial_thumbsUp(state4_thumbsUp_X, state4_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 4;
-        instance_activate_object(state4_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state4_thumbsUp_X + 60, state4_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use S to DROP to lower platform");
-        ds_list_add(msg.list_text, "to pick up the item.");
-    }
-} else if (state == 4) {
-    if (!instance_exists(state4_ball)) {
-        // Ball 4 has been picked up
-        scr_tutorial_thumbsUp(state5_thumbsUp_X, state5_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 5;
-        instance_activate_object(state5_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state5_thumbsUp_X + 80, state5_thumbsUp_Y, obj_messageBox);
-        // Activate the energy level  (MOVE THIS SOMEWHERE ELSE)
-        instance_activate_object(obj_hud_levelEnergy);
-    }
-} else if (state == 5) {
-    
-} else if (state == 6) {
-
-} else if (state == 7) {
-
 }
 
 </string>

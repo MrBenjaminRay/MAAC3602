@@ -101,7 +101,7 @@ if (canSpawnBoss) {
     
     switch(room) {
         case rm_level_moon: {
-            scr_spawnBoss(obj_enemy_boss_mini_A, 2300, 500);
+            scr_spawnBoss(obj_enemy_boss_moon, 2300, 500);
             break;
         }
         case rm_level_forest: {
