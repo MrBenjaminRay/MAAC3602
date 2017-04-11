@@ -28,6 +28,14 @@ if (room != rm_level_tutorial && room != rm_level_moon) {
     instance_create(-50, -50, obj_hud_abilityorb_4);
 }
 
+// Clear Tutorial Messages
+scr_tutorial_clearAllMessages();
+
+// Destroy all level control objects
+with (obj_levelControl) {
+    instance_destroy();
+}
+
 // Add appropriate level control object
 switch (room) {
     case rm_level_tutorial:

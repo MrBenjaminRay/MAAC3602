@@ -43,10 +43,9 @@
 isTowerPlaced = false;
 hasPlayerRightClicked = false;
 
-
-
 text1 = noone; // Message box telling player to place a tower
-text2 = noone; // Message box telling player to right-click to sell
+text2 = noone; // Message box telling player about collecting energy
+text3 = noone; // Message box telling player to right-click to see tower sell interface
 
 scr_notification_normal(spr_catapillager_note);
 

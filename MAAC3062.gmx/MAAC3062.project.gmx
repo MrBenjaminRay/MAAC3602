@@ -885,6 +885,7 @@
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
+      <script>scripts\scr_tutorial_clearAllMessages.gml</script>
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
