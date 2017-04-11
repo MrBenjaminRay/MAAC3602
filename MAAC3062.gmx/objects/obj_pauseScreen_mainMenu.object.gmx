@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//image_xscale = 0.70;
-//image_yscale = image_xscale;
+            <string>image_xscale = 0.8;
+image_yscale = image_xscale;
 </string>
           </argument>
         </arguments>

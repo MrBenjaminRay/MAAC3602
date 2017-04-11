@@ -1297,11 +1297,6 @@
         <object>objects\obj_notificationResearch</object>
         <object>objects\obj_notificationBackground</object>
       </objects>
-      <objects name="Death Screen">
-        <object>objects\obj_button_retry</object>
-        <object>objects\obj_button_toHub</object>
-        <object>objects\obj_levelFail_screenFade</object>
-      </objects>
       <objects name="Credits">
         <objects name="OLD">
           <object>objects\obj_credits1</object>
@@ -1313,6 +1308,11 @@
         <object>objects\obj_creditsNew3</object>
         <object>objects\obj_creditsNew4</object>
         <object>objects\obj_creditsNew5</object>
+      </objects>
+      <objects name="Death Screen">
+        <object>objects\obj_button_retry</object>
+        <object>objects\obj_button_toHub</object>
+        <object>objects\obj_levelFail_screenFade</object>
       </objects>
       <objects name="Pause Screen">
         <object>objects\obj_menu_ingame_placeholder</object>

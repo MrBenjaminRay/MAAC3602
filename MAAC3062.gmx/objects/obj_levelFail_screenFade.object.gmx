@@ -83,7 +83,7 @@ if (timeElapsed &gt;= startFadeAfter) {
 }
 
 if (timeElapsed &gt;= showButtonsAfter) {
-    var btnScale = 0.6;
+    var btnScale = 0.8;
 
     if (instance_number(obj_button_toHub) == 0) {
         // Position will be automatically updated by object

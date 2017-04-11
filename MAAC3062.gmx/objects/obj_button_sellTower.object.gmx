@@ -80,15 +80,15 @@ switch (tower.object_index) {
     }
 }
 
-with (tower) {
-    global.tutorial_part3 = false;
+global.tutorial_part3 = false;
 
+with (tower) {
     instance_destroy();
 }
 
 if (instance_exists(obj_player)) {
     with (obj_player) {
-        alarm[3] = 60;
+        alarm[3] = 10;
         firingDisabled = true;
     }
 }
