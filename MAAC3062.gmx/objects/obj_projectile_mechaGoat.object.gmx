@@ -46,8 +46,8 @@ projectileHitGain = 0.4;    // gain value for the projectileHit sounds.
 
 scr_particle_projectile_addsmoketrail(.05);
 movementSpeed = .1;
-speed = .3;
-gravity = 0.0005;
+speed = 4.3;
+gravity = 0.15;
 
 // Reference to enemy targeted by this projectile
 targetEnemy = noone;
@@ -56,13 +56,21 @@ targetEnemy = noone;
 life = 0;
 maxLife = 20000;
 
+stage = 0;
+
 // Direction in which the goat and his rocket are aimed. Rocket propels goat based on this direction.
 // Will be slowly adjusted towards target.
 // This is different from direction variable, as aim will not always match actual direction
 direction_aim = 0;
 
+jetDelay = 500;         // Delay before rocket starts
+
 armDelay = 1000;        // 1 second between when goat is launched and when it armed
                         // Prevents detonation at tower itself
+
+aimDelay = 5000;        // 5 seconds between when goat is launched and when its direction
+                        // starts turning towards actual target instead of launch direction
+
 
 
 // Whether or not to vertically flip the image
@@ -77,8 +85,7 @@ jetSpeed_actual = 0;
 jetSpeed_max = 1;
 jetSpeed_changeRate = 0.01; // Rate of acceleration when rocket speed climbing from 0 to max
 
-jetDelay = 500;         // Delay before rocket starts
-jetDelayElapsed = 0;     // Rocket delay elapsed
+
 
 // Whether or not the rocket is currently on. rocketSpeeed_actual only increases when rocketOn = true.
 jetOn = false;
@@ -231,12 +238,52 @@ if (speed &gt; 0) {
     }
 }
 
-// Decrement armDelay
-if (armDelay &lt; 0) {
-    armDelay = 0;
+// Decrement countdowns
+jetDelay -= global.deltaTime;
+armDelay -= global.deltaTime;
+aimDelay -= global.deltaTime;
+
+// Update stage based on countdowns
+if (jetDelay &gt; 0) {
+    stage = 0; // Waiting for jet pack to kick in
+} else if (armDelay &gt; 0) {
+    stage = 1; // Waiting for goat to be armed
+} else if (aimDelay &gt; 0) {
+    stage = 2; // Waiting for goat to start aiming towards target
 } else {
-    armDelay -= global.deltaTime;
+    stage = 3; // Rocket should now be adjusting aim towards target
 }
+
+if (stage == 0) {
+    // Waiting for jet pack to kick in. Let gravity do all the work.
+} else if (stage == 1) {
+    // Waiting for goat to be armed. Make sure jet pack is on.
+    if (jetOn == false) {
+        // Jet pack firing up
+        jetOn = true;
+        jetPack.image_alpha = 1;
+        jetPack.image_index = 0; // Restart animation
+        depth = depthAfterLaunch; // Set goat depth after launch
+        // Apply gravity (may have to move this to initial launch stage and not apply to flight stage)
+        //vspeed += gravity * global.deltaTime;
+    }
+} else if (stage == 2) {
+    // Waiting for goat to start aiming towards target. For now, 
+    // accelerating towards initial launch angle to pull goat out of
+    // gravity drop and head up in the air
+    direction = direction_aim;
+//    if (direction &gt; direction_aim) {
+//        direction -= 2;
+//        speed += 0.1;
+//        //gravity -= .1;
+//    } else {
+//        direction = direction_aim;
+//    }
+} else if (stage == 3) {
+    direction = direction_aim;    
+}
+
+return 0;
 
 // When within range of target, always fly straight (either towards or away)
 // This makes sure goat has to fly away from enemy, turn, then make another pass
@@ -246,22 +293,14 @@ if (abs(point_distance(x, y, targetEnemy.x, targetEnemy.y)) &lt;= 400) {
     aimChangeRate = 1.5;
 }
 
-if (jetDelayElapsed &lt; jetDelay) {
+if (jetDelay &gt;  0) {
     // Handle initial launch stage
     
     jetDelayElapsed += global.deltaTime;
     
 } else {
     // Handle rocket flight
-    if (jetOn == false) {
-        // Jet pack firing up
-        jetOn = true;
-        jetPack.image_alpha = 1;
-        jetPack.image_index = 0; // Restart animation
-        depth = depthAfterLaunch; // Set goat depth after launch
-        // Apply gravity (may have to move this to initial launch stage and not apply to flight stage)
-        vspeed += gravity * global.deltaTime;
-    }
+    
     var enemyDir = point_direction(x, y, targetEnemy.x, targetEnemy.y);
     if (abs(enemyDir - direction_aim) &gt; 2) {
         // Not aimed close enough, so adjust aim direction towards enemy
@@ -279,17 +318,18 @@ if (jetDelayElapsed &lt; jetDelay) {
 
 }
 
+
 // Vertical movement (don't worry about collision yet)
-y += (vspeed) * global.deltaTime;
+//y += (vspeed) * global.deltaTime;
 
 // Horizontal movement (don't worry about collision yet)
-x += (hspeed) * global.deltaTime;
+//x += (hspeed) * global.deltaTime;
 
 scr_projectile_enforceMaxLife();
 
 // Set sprite and jet pack angle to match current aim direction
 image_angle = direction_aim;
-direction = direction_aim;
+//direction = direction_aim;
 
 if (instance_exists(jetPack)) {
     jetPack.image_angle = image_angle;
