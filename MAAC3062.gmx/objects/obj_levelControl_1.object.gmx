@@ -39,19 +39,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Add custom stuff for this level here
-isTowerPlaced = false;
-hasPlayerRightClicked = false;
+            <string>// Allow skipping of tutorial if already completed it
+if (global.moonTutorialDone) {
+    isTowerPlaced = true;
+    hasPlayerRightClicked = true;
+    cameraDone = true; // Tells us when the camera is done the little pre-level tour
+    state = 5;
+} else {
+    isTowerPlaced = false;
+    hasPlayerRightClicked = false;
+    cameraDone = false; // Tells us when the camera is done the little pre-level tour
+    state = 0;
+    scr_notification_normal(spr_catapillager_note);
+}
 
 text1 = noone; // Message box telling player to place a tower
 text2 = noone; // Message box telling player about collecting energy
 text3 = noone; // Message box telling player to right-click to see tower sell interface
-
-scr_notification_normal(spr_catapillager_note);
-
-state = 0;
-
-cameraDone = false; // Tells us when the camera is done the little pre-level tour
 
 </string>
           </argument>
@@ -177,20 +181,33 @@ if (state == 0) {
     if (hasPlayerRightClicked) {
         // Player has right-clicked
         state = 5;
+        
+        // Set the global variable so we can skip the tutorial next time this level starts
+        global.moonTutorialDone  = true;
 
         scr_tutorial_thumbsUp(obj_player.x, obj_player.y - 30);        
+
         // Destroy the previous message box if it exists
         if (instance_exists(text3)) { 
             with (text3) { instance_destroy(); }
         }
-        
-        var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
-        tmp.alarm[0] = room_speed * 8;
-        
-        instance_destroy();
+
     }
 
 } 
+
+
+// If we make it this far, state is 5 and player is playing level normally
+// This will run once to allow spawning to be enabled, then this will
+// destroy itself.
+if (state == 5) {
+    var tmp = instance_create(-100, -100, obj_spawnerTimedEnable);
+    tmp.alarm[0] = room_speed * 8;
+
+    instance_destroy();
+}
+
+
 
 
 </string>

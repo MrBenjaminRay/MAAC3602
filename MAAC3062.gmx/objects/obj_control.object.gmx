@@ -54,6 +54,8 @@ global.messageScale = 0.4; // The scale of message boxes and text sprites
 
 global.canWarp = false;
 
+global.moonTutorialDone = false;    // Track when player finished moon tutorial - will skip it if they die or replay the level
+
 global.deltaTime = delta_time;
 
 /* States:
