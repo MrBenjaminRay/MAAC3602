@@ -63,15 +63,20 @@ horSlow = 0.0015;   // Amount by which to slow horizontal movement every step. S
 jetSpeed = .0016;       // Current speed of jet pack
 jetSpeedIncrease = 1.012;    // Rate of change of jet speed
 jetSpeedMax = .0023;            // Max speed of jet pack when fighting gravity (initial value)
-jetSpeedMax_NoGrav = 0.0005;    // Max speed of jet pack when not fighting gravity (updated when grav removed)
+jetSpeedMax_NoGrav = 0.0023;    // Max speed of jet pack when not fighting gravity (updated when grav removed)
 jetDir = 135;   // Direction in which jet pack is pushing goat at any moment
                 // Initial value is direction goat facing when launched from tower
 jetDirWanted = 100;  // Direction towards which jet pack is rotating
 jetDirRotateRatio = .05; // Speed to rotate jet:  (jetDir - jetDirWanted) * jetDirRotateRatio
 
-stage = 0;  // 0 = waiting for jet pack to turn on
-            // 1 = jet pack is on, fighting gravity to get up &amp; off of the screen for the first time
-            // 2 = has cleared screen for first time, so now it can fly back &amp; forth until it hits target
+// Set up initial launch of goat (up &amp; to the left, then gravity takes over)
+jetLaunchSpeed = 0.02;
+jetLaunchDir = 115;
+speed_x = lengthdir_x(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
+speed_y = lengthdir_y(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
+
+// Once initial launch is over with &amp; goat is out of view, kill gravity to facilitate aiming
+noGrav = false;
 
 // Off-Screen Targets - When the goat has missed his target, he flies off screen towards an off-screen target.
 // Once he passes the target's x value, he re-aims towards the enemy and re-enters the screen.
@@ -80,16 +85,9 @@ offScreenY = 0;
 offScreenXOffset = 100;
 
 
-
-// Once initial launch is over with &amp; goat is out of view, kill gravity to facilitate aiming
-noGrav = false;
-
-// Set up initial launch of goat (up &amp; to the left, then gravity takes over)
-jetLaunchSpeed = 0.02;
-jetLaunchDir = 115;
-speed_x = lengthdir_x(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
-speed_y = lengthdir_y(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
-
+stage = 0;  // 0 = waiting for jet pack to turn on
+            // 1 = jet pack is on, fighting gravity to get up &amp; off of the screen for the first time
+            // 2 = has cleared screen for first time, so now it can fly back &amp; forth until it hits target
 
 
 // Allow to fly around trying to hit enemy for about 20 seconds
@@ -284,6 +282,7 @@ if (jetSpeed &gt; jetSpeedMax) {
     jetSpeed *= jetSpeedIncrease;
 }
 
+
 if (stage == 0) {
     if (jetDelayLeft &gt; 0) {
         // Still waiting for jet pack to turn on
@@ -346,11 +345,21 @@ if (stage == 0) {
     }    
 
 } else if (stage == 2) {
-
+    // Goat is outside of the room, so he can make unrealistic turns as he aims towards
+    // his target.
+    
     jetDirWanted = point_direction(x, y, targetEnemy.x, targetEnemy.y);
     noGrav = true;
     jetSpeedMax = jetSpeedMax_NoGrav;
     
+    speed_x = lengthdir_x(jetSpeed, jetDir) * global.deltaTime;
+    speed_y = lengthdir_y(jetSpeed, jetDir) * global.deltaTime;
+    
+    // Update Y
+    y += speed_y * global.deltaTime;
+    
+    // Update X
+    x += speed_x * global.deltaTime;
 }
 
 
