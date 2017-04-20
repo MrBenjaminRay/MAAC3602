@@ -63,11 +63,13 @@ horSlow = 0.0015;   // Amount by which to slow horizontal movement every step. S
 jetSpeed = .0016;       // Current speed of jet pack
 jetSpeedIncrease = 1.012;    // Rate of change of jet speed
 jetSpeedMax = .0023;            // Max speed of jet pack when fighting gravity (initial value)
-jetSpeedMax_NoGrav = 0.0023;    // Max speed of jet pack when not fighting gravity (updated when grav removed)
+jetSpeedMax_NoGrav = 0.5;    // Max speed of jet pack when not fighting gravity (updated when grav removed)
 jetDir = 135;   // Direction in which jet pack is pushing goat at any moment
                 // Initial value is direction goat facing when launched from tower
 jetDirWanted = 100;  // Direction towards which jet pack is rotating
-jetDirRotateRatio = .05; // Speed to rotate jet:  (jetDir - jetDirWanted) * jetDirRotateRatio
+jetDirChange_Fast = 2; // Speed to rotate jet when out of field of view (faster turning to bring back into view)
+jetDirChange_Slow = .75; // Speed to rotate jet when flying fast towards target
+jetDirChange = jetDirChange_Fast; // Speed to rotate jet. Initial value gets us through stage 0, then we alt between _Slow &amp; _Fast
 
 // Set up initial launch of goat (up &amp; to the left, then gravity takes over)
 jetLaunchSpeed = 0.02;
@@ -77,12 +79,6 @@ speed_y = lengthdir_y(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
 
 // Once initial launch is over with &amp; goat is out of view, kill gravity to facilitate aiming
 noGrav = false;
-
-// Off-Screen Targets - When the goat has missed his target, he flies off screen towards an off-screen target.
-// Once he passes the target's x value, he re-aims towards the enemy and re-enters the screen.
-offScreenX = 0;
-offScreenY = 0;
-offScreenXOffset = 100;
 
 
 stage = 0;  // 0 = waiting for jet pack to turn on
@@ -96,7 +92,7 @@ maxLife = 20000;
 
 stage = 0;
 
-jetDelay = 800;         // Delay before rocket starts
+jetDelay = 1500;         // Delay before rocket starts
 jetDelayLeft = jetDelay;     // Jet delay remaining
 
 
@@ -250,12 +246,14 @@ if (instance_exists(jetPack)) {
             <string>if (global.state == "Paused") {
     return 0;
 }
-targetEnemy = obj_player;
+
+// TESTING
+//targetEnemy = obj_player;
 
 if (!instance_exists(targetEnemy)) {
     // No enemy, so destroy this and end the step here
-    //instance_destroy();
-    //return 0;
+    instance_destroy();
+    return 0;
 }
 
 if (y &gt; room_height) {
@@ -269,9 +267,18 @@ jetDelayLeft -= global.deltaTime;
 armDelay -= global.deltaTime;
 aimDelay -= global.deltaTime;
 
+
 // Angle jet towards angle wanted
 if (abs(jetDir - jetDirWanted) &gt; 2) {
-    jetDir += (jetDirWanted - jetDir) * jetDirRotateRatio;
+    //jetDir += (jetDirWanted - jetDir) * jetDirRotateRatio;
+}
+
+if ((jetDirWanted - jetDir + 360) % 360 &lt; 180) {
+  // clockwise
+    jetDir += jetDirChange;  
+} else {
+  // anti-clockwise
+    jetDir -= jetDirChange;
 }
 
 // Increase rocket speed until max hit
@@ -342,24 +349,59 @@ if (stage == 0) {
     // flight can be directed easier
     if (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height) {
         stage = 2;
-    }    
+        jetSpeed = jetSpeedMax_NoGrav;
+    }
 
 } else if (stage == 2) {
     // Goat is outside of the room, so he can make unrealistic turns as he aims towards
     // his target.
     
+    // Set faster rotate ratio while out of the room
+    jetDirChange = jetDirChange_Fast;
+    
+    jetSpeed = jetSpeedMax_NoGrav;
     jetDirWanted = point_direction(x, y, targetEnemy.x, targetEnemy.y);
     noGrav = true;
-    jetSpeedMax = jetSpeedMax_NoGrav;
     
-    speed_x = lengthdir_x(jetSpeed, jetDir) * global.deltaTime;
-    speed_y = lengthdir_y(jetSpeed, jetDir) * global.deltaTime;
+    speed_x = lengthdir_x(jetSpeed, jetDir);
+    speed_y = lengthdir_y(jetSpeed, jetDir);
     
     // Update Y
     y += speed_y * global.deltaTime;
     
     // Update X
     x += speed_x * global.deltaTime;
+
+    // When back in the room, freeze turning radius so that it can only 
+    // curve slightly. Will result in missing target here &amp; there.
+    if (x &gt; 0 &amp;&amp; x &lt; room_width &amp;&amp; y &gt; 0 &amp;&amp; y &lt; room_height) {
+        stage = 3;
+    }
+
+} else if (stage == 3) {
+    
+    // Set slower rotate ratio while in the room
+    jetDirChange = jetDirChange_Slow;
+    
+    jetSpeed = jetSpeedMax_NoGrav;
+    jetDirWanted = point_direction(x, y, targetEnemy.x, targetEnemy.y);
+    noGrav = true;
+    
+    speed_x = lengthdir_x(jetSpeed, jetDir);
+    speed_y = lengthdir_y(jetSpeed, jetDir);
+    
+    // Update Y
+    y += speed_y * global.deltaTime;
+    
+    // Update X
+    x += speed_x * global.deltaTime;
+
+    // When back in the room, freeze turning radius so that it can only 
+    // curve slightly. Will result in missing target here &amp; there.
+    if (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height) {
+        stage = 2;
+    }
+
 }
 
 
@@ -525,10 +567,12 @@ scr_projectile_enforceMaxLife();
           <argument>
             <kind>1</kind>
             <string>// Check if is correct enemy, and detonate, otherwise ignore
-if (other.object_index == targetEnemy.object_index &amp;&amp; armDelay &lt; 0) {
-    instance_destroy();
-    // Play random goat sound
-    scr_sound_randomGoat();
+if (instance_exists(other)) {
+    if (other == targetEnemy &amp;&amp; armDelay &lt; 0) {
+        instance_destroy();
+        // Play random goat sound
+        scr_sound_randomGoat();
+    }
 }
 
 </string>
