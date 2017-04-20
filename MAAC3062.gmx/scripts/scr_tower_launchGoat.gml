@@ -24,6 +24,8 @@ if (argument[0] != noone) {
     proj.image_yscale = -1;
     proj.image_angle = proj.direction;
     
+    proj.goatBallz = argument[1];
+    
     audio_play_sound(snd_basicTower, 0, false);
     audio_sound_gain(snd_basicTower, 0.4, 0);
     

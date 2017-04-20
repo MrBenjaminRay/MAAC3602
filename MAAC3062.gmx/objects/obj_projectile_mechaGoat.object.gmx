@@ -80,6 +80,8 @@ speed_y = lengthdir_y(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
 // Once initial launch is over with &amp; goat is out of view, kill gravity to facilitate aiming
 noGrav = false;
 
+goatBallz = 0;  // # of goat ballz to launch when destroyed. Will be set by tower when goat created.
+                // Will be higher when goat tower upgraded.
 
 stage = 0;  // 0 = waiting for jet pack to turn on
             // 1 = jet pack is on, fighting gravity to get up &amp; off of the screen for the first time
@@ -92,11 +94,11 @@ maxLife = 20000;
 
 stage = 0;
 
-jetDelay = 1500;         // Delay before rocket starts
+jetDelay = 800;         // Delay before rocket starts
 jetDelayLeft = jetDelay;     // Jet delay remaining
 
 
-armDelay = 1000;        // 1 second between when goat is launched and when it armed
+armDelay = 1500;        // Time between when goat is launched and when it armed
                         // Prevents detonation at tower itself
 
 aimDelay = 5000;        // 5 seconds between when goat is launched and when its direction
@@ -171,8 +173,10 @@ scr_sound_randomGoat();
             <string>audio_play_sound(snd_projectileHit_medium, 0, false);
 audio_sound_gain(snd_projectileHit_medium, projectileHitGain, 0);
 
-// Hit all enemies in range:
-var range = 450;
+scr_create_explosion(x, y, "Enemy_Large");
+
+// Hit all enemies in immediate range of goat
+var range = 150;
 
 for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
     var tmpEnem = instance_find(obj_enemy, i);
@@ -180,20 +184,24 @@ for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
     
     if (tmpDist &lt;= range) {        
         scr_entity_dealDamage(tmpEnem, damage);
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
     }
 }
+
+// Launch goat balls
+scr_goat_launchBallz(x, y, goatBallz);
+
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
 
 if (instance_exists(jetPack)) {
     with (jetPack) {
