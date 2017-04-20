@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>projectileHitGain = 0.4;    // gain value for the projectileHit sounds.
 
-image_xscale = 0.75;
-image_yscale = 0.75;
+image_xscale = 0.55;
+image_yscale = 0.55;
 
 detDelay = 0;   // Detonation delay after creation (set by script)
 
