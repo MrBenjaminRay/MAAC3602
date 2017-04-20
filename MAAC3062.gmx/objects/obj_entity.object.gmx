@@ -607,10 +607,10 @@ if (place_meeting(newX, y, obj_wallTile)) {
     if (wallBounce) {
         if (prevSpeedX &gt; 0) {
             // Was moving right, so now move left
-            //scr_entity_startMovingLeft();
+            scr_entity_startMovingLeft();
         } else {
             // Was moving left, so now move right
-            //scr_entity_startMovingRight();
+            scr_entity_startMovingRight();
         }
     }
 
