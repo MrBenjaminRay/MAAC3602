@@ -518,6 +518,7 @@
           <sprite>sprites\spr_tower_mechaGoat_left</sprite>
           <sprite>sprites\spr_mechagoat</sprite>
           <sprite>sprites\spr_goat_ball</sprite>
+          <sprite>sprites\spr_goat_ball_original</sprite>
           <sprite>sprites\spr_goat_jet</sprite>
         </sprites>
       </sprites>
@@ -831,6 +832,7 @@
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
       <script>scripts\scr_entity_isObjectBoss.gml</script>
+      <script>scripts\scr_goat_launchBallz.gml</script>
     </scripts>
     <scripts name="Levels">
       <script>scripts\scr_getLevelId.gml</script>
@@ -1015,6 +1017,7 @@
       </objects>
       <objects name="Drops">
         <object>objects\obj_drop</object>
+        <object>objects\obj_goatBall</object>
         <objects name="Energy">
           <object>objects\obj_drop_energy</object>
           <object>objects\obj_drop_energy_inner1</object>

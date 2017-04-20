@@ -61,12 +61,22 @@ target2 = noone;
 secondGoatCountdown = 1000;
 secondGoatFired = false;
 
-if (global.towerUpgradeLevel[6] == 1) {
-    // Goat tower not upgraded
-    maxGoats = 1;
+if (global.towerUpgradeLevel[6] &lt;= 1) {
+    isUpgraded = false;
 } else {
+    isUpgraded = true;
+}
+
+show_debug_message(global.towerUpgradeLevel[6]);
+
+if (isUpgraded) {
     // Goat tower is upgraded
     maxGoats = 2;
+    goatBallz = irandom_range(7, 10);
+} else {
+    // Goat tower not upgraded
+    maxGoats = 1;
+    goatBallz = irandom_range(4, 5);
 }
 
 </string>
@@ -179,12 +189,6 @@ if (frozenByBossThree) {
     return 0;
 }
 
-var isUpgraded = false;
-// Draw upgraded tower
-if (global.towerUpgradeLevel[6] &gt; 1) {
-    isUpgraded = true; // We need to keep track of this throughout the tower states
-}
-
 if (state == -1) {
 
     // Decrement warmup time remaining if not 0
@@ -244,8 +248,8 @@ if (state == -1) {
 
     if (instance_exists(target1)) {
         // Launch the goat
-        goatObj1 = scr_tower_launchGoat(target1);
-
+        goatObj1 = scr_tower_launchGoat(target1, goatBallz);
+        
         // Goat(s) fired, so move to mouth delay state
         state = 3;
         mouthOpenTimeElapsed = 0;
@@ -270,7 +274,7 @@ if (state == -1) {
     if (maxGoats == 2 &amp;&amp; secondGoatCountdownLeft &lt;= 0 &amp;&amp; secondGoatFired == false) {
         target2 = scr_tower_getGoatTarget(target1);
         if (target2 != noone) {
-            goatObj2 = scr_tower_launchGoat(target2);
+            goatObj2 = scr_tower_launchGoat(target2, goatBallz);
             secondGoatFired = true;
         }
     } else {
