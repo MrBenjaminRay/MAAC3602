@@ -312,6 +312,7 @@
           <sprite>sprites\spr_Boss_1_crouching</sprite>
           <sprite>sprites\spr_Boss_1_eating_tower</sprite>
           <sprite>sprites\spr_Boss_1_walk</sprite>
+          <sprite>sprites\spr_Boss_1_Invulnerable</sprite>
         </sprites>
         <sprites name="Moon">
           <sprite>sprites\spr_enemy_boss_moon</sprite>
@@ -339,6 +340,19 @@
           <sprite>sprites\spr_Boss4_standing</sprite>
           <sprite>sprites\spr_cow_shooting</sprite>
           <sprite>sprites\spr_cow_beam</sprite>
+        </sprites>
+        <sprites name="Boss_Water">
+          <sprite>sprites\spr_Fish_walking</sprite>
+        </sprites>
+        <sprites name="Boss_Sheild">
+          <sprite>sprites\spr_rock_walk</sprite>
+          <sprite>sprites\spr_rock_sheild_good</sprite>
+          <sprite>sprites\spr_rock_sheild_bad</sprite>
+        </sprites>
+        <sprites name="Boss_Cow">
+          <sprite>sprites\spr_cow_tank</sprite>
+          <sprite>sprites\spr_cow_weapon</sprite>
+          <sprite>sprites\spr_cow_projectile</sprite>
         </sprites>
       </sprites>
       <sprites name="Drops">
