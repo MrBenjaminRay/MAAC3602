@@ -101,7 +101,6 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1312" y="160" name="inst_9E7C9731" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1376" y="160" name="inst_E9D402D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1216" y="160" name="inst_0D6BED15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_physicsTile" x="96" y="288" name="inst_D04C30C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="288" y="160" name="inst_56BDD625" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="256" y="160" name="inst_AAF38E4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="224" y="160" name="inst_0345777E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -109,7 +108,6 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="160" y="160" name="inst_1E90F414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="128" y="160" name="inst_B5AD2A9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="96" y="160" name="inst_20150D41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_light" x="1248" y="352" name="inst_C2DD5361" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="96" y="320" name="inst_2BBAA749" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="96" y="352" name="inst_09051E15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="96" y="384" name="inst_09DD1099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -123,16 +121,6 @@ scr_level_initialize();</code>
     <instance objName="obj_wallTile" x="96" y="224" name="inst_F6D8E872" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="96" y="256" name="inst_A9D999CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="480" y="320" name="inst_4CC9206A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_light" x="576" y="352" name="inst_81C4E078" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_heavy" x="832" y="352" name="inst_26A0F546" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_medium" x="704" y="352" name="inst_408BF709" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_jackal" x="992" y="352" name="inst_B530E8F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_spider_large" x="608" y="288" name="inst_E9D102F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_spider_small" x="800" y="288" name="inst_52C4FD0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_spider_small" x="896" y="256" name="inst_0175426F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_ground_spider_small" x="960" y="288" name="inst_CF6ECD62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_air_light" x="672" y="96" name="inst_3E59AC96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_air_heavy" x="832" y="96" name="inst_2F419DE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="448" name="inst_2970487E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="384" name="inst_52184C8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wallTile" x="1376" y="416" name="inst_B12D4F37" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -210,10 +198,8 @@ scr_level_initialize();</code>
     <instance objName="obj_physicsTile" x="1536" y="896" name="inst_459309D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="1568" y="896" name="inst_C303281A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_physicsTile" x="0" y="896" name="inst_8A4655D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss_large_A" x="-96" y="416" name="inst_B8482BAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss_large_B" x="320" y="512" name="inst_B3CBB078" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss_large_C" x="416" y="352" name="inst_0C9C9C9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_boss_large_D" x="992" y="32" name="inst_72BA50F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_projectile_mechaGoat" x="864" y="384" name="inst_E1F5D7B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wallTile" x="96" y="288" name="inst_7897E270" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bkg_moon_tiles" x="96" y="160" w="32" h="32" xo="128" yo="0" id="10003446" name="inst_C5A64ABF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

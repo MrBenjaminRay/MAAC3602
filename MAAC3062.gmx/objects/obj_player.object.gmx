@@ -780,6 +780,7 @@ if (isSellingTower) {
     firingPaused = true;
 }
 
+
 if (mouse_check_button(mb_left)) {
     var canFire = global.state != "Paused";
     canFire &amp;= global.state != "Build";
@@ -1060,7 +1061,7 @@ if(xKeyHeldCounter == 90) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(y &gt;= room_height || currHealth &lt;= 0){
+            <string>if(bbox_top &gt;= room_height || currHealth &lt;= 0){
   instance_destroy();
 }
 </string>
@@ -1208,6 +1209,31 @@ if (global.plrAbilityAttained[0]) {
 } else {
     scr_misc_notification("Ability #1 has not been unlocked.", c_black, c_yellow);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// TESTING GOAT BALLS
+//scr_goat_launchBallz(mouse_x, mouse_y, 5);
+
 </string>
           </argument>
         </arguments>

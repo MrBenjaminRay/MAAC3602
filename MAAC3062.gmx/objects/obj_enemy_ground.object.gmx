@@ -123,11 +123,11 @@ if (x + sprite_width &gt; room_width &amp;&amp; movementSpeedDesired &gt; 0) {
 // wall collision occurs.
 
 if (speed_x == 0) {
-    if (irandom(1) == 0) {
-        scr_entity_startMovingLeft();
-    } else {
-        scr_entity_startMovingRight();    
-    }
+    //if (irandom(1) == 0) {
+    //    scr_entity_startMovingLeft();
+    //} else {
+    //    scr_entity_startMovingRight();    
+    //}
 }
 
 </string>
