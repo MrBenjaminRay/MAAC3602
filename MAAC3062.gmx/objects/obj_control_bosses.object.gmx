@@ -52,39 +52,39 @@ requiredKills = 0;
           <argument>
             <kind>1</kind>
             <string>// Boss Spawn Requirements:
-requiredKills = 200;
+requiredKills = 50;
 
 switch (room) {
     case rm_level_moon: {
-        requiredKills = 200;
+        requiredKills = 60;
         break;
     }
     case rm_level_forest: {
-        requiredKills = 250;
+        requiredKills = 60;
         break;
     }
     case rm_level_desert: {
-        requiredKills = 300;
+        requiredKills = 60;
         break;
     }
     case rm_level_ice: {
-        requiredKills = 350;
+        requiredKills = 65;
         break;
     }
     case rm_level_underwater: {
-        requiredKills = 400;
+        requiredKills = 70;
         break;
     }
     case rm_level_asteroid: {
-        requiredKills = 450;
+        requiredKills = 75;
         break;
     }
     case rm_level_mars: {
-        requiredKills = 500;
+        requiredKills = 80;
         break;
     }
     case rm_level_earth: {
-        requiredKills = 550;
+        requiredKills = 85;
         break;
     }
 }

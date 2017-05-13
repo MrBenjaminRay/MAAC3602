@@ -91,7 +91,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>1500</string>
+            <string>1000</string>
           </argument>
         </arguments>
       </action>
@@ -115,7 +115,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>1500</string>
+            <string>1000</string>
           </argument>
         </arguments>
       </action>

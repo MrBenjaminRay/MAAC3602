@@ -58,17 +58,17 @@ window_set_cursor(cr_default);</code>
     <instance objName="obj_weaponBox" x="448" y="224" name="inst_B7ADE827" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelSelScrn" x="480" y="544" name="inst_58B2272F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelSelScrnFlip" x="480" y="544" name="inst_81194B4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ResearchFacility" x="640" y="64" name="inst_67B469ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_itemTitle" x="928" y="288" name="inst_1FC5D844" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_weaponInfoText" x="896" y="352" name="inst_02DAE2D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_item_picture" x="640" y="352" name="inst_2AF75065" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_forcePulse_list" x="160" y="704" name="inst_DE3C0CBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sneakySnakes_list" x="160" y="736" name="inst_1A63FCCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_extremeBlaster_list" x="160" y="768" name="inst_DF3422E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_catsAndDogs_list" x="160" y="800" name="inst_E906F09E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_item_projectile" x="672" y="640" name="inst_7D5CEED5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_towersHeading" x="256" y="288" name="inst_CE07002C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_abilitiesHeading" x="256" y="672" name="inst_2960E766" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="640" y="64" name="inst_67B469ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="928" y="288" name="inst_1FC5D844" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="896" y="352" name="inst_02DAE2D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="640" y="352" name="inst_2AF75065" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="160" y="704" name="inst_DE3C0CBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="160" y="736" name="inst_1A63FCCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="160" y="768" name="inst_DF3422E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="160" y="800" name="inst_E906F09E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="672" y="640" name="inst_7D5CEED5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="256" y="288" name="inst_CE07002C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="256" y="672" name="inst_2960E766" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hud_levelMinerals" x="1376" y="64" name="inst_C4058262" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_unlock_upgrade" x="672" y="736" name="inst_BA210939" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_back_small" x="16" y="832" name="inst_D768FCC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
