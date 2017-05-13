@@ -54,10 +54,6 @@ window_set_cursor(cr_default);</code>
   </views>
   <instances>
     <instance objName="obj_spaceBG" x="768" y="448" name="inst_9CCECB69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_windowPlaceholder" x="-784" y="0" name="inst_2397FE1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_windowPlaceholder" x="800" y="0" name="inst_049F6239" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_windowPlaceholder" x="1136" y="0" name="inst_661E8DA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_windowPlaceholder" x="1472" y="0" name="inst_2A78C1D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_table" x="656" y="496" name="inst_E20CF65D" locked="0" code="" scaleX="3" scaleY="2.01574802398682" colour="4294967295" rotation="0"/>
     <instance objName="obj_array" x="592" y="592" name="inst_50479CEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_navText" x="560" y="176" name="inst_AEE91AA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
