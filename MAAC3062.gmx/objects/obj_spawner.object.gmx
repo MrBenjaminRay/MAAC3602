@@ -38,6 +38,7 @@ amountToSpawn = 0;
 
 // The object to spawn:
 objToSpawn = noone;
+
 </string>
           </argument>
         </arguments>
@@ -60,7 +61,12 @@ objToSpawn = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state == "Paused" || disabled || global.enemiesCanSpawn == false) {
+            <string>if (global.state == "Paused" || disabled) {
+    return 0;
+}
+
+if (disabled) {
+    // Don't spawn if disabled
     return 0;
 }
 
@@ -85,7 +91,12 @@ if (spawnInterval &lt;= spawnCounter) {
     // Assuming that all objects that can be spawned
     // are enemy objects that inherit from obj_entity.
     var spawnedObj = instance_create(x, y, objToSpawn);
-    spawnedObj.movementSpeed = irandom_range(150,300) / 1000;
+    
+    if (irandom_range(0, 1)) {
+        spawnedObj.movementSpeedDefault += (spawnedObj.movementSpeedDefault * irandom_range(0.0, 0.15));
+    } else {
+        spawnedObj.movementSpeedDefault -= (spawnedObj.movementSpeedDefault * irandom_range(0.0, 0.15));
+    }
 }
 
 </string>

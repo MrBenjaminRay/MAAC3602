@@ -422,8 +422,9 @@ if (isDropping) {
     return 0;
 }
 
-//image_speed = 0;
-image_speed = animationSpeed * animationSpeedAdjust;
+if (object_index == obj_player) {
+    image_speed = animationSpeed * animationSpeedAdjust;
+}
 
 // Handle smooth movement acceleration &amp; deceleration to wanted speed.
 
@@ -606,10 +607,10 @@ if (place_meeting(newX, y, obj_wallTile)) {
     if (wallBounce) {
         if (prevSpeedX &gt; 0) {
             // Was moving right, so now move left
-            //scr_entity_startMovingLeft();
+            scr_entity_startMovingLeft();
         } else {
             // Was moving left, so now move right
-            //scr_entity_startMovingRight();
+            scr_entity_startMovingRight();
         }
     }
 
@@ -735,8 +736,17 @@ if (place_meeting(newX, y, obj_physicsTile)) {
 }
 
 // Determine initial coordinates:
-var xPos_left = x + healthBarXOffset;
-var yPos_top = y + healthBarYOffset;
+
+if (object_is_ancestor(object_index, obj_tower)) {
+    // Tower entity sprites are expeced to have origin at top left
+    var xPos_left = x + healthBarXOffset;
+    var yPos_top = y + healthBarYOffset;
+} else {
+    // Non-tower entity sprites are expected to have origin centered vertically &amp; horizontally
+    var xPos_left = x - healthBarWidth/2 + healthBarXOffset;
+    var yPos_top = y - sprite_height/2 - healthBarHeight/2 + healthBarYOffset;
+}
+
 var xPos_right = xPos_left + healthBarWidth;
 var yPos_bottom = yPos_top + healthBarHeight;
 

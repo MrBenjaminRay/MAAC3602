@@ -80,11 +80,18 @@
       <sound>sound\mus_win</sound>
       <sound>sound\mus_tutorialBeat</sound>
     </sounds>
+    <sounds name="Goat Sounds">
+      <sound>sound\snd_goat1</sound>
+      <sound>sound\snd_goat2</sound>
+      <sound>sound\snd_goat3</sound>
+      <sound>sound\snd_goat4</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Tutorials">
       <sprite>sprites\spr_thumbsUp_Huge</sprite>
       <sprite>sprites\spr_thumbsUp_Normal</sprite>
+      <sprite>sprites\spr_thumbsUp_Normal_Shadow</sprite>
     </sprites>
     <sprites name="UI_HUD">
       <sprite>sprites\spr_hotbar_item_back</sprite>
@@ -305,9 +312,10 @@
           <sprite>sprites\spr_Boss_1_crouching</sprite>
           <sprite>sprites\spr_Boss_1_eating_tower</sprite>
           <sprite>sprites\spr_Boss_1_walk</sprite>
+          <sprite>sprites\spr_Boss_1_Invulnerable</sprite>
         </sprites>
-        <sprites name="MiniBoss1">
-          <sprite>sprites\spr_MiniBoss_1</sprite>
+        <sprites name="Moon">
+          <sprite>sprites\spr_enemy_boss_moon</sprite>
         </sprites>
         <sprites name="Boss2">
           <sprite>sprites\spr_tornado</sprite>
@@ -332,6 +340,19 @@
           <sprite>sprites\spr_Boss4_standing</sprite>
           <sprite>sprites\spr_cow_shooting</sprite>
           <sprite>sprites\spr_cow_beam</sprite>
+        </sprites>
+        <sprites name="Boss_Water">
+          <sprite>sprites\spr_Fish_walking</sprite>
+        </sprites>
+        <sprites name="Boss_Sheild">
+          <sprite>sprites\spr_rock_walk</sprite>
+          <sprite>sprites\spr_rock_sheild_good</sprite>
+          <sprite>sprites\spr_rock_sheild_bad</sprite>
+        </sprites>
+        <sprites name="Boss_Cow">
+          <sprite>sprites\spr_cow_tank</sprite>
+          <sprite>sprites\spr_cow_weapon</sprite>
+          <sprite>sprites\spr_cow_projectile</sprite>
         </sprites>
       </sprites>
       <sprites name="Drops">
@@ -457,6 +478,10 @@
           <sprite>sprites\spr_flame_Upgrade</sprite>
           <sprite>sprites\spr_mortar_Upgrade</sprite>
           <sprite>sprites\spr_slow_Upgrade</sprite>
+          <sprites name="MechaGoatUpgrade">
+            <sprite>sprites\spr_mecha_goat_update</sprite>
+            <sprite>sprites\spr_mecha_goat_tower_open_update</sprite>
+          </sprites>
         </sprites>
         <sprites name="Caterpillager">
           <sprite>sprites\spr_caterpillager_locked</sprite>
@@ -502,12 +527,12 @@
         </sprites>
         <sprites name="MechaGoat">
           <sprite>sprites\spr_tower_mechaGoat_Uncentered</sprite>
-          <sprite>sprites\spr_tower_mechaGoat_right</sprite>
           <sprite>sprites\spr_mechaGoat_locked</sprite>
           <sprite>sprites\spr_tower_destroyed_mechaGoat</sprite>
           <sprite>sprites\spr_tower_mechaGoat_left</sprite>
           <sprite>sprites\spr_mechagoat</sprite>
           <sprite>sprites\spr_goat_ball</sprite>
+          <sprite>sprites\spr_goat_ball_original</sprite>
           <sprite>sprites\spr_goat_jet</sprite>
         </sprites>
       </sprites>
@@ -753,6 +778,16 @@
     <path>paths\path_ship_turning</path>
     <path>paths\path_crashing_ship</path>
     <path>paths\path_asteroid</path>
+    <path>paths\path_flying_forest</path>
+    <path>paths\path_flying_desert</path>
+    <path>paths\path_flying_ice</path>
+    <path>paths\path_flying_underwater</path>
+    <path>paths\path_flying_asteroid</path>
+    <path>paths\path_flying_mars</path>
+    <path>paths\path_flying_earth</path>
+    <path>paths\path_tutorial_ship</path>
+    <path>paths\path_tutorial_player</path>
+    <path>paths\path_flying_bentest</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Abilities">
@@ -779,6 +814,8 @@
         <script>scripts\scr_tower_checkUnlockByTowerIndex.gml</script>
         <script>scripts\scr_tower_calcBallisticFiringAngle.gml</script>
         <script>scripts\scr_tower_isLocationValid.gml</script>
+        <script>scripts\scr_tower_getGoatTarget.gml</script>
+        <script>scripts\scr_tower_launchGoat.gml</script>
       </scripts>
       <scripts name="Projectile">
         <script>scripts\scr_spawn_projectile.gml</script>
@@ -809,6 +846,7 @@
       <script>scripts\scr_entity_weaponKickback_CalcOffset.gml</script>
       <script>scripts\scr_entity_weaponKickback_Shrink.gml</script>
       <script>scripts\scr_entity_isObjectBoss.gml</script>
+      <script>scripts\scr_goat_launchBallz.gml</script>
     </scripts>
     <scripts name="Levels">
       <script>scripts\scr_getLevelId.gml</script>
@@ -863,6 +901,7 @@
     </scripts>
     <scripts name="Tutorial">
       <script>scripts\scr_tutorial_thumbsUp.gml</script>
+      <script>scripts\scr_tutorial_clearAllMessages.gml</script>
     </scripts>
     <script>scripts\scr_particle_projectile_addsmoketrail.gml</script>
     <script>scripts\scr_create_explosion.gml</script>
@@ -875,6 +914,8 @@
     <script>scripts\scr_drop_energy.gml</script>
     <script>scripts\scr_smoothStep.gml</script>
     <script>scripts\scr_smootherStep.gml</script>
+    <script>scripts\scr_energy_transfer.gml</script>
+    <script>scripts\scr_sound_randomGoat.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>
@@ -889,7 +930,6 @@
   </fonts>
   <objects name="objects">
     <objects name="Control">
-      <object>objects\obj_menu_ingame_placeholder</object>
       <object>objects\obj_control</object>
       <object>objects\obj_control_music</object>
       <object>objects\obj_hub_control</object>
@@ -933,6 +973,7 @@
         <object>objects\obj_particle_flame</object>
         <object>objects\obj_particle_smoke_puff</object>
         <object>objects\obj_particle_energy_orb</object>
+        <object>objects\obj_particle_energy_transfer</object>
       </objects>
       <objects name="Particle Emitters">
         <object>objects\obj_emitter_continual</object>
@@ -944,7 +985,6 @@
         <object>objects\obj_emitter_emitter</object>
       </objects>
       <objects name="Special">
-        <object>objects\obj_levelFail_screenFade</object>
         <object>objects\obj_flameScreen</object>
       </objects>
       <object>objects\obj_smoke</object>
@@ -973,12 +1013,12 @@
           <object>objects\obj_enemy_tutLight2</object>
         </objects>
         <objects name="Bosses">
+          <object>objects\obj_enemy_boss_moon</object>
           <object>objects\obj_enemy_boss_large_A</object>
           <object>objects\obj_enemy_boss_large_B</object>
           <object>objects\obj_enemy_boss_large_C</object>
           <object>objects\obj_enemy_boss_large_D</object>
           <objects name="Mini">
-            <object>objects\obj_enemy_boss_mini_A</object>
             <object>objects\obj_enemy_boss_mini_B</object>
             <object>objects\obj_enemy_boss_mini_C</object>
             <object>objects\obj_enemy_boss_mini_D</object>
@@ -991,6 +1031,7 @@
       </objects>
       <objects name="Drops">
         <object>objects\obj_drop</object>
+        <object>objects\obj_goatBall</object>
         <objects name="Energy">
           <object>objects\obj_drop_energy</object>
           <object>objects\obj_drop_energy_inner1</object>
@@ -1088,6 +1129,7 @@
     <objects name="Misc">
       <object>objects\obj_cursorCtrl</object>
       <object>objects\obj_ship</object>
+      <object>objects\obj_ship_tutorial</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_dummy_target</object>
       <object>objects\obj_warp</object>
@@ -1139,6 +1181,7 @@
       <object>objects\obj_hud_abilityorb_2</object>
       <object>objects\obj_hud_abilityorb_3</object>
       <object>objects\obj_hud_abilityorb_4</object>
+      <object>objects\obj_hud_progress</object>
       <objects name="Tutorials">
         <object>objects\obj_thumbsUp</object>
       </objects>
@@ -1148,7 +1191,9 @@
         <object>objects\obj_play</object>
         <object>objects\obj_quit</object>
         <object>objects\obj_back</object>
+        <object>objects\obj_back_hub</object>
         <object>objects\obj_mainMenu</object>
+        <object>objects\obj_retry</object>
         <object>objects\obj_mainMenu_hub</object>
         <object>objects\obj_credits</object>
         <object>objects\obj_OK</object>
@@ -1270,10 +1315,6 @@
         <object>objects\obj_notificationResearch</object>
         <object>objects\obj_notificationBackground</object>
       </objects>
-      <objects name="Death Screen">
-        <object>objects\obj_button_retry</object>
-        <object>objects\obj_button_toHub</object>
-      </objects>
       <objects name="Credits">
         <objects name="OLD">
           <object>objects\obj_credits1</object>
@@ -1285,6 +1326,16 @@
         <object>objects\obj_creditsNew3</object>
         <object>objects\obj_creditsNew4</object>
         <object>objects\obj_creditsNew5</object>
+      </objects>
+      <objects name="Death Screen">
+        <object>objects\obj_button_retry</object>
+        <object>objects\obj_button_toHub</object>
+        <object>objects\obj_levelFail_screenFade</object>
+      </objects>
+      <objects name="Pause Screen">
+        <object>objects\obj_menu_ingame_placeholder</object>
+        <object>objects\obj_pauseScreen_retry</object>
+        <object>objects\obj_pauseScreen_mainMenu</object>
       </objects>
       <object>objects\obj_spaceBG</object>
       <object>objects\obj_dimFilter</object>

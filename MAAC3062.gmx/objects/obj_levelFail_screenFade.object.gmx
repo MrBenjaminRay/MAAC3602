@@ -72,13 +72,18 @@ fadeTimeElapsed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (timeElapsed &gt;= startFadeAfter) {
+            <string>// Prevent the pause state when level failed
+if (global.state == 'Paused') {
+    scr_state_setUnpaused();
+}
+
+if (timeElapsed &gt;= startFadeAfter) {
     // Fade in progress
     fadeTimeElapsed += global.deltaTime;
 }
 
 if (timeElapsed &gt;= showButtonsAfter) {
-    var btnScale = 0.6;
+    var btnScale = 0.8;
 
     if (instance_number(obj_button_toHub) == 0) {
         // Position will be automatically updated by object

@@ -61,7 +61,7 @@ statusTextChargingColor = c_yellow; // Color to use when charging
 // Positioning (do all calculations here and let each orb specify which position it will use)
 
 // Set base variables around which the orbs are positioned
-posBase_x = global.screenWidth / 4; // Half way between left and center
+posBase_x = global.screenWidth / 4 - 38; // Half way between left and center - offset based on avaibale space
 posBase_y = global.screenHeight - 55;
 posBaseOffset_x = 60;
 posBaseOffset_y = 30;

@@ -11,6 +11,7 @@ global.initialMinerals = global.minerals;
 instance_create(-50, -50, obj_hud_levelEnergy);
 instance_create(-50, -50, obj_camera);
 instance_create(-50, -50, obj_control_normalState);
+instance_create(-50, -50, obj_hud_progress);
 
 // Spawn hotbar, miners, boss control on all levels except tutorial
 if (room != rm_level_tutorial) {
@@ -25,6 +26,14 @@ if (room != rm_level_tutorial && room != rm_level_moon) {
     instance_create(-50, -50, obj_hud_abilityorb_2);
     instance_create(-50, -50, obj_hud_abilityorb_3);
     instance_create(-50, -50, obj_hud_abilityorb_4);
+}
+
+// Clear Tutorial Messages
+scr_tutorial_clearAllMessages();
+
+// Destroy all level control objects
+with (obj_levelControl) {
+    instance_destroy();
 }
 
 // Add appropriate level control object
@@ -64,4 +73,10 @@ window_set_cursor(cr_none);
 // Set completion/failure variables
 global.currentLevelComplete = 0;
 global.currentLevelFailed = 0;
+
+// Force clearing of any pause-related stuff
+scr_state_setUnpaused();
+
+// Force state to normal
+scr_state_setNormal();
 

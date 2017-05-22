@@ -127,38 +127,46 @@ with (obj_tower_RT6100) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.state != "Paused") {    
-    if (scr_tower_isLocationValid()) {
-        // Clamp the x position to the nearest multiple of 32:
-        var tempX = mouse_x - (mouse_x % 32);
-        
-        // Clamp the y position to the nearest multiple of 32:
-        var tempY = mouse_y - (mouse_y % 32);
-        
-        // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
-        tempY += 128 - sprite_get_height(towerSpr);
-        
-        instance_create(tempX, tempY, towerObj);
-        
-        scr_energy_change(-towerCost);
-        
-        audio_play_sound(snd_build, 0, false);
-        
-        scr_state_setNormal();
-        
-        
-        // Special Case, M-6100 Tower:
-        if (tower == "M-6100") {
-            with(instance_nearest(x, y, obj_player)) {
-                with (weaponObj) {
-                    instance_destroy();
-                }
-                
-                weaponObj = noone;
+            <string>if (global.state == "Paused") {
+    return 0;
+}
+
+// Prevent placing tower after dying (will give error)
+if (!instance_exists(obj_player)) {
+    return 0;
+}
+
+if (scr_tower_isLocationValid()) {
+    // Clamp the x position to the nearest multiple of 32:
+    var tempX = mouse_x - (mouse_x % 32);
+    
+    // Clamp the y position to the nearest multiple of 32:
+    var tempY = mouse_y - (mouse_y % 32);
+
+    // Offset the tempY position to ensure the tower's aren't drawn floating above the ground:
+    tempY += 128 - sprite_get_height(towerSpr);
+    
+    instance_create(tempX, tempY, towerObj);
+    
+    scr_energy_change(-towerCost);
+    
+    audio_play_sound(snd_build, 0, false);
+    
+    scr_state_setNormal();
+    
+    
+    // Special Case, M-6100 Tower:
+    if (tower == "M-6100") {
+        with(instance_nearest(x, y, obj_player)) {
+            with (weaponObj) {
+                instance_destroy();
             }
+            
+            weaponObj = noone;
         }
     }
 }
+
 </string>
           </argument>
         </arguments>

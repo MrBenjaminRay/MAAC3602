@@ -17,8 +17,8 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>128</width>
-  <height>128</height>
+  <width>112</width>
+  <height>112</height>
   <frames>
     <frame index="0">images\spr_thumbsUp_Normal_0.png</frame>
   </frames>

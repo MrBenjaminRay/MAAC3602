@@ -7,8 +7,13 @@
  *
  */
 
-// Start zoom transition
 
+if (!instance_exists(obj_camera)) {
+    show_debug_message("Camera does not exist. Exiting script scr_camera_zoom_reset.");
+    return 0;
+}
+
+// Start zoom transition
 with (obj_camera) {
     // Set normal zoom level as desired zoom level
     zoomLevelDesired = zoomLevelNormal;

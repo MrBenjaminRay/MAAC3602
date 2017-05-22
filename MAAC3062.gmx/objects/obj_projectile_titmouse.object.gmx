@@ -253,7 +253,7 @@ scr_projectile_enforceMaxLife();
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>y &gt; other.y</string>
+            <string>y &gt; yDest &amp;&amp; vspeed &gt; 0</string>
           </argument>
         </arguments>
       </action>
@@ -270,6 +270,26 @@ scr_projectile_enforceMaxLife();
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Projectile on way down &amp; lower than target, so collide with tiles</string>
+          </argument>
+        </arguments>
       </action>
       <action>
         <libid>1</libid>
@@ -393,11 +413,11 @@ scr_projectile_enforceMaxLife();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed_x</string>
+            <string>hspeed</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>-speed_x</string>
+            <string>-hspeed</string>
           </argument>
         </arguments>
       </action>

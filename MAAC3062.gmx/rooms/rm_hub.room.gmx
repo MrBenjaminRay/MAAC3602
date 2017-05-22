@@ -101,7 +101,7 @@ cursor_sprite = noone;</code>
     <instance objName="obj_metalBar_shadow" x="743" y="790" name="inst_BE3D05B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_metalBar_shadow2" x="852" y="826" name="inst_B1BD8991" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_metalBar_shadow2" x="733" y="826" name="inst_94149B81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_metalBar_shadow3" x="1520" y="790" name="inst_3BCE13F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_metalBar_shadow3" x="1559" y="790" name="inst_3BCE13F2" locked="0" code="" scaleX="0.911111116409302" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_nav_shadow" x="359" y="793" name="inst_7955CF90" locked="0" code="" scaleX="1.58695650100708" scaleY="1.66666662693024" colour="4294967295" rotation="0"/>
     <instance objName="obj_metalBar_rotate_shadow" x="363" y="790" name="inst_3B7E5A7C" locked="0" code="" scaleX="0.263940513134003" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
     <instance objName="obj_nav_shadow" x="221" y="715" name="inst_0A9BEB24" locked="0" code="" scaleX="1.11111116409302" scaleY="0.794871807098389" colour="4294967295" rotation="0"/>

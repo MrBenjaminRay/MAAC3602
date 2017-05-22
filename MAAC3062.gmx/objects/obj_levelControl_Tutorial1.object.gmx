@@ -25,6 +25,86 @@
       </action>
       <action>
         <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>room_speed  * 1</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>room_speed * 3</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>119</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_path</functionname>
+        <codestring></codestring>
+        <whoName>obj_ship_tutorial</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>8</kind>
+            <path>path_tutorial_ship</path>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>4</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -49,6 +129,8 @@
  *  1: Fire blaster to kill enemies and pick up their energy orbs
  *
  */
+shipSpin = .45;
+shipSpin_AfterBounce = -2.75;
 
 state = 0;
 
@@ -79,26 +161,52 @@ msg3 = noone;
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
-        <id>301</id>
-        <kind>0</kind>
+        <id>611</id>
+        <kind>6</kind>
         <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_alarm</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>120</string>
+            <kind>1</kind>
+            <string>shipSpin</string>
           </argument>
           <argument>
-            <kind>4</kind>
+            <kind>0</kind>
+            <string>shipSpin_AfterBounce</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_asteroidImpact</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
             <string>0</string>
           </argument>
         </arguments>
@@ -121,15 +229,157 @@ msg3 = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Activate the ball for state 1, which gets state 1 started
-//instance_activate_object(state1_ball);
-
-</string>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>119</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_path</functionname>
+        <codestring></codestring>
+        <whoName>obj_player</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>8</kind>
+            <path>path_tutorial_player</path>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>3</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>542</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sprite_transform</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Rotate ship</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Rotate the ship as it flies through the air
+// Ends up outside of view for rest of level
+// We don't care that it continues to spin even though out of view
+if (instance_exists(obj_ship_tutorial)) {
+    obj_ship_tutorial.image_angle += shipSpin;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Tutorial State Management</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -150,6 +400,11 @@ msg3 = noone;
 // so player has all the time he wants to pick them up
 with (obj_drop_energy) {
     maxLife = 100000000; // Permanent
+}
+
+// Avoid any errors to do with the player dying
+if (!instance_exists(obj_player)) {
+    return 0;
 }
 
 if (state == 0) {
@@ -193,75 +448,8 @@ if (state == 0) {
             ds_list_add(msg3.list_text, "Proceed all the way to the right");
             ds_list_add(msg3.list_text, "to go find your ship!");        
         }
-
     }
     
-} 
-return 0;
-
-
-if (state == 2) {
-
-        // Ball 1 has been picked up
-        scr_tutorial_thumbsUp(state2_thumbsUp_X, state2_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 2;
-        instance_activate_object(state2_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state1_thumbsUp_X + 20, state1_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use D to move RIGHT to");
-        ds_list_add(msg.list_text, "pick up the item.");   
-    }
- else if (state == 2) {
-    if (!instance_exists(state2_ball)) {
-        // Ball 2 has been picked up
-        scr_tutorial_thumbsUp(state3_thumbsUp_X, state3_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 3;
-        instance_activate_object(state3_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state3_thumbsUp_X + 40, state3_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use A to JUMP to platform");
-        ds_list_add(msg.list_text, "to pick up the item.");
-    }
-} else if (state == 3) {
-    if (!instance_exists(state3_ball)) {
-        // Ball 3 has been picked up
-        scr_tutorial_thumbsUp(state4_thumbsUp_X, state4_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 4;
-        instance_activate_object(state4_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state4_thumbsUp_X + 60, state4_thumbsUp_Y, obj_messageBox);
-        ds_list_add(msg.list_text, "Use S to DROP to lower platform");
-        ds_list_add(msg.list_text, "to pick up the item.");
-    }
-} else if (state == 4) {
-    if (!instance_exists(state4_ball)) {
-        // Ball 4 has been picked up
-        scr_tutorial_thumbsUp(state5_thumbsUp_X, state5_thumbsUp_Y);
-        // Set state and activate next ball
-        state = 5;
-        instance_activate_object(state5_ball);
-        // Destroy the previous instruction
-        with (msg) { instance_destroy(); }
-        // Show the next instruction
-        msg = instance_create(state5_thumbsUp_X + 80, state5_thumbsUp_Y, obj_messageBox);
-        // Activate the energy level  (MOVE THIS SOMEWHERE ELSE)
-        instance_activate_object(obj_hud_levelEnergy);
-    }
-} else if (state == 5) {
-    
-} else if (state == 6) {
-
-} else if (state == 7) {
-
 }
 
 </string>

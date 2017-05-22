@@ -39,30 +39,73 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xDest = x; // The destination x-axis coordinate.
-yDest = y; // The destination y-axis coordinate.
-
-projectileHitGain = 0.4;    // gain value for the projectileHit sounds.
+            <string>projectileHitGain = 0.4;    // gain value for the projectileHit sounds.
 
 scr_particle_projectile_addsmoketrail(.05);
-movementSpeed = .1;
-speed = .3;
-gravity = 0.0005;
+
+flightSpeed = 15; // Speed once flying
 
 // Reference to enemy targeted by this projectile
 targetEnemy = noone;
+
+speed = 0; // Do not use built-in speed
+gravity = 0; // Do not use built-in gravity
+
+damage = 0; // Will be overridden by tower damage value when projectile created
+
+speed_x = 0;        // Current x speed of goat
+speed_y = 0;        // Current y speed of goat
+grav = 0.0015;       // Gravity constant for goat
+horSlow = 0.0015;   // Amount by which to slow horizontal movement every step. Similar to
+                    // gravity, but more like air resistance.
+
+//gravConst = 0.0015;
+jetSpeed = .0016;       // Current speed of jet pack
+jetSpeedIncrease = 1.012;    // Rate of change of jet speed
+jetSpeedMax = .0023;            // Max speed of jet pack when fighting gravity (initial value)
+jetSpeedMax_NoGrav = 0.5;    // Max speed of jet pack when not fighting gravity (updated when grav removed)
+jetDir = 135;   // Direction in which jet pack is pushing goat at any moment
+                // Initial value is direction goat facing when launched from tower
+jetDirWanted = 100;  // Direction towards which jet pack is rotating
+jetDirChange_Fast = 2; // Speed to rotate jet when out of field of view (faster turning to bring back into view)
+jetDirChange_Slow = .75; // Speed to rotate jet when flying fast towards target
+jetDirChange = jetDirChange_Fast; // Speed to rotate jet. Initial value gets us through stage 0, then we alt between _Slow &amp; _Fast
+
+// Set up initial launch of goat (up &amp; to the left, then gravity takes over)
+jetLaunchSpeed = 0.02;
+jetLaunchDir = 115;
+speed_x = lengthdir_x(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
+speed_y = lengthdir_y(jetLaunchSpeed, jetLaunchDir) * global.deltaTime;
+
+// Once initial launch is over with &amp; goat is out of view, kill gravity to facilitate aiming
+noGrav = false;
+
+goatBallz = 0;  // # of goat ballz to launch when destroyed. Will be set by tower when goat created.
+                // Will be higher when goat tower upgraded.
+
+stage = 0;  // 0 = waiting for jet pack to turn on
+            // 1 = jet pack is on, fighting gravity to get up &amp; off of the screen for the first time
+            // 2 = has cleared screen for first time, so now it can fly back &amp; forth until it hits target
+
 
 // Allow to fly around trying to hit enemy for about 20 seconds
 life = 0;
 maxLife = 20000;
 
-// Direction in which the goat and his rocket are aimed. Rocket propels goat based on this direction.
-// Will be slowly adjusted towards target.
-// This is different from direction variable, as aim will not always match actual direction
-direction_aim = 0;
+stage = 0;
 
-// Whether or not to vertically flip the image
-projFlip = false;
+jetDelay = 800;         // Delay before rocket starts
+jetDelayLeft = jetDelay;     // Jet delay remaining
+
+
+armDelay = 1500;        // Time between when goat is launched and when it armed
+                        // Prevents detonation at tower itself
+
+aimDelay = 5000;        // 5 seconds between when goat is launched and when its direction
+                        // starts turning towards actual target instead of launch direction
+
+// Goat sprite aims right, we shoot left, so flip vertically
+image_yscale = -1;
 
 aimChangeRate = 0.01; // Rate at which the direction can be rotated towards the target.
 
@@ -73,21 +116,23 @@ jetSpeed_actual = 0;
 jetSpeed_max = 1;
 jetSpeed_changeRate = 0.01; // Rate of acceleration when rocket speed climbing from 0 to max
 
-jetDelay = 500;         // Delay before rocket starts
-jetDelayElapsed = 0;     // Rocket delay elapsed
+
 
 // Whether or not the rocket is currently on. rocketSpeeed_actual only increases when rocketOn = true.
 jetOn = false;
 
 // Reference to jet pack
 jetPack = instance_create(x, y, obj_projectile_mechaGoat_jetPack);
-jetPack.image_alpha = 0;
+jetPack.image_alpha = 0; // Jet pack off by default
 jetPack_offsetX = 0;
 jetPack_offsetY = 0;
 
 // Projectile depth after launch. Will be behind goat tower at first, but when in flight it
 // should pass in front of just about everything.
 depthAfterLaunch = -50;
+
+// Play random goat sound
+scr_sound_randomGoat();
 
 </string>
           </argument>
@@ -128,8 +173,10 @@ depthAfterLaunch = -50;
             <string>audio_play_sound(snd_projectileHit_medium, 0, false);
 audio_sound_gain(snd_projectileHit_medium, projectileHitGain, 0);
 
-// Hit all enemies in range:
-var range = 450;
+scr_create_explosion(x, y, "Enemy_Large");
+
+// Hit all enemies in immediate range of goat
+var range = 150;
 
 for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
     var tmpEnem = instance_find(obj_enemy, i);
@@ -137,20 +184,24 @@ for (i = 0 ; i &lt; instance_number(obj_enemy) ; i++) {
     
     if (tmpDist &lt;= range) {        
         scr_entity_dealDamage(tmpEnem, damage);
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
-        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
     }
 }
+
+// Launch goat balls
+scr_goat_launchBallz(x, y, goatBallz);
+
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-75, 75), "Tower");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-125, 125), "Enemy_Large");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
+//        scr_create_explosion(x + random_range(-150, 150), y + random_range(-200, 200), "Enemy_Medium");
 
 if (instance_exists(jetPack)) {
     with (jetPack) {
@@ -204,6 +255,9 @@ if (instance_exists(jetPack)) {
     return 0;
 }
 
+// TESTING
+//targetEnemy = obj_player;
+
 if (!instance_exists(targetEnemy)) {
     // No enemy, so destroy this and end the step here
     instance_destroy();
@@ -216,13 +270,239 @@ if (y &gt; room_height) {
     return 0;
 }
 
-// Reduce speed
-if (speed &gt; 0) {
-    //speed -= 0.007;
-    if (speed &lt; 0) {
-        //speed = 0;
-    }
+// Decrement countdowns
+jetDelayLeft -= global.deltaTime;
+armDelay -= global.deltaTime;
+aimDelay -= global.deltaTime;
+
+
+// Angle jet towards angle wanted
+if (abs(jetDir - jetDirWanted) &gt; 2) {
+    //jetDir += (jetDirWanted - jetDir) * jetDirRotateRatio;
 }
+
+if ((jetDirWanted - jetDir + 360) % 360 &lt; 180) {
+  // clockwise
+    jetDir += jetDirChange;  
+} else {
+  // anti-clockwise
+    jetDir -= jetDirChange;
+}
+
+// Increase rocket speed until max hit
+if (jetSpeed &gt; jetSpeedMax) {
+    // Enforce max speed
+    jetSpeed = jetSpeedMax;
+} else {
+    jetSpeed *= jetSpeedIncrease;
+}
+
+
+if (stage == 0) {
+    if (jetDelayLeft &gt; 0) {
+        // Still waiting for jet pack to turn on
+        jetDelayLeft -= global.deltaTime;
+        // How much to rotage goat in air freely before jet pack kicks in
+        if (jetDelayLeft &lt;= 0) {
+            // This is the one step where the jet delay expires and the jet pack gets turned on
+            // Turn on visual jet pack flame
+            jetPack.image_alpha = 1;
+            // Force angle in case we didn't quite get there while rotating
+            //jetDir = jetDir_jetStart;
+            jetDelayLeft = 0;
+            // Go to next stage
+            stage = 1;
+        }
+    }
+    
+    // Increment effect of gravity
+    speed_y += grav * global.deltaTime;
+    
+    // Update Y
+    y += speed_y * global.deltaTime;
+    
+    // Update X
+    x += speed_x * global.deltaTime;
+    
+} else if (stage == 1) {
+    // Jet pack is on, and it's fighting gravity to get it up &amp; off the screen for the first time
+
+    // Add jet speed/direction to Y speed
+    speed_y += lengthdir_y(jetSpeed, jetDir) * global.deltaTime;
+    
+    // Add jet speed/direction to X speed
+    speed_x += lengthdir_x(jetSpeed, jetDir) * global.deltaTime;
+
+    // Increment effect of horizontal resistance (e.g. wind resistance)
+    if (speed_x &gt; 0) {
+        speed_x -= horSlow * global.deltaTime;
+        // Prevent flipping to other direction
+        if (speed_x &lt; 0) { speed_x = 0; }
+    } else if (speed_x &lt; 0) {
+        speed_x += horSlow;
+        // Prevent flipping to other direction
+        if (speed_x &gt; 0) { speed_x = 0; }
+    }
+    
+    // Increment effect of gravity
+    speed_y += grav * global.deltaTime;
+    
+    // Update Y
+    y += speed_y * global.deltaTime;
+    
+    // Update X
+    x += speed_x * global.deltaTime;
+        
+    // Once out of room for first time, stop gravity so that remaining
+    // flight can be directed easier
+    if (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height) {
+        stage = 2;
+        jetSpeed = jetSpeedMax_NoGrav;
+    }
+
+} else if (stage == 2) {
+    // Goat is outside of the room, so he can make unrealistic turns as he aims towards
+    // his target.
+    
+    // Set faster rotate ratio while out of the room
+    jetDirChange = jetDirChange_Fast;
+    
+    jetSpeed = jetSpeedMax_NoGrav;
+    jetDirWanted = point_direction(x, y, targetEnemy.x, targetEnemy.y);
+    noGrav = true;
+    
+    speed_x = lengthdir_x(jetSpeed, jetDir);
+    speed_y = lengthdir_y(jetSpeed, jetDir);
+    
+    // Update Y
+    y += speed_y * global.deltaTime;
+    
+    // Update X
+    x += speed_x * global.deltaTime;
+
+    // When back in the room, freeze turning radius so that it can only 
+    // curve slightly. Will result in missing target here &amp; there.
+    if (x &gt; 0 &amp;&amp; x &lt; room_width &amp;&amp; y &gt; 0 &amp;&amp; y &lt; room_height) {
+        stage = 3;
+    }
+
+} else if (stage == 3) {
+    
+    // Set slower rotate ratio while in the room
+    jetDirChange = jetDirChange_Slow;
+    
+    jetSpeed = jetSpeedMax_NoGrav;
+    jetDirWanted = point_direction(x, y, targetEnemy.x, targetEnemy.y);
+    noGrav = true;
+    
+    speed_x = lengthdir_x(jetSpeed, jetDir);
+    speed_y = lengthdir_y(jetSpeed, jetDir);
+    
+    // Update Y
+    y += speed_y * global.deltaTime;
+    
+    // Update X
+    x += speed_x * global.deltaTime;
+
+    // When back in the room, freeze turning radius so that it can only 
+    // curve slightly. Will result in missing target here &amp; there.
+    if (x &lt; 0 || x &gt; room_width || y &lt; 0 || y &gt; room_height) {
+        stage = 2;
+    }
+
+}
+
+
+if (instance_exists(jetPack)) {
+    jetPack.image_angle = image_angle;
+    jetPack.x = x + cos(degtorad(image_angle)) * jetPack_offsetX;
+    jetPack.y = y - sin(degtorad(image_angle)) * jetPack_offsetY;
+    jetPack.depth = depth -1; // Jet pack always appears in front of goat
+}
+
+// Set sprite and jet pack angle to match current aim direction
+image_angle = jetDir;
+
+return 0;
+
+// Update stage based on countdowns
+if (jetDelay &gt; 0) {
+    stage = 0; // Waiting for jet pack to kick in
+} else if (armDelay &gt; 0) {
+    stage = 1; // Waiting for goat to be armed
+} else if (aimDelay &gt; 0) {
+    stage = 2; // Waiting for goat to start aiming towards target
+} else {
+    stage = 3; // Rocket should now be adjusting aim towards target
+}
+
+if (stage == 0) {
+    // Waiting for jet pack to kick in. Let gravity do all the work.
+} else if (stage == 1) {
+    // Waiting for goat to be armed. Make sure jet pack is on.
+    if (jetOn == false) {
+        // Jet pack firing up
+        jetOn = true;
+        jetPack.image_alpha = 1;
+        jetPack.image_index = 0; // Restart animation
+        depth = depthAfterLaunch; // Set goat depth after launch
+        // Apply gravity (may have to move this to initial launch stage and not apply to flight stage)
+        //vspeed += gravity * global.deltaTime;
+    }
+} else if (stage == 2) {
+    // Waiting for goat to start aiming towards target. For now, 
+    // accelerating towards initial launch angle to pull goat out of
+    // gravity drop and head up in the air
+
+    direction += (direction_aim - direction) * .05;
+    if (gravity &gt; 0) {
+        gravity -= 0.1;    
+    } else {
+        gravity = 0;
+    }
+
+    //if (abs(direction_aim - direction))direction_aim
+    //    aimChangeRate = 0;
+    //} else {
+    //    aimChangeRate = 1.5;
+    //}
+    
+    if (abs(direction_aim - direction) &gt; 15) {
+        // Still not flying close enough to launch direction, so adjust until so
+        //vspeed -= vspeedChange;
+        //vspeedChange *= vspeedChangeReductionRatio;
+        //gravity = 0;
+        //if (speed &lt; flightSpeed) {
+        //    speed += 0.3;
+        //} else {
+        //    speed = flightSpeed;
+        //}
+    } else {
+        // We are aiming close enough to where we should be aiming after initial launch
+        stage = 3;
+        gravity = 0;
+    }
+    //direction = direction_aim;
+//    if (direction &gt; direction_aim) {
+//        direction -= 2;
+//        speed += 0.1;
+//        //gravity -= .1;
+//    } else {
+//        direction = direction_aim;
+//    }
+} else if (stage == 3) {
+    if (speed &lt; flightSpeed) {
+        speed += 0.1;
+    } else {
+        speed = flightSpeed;
+    }
+    // Rotate desired angle (and sprite) towards target
+    // Adjust flight angle slightly towards target
+    direction_aim = point_direction(x, y, targetEnemy.x, targetEnemy.y);
+    direction = direction_aim;
+}
+
+return 0;
 
 // When within range of target, always fly straight (either towards or away)
 // This makes sure goat has to fly away from enemy, turn, then make another pass
@@ -232,22 +512,14 @@ if (abs(point_distance(x, y, targetEnemy.x, targetEnemy.y)) &lt;= 400) {
     aimChangeRate = 1.5;
 }
 
-if (jetDelayElapsed &lt; jetDelay) {
+if (jetDelay &gt;  0) {
     // Handle initial launch stage
     
     jetDelayElapsed += global.deltaTime;
     
 } else {
     // Handle rocket flight
-    if (jetOn == false) {
-        // Jet pack firing up
-        jetOn = true;
-        jetPack.image_alpha = 1;
-        jetPack.image_index = 0; // Restart animation
-        depth = depthAfterLaunch; // Set goat depth after launch
-        // Apply gravity (may have to move this to initial launch stage and not apply to flight stage)
-        vspeed += gravity * global.deltaTime;
-    }
+    
     var enemyDir = point_direction(x, y, targetEnemy.x, targetEnemy.y);
     if (abs(enemyDir - direction_aim) &gt; 2) {
         // Not aimed close enough, so adjust aim direction towards enemy
@@ -265,22 +537,20 @@ if (jetDelayElapsed &lt; jetDelay) {
 
 }
 
+
 // Vertical movement (don't worry about collision yet)
-y += (vspeed) * global.deltaTime;
+//y += (vspeed) * global.deltaTime;
 
 // Horizontal movement (don't worry about collision yet)
-x += (speed_x) * global.deltaTime;
+//x += (hspeed) * global.deltaTime;
 
 scr_projectile_enforceMaxLife();
 
-// Set sprite and jet pack angle to match current aim direction
-image_angle = direction_aim;
-direction = direction_aim;
 
-jetPack.image_angle = image_angle;
-jetPack.x = x + cos(degtorad(image_angle)) * jetPack_offsetX;
-jetPack.y = y - sin(degtorad(image_angle)) * jetPack_offsetY;
-jetPack.depth = depth -1; // Jet pack always appears in front of goat
+//direction = direction_aim;
+
+
+
 
 </string>
           </argument>
@@ -305,8 +575,12 @@ jetPack.depth = depth -1; // Jet pack always appears in front of goat
           <argument>
             <kind>1</kind>
             <string>// Check if is correct enemy, and detonate, otherwise ignore
-if (other.object_index == targetEnemy.object_index) {
-    instance_destroy();
+if (instance_exists(other)) {
+    if (other == targetEnemy &amp;&amp; armDelay &lt; 0) {
+        instance_destroy();
+        // Play random goat sound
+        scr_sound_randomGoat();
+    }
 }
 
 </string>

@@ -3,7 +3,7 @@
   <caption></caption>
   <width>1600</width>
   <height>900</height>
-  <vsnap>16</vsnap>
+  <vsnap>4</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
@@ -54,7 +54,6 @@ window_set_cursor(cr_default);</code>
   </views>
   <instances>
     <instance objName="obj_spaceBG" x="768" y="448" name="inst_9CCECB69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_back_small" x="16" y="832" name="inst_D768FCC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="-784" y="0" name="inst_2397FE1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="800" y="0" name="inst_049F6239" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_windowPlaceholder" x="1136" y="0" name="inst_661E8DA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -67,7 +66,8 @@ window_set_cursor(cr_default);</code>
     <instance objName="obj_batteries" x="912" y="560" name="inst_1B194DFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rabbit_ear" x="848" y="544" name="inst_89ABDCC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_messageBoxMain" x="464" y="128" name="inst_E1B1A3DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_leftArrow" x="144" y="112" name="inst_ED8C72DB" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_leftArrow" x="176" y="132" name="inst_ED8C72DB" locked="0" code="" scaleX="1.01587307453156" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_back_hub" x="256" y="144" name="inst_D15CD756" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

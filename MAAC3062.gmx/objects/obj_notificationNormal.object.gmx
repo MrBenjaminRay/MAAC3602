@@ -43,7 +43,7 @@
 
 btnOffsetY = 10;
 
-btnScale = .6;
+btnScale = 1;
 
 </string>
           </argument>
