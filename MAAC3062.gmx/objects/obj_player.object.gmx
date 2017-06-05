@@ -1504,7 +1504,7 @@ if (global.plrAbilityAttained[1]) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (distance_to_object(obj_tower_RT6100) &lt;= sprite_width * 2 &amp;&amp; obj_tower_RT6100.warmUpRemaining == 0) {
+            <string>if (distance_to_object(obj_tower_RT6100) == 0 &amp;&amp; obj_tower_RT6100.warmUpRemaining == 0) {
     // Delete Weapon &amp; Deactivate Player:
     with (weaponObj) {
         instance_destroy();
