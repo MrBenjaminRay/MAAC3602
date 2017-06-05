@@ -99,6 +99,12 @@ healthBarWidth = sprite_width;
 
 healthBarGlowAmnt = 1.0;
 healthBarGlowDecrease = true;
+
+// Emitter to use when this entity emits fire
+emitter_fire = noone;
+//fire_rate = 0;
+//fire_timeToNext = 0;
+
 </string>
           </argument>
         </arguments>
