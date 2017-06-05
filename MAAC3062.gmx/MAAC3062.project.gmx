@@ -590,7 +590,7 @@
     </sprites>
     <sprites name="Dummy">
       <sprite>sprites\spr_dummy_deltaTime</sprite>
-      <sprite>sprites\spr_dummy_levelStats</sprite>
+      <sprite>sprites\spr_dummy_globals</sprite>
       <sprite>sprites\spr_dummy_hotbar</sprite>
       <sprite>sprites\spr_dummy_cheats</sprite>
       <sprite>sprites\spr_dummy_target</sprite>
@@ -646,6 +646,10 @@
       </sprites>
       <sprites name="Boss">
         <sprite>sprites\spr_effect_shield</sprite>
+      </sprites>
+      <sprites name="Fire">
+        <sprite>sprites\spr_cinder</sprite>
+        <sprite>sprites\spr_fire</sprite>
       </sprites>
     </sprites>
     <sprites name="Navigation Array">
@@ -916,6 +920,7 @@
     <script>scripts\scr_smootherStep.gml</script>
     <script>scripts\scr_energy_transfer.gml</script>
     <script>scripts\scr_sound_randomGoat.gml</script>
+    <script>scripts\scr_part_emit_fire.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_messageBox</font>

@@ -1176,6 +1176,36 @@ if (is_undefined(nearestBuilding) == false &amp;&amp; nearestBuilding != noone) 
         </arguments>
       </action>
     </event>
+    <event eventtype="5" enumb="89">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Test fire stuff
+//if (fire_timeToNext &lt;= 0) {
+scr_part_emit_fire();
+//    fire_timeToNext = fire_rate;
+//} else {
+//    fire_timeToNext -= global.deltaTime;
+//}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="5" enumb="16">
       <action>
         <libid>1</libid>
